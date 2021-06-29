@@ -30,7 +30,7 @@
 
 "@babel/core@^7.1.0", "@babel/core@^7.12.3", "@babel/core@^7.7.5", "@babel/core@^7.8.4":
   "integrity" "sha512-V3CuX1aBywbJvV2yzJScRxeiiw0v2KZZYYE3giywxzFJL13RiyPjaaDwhDnxmgFTTS7FgvM2ijr4QmKNIu0AtQ=="
-  "resolved" "https://registry.yarnpkg.com/@babel/core/-/core-7.12.17.tgz"
+  "resolved" "https://registry.npmjs.org/@babel/core/-/core-7.12.17.tgz"
   "version" "7.12.17"
   dependencies:
     "@babel/code-frame" "^7.12.13"
@@ -3455,7 +3455,6 @@
   dependencies:
     "anymatch" "~3.1.1"
     "braces" "~3.0.2"
-    "fsevents" "~2.3.1"
     "glob-parent" "~5.1.0"
     "is-binary-path" "~2.1.0"
     "is-glob" "~4.0.1"
@@ -4859,6 +4858,10 @@
     "estraverse" "^4.2.0"
     "esutils" "^2.0.2"
     "optionator" "^0.8.1"
+<<<<<<< Updated upstream
+=======
+  optionalDependencies:
+>>>>>>> Stashed changes
     "source-map" "~0.6.1"
 
 "eslint-config-react-app@^5.2.1":
@@ -7432,7 +7435,11 @@
   "integrity" "sha1-h3Gq4HmbZAdrdmQPygWPnBDjPss="
   "resolved" "https://registry.yarnpkg.com/jsonfile/-/jsonfile-4.0.0.tgz"
   "version" "4.0.0"
+<<<<<<< Updated upstream
   dependencies:
+=======
+  optionalDependencies:
+>>>>>>> Stashed changes
     "graceful-fs" "^4.1.6"
 
 "jsonfile@^6.0.1":
@@ -7440,7 +7447,6 @@
   "resolved" "https://registry.yarnpkg.com/jsonfile/-/jsonfile-6.1.0.tgz"
   "version" "6.1.0"
   dependencies:
-    "graceful-fs" "^4.1.6"
     "universalify" "^2.0.0"
 
 "jsprim@^1.2.2":
