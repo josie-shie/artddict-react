@@ -31,10 +31,10 @@ function App() {
           </Route>
           <Route exact path="/cart">
             <Cart />
-          </Route>
+          </Route>*/}
           <Route exact path="/event">
             <Event />
-          </Route> */}
+          </Route>
           <Route exact path="/map">
             <Map />
           </Route>
