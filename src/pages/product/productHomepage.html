@@ -11,16 +11,64 @@
     <style>
         .test {
             background-color: black;
-            width: 500px;
+            width: calc(100vw - 70px);
             height: 100vh;
+        }
+
+        .homepageA-left {
+            background-color: aqua;
+            height: 100vh;
+            width: 350px;
+            margin-left: 70px;
+        }
+
+        .homepageA-right {
+            background-color: yellowgreen;
+            width: 50vw;
+            height: 100vh;
+            margin-left: 40px;
+        }
+
+        .ArtLogoDiv {
+            margin-top: 5%
+        }
+
+        .upLogoDiv {
+            margin-top: 10%;
+            transform: rotate(10deg);
+        }
+
+        .upLogo {
+            width: 100%;
         }
     </style>
 </head>
 
 <body>
     <div class="test">
-
+        <div class="row">
+            <div class="homepageA-left">
+                <div class="ArtLogoDiv">
+                    <img src="./svg/logo.svg" alt="">
+                </div>
+                <div class="upLogoDiv">
+                    <img class="upLogo" src="./img/upLogo.png" alt="">
+                </div>
+                <div>
+                    <h1>鹽田千春</h1>
+                </div>
+                <div>
+                    <p>現在藝術大師鹽田千春<br />2021『這樣的千春』展覽系列商品<br />只有在一ARTDDICT</p>
+                </div>
+                <div>
+                    <p>Go Shop</p>
+                </div>
+            </div>
+            <div class="homepageA-right">
+            </div>
+        </div>
     </div>
+
 
 
 
