@@ -62,6 +62,7 @@
 
 
     div.x, div.y, div.z { height: 3px; width: 26px; }
+    div.x{top: 0;}
     div.y{top: 18px;}
     div.z{top: 37px;}
     
@@ -136,7 +137,6 @@ div.rotate135{
     transition: all 400ms cubic-bezier(0.000, 0.995, 0.990, 1.000);					
     }
     
-
     div.menu {
     height: 568px; 
     width: calc(100% - 70px);
@@ -144,9 +144,9 @@ div.rotate135{
     top: 0px; left: 0px; */
     }
 
-    div.menu img{
+    .logo{
         position:absolute;
-        top:50px;;
+        top:35px;
         right: 135px;
         opacity:0;
         width:150px;
@@ -172,13 +172,14 @@ div.rotate135{
     -o-transition: all 70ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
     transition: all 70ms cubic-bezier(0.000, 0.995, 0.990, 1.000);
     }
+
     div.menu ul li a {
         color:#81FC4D;
         text-transform:uppercase;
         text-decoration:none;				
     }
 
-    div.menu li.animate,div.menu img.animate{
+    div.menu li.animate,.animate{
         font-size: 2rem;
         opacity:1;
         -webkit-transition: all 150ms cubic-bezier(0.000, 0.995, 0.990, 1.000);

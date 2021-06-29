@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
-// import { IoCartSharp } from 'react-icons/io'
-import { BiArrowToTop,BiCartAlt } from 'react-icons/bi'
+import {ReactComponent as Logo} from '../pics/logo.svg'
+import { BiArrowToTop, BiCartAlt } from 'react-icons/bi'
 import {
   FaUserAstronaut,
   FaMapMarkedAlt,
@@ -33,9 +33,8 @@ const Nav = () => {
     $(circleRef.current).addClass('expand')
 
     $(burgerRef.current).addClass('open')
-    $(xRef.current, yRef.current, zRef.current).addClass(
-      'collapse'
-    )
+    $(xRef.current).css('top', '20px')
+    $(zRef.current).css('top', '20px')
     $('collapse').css('display', 'blocks')
     $('.menu li').addClass('animate')
     $(logoRef.current).addClass('animate')
@@ -69,12 +68,9 @@ const Nav = () => {
     }, 50)
     setTimeout(function () {
       $(yRef.current).show()
-      $(
-        xRef.current,
-        yRef.current,
-        zRef.current
-      ).removeClass('collapse')
-    }, 70)
+      $(xRef.current).css('top', '0px')
+      $(zRef.current).css('top', '37px')
+    }, 30)
   }
 
   return (
@@ -120,8 +116,8 @@ const Nav = () => {
             </div>
           </div>
           <div className="menu">
-            <div className="logo">
-              <img ref={logoRef} src="../image/logo.svg" />
+            <div>
+              <Logo className="logo" ref={logoRef} />
             </div>
             <div>
               <ul>
