@@ -1,6 +1,7 @@
 //TODO:rolling icon
 //TODO:flying event img
 //TODO:artist card bg fix
+//TODOL:hero sectionu 應該要flex
 import React, { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../pics/logo.svg'
@@ -37,6 +38,7 @@ const Index = () => {
       <div className="hero-section">
         <div className="video-area">
           <video
+            className="index-video"
             playsinline="playsinline"
             autoplay="autoplay"
             muted="muted"
@@ -45,8 +47,12 @@ const Index = () => {
             <source src={video} />
           </video>
           <div className="slogan">
-            <h1 className="">devotes to ART</h1>
-            <h5 className="">to the moon and back</h5>
+            <h1>devotes to ART</h1>
+            <h5 className="mt-3">to the moon and back</h5>
+            <div className="start-scroll mt-5">
+                <p className="vertical-line mb-4">|</p>
+                <p>scroll Down</p>
+            </div>
           </div>
         </div>
         <div className="rect rect-first"></div>
@@ -54,10 +60,7 @@ const Index = () => {
         <div>
           <Logo className="logo" />
         </div>
-        <div className="start-scroll">
-          <p className="vertical-line">|</p>
-          <p>scroll Down</p>
-        </div>
+        
       </div>
 
       {/* news */}
@@ -65,8 +68,12 @@ const Index = () => {
         <div className="news-slogen col-6 d-flex flex-column align-center justify-content-center text-center col-6 px-0">
           <h1>TODAY’S</h1>
           <h1>NEWS</h1>
-          <h1 className="news-slogen-TC">“我們接軌藝術</h1>
-          <h1 className="news-slogen-TC">藝術接軌國際"</h1>
+          <h1 className="news-slogen-TC mt-3">
+            “我們接軌藝術
+          </h1>
+          <h1 className="news-slogen-TC mt-2">
+            藝術接軌國際"
+          </h1>
         </div>
         <div className="news-cards col-6 px-0 row">
           <div className="news col-6 px-0">
@@ -92,9 +99,10 @@ const Index = () => {
       {/* artist */}
       <div className="artist-area">
         <div className="artist-slogan">
-          <strong>Art is the lie </strong>
-          <strong>that enables us</strong>
-          <strong>to realize the truth.</strong>
+          <strong>
+            Always doing that which I cannot do, in order
+            that I may learn how to do it
+          </strong>
           <h4 className="artist-title-tc">
             藝術 <span>TALK TO TALK</span>
           </h4>

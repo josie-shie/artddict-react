@@ -3,7 +3,7 @@
     src:url(./font/ENGR.ttf);
     }
 
-    li{
+    .nav-area li{
         font-family: Engravers, serif;
     }
 
@@ -31,7 +31,7 @@
 
     }
 
-    i {
+    nav i {
         font-size: 1.5rem;
         color: #81FC4D;
     }
