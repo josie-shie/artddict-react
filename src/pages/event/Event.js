@@ -6,6 +6,7 @@ import {
   Button,
 } from 'react-bootstrap'
 import './style/event.scss'
+import EventLogo from './images/logo.svg'
 
 function event() {
   return (
@@ -13,7 +14,7 @@ function event() {
       <div className="reduce-width">
         <div className="container-fluid">
           <div className="row">
-            <img src="" alt="" />
+            <img src="{EventLogo}" alt="" />
             <section className="hero">
               <div className="spin-circle invisible"></div>
               <div className="spin-eye invisible"></div>
