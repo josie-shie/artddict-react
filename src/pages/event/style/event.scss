@@ -1,0 +1,64 @@
+
+.reduce-width{
+    width: calc(100% - 70px);
+}
+.left-margin{
+    margin-left: 70px;
+}
+
+@media screen and (max-width:767px) {
+    nav{
+        width: 100%;
+        height: 41px;
+        background-color: black;
+        border-left: 0px;
+        border-bottom: #707070 1px solid;
+    }
+    .padding-for-web{
+    padding-right: 0px;
+    margin-top: 41px;
+    }
+
+}
+
+.hero{
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    position: relative;
+}
+
+.spin-circle{
+    background: url(../images/arddict-circle-w.svg) no-repeat;
+    width: 190px;
+    height: 190px;
+    position: absolute;
+    
+}
+
+.spin-eye{
+    background: url(../images/arddict-eye-w.svg) no-repeat;;
+    width: 120.51px;
+    height: 79.47px;
+    position: absolute;
+    top: 55px;
+    left: 35px;
+}
+
+.e-logo{
+    width: 40%;
+    margin-top: 10%;
+}
+
+.e-topic{
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.e-font-green{
+    color: #81FC4D;
+}
+
+.hero-event-1{
+    background-image: url(../images/museum/art-542317__480.jpeg);
+}

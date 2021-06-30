@@ -1,6 +1,8 @@
-import React, { useRef, useState, useEffect } from 'react'
+//TODO:Nav:一鍵置頂/背景要變灰階
+
+import React, { useRef, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import {ReactComponent as Logo} from '../pics/logo.svg'
+import { ReactComponent as Logo } from '../pics/logo.svg'
 import { BiArrowToTop, BiCartAlt } from 'react-icons/bi'
 import {
   FaUserAstronaut,
@@ -117,7 +119,7 @@ const Nav = () => {
           </div>
           <div className="menu">
             <div>
-              <Logo className="logo" ref={logoRef} />
+              <Logo className="nav-logo" ref={logoRef} />
             </div>
             <div>
               <ul>

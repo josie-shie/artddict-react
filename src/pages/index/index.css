@@ -1,0 +1,196 @@
+@font-face {
+    font-family: Engravers;
+    src:url(../../style/font/ENGR.ttf);
+    }
+    
+    @font-face {
+    font-family: EngraversBlod;
+    src:url(../../style/font/EngraversMTBold.ttf);
+    }
+
+    body {
+        width: 100%;
+    }
+
+    *{
+        font-family: Engravers;
+    }
+
+    
+
+    /* ----------解決單邊滾動的scroll bar區域 -----------
+    下了之後尺寸會位移ＱＱ？*/
+
+    /* html {
+        overflow: -moz-hidden-unscrollable;
+        height: 100%;
+    }
+
+    body::-webkit-scrollbar {
+        display: none;
+    }
+
+    body {
+        -ms-overflow-style: none;
+        height: 100%;
+        width: calc(100vw + 18px);
+        overflow: auto;
+    } */
+
+    /* ----------hero-section區域 -----------*/
+
+    /* .hero-section{
+        height: 100%; 
+    } */
+
+    .video-area{
+        width:calc(100% - 70px) ;
+        position: relative;
+    }
+    video {
+    position: absolute;
+    z-index: -1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100% - 70px);
+    /* height: calc(100% - 130px); */
+    -o-object-fit: cover;
+        object-fit: cover;
+    -o-object-position: center;
+        object-position: center;
+    }
+
+    div.slogan {
+    height: 100vh; 
+    letter-spacing: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center;
+    color: #81FC4D;
+    }
+    
+    .rect{
+        width: calc(100% - 70px);
+        height: 70px;
+        background: #000;
+        
+    }
+    .rect-first{
+        position: absolute;
+        top: 0;
+    }
+    .rect-last{
+        position: absolute;
+        bottom:0;
+    }
+    .logo{
+        position: absolute;
+        top:2em;
+        left: 2em;
+    }
+    .start-scroll{
+        position: absolute;
+        left:calc(50% - 20px);
+        bottom: 2em;
+        transform: translate(-50%,-50%);
+        color: #81FC4D;
+    }
+    
+    .vertical-line {
+        text-align:center;
+        font-size:3rem;
+    }
+
+    /* ----------news區域 -----------*/
+    .news-area{
+        width:calc(100% - 55px) ;/*為何不能用70?*/
+        height: 100vh;
+    }
+
+    .news-slogen{
+        background-color: #E8E8E8;
+    }
+
+    .news-slogen-TC{
+        font-weight: bolder;
+        color:transparent;
+        -webkit-text-stroke: 1px rgb(0, 0, 0);
+    }
+
+    .news-cards{
+        height: 100%;  /* how to get window hight */
+        overflow: scroll;
+    }
+
+    .news{
+        height: 380px;
+        overflow:hidden;
+    }
+    div.news img{
+        width: 100%;
+        
+    }
+
+    /* ----------waterfall區域 -----------*/
+    .artist-area{
+        width:calc(100% - 70px) ;
+        background-color: #000;
+    }
+
+    .artist-slogan{
+        color: #81FC4D;
+        font-size: 4rem;
+        padding-top: 50px;
+        margin-left: 35px;
+
+    }
+    /* .artist-slogan strong{
+        border-bottom: 2px solid #81FC4D;
+    } */
+
+    .item{
+        height: 342px;
+    }
+
+    .artist-title-tc span {
+        padding-left: 9em;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #81FC4D;
+        position: relative;
+    }
+    .artist-title-tc span:before{
+        content: "";
+        position: absolute;
+        top: 50%;
+        background: #81FC4D;
+        width: calc(100% - 7.5em);
+        height: 2px;
+        right: calc(100% - 8.5em); 
+    }
+
+
+    .waterfall{ 
+        display: grid; 
+        grid-template-rows: 1fr 1fr; 
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap:5px; 
+    }
+    
+    
+
+    .item{
+        width: 200px;
+        /* height:280px; */
+        break-inside:avoid;
+        overflow: hidden;
+        border-radius: 10px;
+        margin-bottom: 15px;
+    }
+
+
+    .item img{
+        width: 100%;
+        object-fit: cover;
+    }
