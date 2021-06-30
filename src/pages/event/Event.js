@@ -7,7 +7,7 @@ import {
 } from 'react-bootstrap'
 import './style/event.scss'
 import './style/font.scss'
-import './style/reset.css'
+// import './style/reset.css'
 import EventLogo from './images/logo.svg'
 import Square from './images/square.gif'
 import ESpin from './images/arddict-circle-g.svg'
