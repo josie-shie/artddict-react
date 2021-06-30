@@ -1,7 +1,10 @@
-
+// Leave Right Side For Navbar
 .reduce-width{
     width: calc(100% - 70px);
 }
+
+// For Element Align
+
 .left-margin{
     margin-left: 70px;
 }
@@ -20,6 +23,8 @@
     }
 
 }
+
+// HERO SECTION
 
 .hero{
     width: 100%;
@@ -47,7 +52,7 @@
 
 .e-logo{
     width: 100%;
-    margin-top: 150px;
+    margin-top: 100px;
 }
 
 .e-topic{
@@ -60,21 +65,26 @@
     color: #81FC4D;
 }
 
+
+// HERO SECTION 活動圖
 .hero-event-1{
     background-image: url(../images/museum/art-542317__480.jpeg);
     background-size: cover;
+    opacity: .8;
 
 }
 
 .hero-event-2{
     background-image: url(../images/museum/art-542320__480.jpeg);
     background-size: cover;
+    opacity: .8;
     
 }
 
 .hero-event-3{
     background-image: url(../images/museum/bathsheba-bathing-1150331_1920.jpg);
     background-size: cover;
+    opacity: .8;
     
 }
 
@@ -87,7 +97,7 @@
 }
 
 .e-hero-event-font{
-    font-size: 35px;
+    font-size: 20px;
     font-weight: medium;
     color: #81FC4D;
 }
@@ -128,8 +138,9 @@
     top: 50%;
 }
 
+// Vol.01 font-size
 .e-hero-vol{
-    font-size: 50px;
+    font-size: 30px;
     color: #81FC4D;
     left: 50%;
     bottom: 20px;
@@ -137,7 +148,7 @@
 }
 
 .bigger{
-    font-size: 70px;
+    font-size: 50px;
 }
 
 .e-spin-icon{
@@ -154,4 +165,27 @@
 .spin-sentence2{
     font-size: 40px;
     color: #1D0AFF ;
+}
+
+// EVENT SECTION
+
+.exhi{
+    height: 912px;
+}
+
+.e-select {
+    margin-top: 55px;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+.pic-square2{
+    width: 100%;
+
+}
+
+.e-exhi-event{
+    background-image: url(../images/museum/human-663298_1920.jpg);
+    opacity: .4;
+    
 }
