@@ -46,13 +46,14 @@
 }
 
 .e-logo{
-    width: 40%;
-    margin-top: 10%;
+    width: 100%;
+    margin-top: 150px;
 }
 
 .e-topic{
-    font-size: 1.6rem;
+    font-size: 30px;
     font-weight: bold;
+    color: #81FC4D;
 }
 
 .e-font-green{
@@ -61,4 +62,96 @@
 
 .hero-event-1{
     background-image: url(../images/museum/art-542317__480.jpeg);
+    background-size: cover;
+
+}
+
+.hero-event-2{
+    background-image: url(../images/museum/art-542320__480.jpeg);
+    background-size: cover;
+    
+}
+
+.hero-event-3{
+    background-image: url(../images/museum/bathsheba-bathing-1150331_1920.jpg);
+    background-size: cover;
+    
+}
+
+.pic-square1{
+    width: 100%;
+}
+
+.e-pictures-margin{
+    margin-top: 75px;
+}
+
+.e-hero-event-font{
+    font-size: 35px;
+    font-weight: medium;
+    color: #81FC4D;
+}
+
+.e-left-top{
+    top: 20px;
+    left: 20px;
+
+}
+
+.e-right-top{
+    top: 20px;
+    right: 20px;
+    
+}
+
+.e-left-btm{
+    bottom: 20px;
+    left: 20px;
+    
+}
+
+.e-right-btm{
+    bottom: 20px;
+    right: 20px;
+}
+
+.e-line{
+    width: 100%;
+    border-top: 2px solid #81FC4D;
+    transform: rotate(45deg);
+    top: 50%;
+}
+.e-line2{
+    width: 100%;
+    border-top: 2px solid #81FC4D;
+    transform: rotate(-45deg);
+    top: 50%;
+}
+
+.e-hero-vol{
+    font-size: 50px;
+    color: #81FC4D;
+    left: 50%;
+    bottom: 20px;
+    transform: translate(-50%,0%)
+}
+
+.bigger{
+    font-size: 70px;
+}
+
+.e-spin-icon{
+    width: 60%;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+
+.spin-sentence{
+    font-size: 40px;
+}
+
+.spin-sentence2{
+    font-size: 40px;
+    color: #1D0AFF ;
 }
