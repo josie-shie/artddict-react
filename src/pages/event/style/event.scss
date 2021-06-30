@@ -2,6 +2,9 @@
 .reduce-width{
     width: calc(100% - 70px);
 }
+.left-margin{
+    margin-left: 70px;
+}
 
 @media screen and (max-width:767px) {
     nav{
@@ -42,6 +45,20 @@
     left: 35px;
 }
 
-.logo{
+.e-logo{
     width: 40%;
+    margin-top: 10%;
+}
+
+.e-topic{
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.e-font-green{
+    color: #81FC4D;
+}
+
+.hero-event-1{
+    background-image: url(../images/museum/art-542317__480.jpeg);
 }
