@@ -7,6 +7,11 @@
     font-family: EngraversBlod;
     src:url(../../style/font/EngraversMTBold.ttf);
     }
+    
+    @font-face {
+    font-family: NotoSansTC-md;
+    src:url(../../style/font/NotoSansTC-Medium.otf);
+    }
 
     body {
         width: 100%;
@@ -85,10 +90,11 @@
         position: absolute;
         bottom:0;
     }
+    /*FIXME:*/
     .logo{
         position: absolute;
-        top:2em;
-        left: 2em;
+        top:6vh;
+        left:2vh;
     }
     .start-scroll{
         position: absolute;
@@ -124,6 +130,7 @@
         overflow: scroll;
     }
 
+    /*FIXME:*/
     .news{
         height: 380px;
         overflow:hidden;
@@ -193,4 +200,61 @@
     .item img{
         width: 100%;
         object-fit: cover;
+    }
+
+    /* ----------event區域 -----------*/
+    .event-area{
+        width:calc(100% - 70px) ;
+        background-color: #E8E8E8;
+    }
+    .event-img{
+        position: relative;
+    }
+    .event-img img{
+        position: absolute;
+    }
+
+    .img1{top:180px;}
+    .img2{top:100px;left: 70px;}
+    .img3{top:100px;right:0;}
+    .img4{top:200px;right: calc(100% - 70%);}
+    .img5{top:350px;right:70px;}
+    .img6{top:350px;left:150px;}
+
+    .event-slogan{
+        padding-top: 500px;
+    }
+    .event-slogan h1{
+        font-size:5rem;
+        line-height: 100px;
+    
+    }
+    .event-eye{width: 70%;}
+
+    .event-title-tc span {
+        padding-left: 9em;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #000;
+        position: relative;
+    }
+
+    .event-title-tc span:before{
+        content: "";
+        position: absolute;
+        top: 50%;
+        background: #000;
+        width: calc(100% - 4em);
+        height: 2px;
+        right: calc(100% - 8.5em); 
+    }
+
+    .event-marquee{
+        border-top: 2px solid #000;
+        border-bottom: 2px solid #000;
+    }
+
+    .event-marquee h1{
+        font-size: 3rem;
+        font-family: NotoSansTC-md;
+
     }
