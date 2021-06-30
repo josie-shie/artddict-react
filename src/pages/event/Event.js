@@ -19,7 +19,7 @@ function event() {
         <section className="hero">
           <Container fluid>
             <Row>
-              <Col sm={6} className="left-margin">
+              <Col sm={3} className="left-margin">
                 <img
                   className="e-logo"
                   src={EventLogo}
@@ -208,6 +208,27 @@ function event() {
               >
                 Everyone will be famous for 15 minutes
               </h1>
+            </Row>
+          </Container>
+        </section>
+        <section className="exhi">
+          <Container fluid>
+            <Row>
+              <Col sm={12}>
+                <h3 className="eng-font-regular e-select left-margin">
+                  ARTDDICT{' '}
+                  <span className="cn-font ml-2">
+                    精選展覽
+                  </span>
+                </h3>
+              </Col>
+              <Col sm={7} className="e-exhi-event">
+                <img
+                  className="pic-square2"
+                  src={Square}
+                  alt=""
+                />
+              </Col>
             </Row>
           </Container>
         </section>
