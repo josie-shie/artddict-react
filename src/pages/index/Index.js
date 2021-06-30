@@ -48,8 +48,8 @@ const Index = () => {
           </video>
           <div className="slogan">
             <h1>devotes to ART</h1>
-            <h5 className="mt-3">to the moon and back</h5>
-            <div className="start-scroll mt-5">
+            <h5 className="mt-1">to the moon and back</h5>
+            <div className="start-scroll mt-1">
                 <p className="vertical-line mb-4">|</p>
                 <p>scroll Down</p>
             </div>
@@ -180,9 +180,11 @@ const Index = () => {
             <BsThreeDots />
             放式大賞強 放視大賞 強力募集中
             <CgPacman />
-            <BsThreeDots /> 放式大賞強 放視大賞 強力募集中{' '}
+            <BsThreeDots /> 放式大賞強 放視大賞 強力募集中
             <CgPacman />
-            <BsThreeDots /> 放式大賞強
+            <BsThreeDots /> 放式大賞 強力募集中
+            <CgPacman />
+            <BsThreeDots />
           </h1>
         </marquee>
       </div>
