@@ -43,7 +43,7 @@
         }
 
         .homepageA-left {
-            background-color: aqua;
+            background-color: black;
             height: 100vh;
             width: 33vw;
             margin-left: 8%;
@@ -61,9 +61,9 @@
         }
 
         .upLogoDiv {
-            margin-top: 10%;
+            margin-top: 5%;
             transform: rotate(10deg);
-            width: 100%
+            width: 30vw;
         }
 
         .upLogo {
@@ -75,27 +75,31 @@
         }
 
         .homepageA-word {
-            font-size: 3.5rem;
+            font-size: 4.5rem;
+            color: #81FC4D;
         }
 
         .homepageA-wordB-div {
-            margin-top: 5%;
+            margin-top: 10%;
         }
 
         .homepageA-wordB {
-            font-size: 1.1rem;
+            font-size: 1.4rem;
+            color: #81FC4D;
         }
 
         .homepageA-box {
+            border: none;
+            border-radius: 0;
             background-color: #1D0Aff;
-            width: 13vw;
-            height: 7vh;
-            margin-top: 5%;
+            margin-top: 10%;
+            color: white;
+            text-align: center;
+            padding: 10px 50px;
         }
 
-        .homepageA-box-word {
-            text-align: center;
-            justify-content: center;
+        .btn:hover {
+            color: white;
         }
     </style>
 </head>
@@ -114,12 +118,12 @@
                     <h1 class="homepageA-word">鹽田千春</h1>
                 </div>
                 <div class="homepageA-wordB-div">
-                    <p class="homepageA-wordB">現在藝術大師鹽田千春<br />2021『這樣的千春』展覽系列商品<br />只有在一<span
+                    <p class="homepageA-wordB">現在藝術大師鹽田千春<br />2021『這樣的千春』展覽系列商品<br />只有在———<span
                             class="English">ARTDDICT</span></p>
                 </div>
-                <div class="homepageA-box ">
-                    <p class="English homepageA-box-word">Go Shop</p>
-                </div>
+                <button onclick="javascript:location.href='productList'" class="homepageA-box btn-lg English ">
+                    Go Shop
+                </button>
             </div>
             <div class="homepageA-right">
             </div>
