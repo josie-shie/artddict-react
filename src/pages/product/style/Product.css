@@ -13,13 +13,11 @@
     src: url(../../../style/font/NotoSansTC-Medium.otf)
 }
 
-h1 {
+.homepageA-word, .homepageA-wordB  {
     font-family: NotoSansTC-Medium;
 }
 
-p {
-    font-family: NotoSansTC-Medium;
-}
+
 
 .English {
     font-family: Engravers;
@@ -170,8 +168,13 @@ p {
     top: 40%;
     left: 62.5%;
 }
+/* -------------第二頁 */
 .pro-outside2 {
     background-color: black;
     width: calc(100vw - 70px);
+    height: 100vh;
+}
+.homepageB-left{
+    background-color:aqua;
     height: 100vh;
 }
