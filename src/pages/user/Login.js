@@ -1,6 +1,6 @@
 import { Carousel } from 'react-bootstrap'
 import React from 'react'
-import '../styles/Login.scss'
+import './styles/Login.scss'
 import { Link } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
 
@@ -30,24 +30,52 @@ function Login() {
       <div className="d-flex">
         <div className="contanier1 col-lg-6 d-none d-lg-block d-xl-block">
           <div className="img-carousel">
-            <Carousel fade controls={false} indicators={false}>
+            <Carousel
+              fade
+              controls={false}
+              indicators={false}
+            >
               <Carousel.Item interval={3000}>
-                <img className="d-block w-100 " src={pic1} alt="First slide" />
+                <img
+                  className="d-block w-100 "
+                  src={pic1}
+                  alt="First slide"
+                />
               </Carousel.Item>
               <Carousel.Item interval={3000}>
-                <img className="d-block w-100 " src={pic6} alt="Second slide" />
+                <img
+                  className="d-block w-100 "
+                  src={pic6}
+                  alt="Second slide"
+                />
               </Carousel.Item>
               <Carousel.Item interval={3000}>
-                <img className="d-block w-100" src={pic3} alt="Third slide" />
+                <img
+                  className="d-block w-100"
+                  src={pic3}
+                  alt="Third slide"
+                />
               </Carousel.Item>
               <Carousel.Item interval={3000}>
-                <img className="d-block w-100 " src={pic4} alt="Third slide" />
+                <img
+                  className="d-block w-100 "
+                  src={pic4}
+                  alt="Third slide"
+                />
               </Carousel.Item>
               <Carousel.Item interval={3000}>
-                <img className="d-block w-100" src={pic5} alt="Third slide" />
+                <img
+                  className="d-block w-100"
+                  src={pic5}
+                  alt="Third slide"
+                />
               </Carousel.Item>
               <Carousel.Item interval={3000}>
-                <img className="d-block w-100" src={pic2} alt="Third slide" />
+                <img
+                  className="d-block w-100"
+                  src={pic2}
+                  alt="Third slide"
+                />
               </Carousel.Item>
             </Carousel>
           </div>
@@ -88,7 +116,7 @@ function Login() {
               </div>
             </div>
             <form action="">
-              <div class="form-group">
+              <div class="form-group u-form">
                 <input
                   type="email"
                   class="form-control"
@@ -98,7 +126,7 @@ function Login() {
                 />
               </div>
 
-              <div class="form-group">
+              <div class="form-group u-form">
                 <input
                   type="password"
                   class="form-control"
@@ -111,8 +139,15 @@ function Login() {
                   <a href="#/">忘記密碼？</a>
                 </small>
               </div>
-              <button type="submit" class="btn btn-outline-dark">
-                <Nav.Link className="u-link1" as={Link} to="/user-msgedit">
+              <button
+                type="submit"
+                class="btn btn-outline-dark"
+              >
+                <Nav.Link
+                  className="u-link1"
+                  as={Link}
+                  to="/user-msgedit"
+                >
                   登入
                 </Nav.Link>
               </button>

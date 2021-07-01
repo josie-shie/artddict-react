@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/PwdEdit.scss'
+// import './styles/PwdEdit.scss'
 import logo from './img/logo-bk.svg'
 import { Link } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
