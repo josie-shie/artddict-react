@@ -35,6 +35,7 @@ import cirhf from './image/cute/cirhf.svg'
 import cirbk from './image/cute/cirbk.svg'
 import box from './image/cute/box.svg'
 import cirbl from './image/cute/cirbl.svg'
+import tage from './image/cute/tage.svg'
 
 const Index = () => {
   return (
@@ -206,6 +207,7 @@ const Index = () => {
             <img src={cirbk} alt="" />
             <img className="cirbl" src={cirbl} alt="" />
             <img className="box" src={box} alt="" />
+            <img className="tage" src={tage} alt="" />
           </div>
         </div>
       </div>
