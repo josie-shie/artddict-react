@@ -18,7 +18,7 @@ import homepic4 from './img/homepic4.png'
 function Product() {
   return (
     <>
-      <div className="test">
+      <div className="pro-outside">
         <div className="row">
           <div className="homepageA-left">
             <div className="ArtLogoDiv">
@@ -91,6 +91,9 @@ function Product() {
           alt=""
         />
       </div>
+
+      {/* -----------------------首頁第一頁 以下第二頁 */}
+      <div className="pro-outside2"></div>
     </>
   )
 }
