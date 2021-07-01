@@ -1,0 +1,158 @@
+.u-logo-header{
+    width: 1045px;
+    border-bottom: 2px solid #000;
+}
+
+.u-logo-header > img {
+    width: 190px;
+    padding-bottom: 20px;
+}
+
+/* ----- 大Item  ----- */
+
+.u-orderItem {
+    margin-top:30px;
+    width: 1045px;
+    margin-left: 0px;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+.u-userPro, .u-userTic {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 480px;
+    height: 70px;
+    text-align: center;
+    line-height: 60px;
+}
+
+.u-userTic > a{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 30px;
+    color:#000;
+    text-decoration: none;
+}
+
+.u-userPro {
+    background-color: #000;
+}
+
+.u-userPro > a { 
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 30px;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* ----- 進度查詢 ----- */
+.u-progress {
+    margin-top: 20px;
+    height: 60px;
+    background-color: #e8e8e8;
+    
+}
+
+.u-progressText {
+    width: 70px;
+    height: 50px;
+    border: 2px solid #000;
+    border-right: none;
+    line-height: 50px; 
+}
+
+.u-progressText > p {
+    margin-left: 5px;
+}
+
+/* ----- select 箭頭樣式 ----- */
+.u-progressSelect > select {
+    padding-left: 5px;
+    padding-top: 1px;
+    width: 90px;
+    height: 50px;
+    background-color: #e8e8e8;
+    border: 2px solid #000;
+    // -webkit-appearance: none;
+    // -moz-appearance: none;
+    // appearance: none;
+}
+
+// .progressSelect{
+//     position:relative;
+//     display:block;
+//     height: 40px;    
+//     width: 120px;
+// }
+// .progressSelect:after {
+//     /* 這裏就是那個箭頭啦 */
+//     content:"▼";    
+//     padding: 15px 5px;
+//     position: absolute; right: 40px; top: 10px;    
+//     z-index: 1;
+//     text-align: center;
+//     width: 10%;
+//     height: 100%;      
+//     pointer-events: none;
+//     box-sizing: border-box;  
+//     color: #1D0AFF;
+// }   
+
+/* ----- 訂單 ----- */
+.u-table {
+    width: 1044px;
+    height: 195px;
+    border: 2px solid #707070;
+}
+
+.u-th {
+    background-color: #707070;
+    color: #fff;
+    height: 50px;
+    line-height: 50px;
+}
+
+/* ----- 取消 btn ----- */
+.u-btn-light {
+    margin-bottom: 20px;
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
+    font-family: 'Noto Sans TC', sans-serif;
+    color: #000;
+    background-color: #e8e8e8;
+    border-color: #000;
+    position: absolute;
+    top: 40px;
+}
+
+.u-btn-light:hover,
+.u-btn-light:focus,
+.u-btn-light:active:hover {
+    color: #000;
+    background-color: #e8e8e8;
+    border-color: #000;
+}
+
+/* ----- 詳細資料 btn ----- */
+
+.u-btn-dark {
+    width: 150px;
+    height: 50px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 18px;
+    /* margin-left: 150px; */
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+    position: absolute;
+    bottom: 10px;
+    }
+
+.u-btn-dark:hover,
+.u-btn-dark:focus,
+.u-btn-dark:active:hover {
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+}

@@ -12,7 +12,10 @@ import Event from './pages/event/Event'
 import ScrollToTop from './components/ScrollToTop'
 import Product from './pages/product/Product'
 // import Cart from './pages/cart/Cart'
-// import User from './pages/user/User'
+import Add from './pages/user/Add'
+import Login from './pages/user/Login'
+import MsgEdit from './pages/user/MsgEdit'
+import PwdEdit from './pages/user/PwdEdit'
 // import Oction from './pages/oction/Oction'
 
 function App() {
@@ -28,10 +31,19 @@ function App() {
             <Route exact path="/product">
               <Product />
             </Route>
-            {/* <Route exact path="/user">
-              <User />
+            <Route exact path="/user-add">
+              <Add />
             </Route>
-            <Route exact path="/cart">
+            <Route exact path="/user-login">
+              <Login />
+            </Route>
+            <Route exact path="/user-msgedit">
+              <MsgEdit />
+            </Route>
+            <Route exact path="/user-pwdedit">
+              <PwdEdit />
+            </Route>
+            {/* <Route exact path="/cart">
               <Cart />
             </Route> */}
             <Route exact path="/event">

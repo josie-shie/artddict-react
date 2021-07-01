@@ -1,0 +1,286 @@
+@font-face {
+  font-family: Engravers;
+  src: url(../../../style/font/ENGR.ttf);
+}
+
+@font-face {
+  font-family: EngraversBold;
+  src: url(../../../style/font/EngraversMTBold.ttf);
+}
+
+@font-face {
+  font-family: NotoSansTC-Medium;
+  src: url(../../../style/font/NotoSansTC-Medium.otf)
+}
+
+.u-body {
+  background-color: #e8e8e8;
+}
+
+.u-container-fluid {
+margin-left: 70px;
+}
+
+.u-contanier1 {
+  margin-left: 70px;
+}
+
+//----- Logo -----
+
+.u-logo-header {
+  width: 1100px;
+  border-bottom: 2px solid #000;
+}
+
+.u-logo-header > img {
+  width: 190px;
+  padding-bottom: 20px;
+}
+
+//----- carousel -----
+
+.u-img-carousel {
+  position: relative;
+  margin-top: 90px;
+  width: 450px;
+  margin-left: 30px;
+  z-index: 0;
+}
+
+.u-title01 {
+  width: 152px;
+  height: 44px;
+  background-color: #000;
+  padding-bottom: 10px;
+  position: absolute;
+  top: 530px;
+}
+
+.u-title01 > span {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 36px;
+  color: #81fc4d;
+}
+
+.u-title02 {
+  width: 378px;
+  height: 43px;
+  position: absolute;
+  background-color: #81fc4d;
+  top: 594px;
+  left: 50px;
+}
+
+.u-title02 > span {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 36px;
+  color: #000;
+}
+
+.u-title03 {
+  width: 260px;
+  height: 43px;
+  background-color: #81fc4d;
+  position: absolute;
+  top: 658px;
+  left: 235px;
+}
+
+.u-title03 > span {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 36px;
+  color: #000;
+}
+
+// ----- form 表單 -----
+
+.u-container2 {
+  margin-top: 84px;
+  margin-left: -75px;
+  
+}
+
+.u-member {
+  text-align: center;
+}
+
+.u-member > h1 {
+  font-family: EngraversBold;
+  font-size: 46px;
+  letter-spacing: 5px;
+  margin-left: -30px;
+}
+
+//----- 登入、註冊btn -----
+
+.u-addbutton {
+  width: 520px;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+
+.u-loginbtn1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+  height: 70px;
+  text-align: center;
+  line-height: 55px;
+}
+
+.u-loginbtn1 > a {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 30px;
+  color: #000;
+  text-decoration: none;
+}
+
+// .loginbtn > a:hover {
+//     color: #1D0AFF;
+// }
+
+.u-addbtn1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+  height: 70px;
+  background-color: #000;
+  text-align: center;
+  line-height: 55px;
+}
+
+.u-addbtn1 > a {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 30px;
+  color: #fff;
+  text-decoration: none;
+}
+
+//----- icons -----
+
+.u-gf {
+  width: 520px;
+  height: 80px;
+  border-bottom: 2px solid #000;
+  font-size: 60px;
+}
+
+.u-g {
+  padding-right: 20px;
+}
+
+.u-f {
+  padding-left: 20px;
+}
+
+//----- input 樣式 -----
+
+.u-form > input {
+  margin-top: 30px;
+  width: 520px;
+  height: 60px;
+  background-color: #e8e8e8;
+  border: 2px solid #000;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 16px;
+}
+
+
+
+/* ===== checkbox自訂義 ===== */
+
+// input[type='checkbox'] {
+//   margin-right: 5px;
+//   cursor: pointer;
+//   font-size: 14px;
+//   width: 25px;
+//   height: 25px;
+//   position: relative;
+// }
+
+// input[type='checkbox']:after {
+//   position: absolute;
+//   width: 25px;
+//   height: 25px;
+//   top: 0;
+//   content: ' ';
+//   background-color: #e8e8e8;
+//   border: 2px solid #000;
+//   color: #fff;
+//   display: inline-block;
+//   visibility: visible;
+//   padding: 2px 3px;
+//   border-radius: 3px;
+// }
+
+// input[type='checkbox']:checked:after {
+//   background-color: #000;
+//   content: '✓';
+//   font-size: 20px;
+// }
+
+// ----- checkbox 文字 -----
+
+.form-check-label {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 16px;
+}
+
+/* =====btn 自訂顏色===== */
+
+.btn-outline-dark {
+  margin-top: 30px;
+  width: 200px;
+  height: 60px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 24px;
+  margin-left: 150px;
+  color: #000;
+  background-color: #e8e8e8;
+  border-color: #000;
+}
+
+.btn-outline-dark:hover,
+.btn-outline-dark:focus,
+.btn-outline-dark:active:hover {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+
+/* .btn {
+    margin-top: 30px;
+    width: 200px;
+    height: 60px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 24px;
+     margin-left: 150px;
+} */
+
+/*===== onClick =====*/
+/* .loginbtn {
+    width: 200px;
+    height: 70px;
+    margin-top: 13px;
+    background-color: #000;
+    text-align: center;
+    line-height:70px;
+} */
+
+/* .addbtn {
+    width: 200px;
+    height: 70px;
+    margin-top: 13px;
+    background-color: #000;
+    text-align: center;
+    line-height:70px;
+} */
+
+.u-link1 {
+  margin-top: -4px;
+  color: #000;
+}
+
+.u-link1:hover {
+  color: #fff;
+}

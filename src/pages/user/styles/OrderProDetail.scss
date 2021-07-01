@@ -1,0 +1,138 @@
+ /* ----- 表單 ----- */
+ .u-box {
+    margin-top: 40px;
+    width: 1044px;
+    height: 254px;
+    border: 2px solid #707070;
+    font-size: 16px;
+}
+
+@media screen and (max-width:576px) {
+    .u-box{
+        width: 320px;
+        margin-left: 20px;
+    }
+}
+
+.u-creditNews{
+    background-color: #707070;
+    color: #fff;
+    height: 50px;
+    line-height: 50px;
+}
+
+.u-creditType, .u-creditDate{
+    height: 50px;
+    line-height: 50px;
+}
+
+.u-creditNum, .u-creditNT{
+    height: 50px;
+    line-height: 50px;
+    background-color: #c7c7c7;
+}
+
+/* ----- 商品細節 ----- */
+.u-boxPro{
+    margin-top: 40px;
+    width: 1044px;
+    height: 125px;
+    border:2px solid #707070;
+    // position: relative;
+}
+
+@media screen and (max-width:576px) {
+    .u-boxPro{
+        width: 320px;
+        margin-left: 20px;
+    }
+}
+
+.u-proImg {
+    width: 100px;
+    height: 100px;
+    background-color: #c7c7c7;
+    margin-top: 12px;
+    margin-left: 12px;
+}
+
+.u-proText, .u-proSize, .u-proQty, .u-proTotalPrice {
+    margin-top: 30px;
+    font-size: 16px;
+}
+
+.u-myEVAL {
+    width: 150px;
+    height: 43px;
+    background-color: #1D0AFF;
+    text-align: center;
+    line-height: 30px;
+    margin-top: 5px;
+    margin-left: -15px;
+    // position: relative;
+    // z-index: 500px;
+}
+
+.btn-link, .btn-link:hover{
+    color: #fff;
+}
+
+
+
+
+
+/* ===== 折疊 ===== */
+.u-Card {
+    width: 1044px;
+    background-color: #e8e8e8;
+    border: #e8e8e8;
+    // position: relative;
+}
+
+.u-CardHeader {
+    background-color: #e8e8e8;
+}
+
+.u-collapse1 {
+  border: 2px solid #707070;
+}
+
+// ===== 前往評價 btn =====
+.u-goEVAL {
+    width: 150px;
+    height: 43px;
+    border: 2px solid #000;
+    line-height: 40px;
+    text-align: center;
+    // position: absolute;
+    margin-top: -42px;
+    margin-left: 150px;
+    // z-index: 1000px;
+}
+
+.u-goEVAL > a {
+    color: #000;
+}
+
+
+
+
+// ===== 回訂單 btn =====
+.u-back {
+    width: 180px;
+    height: 50px;
+    background-color: #000;
+    text-align: center;
+    line-height: 40px;
+    font-size: 16px;
+    margin-top: 30px;
+    margin-left: 450px;
+}
+
+.u-link{
+    color: #fff;
+}
+
+.u-link:hover{
+    color: #fff;
+}

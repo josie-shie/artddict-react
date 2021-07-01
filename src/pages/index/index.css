@@ -201,6 +201,7 @@
 
     /* ----------event區域 -----------*/
     .event-area{
+
         background-color: #E8E8E8;
     }
     .event-img{
@@ -251,8 +252,8 @@
     }
 
     .event-marquee{
-        border-top: 2px solid #000;
-        border-bottom: 2px solid #000;
+        border-top: 4px solid #000;
+        border-bottom: 4px solid #000;
     }
 
     .event-marquee h1{
@@ -260,6 +261,34 @@
         font-family: NotoSansTC-md;
 
     }
+
+    /* ----------product區域 -----------*/
+    .product-area{
+        background-color: #E8E8E8;
+        padding-top: 100px;
+    }
+
+    .product-cute{
+        position: relative;
+    }
+
+    .cirbl{
+        position: absolute;
+        top:-30px;
+        right:350px;
+    }
+
+    .box{
+        padding-left: 50px;
+    }
+
+    .tage{
+        position: absolute;
+        top:80px;
+        right:180px;
+    }
+        
+
 
     @media screen and (max-width:576px) {
         .index-web-padding{
