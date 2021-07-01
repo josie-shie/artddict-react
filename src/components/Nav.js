@@ -78,7 +78,7 @@ const Nav = () => {
   return (
     <>
       <div className="nav-area">
-        <nav>
+        <nav class="index-nav">
           <div className="mynav">
             <div ref={circleRef} className="circle"></div>
             <div className="nav-icon text-center">
@@ -116,6 +116,7 @@ const Nav = () => {
               <div ref={yRef} className="y"></div>
               <div ref={zRef} className="z"></div>
             </div>
+            <div className="nav-logo-sm"></div>
           </div>
           <div className="menu">
             <div>

@@ -17,36 +17,14 @@
         width: 100%;
     }
 
-
-    /* ----------解決單邊滾動的scroll bar區域 -----------
-    下了之後尺寸會位移ＱＱ？*/
-
-    /* html {
-        overflow: -moz-hidden-unscrollable;
-        height: 100%;
+    .index-web-padding{
+        padding-right: 70px;
     }
-
-    body::-webkit-scrollbar {
-        display: none;
-    }
-
-    body {
-        -ms-overflow-style: none;
-        height: 100%;
-        width: calc(100vw + 18px);
-        overflow: auto;
-    } */
-
-    /* ----------hero-section區域 -----------*/
-
-    /* .hero-section{
-        height: 100%; 
-    } */
 
     .video-area{
-        width:calc(100% - 70px) ;
         position: relative;
     }
+
     .index-video {
     position: absolute;
     z-index: -1000;
@@ -94,7 +72,7 @@
     }
 
     .rect{
-        width: calc(100% - 70px);
+        width: 100%;
         height: 70px;
         background: #000;
         
@@ -116,7 +94,7 @@
 
     /* ----------news區域 -----------*/
     .news-area{
-        width:calc(100% - 55px) ;/*為何不能用70?*/
+        width:calc(100% - 55px) ;/*TODO:為何不能用70?*/
         height: 100vh;
     }
 
@@ -148,12 +126,12 @@
     }
     div.news img{
         width: 100%;
+        hight: 100%;
         
     }
 
     /* ----------waterfall區域 -----------*/
     .artist-area{
-        width:calc(100% - 70px) ;
         background-color: #000;
     }
 
@@ -223,7 +201,6 @@
 
     /* ----------event區域 -----------*/
     .event-area{
-        width:calc(100% - 70px) ;
         background-color: #E8E8E8;
     }
     .event-img{
@@ -282,4 +259,12 @@
         font-size: 3rem;
         font-family: NotoSansTC-md;
 
+    }
+
+    @media screen and (max-width:576px) {
+        .index-web-padding{
+        padding-right: 0px;
+        }
+        
+    
     }

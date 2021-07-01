@@ -36,7 +36,7 @@ const Index = () => {
     <>
       {/* hero-section */}
       <div className="hero-section">
-        <div className="video-area">
+        <div className="video-area index-web-padding">
           <video
             className="index-video"
             playsinline="playsinline"
@@ -97,7 +97,7 @@ const Index = () => {
         </div>
       </div>
       {/* artist */}
-      <div className="artist-area">
+      <div className="artist-area index-web-padding">
         <div className="artist-slogan">
           <strong>
             Always doing that which I cannot do, in order
@@ -131,7 +131,7 @@ const Index = () => {
       </div>
 
       {/* Event */}
-      <div className="event-area">
+      <div className="event-area index-web-padding">
         <div className="event-img">
           <img className="img1" src={eventimg1} alt="" />
           <img className="img2" src={eventimg2} alt="" />
