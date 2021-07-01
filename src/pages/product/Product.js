@@ -93,7 +93,10 @@ function Product() {
       </div>
 
       {/* -----------------------首頁第一頁 以下第二頁 */}
-      <div className="pro-outside2"></div>
+      <div className="pro-outside2">
+        <div className="homepabeB-left"></div>
+        <div className="homepabeB-right"> </div>
+      </div>
     </>
   )
 }
