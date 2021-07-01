@@ -25,190 +25,203 @@ function event() {
   return (
     <>
       <div className="reduce-width">
-        <section className="hero">
-          <Container fluid>
-            <Row>
-              <div
-                className="left-margin
+        <div className="hero container-fluid">
+          {/* 眼睛 LOGO SLOGAN */}
+          <div className="row mt-3">
+            <div
+              className=" invisible
               e-logo-area"
-              >
-                <img
-                  className="e-logo"
-                  src={EventLogo}
-                  alt=""
-                />
-              </div>
-              <div className="spin-circle invisible"></div>
-              <div className="spin-eye invisible"></div>
-              <Col xs={12} className="left-margin">
-                <h3 className="cn-font e-topic">
-                  親身參與
-                </h3>
-                <h3 className="cn-font e-topic">
-                  每一場關於藝術的盛宴
-                </h3>
-                <h3 className="cn-font e-topic">
-                  陶冶於文藝的氛圍中，散發出如藝術品般的氣息
-                </h3>
-              </Col>
-            </Row>
-            <Row
-              className="e-pictures-margin
-            position-relative"
             >
-              <div
-                className="e-hero-card
-                hero-event-1 left-margin position-relative
-                p-0"
-              >
-                <p
-                  className="cn-font e-hero-event-font position-absolute
-                  e-left-top
-                  "
-                >
-                  系
-                </p>
-                <p
-                  className="cn-font e-hero-event-font
-                position-absolute
-                e-right-top
-                "
-                >
-                  列
-                </p>
-                <p
-                  className="cn-font e-hero-event-font
-                position-absolute
-                e-left-btm"
-                >
-                  特
-                </p>
-                <p
-                  className="cn-font e-hero-event-font
-                position-absolute
-                e-right-btm"
-                >
-                  展
-                </p>
-                <h2
-                  className="eng-font-regular position-absolute
-                  e-hero-vol"
-                >
-                  VOL.0<span className="bigger">1</span>
-                </h2>
-                <div className="e-line position-absolute"></div>
-                <div className="e-line2 position-absolute"></div>
+              <img
+                className="e-logo"
+                src={EventLogo}
+                alt=""
+              />
+            </div>
+            <div className="m-spin-eye position-relative">
+              <div className="spin-circle position-absolute "></div>
+              <div className="spin-eye position-absolute"></div>
+            </div>
 
-                <img
-                  className="pic-square"
-                  src={Square}
-                  alt=""
-                />
-              </div>
-              <div
-                className="e-hero-card
-                hero-event-2 position-relative
-                p-0"
-              >
-                <p
-                  className="cn-font e-hero-event-font position-absolute
-                  e-left-top
-                  "
-                >
-                  系
-                </p>
-                <p
-                  className="cn-font e-hero-event-font
-                position-absolute
-                e-right-top
-                "
-                >
-                  列
-                </p>
-                <p
-                  className="cn-font e-hero-event-font
-                position-absolute
-                e-left-btm"
-                >
-                  特
-                </p>
-                <p
-                  className="cn-font e-hero-event-font
-                position-absolute
-                e-right-btm"
-                >
-                  展
-                </p>
-                <h2
-                  className="eng-font-regular position-absolute
-                  e-hero-vol"
-                >
-                  VOL.0<span className="bigger">2</span>
-                </h2>
-                <div className="e-line position-absolute"></div>
-                <div className="e-line2 position-absolute"></div>
+            <div className="col-12">
+              <h3 className="cn-font e-topic">親身參與</h3>
+              <h3 className="cn-font e-topic">
+                每一場關於藝術的盛宴
+              </h3>
+              <h3 className="cn-font e-topic">
+                陶冶於文藝的氛圍中，散發出如藝術品般的氣息
+              </h3>
+            </div>
+          </div>
 
-                <img
-                  className="pic-square"
-                  src={Square}
-                  alt=""
-                />
-              </div>
-              <div
-                className="e-hero-card
-                hero-event-3 position-relative
-                p-0"
-              >
-                <p
-                  className="cn-font e-hero-event-font position-absolute
+          {/* Card */}
+          <div className="row d-flex justify-content-center mt-5">
+            <div className=" col-8 hero-event-1 p-0">
+              <img
+                className="pic-square"
+                src={Square}
+                alt=""
+              />
+
+              <p
+                className="cn-font e-hero-event-font position-absolute
                   e-left-top
                   "
-                >
-                  系
-                </p>
-                <p
-                  className="cn-font e-hero-event-font
+              >
+                系
+              </p>
+              <p
+                className="cn-font e-hero-event-font
                 position-absolute
                 e-right-top
                 "
-                >
-                  列
-                </p>
-                <p
-                  className="cn-font e-hero-event-font
+              >
+                列
+              </p>
+              <p
+                className="cn-font e-hero-event-font
                 position-absolute
                 e-left-btm"
-                >
-                  特
-                </p>
-                <p
-                  className="cn-font e-hero-event-font
+              >
+                特
+              </p>
+              <p
+                className="cn-font e-hero-event-font
                 position-absolute
                 e-right-btm"
-                >
-                  展
-                </p>
-                <h5
-                  className="eng-font-regular position-absolute
+              >
+                展
+              </p>
+              <h2
+                className="eng-font-regular position-absolute
                   e-hero-vol"
-                >
-                  VOL.0<span className="bigger">3</span>
-                </h5>
-                <img
-                  className="e-spin-icon position-absolute"
-                  src={ESpin}
-                  alt=""
-                />
-                <img
-                  className="pic-square"
-                  src={Square}
-                  alt=""
-                />
-              </div>
-            </Row>
-          </Container>
-        </section>
-        <section>
+              >
+                VOL.0<span className="bigger">1</span>
+              </h2>
+              <div className="e-line position-absolute"></div>
+              <div className="e-line2 position-absolute"></div>
+            </div>
+          </div>
+          <div className="row d-flex justify-content-center mt-5 invisible">
+            <div className=" col-8 hero-event-2 p-0">
+              <img
+                className="pic-square"
+                src={Square}
+                alt=""
+              />
+
+              <p
+                className="cn-font e-hero-event-font position-absolute
+                  e-left-top
+                  "
+              >
+                系
+              </p>
+              <p
+                className="cn-font e-hero-event-font
+                position-absolute
+                e-right-top
+                "
+              >
+                列
+              </p>
+              <p
+                className="cn-font e-hero-event-font
+                position-absolute
+                e-left-btm"
+              >
+                特
+              </p>
+              <p
+                className="cn-font e-hero-event-font
+                position-absolute
+                e-right-btm"
+              >
+                展
+              </p>
+              <h2
+                className="eng-font-regular position-absolute
+                  e-hero-vol"
+              >
+                VOL.0<span className="bigger">1</span>
+              </h2>
+              <div className="e-line position-absolute"></div>
+              <div className="e-line2 position-absolute"></div>
+            </div>
+          </div>
+          <div
+            className="row d-flex justify-content-center mt-5
+          invisible"
+          >
+            <div className=" col-8 hero-event-3 p-0">
+              <img
+                className="pic-square"
+                src={Square}
+                alt=""
+              />
+
+              <p
+                className="cn-font e-hero-event-font position-absolute
+                  e-left-top
+                  "
+              >
+                系
+              </p>
+              <p
+                className="cn-font e-hero-event-font
+                position-absolute
+                e-right-top
+                "
+              >
+                列
+              </p>
+              <p
+                className="cn-font e-hero-event-font
+                position-absolute
+                e-left-btm"
+              >
+                特
+              </p>
+              <p
+                className="cn-font e-hero-event-font
+                position-absolute
+                e-right-btm"
+              >
+                展
+              </p>
+              <h2
+                className="eng-font-regular position-absolute
+                  e-hero-vol"
+              >
+                VOL.0<span className="bigger">1</span>
+              </h2>
+              <div className="e-line position-absolute"></div>
+              <div className="e-line2 position-absolute"></div>
+            </div>
+          </div>
+        </div>
+
+        <Container fluid className="exhi">
+          <Row>
+            <marquee behavior="" direction="">
+              <h1
+                className="eng-font-bold
+              spin-sentence"
+              >
+                LET ARTDDICT BE IN YOUR LIFE
+              </h1>
+            </marquee>
+
+            <h1
+              className="eng-font-bold
+              spin-sentence2 my-4"
+            >
+              Everyone will be famous for 15 minutes
+            </h1>
+          </Row>
+        </Container>
+
+        {/* <section>
           <Container fluid>
             <Row>
               <h1
@@ -291,8 +304,8 @@ function event() {
             </Row>
           </Container>
         </section>
-        <section className="workshop">
-          <Container fluid>
+        <section className="workshop"> */}
+        {/* <Container fluid>
             <Row>
               <div className="e-logo-deco-h">
                 <img
@@ -337,7 +350,7 @@ function event() {
               </div>
             </Row>
           </Container>
-        </section>
+        </section> */}
       </div>
     </>
   )

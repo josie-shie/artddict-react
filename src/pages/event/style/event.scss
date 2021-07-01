@@ -1,15 +1,13 @@
 // Leave Right Side For Navbar
 .reduce-width{
     width: calc(100% - 70px);
+    padding-left: 70;
 }
 
-// For Element Align
 
-.left-margin{
-    margin-left: 70px;
-}
 
-// HERO SECTION
+
+// !HERO SECTION
 
 .hero{
     width: 100%;
@@ -17,7 +15,6 @@
     background-color: black;
     position: relative;
 }
-
 .spin-circle{
     background: url(../images/arddict-circle-w.svg) no-repeat;
     width: 190px;
@@ -53,30 +50,23 @@
     margin-bottom: 23px;
 }
 
-.e-font-green{
-    color: #81FC4D;
-}
 
-
-// HERO SECTION 活動圖
+// ?HERO SECTION 活動圖
 .hero-event-1{
     background-image: url(../images/museum/art-542317__480.jpeg);
     background-size: cover;
-    opacity: .8;
 
 }
 
 .hero-event-2{
     background-image: url(../images/museum/art-542320__480.jpeg);
     background-size: cover;
-    opacity: .8;
     
 }
 
 .hero-event-3{
     background-image: url(../images/museum/bathsheba-bathing-1150331_1920.jpg);
     background-size: cover;
-    opacity: .8;
     
 }
 
@@ -84,13 +74,13 @@
     width: 100%;
 }
 
-// Hero section card 寬度
+// ?Hero section card 寬度
 .e-hero-card{
     width: 20%;
 }
 
 
-// 方形透明圖
+// ?方形透明圖
 .pic-square{
     width: 100%;
 }
@@ -172,7 +162,7 @@
     color: #1D0AFF ;
 }
 
-// EVENT SECTION
+// !EVENT SECTION
 
 .exhi{
     background-color: white;
@@ -350,4 +340,110 @@
     border-top: 2px solid white;
     transform: rotate(-45deg);
     top: 50%;
+}
+
+@media screen and (max-width:768px) {
+    .reduce-width{
+    width: 100%;
+    }
+
+    //! HERO
+
+    .hero{
+    padding-top: 50px;
+    width: 100%;
+    height: 100vh;
+    background-color: black;
+    position: relative;
+    }
+
+    .m-spin-eye{
+        margin-top: 25px;
+    }
+
+    .e-topic{
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #81FC4D;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    }
+    .e-pictures-margin{
+    margin-top: 75px;}
+
+    .e-hero-event-font{
+        font-size: 20px;
+        font-weight: medium;
+        color: #81FC4D;
+    }
+
+
+    // 系列展覽 position
+    .e-left-top{
+        top: 20px;
+        left: 20px;
+
+    }
+
+    .e-right-top{
+        top: 20px;
+        right: 20px;
+        
+    }
+
+    .e-left-btm{
+        bottom: 20px;
+        left: 20px;
+        
+    }
+
+    .e-right-btm{
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .e-line{
+        width: 80%;
+        border-top: 2px solid #81FC4D;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%) rotate(-45deg);
+    }
+    .e-line2{
+        width: 80%;
+        border-top: 2px solid #81FC4D;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%) rotate(45deg);
+    }
+
+    // Vol.01 font-size
+    .e-hero-vol{
+        font-size: 30px;
+        color: #81FC4D;
+        left: 50%;
+        bottom: 10px;
+        transform: translate(-50%,0%)
+    }
+
+    .bigger{
+        font-size: 50px;
+    }
+
+    // !EXHI
+
+    .spin-sentence{
+    font-size: 1.3rem;
+    word-wrap: normal;
+    margin: 10px 0 10px 0;
+}
+
+.spin-sentence2{
+    font-size: 1.3rem;
+    color: #1D0AFF ;
+    margin: 10px 0 10px 0;
+}
+
+
+ 
 }
