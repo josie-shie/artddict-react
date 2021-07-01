@@ -19,7 +19,7 @@
 
 
 
-.English {
+.pro-English {
     font-family: Engravers;
 }
 
@@ -165,7 +165,7 @@
 .arddictEyeG{
     width: 20%;
     position: absolute;
-    top: 40%;
+    top: 41%;
     left: 62.5%;
 }
 /* -------------第二頁 */
@@ -177,4 +177,11 @@
 .homepageB-left{
     background-color:aqua;
     height: 100vh;
+    width: 44vw;
+    margin-left: 8%;
+}
+.homepageB-right{
+    background-color:greenyellow;
+    height: 100vh;
+    width: 44vw;
 }
