@@ -182,35 +182,35 @@ body {
 
 /* ===== checkbox自訂義 ===== */
 
-input[type='checkbox'] {
-  margin-right: 5px;
-  cursor: pointer;
-  font-size: 14px;
-  width: 25px;
-  height: 25px;
-  position: relative;
-}
+// input[type='checkbox'] {
+//   margin-right: 5px;
+//   cursor: pointer;
+//   font-size: 14px;
+//   width: 25px;
+//   height: 25px;
+//   position: relative;
+// }
 
-input[type='checkbox']:after {
-  position: absolute;
-  width: 25px;
-  height: 25px;
-  top: 0;
-  content: ' ';
-  background-color: #e8e8e8;
-  border: 2px solid #000;
-  color: #fff;
-  display: inline-block;
-  visibility: visible;
-  padding: 2px 3px;
-  border-radius: 3px;
-}
+// input[type='checkbox']:after {
+//   position: absolute;
+//   width: 25px;
+//   height: 25px;
+//   top: 0;
+//   content: ' ';
+//   background-color: #e8e8e8;
+//   border: 2px solid #000;
+//   color: #fff;
+//   display: inline-block;
+//   visibility: visible;
+//   padding: 2px 3px;
+//   border-radius: 3px;
+// }
 
-input[type='checkbox']:checked:after {
-  background-color: #000;
-  content: '✓';
-  font-size: 20px;
-}
+// input[type='checkbox']:checked:after {
+//   background-color: #000;
+//   content: '✓';
+//   font-size: 20px;
+// }
 
 // ----- checkbox 文字 -----
 
