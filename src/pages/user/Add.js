@@ -246,21 +246,23 @@ function User(props) {
                     </div>
                   </div>
                 </div>
-                <button
-                  type="submit"
-                  onClick={() => {
-                    addUserToSever()
-                  }}
-                  className="u-btn btn-outline-dark"
-                >
-                  <Nav.Link
-                    className="u-link1"
-                    as={Link}
-                    to="/user-msgedit"
+                <div className="u-Btn1">
+                  <button
+                    type="submit"
+                    onClick={() => {
+                      addUserToSever()
+                    }}
+                    className="u-btn btn-outline-dark"
                   >
-                    註冊
-                  </Nav.Link>
-                </button>
+                    <Nav.Link
+                      className="u-link1"
+                      as={Link}
+                      to="/user-msgedit"
+                    >
+                      註冊
+                    </Nav.Link>
+                  </button>
+                </div>
               </form>
             </div>
           </div>

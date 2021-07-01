@@ -228,25 +228,25 @@
 
 /* =====btn 自訂顏色===== */
 
-.btn-outline-dark {
-  margin-top: 30px;
-  width: 200px;
-  height: 60px;
-  font-family: 'Noto Sans TC', sans-serif;
-  font-size: 24px;
-  margin-left: 150px;
-  color: #000;
-  background-color: #e8e8e8;
-  border-color: #000;
-}
+// .btn-outline-dark {
+//   margin-top: 30px;
+//   width: 200px;
+//   height: 60px;
+//   font-family: 'Noto Sans TC', sans-serif;
+//   font-size: 24px;
+//   margin-left: 150px;
+//   color: #000;
+//   background-color: #e8e8e8;
+//   border-color: #000;
+// }
 
-.btn-outline-dark:hover,
-.btn-outline-dark:focus,
-.btn-outline-dark:active:hover {
-  color: #fff;
-  background-color: #000;
-  border-color: #000;
-}
+// .btn-outline-dark:hover,
+// .btn-outline-dark:focus,
+// .btn-outline-dark:active:hover {
+//   color: #fff;
+//   background-color: #000;
+//   border-color: #000;
+// }
 
 /* .btn {
     margin-top: 30px;
@@ -275,6 +275,10 @@
     text-align: center;
     line-height:70px;
 } */
+
+.u-Btn1{
+  margin-top: 50px;
+}
 
 .u-link1 {
   margin-top: -4px;

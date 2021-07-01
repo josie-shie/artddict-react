@@ -142,18 +142,20 @@ function Login() {
                     </div>
                   </small>
                 </div>
-                <button
-                  type="submit"
-                  class="u-btn btn-outline-dark"
-                >
-                  <Nav.Link
-                    className="u-link1"
-                    as={Link}
-                    to="/user-msgedit"
+                <div className="u-Btn1">
+                  <button
+                    type="submit"
+                    class="u-btn btn-outline-dark"
                   >
-                    登入
-                  </Nav.Link>
-                </button>
+                    <Nav.Link
+                      className="u-link1"
+                      as={Link}
+                      to="/user-msgedit"
+                    >
+                      登入
+                    </Nav.Link>
+                  </button>
+                </div>
               </form>
             </div>
           </div>

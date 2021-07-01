@@ -76,7 +76,7 @@ function OrderPro() {
                     <Nav.Link
                       className="u-link"
                       as={Link}
-                      to="/user-orderdetailpro"
+                      to="/user-orderprodetail"
                     >
                       詳細資料
                     </Nav.Link>

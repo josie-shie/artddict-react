@@ -95,12 +95,14 @@ function MsgEdits() {
                 id="address"
               />
             </div>
-            <button
-              type="submit"
-              className="btn btn-outline-dark editBtn"
-            >
-              修改
-            </button>
+            <div className="u-editBtn">
+              <button
+                type="submit"
+                className="btn btn-outline-dark editBtn"
+              >
+                修改
+              </button>
+            </div>
           </form>
         </div>
       </div>

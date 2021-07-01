@@ -58,13 +58,14 @@ function PwdEdit() {
                 placeholder="再次輸入新密碼"
               />
             </div>
-
-            <button
-              type="submit"
-              className="btn btn-outline-dark editBtn"
-            >
-              修改
-            </button>
+            <div className="u-editBtn">
+              <button
+                type="submit"
+                className="btn btn-outline-dark "
+              >
+                修改
+              </button>
+            </div>
           </form>
         </div>
       </div>

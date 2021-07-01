@@ -1,108 +1,114 @@
 // ===== Menu =====
-.u-userMenu{
-    margin-left: 70px;
+.u-userMenu {
+  margin-left: 70px;
 }
 
 // ----- 大標 -----
 .u-row {
-    margin-top:30px;
-    width: 1045px;
-    margin-left: 0px;
-    border-top: 2px solid #000;
-    border-bottom: 2px solid #000;
+  margin-top: 30px;
+  width: 1045px;
+  margin-left: 0px;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
 }
 
-.u-userMsg1, .u-userPwd1 {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    width: 480px;
-    height: 70px;
-    text-align: center;
-    line-height: 60px;
+.u-userMsg1,
+.u-userPwd1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 480px;
+  height: 70px;
+  text-align: center;
+  line-height: 60px;
 }
 
 .u-userMsg1 {
-    background-color: #000;
+  background-color: #000;
 }
 
-.u-userPwd1 > a{
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: 30px;
-    color:#000;
-    text-decoration: none;
+.u-userPwd1 > a {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 30px;
+  color: #000;
+  text-decoration: none;
 }
 
 .userMsg1 {
-    background-color: #000;
+  background-color: #000;
 }
 
-.u-userMsg1 > a { 
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: 30px;
-    color: #fff;
-    text-decoration: none;
+.u-userMsg1 > a {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 30px;
+  color: #fff;
+  text-decoration: none;
 }
-
 
 /* =====btn 自訂顏色===== */
-.btn-outline-dark {
-    margin-left: 190px;
-    width: 130px;
-    height: 50px;
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: 20px;
-    color: #000;
-    background-color: #e8e8e8;
-    border-color: #000;
+.u-editBtn > .btn-outline-dark {
+  margin-left: 190px;
+  width: 130px;
+  height: 50px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 20px;
+  color: #000;
+  background-color: #e8e8e8;
+  border:2px solid #000;
 }
 
-.btn-outline-dark:hover, .btn-outline-dark:focus, .btn-outline-dark:active:hover{
-    color: #fff;
-    background-color: #000;
-    border-color: #000;
+.u-editBtn > .btn-outline-dark:hover,
+.u-editBtn > .btn-outline-dark:focus,
+.u-editBtn > .btn-outline-dark:active:hover {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+
+.u-editBtn {
+    margin-top: 50px;
 }
 
 // ----- input 樣式 -----
 .u-form1 > input {
-    width: 520px;
-    height: 60px;
-    background-color: #e8e8e8;
-    border: 2px solid #000;
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: 16px;
-    margin-top: 5px;
-  }
+  width: 520px;
+  height: 60px;
+  background-color: #e8e8e8;
+  border: 2px solid #000;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 16px;
+  margin-top: 5px;
+}
 
 .u-form1 > select {
-    width: 520px;
-    height: 60px;
-    background-color: #e8e8e8;
-    border: 2px solid #000;
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: 16px;
-    border-radius: 3px;
+  width: 520px;
+  height: 60px;
+  background-color: #e8e8e8;
+  border: 2px solid #000;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 16px;
+  border-radius: 3px;
 }
 
 .u-form1 > label {
-    font-family: 'Noto Sans TC';
-    font-size: 18px;
-    margin-top: 10px;
+  font-family: 'Noto Sans TC';
+  font-size: 18px;
+  margin-top: 10px;
 }
 
 .u-userData {
-    margin-left: 370px;
+  margin-left: 370px;
 }
 
 .u-Select > select {
-    width: 250px;
-    height: 60px;
-    border-radius: 3px;
-    background-color: #e8e8e8;
-    border: 2px solid #000;
-    margin-bottom: 20px;
-    margin-top: 5px;
+  width: 250px;
+  height: 60px;
+  border-radius: 3px;
+  background-color: #e8e8e8;
+  border: 2px solid #000;
+  margin-bottom: 20px;
+  margin-top: 5px;
 }
 
 .u-sel2 {
-    margin-left: 20px;
+  margin-left: 20px;
 }

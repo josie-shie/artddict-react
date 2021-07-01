@@ -12,12 +12,16 @@ import Event from './pages/event/Event'
 import ScrollToTop from './components/ScrollToTop'
 import Product from './pages/product/Product'
 // import Cart from './pages/cart/Cart'
+// import Oction from './pages/oction/Oction'
+
+// User
 import Add from './pages/user/Add'
 import Login from './pages/user/Login'
 import MsgEdit from './pages/user/MsgEdit'
 import PwdEdit from './pages/user/PwdEdit'
 import OrderPro from './pages/user/OrderPro'
-// import Oction from './pages/oction/Oction'
+import OrderTic from './pages/user/OrderTic'
+import OrderProDetail from './pages/user/OrderProDetail'
 
 function App() {
   return (
@@ -46,6 +50,12 @@ function App() {
             </Route>
             <Route exact path="/user-orderpro">
               <OrderPro />
+            </Route>
+            <Route exact path="/user-ordertic">
+              <OrderTic />
+            </Route>
+            <Route exact path="/user-orderprodetail">
+              <OrderProDetail />
             </Route>
             {/* <Route exact path="/cart">
               <Cart />
