@@ -37,12 +37,14 @@ function Product() {
                 2021『這樣的千春』展覽系列商品
                 <br />
                 只有在———
-                <span className="English">ARTDDICT</span>
+                <span className="pro-English">
+                  ARTDDICT
+                </span>
               </p>
             </div>
             <button
               onclick="javascript:location.href='productList'"
-              className="homepageA-box btn-lg English "
+              className="homepageA-box btn-lg pro-English "
             >
               Go Shop
             </button>
@@ -94,8 +96,10 @@ function Product() {
 
       {/* -----------------------首頁第一頁 以下第二頁 */}
       <div className="pro-outside2">
-        <div className="homepabeB-left"></div>
-        <div className="homepabeB-right"> </div>
+        <div className="row">
+          <div className="homepageB-left"></div>
+          <div className="homepageB-right"> </div>
+        </div>
       </div>
     </>
   )
