@@ -8,6 +8,11 @@ import { BsThreeDots } from 'react-icons/bs'
 
 import logo from './svg/logo.svg'
 import upLogo from './img/upLogo.png'
+import homepic1 from './img/homepic1.jpeg'
+import homepic2 from './img/homepic2.png'
+import homepic3 from './img/homepic3.png'
+import homepic4 from './img/homepic4.png'
+
 function Product() {
   return (
     <>
@@ -42,10 +47,34 @@ function Product() {
           </div>
           <div className="homepageA-right">
             <div className="homepageA-right-box d-flex">
-              <div className="homepageA-right-box-picA"></div>
-              <div className="homepageA-right-box-picB"></div>
-              <div className="homepageA-right-box-picC"></div>
-              <div className="homepageA-right-box-picD"></div>
+              <div className="homepageA-right-box-picA">
+                <img
+                  className="homepageA-right-picA"
+                  src={homepic1}
+                  alt=""
+                />
+              </div>
+              <div className="homepageA-right-box-picB">
+                <img
+                  className="homepageA-right-picB"
+                  src={homepic2}
+                  alt=""
+                />
+              </div>
+              <div className="homepageA-right-box-picC">
+                <img
+                  className="homepageA-right-picC"
+                  src={homepic3}
+                  alt=""
+                />
+              </div>
+              <div className="homepageA-right-box-picD">
+                <img
+                  className="homepageA-right-picD"
+                  src={homepic4}
+                  alt=""
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -96,7 +96,7 @@ p {
     background-color: yellow;
     width: 52vw;
     height: 80vh;
-    margin-top: 20%;
+    margin-top: 18%;
     position: relative;
 }
 
@@ -104,13 +104,17 @@ p {
     background-color: forestgreen;
     width: 26vw;
     height: 80vh;
+    overflow:hidden;
+
 }
 
 .homepageA-right-box-picB {
     background-color: blue;
     width: 25vw;
     height: 20vh;
-    margin-left: 3%
+    margin-left: 3%;
+    overflow:hidden;
+
 }
 
 .homepageA-right-box-picC {
@@ -120,6 +124,8 @@ p {
     position: absolute;
     left: 52.7%;
     bottom: 0%;
+    overflow:hidden;
+
 }
 
 .homepageA-right-box-picD {
@@ -129,10 +135,28 @@ p {
     position: absolute;
     right: 0%;
     bottom: 0%;
+    overflow:hidden;
+
 }
 
-.try {
-    background-color: red;
-    width: 10vw;
-    height: 20vh;
+.homepageA-right-picA{
+    height:100%;
+}
+.homepageA-right-picB{
+    width: 150%;
+    margin-top: -45%;
+    margin-left: -20%;
+}
+.homepageA-right-picC{
+    width: 200%;
+    margin-left: -20%;
+    margin-top: -40%;
+
+}
+.homepageA-right-picD{
+    height: 150%;
+    margin-left: -70%;
+    margin-top: -40%;
+
+
 }
