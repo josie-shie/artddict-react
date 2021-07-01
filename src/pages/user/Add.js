@@ -247,7 +247,7 @@ function User(props) {
                   onClick={() => {
                     addUserToSever()
                   }}
-                  className="btn btn-outline-dark"
+                  className="u-btn btn-outline-dark"
                 >
                   <Nav.Link
                     className="u-link1"

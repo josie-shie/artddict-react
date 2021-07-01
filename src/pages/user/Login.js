@@ -142,7 +142,7 @@ function Login() {
                 </div>
                 <button
                   type="submit"
-                  class="btn btn-outline-dark"
+                  class="u-btn btn-outline-dark"
                 >
                   <Nav.Link
                     className="u-link1"
