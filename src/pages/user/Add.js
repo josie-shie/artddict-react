@@ -72,7 +72,7 @@ function User(props) {
   const display = (
     <>
       <header>
-        <div className="container-fluid">
+        <div className="u-container-fluid">
           <div className="logo-header">
             <img src={logo} alt="logo" />
           </div>
