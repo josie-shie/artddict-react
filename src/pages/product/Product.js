@@ -14,6 +14,7 @@ import homepic1 from './img/homepic1.jpeg'
 import homepic2 from './img/homepic2.png'
 import homepic3 from './img/homepic3.png'
 import homepic4 from './img/homepic4.png'
+import museumGif from './img/museumGif.gif'
 
 function Product() {
   return (
@@ -97,7 +98,22 @@ function Product() {
       {/* -----------------------首頁第一頁 以下第二頁 */}
       <div className="pro-outside2">
         <div className="row">
-          <div className="homepageB-left"></div>
+          <div className="homepageB-left">
+            <p className="pro-English homepageB-left-word">
+              TO DRAW, <br />
+              YOU MUST CLOSE <br /> YOUR EYES
+              <br /> AND SING
+              <br />
+              ——PABLO PICASSO
+            </p>
+            <div className="pro-gif">
+              <img
+                className="museumGif"
+                src={museumGif}
+                alt=""
+              />
+            </div>
+          </div>
           <div className="homepageB-right"> </div>
         </div>
       </div>
