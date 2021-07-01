@@ -1,0 +1,138 @@
+@font-face {
+    font-family: Engravers;
+    src: url(../../../style/font/ENGR.ttf);
+}
+
+@font-face {
+    font-family: EngraversBold;
+    src: url(../../../style/font/EngraversMTBold.ttf);
+}
+
+@font-face {
+    font-family: NotoSansTC-Medium;
+    src: url(../../../style/font/NotoSansTC-Medium.otf)
+}
+
+h1 {
+    font-family: NotoSansTC-Medium;
+}
+
+p {
+    font-family: NotoSansTC-Medium;
+}
+
+.English {
+    font-family: Engravers;
+}
+
+.test {
+    background-color: black;
+    width: calc(100vw - 70px);
+    height: 100vh;
+}
+
+.homepageA-left {
+    background-color: aqua;
+    height: 100vh;
+    width: 33vw;
+    margin-left: 8%;
+}
+
+.homepageA-right {
+    background-color: yellowgreen;
+    width: 53vw;
+    height: 100vh;
+    margin-left: 3%;
+}
+
+.ArtLogoDiv {
+    margin-top: 5%
+}
+
+.upLogoDiv {
+    margin-top: 5%;
+    transform: rotate(10deg);
+    width: 30vw;
+}
+
+.upLogo {
+    width: 100%;
+}
+
+.homepageA-word-div {
+    margin-top: 5%;
+}
+
+.homepageA-word {
+    font-size: 4.5rem;
+    color: #81FC4D;
+}
+
+.homepageA-wordB-div {
+    margin-top: 10%;
+}
+
+.homepageA-wordB {
+    line-height: 2em;
+    font-size: 1.4rem;
+    color: #81FC4D;
+}
+
+.homepageA-box {
+    border: none;
+    border-radius: 0;
+    background-color: #1D0Aff;
+    margin-top: 10%;
+    color: white;
+    text-align: center;
+    padding: 10px 50px;
+}
+
+.btn:hover {
+    color: white;
+}
+
+.homepageA-right-box {
+    background-color: yellow;
+    width: 52vw;
+    height: 80vh;
+    margin-top: 20%;
+    position: relative;
+}
+
+.homepageA-right-box-picA {
+    background-color: forestgreen;
+    width: 26vw;
+    height: 80vh;
+}
+
+.homepageA-right-box-picB {
+    background-color: blue;
+    width: 25vw;
+    height: 20vh;
+    margin-left: 3%
+}
+
+.homepageA-right-box-picC {
+    background-color: pink;
+    width: 17vh;
+    height: 17vh;
+    position: absolute;
+    left: 52.7%;
+    bottom: 0%;
+}
+
+.homepageA-right-box-picD {
+    background-color: grey;
+    width: 15vw;
+    height: 55vh;
+    position: absolute;
+    right: 0%;
+    bottom: 0%;
+}
+
+.try {
+    background-color: red;
+    width: 10vw;
+    height: 20vh;
+}
