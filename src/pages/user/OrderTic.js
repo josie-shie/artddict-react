@@ -56,14 +56,26 @@ function OrderTic() {
             <div className="bt col-2"></div>
           </div>
           <div className="tb d-flex justify-content-around mt-5">
-            <div className="orderId col-1 mt-4">訂單編號</div>
-            <div className="orderDate col-1 mt-4">訂單日期</div>
-            <div className="payType col-1 mt-4">付款狀態</div>
+            <div className="orderId col-1 mt-4">
+              訂單編號
+            </div>
+            <div className="orderDate col-1 mt-4">
+              訂單日期
+            </div>
+            <div className="payType col-1 mt-4">
+              付款狀態
+            </div>
             <div className="price col-1 mt-4">總價</div>
-            <div className="orderType col-1 mt-4">訂單狀態</div>
+            <div className="orderType col-1 mt-4">
+              訂單狀態
+            </div>
             <div className="bt col-2">
-              <button className="btn btn-dark">詳細資料</button>
-              <button className="btn btn-light">取消</button>
+              <button className="btn btn-dark">
+                詳細資料
+              </button>
+              <button className="btn btn-light">
+                取消
+              </button>
             </div>
           </div>
         </div>
