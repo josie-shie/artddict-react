@@ -246,7 +246,7 @@ function User(props) {
                     </div>
                   </div>
                 </div>
-                <div className="u-Btn1">
+                <div className="u-editBtn">
                   <button
                     type="submit"
                     onClick={() => {

@@ -142,7 +142,7 @@ function Login() {
                     </div>
                   </small>
                 </div>
-                <div className="u-Btn1">
+                <div className="u-editBtn">
                   <button
                     type="submit"
                     class="u-btn btn-outline-dark"
