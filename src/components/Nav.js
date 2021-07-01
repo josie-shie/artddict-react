@@ -37,7 +37,6 @@ const Nav = () => {
     $(burgerRef.current).addClass('open')
     $(xRef.current).css('top', '20px')
     $(zRef.current).css('top', '20px')
-    $('collapse').css('display', 'blocks')
     $('.menu li').addClass('animate')
     $(logoRef.current).addClass('animate')
 

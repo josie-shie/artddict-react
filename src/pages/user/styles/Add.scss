@@ -13,8 +13,16 @@
   src: url(../../../style/font/NotoSansTC-Medium.otf)
 }
 
+.u-body {
+  background-color: #e8e8e8;
+}
+
 .u-container-fluid {
-  margin-top: 30px;
+margin-left: 70px;
+}
+
+.u-contanier1 {
+  margin-left: 70px;
 }
 
 //----- Logo -----
@@ -88,7 +96,8 @@
 
 .u-container2 {
   margin-top: 84px;
-  margin-left: -120px;
+  margin-left: -75px;
+  
 }
 
 .u-member {
@@ -99,6 +108,7 @@
   font-family: EngraversBold;
   font-size: 46px;
   letter-spacing: 5px;
+  margin-left: -30px;
 }
 
 //----- 登入、註冊btn -----
@@ -149,6 +159,7 @@
 //----- icons -----
 
 .u-gf {
+  width: 520px;
   height: 80px;
   border-bottom: 2px solid #000;
   font-size: 60px;

@@ -281,6 +281,12 @@
     .box{
         padding-left: 50px;
     }
+
+    .tage{
+        position: absolute;
+        top:80px;
+        right:180px;
+    }
         
 
 

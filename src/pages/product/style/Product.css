@@ -175,13 +175,34 @@
     height: 100vh;
 }
 .homepageB-left{
-    background-color:aqua;
     height: 100vh;
     width: 44vw;
     margin-left: 8%;
+    position: relative;
+
 }
 .homepageB-right{
-    background-color:greenyellow;
+    background-color:rgb(129, 189, 39);
     height: 100vh;
     width: 44vw;
+}
+.pro-gif{
+    width: 25vw;
+    height: 60vh;
+    margin: 25% 13%  ;
+    overflow: hidden;
+}
+.museumGif{
+    height: 100%;
+    margin-left: -70%;
+    opacity: 0.6;
+}
+.homepageB-left-word{
+    color: #81FC4D;
+    /* font-size: 2rem; */
+    font-size: 2.5vw;
+    position:absolute;
+    top: 35%;
+    line-height: 140%;
+    z-index: 999;
 }

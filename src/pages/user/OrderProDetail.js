@@ -107,7 +107,7 @@ function OrderProDetail() {
             </Card.Header>
 
             <Accordion.Collapse
-              className="u-collapse1"
+              className="u-collapse"
               eventKey="0"
             >
               <Card.Body className="u-CardBody">

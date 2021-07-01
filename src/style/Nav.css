@@ -63,11 +63,6 @@
     div.x{top: 0;}
     div.y{top: 18px;}
     div.z{top: 37px;}
-    
-    div.collapse{
-        top: 20px;
-        background:#81FC4D;
-    }
 
     div.rotate30{
     -ms-transform: rotate(30deg); 
