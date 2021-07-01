@@ -137,7 +137,9 @@ function Login() {
                 </div>
                 <div>
                   <small>
-                    <a href="#/">忘記密碼？</a>
+                    <div className="u-forgetPwd">
+                      <a href="#/">忘記密碼？</a>
+                    </div>
                   </small>
                 </div>
                 <button

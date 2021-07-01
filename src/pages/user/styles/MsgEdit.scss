@@ -1,45 +1,9 @@
-.u-body {
-    background-color: #e8e8e8;
-}
-
-
-// ----- Logo -----
-
-// .u-logo-header{
-//     width: 1045px;
-//     border-bottom: 2px solid #000;
-// }
-
-// .u-logo-header > img {
-//     width: 190px;
-//     padding-bottom: 20px;
-// }
-
-// .item{
-//      margin-top: 70px;
-// }
-
-/* =====btn 自訂顏色===== */
-
-.btn-outline-dark {
-    margin-left: 190px;
-    width: 130px;
-    height: 50px;
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: 20px;
-    color: #000;
-    background-color: #e8e8e8;
-    border-color: #000;
-}
-
-.btn-outline-dark:hover, .btn-outline-dark:focus, .btn-outline-dark:active:hover{
-    color: #fff;
-    background-color: #000;
-    border-color: #000;
+// ===== Menu =====
+.u-userMenu{
+    margin-left: 70px;
 }
 
 // ----- 大標 -----
-
 .u-row {
     margin-top:30px;
     width: 1045px;
@@ -61,8 +25,6 @@
     background-color: #000;
 }
 
-
-
 .u-userPwd1 > a{
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 30px;
@@ -81,82 +43,66 @@
     text-decoration: none;
 }
 
+
+/* =====btn 自訂顏色===== */
+.btn-outline-dark {
+    margin-left: 190px;
+    width: 130px;
+    height: 50px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 20px;
+    color: #000;
+    background-color: #e8e8e8;
+    border-color: #000;
+}
+
+.btn-outline-dark:hover, .btn-outline-dark:focus, .btn-outline-dark:active:hover{
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+}
+
 // ----- input 樣式 -----
+.u-form1 > input {
+    width: 520px;
+    height: 60px;
+    background-color: #e8e8e8;
+    border: 2px solid #000;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;
+    margin-top: 5px;
+  }
 
-// .form-control {
-//     width: 475px;
-//     height: 60px;
-//     border: 2px solid #000;
-//     background-color: #e8e8e8;
-//     font-size: 16px;
-// }
+.u-form1 > select {
+    width: 520px;
+    height: 60px;
+    background-color: #e8e8e8;
+    border: 2px solid #000;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 16px;
+    border-radius: 3px;
+}
 
-label {
+.u-form1 > label {
     font-family: 'Noto Sans TC';
     font-size: 18px;
+    margin-top: 10px;
 }
 
-/* ===== checkbox自訂義 ===== */
-
-// input[type=checkbox] {
-//     margin-right: 5px;
-//     cursor: pointer;
-//     font-size: 14px;
-//     width: 25px;
-//     height: 25px;
-//     position: relative;
-//     margin-left: 90px;
-//     margin-top: 0px;
-// }
-
-// input[type=checkbox]:after {
-//     position: absolute;
-//     width: 25px;
-//     height: 25px;
-//     top: 0;
-//     content: " ";
-//     background-color: #e8e8e8;
-//     border: 2px solid #000;
-//     color: #fff;
-//     display: inline-block;
-//     visibility: visible;
-//     padding: 0px 3px;
-//     border-radius: 3px;
-// }
-
-// input[type=checkbox]:checked:after {
-//     background-color: #000;
-//     content: "✓";
-//     font-size: 18px;   
-// }
-
-// .u-userData {
-//     margin-left: 270px;
-// }
-
-.form-group {
-    margin-top: 20px;
+.u-userData {
+    margin-left: 370px;
 }
-
-// .editBtn {
-//     margin-left: 20px;
-//     margin-top: 70px;
-//     margin-left: 160px;
-// }
 
 .u-Select > select {
     width: 250px;
     height: 60px;
+    border-radius: 3px;
     background-color: #e8e8e8;
     border: 2px solid #000;
     margin-bottom: 20px;
-}
-
-.u-gender1 {
-    margin-right: -30px;
+    margin-top: 5px;
 }
 
 .u-sel2 {
     margin-left: 20px;
 }
-

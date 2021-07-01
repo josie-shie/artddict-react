@@ -10,7 +10,7 @@
 
 @font-face {
   font-family: NotoSansTC-Medium;
-  src: url(../../../style/font/NotoSansTC-Medium.otf)
+  src: url(../../../style/font/NotoSansTC-Medium.otf);
 }
 
 .u-body {
@@ -18,7 +18,7 @@
 }
 
 .u-container-fluid {
-margin-left: 70px;
+  margin-left: 70px;
 }
 
 .u-contanier1 {
@@ -28,7 +28,7 @@ margin-left: 70px;
 //----- Logo -----
 
 .u-logo-header {
-  width: 1100px;
+  width: 1045px;
   border-bottom: 2px solid #000;
 }
 
@@ -97,7 +97,6 @@ margin-left: 70px;
 .u-container2 {
   margin-top: 84px;
   margin-left: -75px;
-  
 }
 
 .u-member {
@@ -134,10 +133,6 @@ margin-left: 70px;
   color: #000;
   text-decoration: none;
 }
-
-// .loginbtn > a:hover {
-//     color: #1D0AFF;
-// }
 
 .u-addbtn1 {
   margin-top: 10px;
@@ -176,7 +171,7 @@ margin-left: 70px;
 //----- input 樣式 -----
 
 .u-form > input {
-  margin-top: 30px;
+  margin-top: 20px;
   width: 520px;
   height: 60px;
   background-color: #e8e8e8;
@@ -185,45 +180,50 @@ margin-left: 70px;
   font-size: 16px;
 }
 
+// ===== checkbox 樣式 =====
 
+.u-checkbox > input[type='checkbox'] {
+  margin-right: 15px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 15px;
+  height: 12px;
+  position: relative;
+}
 
-/* ===== checkbox自訂義 ===== */
+.u-checkbox > input[type='checkbox']:after {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  top: 0;
+  content: ' ';
+  background-color: #e8e8e8;
+  color: #fff;
+  display: inline-block;
+  visibility: visible;
+  padding: 0px 3px;
+  border-radius: 3px;
+  border: 2px solid #000;
+}
 
-// input[type='checkbox'] {
-//   margin-right: 5px;
-//   cursor: pointer;
-//   font-size: 14px;
-//   width: 25px;
-//   height: 25px;
-//   position: relative;
-// }
+.u-checkbox > input[type='checkbox']:checked:after {
+  content: '✓';
+  font-size: 18px;
+  background-color: #000;
+}
 
-// input[type='checkbox']:after {
-//   position: absolute;
-//   width: 25px;
-//   height: 25px;
-//   top: 0;
-//   content: ' ';
-//   background-color: #e8e8e8;
-//   border: 2px solid #000;
-//   color: #fff;
-//   display: inline-block;
-//   visibility: visible;
-//   padding: 2px 3px;
-//   border-radius: 3px;
-// }
+.u-ckb {
+  margin-left: 130px;
+}
+.u-ck2 {
+  margin-top: 8px;
+}
 
-// input[type='checkbox']:checked:after {
-//   background-color: #000;
-//   content: '✓';
-//   font-size: 20px;
-// }
+// ----- label 文字 -----
 
-// ----- checkbox 文字 -----
-
-.form-check-label {
+.u-checkbox > label {
   font-family: 'Noto Sans TC', sans-serif;
-  font-size: 16px;
+  font-size: 14px;
 }
 
 /* =====btn 自訂顏色===== */

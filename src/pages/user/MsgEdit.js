@@ -33,9 +33,9 @@ function MsgEdits() {
             </div>
           </div>
         </div>
-        <div className="u-userData col-12">
+        <div className="u-userData">
           <form>
-            <div className="form-group">
+            <div className="form-group u-form1">
               <label for="username">帳號</label>
               <input
                 type="email"
@@ -43,7 +43,7 @@ function MsgEdits() {
                 id="username"
               />
             </div>
-            <div className="form-group">
+            <div className="form-group u-form1">
               <label for="name">姓名</label>
               <input
                 type="text"
@@ -51,7 +51,7 @@ function MsgEdits() {
                 id="name"
               />
             </div>
-            <div className="form-group">
+            <div className="form-group u-form1">
               <label for="tel">手機</label>
               <input
                 type="tel"
@@ -59,28 +59,17 @@ function MsgEdits() {
                 id="tel"
               />
             </div>
-            <div className="form-group d-flex">
+            <div className="form-group u-form1">
               <label for="gender">性別</label>
-              <input
-                type="checkbox"
-                className="fform-check-input"
-                id="gender"
-              />
-              <label className="gender1">先生</label>
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="gender"
-              />
-              <label className="u-gender1">小姐</label>
-              <input
-                type="checkbox"
-                className="form-check-input"
-                id="gender"
-              />
-              <label className="gender1">不提供</label>
+              <br />
+              <select>
+                <option></option>
+                <option>男</option>
+                <option>女</option>
+                <option>不提供</option>
+              </select>
             </div>
-            <div className="form-group">
+            <div className="form-group u-form1">
               <label for="birthday">生日</label>
               <input
                 type="date"
@@ -88,7 +77,7 @@ function MsgEdits() {
                 id="birthday"
               />
             </div>
-            <div className="form-group">
+            <div className="form-group u-form1">
               <label for="address">住址</label>
               <br />
               <div className="u-Select">

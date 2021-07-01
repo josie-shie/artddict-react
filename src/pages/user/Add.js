@@ -216,31 +216,35 @@ function User(props) {
                     placeholder="請再次輸入密碼"
                   />
                 </div>
-                <div className="form-group form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="check1"
-                  />
-                  <label
-                    className="form-check-label"
-                    for="check1"
-                  >
-                    我同意使用者條款與隱私權聲明政策
-                  </label>
-                </div>
-                <div className="form-group form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="check2"
-                  />
-                  <label
-                    className="form-check-label"
-                    for="check2"
-                  >
-                    我願意收到ArtDDICT電子報與活動訊息
-                  </label>
+                <div className="form-group u-ckb">
+                  <div className="u-checkbox">
+                    <input
+                      type="checkbox"
+                      className="form-check-input u-ck1"
+                      id="check1"
+                    />
+                    <label
+                      className="form-check-label"
+                      for="check1"
+                    >
+                      我同意使用者條款與隱私權聲明政策
+                    </label>
+                  </div>
+                  <div className="u-ck2 ">
+                    <div className="u-checkbox">
+                      <input
+                        type="checkbox"
+                        className="form-check-input u-ck2"
+                        id="check2"
+                      />
+                      <label
+                        className="form-check-label"
+                        for="check2"
+                      >
+                        我願意收到ArtDDICT電子報與活動訊息
+                      </label>
+                    </div>
+                  </div>
                 </div>
                 <button
                   type="submit"
