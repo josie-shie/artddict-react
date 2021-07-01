@@ -1,0 +1,260 @@
+// body {
+//   margin-top: 30px;
+//   margin-left: 70px;
+//   margin-right: 70px;
+//   background-color: #e8e8e8;
+// }
+
+//----- Logo -----
+
+.logo-header {
+  width: 1045px;
+  border-bottom: 2px solid #000;
+}
+
+.logo-header > img {
+  width: 190px;
+  padding-bottom: 20px;
+}
+
+//----- carousel -----
+
+.img-carousel {
+  position: relative;
+  margin-top: 90px;
+  width: 450px;
+  margin-left: 5px;
+  z-index: 0;
+}
+
+.title01 {
+  width: 152px;
+  height: 46px;
+  background-color: #000;
+  padding-bottom: 10px;
+  position: absolute;
+  top: 530px;
+}
+
+.title01 > span {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 36px;
+  color: #81fc4d;
+}
+
+.title02 {
+  width: 378px;
+  height: 45px;
+  position: absolute;
+  background-color: #81fc4d;
+  top: 594px;
+  left: 50px;
+}
+
+.title02 > span {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 36px;
+  color: #000;
+}
+
+.title03 {
+  width: 260px;
+  height: 45px;
+  background-color: #81fc4d;
+  position: absolute;
+  top: 658px;
+  left: 210px;
+}
+
+.title03 > span {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 36px;
+  color: #000;
+}
+
+// ----- form 表單 -----
+
+.container2 {
+  margin-top: 76px;
+  margin-left: -30px;
+}
+
+.member {
+  text-align: center;
+}
+
+.member > h1 {
+  font-family: 'Saira Stencil One', cursive;
+  font-size: 58px;
+  letter-spacing: 5px;
+}
+
+//----- 登入、註冊btn -----
+
+.addbutton {
+  width: 520px;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+
+.loginbtn1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+  height: 70px;
+  text-align: center;
+  line-height: 55px;
+}
+
+.loginbtn1 > a {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 30px;
+  color: #000;
+  text-decoration: none;
+}
+
+// .loginbtn > a:hover {
+//     color: #1D0AFF;
+// }
+
+.addbtn1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 200px;
+  height: 70px;
+  background-color: #000;
+  text-align: center;
+  line-height: 55px;
+}
+
+.addbtn1 > a {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 30px;
+  color: #fff;
+  text-decoration: none;
+}
+
+//----- icons -----
+
+.gf {
+  border-bottom: 2px solid #000;
+  font-size: 60px;
+}
+
+.g {
+  padding-right: 20px;
+}
+
+.f {
+  padding-left: 20px;
+}
+
+//----- input 樣式 -----
+
+.form1 {
+  margin-top: 30px;
+  width: 520px;
+  height: 60px;
+  background-color: #e8e8e8;
+  border: 2px solid #000;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 16px;
+}
+
+/* ===== checkbox自訂義 ===== */
+
+input[type='checkbox'] {
+  margin-right: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 25px;
+  height: 25px;
+  position: relative;
+}
+
+input[type='checkbox']:after {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 0;
+  content: ' ';
+  background-color: #e8e8e8;
+  border: 2px solid #000;
+  color: #fff;
+  display: inline-block;
+  visibility: visible;
+  padding: 0px 3px;
+  border-radius: 3px;
+}
+
+input[type='checkbox']:checked:after {
+  background-color: #000;
+  content: '✓';
+  font-size: 18px;
+}
+
+// ----- checkbox 文字 -----
+
+.form-check-label {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 16px;
+}
+
+/* =====btn 自訂顏色===== */
+
+.btn-outline-dark {
+  margin-top: 30px;
+  width: 200px;
+  height: 60px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 24px;
+  margin-left: 150px;
+  color: #000;
+  background-color: #e8e8e8;
+  border-color: #000;
+}
+
+.btn-outline-dark:hover,
+.btn-outline-dark:focus,
+.btn-outline-dark:active:hover {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+
+/* .btn {
+    margin-top: 30px;
+    width: 200px;
+    height: 60px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 24px;
+     margin-left: 150px;
+} */
+
+/*===== onClick =====*/
+/* .loginbtn {
+    width: 200px;
+    height: 70px;
+    margin-top: 13px;
+    background-color: #000;
+    text-align: center;
+    line-height:70px;
+} */
+
+/* .addbtn {
+    width: 200px;
+    height: 70px;
+    margin-top: 13px;
+    background-color: #000;
+    text-align: center;
+    line-height:70px;
+} */
+
+.u-link1{
+  margin-top: -4px;
+  color: #000;
+}
+
+.u-link1:hover{
+  color: #fff;
+}
