@@ -16,6 +16,7 @@ import Add from './pages/user/Add'
 import Login from './pages/user/Login'
 import MsgEdit from './pages/user/MsgEdit'
 import PwdEdit from './pages/user/PwdEdit'
+import OrderPro from './pages/user/OrderPro'
 // import Oction from './pages/oction/Oction'
 
 function App() {
@@ -42,6 +43,9 @@ function App() {
             </Route>
             <Route exact path="/user-pwdedit">
               <PwdEdit />
+            </Route>
+            <Route exact path="/user-orderpro">
+              <OrderPro />
             </Route>
             {/* <Route exact path="/cart">
               <Cart />

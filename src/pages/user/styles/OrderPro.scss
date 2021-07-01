@@ -1,15 +1,5 @@
-// .u-logo-header{
-//     width: 1045px;
-//     border-bottom: 2px solid #000;
-// }
 
-// .u-logo-header > img {
-//     width: 190px;
-//     padding-bottom: 20px;
-// }
-
-/* ----- 大Item  ----- */
-
+/* ----- 大標 ----- */
 .u-orderItem {
     margin-top:30px;
     width: 1045px;
@@ -50,7 +40,6 @@
     margin-top: 20px;
     height: 60px;
     background-color: #e8e8e8;
-    
 }
 
 .u-progressText {
@@ -113,7 +102,7 @@
 }
 
 /* ----- 取消 btn ----- */
-.u-btn-light {
+.u-Lbtn > .btn-light {
     margin-bottom: 20px;
     width: 150px;
     height: 50px;
@@ -126,9 +115,9 @@
     top: 40px;
 }
 
-.u-btn-light:hover,
-.u-btn-light:focus,
-.u-btn-light:active:hover {
+.u-Lbtn > .btn-light:hover,
+.u-Lbtn > .btn-light:focus,
+.u-Lbtn > .btn-light:active:hover {
     color: #000;
     background-color: #e8e8e8;
     border-color: #000;
@@ -136,7 +125,7 @@
 
 /* ----- 詳細資料 btn ----- */
 
-.u-btn-dark {
+.u-Bbtn > .btn-dark {
     width: 150px;
     height: 50px;
     font-family: 'Noto Sans TC', sans-serif;
@@ -146,13 +135,21 @@
     background-color: #000;
     border-color: #000;
     position: absolute;
-    bottom: 10px;
+    bottom: 0px;
     }
 
-.u-btn-dark:hover,
-.u-btn-dark:focus,
-.u-btn-dark:active:hover {
+.u-Bbtn > .btn-dark:hover,
+.u-Bbtn > .btn-dark:focus,
+.u-Bbtn > .btn-dark:active:hover {
     color: #fff;
     background-color: #000;
     border-color: #000;
+}
+
+.u-link {
+    color: #fff;
+}
+
+.u-link:hover {
+    color: #fff;
 }
