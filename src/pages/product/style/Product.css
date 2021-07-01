@@ -199,7 +199,8 @@
 }
 .homepageB-left-word{
     color: #81FC4D;
-    font-size: 2rem;
+    /* font-size: 2rem; */
+    font-size: 2.5vw;
     position:absolute;
     top: 35%;
     line-height: 140%;
