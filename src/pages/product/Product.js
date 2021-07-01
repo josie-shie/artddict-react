@@ -7,6 +7,8 @@ import { CgArrowLongRightL, CgPacman } from 'react-icons/cg'
 import { BsThreeDots } from 'react-icons/bs'
 
 import logo from './svg/logo.svg'
+import arddictCircleG from './svg/arddictCircleG.svg'
+import arddictEyeG from './svg/arddictEyeG.svg'
 import upLogo from './img/upLogo.png'
 import homepic1 from './img/homepic1.jpeg'
 import homepic2 from './img/homepic2.png'
@@ -78,6 +80,16 @@ function Product() {
             </div>
           </div>
         </div>
+        <img
+          className="arddictCircleG"
+          src={arddictCircleG}
+          alt=""
+        />
+        <img
+          className="arddictEyeG"
+          src={arddictEyeG}
+          alt=""
+        />
       </div>
     </>
   )

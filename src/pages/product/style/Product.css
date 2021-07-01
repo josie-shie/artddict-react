@@ -96,7 +96,7 @@ p {
     /* background-color: yellow; */
     width: 52vw;
     height: 80vh;
-    margin-top: 18%;
+    margin-top: 13%;
     position: relative;
 }
 
@@ -157,6 +157,16 @@ p {
     height: 150%;
     margin-left: -70%;
     margin-top: -40%;
-
-
+}
+.arddictCircleG{
+    width: 25%;
+    position: absolute;
+    top: 30%;
+    left: 60%;
+}
+.arddictEyeG{
+    width: 20%;
+    position: absolute;
+    top: 40%;
+    left: 62.5%;
 }
