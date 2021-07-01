@@ -16,7 +16,8 @@ import Add from './pages/user/Add'
 import Login from './pages/user/Login'
 import MsgEdit from './pages/user/MsgEdit'
 import PwdEdit from './pages/user/PwdEdit'
-// import Oction from './pages/oction/Oction'
+import AuctionDetail from './pages/Auction/AuctionDetail'
+import Auction from './pages/Auction/Auction'
 
 function App() {
   return (
@@ -25,9 +26,12 @@ function App() {
         <Nav />
         <ScrollToTop>
           <Switch>
-            {/* <Route exact path="/auction">
+          <Route exact path="/auctionDetail">
+              <AuctionDetail />
+            </Route>
+            <Route exact path="/auction">
               <Auction />
-            </Route> */}
+            </Route>
             <Route exact path="/product">
               <Product />
             </Route>
