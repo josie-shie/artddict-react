@@ -82,23 +82,23 @@
 
 
 /* ===== 折疊 ===== */
-.Card {
+.u-Card {
     width: 1044px;
     background-color: #e8e8e8;
     border: #e8e8e8;
     // position: relative;
 }
 
-.CardHeader {
+.u-CardHeader {
     background-color: #e8e8e8;
 }
 
-.collapse1 {
+.u-collapse1 {
   border: 2px solid #707070;
 }
 
 // ===== 前往評價 btn =====
-.goEVAL {
+.u-goEVAL {
     width: 150px;
     height: 43px;
     border: 2px solid #000;
@@ -110,7 +110,7 @@
     // z-index: 1000px;
 }
 
-.goEVAL > a {
+.u-goEVAL > a {
     color: #000;
 }
 
