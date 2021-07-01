@@ -1,0 +1,159 @@
+// body {
+//     margin-top: 30px;
+//     margin-left: 70px;
+//     margin-right:70px;
+//     background-color:  #e8e8e8;
+// }
+
+
+// ----- Logo -----
+
+.logo-header{
+    width: 1045px;
+    border-bottom: 2px solid #000;
+}
+
+.logo-header > img {
+    width: 190px;
+    padding-bottom: 20px;
+}
+
+// .item{
+//      margin-top: 70px;
+// }
+
+/* =====btn 自訂顏色===== */
+
+.btn-outline-dark {
+    margin-left: 190px;
+    width: 130px;
+    height: 50px;
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 20px;
+    color: #000;
+    background-color: #e8e8e8;
+    border-color: #000;
+}
+
+.btn-outline-dark:hover, .btn-outline-dark:focus, .btn-outline-dark:active:hover{
+    color: #fff;
+    background-color: #000;
+    border-color: #000;
+}
+
+// ----- 大標 -----
+
+.row {
+    margin-top:30px;
+    width: 1045px;
+    margin-left: 0px;
+    border-top: 2px solid #000;
+    border-bottom: 2px solid #000;
+}
+
+.userMsg1, .userPwd1 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 480px;
+    height: 70px;
+    text-align: center;
+    line-height: 60px;
+}
+
+.userPwd1 > a{
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 30px;
+    color:#000;
+    text-decoration: none;
+}
+
+.userMsg1 {
+    background-color: #000;
+}
+
+.userMsg1 > a { 
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 30px;
+    color: #fff;
+    text-decoration: none;
+}
+
+// ----- input 樣式 -----
+
+// .form-control {
+//     width: 475px;
+//     height: 60px;
+//     border: 2px solid #000;
+//     background-color: #e8e8e8;
+//     font-size: 16px;
+// }
+
+label {
+    font-family: 'Noto Sans TC';
+    font-size: 18px;
+}
+
+/* ===== checkbox自訂義 ===== */
+
+input[type=checkbox] {
+    margin-right: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    margin-left: 90px;
+    margin-top: 0px;
+}
+
+input[type=checkbox]:after {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    top: 0;
+    content: " ";
+    background-color: #e8e8e8;
+    border: 2px solid #000;
+    color: #fff;
+    display: inline-block;
+    visibility: visible;
+    padding: 0px 3px;
+    border-radius: 3px;
+}
+
+input[type=checkbox]:checked:after {
+    background-color: #000;
+    content: "✓";
+    font-size: 18px;   
+}
+
+.userData {
+    margin-left: 270px;
+}
+
+.form-group {
+    margin-top: 20px;
+}
+
+// .editBtn {
+//     margin-left: 20px;
+//     margin-top: 70px;
+//     margin-left: 160px;
+// }
+
+select {
+    width: 250px;
+    height: 60px;
+    background-color: #e8e8e8;
+    border: 2px solid #000;
+    margin-bottom: 20px;
+}
+
+.gender1 {
+    margin-right: -30px;
+}
+
+.sel2 {
+    margin-left: 20px;
+}
+
