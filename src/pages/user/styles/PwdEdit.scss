@@ -2,12 +2,12 @@
 
 // ----- Logo -----
 
-.logo-header {
+.u-logo-header {
   width: 1045px;
   border-bottom: 2px solid #000;
 }
 
-.logo-header > img {
+.u-logo-header > img {
   width: 190px;
   padding-bottom: 20px;
 }
@@ -18,7 +18,7 @@
 
 /* =====btn 自訂顏色===== */
 
-.btn-outline-dark {
+.u-btn-outline-dark {
   margin-left: 190px;
   width: 130px;
   height: 50px;
@@ -29,9 +29,9 @@
   border-color: #000;
 }
 
-.btn-outline-dark:hover,
-.btn-outline-dark:focus,
-.btn-outline-dark:active:hover {
+.u-btn-outline-dark:hover,
+.u-btn-outline-dark:focus,
+.u-btn-outline-dark:active:hover {
   color: #fff;
   background-color: #000;
   border-color: #000;
@@ -39,7 +39,7 @@
 
 // ----- 大標 -----
 
-.row {
+.u-row {
   margin-top: 30px;
   width: 1045px;
   margin-left: 0px;
@@ -47,8 +47,8 @@
   border-bottom: 2px solid #000;
 }
 
-.userMsg,
-.userPwd {
+.u-userMsg,
+.u-userPwd {
   margin-top: 10px;
   margin-bottom: 10px;
   width: 480px;
@@ -57,18 +57,18 @@
   line-height: 60px;
 }
 
-.userPwd > a {
+.u-userPwd > a {
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 30px;
   color: #fff;
   text-decoration: none;
 }
 
-.userPwd {
+.u-userPwd {
   background-color: #000;
 }
 
-.userMsg > a {
+.u-userMsg > a {
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 30px;
   color: #000;
@@ -90,7 +90,7 @@
 //     font-size: 18px;
 // }
 
-.pwdData {
+.u-pwdData {
   margin-top: 50px;
   margin-left: 270px;
 }

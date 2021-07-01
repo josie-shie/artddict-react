@@ -13,23 +13,25 @@
   src: url(../../../style/font/NotoSansTC-Medium.otf)
 }
 
-
+.u-container-fluid {
+  margin-top: 30px;
+}
 
 //----- Logo -----
 
-.logo-header {
+.u-logo-header {
   width: 1100px;
   border-bottom: 2px solid #000;
 }
 
-.logo-header > img {
+.u-logo-header > img {
   width: 190px;
   padding-bottom: 20px;
 }
 
 //----- carousel -----
 
-.img-carousel {
+.u-img-carousel {
   position: relative;
   margin-top: 90px;
   width: 450px;
@@ -37,7 +39,7 @@
   z-index: 0;
 }
 
-.title01 {
+.u-title01 {
   width: 152px;
   height: 44px;
   background-color: #000;
@@ -46,13 +48,13 @@
   top: 530px;
 }
 
-.title01 > span {
+.u-title01 > span {
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 36px;
   color: #81fc4d;
 }
 
-.title02 {
+.u-title02 {
   width: 378px;
   height: 43px;
   position: absolute;
@@ -61,13 +63,13 @@
   left: 50px;
 }
 
-.title02 > span {
+.u-title02 > span {
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 36px;
   color: #000;
 }
 
-.title03 {
+.u-title03 {
   width: 260px;
   height: 43px;
   background-color: #81fc4d;
@@ -76,7 +78,7 @@
   left: 235px;
 }
 
-.title03 > span {
+.u-title03 > span {
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 36px;
   color: #000;
@@ -84,16 +86,16 @@
 
 // ----- form 表單 -----
 
-.container2 {
+.u-container2 {
   margin-top: 84px;
   margin-left: -120px;
 }
 
-.member {
+.u-member {
   text-align: center;
 }
 
-.member > h1 {
+.u-member > h1 {
   font-family: EngraversBold;
   font-size: 46px;
   letter-spacing: 5px;
@@ -101,13 +103,13 @@
 
 //----- 登入、註冊btn -----
 
-.addbutton {
+.u-addbutton {
   width: 520px;
   border-top: 2px solid #000;
   border-bottom: 2px solid #000;
 }
 
-.loginbtn1 {
+.u-loginbtn1 {
   margin-top: 10px;
   margin-bottom: 10px;
   width: 200px;
@@ -116,7 +118,7 @@
   line-height: 55px;
 }
 
-.loginbtn1 > a {
+.u-loginbtn1 > a {
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 30px;
   color: #000;
@@ -127,7 +129,7 @@
 //     color: #1D0AFF;
 // }
 
-.addbtn1 {
+.u-addbtn1 {
   margin-top: 10px;
   margin-bottom: 10px;
   width: 200px;
@@ -137,7 +139,7 @@
   line-height: 55px;
 }
 
-.addbtn1 > a {
+.u-addbtn1 > a {
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 30px;
   color: #fff;
@@ -146,17 +148,17 @@
 
 //----- icons -----
 
-.gf {
+.u-gf {
   height: 80px;
   border-bottom: 2px solid #000;
   font-size: 60px;
 }
 
-.g {
+.u-g {
   padding-right: 20px;
 }
 
-.f {
+.u-f {
   padding-left: 20px;
 }
 

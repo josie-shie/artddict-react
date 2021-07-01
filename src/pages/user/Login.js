@@ -21,15 +21,15 @@ function Login() {
   return (
     <>
       <header>
-        <div className="container-fluid">
-          <div className="logo-header">
+        <div className="u-container-fluid">
+          <div className="u-logo-header">
             <img src={logo} alt="logo" />
           </div>
         </div>
       </header>
       <div className="d-flex">
-        <div className="contanier1 col-lg-6 d-none d-lg-block d-xl-block">
-          <div className="img-carousel">
+        <div className="u-contanier1 col-lg-6 d-none d-lg-block d-xl-block">
+          <div className="u-img-carousel">
             <Carousel
               fade
               controls={false}
@@ -79,39 +79,39 @@ function Login() {
               </Carousel.Item>
             </Carousel>
           </div>
-          <div className="title01">
+          <div className="u-title01">
             <span>加入會員</span>
           </div>
-          <div className="title02">
+          <div className="u-title02">
             <span>精選好物盡在ArtDDICT</span>
           </div>
-          <div className="title03">
+          <div className="u-title03">
             <span>藝文活動搶先知</span>
           </div>
         </div>
 
-        <div className="container2">
-          <div className="member">
+        <div className="u-container2">
+          <div className="u-member">
             <h1>MEMBERSHIP</h1>
           </div>
-          <div className="addInput">
-            <div className="addbutton d-flex justify-content-around">
-              <div className="loginbtn">
+          <div className="u-addInput">
+            <div className="u-addbutton d-flex justify-content-around">
+              <div className="u-loginbtn">
                 <Nav.Link as={Link} to="/user-login">
                   登入
                 </Nav.Link>
               </div>
-              <div className="addbtn">
+              <div className="u-addbtn">
                 <Nav.Link as={Link} to="/user-add">
                   註冊
                 </Nav.Link>
               </div>
             </div>
-            <div className="gf d-flex justify-content-center">
-              <div className="g">
+            <div className="u-gf d-flex justify-content-center">
+              <div className="u-g">
                 <AiFillGoogleCircle />
               </div>
-              <div className="f">
+              <div className="u-f">
                 <RiFacebookCircleFill />
               </div>
             </div>

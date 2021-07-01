@@ -1,16 +1,16 @@
-.logo-header{
+.u-logo-header{
     width: 1045px;
     border-bottom: 2px solid #000;
 }
 
-.logo-header > img {
+.u-logo-header > img {
     width: 190px;
     padding-bottom: 20px;
 }
 
 /* ----- 大Item  ----- */
 
-.orderItem {
+.u-orderItem {
     margin-top:30px;
     width: 1045px;
     margin-left: 0px;
@@ -18,7 +18,7 @@
     border-bottom: 2px solid #000;
 }
 
-.userPro, .userTic {
+.u-userPro, .u-userTic {
     margin-top: 10px;
     margin-bottom: 10px;
     width: 480px;
@@ -27,18 +27,18 @@
     line-height: 60px;
 }
 
-.userTic > a{
+.u-userTic > a{
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 30px;
     color:#000;
     text-decoration: none;
 }
 
-.userPro {
+.u-userPro {
     background-color: #000;
 }
 
-.userPro > a { 
+.u-userPro > a { 
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 30px;
     color: #fff;
@@ -46,14 +46,14 @@
 }
 
 /* ----- 進度查詢 ----- */
-.progress {
+.u-progress {
     margin-top: 20px;
     height: 60px;
     background-color: #e8e8e8;
     
 }
 
-.progressText {
+.u-progressText {
     width: 70px;
     height: 50px;
     border: 2px solid #000;
@@ -61,12 +61,12 @@
     line-height: 50px; 
 }
 
-.progressText > p {
+.u-progressText > p {
     margin-left: 5px;
 }
 
 /* ----- select 箭頭樣式 ----- */
-.progressSelect > select {
+.u-progressSelect > select {
     padding-left: 5px;
     padding-top: 1px;
     width: 90px;
@@ -99,13 +99,13 @@
 // }   
 
 /* ----- 訂單 ----- */
-.table {
+.u-table {
     width: 1044px;
     height: 195px;
     border: 2px solid #707070;
 }
 
-.th {
+.u-th {
     background-color: #707070;
     color: #fff;
     height: 50px;
@@ -113,7 +113,7 @@
 }
 
 /* ----- 取消 btn ----- */
-.btn-light {
+.u-btn-light {
     margin-bottom: 20px;
     width: 150px;
     height: 50px;
@@ -126,9 +126,9 @@
     top: 40px;
 }
 
-.btn-light:hover,
-.btn-light:focus,
-.btn-light:active:hover {
+.u-btn-light:hover,
+.u-btn-light:focus,
+.u-btn-light:active:hover {
     color: #000;
     background-color: #e8e8e8;
     border-color: #000;
@@ -136,7 +136,7 @@
 
 /* ----- 詳細資料 btn ----- */
 
-.btn-dark {
+.u-btn-dark {
     width: 150px;
     height: 50px;
     font-family: 'Noto Sans TC', sans-serif;
@@ -149,9 +149,9 @@
     bottom: 10px;
     }
 
-.btn-dark:hover,
-.btn-dark:focus,
-.btn-dark:active:hover {
+.u-btn-dark:hover,
+.u-btn-dark:focus,
+.u-btn-dark:active:hover {
     color: #fff;
     background-color: #000;
     border-color: #000;

@@ -3,12 +3,12 @@
 
 // ----- Logo -----
 
-.logo-header{
+.u-logo-header{
     width: 1045px;
     border-bottom: 2px solid #000;
 }
 
-.logo-header > img {
+.u-logo-header > img {
     width: 190px;
     padding-bottom: 20px;
 }
@@ -38,7 +38,7 @@
 
 // ----- 大標 -----
 
-.row {
+.u-row {
     margin-top:30px;
     width: 1045px;
     margin-left: 0px;
@@ -46,7 +46,7 @@
     border-bottom: 2px solid #000;
 }
 
-.userMsg1, .userPwd1 {
+.u-userMsg1, .u-userPwd1 {
     margin-top: 10px;
     margin-bottom: 10px;
     width: 480px;
@@ -55,7 +55,7 @@
     line-height: 60px;
 }
 
-.userPwd1 > a{
+.u-userPwd1 > a{
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 30px;
     color:#000;
@@ -66,7 +66,7 @@
     background-color: #000;
 }
 
-.userMsg1 > a { 
+.u-userMsg1 > a { 
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 30px;
     color: #fff;
@@ -90,39 +90,39 @@ label {
 
 /* ===== checkbox自訂義 ===== */
 
-input[type=checkbox] {
-    margin-right: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    width: 25px;
-    height: 25px;
-    position: relative;
-    margin-left: 90px;
-    margin-top: 0px;
-}
+// input[type=checkbox] {
+//     margin-right: 5px;
+//     cursor: pointer;
+//     font-size: 14px;
+//     width: 25px;
+//     height: 25px;
+//     position: relative;
+//     margin-left: 90px;
+//     margin-top: 0px;
+// }
 
-input[type=checkbox]:after {
-    position: absolute;
-    width: 25px;
-    height: 25px;
-    top: 0;
-    content: " ";
-    background-color: #e8e8e8;
-    border: 2px solid #000;
-    color: #fff;
-    display: inline-block;
-    visibility: visible;
-    padding: 0px 3px;
-    border-radius: 3px;
-}
+// input[type=checkbox]:after {
+//     position: absolute;
+//     width: 25px;
+//     height: 25px;
+//     top: 0;
+//     content: " ";
+//     background-color: #e8e8e8;
+//     border: 2px solid #000;
+//     color: #fff;
+//     display: inline-block;
+//     visibility: visible;
+//     padding: 0px 3px;
+//     border-radius: 3px;
+// }
 
-input[type=checkbox]:checked:after {
-    background-color: #000;
-    content: "✓";
-    font-size: 18px;   
-}
+// input[type=checkbox]:checked:after {
+//     background-color: #000;
+//     content: "✓";
+//     font-size: 18px;   
+// }
 
-.userData {
+.u-userData {
     margin-left: 270px;
 }
 
@@ -136,7 +136,7 @@ input[type=checkbox]:checked:after {
 //     margin-left: 160px;
 // }
 
-select {
+.u-Select > select {
     width: 250px;
     height: 60px;
     background-color: #e8e8e8;
@@ -144,11 +144,11 @@ select {
     margin-bottom: 20px;
 }
 
-.gender1 {
+.u-gender1 {
     margin-right: -30px;
 }
 
-.sel2 {
+.u-sel2 {
     margin-left: 20px;
 }
 

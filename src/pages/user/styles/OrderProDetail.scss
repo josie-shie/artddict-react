@@ -1,5 +1,5 @@
  /* ----- 表單 ----- */
- .box {
+ .u-box {
     margin-top: 40px;
     width: 1044px;
     height: 254px;
@@ -8,32 +8,32 @@
 }
 
 @media screen and (max-width:576px) {
-    .box{
+    .u-box{
         width: 320px;
         margin-left: 20px;
     }
 }
 
-.creditNews{
+.u-creditNews{
     background-color: #707070;
     color: #fff;
     height: 50px;
     line-height: 50px;
 }
 
-.creditType, .creditDate{
+.u-creditType, .u-creditDate{
     height: 50px;
     line-height: 50px;
 }
 
-.creditNum, .creditNT{
+.u-creditNum, .u-creditNT{
     height: 50px;
     line-height: 50px;
     background-color: #c7c7c7;
 }
 
 /* ----- 商品細節 ----- */
-.boxPro{
+.u-boxPro{
     margin-top: 40px;
     width: 1044px;
     height: 125px;
@@ -42,13 +42,13 @@
 }
 
 @media screen and (max-width:576px) {
-    .boxPro{
+    .u-boxPro{
         width: 320px;
         margin-left: 20px;
     }
 }
 
-.proImg {
+.u-proImg {
     width: 100px;
     height: 100px;
     background-color: #c7c7c7;
@@ -56,12 +56,12 @@
     margin-left: 12px;
 }
 
-.proText, .proSize, .proQty, .proTotalPrice {
+.u-proText, .u-proSize, .u-proQty, .u-proTotalPrice {
     margin-top: 30px;
     font-size: 16px;
 }
 
-.myEVAL {
+.u-myEVAL {
     width: 150px;
     height: 43px;
     background-color: #1D0AFF;

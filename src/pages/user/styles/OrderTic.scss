@@ -1,4 +1,4 @@
-.orderItem {
+.u-orderItem {
     margin-top:30px;
     width: 1045px;
     margin-left: 0px;
@@ -6,7 +6,7 @@
     border-bottom: 2px solid #000;
 }
 
-.userPro1, .userTic1 {
+.u-userPro1, .u-userTic1 {
     margin-top: 10px;
     margin-bottom: 10px;
     width: 480px;
@@ -15,18 +15,18 @@
     line-height: 60px;
 }
 
-.userTic1 > a{
+.u-userTic1 > a{
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 30px;
     color:#fff;
     text-decoration: none;
 }
 
-.userTic1 {
+.u-userTic1 {
     background-color: #000;
 }
 
-.userPro1 > a { 
+.u-userPro1 > a { 
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 30px;
     color: #000;

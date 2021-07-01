@@ -9,29 +9,29 @@ function PwdEdit() {
   return (
     <>
       <header>
-        <div className="container-fluid">
-          <div className="logo-header">
+        <div className="u-container-fluid">
+          <div className="u-logo-header">
             <img src={logo} alt="logo" />
           </div>
         </div>
       </header>
-      <div className="userMenu">
+      <div className="u-userMenu">
         <Menu />
       </div>
-      <div class="container-fluid">
-        <div class="row justify-content-around">
-          <div class="userMsg">
+      <div class="u-container-fluid">
+        <div class="u-row justify-content-around">
+          <div class="u-userMsg">
             <Nav.Link as={Link} to="/user-msgedit">
               會員資料
             </Nav.Link>
           </div>
-          <div class="userPwd">
+          <div class="u-userPwd">
             <Nav.Link as={Link} to="/user-pwdEdit">
               修改密碼
             </Nav.Link>
           </div>
         </div>
-        <div class="pwdData">
+        <div class="u-pwdData">
           <form>
             <div class="form-group">
               <input
@@ -60,7 +60,10 @@ function PwdEdit() {
               />
             </div>
 
-            <button type="submit" class="btn btn-outline-dark editBtn">
+            <button
+              type="submit"
+              class="u-btn btn-outline-dark u-editBtn"
+            >
               修改
             </button>
           </form>

@@ -9,33 +9,33 @@ function OrderPro() {
   return (
     <>
       <header>
-        <div className="container-fluid">
-          <div className="logo-header">
+        <div className="u-container-fluid">
+          <div className="u-logo-header">
             <img src={logo} alt="logo" />
           </div>
         </div>
       </header>
-      <div className="userMenu">
+      <div className="u-userMenu">
         <Menu />
       </div>
-      <div className="container-fluid">
-        <div className="orderItem d-flex justify-content-around">
-          <div className="userPro">
+      <div className="u-container-fluid">
+        <div className="u-orderItem d-flex justify-content-around">
+          <div className="u-userPro">
             <Nav.Link as={Link} to="/user-orderpro">
               商品
             </Nav.Link>
           </div>
-          <div className="userTic">
+          <div className="u-userTic">
             <Nav.Link as={Link} to="/user-ordertic">
               票券
             </Nav.Link>
           </div>
         </div>
-        <div className="progress">
-          <div className="progressText">
+        <div className="u-progress">
+          <div className="u-progressText">
             <p>進度查詢</p>
           </div>
-          <div className="progressSelect">
+          <div className="u-progressSelect">
             <select name="" id="">
               <option>全部</option>
               <option>已完成</option>
@@ -46,23 +46,27 @@ function OrderPro() {
           </div>
         </div>
 
-        <div class="table">
-          <div class="th d-flex justify-content-around">
-            <div class="orderId col-1">訂單編號</div>
-            <div class="orderDate col-1">訂單日期</div>
-            <div class="payType col-1">付款狀態</div>
-            <div class="price col-1">總價</div>
-            <div class="orderType col-1">訂單狀態</div>
-            <div class="bt col-2"></div>
+        <div class="u-table">
+          <div class="u-th d-flex justify-content-around">
+            <div class="u-orderId col-1">訂單編號</div>
+            <div class="u-orderDate col-1">訂單日期</div>
+            <div class="u-payType col-1">付款狀態</div>
+            <div class="u-price col-1">總價</div>
+            <div class="u-orderType col-1">訂單狀態</div>
+            <div class="u-bt col-2"></div>
           </div>
-          <div class="tb d-flex justify-content-around mt-5">
-            <div class="orderId col-1 mt-4">訂單編號</div>
-            <div class="orderDate col-1 mt-4">訂單日期</div>
-            <div class="payType col-1 mt-4">付款狀態</div>
-            <div class="price col-1 mt-4">總價</div>
-            <div class="orderType col-1 mt-4">訂單狀態</div>
-            <div class="bt col-2">
-              <button class="btn btn-dark">
+          <div class="u-tb d-flex justify-content-around mt-5">
+            <div class="u-orderId col-1 mt-4">訂單編號</div>
+            <div class="u-orderDate col-1 mt-4">
+              訂單日期
+            </div>
+            <div class="u-payType col-1 mt-4">付款狀態</div>
+            <div class="u-price col-1 mt-4">總價</div>
+            <div class="u-orderType col-1 mt-4">
+              訂單狀態
+            </div>
+            <div class="u-bt col-2">
+              <button class="u-btn btn btn-dark">
                 <Nav.Link
                   className="u-link"
                   as={Link}
@@ -71,7 +75,9 @@ function OrderPro() {
                   詳細資料
                 </Nav.Link>
               </button>
-              <button class="btn btn-light">取消</button>
+              <button class="u-btn btn btn-light">
+                取消
+              </button>
             </div>
           </div>
         </div>

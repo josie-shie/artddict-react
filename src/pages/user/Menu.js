@@ -23,22 +23,22 @@ function Menu() {
           <Nav className="mr-auto">
             {/* 用as屬性然後變成Link元件 */}
             <Nav.Link as={Link} to="/user-msgedit">
-              <div className="edit">修改資料</div>
+              <div className="u-edit">修改資料</div>
             </Nav.Link>
             <Nav.Link as={Link} to="/user-orderpro">
-              <div className="userOrder">訂單查詢</div>
+              <div className="u-userOrder">訂單查詢</div>
             </Nav.Link>
             <Nav.Link as={Link} to="/user-coupon">
-              <div className="coupon">優惠券</div>
+              <div className="u-coupon">優惠券</div>
             </Nav.Link>
             <Nav.Link as={Link} to="/user-ticket">
-              <div className="ticket">我的票券</div>
+              <div className="u-ticket">我的票券</div>
             </Nav.Link>
             <Nav.Link as={Link} to="/user-fav">
-              <div className="userfav">我的收藏</div>
+              <div className="u-userfav">我的收藏</div>
             </Nav.Link>
             <Nav.Link as={Link} to="/user-auction">
-              <div className="userauction">競標查詢</div>
+              <div className="u-userauction">競標查詢</div>
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>

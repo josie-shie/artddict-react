@@ -9,30 +9,30 @@ function MsgEdits() {
   return (
     <>
       <header>
-        <div className="container-fluid">
-          <div className="logo-header">
+        <div className="u-container-fluid">
+          <div className="u-logo-header">
             <img src={logo} alt="logo" />
           </div>
         </div>
       </header>
-      <div className="userMenu">
+      <div className="u-userMenu">
         <Menu />
       </div>
-      <div className="container-fluid">
-        <div className="row justify-content-around">
-          <div className="userMsg1">
+      <div className="u-container-fluid">
+        <div className="u-row justify-content-around">
+          <div className="u-userMsg1">
             <Nav.Link as={Link} to="/user-msgedit">
               會員資料
             </Nav.Link>
           </div>
-          <div className="userPwd1">
+          <div className="u-userPwd1">
             <Nav.Link as={Link} to="/user-pwdEdit">
               修改密碼
             </Nav.Link>
           </div>
         </div>
       </div>
-      <div className="userData col-12">
+      <div className="u-userData col-12">
         <form>
           <div className="form-group">
             <label for="username">帳號</label>
@@ -71,7 +71,7 @@ function MsgEdits() {
               className="form-check-input"
               id="gender"
             />
-            <label className="gender1">小姐</label>
+            <label className="u-gender1">小姐</label>
             <input
               type="checkbox"
               className="form-check-input"
@@ -90,12 +90,12 @@ function MsgEdits() {
           <div className="form-group">
             <label for="address">住址</label>
             <br />
-            <div className="Select">
+            <div className="u-Select">
               <select name="" id="">
                 <option>請選擇縣市</option>
               </select>
 
-              <select name="" id="" className="sel2">
+              <select name="" id="" className="u-sel2">
                 <option>請選擇區域</option>
               </select>
             </div>
