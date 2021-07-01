@@ -71,192 +71,194 @@ function User(props) {
 
   const display = (
     <>
-      <header>
-        <div className="u-container-fluid">
-          <div className="u-logo-header">
-            <img src={logo} alt="logo" />
-          </div>
-        </div>
-      </header>
-      <Nav />
-      <div className="d-flex">
-        <div className="u-contanier1 col-lg-6 d-none d-lg-block d-xl-block">
-          <div className="u-img-carousel">
-            <Carousel
-              fade
-              controls={false}
-              indicators={false}
-            >
-              <Carousel.Item interval={3000}>
-                <img
-                  className="d-block w-100 "
-                  src={pic1}
-                  alt="First slide"
-                />
-              </Carousel.Item>
-              <Carousel.Item interval={3000}>
-                <img
-                  className="d-block w-100 "
-                  src={pic6}
-                  alt="Second slide"
-                />
-              </Carousel.Item>
-              <Carousel.Item interval={3000}>
-                <img
-                  className="d-block w-100"
-                  src={pic3}
-                  alt="Third slide"
-                />
-              </Carousel.Item>
-              <Carousel.Item interval={3000}>
-                <img
-                  className="d-block w-100 "
-                  src={pic4}
-                  alt="Third slide"
-                />
-              </Carousel.Item>
-              <Carousel.Item interval={3000}>
-                <img
-                  className="d-block w-100 "
-                  src={pic5}
-                  alt="Third slide"
-                />
-              </Carousel.Item>
-              <Carousel.Item interval={3000}>
-                <img
-                  className="d-block w-100"
-                  src={pic2}
-                  alt="Third slide"
-                />
-              </Carousel.Item>
-            </Carousel>
-          </div>
-
-          <div className="u-title01">
-            <span>加入會員</span>
-          </div>
-          <div className="u-title02">
-            <span>精選好物盡在ArtDDICT</span>
-          </div>
-          <div className="u-title03">
-            <span>藝文活動搶先知</span>
-          </div>
-        </div>
-
-        <div className="u-container2">
-          <div className="u-member">
-            <h1>MEMBERSHIP</h1>
-          </div>
-          <div className="u-addInput">
-            <div className="u-addbutton d-flex justify-content-around">
-              <div className="u-loginbtn1">
-                <Nav.Link as={Link} to="/user-login">
-                  登入
-                </Nav.Link>
-              </div>
-              <div className="u-addbtn1">
-                <Nav.Link as={Link} to="/user-add">
-                  註冊
-                </Nav.Link>
-              </div>
+      <div className="u-body">
+        <header>
+          <div className="u-container-fluid">
+            <div className="u-logo-header">
+              <img src={logo} alt="logo" />
             </div>
-            <div className="u-gf d-flex justify-content-center">
-              <div className="u-g">
-                <AiFillGoogleCircle />
-              </div>
-              <div className="u-f">
-                <RiFacebookCircleFill />
-              </div>
-            </div>
-            <form action="">
-              <div className="form-group u-form">
-                <input
-                  type="email"
-                  value={username}
-                  onChange={(event) => {
-                    setUsername(event.target.value)
-                  }}
-                  className="form-control "
-                  id="email"
-                  aria-describedby="emailHelp"
-                  placeholder="請輸入信箱"
-                />
-              </div>
-              <div className="form-group u-form">
-                <input
-                  type="text"
-                  value={name}
-                  onChange={(event) => {
-                    setName(event.target.value)
-                  }}
-                  className="form-control "
-                  id="name"
-                  placeholder="請輸入姓名"
-                />
-              </div>
-              <div className="form-group u-form">
-                <input
-                  type="password"
-                  value={password}
-                  onChange={(event) => {
-                    setPassword(event.target.value)
-                  }}
-                  className="form-control"
-                  id="password1"
-                  placeholder="請輸入欲設定的密碼"
-                />
-              </div>
-              <div className="form-group u-form">
-                <input
-                  type="password"
-                  value={password}
-                  className="form-control"
-                  id="password2"
-                  placeholder="請再次輸入密碼"
-                />
-              </div>
-              <div className="form-group form-check">
-                <input
-                  type="checkbox"
-                  className="form-check-input"
-                  id="check1"
-                />
-                <label
-                  className="form-check-label"
-                  for="check1"
-                >
-                  我同意使用者條款與隱私權聲明政策
-                </label>
-              </div>
-              <div className="form-group form-check">
-                <input
-                  type="checkbox"
-                  className="form-check-input"
-                  id="check2"
-                />
-                <label
-                  className="form-check-label"
-                  for="check2"
-                >
-                  我願意收到ArtDDICT電子報與活動訊息
-                </label>
-              </div>
-              <button
-                type="submit"
-                onClick={() => {
-                  addUserToSever()
-                }}
-                className="btn btn-outline-dark"
+          </div>
+        </header>
+        <Nav />
+        <div className="d-flex">
+          <div className="u-contanier1 col-lg-5 d-none d-lg-block d-xl-block">
+            <div className="u-img-carousel">
+              <Carousel
+                fade
+                controls={false}
+                indicators={false}
               >
-                <Nav.Link
-                  className="u-link1"
-                  as={Link}
-                  to="/user-msgedit"
+                <Carousel.Item interval={3000}>
+                  <img
+                    className="d-block w-100 "
+                    src={pic1}
+                    alt="First slide"
+                  />
+                </Carousel.Item>
+                <Carousel.Item interval={3000}>
+                  <img
+                    className="d-block w-100 "
+                    src={pic6}
+                    alt="Second slide"
+                  />
+                </Carousel.Item>
+                <Carousel.Item interval={3000}>
+                  <img
+                    className="d-block w-100"
+                    src={pic3}
+                    alt="Third slide"
+                  />
+                </Carousel.Item>
+                <Carousel.Item interval={3000}>
+                  <img
+                    className="d-block w-100 "
+                    src={pic4}
+                    alt="Third slide"
+                  />
+                </Carousel.Item>
+                <Carousel.Item interval={3000}>
+                  <img
+                    className="d-block w-100 "
+                    src={pic5}
+                    alt="Third slide"
+                  />
+                </Carousel.Item>
+                <Carousel.Item interval={3000}>
+                  <img
+                    className="d-block w-100"
+                    src={pic2}
+                    alt="Third slide"
+                  />
+                </Carousel.Item>
+              </Carousel>
+            </div>
+
+            <div className="u-title01">
+              <span>加入會員</span>
+            </div>
+            <div className="u-title02">
+              <span>精選好物盡在ArtDDICT</span>
+            </div>
+            <div className="u-title03">
+              <span>藝文活動搶先知</span>
+            </div>
+          </div>
+
+          <div className="u-container2 col-5">
+            <div className="u-member">
+              <h1>MEMBERSHIP</h1>
+            </div>
+            <div className="u-addInput">
+              <div className="u-addbutton d-flex justify-content-around">
+                <div className="u-loginbtn1">
+                  <Nav.Link as={Link} to="/user-login">
+                    登入
+                  </Nav.Link>
+                </div>
+                <div className="u-addbtn1">
+                  <Nav.Link as={Link} to="/user-add">
+                    註冊
+                  </Nav.Link>
+                </div>
+              </div>
+              <div className="u-gf d-flex justify-content-center">
+                <div className="u-g">
+                  <AiFillGoogleCircle />
+                </div>
+                <div className="u-f">
+                  <RiFacebookCircleFill />
+                </div>
+              </div>
+              <form action="">
+                <div className="form-group u-form">
+                  <input
+                    type="email"
+                    value={username}
+                    onChange={(event) => {
+                      setUsername(event.target.value)
+                    }}
+                    className="form-control "
+                    id="email"
+                    aria-describedby="emailHelp"
+                    placeholder="請輸入信箱"
+                  />
+                </div>
+                <div className="form-group u-form">
+                  <input
+                    type="text"
+                    value={name}
+                    onChange={(event) => {
+                      setName(event.target.value)
+                    }}
+                    className="form-control "
+                    id="name"
+                    placeholder="請輸入姓名"
+                  />
+                </div>
+                <div className="form-group u-form">
+                  <input
+                    type="password"
+                    value={password}
+                    onChange={(event) => {
+                      setPassword(event.target.value)
+                    }}
+                    className="form-control"
+                    id="password1"
+                    placeholder="請輸入欲設定的密碼"
+                  />
+                </div>
+                <div className="form-group u-form">
+                  <input
+                    type="password"
+                    value={password}
+                    className="form-control"
+                    id="password2"
+                    placeholder="請再次輸入密碼"
+                  />
+                </div>
+                <div className="form-group form-check">
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="check1"
+                  />
+                  <label
+                    className="form-check-label"
+                    for="check1"
+                  >
+                    我同意使用者條款與隱私權聲明政策
+                  </label>
+                </div>
+                <div className="form-group form-check">
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="check2"
+                  />
+                  <label
+                    className="form-check-label"
+                    for="check2"
+                  >
+                    我願意收到ArtDDICT電子報與活動訊息
+                  </label>
+                </div>
+                <button
+                  type="submit"
+                  onClick={() => {
+                    addUserToSever()
+                  }}
+                  className="btn btn-outline-dark"
                 >
-                  註冊
-                </Nav.Link>
-              </button>
-            </form>
+                  <Nav.Link
+                    className="u-link1"
+                    as={Link}
+                    to="/user-msgedit"
+                  >
+                    註冊
+                  </Nav.Link>
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>

@@ -30,6 +30,11 @@ import eventimg4 from './image/event/004.jpg'
 import eventimg5 from './image/event/005.jpg'
 import eventimg6 from './image/event/006.jpg'
 import eventicon from '../../pics/arddict-circle-bl.svg'
+import tri from './image/cute/tri.svg'
+import cirhf from './image/cute/cirhf.svg'
+import cirbk from './image/cute/cirbk.svg'
+import box from './image/cute/box.svg'
+import cirbl from './image/cute/cirbl.svg'
 
 const Index = () => {
   return (
@@ -50,8 +55,8 @@ const Index = () => {
             <h1>devotes to ART</h1>
             <h5 className="mt-1">to the moon and back</h5>
             <div className="start-scroll mt-1">
-                <p className="vertical-line mb-4">|</p>
-                <p>scroll Down</p>
+              <p className="vertical-line mb-4">|</p>
+              <p>scroll Down</p>
             </div>
           </div>
         </div>
@@ -60,7 +65,6 @@ const Index = () => {
         <div>
           <Logo className="logo" />
         </div>
-        
       </div>
 
       {/* news */}
@@ -157,38 +161,54 @@ const Index = () => {
             />
           </div>
         </div>
-        <marquee
-          scrollamount="10"
-          className="event-marquee mt-5 px-3"
-        >
-          <h1 className="my-3">
-            2021 台北市立美術館雙年展 正式開跑
-            <CgArrowLongRightL /> 2021 台北市立美術館雙年展
-            正式開跑 <CgArrowLongRightL /> 2021
-            台北市立美術館雙年展 正式開跑
-            <CgArrowLongRightL /> 2021 台北市立美術館雙年展
-            正式開跑 <CgArrowLongRightL />
-          </h1>
-        </marquee>
-        <marquee
-          direction="right"
-          scrollamount="10"
-          className="event-marquee my-5 px-3"
-        >
-          <h1 className="my-3">
-            放視大賞 強力募集中 <CgPacman />
-            <BsThreeDots />
-            放式大賞強 放視大賞 強力募集中
-            <CgPacman />
-            <BsThreeDots /> 放式大賞強 放視大賞 強力募集中
-            <CgPacman />
-            <BsThreeDots /> 放式大賞 強力募集中
-            <CgPacman />
-            <BsThreeDots />
-          </h1>
-        </marquee>
+        <div className="px-4">
+          <marquee
+            scrollamount="10"
+            className="event-marquee mt-5 px-3"
+          >
+            <h1 className="my-3">
+              2021 台北市立美術館雙年展 正式開跑
+              <CgArrowLongRightL /> 2021
+              台北市立美術館雙年展 正式開跑{' '}
+              <CgArrowLongRightL /> 2021
+              台北市立美術館雙年展 正式開跑
+              <CgArrowLongRightL /> 2021
+              台北市立美術館雙年展 正式開跑{' '}
+              <CgArrowLongRightL />
+            </h1>
+          </marquee>
+          <marquee
+            direction="right"
+            scrollamount="10"
+            className="event-marquee my-5 px-3"
+          >
+            <h1 className="my-3">
+              放視大賞 強力募集中 <CgPacman />
+              <BsThreeDots />
+              放式大賞強 放視大賞 強力募集中
+              <CgPacman />
+              <BsThreeDots /> 放式大賞強 放視大賞 強力募集中
+              <CgPacman />
+              <BsThreeDots /> 放式大賞 強力募集中
+              <CgPacman />
+              <BsThreeDots />
+            </h1>
+          </marquee>
+        </div>
       </div>
       {/* Shop */}
+      <div className="product-area index-web-padding">
+        <div>
+          <div className="product-cute d-flex align-items-end justify-content-center pb-5">
+            <h5></h5>
+            <img src={tri} alt="" />
+            <img className="pl-4" src={cirhf} alt="" />
+            <img src={cirbk} alt="" />
+            <img className="cirbl" src={cirbl} alt="" />
+            <img className="box" src={box} alt="" />
+          </div>
+        </div>
+      </div>
       {/* auction */}
     </>
   )
