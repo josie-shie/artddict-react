@@ -1,17 +1,26 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {
   Container,
   Row,
   Col,
   Button,
 } from 'react-bootstrap'
+import './style/reset.css'
 import './style/event.scss'
 import './style/font.scss'
-import './style/reset.css'
+// HERO section
 import EventLogo from './images/logo.svg'
 import Square from './images/square.gif'
 import ESpin from './images/arddict-circle-g.svg'
+// EXHI section
+import ESpinBl from './images/arddict-circle-bl.svg'
+import EEyeBl from './images/arddict-eye-bl.svg'
 import ExhiDeco from './images/exhi-deco.svg'
+import { FiArrowUpRight } from 'react-icons/fi'
+// WORK section
+import LogoDecoV from './images/arddict-deco-v.svg'
+import LogoDecoH from './images/artddict-deco-h.svg'
 function event() {
   return (
     <>
@@ -91,7 +100,7 @@ function event() {
                 <div className="e-line2 position-absolute"></div>
 
                 <img
-                  className="pic-square1"
+                  className="pic-square"
                   src={Square}
                   alt=""
                 />
@@ -140,7 +149,7 @@ function event() {
                 <div className="e-line2 position-absolute"></div>
 
                 <img
-                  className="pic-square1"
+                  className="pic-square"
                   src={Square}
                   alt=""
                 />
@@ -191,7 +200,7 @@ function event() {
                   alt=""
                 />
                 <img
-                  className="pic-square1"
+                  className="pic-square"
                   src={Square}
                   alt=""
                 />
@@ -219,7 +228,7 @@ function event() {
         </section>
         <section className="exhi">
           <Container fluid>
-            <Row>
+            <Row className="position-relative">
               <Col sm={12}>
                 <h3 className="eng-font-regular e-select left-margin">
                   ARTDDICT{' '}
@@ -228,18 +237,49 @@ function event() {
                   </span>
                 </h3>
               </Col>
-              <div className="e-exhi-event e-exhi-event-area">
-                <img
-                  className="pic-square2"
-                  src={Square}
-                  alt=""
-                />
+              <div className="e-exhi-event">
+                <div className="e-exhi-white">
+                  <button className="cn-font exhi-btn">
+                    立即搶票
+                    <FiArrowUpRight />
+                  </button>
+                  <img
+                    className="pic-square"
+                    src={Square}
+                    alt=""
+                  />
+                </div>
               </div>
               <div className="e-exhi-deco">
                 <img
-                  className="e-exhi-deco-pic" src={ExhiDeco}
+                  className="e-exhi-deco-pic"
+                  src={ExhiDeco}
                   alt=""
                 />
+              </div>
+              <div className="e-spin-eye position-absolute">
+                <img src={Square} alt="" />
+                <img
+                  className="position-absolute"
+                  src={ESpinBl}
+                  alt=""
+                />
+                <img
+                  className="position-absolute e-blue-eye"
+                  src={EEyeBl}
+                  alt=""
+                />
+              </div>
+              <div className="position-absolute e-exhi-title">
+                <arrow className="arrow-cap">
+                  <h1 className="eng-font-bold">
+                    EX­­
+                    <br />
+                    ­­HIBI
+                    <br />
+                    TION­­
+                  </h1>
+                </arrow>
               </div>
               <h2
                 className="eng-font-bold e-exhi-name
@@ -248,6 +288,53 @@ function event() {
               >
                 ARTDDICT
               </h2>
+            </Row>
+          </Container>
+        </section>
+        <section className="workshop">
+          <Container fluid>
+            <Row>
+              <div className="e-logo-deco-h">
+                <img
+                  className="e-logo-deco"
+                  src={LogoDecoH}
+                  alt=""
+                />
+                <h3 className="cn-font e-work-content left-margin">
+                  親身參與藝術
+                </h3>
+                <h3 className="cn-font e-work-content mt-4 left-margin">
+                  體驗創作的自信
+                </h3>
+              </div>
+              <div className="e-work-hero ml-auto">
+                <div className="e-work-black">
+                  <img
+                    className="pic-square2"
+                    src={Square}
+                    alt=""
+                  />
+                </div>
+              </div>
+              <Col sm={12}>
+                <h3 className="eng-font-regular e-work-select left-margin">
+                  ARTDDICT{' '}
+                  <span className="cn-font ml-2 e-select-cn">
+                    精選工作坊
+                  </span>
+                </h3>
+              </Col>
+              <div className="e-work1 left-margin position-relative">
+                <div className="e-work-line"></div>
+                <div className="e-work-line2"></div>
+                <div className="e-work-border position-absolute"></div>
+                <div className="e-work-black"></div>
+                <img
+                  className="pic-square"
+                  src={Square}
+                  alt=""
+                />
+              </div>
             </Row>
           </Container>
         </section>

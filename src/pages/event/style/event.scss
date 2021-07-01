@@ -91,7 +91,7 @@
 
 
 // 方形透明圖
-.pic-square1{
+.pic-square{
     width: 100%;
 }
 
@@ -185,27 +185,37 @@
 }
 
 .e-select-cn{
-    
     font-weight: medium;
 }
 
-.pic-square2{
-    width: 100%;
 
-}
 
-.e-exhi-event-area{
-    width: 53%;
+.exhi-btn{
+    margin-top: 150px;
+    margin-left: calc(50% - 75px);
+    color: black;
+    font-size: 20px;
+    width: 150px;
+    height: 50px;
+    border: 2px solid black;
+    background-color: transparent;
 }
 .e-exhi-event{
+    width: 53%;
     background-image: url(../images/museum/human-663298_1920.jpg);
-    opacity: .4;
-    
+    background-size: cover;
+
+}
+
+.e-exhi-white{
+    background-color: #ffffff5b;
 }
 
 .e-exhi-name{
-    width: 100%;
     font-size: 40px;
+    margin-right: 179px;
+    margin-left: auto;
+
 }
 
 .e-exhi-deco{
@@ -218,4 +228,126 @@
 .e-exhi-deco-pic{
     object-fit: cover;
     width: 100%;
+}
+
+// EXHIBITION 標題英文字
+.e-exhi-title{
+    font-size: 93px;
+    top: 500px;
+    left: 45%;
+}
+
+//  EXHOBITION ARROW
+.e-exhi-title::after{
+    position: absolute;
+    top: 230px;
+    content: '';
+    display: block;
+    width: 300px;
+    height: 2px;
+    background: black;
+    margin-left:400px;
+}
+
+.arrow-cap::after{
+    position: absolute;
+    top: 231px;
+    content: '';
+    display: block;
+    width: 80px;
+    height: 80px;
+    border-top: 2px solid black;
+    border-right: 2px solid black;
+    transform: translate(-50%, -50%) rotate(45deg);
+    margin-left:645px;
+}
+
+
+// EXHOBITION 藍色旋轉眼睛
+.e-spin-eye{
+    top:400px;
+    width: 500px;
+}
+
+.e-blue-eye{
+    top: 200%;
+    left: 51%;
+    transform: translate(-50%, 50%);
+    width: 65%;
+}
+
+// WORKSHOP
+
+.workshop{
+    width: 100%;;
+    background-color: black;
+}
+
+.e-work-hero{
+    width: 58%;
+    background-image: url(../images/museum/workhero.jpeg);
+    background-size: cover;
+}
+
+
+.e-work-black{
+    width: 100%;
+    height: 100%;
+    background-color: #0000005b;
+}
+
+.pic-square2{
+    width: 100%;
+    height: 520px;
+}
+
+.e-logo-deco-h{
+    width: 40%;
+}
+
+.e-logo-deco{
+    margin-top: 108px;
+    margin-bottom: 133px;
+}
+
+.e-work-content{
+    color: white;
+    font-weight: medium;
+    font-size: 20px;
+}
+
+.e-work-select{
+    margin-top: 55px;
+    margin-bottom: 20px;
+    font-size: 25px;
+    color: white;
+}
+
+.e-work1{
+    background: url('../images/museum/1440x958_13514121830.jpeg');
+    width: 25%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.e-work-border{
+    width: 80%;
+    height: 80%;
+    border: 1px solid white;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+
+.e-work-line{
+    width: 100%;
+    border-top: 2px solid white;
+    transform: rotate(45deg);
+    top: 50%;
+}
+.e-work-line2{
+    width: 100%;
+    border-top: 2px solid white;
+    transform: rotate(-45deg);
+    top: 50%;
 }
