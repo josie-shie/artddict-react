@@ -1,12 +1,12 @@
 import { Carousel } from 'react-bootstrap'
 import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
-import '../styles/Add.scss'
+import './styles/Add.scss'
 import { Link } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
 
 // images
-import logo from './img/logo.png'
+import logo from './img/logo-bk.svg'
 import pic1 from './img/1.png'
 import pic2 from './img/2.png'
 import pic3 from './img/3.png'
@@ -18,7 +18,7 @@ import pic6 from './img/6.png'
 import { AiFillGoogleCircle } from 'react-icons/ai'
 import { RiFacebookCircleFill } from 'react-icons/ri'
 
-function Add(props) {
+function User(props) {
   const [dataLoading, setDataLoading] = useState(false)
   const [username, setUsername] = useState()
   const [name, setName] = useState()
@@ -78,28 +78,56 @@ function Add(props) {
           </div>
         </div>
       </header>
-
+      <Nav />
       <div className="d-flex">
         <div className="contanier1 col-lg-6 d-none d-lg-block d-xl-block">
           <div className="img-carousel">
-            <Carousel fade controls={false} indicators={false}>
+            <Carousel
+              fade
+              controls={false}
+              indicators={false}
+            >
               <Carousel.Item interval={3000}>
-                <img className="d-block w-100 " src={pic1} alt="First slide" />
+                <img
+                  className="d-block w-100 "
+                  src={pic1}
+                  alt="First slide"
+                />
               </Carousel.Item>
               <Carousel.Item interval={3000}>
-                <img className="d-block w-100 " src={pic6} alt="Second slide" />
+                <img
+                  className="d-block w-100 "
+                  src={pic6}
+                  alt="Second slide"
+                />
               </Carousel.Item>
               <Carousel.Item interval={3000}>
-                <img className="d-block w-100" src={pic3} alt="Third slide" />
+                <img
+                  className="d-block w-100"
+                  src={pic3}
+                  alt="Third slide"
+                />
               </Carousel.Item>
               <Carousel.Item interval={3000}>
-                <img className="d-block w-100 " src={pic4} alt="Third slide" />
+                <img
+                  className="d-block w-100 "
+                  src={pic4}
+                  alt="Third slide"
+                />
               </Carousel.Item>
               <Carousel.Item interval={3000}>
-                <img className="d-block w-100 " src={pic5} alt="Third slide" />
+                <img
+                  className="d-block w-100 "
+                  src={pic5}
+                  alt="Third slide"
+                />
               </Carousel.Item>
               <Carousel.Item interval={3000}>
-                <img className="d-block w-100" src={pic2} alt="Third slide" />
+                <img
+                  className="d-block w-100"
+                  src={pic2}
+                  alt="Third slide"
+                />
               </Carousel.Item>
             </Carousel>
           </div>
@@ -141,32 +169,32 @@ function Add(props) {
               </div>
             </div>
             <form action="">
-              <div className="form-group">
+              <div className="form-group u-form">
                 <input
                   type="email"
                   value={username}
                   onChange={(event) => {
                     setUsername(event.target.value)
                   }}
-                  className="form-control"
+                  className="form-control "
                   id="email"
                   aria-describedby="emailHelp"
                   placeholder="請輸入信箱"
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group u-form">
                 <input
                   type="text"
                   value={name}
                   onChange={(event) => {
                     setName(event.target.value)
                   }}
-                  className="form-control"
+                  className="form-control "
                   id="name"
                   placeholder="請輸入姓名"
                 />
               </div>
-              <div className="form-group ">
+              <div className="form-group u-form">
                 <input
                   type="password"
                   value={password}
@@ -178,7 +206,7 @@ function Add(props) {
                   placeholder="請輸入欲設定的密碼"
                 />
               </div>
-              <div className="form-group">
+              <div className="form-group u-form">
                 <input
                   type="password"
                   value={password}
@@ -193,7 +221,10 @@ function Add(props) {
                   className="form-check-input"
                   id="check1"
                 />
-                <label className="form-check-label" for="check1">
+                <label
+                  className="form-check-label"
+                  for="check1"
+                >
                   我同意使用者條款與隱私權聲明政策
                 </label>
               </div>
@@ -203,7 +234,10 @@ function Add(props) {
                   className="form-check-input"
                   id="check2"
                 />
-                <label className="form-check-label" for="check2">
+                <label
+                  className="form-check-label"
+                  for="check2"
+                >
                   我願意收到ArtDDICT電子報與活動訊息
                 </label>
               </div>
@@ -214,7 +248,11 @@ function Add(props) {
                 }}
                 className="btn btn-outline-dark"
               >
-                <Nav.Link className="u-link1" as={Link} to="/user-msgedit">
+                <Nav.Link
+                  className="u-link1"
+                  as={Link}
+                  to="/user-msgedit"
+                >
                   註冊
                 </Nav.Link>
               </button>
@@ -228,4 +266,4 @@ function Add(props) {
   return <>{dataLoading ? loading : display}</>
 }
 
-export default withRouter(Add)
+export default withRouter(User)
