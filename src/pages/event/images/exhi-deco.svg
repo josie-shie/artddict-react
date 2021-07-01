@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="413.618" height="286.102" viewBox="0 0 413.618 286.102">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #1d0aff;
+      }
+
+      .cls-2 {
+        font-size: 20px;
+        font-family: NotoSansTC-Medium, Noto Sans TC;
+        font-weight: 500;
+        letter-spacing: 0.2em;
+      }
+    </style>
+  </defs>
+  <g id="Group_349" data-name="Group 349" transform="translate(-749.191 -1074.5)">
+    <rect id="Rectangle_210" data-name="Rectangle 210" class="cls-1" width="403" height="16" transform="translate(762.344 1098.628) rotate(16)"/>
+    <rect id="Rectangle_214" data-name="Rectangle 214" class="cls-1" width="403" height="16" transform="translate(751.694 1211.423) rotate(9)"/>
+    <rect id="Rectangle_215" data-name="Rectangle 215" class="cls-1" width="254" height="16" transform="translate(871.84 1340.322) rotate(-7)"/>
+    <rect id="Rectangle_211" data-name="Rectangle 211" class="cls-1" width="364" height="16" transform="matrix(0.998, -0.07, 0.07, 0.998, 757.934, 1133.151)"/>
+    <rect id="Rectangle_213" data-name="Rectangle 213" class="cls-1" width="421.885" height="16" transform="translate(752.857 1313.917) rotate(-16)"/>
+    <text id="_Light_Theme_1._Headline_H6" data-name="🌕 Light Theme/1. Headline/H6" class="cls-2" transform="matrix(0.998, -0.07, 0.07, 0.998, 881.785, 1112.232)"><tspan x="0" y="0">接軌國際的藝術展覽</tspan></text>
+    <text id="_Light_Theme_1._Headline_H6-2" data-name="🌕 Light Theme/1. Headline/H6" class="cls-2" transform="translate(767.091 1354.835) rotate(-16)"><tspan x="0" y="0">藝術美學無所不在</tspan></text>
+    <text id="_Light_Theme_1._Headline_H6-3" data-name="🌕 Light Theme/1. Headline/H6" class="cls-2" transform="translate(849.596 1166.221) rotate(16)"><tspan x="0" y="0">跨越海洋的藝術作品</tspan></text>
+  </g>
+</svg>

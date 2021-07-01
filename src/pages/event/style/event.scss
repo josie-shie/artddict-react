@@ -50,15 +50,22 @@
     left: 35px;
 }
 
+.e-logo-area{
+    width: 40%;
+    margin-bottom: 36px;
+}
+
 .e-logo{
     width: 100%;
-    margin-top: 100px;
+    margin-top: 150px;
 }
 
 .e-topic{
     font-size: 30px;
     font-weight: bold;
     color: #81FC4D;
+    margin-top: 23px;
+    margin-bottom: 23px;
 }
 
 .e-font-green{
@@ -88,6 +95,17 @@
     
 }
 
+.e-hero-card-area{
+    width: 100%;
+}
+
+// Hero section card 寬度
+.e-hero-card{
+    width: 20%;
+}
+
+
+// 方形透明圖
 .pic-square1{
     width: 100%;
 }
@@ -102,6 +120,8 @@
     color: #81FC4D;
 }
 
+
+// 系列展覽 position
 .e-left-top{
     top: 20px;
     left: 20px;
@@ -143,7 +163,7 @@
     font-size: 30px;
     color: #81FC4D;
     left: 50%;
-    bottom: 20px;
+    bottom: 10px;
     transform: translate(-50%,0%)
 }
 
@@ -170,7 +190,7 @@
 // EVENT SECTION
 
 .exhi{
-    height: 912px;
+    background-color: white;
 }
 
 .e-select {
@@ -179,13 +199,38 @@
     font-size: 25px;
 }
 
+.e-select-cn{
+    
+    font-weight: medium;
+}
+
 .pic-square2{
     width: 100%;
 
 }
 
+.e-exhi-event-area{
+    width: 53%;
+}
 .e-exhi-event{
     background-image: url(../images/museum/human-663298_1920.jpg);
     opacity: .4;
     
+}
+
+.e-exhi-name{
+    width: 100%;
+    font-size: 40px;
+}
+
+.e-exhi-deco{
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.e-exhi-deco-pic{
+    object-fit: cover;
+    width: 100%;
 }

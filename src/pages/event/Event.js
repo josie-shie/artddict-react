@@ -7,11 +7,11 @@ import {
 } from 'react-bootstrap'
 import './style/event.scss'
 import './style/font.scss'
-// import './style/reset.css'
+import './style/reset.css'
 import EventLogo from './images/logo.svg'
 import Square from './images/square.gif'
 import ESpin from './images/arddict-circle-g.svg'
-
+import ExhiDeco from './images/exhi-deco.svg'
 function event() {
   return (
     <>
@@ -19,31 +19,37 @@ function event() {
         <section className="hero">
           <Container fluid>
             <Row>
-              <Col sm={3} className="left-margin">
+              <div
+                className="left-margin
+              e-logo-area"
+              >
                 <img
                   className="e-logo"
                   src={EventLogo}
                   alt=""
                 />
-              </Col>
+              </div>
               <div className="spin-circle invisible"></div>
               <div className="spin-eye invisible"></div>
               <Col xs={12} className="left-margin">
-                <h3 className="cn-font e-topic mt-5 ">
+                <h3 className="cn-font e-topic">
                   親身參與
                 </h3>
-                <h3 className="cn-font e-topic mt-3">
+                <h3 className="cn-font e-topic">
                   每一場關於藝術的盛宴
                 </h3>
-                <h3 className="cn-font e-topic mt-3">
+                <h3 className="cn-font e-topic">
                   陶冶於文藝的氛圍中，散發出如藝術品般的氣息
                 </h3>
               </Col>
             </Row>
-            <Row className="e-pictures-margin">
-              <Col
-                sm={3}
-                className="hero-event-1 left-margin position-relative
+            <Row
+              className="e-pictures-margin
+            position-relative"
+            >
+              <div
+                className="e-hero-card
+                hero-event-1 left-margin position-relative
                 p-0"
               >
                 <p
@@ -89,10 +95,10 @@ function event() {
                   src={Square}
                   alt=""
                 />
-              </Col>
-              <Col
-                sm={3}
-                className="hero-event-2 position-relative
+              </div>
+              <div
+                className="e-hero-card
+                hero-event-2 position-relative
                 p-0"
               >
                 <p
@@ -138,10 +144,10 @@ function event() {
                   src={Square}
                   alt=""
                 />
-              </Col>
-              <Col
-                sm={3}
-                className="hero-event-3 position-relative
+              </div>
+              <div
+                className="e-hero-card
+                hero-event-3 position-relative
                 p-0"
               >
                 <p
@@ -189,7 +195,7 @@ function event() {
                   src={Square}
                   alt=""
                 />
-              </Col>
+              </div>
             </Row>
           </Container>
         </section>
@@ -217,18 +223,31 @@ function event() {
               <Col sm={12}>
                 <h3 className="eng-font-regular e-select left-margin">
                   ARTDDICT{' '}
-                  <span className="cn-font ml-2">
+                  <span className="cn-font ml-2 e-select-cn">
                     精選展覽
                   </span>
                 </h3>
               </Col>
-              <Col sm={7} className="e-exhi-event">
+              <div className="e-exhi-event e-exhi-event-area">
                 <img
                   className="pic-square2"
                   src={Square}
                   alt=""
                 />
-              </Col>
+              </div>
+              <div className="e-exhi-deco">
+                <img
+                  className="e-exhi-deco-pic" src={ExhiDeco}
+                  alt=""
+                />
+              </div>
+              <h2
+                className="eng-font-bold e-exhi-name
+                my-4
+              "
+              >
+                ARTDDICT
+              </h2>
             </Row>
           </Container>
         </section>
