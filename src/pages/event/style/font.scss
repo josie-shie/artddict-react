@@ -1,7 +1,8 @@
 /* Font for Chinese */
 
-*{
+.cn-font{
     font-family: 'Noto Sans TC', sans-serif;
+    letter-spacing: 3px;
 }
 /* Font for English */
 
@@ -22,3 +23,5 @@
 .eng-font-bold{
     font-family: Engravers-Bold;
 }
+
+

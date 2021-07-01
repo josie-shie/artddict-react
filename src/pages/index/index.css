@@ -7,47 +7,25 @@
     font-family: EngraversBlod;
     src:url(../../style/font/EngraversMTBold.ttf);
     }
+    
+    /* @font-face {
+    font-family: NotoSansTC-md;
+    src:url(../../style/font/NotoSansTC-Medium.otf);
+    } */
 
     body {
         width: 100%;
     }
 
-    *{
-        font-family: Engravers;
+    .index-web-padding{
+        padding-right: 70px;
     }
-
-    
-
-    /* ----------解決單邊滾動的scroll bar區域 -----------
-    下了之後尺寸會位移ＱＱ？*/
-
-    /* html {
-        overflow: -moz-hidden-unscrollable;
-        height: 100%;
-    }
-
-    body::-webkit-scrollbar {
-        display: none;
-    }
-
-    body {
-        -ms-overflow-style: none;
-        height: 100%;
-        width: calc(100vw + 18px);
-        overflow: auto;
-    } */
-
-    /* ----------hero-section區域 -----------*/
-
-    /* .hero-section{
-        height: 100%; 
-    } */
 
     .video-area{
-        width:calc(100% - 70px) ;
         position: relative;
     }
-    video {
+
+    .index-video {
     position: absolute;
     z-index: -1000;
     top: 0;
@@ -62,6 +40,8 @@
     }
 
     div.slogan {
+    padding-top: 70px;
+    font-family: Engravers;
     height: 100vh; 
     letter-spacing: 2px;
     display: flex;
@@ -71,8 +51,28 @@
     color: #81FC4D;
     }
     
+    .slogan h1{
+        font-size:3rem;
+    }
+    .slogan h5{
+        font-size:1.5rem;
+    }
+
+    .start-scroll{
+        color: #81FC4D;
+    }
+    
+    .vertical-line {
+        text-align:center;
+        font-size:3rem;
+    }
+
+    .start-scroll p{
+        font-family: Engravers;
+    }
+
     .rect{
-        width: calc(100% - 70px);
+        width: 100%;
         height: 70px;
         background: #000;
         
@@ -85,35 +85,30 @@
         position: absolute;
         bottom:0;
     }
+    /*FIXME:*/
     .logo{
         position: absolute;
-        top:2em;
-        left: 2em;
-    }
-    .start-scroll{
-        position: absolute;
-        left:calc(50% - 20px);
-        bottom: 2em;
-        transform: translate(-50%,-50%);
-        color: #81FC4D;
-    }
-    
-    .vertical-line {
-        text-align:center;
-        font-size:3rem;
+        top:6vh;
+        left:2vh;
     }
 
     /* ----------news區域 -----------*/
     .news-area{
-        width:calc(100% - 55px) ;/*為何不能用70?*/
+        width:calc(100% - 55px) ;/*TODO:為何不能用70?*/
         height: 100vh;
     }
 
     .news-slogen{
         background-color: #E8E8E8;
     }
+    .news-slogen h1{
+        font-family: Engravers;
+        font-size:3rem;
+        background-color: #E8E8E8;
+    }
 
     .news-slogen-TC{
+        font-size:3rem;
         font-weight: bolder;
         color:transparent;
         -webkit-text-stroke: 1px rgb(0, 0, 0);
@@ -124,37 +119,46 @@
         overflow: scroll;
     }
 
+    /*FIXME:*/
     .news{
         height: 380px;
         overflow:hidden;
     }
     div.news img{
         width: 100%;
+        hight: 100%;
         
     }
 
     /* ----------waterfall區域 -----------*/
     .artist-area{
-        width:calc(100% - 70px) ;
         background-color: #000;
     }
 
     .artist-slogan{
+        font-family: Engravers;
         color: #81FC4D;
         font-size: 4rem;
         padding-top: 50px;
         margin-left: 35px;
 
     }
-    /* .artist-slogan strong{
-        border-bottom: 2px solid #81FC4D;
-    } */
+    
+    .artist-slogan strong{
+        line-height: 100px;
+    }
 
     .item{
         height: 342px;
     }
 
+    .artist-title-tc{
+        margin-top: 30px;
+        font-size: 1.5rem;
+    }
+
     .artist-title-tc span {
+        font-size: 1.5rem;
         padding-left: 9em;
         font-family: Arial, Helvetica, sans-serif;
         color: #81FC4D;
@@ -193,4 +197,74 @@
     .item img{
         width: 100%;
         object-fit: cover;
+    }
+
+    /* ----------event區域 -----------*/
+    .event-area{
+        background-color: #E8E8E8;
+    }
+    .event-img{
+        position: relative;
+    }
+    .event-img img{
+        position: absolute;
+    }
+
+    .img1{top:180px;}
+    .img2{top:100px;left: 70px;}
+    .img3{top:100px;right:0;}
+    .img4{top:200px;right: calc(100% - 70%);}
+    .img5{top:350px;right:70px;}
+    .img6{top:350px;left:150px;}
+
+    .event-slogan{
+        padding-top: 500px;
+    }
+    .event-slogan h1{
+        font-family: Engravers;
+        font-size:5rem;
+        line-height: 100px;
+    
+    }
+    .event-eye{width: 70%;}
+
+    .event-title-tc{
+        font-size: 1.5rem;
+    }
+
+    .event-title-tc span {
+        font-size: 1.5rem;
+        padding-left: 9em;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #000;
+        position: relative;
+    }
+
+    .event-title-tc span:before{
+        content: "";
+        position: absolute;
+        top: 50%;
+        background: #000;
+        width: calc(100% - 4em);
+        height: 2px;
+        right: calc(100% - 8.5em); 
+    }
+
+    .event-marquee{
+        border-top: 2px solid #000;
+        border-bottom: 2px solid #000;
+    }
+
+    .event-marquee h1{
+        font-size: 3rem;
+        font-family: NotoSansTC-md;
+
+    }
+
+    @media screen and (max-width:576px) {
+        .index-web-padding{
+        padding-right: 0px;
+        }
+        
+    
     }

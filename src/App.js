@@ -10,7 +10,7 @@ import Index from './pages/index/Index'
 import Map from './pages/map/Map'
 import Event from './pages/event/Event'
 import ScrollToTop from './components/ScrollToTop'
-// import Porduct from './pages/porduct/Porduct'
+import Product from './pages/product/Product'
 // import Cart from './pages/cart/Cart'
 // import User from './pages/user/User'
 // import Oction from './pages/oction/Oction'
@@ -24,16 +24,16 @@ function App() {
           <Switch>
             {/* <Route exact path="/auction">
               <Auction />
-            </Route>
+            </Route> */}
             <Route exact path="/product">
               <Product />
             </Route>
-            <Route exact path="/user">
+            {/* <Route exact path="/user">
               <User />
             </Route>
             <Route exact path="/cart">
               <Cart />
-            </Route>*/}
+            </Route> */}
             <Route exact path="/event">
               <Event />
             </Route>

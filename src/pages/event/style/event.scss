@@ -1,25 +1,15 @@
-
+// Leave Right Side For Navbar
 .reduce-width{
     width: calc(100% - 70px);
 }
+
+// For Element Align
+
 .left-margin{
     margin-left: 70px;
 }
 
-@media screen and (max-width:767px) {
-    nav{
-        width: 100%;
-        height: 41px;
-        background-color: black;
-        border-left: 0px;
-        border-bottom: #707070 1px solid;
-    }
-    .padding-for-web{
-    padding-right: 0px;
-    margin-top: 41px;
-    }
-
-}
+// HERO SECTION
 
 .hero{
     width: 100%;
@@ -45,20 +35,187 @@
     left: 35px;
 }
 
-.e-logo{
+.e-logo-area{
     width: 40%;
-    margin-top: 10%;
+    margin-bottom: 36px;
+}
+
+.e-logo{
+    width: 100%;
+    margin-top: 150px;
 }
 
 .e-topic{
-    font-size: 1.6rem;
+    font-size: 30px;
     font-weight: bold;
+    color: #81FC4D;
+    margin-top: 23px;
+    margin-bottom: 23px;
 }
 
 .e-font-green{
     color: #81FC4D;
 }
 
+
+// HERO SECTION 活動圖
 .hero-event-1{
     background-image: url(../images/museum/art-542317__480.jpeg);
+    background-size: cover;
+    opacity: .8;
+
+}
+
+.hero-event-2{
+    background-image: url(../images/museum/art-542320__480.jpeg);
+    background-size: cover;
+    opacity: .8;
+    
+}
+
+.hero-event-3{
+    background-image: url(../images/museum/bathsheba-bathing-1150331_1920.jpg);
+    background-size: cover;
+    opacity: .8;
+    
+}
+
+.e-hero-card-area{
+    width: 100%;
+}
+
+// Hero section card 寬度
+.e-hero-card{
+    width: 20%;
+}
+
+
+// 方形透明圖
+.pic-square1{
+    width: 100%;
+}
+
+.e-pictures-margin{
+    margin-top: 75px;
+}
+
+.e-hero-event-font{
+    font-size: 20px;
+    font-weight: medium;
+    color: #81FC4D;
+}
+
+
+// 系列展覽 position
+.e-left-top{
+    top: 20px;
+    left: 20px;
+
+}
+
+.e-right-top{
+    top: 20px;
+    right: 20px;
+    
+}
+
+.e-left-btm{
+    bottom: 20px;
+    left: 20px;
+    
+}
+
+.e-right-btm{
+    bottom: 20px;
+    right: 20px;
+}
+
+.e-line{
+    width: 100%;
+    border-top: 2px solid #81FC4D;
+    transform: rotate(45deg);
+    top: 50%;
+}
+.e-line2{
+    width: 100%;
+    border-top: 2px solid #81FC4D;
+    transform: rotate(-45deg);
+    top: 50%;
+}
+
+// Vol.01 font-size
+.e-hero-vol{
+    font-size: 30px;
+    color: #81FC4D;
+    left: 50%;
+    bottom: 10px;
+    transform: translate(-50%,0%)
+}
+
+.bigger{
+    font-size: 50px;
+}
+
+.e-spin-icon{
+    width: 60%;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%)
+}
+
+.spin-sentence{
+    font-size: 40px;
+}
+
+.spin-sentence2{
+    font-size: 40px;
+    color: #1D0AFF ;
+}
+
+// EVENT SECTION
+
+.exhi{
+    background-color: white;
+}
+
+.e-select {
+    margin-top: 55px;
+    margin-bottom: 20px;
+    font-size: 25px;
+}
+
+.e-select-cn{
+    
+    font-weight: medium;
+}
+
+.pic-square2{
+    width: 100%;
+
+}
+
+.e-exhi-event-area{
+    width: 53%;
+}
+.e-exhi-event{
+    background-image: url(../images/museum/human-663298_1920.jpg);
+    opacity: .4;
+    
+}
+
+.e-exhi-name{
+    width: 100%;
+    font-size: 40px;
+}
+
+.e-exhi-deco{
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.e-exhi-deco-pic{
+    object-fit: cover;
+    width: 100%;
 }
