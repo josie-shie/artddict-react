@@ -222,8 +222,14 @@ function Product() {
                 <MdKeyboardArrowRight size={70} />
               </marquee>
             </div>
-            <div className="slickWidth">
-              <Slider {...settings}>
+            <div
+              className="slickWidth"
+              style={{ position: 'relative' }}
+            >
+              <Slider
+                {...settings}
+                style={{ position: 'relative' }}
+              >
                 <div className="slickPic">
                   <div className="slickPic-box">
                     <img src={slickA1} alt="" />

@@ -281,6 +281,7 @@
     top:80%;
     left: -30%;
     border:1px solid black;
+    position: absolute;
 }
 
 .slick-next{
@@ -303,6 +304,7 @@
     width:30vw;
     height:70vh;
     overflow: hidden;
+
 }
 .slickPic img{
     width:110%;
