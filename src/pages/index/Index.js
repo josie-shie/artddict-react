@@ -13,10 +13,12 @@ import {
   BsArrowRight,
   BsArrowLeft,
 } from 'react-icons/bs'
+import {
+  IoIosArrowRoundBack,
+  IoIosArrowRoundForward,
+} from 'react-icons/io'
 
 import video from './video/Graffiti street art.mp4'
-import arrLeft from '../../pics/arr-left.svg'
-import arrRight from '../../pics/arr-right.svg'
 import imgFlimward from './image/news/flimward.jpg'
 import imgDance from './image/news/dance.jpg'
 import imgGoldpin from './image/news/goldpin.jpg'
@@ -88,13 +90,13 @@ const Index = () => {
       {/* news */}
       <div className="news-area d-flex">
         <div className="news-slogen col-6 d-flex flex-column align-center justify-content-center text-center col-6 px-0">
-          <div className="news-hl"></div>
           <h1>TODAY’S</h1>
           <h1>NEWS</h1>
+          <div className="news-hl"></div>
           <h1 className="news-slogen-TC mt-3">
             “我們接軌藝術
           </h1>
-          <h1 className="news-slogen-TC mt-2">
+          <h1 className="notoSansTC-md news-slogen-TC mt-2">
             藝術接軌國際"
           </h1>
         </div>
@@ -126,7 +128,7 @@ const Index = () => {
             Always doing that which I cannot do, in order
             that I may learn how to do it
           </strong>
-          <h4 className="artist-title-tc">
+          <h4 className="notoSansTC-md artist-title-tc">
             藝術 <span>TALK TO TALK</span>
           </h4>
         </div>
@@ -168,7 +170,7 @@ const Index = () => {
             <h1 className=" text-break">
               Chasing art never stops
             </h1>
-            <h4 className="event-title-tc">
+            <h4 className="notoSansTC-md event-title-tc">
               藝術 <span>活動展</span>
             </h4>
           </div>
@@ -185,7 +187,7 @@ const Index = () => {
             scrollamount="10"
             className="event-marquee mt-5 px-3"
           >
-            <h1 className="my-3">
+            <h1 className="notoSansTC-md my-3">
               2021 台北市立美術館雙年展 正式開跑
               <CgArrowLongRightL /> 2021
               台北市立美術館雙年展 正式開跑{' '}
@@ -201,7 +203,7 @@ const Index = () => {
             scrollamount="10"
             className="event-marquee my-5 px-3"
           >
-            <h1 className="my-3">
+            <h1 className="notoSansTC-md my-3">
               放視大賞 強力募集中 <CgPacman />
               <BsThreeDots />
               放式大賞強 放視大賞 強力募集中
@@ -237,7 +239,7 @@ const Index = () => {
           <h1>SURE!</h1>
           <h1>embellish it!</h1>
           <div>
-            <h4 className="product-title-tc">
+            <h4 className="notoSansTC-md product-title-tc">
               藝術 <span>點綴生活</span>
             </h4>
           </div>
@@ -261,18 +263,23 @@ const Index = () => {
             <img src={product2} alt="" />
             <div className="index-card-rect"></div>
             <div className="d-flex justify-content-between mt-2">
-              <h5 className="font-weight-bold">
+              <h5 className="notoSansTC-md font-weight-bold">
                 達利的畫布
               </h5>
-              <h5 className="font-weight-bold">490元</h5>
+              <h5 className="notoSansTC-md font-weight-bold">
+                490元
+              </h5>
             </div>
           </div>
-          <div className="product-card col-3"></div>
+          <div className="product-card col-3">
+            <h1 className="indexACC">ACC</h1>
+            <div className="index-card-btn"></div>
+          </div>
           <div className="product-card col-3">
             <img src={product1} alt="" />
             <div className="index-card-rect"></div>
             <div className="d-flex justify-content-between mt-2">
-              <h5 className="font-weight-bold">
+              <h5 className="notoSansTC-md font-weight-bold">
                 馬蒂斯的花園
               </h5>
               <h5 className="font-weight-bold">1180元</h5>
@@ -282,10 +289,12 @@ const Index = () => {
             <img src={product3} alt="" />
             <div className="index-card-rect"></div>
             <div className="d-flex justify-content-between mt-2">
-              <h5 className="font-weight-bold">
+              <h5 className="notoSansTC-md font-weight-bold">
                 慕夏的後院
               </h5>
-              <h5 className="font-weight-bold">980元</h5>
+              <h5 className="notoSansTC-md font-weight-bold">
+                980元
+              </h5>
             </div>
           </div>
         </div>
@@ -294,31 +303,39 @@ const Index = () => {
             <img src={product2} alt="" />
             <div className="index-card-rect"></div>
             <div className="d-flex justify-content-between mt-2">
-              <h5 className="font-weight-bold">
+              <h5 className="notoSansTC-md font-weight-bold">
                 後現代主義解析
               </h5>
-              <h5 className="font-weight-bold">799元</h5>
+              <h5 className="notoSansTC-md font-weight-bold">
+                799元
+              </h5>
             </div>
           </div>
           <div className="product-card col-3">
             <img src={product1} alt="" />
             <div className="index-card-rect"></div>
             <div className="d-flex justify-content-between mt-2">
-              <h5 className="font-weight-bold">
+              <h5 className="notoSansTC-md font-weight-bold">
                 梵谷傳 天生藝術家
               </h5>
-              <h5 className="font-weight-bold">1280元</h5>
+              <h5 className="notoSansTC-md font-weight-bold">
+                1280元
+              </h5>
             </div>
           </div>
-          <div className="product-card col-3"></div>
+          <div className="product-card col-3">
+            <h1 className="indexACC">Book</h1>
+          </div>
           <div className="product-card col-3">
             <img src={product3} alt="" />
             <div className="index-card-rect"></div>
             <div className="d-flex justify-content-between mt-2">
-              <h5 className="font-weight-bold">
+              <h5 className="notoSansTC-md font-weight-bold">
                 文藝復興時期的形狀
               </h5>
-              <h5 className="font-weight-bold">1980元</h5>
+              <h5 className="notoSansTC-md font-weight-bold">
+                1980元
+              </h5>
             </div>
           </div>
         </div>
@@ -332,15 +349,15 @@ const Index = () => {
               <div className="d-flex px-5">
                 <button className="col-6">WATCH ALL</button>
                 <button className="col-3">
-                  <img src={arrLeft}></img>
+                  <IoIosArrowRoundBack />
                 </button>
                 <button className="col-3 ">
-                  <img src={arrRight}></img>
+                  <IoIosArrowRoundForward />
                 </button>
               </div>
             </div>
           </div>
-          <h4 className="auction-title-tc pl-3 mb-5">
+          <h4 className="notoSansTC-md auction-title-tc pl-3 mb-5">
             藝術 <span>點綴生活</span>
           </h4>
           <div className="auctime">
@@ -351,10 +368,10 @@ const Index = () => {
               <img src={product2} alt="" />
               <div className="index-card-rect"></div>
               <div className="d-flex justify-content-between mt-2">
-                <h5 className="font-weight-bold">
+                <h5 className="notoSansTC-md font-weight-bold">
                   奈良美智 [少女] 原作
                 </h5>
-                <h5 className="font-weight-bold">
+                <h5 className="notoSansTC-md font-weight-bold">
                   49,20,00元
                 </h5>
               </div>
@@ -363,10 +380,10 @@ const Index = () => {
               <img src={product2} alt="" />
               <div className="index-card-rect"></div>
               <div className="d-flex justify-content-between mt-2">
-                <h5 className="font-weight-bold">
+                <h5 className="notoSansTC-md font-weight-bold">
                   鹽田千春 [捕夢網]
                 </h5>
-                <h5 className="font-weight-bold">
+                <h5 className="notoSansTC-md font-weight-bold">
                   62,70,00元
                 </h5>
               </div>
@@ -375,10 +392,10 @@ const Index = () => {
               <img src={product1} alt="" />
               <div className="index-card-rect"></div>
               <div className="d-flex justify-content-between mt-2">
-                <h5 className="font-weight-bold">
+                <h5 className="notoSansTC-md font-weight-bold">
                   松本龍介 [無題]
                 </h5>
-                <h5 className="font-weight-bold">
+                <h5 className="notoSansTC-md font-weight-bold">
                   42,60,00元
                 </h5>
               </div>
@@ -387,10 +404,10 @@ const Index = () => {
               <img src={product3} alt="" />
               <div className="index-card-rect"></div>
               <div className="d-flex justify-content-between mt-2">
-                <h5 className="font-weight-bold">
+                <h5 className="notoSansTC-md font-weight-bold">
                   楊英風 [英風年華]
                 </h5>
-                <h5 className="font-weight-bold">
+                <h5 className="notoSansTC-md font-weight-bold">
                   12,60,00元
                 </h5>
               </div>
