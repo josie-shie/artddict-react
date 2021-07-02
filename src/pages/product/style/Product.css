@@ -279,16 +279,17 @@
     width: 80px;
     height: 80px;
     top:80%;
-    left: -30%;
+    /* left: -30%; */
+    left: -230px;
     border:1px solid black;
-    position: absolute;
 }
 
 .slick-next{
     width: 80px;
     height: 80px;
     top:80%;
-    left: -20%;
+    /* left: -20%; */
+    left: -150px;
     border:1px solid black;
 }
 
