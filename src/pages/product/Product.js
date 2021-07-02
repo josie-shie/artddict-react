@@ -231,34 +231,46 @@ function Product() {
                 <IoIosArrowRoundForward size={70} />
               </div> */}
               <Slider {...settings}>
-                <div className="slickPic">
+                <div className="slickPic1">
                   <div className="slickPic-box">
-                    <img src={slickA1} alt="" />
+                    <Link to="/">
+                      <img src={slickA6} alt="" />
+                    </Link>
                   </div>
                 </div>
-                <div className="slickPic">
+                <div className="slickPic2">
                   <div className="slickPic-box">
-                    <img src={slickA2} alt="" />
+                    <Link to="/">
+                      <img src={slickA3} alt="" />
+                    </Link>
                   </div>
                 </div>
-                <div className="slickPic">
+                <div className="slickPic3">
                   <div className="slickPic-box">
-                    <img src={slickA3} alt="" />
+                    <Link to="/">
+                      <img src={slickA2} alt="" />
+                    </Link>
                   </div>
                 </div>
-                <div className="slickPic">
+                <div className="slickPic4">
                   <div className="slickPic-box">
-                    <img src={slickA4} alt="" />
+                    <Link to="/">
+                      <img src={slickA4} alt="" />
+                    </Link>
                   </div>
                 </div>
-                <div className="slickPic">
+                <div className="slickPic5">
                   <div className="slickPic-box">
-                    <img src={slickA5} alt="" />
+                    <Link to="/">
+                      <img src={slickA5} alt="" />
+                    </Link>
                   </div>
                 </div>
-                <div className="slickPic">
+                <div className="slickPic6">
                   <div className="slickPic-box">
-                    <img src={slickA6} alt="" />
+                    <Link to="/">
+                      <img src={slickA1} alt="" />
+                    </Link>
                   </div>
                 </div>
               </Slider>
