@@ -347,12 +347,12 @@ const Index = () => {
             <div className="col-6 d-flex flex-column pt-4">
               <img src={aucline} alt="" />
               <div className="d-flex px-5">
-                <button className="col-6">WATCH ALL</button>
+                <button className="notoSansTC-md col-6">WATCH ALL</button>
                 <button className="col-3">
-                  <IoIosArrowRoundBack />
+                  <IoIosArrowRoundBack size={30} />
                 </button>
                 <button className="col-3 ">
-                  <IoIosArrowRoundForward />
+                  <IoIosArrowRoundForward size={30}/>
                 </button>
               </div>
             </div>
