@@ -262,8 +262,8 @@
 
 
 
-
-.switchLeftBtn{
+/* cautionnnnnnnnnn switchBtn*/
+/* .switchLeftBtn{
     position: absolute;
     top: 71%;
     left: -220px;
@@ -274,7 +274,8 @@
     top: 405px;
     left: -145px;
     z-index: 1000;
-}
+} */
+/* cautionnnnnnnnnn */
 
 
 
@@ -328,8 +329,33 @@
     overflow: hidden;
 
 }
-.slickPic img{
+.slickPic1 img{
+    width:110%;
+    height: 100%;
+    margin-left: 0%;
+}
+.slickPic2 img{
     width:110%;
     height: 100%;
     margin-left: -10%;
+}
+.slickPic3 img{
+    width:110%;
+    height: 100%;
+    margin-left: -10%;
+}
+.slickPic4 img{
+    width:110%;
+    height: 100%;
+    margin-left: -10%;
+}
+.slickPic5 img{
+    width:110%;
+    height: 100%;
+    margin-left: -5%;
+}
+.slickPic6 img{
+    width:110%;
+    height: 100%;
+    margin-left: 0%;
 }
