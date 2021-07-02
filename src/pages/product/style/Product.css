@@ -24,6 +24,7 @@
 .homepage3-word  {
     font-family: NotoSansTC-Medium;
     font-size: 1.5vw;
+    line-height:7vh;
 }
 
 
@@ -235,33 +236,57 @@
     top:5%;
     z-index: 999;
 }
+.pro-green{
+    width:21vw;
+    height:7vh;
+    background-color: #81FC4D;
+    position: absolute;
+    top:23%;
+    transform: rotate(-8deg);
+}
 .homepage3-left-box{
-    background-color: aqua;
-    padding-top: 20%;
+    padding-top: 23%;
     width: 40vw;
     height: 100vh;
-    line-height: 5vh;
 }
+
+.homepage3-NewArrival{
+    line-height: 13vh;
+
+}
+.switchLeftRight{
+   padding-top:70%;
+    margin-left:40%;
+}
+
+.switchLeftRight button{
+    border: 1px solid black;
+    background-color: white;
+}
+
 .homepage3-right-box{
+    margin-top: 10%;
 
 }
 
 .pro-arrow{
+    margin-left: 28%;
 }
 
 
 .slickWidth{
     width: 62vw;
     height: 0vh;
+    margin-left: 3%;
 }
 
 .slickPic-box{
     width:30vw;
-    height:65vh;
+    height:70vh;
     overflow: hidden;
 }
 .slickPic img{
     width:110%;
-    height: 110%;
+    height: 100%;
     margin-left: -10%;
 }
