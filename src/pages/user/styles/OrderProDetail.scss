@@ -6,6 +6,7 @@
     height: 254px;
     border: 2px solid #707070;
     font-size: 16px;
+    font-family: NotoSansTC-Medium;
 }
 
 @media screen and (max-width:576px) {
@@ -36,6 +37,7 @@
 /* ----- 商品細節 ----- */
 .u-boxPro {
     margin-left: 70px;
+    font-family: NotoSansTC-Medium;
 }
 
 .u-boxPro{
@@ -74,8 +76,8 @@
     line-height: 30px;
     margin-top: 5px;
     margin-left: -15px;
-    // position: relative;
-    // z-index: 500px;
+    font-family: NotoSansTC-Medium;
+    font-size: 18px;
 }
 
 .btn-link, .btn-link:hover{
@@ -107,10 +109,10 @@
     border: 2px solid #000;
     line-height: 40px;
     text-align: center;
-    // position: absolute;
     margin-top: -42px;
     margin-left: 150px;
-    // z-index: 1000px;
+    font-family: NotoSansTC-Medium;
+    font-size: 18px;
 }
 
 .u-goEVAL > a {
@@ -131,6 +133,8 @@
     margin-top: 30px;
     margin-bottom: 30px;
     margin-left: 500px;
+    font-family: NotoSansTC-Medium;
+    font-size: 18px;
 }
 
 .u-link{

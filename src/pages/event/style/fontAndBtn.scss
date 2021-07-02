@@ -1,10 +1,10 @@
-/* Font for Chinese */
+// ?Font for Chinese
 
 .cn-font{
     font-family: 'Noto Sans TC', sans-serif;
     letter-spacing: 3px;
 }
-/* Font for English */
+// ?Font for English
 
 @font-face {
     font-family: Engravers-Normal;
@@ -24,7 +24,7 @@
     font-family: Engravers-Bold;
 }
 
-// btn 大(200 x 52)中(150 x 50)小( 98X38 )
+// ?btn 大(200 x 52)中(150 x 50)小( 98X38 )
 .e-btn-s{
     background-color: transparent;
     width: 93px;
@@ -42,5 +42,6 @@
     width: 200px;
     height: 52px;
 }
+
 
 

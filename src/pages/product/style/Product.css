@@ -297,9 +297,7 @@
     border:1px solid black;
     border-right: 0;
 }
-.slick-prev:before {
 
-}
 .slick-prev:hover{
     color:transparent
 }
@@ -358,4 +356,164 @@
     width:110%;
     height: 100%;
     margin-left: 0%;
+}
+/* -----------homepage4 */
+.pro-outside4 {
+    background-color: white;
+    width: calc(100vw - 70px);
+    height: 100vh;
+}
+.pro-gray4{
+    background-color: #E8E8E8;
+    width: 70vw;
+    height: 100vh;
+    margin-top:150px;
+    position: relative;
+}
+.homepage4-doublePicA{
+width: 30vw;
+height: 10vh;
+position: absolute;
+top: -15%;
+}
+
+.homepage4-doublePicA img{
+width:100%;
+}
+.homepage4-doublePicB{
+    width: 30vw;
+    height: 10vh;
+    position: absolute;
+    top: 22%;
+}
+    
+.homepage4-doublePicB img{
+    width:100%;
+}
+
+.homepage4-wordBox{
+    width: 35vw;
+    height: 40vh;
+    margin-left: 70%;
+    padding-top: 15%;
+    z-index: 998;
+
+}
+.homepage4-wordA{
+    font-family: NotoSansTC-Medium;
+    font-size: 2vw;
+    z-index: 998;
+
+}
+.homepage4-wordB{
+    font-family:Engravers;
+    font-size: 3.5vw;
+    margin-left: 10%;
+    z-index: 998;
+
+}
+.homepage4-wordC{
+    font-family:Engravers;
+    font-size: 3.5vw;
+    margin-left: 25%;
+    margin-top: 3%;
+    z-index: 998;
+
+}
+.homepage4-wordD{
+    font-family:Engravers;
+    font-size: 6vw;
+    margin-left: 36%;
+    margin-top: 3%;
+    z-index: 998;
+
+}
+.pro-green2{
+    width:21vw;
+    height:7vh;
+    background-color: #81FC4D;
+    position: absolute;
+    top:41%;
+    left: 85%;
+    transform: rotate(-5deg);
+    z-index:995;
+}
+.pro-green2:hover{
+    background-color: black;
+}
+
+/* ---------slick start----- */
+
+.slickWidth2{
+    width: 70vw;
+    height: 60vh;
+    margin-left: 8%;
+    position: relative;
+    margin-top: 12%;
+}
+
+.slickPicB-box{
+    width:20vw;
+    height:50vh;
+    overflow: hidden;
+    position: relative;
+
+}
+.slickPicB-black{
+    width: 100%;
+    height: 10px;
+    background-color: black;
+    position: absolute;
+    bottom: 0%;
+}
+.slickPicB-black:hover{
+    background-color:black;
+    color:black;
+
+}
+
+.slickPicB-black:hover .slickB1 img{
+    opacity: 0.1;
+    background-color:black
+}
+
+.slickB1 img{
+    width:110%;
+    height: 100%;
+    margin-left: -5%;
+}
+.slickB2 img{
+    width:110%;
+    height: 100%;
+    margin-left: -5%;
+}
+.slickB3 img{
+    width:110%;
+    height: 100%;
+    margin-left: -5%;
+}
+.slickB4 img{
+    width:130%;
+    height: 100%;
+    margin-left: -15%;
+}
+.slickB5 img{
+    width:150%;
+    height: 120%;
+    margin-left: -15%;
+}
+.slickB6 img{
+    width:120%;
+    height: 120%;
+    margin-left: -7%;
+}
+/* -----------homepage5------- */
+.pro-outside5{
+    width: calc(100vw - 70px);
+}
+
+.pro-gray5{
+    background-color: #E8E8E8;
+    width: 70vw;
+    height: 100vh;
 }
