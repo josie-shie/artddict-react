@@ -29,6 +29,8 @@ import homepic1 from './img/homepic1.jpeg'
 import homepic2 from './img/homepic2.png'
 import homepic3 from './img/homepic3.png'
 import homepic4 from './img/homepic4.png'
+import homepic5 from './img/homepic5.jpeg'
+import homepic6 from './img/homepic6.jpeg'
 import museumGif from './img/museumGif.gif'
 import slickA1 from './img/slickA1.jpeg'
 import slickA2 from './img/slickA2.jpeg'
@@ -36,7 +38,12 @@ import slickA3 from './img/slickA3.jpeg'
 import slickA4 from './img/slickA4.jpeg'
 import slickA5 from './img/slickA5.jpeg'
 import slickA6 from './img/slickA6.jpeg'
-import slickA7 from './img/slickA7.jpeg'
+import slickB1 from './img/slickB1.jpeg'
+import slickB2 from './img/slickB2.jpeg'
+import slickB3 from './img/slickB3.jpeg'
+import slickB4 from './img/slickB4.jpeg'
+import slickB5 from './img/slickB5.jpeg'
+import slickB6 from './img/slickB6.jpeg'
 
 function Product() {
   let settings = {
@@ -44,6 +51,16 @@ function Product() {
     infinite: true,
     speed: 500,
     slidesToShow: 2,
+    slidesToScroll: 1,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+  }
+
+  let settings2 = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
@@ -277,6 +294,98 @@ function Product() {
             </div>
           </div>
         </div>
+      </div>
+      {/* ------------------homepage4------ */}
+      <div className="pro-outside4">
+        <div className="pro-gray4">
+          <div className="pro-green2"></div>
+
+          <div className="homepage4-doublePicA">
+            <img src={homepic5} alt="" />
+          </div>
+          <div className="homepage4-doublePicB">
+            <img src={homepic6} alt="" />
+          </div>
+          <div className="homepage4-wordBox">
+            <div className="homepage4-wordA">
+              <p>
+                藝術———熱賣商品
+                <span className="homepage4-wordB">
+                  THIS
+                </span>
+              </p>
+            </div>
+            <div className="homepage4-wordC">
+              <p>PRODUCT</p>
+            </div>
+            <div className="homepage4-wordD">
+              <p>IS IN</p>
+            </div>
+          </div>
+
+          <div className="slickWidth2">
+            {/* <div className="switchLeftBtn">
+                <IoIosArrowRoundBack size={70} />
+              </div>
+              <div className="switchRightBtn">
+                <IoIosArrowRoundForward size={70} />
+              </div> */}
+            <Slider {...settings2}>
+              <div className="slickB1">
+                <div className="slickPicB-box">
+                  <Link to="/">
+                    <div className="slickPicB-black"></div>
+                    <img src={slickB1} alt="" />
+                  </Link>
+                </div>
+              </div>
+              <div className="slickB2">
+                <div className="slickPicB-box">
+                  <Link to="/">
+                    <div className="slickPicB-black"></div>
+                    <img src={slickB2} alt="" />
+                  </Link>
+                </div>
+              </div>
+              <div className="slickB3">
+                <div className="slickPicB-box">
+                  <Link to="/">
+                    <div className="slickPicB-black"></div>
+                    <img src={slickB3} alt="" />
+                  </Link>
+                </div>
+              </div>
+              <div className="slickB4">
+                <div className="slickPicB-box">
+                  <Link to="/">
+                    <div className="slickPicB-black"></div>
+                    <img src={slickB4} alt="" />
+                  </Link>
+                </div>
+              </div>
+              <div className="slickB5">
+                <div className="slickPicB-box">
+                  <Link to="/">
+                    <div className="slickPicB-black"></div>
+                    <img src={slickB5} alt="" />
+                  </Link>
+                </div>
+              </div>
+              <div className="slickB6">
+                <div className="slickPicB-box">
+                  <Link to="/">
+                    <div className="slickPicB-black"></div>
+                    <img src={slickB6} alt="" />
+                  </Link>
+                </div>
+              </div>
+            </Slider>
+          </div>
+        </div>
+      </div>
+      {/* ------------------homepage5------ */}
+      <div className="pro-outside5">
+        <div className="pro-gray5"></div>
       </div>
     </>
   )

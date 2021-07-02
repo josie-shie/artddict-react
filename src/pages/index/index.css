@@ -118,7 +118,7 @@
 
     .news-hl{
         position:absolute;
-        /*z-index: -1;*//*TODO: Zindex not working*/
+        z-index: 0;/*TODO: Zindex not working*/
         top:43vh;
         left:30vh;
         width: 30vh;
