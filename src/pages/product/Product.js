@@ -208,12 +208,6 @@ function Product() {
                 <IoIosArrowRoundForward size={50} />
               </button>
             </div> */}
-            <div className="switchLeftBtn">
-              <IoIosArrowRoundBack size={60} />
-            </div>
-            <div className="switchRightBtn">
-              <IoIosArrowRoundForward size={60} />
-            </div>
           </div>
 
           <div className="homepage3-right-box">
@@ -230,6 +224,12 @@ function Product() {
               </marquee>
             </div>
             <div className="slickWidth">
+              {/* <div className="switchLeftBtn">
+                <IoIosArrowRoundBack size={70} />
+              </div>
+              <div className="switchRightBtn">
+                <IoIosArrowRoundForward size={70} />
+              </div> */}
               <Slider {...settings}>
                 <div className="slickPic">
                   <div className="slickPic-box">

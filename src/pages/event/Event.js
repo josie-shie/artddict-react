@@ -418,45 +418,130 @@ function event() {
               <IoIosArrowForward />
             </div>
           </Row>
-          <Row>
-            <div className="col-9 p-0 d-flex">
-              <div className="col-5 p-0">
-                <div className="e-location-card">
-                  <div className="">
-                    <img
-                      className="pic-square"
-                      src={Square}
-                      alt=""
-                    />
+          <Row className="p-0">
+            <div className="col-9 p-0 ">
+              {/* 第一行城市 */}
+              <div className="col-12 p-0 e-city-area d-flex border-top-0 justify-content-between">
+                <div className="col-3 p-0 ml-4">
+                  <div className="e-location-card">
+                    <div className="">
+                      <img
+                        className="pic-square"
+                        src={Square}
+                        alt=""
+                      />
+                    </div>
                   </div>
+                  <button className="e-btn-l e-locaton-btn cn-font">
+                    彰化
+                  </button>
                 </div>
-                <button className="e-btn-l e-locaton-btn cn-font">
-                  彰化
-                </button>
+                <div className="col-3 p-0 mx-5">
+                  <div className="e-location-card">
+                    <div className="">
+                      <img
+                        className="pic-square"
+                        src={Square}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <button className="e-btn-l e-locaton-btn cn-font">
+                    台北
+                  </button>
+                </div>
+                <div className="col-3 p-0 mr-4">
+                  <div className="e-location-card">
+                    <div className="">
+                      <img
+                        className="pic-square"
+                        src={Square}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <button className="e-btn-l e-locaton-btn cn-font">
+                    台中
+                  </button>
+                </div>
               </div>
-
-              <div className="col-5 p-0">
-                <div className="e-location-card">
-                  <div className="">
-                    <img
-                      className="pic-square"
-                      src={Square}
-                      alt=""
-                    />
+              {/* 第二行城市 */}
+              <div className="col-12 p-0 e-city-area d-flex justify-content-around">
+                <div className="col-3 p-0">
+                  <div className="e-location-card">
+                    <div className="">
+                      <img
+                        className="pic-square"
+                        src={Square}
+                        alt=""
+                      />
+                    </div>
                   </div>
+                  <button className="e-btn-l e-locaton-btn cn-font">
+                    新竹
+                  </button>
                 </div>
-                <button className="e-btn-l e-locaton-btn cn-font">
-                  彰化
+                <div className="col-3 p-0">
+                  <div className="e-location-card">
+                    <div className="">
+                      <img
+                        className="pic-square"
+                        src={Square}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <button className="e-btn-l e-locaton-btn cn-font">
+                    台南
+                  </button>
+                </div>
+                <div className="col-3 p-0">
+                  <div className="e-location-card">
+                    <div className="">
+                      <img
+                        className="pic-square"
+                        src={Square}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <button className="e-btn-l e-locaton-btn cn-font">
+                    高雄
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="col-3 e-local-logo p-0">
+              <div className="col-12  d-flex justify-content-center">
+                <div className="col-4 my-5">
+                  <img
+                    className="e-local-log-pic"
+                    src={LocationLogo}
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div className="col-12 p-0">
+                <button className="e-location-more-btn eng-font-bold">
+                  MORE+
                 </button>
               </div>
             </div>
-            <Row className="col-3 justify-content-center">
-              <img
-                className="col-5 e-local-logo"
-                src={LocationLogo}
-                alt=""
-              />
-            </Row>
+            {/* <div className="e-local-logo col justify-content-center d-flex ">
+                <div className="col-4 my-5">
+                  <img
+                    className="e-local-log-pic"
+                    src={LocationLogo}
+                    alt=""
+                  />
+                </div>
+                <div className="col-12 p-0">
+                  <button className="e-location-more-btn eng-font-bold">
+                    MORE+
+                  </button>
+                </div>
+              
+            </div> */}
           </Row>
         </Container>
       </div>

@@ -257,26 +257,26 @@
     line-height: 13vh;
 
 }
-/* .switchLeftRight{
-   padding-top:70%;
-    margin-left:40%;
-}
 
-.switchLeftRight button{
-    border: 1px solid black;
-    background-color: white;
-} */
+
+
+
+
 
 .switchLeftBtn{
     position: absolute;
-    top: 85%;
-    left: 110px;
+    top: 71%;
+    left: -220px;
+    z-index: 1000;
 }
 .switchRightBtn{
     position: absolute;
-    top: 85%;
-    left: 190px;
+    top: 405px;
+    left: -145px;
+    z-index: 1000;
 }
+
+
 
 .homepage3-right-box{
     margin-top: 10%;
@@ -317,8 +317,9 @@
 
 .slickWidth{
     width: 62vw;
-    height: 0vh;
+    height: 82vh;
     margin-left: 3%;
+    position: relative;
 }
 
 .slickPic-box{
