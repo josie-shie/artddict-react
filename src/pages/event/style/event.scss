@@ -536,8 +536,26 @@
         }
 
         .e-location-card{
-            
+            background-image: url(../images/museum/CHW.jpeg);
+            background-size: cover;
+            box-sizing: border-box;
+            border: 4px solid black;
+            border-top: 0px;
+
         }
+
+        .e-locaton-btn{
+            border: 4px solid black;
+            border-top: 0px;
+            width: 100%;
+            height: 64px;
+            font-size: 1.8rem;
+            font-weight: bold;
+
+        }
+
+
+        
 
 
 
