@@ -6,6 +6,7 @@ import {
 } from 'react-router-dom'
 
 import Nav from './components/Nav'
+import Footer from './components/Footer'
 import Index from './pages/index/Index'
 import Map from './pages/map/Map'
 import Event from './pages/event/Event'
@@ -75,6 +76,7 @@ function App() {
             </Route>
           </Switch>
         </ScrollToTop>
+        <Footer />
       </>
     </Router>
   )

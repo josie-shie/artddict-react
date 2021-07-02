@@ -1,6 +1,6 @@
 //TODO:Nav:一鍵置頂/背景要變灰階
 
-import React, { useRef, useEffect } from 'react'
+import React, { useRef, useEffect, useState } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { ReactComponent as Logo } from '../pics/logo.svg'
 import { BiArrowToTop, BiCartAlt } from 'react-icons/bi'
@@ -74,6 +74,22 @@ const Nav = () => {
     }, 30)
   }
 
+  const [menu, setMenu] = useState({
+    Menuopen: false,
+  })
+
+  // useEffect(() => {}, [])
+
+  // const handleGlobalClick = () => {
+  //   console.log('global click')
+
+  //   this.setState({ dropDownExpanded: false })
+  //   document.removeEventListener(
+  //     'click',
+  //     this.handleGlobalClick
+  //   )
+  // }
+
   return (
     <>
       <div className="nav-area">
@@ -118,9 +134,9 @@ const Nav = () => {
             <div className="nav-logo-sm"></div>
           </div>
           <div className="menu">
-            <div>
+            <Link to="/">
               <Logo className="nav-logo" ref={logoRef} />
-            </div>
+            </Link>
             <div>
               <ul>
                 <li>
