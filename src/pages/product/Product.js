@@ -1,7 +1,6 @@
 import React, { useRef, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../pics/logo.svg'
-import './style/Product.css'
 import '../../bootstrap/css/bootstrap.css'
 import { Card, Button } from 'react-bootstrap'
 //----------icon and css and slick----------
@@ -16,6 +15,8 @@ import { BsThreeDots } from 'react-icons/bs'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import Slider from 'react-slick'
+import './style/Product.css'
+
 //-------test-----
 import Testcard from './compoenents/testCard'
 // -----picturre--------
@@ -54,7 +55,6 @@ function Product() {
         style={{
           ...style,
           display: 'block',
-          background: 'red',
         }}
         onClick={onClick}
       />
@@ -65,11 +65,10 @@ function Product() {
     const { className, style, onClick } = props
     return (
       <div
-        className=".switchLeftBtn"
+        className={className}
         style={{
           ...style,
           display: 'block',
-          background: 'red',
         }}
         onClick={onClick}
       />
@@ -200,14 +199,14 @@ function Product() {
                 MORE
               </Link>
             </p>
-            <div className="switchLeftRight">
+            {/* <div className="switchLeftRight">
               <button className="switchLeftBtn">
                 <IoIosArrowRoundBack size={50} />
               </button>
               <button className="switchRightBtn">
                 <IoIosArrowRoundForward size={50} />
               </button>
-            </div>
+            </div> */}
           </div>
 
           <div className="homepage3-right-box">

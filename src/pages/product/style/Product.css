@@ -1,3 +1,5 @@
+
+
 @font-face {
     font-family: Engravers;
     src: url(../../../style/font/ENGR.ttf);
@@ -254,7 +256,7 @@
     line-height: 13vh;
 
 }
-.switchLeftRight{
+/* .switchLeftRight{
    padding-top:70%;
     margin-left:40%;
 }
@@ -262,7 +264,7 @@
 .switchLeftRight button{
     border: 1px solid black;
     background-color: white;
-}
+} */
 
 .homepage3-right-box{
     margin-top: 10%;
@@ -272,6 +274,25 @@
 .pro-arrow{
     margin-left: 28%;
 }
+
+.slick-prev{
+    width: 80px;
+    height: 80px;
+    top:80%;
+    /* left: -30%; */
+    left: -230px;
+    border:1px solid black;
+}
+
+.slick-next{
+    width: 80px;
+    height: 80px;
+    top:80%;
+    /* left: -20%; */
+    left: -150px;
+    border:1px solid black;
+}
+
 
 
 .slickWidth{
@@ -284,6 +305,7 @@
     width:30vw;
     height:70vh;
     overflow: hidden;
+
 }
 .slickPic img{
     width:110%;

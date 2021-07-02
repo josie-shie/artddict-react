@@ -1,0 +1,20 @@
+.footer-logo{
+    width: 50%;
+}
+
+.footer-icon{
+    font-size:1.5rem;
+    color: #81FC4D;
+}
+
+.index-footer{
+    padding-right: 70px;
+    background: #000;
+}
+
+@media screen and (max-width: 576px){
+  .footer-logo{
+        width: 100%;
+        margin: 30px 0 30px 0;
+    }
+}
