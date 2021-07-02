@@ -144,7 +144,7 @@ const Nav = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link ref={liRef} to="/contate">
+                  <Link ref={liRef} to="/contact">
                     Contact
                   </Link>
                 </li>

@@ -16,13 +16,12 @@ import ESpinBl from './images/arddict-circle-bl.svg'
 import EEyeBl from './images/arddict-eye-bl.svg'
 import ExhiDeco from './images/exhi-deco.svg'
 import ExhiDecoM from './images/m-exhi-deco.svg'
-
-import { FiArrowUpRight } from 'react-icons/fi'
-import { IoIosArrowRoundForward } from 'react-icons/io'
-import { IoIosArrowRoundBack } from 'react-icons/io'
 // WORK section
-import LogoDecoV from './images/arddict-deco-v.svg'
 import LogoDecoH from './images/artddict-deco-h.svg'
+// react icon
+import { FiArrowUpRight } from 'react-icons/fi'
+import { IoIosArrowBack } from 'react-icons/io'
+import { IoIosArrowForward } from 'react-icons/io'
 function event() {
   return (
     <>
@@ -397,8 +396,23 @@ function event() {
 
         <Container fluid className="event-location pt-5">
           <Row>
-            <div className="e-location-spin my-5">
+            <div className=" e-location-spin my-5">
               <MarqueeLocation />
+            </div>
+          </Row>
+          <Row>
+            <div className="cn-font e-location-title mx-auto mb-5">
+              <IoIosArrowBack />
+              <IoIosArrowBack />
+              <IoIosArrowBack />
+              <IoIosArrowBack />
+              <IoIosArrowBack />
+              從城市開始接觸藝術
+              <IoIosArrowForward />
+              <IoIosArrowForward />
+              <IoIosArrowForward />
+              <IoIosArrowForward />
+              <IoIosArrowForward />
             </div>
           </Row>
         </Container>

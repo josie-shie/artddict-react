@@ -6,35 +6,49 @@ const MarqueenLocation = () => (
     <marquee>
       <h1
         className="cn-font
-              spin-sentence e-location-spin"
+              spin-sentence e-location-spin border-0 p-0"
       >
-        一同與藝術，共襄盛舉 &emsp;
+        一同與藝術共襄盛舉
         <IoIosArrowRoundForward />
-        &emsp; 我們接軌國際 &emsp;一同與藝術，共襄盛舉
-        &emsp;
+        接軌國際藝文&emsp; 一同與藝術共襄盛舉
         <IoIosArrowRoundForward />
-        &emsp; 我們接軌國際 &emsp;一同與藝術，共襄盛舉
-        &emsp;
+        接軌國際藝文&emsp; 一同與藝術共襄盛舉
         <IoIosArrowRoundForward />
-        &emsp; 我們接軌國際 &emsp;一同與藝術，共襄盛舉
-        &emsp;
+        接軌國際藝文&emsp; 一同與藝術共襄盛舉
         <IoIosArrowRoundForward />
-        &emsp; 我們接軌國際 &emsp;一同與藝術，共襄盛舉
-        &emsp;
+        接軌國際藝文&emsp; 一同與藝術共襄盛舉
         <IoIosArrowRoundForward />
-        &emsp; 我們接軌國際 &emsp;一同與藝術，共襄盛舉
-        &emsp;
+        接軌國際藝文&emsp; 一同與藝術共襄盛舉
         <IoIosArrowRoundForward />
-        &emsp; 我們接軌國際 &emsp;一同與藝術，共襄盛舉
-        &emsp;
+        接軌國際藝文&emsp; 一同與藝術共襄盛舉
         <IoIosArrowRoundForward />
-        &emsp; 我們接軌國際 &emsp;一同與藝術，共襄盛舉
-        &emsp;
+        接軌國際藝文&emsp; 一同與藝術共襄盛舉
         <IoIosArrowRoundForward />
-        &emsp; 我們接軌國際 &emsp;一同與藝術，共襄盛舉
-        &emsp;
+        接軌國際藝文&emsp; 一同與藝術共襄盛舉
         <IoIosArrowRoundForward />
-        &emsp; 我們接軌國際 &emsp;
+        接軌國際藝文&emsp; 一同與藝術共襄盛舉
+        <IoIosArrowRoundForward />
+        接軌國際藝文&emsp; 一同與藝術共襄盛舉
+        <IoIosArrowRoundForward />
+        接軌國際藝文&emsp; 一同與藝術共襄盛舉
+        <IoIosArrowRoundForward />
+        接軌國際藝文&emsp; 一同與藝術共襄盛舉
+        <IoIosArrowRoundForward />
+        接軌國際藝文&emsp; 一同與藝術共襄盛舉
+        <IoIosArrowRoundForward />
+        接軌國際藝文&emsp; 一同與藝術共襄盛舉
+        <IoIosArrowRoundForward />
+        接軌國際藝文&emsp; 一同與藝術共襄盛舉
+        <IoIosArrowRoundForward />
+        接軌國際藝文&emsp; 一同與藝術共襄盛舉
+        <IoIosArrowRoundForward />
+        接軌國際藝文&emsp; 一同與藝術共襄盛舉
+        <IoIosArrowRoundForward />
+        接軌國際藝文&emsp; 一同與藝術共襄盛舉
+        <IoIosArrowRoundForward />
+        接軌國際藝文&emsp; 一同與藝術共襄盛舉
+        <IoIosArrowRoundForward />
+        接軌國際藝文&emsp;
       </h1>
     </marquee>
   </>
