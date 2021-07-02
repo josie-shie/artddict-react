@@ -155,7 +155,7 @@ const Nav = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link ref={liRef} to="/account">
+                  <Link ref={liRef} to="/user-login">
                     Account
                   </Link>
                 </li>
