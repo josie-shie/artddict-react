@@ -5,8 +5,8 @@ import Marquee from './components/Marquee'
 import MarqueeWork from './components/MarqueeWork'
 import MarqueeLocation from './components/MarqueeLocation'
 import './style/reset.css'
+import './style/fontAndBtn.scss'
 import './style/event.scss'
-import './style/font.scss'
 // HERO section
 import EventLogo from './images/logo.svg'
 import Square from './images/square.gif'
@@ -419,12 +419,38 @@ function event() {
             </div>
           </Row>
           <Row>
-            <div className="col-8">
-              <div className="e-location-card">
+            <div className="col-9 p-0 d-flex">
+              <div className="col-5 p-0">
+                <div className="e-location-card">
+                  <div className="">
+                    <img
+                      className="pic-square"
+                      src={Square}
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <button className="e-btn-l e-locaton-btn cn-font">
+                  彰化
+                </button>
+              </div>
 
+              <div className="col-5 p-0">
+                <div className="e-location-card">
+                  <div className="">
+                    <img
+                      className="pic-square"
+                      src={Square}
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <button className="e-btn-l e-locaton-btn cn-font">
+                  彰化
+                </button>
               </div>
             </div>
-            <Row className="col-4 justify-content-center">
+            <Row className="col-3 justify-content-center">
               <img
                 className="col-5 e-local-logo"
                 src={LocationLogo}
