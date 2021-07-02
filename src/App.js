@@ -27,10 +27,10 @@ import OrderTicDetail from './pages/user/OrderTicDetail'
 import Coupon from './pages/user/Coupon'
 
 // Event
-import EventList from './pages/event/Event-list'
-import EventDetail from './pages/event/Event-detail'
-import WorkshopShare from './pages/event/Workshop-share'
-import WorkshopUpload from './pages/event/Workshop-upload'
+import EventList from './pages/event/EventList'
+import EventDetail from './pages/event/EventDetail'
+import WorkshopShare from './pages/event/WorkshopShare'
+import WorkshopUpload from './pages/event/WorkshopUpload'
 
 function App() {
   return (
