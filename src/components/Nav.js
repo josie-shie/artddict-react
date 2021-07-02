@@ -139,8 +139,8 @@ const Nav = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link ref={liRef} to="/accont">
-                    Accont
+                  <Link ref={liRef} to="/account">
+                    Account
                   </Link>
                 </li>
                 <li>
