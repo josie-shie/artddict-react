@@ -420,11 +420,17 @@ function event() {
           </Row>
           <Row>
             <div className="col-8">
-              
+              <div className="e-location-card">
+
+              </div>
             </div>
-            <div className=" col-4">
-              <img src={LocationLogo} alt="" />
-            </div>
+            <Row className="col-4 justify-content-center">
+              <img
+                className="col-5 e-local-logo"
+                src={LocationLogo}
+                alt=""
+              />
+            </Row>
           </Row>
         </Container>
       </div>
