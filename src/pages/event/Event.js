@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Container, Row } from 'react-bootstrap'
 import Marquee from './components/Marquee'
 import MarqueeWork from './components/MarqueeWork'
+import MarqueeLocation from './components/MarqueeLocation'
 import './style/reset.css'
 import './style/event.scss'
 import './style/font.scss'
@@ -391,6 +392,14 @@ function event() {
           </Row>
           <Row>
             <MarqueeWork />
+          </Row>
+        </Container>
+
+        <Container fluid className="event-location pt-5">
+          <Row>
+            <div className="e-location-spin my-5">
+              <MarqueeLocation />
+            </div>
           </Row>
         </Container>
       </div>
