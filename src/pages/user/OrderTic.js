@@ -43,33 +43,33 @@ function OrderTic() {
 
           <div className="u-table">
             <div className="u-th d-flex justify-content-around">
-              <div className="u-orderId col-1">
+              <div className="u-orderId">
                 訂單編號
               </div>
-              <div className="u-orderDate col-1">
+              <div className="u-orderDate">
                 訂單日期
               </div>
-              <div className="u-payType col-1">
+              <div className="u-payType">
                 付款狀態
               </div>
-              <div className="u-price col-1">總價</div>
-              <div className="u-orderType col-1">
+              <div className="u-price">總價</div>
+              <div className="u-orderType">
                 訂單狀態
               </div>
               <div className="u-bt col-2"></div>
             </div>
             <div className="u-tb d-flex justify-content-around mt-5">
-              <div className="u-orderId col-1 mt-4">
+              <div className="u-orderId mt-4">
                 訂單編號
               </div>
-              <div className="u-orderDate col-1 mt-4">
+              <div className="u-orderDate mt-4">
                 訂單日期
               </div>
-              <div className="u-payType col-1 mt-4">
+              <div className="u-payType mt-4">
                 付款狀態
               </div>
-              <div className="u-price col-1 mt-4">總價</div>
-              <div className="u-orderType col-1 mt-4">
+              <div className="u-price mt-4">總價</div>
+              <div className="u-orderType mt-4">
                 訂單狀態
               </div>
               <div className="u-bt col-2">

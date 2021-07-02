@@ -30,7 +30,8 @@ import OrderTic from './pages/user/OrderTic'
 import OrderProDetail from './pages/user/OrderProDetail'
 import OrderTicDetail from './pages/user/OrderTicDetail'
 import Coupon from './pages/user/Coupon'
-import TicketPro from './pages/user/TicketPro'
+import Ticket from './pages/user/Ticket'
+import WorkShop from './pages/user/WorkShop'
 
 // Event
 import EventList from './pages/event/EventList'
@@ -94,8 +95,11 @@ function App() {
             <Route exact path="/user-coupon">
               <Coupon />
             </Route>
-            <Route exact path="/user-ticketpro">
-              <TicketPro />
+            <Route exact path="/user-ticket">
+              <Ticket />
+            </Route>
+            <Route exact path="/user-workshop">
+              <WorkShop />
             </Route>
             {/* <Route exact path="/auction">
               <Auction />

@@ -43,25 +43,25 @@ function OrderPro() {
 
           <div class="u-table">
             <div class="u-th d-flex justify-content-around">
-              <div class="u-orderId col-1">訂單編號</div>
-              <div class="u-orderDate col-1">訂單日期</div>
-              <div class="u-payType col-1">付款狀態</div>
-              <div class="u-price col-1">總價</div>
-              <div class="u-orderType col-1">訂單狀態</div>
+              <div class="u-orderId">訂單編號</div>
+              <div class="u-orderDate">訂單日期</div>
+              <div class="u-payType">付款狀態</div>
+              <div class="u-price">總價</div>
+              <div class="u-orderType">訂單狀態</div>
               <div class="u-bt col-2"></div>
             </div>
             <div class="u-tb d-flex justify-content-around mt-5">
-              <div class="u-orderId col-1 mt-4">
+              <div class="u-orderId  mt-4">
                 訂單編號
               </div>
-              <div class="u-orderDate col-1 mt-4">
+              <div class="u-orderDate mt-4">
                 訂單日期
               </div>
-              <div class="u-payType col-1 mt-4">
+              <div class="u-payType c mt-4">
                 付款狀態
               </div>
-              <div class="u-price col-1 mt-4">總價</div>
-              <div class="u-orderType col-1 mt-4">
+              <div class="u-price mt-4">總價</div>
+              <div class="u-orderType mt-4">
                 訂單狀態
               </div>
               <div class="u-bt col-2">
