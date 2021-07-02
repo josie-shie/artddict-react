@@ -250,6 +250,7 @@
     padding-top: 23%;
     width: 40vw;
     height: 100vh;
+    position: relative;
 }
 
 .homepage3-NewArrival{
@@ -266,6 +267,19 @@
     background-color: white;
 } */
 
+.switchLeftBtn{
+    position: absolute;
+    top: 83%;
+    left: -220px;
+    z-index: 1000;
+}
+.switchRightBtn{
+    position: absolute;
+    top: 83%;
+    left: -145px;
+    z-index: 1000;
+}
+
 .homepage3-right-box{
     margin-top: 10%;
 
@@ -278,27 +292,36 @@
 .slick-prev{
     width: 80px;
     height: 80px;
-    top:80%;
+    top:90%;
     /* left: -30%; */
     left: -230px;
     border:1px solid black;
+    border-right: 0;
+}
+.slick-prev:before {
+
+}
+.slick-prev:hover{
+    color:transparent
 }
 
 .slick-next{
     width: 80px;
     height: 80px;
-    top:80%;
+    top:90%;
     /* left: -20%; */
     left: -150px;
     border:1px solid black;
+
 }
 
 
 
 .slickWidth{
     width: 62vw;
-    height: 0vh;
+    height: 70vh;
     margin-left: 3%;
+    position: relative;
 }
 
 .slickPic-box{

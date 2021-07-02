@@ -23,6 +23,7 @@ import Testcard from './compoenents/testCard'
 import logo from './svg/logo.svg'
 import arddictCircleG from './svg/arddictCircleG.svg'
 import arddictEyeG from './svg/arddictEyeG.svg'
+import leftArrow from './svg/leftArrow.svg'
 import upLogo from './img/upLogo.png'
 import homepic1 from './img/homepic1.jpeg'
 import homepic2 from './img/homepic2.png'
@@ -223,6 +224,12 @@ function Product() {
               </marquee>
             </div>
             <div className="slickWidth">
+              <div className="switchLeftBtn">
+                <IoIosArrowRoundBack size={70} />
+              </div>
+              <div className="switchRightBtn">
+                <IoIosArrowRoundForward size={70} />
+              </div>
               <Slider {...settings}>
                 <div className="slickPic">
                   <div className="slickPic-box">
