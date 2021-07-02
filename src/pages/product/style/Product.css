@@ -24,7 +24,7 @@
 .homepage3-word  {
     font-family: NotoSansTC-Medium;
     font-size: 1.5vw;
-    line-height:5vh;
+    line-height:7vh;
 }
 
 
@@ -255,8 +255,8 @@
 
 }
 .switchLeftRight{
-    margin-top:80%;
-    margin-left:30%;
+    margin-top:70%;
+    margin-left:40%;
 }
 
 .switchLeftRight button{
