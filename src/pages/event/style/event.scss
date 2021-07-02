@@ -3,21 +3,21 @@
     width: calc(100% - 70px);
 }
 
-// For Element Align
-
-.left-margin{
-    margin-left: 70px;
+// leave 70px left paddinf
+.left-padding{
+    padding-left: 70px;
 }
 
-// HERO SECTION
+
+
+
+// !HERO SECTION
 
 .hero{
     width: 100%;
-    height: 100vh;
     background-color: black;
     position: relative;
 }
-
 .spin-circle{
     background: url(../images/arddict-circle-w.svg) no-repeat;
     width: 190px;
@@ -25,6 +25,12 @@
     position: absolute;
     
 }
+
+.m-spin-eye{
+        display: none;
+        margin-top: 20px;
+        margin-left: 300px;
+    }
 
 .spin-eye{
     background: url(../images/arddict-eye-w.svg) no-repeat;;
@@ -36,61 +42,53 @@
 }
 
 .e-logo-area{
-    width: 40%;
     margin-bottom: 36px;
 }
 
 .e-logo{
     width: 100%;
-    margin-top: 150px;
 }
 
 .e-topic{
-    font-size: 30px;
+    font-size: 1.8rem;
     font-weight: bold;
     color: #81FC4D;
     margin-top: 23px;
     margin-bottom: 23px;
 }
 
-.e-font-green{
-    color: #81FC4D;
-}
 
-
-// HERO SECTION 活動圖
+// ?HERO SECTION 活動圖
 .hero-event-1{
     background-image: url(../images/museum/art-542317__480.jpeg);
     background-size: cover;
-    opacity: .8;
 
 }
 
 .hero-event-2{
     background-image: url(../images/museum/art-542320__480.jpeg);
     background-size: cover;
-    opacity: .8;
     
 }
 
 .hero-event-3{
     background-image: url(../images/museum/bathsheba-bathing-1150331_1920.jpg);
     background-size: cover;
-    opacity: .8;
     
+}
+
+.e-cover-black{
+    width: 100%;
+    height: 100%;
+    background-color: #0000005b;
 }
 
 .e-hero-card-area{
     width: 100%;
 }
 
-// Hero section card 寬度
-.e-hero-card{
-    width: 20%;
-}
 
-
-// 方形透明圖
+// ?方形透明圖
 .pic-square{
     width: 100%;
 }
@@ -100,8 +98,8 @@
 }
 
 .e-hero-event-font{
-    font-size: 20px;
-    font-weight: medium;
+    font-size: 1.3rem;
+    font-weight: 500;
     color: #81FC4D;
 }
 
@@ -131,16 +129,18 @@
 }
 
 .e-line{
-    width: 100%;
-    border-top: 2px solid #81FC4D;
-    transform: rotate(45deg);
-    top: 50%;
+    width: 80%;
+        border-top: 2px solid #81FC4D;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%) rotate(-45deg);
 }
 .e-line2{
-    width: 100%;
-    border-top: 2px solid #81FC4D;
-    transform: rotate(-45deg);
-    top: 50%;
+    width: 80%;
+        border-top: 2px solid #81FC4D;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%) rotate(45deg);
 }
 
 // Vol.01 font-size
@@ -164,28 +164,42 @@
 }
 
 .spin-sentence{
-    font-size: 40px;
+    font-size: 2.5rem;
+    margin: 20px 0 20px 0;
 }
 
 .spin-sentence2{
-    font-size: 40px;
+    font-size: 2.5rem;
     color: #1D0AFF ;
+    margin: 20px 0 20px 0;
 }
 
-// EVENT SECTION
+.spin-sentence3{
+        font-size: 2.5rem;
+        color: white ;
+        margin: 20px 0 20px 0;
+    }
+
+.e-location-spin{
+    font-weight: 500;
+}
+
+// !EXHIBITION SECTION
 
 .exhi{
     background-color: white;
 }
 
+.exhi-m-deco{
+    display: none;
+}
+
 .e-select {
-    margin-top: 55px;
-    margin-bottom: 20px;
     font-size: 25px;
 }
 
 .e-select-cn{
-    font-weight: medium;
+    font-weight: 500;
 }
 
 
@@ -201,7 +215,6 @@
     background-color: transparent;
 }
 .e-exhi-event{
-    width: 53%;
     background-image: url(../images/museum/human-663298_1920.jpg);
     background-size: cover;
 
@@ -212,7 +225,7 @@
 }
 
 .e-exhi-name{
-    font-size: 40px;
+    font-size: 2.5rem;
     margin-right: 179px;
     margin-left: auto;
 
@@ -232,9 +245,31 @@
 
 // EXHIBITION 標題英文字
 .e-exhi-title{
-    font-size: 93px;
-    top: 500px;
-    left: 45%;
+    bottom: 150px;
+    right: 400px;
+    font-size: 5.8rem;
+}
+
+.e-exhi-title-cn{
+    font-size: 1.5rem;
+    font-weight: 500;
+
+}
+
+.e-exhi-title-dash{
+    margin-left: 13rem;
+}
+
+.e-exhi-title-dash::before{
+    position: absolute;
+    bottom: .7rem;
+    left: 4rem;
+    content: '';
+    display: block;
+    width: 190px;
+    height: 2px;
+    background: black;
+    // margin-left:400px;
 }
 
 //  EXHOBITION ARROW
@@ -264,16 +299,16 @@
 
 
 // EXHOBITION 藍色旋轉眼睛
-.e-spin-eye{
-    top:400px;
-    width: 500px;
-}
+.e-spin-eye-area{
+    width: 100%;
+    left: -250px;
+    bottom: -150px;
 
-.e-blue-eye{
-    top: 200%;
-    left: 51%;
-    transform: translate(-50%, 50%);
-    width: 65%;
+
+}
+.e-spin-eye{
+    width: 100%;
+    height: 100%;
 }
 
 // WORKSHOP
@@ -284,7 +319,6 @@
 }
 
 .e-work-hero{
-    width: 58%;
     background-image: url(../images/museum/workhero.jpeg);
     background-size: cover;
 }
@@ -302,30 +336,42 @@
 }
 
 .e-logo-deco-h{
-    width: 40%;
 }
 
 .e-logo-deco{
-    margin-top: 108px;
-    margin-bottom: 133px;
+    margin-top: 250px;
 }
 
 .e-work-content{
+    margin-left: 85px;
     color: white;
-    font-weight: medium;
-    font-size: 20px;
+    font-weight: 500;
+    font-size: 1.3rem;
 }
 
-.e-work-select{
-    margin-top: 55px;
-    margin-bottom: 20px;
-    font-size: 25px;
+.e-work-select {
     color: white;
+    font-size: 25px;
+}
+
+.e-work-select-cn{
+    font-weight: 500;
 }
 
 .e-work1{
     background: url('../images/museum/1440x958_13514121830.jpeg');
-    width: 25%;
+    background-size: cover;
+    background-position: center center;
+}
+
+.e-work2{
+    background: url('../images/museum/student-125813480.jpeg');
+    background-size: cover;
+    background-position: center center;
+}
+
+.e-work3{
+    background: url('../images/museum/nike-666811920.jpg');
     background-size: cover;
     background-position: center center;
 }
@@ -333,21 +379,287 @@
 .e-work-border{
     width: 80%;
     height: 80%;
-    border: 1px solid white;
+    border: 2px solid white;
     top:50%;
     left: 50%;
     transform: translate(-50%,-50%)
-}
+    }
 
-.e-work-line{
+    .e-work-name{
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: white;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%)
+    }
+
+    .e-work-line{
+        width: 80%;
+        border-top: 2px solid white;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%) rotate(-45deg);
+    }
+    .e-work-line2{
+        width: 80%;
+        border-top: 2px solid white;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%) rotate(45deg);
+    }
+
+    .e-work-box::after{
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        content: '';
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        background: white;
+    }
+    .e-work-box2::after{
+        position: absolute;
+        bottom: 0px;
+        right: 0px;
+        content: '';
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        background: white;
+    }
+
+    // !WORK 標題英文字
+    .e-work-title{
+        color: white;
+        bottom: 150px;
+        right: 400px;
+        font-size: 5.8rem;
+        text-align: right;
+    }
+
+    .e-work-title-cn{
+        font-size: 1.5rem;
+        font-weight: 500;
+
+    }
+
+    .e-work-title-dash{
+        margin-left: 19rem;
+    }
+
+    .e-work-title-dash::before{
+        position: absolute;
+        top: 1.3rem;
+        left: 10rem;
+        content: '';
+        display: block;
+        width: 280px;
+        height: 2px;
+        background: white;
+    }
+
+        //  WORK ARROW
+        .e-work-title::after{
+            position: absolute;
+            top: 230px;
+            content: '';
+            display: block;
+            width: 300px;
+            height: 2px;
+            background: white;
+            margin-left:400px;
+        }
+
+        .arrow-work-cap::after{
+            position: absolute;
+            top: 231px;
+            content: '';
+            display: block;
+            width: 80px;
+            height: 80px;
+            border-top: 2px solid white;
+            border-right: 2px solid white;
+            transform: translate(-50%, -50%) rotate(45deg);
+            margin-left:645px;
+        }
+
+        //  WORK ARROW
+        .e-work-title::after{
+            position: absolute;
+            left: 190px;
+            top: 175px;
+            content: '';
+            display: block;
+            width: 690px;
+            height: 2px;
+            background: white;
+            margin-left:400px;
+        }
+
+        .arrow-work-cap::after{
+            position: absolute;
+            top: 176px;
+            left: 580px;
+            content: '';
+            display: block;
+            width: 80px;
+            height: 80px;
+            border-top: 2px solid white;
+            border-right: 2px solid white;
+            transform: translate(-50%, -50%) rotate(45deg);
+            margin-left:645px;
+        }
+
+        // !Event Location Section
+
+        .event-location{
+            background-color: #E8E8E8;
+        }
+
+        .e-location-spin{
+            border: 4px solid black;
+            border-left: 0px;
+            border-right: 0px;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:576px) {
+    .reduce-width{
     width: 100%;
-    border-top: 2px solid white;
-    transform: rotate(45deg);
-    top: 50%;
-}
-.e-work-line2{
+    }
+
+    //! HERO
+
+    .hero{
+    padding-top: 50px;
     width: 100%;
-    border-top: 2px solid white;
-    transform: rotate(-45deg);
-    top: 50%;
+    background-color: black;
+    position: relative;
+    }
+
+    .e-logo-area{
+        display: none;
+    }
+
+    .m-spin-eye{
+        margin-top: 20px;
+        margin-left: 300px;
+    }
+
+    .e-topic{
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #81FC4D;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    }
+    .e-pictures-margin{
+    margin-top: 75px;}
+
+    .e-hero-event-font{
+        font-size: 20px;
+        font-weight: 500;
+        color: #81FC4D;
+    }
+
+
+    // 系列展覽 position
+    .e-left-top{
+        top: 20px;
+        left: 20px;
+
+    }
+
+    .e-right-top{
+        top: 20px;
+        right: 20px;
+        
+    }
+
+    .e-left-btm{
+        bottom: 20px;
+        left: 20px;
+        
+    }
+
+    .e-right-btm{
+        bottom: 20px;
+        right: 20px;
+    }
+
+    .e-line{
+        width: 80%;
+        border-top: 2px solid #81FC4D;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%) rotate(-45deg);
+    }
+    .e-line2{
+        width: 80%;
+        border-top: 2px solid #81FC4D;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%) rotate(45deg);
+    }
+
+    // Vol.01 font-size
+    .e-hero-vol{
+        font-size: 30px;
+        color: #81FC4D;
+        left: 50%;
+        bottom: 10px;
+        transform: translate(-50%,0%)
+    }
+
+    .bigger{
+        font-size: 50px;
+    }
+
+    // !EXHI
+
+    .e-exhi-title{
+        font-size: 2rem;
+    }
+
+    .e-exhi-title::after{
+        width: 0px;
+        height: 0px;
+        display:none
+    }
+
+    .arrow-cap::after{
+        width: 0px;
+        height: 0px;
+        display:none
+    }
+
+    .exhi-m-deco{
+        left: 140%;
+    }
+
+
+ 
 }

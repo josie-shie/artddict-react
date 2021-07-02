@@ -12,12 +12,22 @@ import Event from './pages/event/Event'
 import ScrollToTop from './components/ScrollToTop'
 import Product from './pages/product/Product'
 // import Cart from './pages/cart/Cart'
+// import Oction from './pages/oction/Oction'
+
+// User
 import Add from './pages/user/Add'
 import Login from './pages/user/Login'
 import MsgEdit from './pages/user/MsgEdit'
 import PwdEdit from './pages/user/PwdEdit'
+<<<<<<< HEAD
 import AuctionDetail from './pages/Auction/AuctionDetail'
 import Auction from './pages/Auction/Auction'
+=======
+import OrderPro from './pages/user/OrderPro'
+import OrderTic from './pages/user/OrderTic'
+import OrderProDetail from './pages/user/OrderProDetail'
+import OrderTicDetail from './pages/user/OrderTicDetail'
+>>>>>>> e9e49ba3977f82aecaaeac70fc42fa99bc26e6c6
 
 function App() {
   return (
@@ -46,6 +56,18 @@ function App() {
             </Route>
             <Route exact path="/user-pwdedit">
               <PwdEdit />
+            </Route>
+            <Route exact path="/user-orderpro">
+              <OrderPro />
+            </Route>
+            <Route exact path="/user-ordertic">
+              <OrderTic />
+            </Route>
+            <Route exact path="/user-orderprodetail">
+              <OrderProDetail />
+            </Route>
+            <Route exact path="/user-orderdetictail">
+              <OrderTicDetail />
             </Route>
             {/* <Route exact path="/cart">
               <Cart />

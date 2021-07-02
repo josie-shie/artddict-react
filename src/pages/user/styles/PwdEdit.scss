@@ -1,23 +1,4 @@
-
-
-// ----- Logo -----
-
-// .u-logo-header {
-//   width: 1045px;
-//   border-bottom: 2px solid #000;
-// }
-
-// .u-logo-header > img {
-//   width: 190px;
-//   padding-bottom: 20px;
-// }
-
-// .item{
-//      margin-top: 70px;
-// }
-
 /* =====btn 自訂顏色===== */
-
 .u-btn-outline-dark {
   margin-left: 190px;
   width: 130px;
@@ -37,18 +18,7 @@
   border-color: #000;
 }
 
-// ----- 大標 -----
-
-.u-row {
-  margin-top: 30px;
-  width: 1045px;
-  margin-left: 0px;
-  border-top: 2px solid #000;
-  border-bottom: 2px solid #000;
-}
-
-.u-userMsg,
-.u-userPwd {
+.u-userMsg, .u-userPwd {
   margin-top: 10px;
   margin-bottom: 10px;
   width: 480px;
@@ -57,40 +27,20 @@
   line-height: 60px;
 }
 
-.u-userPwd > a {
-  font-family: 'Noto Sans TC', sans-serif;
-  font-size: 30px;
-  color: #fff;
-  text-decoration: none;
-}
-
 .u-userPwd {
   background-color: #000;
 }
 
-.u-userMsg > a {
+.u-userPwd > a{
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 30px;
+  color:#fff;
+  text-decoration: none;
+}
+
+.u-userMsg > a { 
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 30px;
   color: #000;
   text-decoration: none;
-}
-
-// ----- input 樣式 -----
-
-// .form-control {
-//     width: 475px;
-//     height: 60px;
-//     border: 2px solid #000;
-//     background-color: #e8e8e8;
-//     font-size: 16px;
-// }
-
-// label {
-//     font-family: 'Noto Sans TC';
-//     font-size: 18px;
-// }
-
-.u-pwdData {
-  margin-top: 50px;
-  margin-left: 270px;
 }

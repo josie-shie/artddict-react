@@ -3,9 +3,9 @@ import React from 'react'
 import './styles/Login.scss'
 import { Link } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
+import Logoheader from './components/Logoheader'
 
 // images
-import logo from './img/logo.png'
 import pic1 from './img/1.png'
 import pic2 from './img/2.png'
 import pic3 from './img/3.png'
@@ -21,13 +21,7 @@ function Login() {
   return (
     <>
       <div className="u-body">
-        <header>
-          <div className="u-container-fluid">
-            <div className="u-logo-header">
-              <img src={logo} alt="logo" />
-            </div>
-          </div>
-        </header>
+        <Logoheader />
         <div className="d-flex">
           <div className="u-contanier1 col-lg-5 d-none d-lg-block d-xl-block">
             <div className="u-img-carousel">
@@ -137,21 +131,25 @@ function Login() {
                 </div>
                 <div>
                   <small>
-                    <a href="#/">忘記密碼？</a>
+                    <div className="u-forgetPwd">
+                      <a href="#/">忘記密碼？</a>
+                    </div>
                   </small>
                 </div>
-                <button
-                  type="submit"
-                  class="u-btn btn-outline-dark"
-                >
-                  <Nav.Link
-                    className="u-link1"
-                    as={Link}
-                    to="/user-msgedit"
+                <div className="u-editBtn">
+                  <button
+                    type="submit"
+                    class="u-btn btn-outline-dark"
                   >
-                    登入
-                  </Nav.Link>
-                </button>
+                    <Nav.Link
+                      className="u-link1"
+                      as={Link}
+                      to="/user-msgedit"
+                    >
+                      登入
+                    </Nav.Link>
+                  </button>
+                </div>
               </form>
             </div>
           </div>

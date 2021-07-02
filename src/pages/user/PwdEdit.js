@@ -1,71 +1,65 @@
 import React from 'react'
-// import './styles/PwdEdit.scss'
-import logo from './img/logo-bk.svg'
+import './styles/PwdEdit.scss'
 import { Link } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
-import Menu from './Menu'
+import Menu from './components/Menu'
+import Logoheader from './components/Logoheader'
 
 function PwdEdit() {
   return (
     <>
-      <header>
+      <div className="u-body">
+        <Logoheader />
+        <div className="u-userMenu">
+          <Menu />
+        </div>
         <div className="u-container-fluid">
-          <div className="u-logo-header">
-            <img src={logo} alt="logo" />
+          <div className="d-flex u-row justify-content-around">
+            <div className="u-userMsg">
+              <Nav.Link as={Link} to="/user-msgedit">
+                會員資料
+              </Nav.Link>
+            </div>
+            <div className="u-userPwd">
+              <Nav.Link as={Link} to="/user-pwdEdit">
+                修改密碼
+              </Nav.Link>
+            </div>
           </div>
         </div>
-      </header>
-      <div className="u-userMenu">
-        <Menu />
-      </div>
-      <div class="u-container-fluid">
-        <div class="u-row justify-content-around">
-          <div class="u-userMsg">
-            <Nav.Link as={Link} to="/user-msgedit">
-              會員資料
-            </Nav.Link>
-          </div>
-          <div class="u-userPwd">
-            <Nav.Link as={Link} to="/user-pwdEdit">
-              修改密碼
-            </Nav.Link>
-          </div>
-        </div>
-        <div class="u-pwdData">
+        <div className="u-userData">
           <form>
-            <div class="form-group">
+            <div className="form-group u-form">
               <input
                 type="password"
-                class="form-control"
+                className="form-control"
                 id="password"
-                value=""
               />
             </div>
-            <div class="form-group">
+            <div className="form-group u-form">
               <input
                 type="password"
-                class="form-control"
+                className="form-control"
                 id="password"
-                value=""
                 placeholder="請輸入新密碼"
               />
             </div>
-            <div class="form-group">
+            <div className="form-group u-form">
               <input
                 type="password"
-                class="form-control"
+                className="form-control"
                 id="password"
-                value=""
-                placeholder="請再次輸入新密碼"
+                placeholder="再次輸入新密碼"
               />
             </div>
-
-            <button
-              type="submit"
-              class="u-btn btn-outline-dark u-editBtn"
-            >
-              修改
-            </button>
+            <div className="u-editBtn">
+              <button
+                type="submit"
+                className="btn btn-outline-dark "
+              >
+                修改
+              </button>
+            </div>
           </form>
         </div>
       </div>

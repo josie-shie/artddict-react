@@ -4,9 +4,9 @@ import { withRouter } from 'react-router-dom'
 import './styles/Add.scss'
 import { Link } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
+import Logoheader from './components/Logoheader'
 
 // images
-import logo from './img/logo-bk.svg'
 import pic1 from './img/1.png'
 import pic2 from './img/2.png'
 import pic3 from './img/3.png'
@@ -72,14 +72,7 @@ function User(props) {
   const display = (
     <>
       <div className="u-body">
-        <header>
-          <div className="u-container-fluid">
-            <div className="u-logo-header">
-              <img src={logo} alt="logo" />
-            </div>
-          </div>
-        </header>
-        <Nav />
+        <Logoheader />
         <div className="d-flex">
           <div className="u-contanier1 col-lg-5 d-none d-lg-block d-xl-block">
             <div className="u-img-carousel">
@@ -216,47 +209,53 @@ function User(props) {
                     placeholder="請再次輸入密碼"
                   />
                 </div>
-                <div className="form-group form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="check1"
-                  />
-                  <label
-                    className="form-check-label"
-                    for="check1"
-                  >
-                    我同意使用者條款與隱私權聲明政策
-                  </label>
+                <div className="form-group u-ckb">
+                  <div className="u-checkbox">
+                    <input
+                      type="checkbox"
+                      className="form-check-input u-ck1"
+                      id="check1"
+                    />
+                    <label
+                      className="form-check-label"
+                      for="check1"
+                    >
+                      我同意使用者條款與隱私權聲明政策
+                    </label>
+                  </div>
+                  <div className="u-ck2 ">
+                    <div className="u-checkbox">
+                      <input
+                        type="checkbox"
+                        className="form-check-input u-ck2"
+                        id="check2"
+                      />
+                      <label
+                        className="form-check-label"
+                        for="check2"
+                      >
+                        我願意收到ArtDDICT電子報與活動訊息
+                      </label>
+                    </div>
+                  </div>
                 </div>
-                <div className="form-group form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="check2"
-                  />
-                  <label
-                    className="form-check-label"
-                    for="check2"
+                <div className="u-editBtn">
+                  <button
+                    type="submit"
+                    onClick={() => {
+                      addUserToSever()
+                    }}
+                    className="u-btn btn-outline-dark"
                   >
-                    我願意收到ArtDDICT電子報與活動訊息
-                  </label>
+                    <Nav.Link
+                      className="u-link1"
+                      as={Link}
+                      to="/user-msgedit"
+                    >
+                      註冊
+                    </Nav.Link>
+                  </button>
                 </div>
-                <button
-                  type="submit"
-                  onClick={() => {
-                    addUserToSever()
-                  }}
-                  className="u-btn btn-outline-dark"
-                >
-                  <Nav.Link
-                    className="u-link1"
-                    as={Link}
-                    to="/user-msgedit"
-                  >
-                    註冊
-                  </Nav.Link>
-                </button>
               </form>
             </div>
           </div>
