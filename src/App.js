@@ -24,12 +24,13 @@ import OrderPro from './pages/user/OrderPro'
 import OrderTic from './pages/user/OrderTic'
 import OrderProDetail from './pages/user/OrderProDetail'
 import OrderTicDetail from './pages/user/OrderTicDetail'
+import Coupon from './pages/user/Coupon'
 
 // Event
-import EventList from './pages/event/Event-list'
-import EventDetail from './pages/event/Event-detail'
-import WorkshopShare from './pages/event/Workshop-share'
-import WorkshopUpload from './pages/event/Workshop-upload'
+import EventList from './pages/event/EventList'
+import EventDetail from './pages/event/EventDetail'
+import WorkshopShare from './pages/event/WorkshopShare'
+import WorkshopUpload from './pages/event/WorkshopUpload'
 
 function App() {
   return (
@@ -40,20 +41,20 @@ function App() {
           <Switch>
             <Route
               exact
-              path="/event/Event-list/detail/upload"
+              path="/event/event-list/detail/upload"
             >
               <WorkshopUpload />
             </Route>
             <Route
               exact
-              path="/event/Event-list/detail/share"
+              path="/event/event-list/detail/share"
             >
               <WorkshopShare />
             </Route>
-            <Route exact path="/event/Event-list/detail">
+            <Route exact path="/event/event-list/detail">
               <EventDetail />
             </Route>
-            <Route exact path="/event/Event-list">
+            <Route exact path="/event/event-list">
               <EventList />
             </Route>
             {/* 單一路徑 */}
@@ -83,6 +84,9 @@ function App() {
             </Route>
             <Route exact path="/user-orderdetictail">
               <OrderTicDetail />
+            </Route>
+            <Route exact path="/user-coupon">
+              <Coupon />
             </Route>
             {/* <Route exact path="/auction">
               <Auction />

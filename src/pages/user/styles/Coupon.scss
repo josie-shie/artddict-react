@@ -1,0 +1,37 @@
+.u-couponbox {
+    margin-top:30px;
+    width: 475px;
+    height: 170px;
+    border: 2px solid #000;
+    border-left: 25px solid #000;
+}
+
+.u-couponTitle > h3{
+    margin-top: 30px;
+    margin-left: 20px;
+}
+
+.u-couponDate, .u-couponText{
+    margin-left: 20px;
+    margin-top: 10px;
+}
+
+.u-SNnumbox > h3[type="copy"] {
+    width: 150px;
+    height: 50px;
+    border: 2px solid #000;
+    margin-top: 30px;
+    background-color: #e8e8e8;
+    text-align: center;
+    line-height: 45px;
+}
+
+.u-cobyBtn > button {
+    width: 150px;
+    height: 50px;
+    border: 2px solid #000;
+    margin-top: 10px;
+    background-color: #000;
+    color: #fff;
+    font-size: 18px;
+}
