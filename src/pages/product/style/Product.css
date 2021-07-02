@@ -278,7 +278,7 @@
 .switchLeftBtn{
     position: absolute;
     top: 84.5%;
-    left: 10%;
+    left: 110px;
     z-index: 1000;
 }
 .switchRightBtn{
