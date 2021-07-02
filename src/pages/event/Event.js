@@ -18,6 +18,9 @@ import ExhiDeco from './images/exhi-deco.svg'
 import ExhiDecoM from './images/m-exhi-deco.svg'
 // WORK section
 import LogoDecoH from './images/artddict-deco-h.svg'
+
+// Location Section
+import LocationLogo from './images/location-logo.svg'
 // react icon
 import { FiArrowUpRight } from 'react-icons/fi'
 import { IoIosArrowBack } from 'react-icons/io'
@@ -396,12 +399,12 @@ function event() {
 
         <Container fluid className="event-location pt-5">
           <Row>
-            <div className=" e-location-spin my-5">
+            <div className=" e-location-spin my-5 mb-5">
               <MarqueeLocation />
             </div>
           </Row>
-          <Row>
-            <div className="cn-font e-location-title mx-auto mb-5">
+          <Row className="e-location-title">
+            <div className="cn-font mx-auto mb-5">
               <IoIosArrowBack />
               <IoIosArrowBack />
               <IoIosArrowBack />
@@ -413,6 +416,14 @@ function event() {
               <IoIosArrowForward />
               <IoIosArrowForward />
               <IoIosArrowForward />
+            </div>
+          </Row>
+          <Row>
+            <div className="col-8">
+              
+            </div>
+            <div className=" col-4">
+              <img src={LocationLogo} alt="" />
             </div>
           </Row>
         </Container>
