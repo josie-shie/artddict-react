@@ -1,0 +1,7 @@
+npm i 完後 要再 npm install slick-carousel
+如果要用react slick 要在js內
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+參考網頁
+https://react-slick.neostack.com/docs/example/custom-arrows
