@@ -40,20 +40,20 @@ function App() {
           <Switch>
             <Route
               exact
-              path="/event/Event-list/detail/upload"
+              path="/event/event-list/detail/upload"
             >
               <WorkshopUpload />
             </Route>
             <Route
               exact
-              path="/event/Event-list/detail/share"
+              path="/event/event-list/detail/share"
             >
               <WorkshopShare />
             </Route>
-            <Route exact path="/event/Event-list/detail">
+            <Route exact path="/event/event-list/detail">
               <EventDetail />
             </Route>
-            <Route exact path="/event/Event-list">
+            <Route exact path="/event/event-list">
               <EventList />
             </Route>
             {/* 單一路徑 */}
