@@ -4,8 +4,14 @@ import { ReactComponent as Logo } from '../../pics/logo.svg'
 import './style/Product.css'
 import '../../bootstrap/css/bootstrap.css'
 import { Card, Button } from 'react-bootstrap'
+//----------icon and css and slick----------
 import {} from 'react-icons/cg'
 import { MdKeyboardArrowRight } from 'react-icons/md'
+
+import {
+  IoIosArrowRoundBack,
+  IoIosArrowRoundForward,
+} from 'react-icons/io'
 import { BsThreeDots } from 'react-icons/bs'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -32,7 +38,7 @@ import slickA7 from './img/slickA7.jpeg'
 
 function Product() {
   let settings = {
-    dots: true,
+    dots: false,
     infinite: true,
     speed: 500,
     slidesToShow: 2,
@@ -148,9 +154,10 @@ function Product() {
               ARRIVAL
             </h1>
           </div>
+          <div className="pro-green"></div>
           <div className="homepage3-left-box">
             <p className="homepage3-word">
-              藝術———新品上架
+              藝術——————新品上架
               <br />
               <Link
                 to="/"
@@ -163,18 +170,28 @@ function Product() {
                 MORE
               </Link>
             </p>
+            <div className="switchLeftRight">
+              <button>
+                <IoIosArrowRoundBack size={50} />
+              </button>
+              <button>
+                <IoIosArrowRoundForward size={50} />
+              </button>
+            </div>
           </div>
 
           <div className="homepage3-right-box">
             <div className="pro-arrow">
-              <MdKeyboardArrowRight size={70} />
-              <MdKeyboardArrowRight size={70} />
-              <MdKeyboardArrowRight size={70} />
-              <MdKeyboardArrowRight size={70} />
-              <MdKeyboardArrowRight size={70} />
-              <MdKeyboardArrowRight size={70} />
-              <MdKeyboardArrowRight size={70} />
-              <MdKeyboardArrowRight size={70} />
+              <marquee scrollamount="10" direction="right">
+                <MdKeyboardArrowRight size={70} />
+                <MdKeyboardArrowRight size={70} />
+                <MdKeyboardArrowRight size={70} />
+                <MdKeyboardArrowRight size={70} />
+                <MdKeyboardArrowRight size={70} />
+                <MdKeyboardArrowRight size={70} />
+                <MdKeyboardArrowRight size={70} />
+                <MdKeyboardArrowRight size={70} />
+              </marquee>
             </div>
             <div className="slickWidth">
               <Slider {...settings}>
