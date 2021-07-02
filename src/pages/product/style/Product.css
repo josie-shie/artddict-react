@@ -269,13 +269,15 @@
 
 .switchLeftBtn{
     position: absolute;
-    top: 85%;
-    left: 110px;
+    top: 83%;
+    left: -220px;
+    z-index: 1000;
 }
 .switchRightBtn{
     position: absolute;
-    top: 85%;
-    left: 190px;
+    top: 83%;
+    left: -145px;
+    z-index: 1000;
 }
 
 .homepage3-right-box{
@@ -317,8 +319,9 @@
 
 .slickWidth{
     width: 62vw;
-    height: 0vh;
+    height: 70vh;
     margin-left: 3%;
+    position: relative;
 }
 
 .slickPic-box{
