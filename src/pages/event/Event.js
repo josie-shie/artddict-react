@@ -274,37 +274,6 @@ function event() {
               ARTDDICT
             </h2>
           </Row>
-          {/* <div className="e-spin-eye position-absolute">
-            <img
-              className="e-spin-eye position-absolute"
-              src={ESpinBl}
-              alt=""
-            />
-            <img
-              className="position-absolute e-blue-eye"
-              src={EEyeBl}
-              alt=""
-            />
-          </div> */}
-
-          <Row>
-            {/* <div className="e-exhi-title ml-4 position-relative">
-              <arrow className="arrow-cap">
-                <h1 className="eng-font-bold">
-                  EX­­
-                  <br />
-                  ­­HIBI
-                  <br />
-                  TION­­
-                </h1>
-                <img
-                  className="exhi-m-deco position-absolute"
-                  src={ExhiDecoM}
-                  alt=""
-                />
-              </arrow>
-            </div> */}
-          </Row>
         </Container>
 
         <Container fluid className="workshop">
@@ -424,54 +393,6 @@ function event() {
             <MarqueeWork />
           </Row>
         </Container>
-
-        {/* <section className="workshop"> */}
-        {/* <Container fluid>
-            <Row>
-              <div className="e-logo-deco-h">
-                <img
-                  className="e-logo-deco"
-                  src={LogoDecoH}
-                  alt=""
-                />
-                <h3 className="cn-font e-work-content left-margin">
-                  親身參與藝術
-                </h3>
-                <h3 className="cn-font e-work-content mt-4 left-margin">
-                  體驗創作的自信
-                </h3>
-              </div>
-              <div className="e-work-hero ml-auto">
-                <div className="e-work-black">
-                  <img
-                    className="pic-square2"
-                    src={Square}
-                    alt=""
-                  />
-                </div>
-              </div>
-              <Col sm={12}>
-                <h3 className="eng-font-regular e-work-select left-margin">
-                  ARTDDICT{' '}
-                  <span className="cn-font ml-2 e-select-cn">
-                    精選工作坊
-                  </span>
-                </h3>
-              </Col>
-              <div className="e-work1 left-margin position-relative">
-                <div className="e-work-line"></div>
-                <div className="e-work-line2"></div>
-                <div className="e-work-border position-absolute"></div>
-                <div className="e-work-black"></div>
-                <img
-                  className="pic-square"
-                  src={Square}
-                  alt=""
-                />
-              </div>
-            </Row>
-          </Container>
-        </section> */}
       </div>
     </>
   )
