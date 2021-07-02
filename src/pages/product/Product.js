@@ -43,7 +43,37 @@ function Product() {
     speed: 500,
     slidesToShow: 2,
     slidesToScroll: 1,
-    rtl: true,
+    nextArrow: <SampleNextArrow />,
+    prevArrow: <SamplePrevArrow />,
+  }
+  function SampleNextArrow(props) {
+    const { className, style, onClick } = props
+    return (
+      <div
+        className={className}
+        style={{
+          ...style,
+          display: 'block',
+          background: 'red',
+        }}
+        onClick={onClick}
+      />
+    )
+  }
+
+  function SamplePrevArrow(props) {
+    const { className, style, onClick } = props
+    return (
+      <div
+        className=".switchLeftBtn"
+        style={{
+          ...style,
+          display: 'block',
+          background: 'red',
+        }}
+        onClick={onClick}
+      />
+    )
   }
 
   return (
@@ -171,10 +201,10 @@ function Product() {
               </Link>
             </p>
             <div className="switchLeftRight">
-              <button>
+              <button className="switchLeftBtn">
                 <IoIosArrowRoundBack size={50} />
               </button>
-              <button>
+              <button className="switchRightBtn">
                 <IoIosArrowRoundForward size={50} />
               </button>
             </div>
