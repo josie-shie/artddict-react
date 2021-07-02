@@ -270,12 +270,12 @@
 .switchLeftBtn{
     position: absolute;
     top: 85%;
-    left: 37%;
+    left: 110px;
 }
 .switchRightBtn{
     position: absolute;
     top: 85%;
-    left: 62%;
+    left: 190px;
 }
 
 .homepage3-right-box{
