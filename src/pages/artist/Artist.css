@@ -63,6 +63,10 @@
         margin: 0 auto;
     }
 
+    .art-push{
+        margin-bottom: 200px;
+    }
+
     .art-relative{
         position: relative;
         z-index: 0;
@@ -111,5 +115,11 @@
        line-height: 80px;
         letter-spacing: 5px;
    } 
+
+   .art-area span{
+       font-family: notoSansTC-bk;
+       font-size: 1.5rem;
+
+   }
     
     

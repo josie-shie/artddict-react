@@ -1,3 +1,5 @@
+//TODO:最後藝術家名字簡介
+
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../pics/logo-bk.svg'
@@ -7,6 +9,9 @@ import { RiMarkPenFill } from 'react-icons/ri'
 import artistImg1 from './img/Mr-Doodle_img_1040_780.jpg'
 import artistImg2 from './img/Potty-Trained-2_img_1040_780.jpg'
 import artistImg3 from './img/The-Anti-Doodle-Squad_img_1040_780.jpg'
+import artistImg4 from './img/images-3.jpg'
+import artistImg5 from './img/images-2.jpg'
+import artistImg6 from './img/23-Pop-Art-Mr.-Doodle_img_1040_780.jpg'
 import { Image } from 'react-bootstrap'
 
 const Artist = () => {
@@ -43,7 +48,7 @@ const Artist = () => {
           </h1>
         </marquee>
         <div className="d-flex justify-content-center my-4">
-          <Image src={artistImg1} alt="" />
+          <img src={artistImg1} alt="" />
         </div>
         <marquee
           scrollamount="10"
@@ -56,7 +61,7 @@ const Artist = () => {
             <RiMarkPenFill />
           </h1>
         </marquee>
-        <div className="px-5 my-5">
+        <div className="px-5 mt-5 art-push">
           <div className="d-flex flex-column">
             <h5 classnames="notoSansTC-md">
               每日畫足最少14小時的Mr.
@@ -73,7 +78,7 @@ const Artist = () => {
             </h5>
           </div>
         </div>
-        <div className="d-flex mb-5">
+        <div className="d-flex art-push">
           <div className="col-6 mt-5 ">
             <h2 className="mt-5 engraversbd">
               Graffiti is the antidote
@@ -88,12 +93,47 @@ const Artist = () => {
             <p className="art-date">19.03.22 London</p>
           </div>
         </div>
-        <div>
-            <img src={artistImg3} alt="" />
-            <p className="art-date">13.06.02 London</p>
+        <div className="art-push">
+          <img src={artistImg3} alt="" />
+          <p className="art-date">13.06.02 London</p>
         </div>
-
-
+        <p className="art-date mb-4">13.06.02 London</p>
+        <div className="d-flex justify-content-center mb-5">
+          <img
+            className="w-2 px-3"
+            src={artistImg4}
+            alt=""
+          />
+          <img
+            className="w-2 px-3"
+            src={artistImg5}
+            alt=""
+          />
+        </div>
+        <div className="art-push px-5">
+          <h5 classnames="notoSansTC-md">
+            創作至今，Mr
+            Doodle認為最具挑戰的項目是50小時塗鴉馬拉松。「完成後滿足感極大，尤其知道自己為慈善籌集了多少錢。至於終極的創作期許，希望有日能像那些偉大的藝術家如Haring、Picasso、
+            Banksy、
+            Warhol等，為藝術界作出貢獻吧。」相信年僅23歲的Mr.
+            Doodle前途無限，即管拭目以待他日後的驚人之作。
+            Keith
+            Haring，相信大家對他的作品都會有印象：色彩鮮艷、透過簡潔線條、符號和圖案表達複雜的批判訊息，辨識度極高，加上短暫傳奇的一生，令
+            Keith Haring 在藝術界擁有崇高地位，Mr.Doodle
+            亦坦言自己深受前輩 Keith Haring 影響。 Articks
+            同意兩者畫風相似，但不認為 Mr.Doodle
+            抄襲，他只是運用 Keith Haring
+            的藝術語言去創造自己的世界。
+          </h5>
+        </div>
+        <div className="art-push px-5">
+          <img className="mb-5" src={artistImg6} alt="" />
+          <h5>
+            <span>Pop-Art藝術家 Mr. Doodle</span>
+            <br />
+            顛覆塗鴉的原始規則，以獨特筆迹填滿所有空間。他的創作領域廣泛，由街道設施、隧道、家具、服飾到電器不等。他的畫風破格，可在毫無預備之下，於任何地方即席創作，不需作任何思考，作畫速度極快，畫作故事性及結構兼備。
+          </h5>
+        </div>
       </div>
     </>
   )
