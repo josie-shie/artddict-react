@@ -11,9 +11,14 @@ import Index from './pages/index/Index'
 import Map from './pages/map/Map'
 import Event from './pages/event/Event'
 import ScrollToTop from './components/ScrollToTop'
+import Artist from './pages/artist/Artist'
+
+
+
+//Product
 import Product from './pages/product/Product'
-// import Cart from './pages/cart/Cart'
-// import Oction from './pages/oction/Oction'
+
+
 
 // User
 import Add from './pages/user/Add'
@@ -96,6 +101,9 @@ function App() {
             </Route> */}
             <Route exact path="/event">
               <Event />
+            </Route>
+            <Route exact path="/artist">
+              <Artist />
             </Route>
             <Route exact path="/map">
               <Map />

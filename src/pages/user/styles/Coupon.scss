@@ -1,4 +1,5 @@
 .u-couponbox {
+    margin-left: 70px;
     margin-top:30px;
     width: 475px;
     height: 170px;
@@ -6,7 +7,9 @@
     border-left: 25px solid #000;
 }
 
-.u-couponTitle > h3{
+.u-couponTitle > p{
+    font-family: NotoSansTC-Medium;
+    font-size: 24px;
     margin-top: 30px;
     margin-left: 20px;
 }
@@ -14,9 +17,11 @@
 .u-couponDate, .u-couponText{
     margin-left: 20px;
     margin-top: 10px;
+    font-family: NotoSansTC-Medium;
+    font-size: 16px;
 }
 
-.u-SNnumbox > h3[type="copy"] {
+.u-SNnumbox > p[type="copy"] {
     width: 150px;
     height: 50px;
     border: 2px solid #000;
@@ -24,7 +29,12 @@
     background-color: #e8e8e8;
     text-align: center;
     line-height: 45px;
+    font-size: 20px;
 }
+
+// .u-cobyBtn {
+//     margin-left: 100px;
+// }
 
 .u-cobyBtn > button {
     width: 150px;
@@ -33,5 +43,6 @@
     margin-top: 10px;
     background-color: #000;
     color: #fff;
-    font-size: 18px;
+    font-family: NotoSansTC-Medium;
+    font-size: 16px;
 }
