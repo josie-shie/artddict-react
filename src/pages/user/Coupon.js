@@ -1,25 +1,40 @@
 import React from 'react'
+import ReactDOM from 'react-dom'
 import Menu from './components/Menu'
 import Logoheader from './components/Logoheader'
 import './styles/Coupon.scss'
-import { message } from 'antd'
-import {IoIosCopy} from 'react-icons/io'
-
+import swal from 'sweetalert';
+import { IoIosCopy } from 'react-icons/io'
 class Coupon extends React.Component {
+
   copy() {
+
     const copyEle = document.querySelector('.contentText')
     const range = document.createRange() 
     window.getSelection().removeAllRanges() 
     range.selectNode(copyEle)
-    window.getSelection().addRange(range) 
+    window.getSelection().addRange(range)
+
     const copyStatus = document.execCommand('Copy')
+
     if (copyStatus) {
-      message.success('複製成功')
-    } else {
-      message.fail('複製失敗')
+      var coupon_msg = "複製成功";
+      var msg_type = "success";
     }
+    else {
+      var coupon_msg = "複製失敗";
+      var msg_type = "error";
+    }
+
+    swal({
+      text: coupon_msg,
+      icon: msg_type
+    });   
+
     window.getSelection().removeAllRanges()
   }
+  
+
   render() {
     return (
       <div className="u-body">
@@ -27,7 +42,7 @@ class Coupon extends React.Component {
             <div className="u-userMenu">
                 <Menu />
             </div>
-        <div class="u-couponbox d-flex">
+        <div className="u-couponbox d-flex">
           <div class="u-Text col-7">
             <div class="u-couponTitle">
               <p>生日禮</p>
@@ -47,13 +62,15 @@ class Coupon extends React.Component {
           <div class="u-couponBtn col">
             <div class="u-SNnumbox">
               <p type="copy" className="contentText">
-                
+                HBD 123
               </p>
             </div>
             <div class="u-cobyBtn">
               <button onClick={this.copy}><IoIosCopy/>   複製</button>
             </div>
           </div>
+        </div>
+        <div className='u-couponmsg'>
         </div>
       </div>
     )
