@@ -178,6 +178,12 @@ function Product() {
       {/* --------------------------homepage3 */}
       <div className="pro-outside3">
         <div className="homepage3 d-flex">
+          <div className="switchLeftBtn">
+            <IoIosArrowRoundBack size={70} />
+          </div>
+          <div className="switchRightBtn">
+            <IoIosArrowRoundForward size={70} />
+          </div>
           <div className="homepage3-NewArrival-box">
             <h1 className="homepage3-NewArrival">
               NEW <br />
@@ -224,12 +230,12 @@ function Product() {
               </marquee>
             </div>
             <div className="slickWidth">
-              <div className="switchLeftBtn">
+              {/* <div className="switchLeftBtn">
                 <IoIosArrowRoundBack size={70} />
               </div>
               <div className="switchRightBtn">
                 <IoIosArrowRoundForward size={70} />
-              </div>
+              </div> */}
               <Slider {...settings}>
                 <div className="slickPic">
                   <div className="slickPic-box">

@@ -263,7 +263,7 @@
 
 
 
-.switchLeftBtn{
+/* .switchLeftBtn{
     position: absolute;
     top: 71%;
     left: -220px;
@@ -273,6 +273,18 @@
     position: absolute;
     top: 405px;
     left: -145px;
+    z-index: 1000;
+} */
+.switchLeftBtn{
+    position: absolute;
+    top: 84.5%;
+    left: 10%;
+    z-index: 1000;
+}
+.switchRightBtn{
+    position: absolute;
+    top: 84.5%;
+    left: 17%;
     z-index: 1000;
 }
 
