@@ -30,6 +30,7 @@ import OrderTic from './pages/user/OrderTic'
 import OrderProDetail from './pages/user/OrderProDetail'
 import OrderTicDetail from './pages/user/OrderTicDetail'
 import Coupon from './pages/user/Coupon'
+import TicketPro from './pages/user/TicketPro'
 
 // Event
 import EventList from './pages/event/EventList'
@@ -92,6 +93,9 @@ function App() {
             </Route>
             <Route exact path="/user-coupon">
               <Coupon />
+            </Route>
+            <Route exact path="/user-ticketpro">
+              <TicketPro />
             </Route>
             {/* <Route exact path="/auction">
               <Auction />
