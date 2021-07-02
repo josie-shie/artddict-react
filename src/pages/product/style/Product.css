@@ -24,6 +24,7 @@
 .homepage3-word  {
     font-family: NotoSansTC-Medium;
     font-size: 1.5vw;
+    line-height:5vh;
 }
 
 
@@ -240,14 +241,19 @@
     height:10vh;
     background-color: #81FC4D;
     position: absolute;
-    top:22%;
+    top:20%;
     transform: rotate(-10deg);
 }
 .homepage3-left-box{
     padding-top: 23%;
     width: 40vw;
     height: 100vh;
-    line-height: 5vh;
+    background-color:aqua;
+}
+
+.homepage3-NewArrival{
+    line-height: 13vh;
+
 }
 .switchLeftRight{
     margin-top:95%;
