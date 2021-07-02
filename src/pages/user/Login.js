@@ -3,9 +3,9 @@ import React from 'react'
 import './styles/Login.scss'
 import { Link } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
+import Logoheader from './components/Logoheader'
 
 // images
-import logo from './img/logo.png'
 import pic1 from './img/1.png'
 import pic2 from './img/2.png'
 import pic3 from './img/3.png'
@@ -21,13 +21,7 @@ function Login() {
   return (
     <>
       <div className="u-body">
-        <header>
-          <div className="u-container-fluid">
-            <div className="u-logo-header">
-              <img src={logo} alt="logo" />
-            </div>
-          </div>
-        </header>
+        <Logoheader />
         <div className="d-flex">
           <div className="u-contanier1 col-lg-5 d-none d-lg-block d-xl-block">
             <div className="u-img-carousel">

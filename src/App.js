@@ -22,6 +22,7 @@ import PwdEdit from './pages/user/PwdEdit'
 import OrderPro from './pages/user/OrderPro'
 import OrderTic from './pages/user/OrderTic'
 import OrderProDetail from './pages/user/OrderProDetail'
+import OrderTicDetail from './pages/user/OrderTicDetail'
 
 function App() {
   return (
@@ -56,6 +57,9 @@ function App() {
             </Route>
             <Route exact path="/user-orderprodetail">
               <OrderProDetail />
+            </Route>
+            <Route exact path="/user-orderdetictail">
+              <OrderTicDetail />
             </Route>
             {/* <Route exact path="/cart">
               <Cart />

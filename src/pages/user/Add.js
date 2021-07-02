@@ -4,9 +4,9 @@ import { withRouter } from 'react-router-dom'
 import './styles/Add.scss'
 import { Link } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
+import Logoheader from './components/Logoheader'
 
 // images
-import logo from './img/logo-bk.svg'
 import pic1 from './img/1.png'
 import pic2 from './img/2.png'
 import pic3 from './img/3.png'
@@ -72,14 +72,7 @@ function User(props) {
   const display = (
     <>
       <div className="u-body">
-        <header>
-          <div className="u-container-fluid">
-            <div className="u-logo-header">
-              <img src={logo} alt="logo" />
-            </div>
-          </div>
-        </header>
-        <Nav />
+        <Logoheader />
         <div className="d-flex">
           <div className="u-contanier1 col-lg-5 d-none d-lg-block d-xl-block">
             <div className="u-img-carousel">

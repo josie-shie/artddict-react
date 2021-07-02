@@ -1,21 +1,15 @@
 import React from 'react'
 import './styles/OrderPro.scss'
-import logo from './img/logo-bk.svg'
-import Menu from './Menu'
+import Menu from './components/Menu'
 import { Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import Logoheader from './components/Logoheader'
 
 function OrderPro() {
   return (
     <>
       <div className="u-body">
-        <header>
-          <div className="u-container-fluid">
-            <div className="u-logo-header">
-              <img src={logo} alt="logo" />
-            </div>
-          </div>
-        </header>
+        <Logoheader />
         <div className="u-userMenu">
           <Menu />
         </div>

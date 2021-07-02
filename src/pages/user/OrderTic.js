@@ -1,6 +1,6 @@
 import React from 'react'
-import logo from './img/logo-bk.svg'
-import Menu from './Menu'
+import Menu from './components/Menu'
+import Logoheader from './components/Logoheader'
 import './styles/OrderTic.scss'
 import { Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
@@ -9,13 +9,7 @@ function OrderTic() {
   return (
     <>
       <div className="u-body">
-        <header>
-          <div className="u-container-fluid">
-            <div className="u-logo-header">
-              <img src={logo} alt="logo" />
-            </div>
-          </div>
-        </header>
+        <Logoheader />
         <div className="u-userMenu">
           <Menu />
         </div>
@@ -84,7 +78,7 @@ function OrderTic() {
                     <Nav.Link
                       className="u-link"
                       as={Link}
-                      to="/user-orderdetailpro"
+                      to="/user-orderdetictail"
                     >
                       詳細資料
                     </Nav.Link>

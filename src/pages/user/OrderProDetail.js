@@ -1,22 +1,16 @@
 import React from 'react'
 // import { Accordion } from 'react-bootstrap'
-import logo from './img/logo-bk.svg'
 import './styles/OrderProDetail.scss'
 import Accordion from 'react-bootstrap/Accordion'
 import { Nav, Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import Logoheader from './components/Logoheader'
 
 function OrderProDetail() {
   return (
     <>
       <div className="u-body">
-        <header>
-          <div className="u-container-fluid">
-            <div className="u-logo-header">
-              <img src={logo} alt="logo" />
-            </div>
-          </div>
-        </header>
+        <Logoheader />
         <div className="u-box">
           <div className="u-creditNews col">付款資訊</div>
           <div className="u-creditType d-flex">
