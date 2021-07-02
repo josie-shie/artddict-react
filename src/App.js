@@ -25,6 +25,12 @@ import OrderTic from './pages/user/OrderTic'
 import OrderProDetail from './pages/user/OrderProDetail'
 import OrderTicDetail from './pages/user/OrderTicDetail'
 
+// Event
+import EventList from './pages/event/Event-list'
+import EventDetail from './pages/event/Event-detail'
+import WorkshopShare from './pages/event/Workshop-share'
+import WorkshopUpload from './pages/event/Workshop-upload'
+
 function App() {
   return (
     <Router>
@@ -32,9 +38,25 @@ function App() {
         <Nav />
         <ScrollToTop>
           <Switch>
-            {/* <Route exact path="/auction">
-              <Auction />
-            </Route> */}
+            <Route
+              exact
+              path="/event/Event-list/detail/upload"
+            >
+              <WorkshopUpload />
+            </Route>
+            <Route
+              exact
+              path="/event/Event-list/detail/share"
+            >
+              <WorkshopShare />
+            </Route>
+            <Route exact path="/event/Event-list/detail">
+              <EventDetail />
+            </Route>
+            <Route exact path="/event/Event-list">
+              <EventList />
+            </Route>
+            {/* 單一路徑 */}
             <Route exact path="/product">
               <Product />
             </Route>
@@ -62,6 +84,9 @@ function App() {
             <Route exact path="/user-orderdetictail">
               <OrderTicDetail />
             </Route>
+            {/* <Route exact path="/auction">
+              <Auction />
+            </Route> */}
             {/* <Route exact path="/cart">
               <Cart />
             </Route> */}
