@@ -1,11 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import {
-  Container,
-  Row,
-  Col,
-  Button,
-} from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
+import Marquee from './components/Marquee'
 import './style/reset.css'
 import './style/event.scss'
 import './style/font.scss'
@@ -17,20 +13,24 @@ import ESpin from './images/arddict-circle-g.svg'
 import ESpinBl from './images/arddict-circle-bl.svg'
 import EEyeBl from './images/arddict-eye-bl.svg'
 import ExhiDeco from './images/exhi-deco.svg'
+import ExhiDecoM from './images/m-exhi-deco.svg'
+
 import { FiArrowUpRight } from 'react-icons/fi'
+import { IoIosArrowRoundForward } from 'react-icons/io'
+import { IoIosArrowRoundBack } from 'react-icons/io'
 // WORK section
 import LogoDecoV from './images/arddict-deco-v.svg'
 import LogoDecoH from './images/artddict-deco-h.svg'
 function event() {
   return (
     <>
-      <div className="reduce-width">
-        <div className="hero container-fluid">
+      <div className="reduce-width overflow-hidden">
+        <div className="hero container-fluid left-padding">
           {/* 眼睛 LOGO SLOGAN */}
-          <div className="row mt-3">
+          <div className="row">
             <div
-              className=" invisible
-              e-logo-area"
+              className="
+              e-logo-area col-4 mt-5"
             >
               <img
                 className="e-logo"
@@ -38,6 +38,7 @@ function event() {
                 alt=""
               />
             </div>
+
             <div className="m-spin-eye position-relative">
               <div className="spin-circle position-absolute "></div>
               <div className="spin-eye position-absolute"></div>
@@ -55,13 +56,15 @@ function event() {
           </div>
 
           {/* Card */}
-          <div className="row d-flex justify-content-center mt-5">
-            <div className=" col-8 hero-event-1 p-0">
-              <img
-                className="pic-square"
-                src={Square}
-                alt=""
-              />
+          <div className="row d-flex justify-content-left mt-5">
+            <div className=" col-3 hero-event-1 p-0">
+              <div className="e-cover-black">
+                <img
+                  className="pic-square"
+                  src={Square}
+                  alt=""
+                />
+              </div>
 
               <p
                 className="cn-font e-hero-event-font position-absolute
@@ -101,14 +104,14 @@ function event() {
               <div className="e-line position-absolute"></div>
               <div className="e-line2 position-absolute"></div>
             </div>
-          </div>
-          <div className="row d-flex justify-content-center mt-5 invisible">
-            <div className=" col-8 hero-event-2 p-0">
-              <img
-                className="pic-square"
-                src={Square}
-                alt=""
-              />
+            <div className=" col-3 hero-event-2 p-0">
+              <div className="e-cover-black">
+                <img
+                  className="pic-square"
+                  src={Square}
+                  alt=""
+                />
+              </div>
 
               <p
                 className="cn-font e-hero-event-font position-absolute
@@ -143,22 +146,19 @@ function event() {
                 className="eng-font-regular position-absolute
                   e-hero-vol"
               >
-                VOL.0<span className="bigger">1</span>
+                VOL.0<span className="bigger">2</span>
               </h2>
               <div className="e-line position-absolute"></div>
               <div className="e-line2 position-absolute"></div>
             </div>
-          </div>
-          <div
-            className="row d-flex justify-content-center mt-5
-          invisible"
-          >
-            <div className=" col-8 hero-event-3 p-0">
-              <img
-                className="pic-square"
-                src={Square}
-                alt=""
-              />
+            <div className=" col-3 hero-event-3 p-0">
+              <div className="e-cover-black">
+                <img
+                  className="pic-square"
+                  src={Square}
+                  alt=""
+                />
+              </div>
 
               <p
                 className="cn-font e-hero-event-font position-absolute
@@ -193,7 +193,7 @@ function event() {
                 className="eng-font-regular position-absolute
                   e-hero-vol"
               >
-                VOL.0<span className="bigger">1</span>
+                VOL.0<span className="bigger">3</span>
               </h2>
               <div className="e-line position-absolute"></div>
               <div className="e-line2 position-absolute"></div>
@@ -203,42 +203,80 @@ function event() {
 
         <Container fluid className="exhi">
           <Row>
-            <marquee behavior="" direction="">
-              <h1
-                className="eng-font-bold
-              spin-sentence"
-              >
-                LET ARTDDICT BE IN YOUR LIFE
-              </h1>
-            </marquee>
+            <Marquee />
+          </Row>
+          <Row className="left-padding my-5">
+            <h3 className="eng-font-regular e-select">
+              ARTDDICT{' '}
+              <span className="cn-font ml-2 e-select-cn">
+                精選展覽
+              </span>
+            </h3>
+          </Row>
+          <Row className="position-relative">
+            <div className="e-exhi-event col-6 p-0">
+              <div className="e-exhi-white">
+                <button className="cn-font exhi-btn">
+                  立即搶票
+                  <FiArrowUpRight />
+                </button>
+                <img
+                  className="pic-square"
+                  src={Square}
+                  alt=""
+                />
+              </div>
+            </div>
 
-            <h1
-              className="eng-font-bold
-              spin-sentence2 my-4"
-            >
-              Everyone will be famous for 15 minutes
-            </h1>
+            <div className="e-exhi-deco col-6">
+              <img
+                className="e-exhi-deco-pic"
+                src={ExhiDeco}
+                alt=""
+              />
+            </div>
+            <div className="e-spin-eye-area position-absolute">
+              <img
+                className="e-spin-eye col-7"
+                src={ESpinBl}
+                alt=""
+              />
+            </div>
+          </Row>
+          {/* <div className="e-spin-eye position-absolute">
+            <img
+              className="e-spin-eye position-absolute"
+              src={ESpinBl}
+              alt=""
+            />
+            <img
+              className="position-absolute e-blue-eye"
+              src={EEyeBl}
+              alt=""
+            />
+          </div> */}
+
+          <Row>
+            <div className="e-exhi-title ml-4 position-relative">
+              <arrow className="arrow-cap">
+                <h1 className="eng-font-bold">
+                  EX­­
+                  <br />
+                  ­­HIBI
+                  <br />
+                  TION­­
+                </h1>
+                <img
+                  className="exhi-m-deco position-absolute"
+                  src={ExhiDecoM}
+                  alt=""
+                />
+              </arrow>
+            </div>
           </Row>
         </Container>
 
-        {/* <section>
-          <Container fluid>
-            <Row>
-              <h1
-                className="eng-font-bold
-              spin-sentence my-4"
-              >
-                LET ARTDDICT BE IN YOUR LIFE
-              </h1>
-              <h1
-                className="eng-font-bold
-              spin-sentence2 my-4"
-              >
-                Everyone will be famous for 15 minutes
-              </h1>
-            </Row>
-          </Container>
-        </section>
+        {/* 
         <section className="exhi">
           <Container fluid>
             <Row className="position-relative">
