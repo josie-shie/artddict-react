@@ -3,6 +3,7 @@ import Menu from './components/Menu'
 import Logoheader from './components/Logoheader'
 import './styles/Coupon.scss'
 import { message } from 'antd'
+import {IoIosCopy} from 'react-icons/io'
 
 class Coupon extends React.Component {
   copy() {
@@ -27,12 +28,12 @@ class Coupon extends React.Component {
                 <Menu />
             </div>
         <div class="u-couponbox d-flex">
-          <div class="u-Text col-6">
+          <div class="u-Text col-7">
             <div class="u-couponTitle">
-              <h3>生日禮</h3>
+              <p>生日禮</p>
             </div>
             <div class="u-couponText">
-              <h5>消費不論金額即享免運！</h5>
+              <p>消費不論金額即享免運！</p>
             </div>
             <div class="u-couponDate d-flex">
               <div class="u-cd">
@@ -43,14 +44,14 @@ class Coupon extends React.Component {
               </div>
             </div>
           </div>
-          <div class="u-couponBtn col-6">
+          <div class="u-couponBtn col">
             <div class="u-SNnumbox">
-              <h3 type="copy" className="contentText">
-                Hello Chole
-              </h3>
+              <p type="copy" className="contentText">
+                
+              </p>
             </div>
             <div class="u-cobyBtn">
-              <button onClick={this.copy}>複製</button>
+              <button onClick={this.copy}><IoIosCopy/>   複製</button>
             </div>
           </div>
         </div>
