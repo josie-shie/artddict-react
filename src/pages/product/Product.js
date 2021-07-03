@@ -38,6 +38,7 @@ import homepic10 from './img/homepic10.jpeg'
 import homepic11 from './img/homepic11.jpeg'
 import homepic12 from './img/homepic12.jpeg'
 import museumGif from './img/museumGif.gif'
+import bottomGif from './img/bottomGif.gif'
 import slickA1 from './img/slickA1.jpeg'
 import slickA2 from './img/slickA2.jpeg'
 import slickA3 from './img/slickA3.jpeg'
@@ -504,8 +505,16 @@ function Product() {
         </div>
       </div>
       {/* ------------------homepage6------ */}
-      <div className="pro-outside6">
-        <div className="pro-gray6"></div>
+      <div>
+        <div className="pro-gray6">
+          <div className="pro-bottomGif">
+            <img src={bottomGif} alt="" />
+            <p className="homepage6-wordA">
+              MAY YOUR PASSION FOR ART
+            </p>
+            <p className="homepage6-wordB">HAS NO END</p>
+          </div>
+        </div>
       </div>
     </>
   )

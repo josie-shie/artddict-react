@@ -475,6 +475,11 @@ width:100%;
     transform: rotate(-5deg);
     z-index:-5;
 }
+@media (min-width: 1440px){
+    .pro-green2{
+        top:47%;
+    }
+}
 
 
 .pro-watchAll{
@@ -861,6 +866,34 @@ width:100%;
 
 .pro-gray6{
     background-color: #E8E8E8;
-    width: calc(100vw - 70px);
-    height: 100vh;
+    height: 175vh;
 }
+.pro-bottomGif{
+    position: relative;
+}
+.pro-gray6 img{
+    width:100%;
+    margin-top:39%;
+}
+.homepage6-wordA{
+    font-family: Engravers;
+    font-size: 3rem;
+    position: absolute;
+    top: 65%;
+    left: calc(50% - 426px);
+    color: white;
+}
+.homepage6-wordB{
+    font-family: Engravers;
+    font-size: 3rem;
+    position: absolute;
+    top: 70%;
+    left: calc(50% - 222px);
+    color: white;
+    border-bottom: 1px solid white;
+}
+/* .pro-gray7{
+    background-color: #E8E8E8;
+    width: 100vw;
+    height: 75vh;
+} */
