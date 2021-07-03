@@ -27,6 +27,165 @@ $egreylt: #E8E8E8;
     background-color: black;
 }
 
+.ed-bread{
+    border-top: 2px solid white;
+}
+
+.ed-detail-main{
+    border-top: 1px solid white;
+    border-bottom: 2px solid white ;
+}
+
+.ed-event-name{
+    font-size: 1.9rem;
+    color: white;
+}
+
+.ed-event-pic{
+    object-fit: cover;
+
+}
+.cc{
+    height: 50px;
+    background-color: white;
+}
+.cc2{
+    height: 50px;
+    background-color: blue;
+}
+
+.ed-detail-intro{
+    border-bottom: 1px solid white;
 
 
+    h4{
+        font-size: 1.9rem;
+        color: white;
 
+    }
+    p{
+        font-size: 1.5rem;
+        color: #A7A7A7;
+    }
+    .ed-like-icon{
+        font-size: 2.2rem;
+        color: white;
+    }
+}
+
+.ed-commu-btn{
+    button{
+        height: 50%;
+        font-size: 1.5rem;
+        text-align: center;
+        color: white;
+        background-color: transparent;
+        border: 2px solid white;
+
+    }
+    
+}
+
+.ed-detail-btn{
+    background-color: transparent;
+    border: 0px;
+    color: white;
+    span{
+        font-size: 1.3rem;
+    }
+    
+}
+.ed-detail-content{
+    padding-right: 70px;
+    p{
+        font-size: 1rem;
+        color: #A7A7A7;
+    }
+    h1{
+        font-weight: 500;
+        font-size: 1.3rem;
+        color: white;
+    }
+    
+}
+
+.ed-rules{
+    border-top: 1px solid white;
+
+}
+
+.ed-message{
+
+
+}
+
+.ed-ticket{
+    background-color: #E8E8E8;
+    h2{
+        font-weight: bold;
+        font-size: 1.9rem;
+        letter-spacing: 4px;
+        span{
+            font-size: 2.2rem;
+            color: #1D0AFF;
+            letter-spacing: 0px;
+        }
+    }
+    p{
+        font-size: 1.3rem;
+        border-bottom: 1px solid black;
+    }
+
+    form{
+        button{
+            font-size: 1.3rem;
+            height: 50px;
+            border: 2px solid black;
+            margin: 5px;
+        }
+        .ticket-num{
+        border: 0px;
+        }
+        div{
+            border: 2px solid black;
+            height: 50px;
+        
+            .ticket-count{
+                border: 2px solid black;
+                background-color: black;
+                color: white;
+                width: 33%;
+                height: 100%;
+                margin: 0px;
+                font-size: 2rem;
+                .ed-count-icon{
+                    margin-bottom: 15px;
+                }
+                
+            }
+            input{
+                width: 34%;
+                height: 100%;
+                text-align: center;
+                background-color: transparent;
+                border: 0px;
+                font-size: 1.5rem;
+                font-weight: 500;
+            }
+            
+            
+        }
+        .ed-total{
+            border: 0px;
+        }
+        .ed-submit-btn{
+            background-color: #1D0AFF ;
+            color: white;
+            border: 0px;
+            margin: 0px;
+        }
+    }
+
+    
+
+}
