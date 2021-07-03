@@ -1,0 +1,77 @@
+@font-face {
+    font-family: Engravers;
+    src: url(../../../style/font/ENGR.ttf);
+}
+
+@font-face {
+    font-family: EngraversBold;
+    src: url(../../../style/font/EngraversMTBold.ttf);
+}
+
+@font-face {
+    font-family: NotoSansTC-Medium;
+    src: url(../../../style/font/NotoSansTC-Medium.otf)
+}
+
+@font-face{
+    font-family: NotosansTC-Bold;
+    src: url(../../../style/font/NotoSansTC-Bold.otf);
+}
+.prolist-titlepic{
+    position: relative;
+}
+
+
+.prolist-titlepic img{
+    width:100%;
+}
+
+.prolist-titleword{
+    width: 20vw;
+    position: absolute;
+    top: 30%;
+    left: 70%;
+}
+.prolist-ArtDdictlogo{
+    width: 100%;
+}
+.prolist-titlewordA{
+    font-family: notoSansTC-Medium;
+    font-size: 2.5vw;
+    text-align: right;
+    letter-spacing: 8px;
+}
+.prolist-titlewordB{
+    font-family: notoSansTC-Medium;
+    text-align: right;
+    margin-top: 10px;
+
+}
+.prolist-zzzzzz{
+    letter-spacing: 0;
+}
+.prolist-shopnowBtn{
+    background-color: black;
+    margin-left: 49%;
+    margin-top: 15px;
+    width: 130px;
+    border: 0 solid black;
+}
+.prolist-shopnowBtn p{
+    padding: 5px;
+    font-family: notoSansTC-Medium;
+    color: white;
+}
+
+.prolist-quote p{
+    font-family: Engravers;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 20px;
+}
+.prolist-quote2 p{
+    font-family: Engravers;
+    text-align: center;
+    font-size: 1.2rem;  
+    margin: 20px 0 20px 0;
+}
