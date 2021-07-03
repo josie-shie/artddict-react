@@ -288,6 +288,16 @@
     margin-left: 28%;
 }
 
+
+.slick-prev:before{
+    content: url('/src/pages/product/svg/leftArrow.svg');
+    
+    }
+.slick-next:before{
+    content: url('/src/pages/product/svg/rightArrow.svg');
+
+}
+
 .slick-prev{
     width: 80px;
     height: 80px;
@@ -472,18 +482,14 @@ width:100%;
 
 }
 
-/* .slickPicB-box :hover{
-    background-color:black;
-    color:black;
-    transform: scale(1.5);
-} */
+
 .slickPicB-box :hover img{
     opacity:1
 }
-.slickPicB-box :hover .slickPicB-black{
+/* .slickPicB-box :hover .slickPicB-black{
     height: 50px;
     transition: .2s;
-}
+} */
 
 
 .slickB1 img{
