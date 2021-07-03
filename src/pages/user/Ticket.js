@@ -1,5 +1,6 @@
 import React from 'react'
 import Logoheader from './components/Logoheader'
+import Breadcrumb from './components/UserBreadcrumb'
 import Menu from './components/Menu'
 import { Link } from 'react-router-dom'
 import './styles/Ticket.scss'
@@ -9,6 +10,9 @@ function Ticket() {
     <>
       <div className="u-body">
         <Logoheader />
+        <div className="u-breadcrumb">
+          <Breadcrumb />
+        </div>
         <div className="u-userMenu">
           <Menu />
         </div>
@@ -58,7 +62,7 @@ function Ticket() {
               </div>
               <div className="u-BtnBlack">
                 <Link
-                  to="/user/ticket/detail"
+                  to="/user-ticket/detail"
                   className="u-link3"
                   style={{ textDecoration: 'none' }}
                 >

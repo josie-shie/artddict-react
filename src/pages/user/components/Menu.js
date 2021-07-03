@@ -34,7 +34,7 @@ function Menu() {
             <Nav.Link as={Link} to="/user-ticket">
               <div className="u-ticket">我的票券</div>
             </Nav.Link>
-            <Nav.Link as={Link} to="/user-fav">
+            <Nav.Link as={Link} to="/user-myfav">
               <div className="u-userfav">我的收藏</div>
             </Nav.Link>
             <Nav.Link as={Link} to="/user-auction">

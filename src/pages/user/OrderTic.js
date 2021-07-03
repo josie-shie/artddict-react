@@ -3,12 +3,16 @@ import Menu from './components/Menu'
 import Logoheader from './components/Logoheader'
 import './styles/OrderTic.scss'
 import { Link } from 'react-router-dom'
+import Breadcrumb from './components/UserBreadcrumb'
 
 function OrderTic() {
   return (
     <>
       <div className="u-body">
         <Logoheader />
+        <div className="u-breadcrumb">
+          <Breadcrumb />
+        </div>
         <div className="u-userMenu">
           <Menu />
         </div>
