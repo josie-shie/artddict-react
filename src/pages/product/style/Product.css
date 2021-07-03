@@ -472,10 +472,19 @@ width:100%;
 
 }
 
-.slickPicB-black:hover .slickB1 img{
-    opacity: 0.1;
-    background-color:black
+/* .slickPicB-box :hover{
+    background-color:black;
+    color:black;
+    transform: scale(1.5);
+} */
+.slickPicB-box :hover img{
+    opacity:1
 }
+.slickPicB-box :hover .slickPicB-black{
+    height: 50px;
+    transition: .2s;
+}
+
 
 .slickB1 img{
     width:110%;
