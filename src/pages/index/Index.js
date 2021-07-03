@@ -83,7 +83,7 @@ const Index = () => {
         <div className="rect rect-first"></div>
         <div className="rect rect-last"></div>
         <div>
-          <Logo className="logo" />
+          <Logo className="index-logo" />
         </div>
       </div>
 
