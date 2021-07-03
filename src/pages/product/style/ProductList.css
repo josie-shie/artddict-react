@@ -31,32 +31,47 @@
     position: absolute;
     top: 30%;
     left: 70%;
+    display: flex;
+    flex-wrap: wrap;
+
 }
 .prolist-ArtDdictlogo{
     width: 100%;
+    
 }
 .prolist-titlewordA{
     font-family: notoSansTC-Medium;
     font-size: 2.5vw;
-    text-align: right;
     letter-spacing: 8px;
+    justify-content: flex-end;
+    text-align: right;
+    padding: 0;
+
+
 }
 .prolist-titlewordB{
     font-family: notoSansTC-Medium;
     text-align: right;
     margin-top: 10px;
+    justify-content: flex-end;
+    padding: 0;
 
 }
 .prolist-zzzzzz{
     letter-spacing: 0;
 }
+
 .prolist-shopnowBtn{
     background-color: black;
-    margin-left: 49%;
     margin-top: 15px;
     width: 130px;
     border: 0 solid black;
 }
+.prolist-justify{
+    justify-content: flex-end;
+    padding: 0;
+}
+
 .prolist-shopnowBtn p{
     padding: 5px;
     font-family: notoSansTC-Medium;

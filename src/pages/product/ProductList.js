@@ -14,22 +14,24 @@ function ProductList() {
       <div className="prolist-full">
         <div className="prolist-titlepic">
           <img src={listtitle} alt="" />
-          <div className="prolist-titleword">
-            <div className="prolist-ArtDdictlogo">
+          <div className="prolist-titleword d-flex">
+            <div className="prolist-ArtDdictlogo ">
               <img src={logobk} alt="" />
             </div>
-            <div className="prolist-titlewordA">
+            <div className="prolist-titlewordA col-12">
               <p>
                 書寫的藝
                 <span className="prolist-zzzzzz">術</span>
               </p>
             </div>
-            <div className="prolist-titlewordB">
+            <div className="prolist-titlewordB col-12">
               <p>在ArtDDict探索藝術品</p>
             </div>
-            <button className="prolist-shopnowBtn">
-              <p>SHOP NOW</p>
-            </button>
+            <div className="col-12 d-flex prolist-justify">
+              <button className="prolist-shopnowBtn ">
+                <p>SHOP NOW</p>
+              </button>
+            </div>
           </div>
         </div>
         <div className="prolist-wordBox">
