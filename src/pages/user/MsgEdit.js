@@ -53,16 +53,24 @@ function MsgEdits() {
                 id="tel"
               />
             </div>
-            <div className="form-group u-form1">
+
+            <div className="form-group  u-gender-ckb d-flex">
               <label for="gender">性別</label>
               <br />
-              <select>
-                <option></option>
-                <option>男</option>
-                <option>女</option>
-                <option>不提供</option>
-              </select>
+              <div className="u-gender-box">
+                <input type="checkbox" />
+                <label htmlFor="gender">先生</label>
+              </div>
+              <div className="u-gender-box">
+                <input type="checkbox" />
+                <label htmlFor="gender">小姐</label>
+              </div>
+              <div className="u-gender-box">
+                <input type="checkbox" />
+                <label htmlFor="gender">不提供</label>
+              </div>
             </div>
+
             <div className="form-group u-form1">
               <label for="birthday">生日</label>
               <input
@@ -74,14 +82,17 @@ function MsgEdits() {
             <div className="form-group u-form1">
               <label for="address">住址</label>
               <br />
+              <div className="d-flex">
               <div className="u-Select">
-                <select name="" id="">
+                <select name="" id="" className="u-sel1">
                   <option>請選擇縣市</option>
                 </select>
-
+              </div>
+              <div className="u-Select">
                 <select name="" id="" className="u-sel2">
                   <option>請選擇區域</option>
                 </select>
+              </div>
               </div>
               <input
                 type="text"

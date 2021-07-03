@@ -15,6 +15,9 @@ import '../style/EDetailCaro.scss'
 
 export default function EDetailCaro() {
     const [index, setIndex] = useState(0)
+    const handleSelect = (selectedIndex, e) => {
+      setIndex(selectedIndex)
+    }
   return (
     <>
       <Row
@@ -26,6 +29,8 @@ export default function EDetailCaro() {
           controls={false}
           indicators={false}
           activeIndex={index}
+          onSelect={handleSelect}
+          slide={true}
         >
           <Carousel.Item>
             <img

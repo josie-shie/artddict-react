@@ -26,19 +26,25 @@ function OrderTic() {
               </Link>
             </div>
           </div>
-          <div className="u-progress d-flex">
-            <div className="u-progressText">
-              <p>進度查詢</p>
-            </div>
-            <div className="u-progressSelect">
-              <select name="" id="">
-                <option>全部</option>
-                <option>已完成</option>
-                <option>待出貨</option>
-                <option>取消紀錄</option>
-                <option>退貨紀錄</option>
-              </select>
-            </div>
+          <div className="u-progress">
+          <div className="pr-3">進度查詢</div>
+                <select
+                  className="user-select pl-3"
+                  name=""
+                  id=""
+                >
+                  <option
+                    style={{ color: '#707070' }}
+                    value=""
+                  >
+                    請選擇
+                  </option>
+                  <option value="">全部</option>
+                  <option value="">待出貨</option>
+                  <option value="">已完成</option>
+                  <option value="">取消紀錄</option>
+                  <option value="">退貨紀錄</option>
+                </select>
           </div>
 
           <div className="u-table">
