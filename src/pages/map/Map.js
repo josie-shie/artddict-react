@@ -10,11 +10,11 @@ const Map = () => {
     <>
       <div className="map-area index-web-padding">
         <Logo className="map-logo" />
-        <MarqueeMap/>
+        <MarqueeMap />
         <div className="d-flex">
-          <LeafLet className="col-8"/>
+          <LeafLet className="col-8" />
           <div className="col-4">
-          <div></div>
+            <div></div>
           </div>
         </div>
       </div>
