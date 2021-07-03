@@ -18,13 +18,16 @@ import Product from './pages/product/Product'
 import ProductList from './pages/product/ProductList'
 import ProductDetail from './pages/product/ProductDetail'
 import MatchGame from './pages/product/MatchGame'
+
+//auction
+import AuctionDetail from './pages/Auction/AuctionDetail'
+import Auction from './pages/Auction/Auction'
+
 // User
 import Add from './pages/user/Add'
 import Login from './pages/user/Login'
 import MsgEdit from './pages/user/MsgEdit'
 import PwdEdit from './pages/user/PwdEdit'
-import AuctionDetail from './pages/Auction/AuctionDetail'
-import Auction from './pages/Auction/Auction'
 import OrderPro from './pages/user/OrderPro'
 import OrderTic from './pages/user/OrderTic'
 import OrderProDetail from './pages/user/OrderProDetail'
