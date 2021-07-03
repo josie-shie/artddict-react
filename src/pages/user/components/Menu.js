@@ -29,7 +29,7 @@ function Menu() {
               <div className="u-userOrder">訂單查詢</div>
             </Nav.Link>
             <Nav.Link as={Link} to="/user-coupon">
-              <div className="u-coupon">優惠券</div>
+              <div className="u-coupon">我的優惠券</div>
             </Nav.Link>
             <Nav.Link as={Link} to="/user-ticket">
               <div className="u-ticket">我的票券</div>

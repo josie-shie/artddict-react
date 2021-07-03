@@ -13,12 +13,8 @@ import Event from './pages/event/Event'
 import ScrollToTop from './components/ScrollToTop'
 import Artist from './pages/artist/Artist'
 
-
-
 //Product
 import Product from './pages/product/Product'
-
-
 
 // User
 import Add from './pages/user/Add'
@@ -31,7 +27,9 @@ import OrderProDetail from './pages/user/OrderProDetail'
 import OrderTicDetail from './pages/user/OrderTicDetail'
 import Coupon from './pages/user/Coupon'
 import Ticket from './pages/user/Ticket'
+import TicketDetail from './pages/user/TicketDetail'
 import WorkShop from './pages/user/WorkShop'
+import WorkShopDetail from './pages/user/WorkShopDetail'
 
 // Event
 import EventList from './pages/event/EventList'
@@ -69,6 +67,12 @@ function App() {
             </Route>
             <Route exact path="/user-ordertic/detail">
               <OrderTicDetail />
+            </Route>
+            <Route exact path="/user-ticket/detail">
+              <TicketDetail />
+            </Route>
+            <Route exact path="/user-workshop/detail">
+              <WorkShopDetail />
             </Route>
 
             {/* 單一路徑 */}

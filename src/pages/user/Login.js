@@ -2,7 +2,6 @@ import { Carousel } from 'react-bootstrap'
 import React from 'react'
 import './styles/Login.scss'
 import { Link } from 'react-router-dom'
-import { Nav } from 'react-bootstrap'
 import Logoheader from './components/Logoheader'
 
 // images
@@ -92,14 +91,10 @@ function Login() {
             <div className="u-addInput">
               <div className="u-addbutton d-flex justify-content-around">
                 <div className="u-loginbtn">
-                  <Link to="/user-login">
-                    登入
-                  </Link>
+                  <Link to="/user-login">登入</Link>
                 </div>
                 <div className="u-addbtn">
-                  <Link to="/user-add">
-                    註冊
-                  </Link>
+                  <Link to="/user-add">註冊</Link>
                 </div>
               </div>
               <div className="u-gf d-flex justify-content-center">
@@ -144,7 +139,7 @@ function Login() {
                     <Link
                       to="/user-msgedit"
                       className="u-link1"
-                      style={{textDecoration:'none'}}
+                      style={{ textDecoration: 'none' }}
                     >
                       登入
                     </Link>

@@ -1,7 +1,6 @@
 import React from 'react'
 import './styles/OrderPro.scss'
 import Menu from './components/Menu'
-import { Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Logoheader from './components/Logoheader'
 
@@ -16,35 +15,28 @@ function OrderPro() {
         <div className="u-container-fluid">
           <div className="u-orderItem d-flex justify-content-around">
             <div className="u-userPro">
-              <Link to="/user-orderpro">
-                商品
-              </Link>
+              <Link to="/user-orderpro">商品</Link>
             </div>
             <div className="u-userTic">
-              <Link to="/user-ordertic">
-                票券
-              </Link>
+              <Link to="/user-ordertic">票券</Link>
             </div>
           </div>
           <div className="u-progress">
-          <div className="pr-3">進度查詢</div>
-                <select
-                  className="user-select pl-3"
-                  name=""
-                  id=""
-                >
-                  <option
-                    style={{ color: '#707070' }}
-                    value=""
-                  >
-                    請選擇
-                  </option>
-                  <option value="">全部</option>
-                  <option value="">待出貨</option>
-                  <option value="">已完成</option>
-                  <option value="">取消紀錄</option>
-                  <option value="">退貨紀錄</option>
-                </select>
+            <div className="pr-3">進度查詢</div>
+            <select
+              className="user-select pl-3"
+              name=""
+              id=""
+            >
+              <option style={{ color: '#707070' }} value="">
+                請選擇
+              </option>
+              <option value="">全部</option>
+              <option value="">待出貨</option>
+              <option value="">已完成</option>
+              <option value="">取消紀錄</option>
+              <option value="">退貨紀錄</option>
+            </select>
           </div>
 
           <div class="u-table">
@@ -57,26 +49,18 @@ function OrderPro() {
               <div class="u-bt col-2"></div>
             </div>
             <div class="u-tb d-flex justify-content-around mt-5">
-              <div class="u-orderId  mt-4">
-                訂單編號
-              </div>
-              <div class="u-orderDate mt-4">
-                訂單日期
-              </div>
-              <div class="u-payType c mt-4">
-                付款狀態
-              </div>
+              <div class="u-orderId  mt-4">訂單編號</div>
+              <div class="u-orderDate mt-4">訂單日期</div>
+              <div class="u-payType c mt-4">付款狀態</div>
               <div class="u-price mt-4">總價</div>
-              <div class="u-orderType mt-4">
-                訂單狀態
-              </div>
+              <div class="u-orderType mt-4">訂單狀態</div>
               <div class="u-bt col-2">
                 <div className="u-Bbtn">
                   <button class="btn btn btn-dark">
                     <Link
                       className="u-link"
                       to="/user-orderpro/detail"
-                      style={{textDecoration: 'none'}}
+                      style={{ textDecoration: 'none' }}
                     >
                       詳細資料
                     </Link>
