@@ -126,13 +126,19 @@ const Artist = () => {
             的藝術語言去創造自己的世界。
           </h5>
         </div>
-        <div className="art-push px-5">
+        <div className="art-name art-push px-5 art-relative">
           <img className="mb-5" src={artistImg6} alt="" />
           <h5>
             <span>Pop-Art藝術家 Mr. Doodle</span>
             <br />
             顛覆塗鴉的原始規則，以獨特筆迹填滿所有空間。他的創作領域廣泛，由街道設施、隧道、家具、服飾到電器不等。他的畫風破格，可在毫無預備之下，於任何地方即席創作，不需作任何思考，作畫速度極快，畫作故事性及結構兼備。
           </h5>
+          <h2 className="mt-5 engraversbd text-right">
+            About Mr <br />
+            Doodle
+          </h2>
+          <div className="art-hl"></div>
+          <div className="art-hl2"></div>
         </div>
       </div>
     </>
