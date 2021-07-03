@@ -16,14 +16,14 @@ function Ticket() {
           <div className="u-container-fluid">
               <div className="d-flex u-row justify-content-around">
                   <div className="u-userEve">
-                    <Nav.Link as={Link} to="/user-ticket">
+                    <Link  to="/user-ticket">
                       活動展
-                    </Nav.Link>
+                    </Link>
                   </div>
                   <div className="u-userWshop">
-                    <Nav.Link as={Link} to="/user-workshop">
+                    <Link to="/user-workshop">
                       工作坊
-                    </Nav.Link>
+                    </Link>
                   </div>
               </div>
                   <div className="u-ticbox d-flex">
@@ -51,8 +51,17 @@ function Ticket() {
               </div>
             </div>
             <div className="u-ticBtn">
-              <div className="u-BtnLight">活動細節</div>
-              <div className="u-BtnBlack"><Link to="/user-ticdetail"/>票券細節</div>
+              <div className="u-BtnLight"> <Link to="/event" className="u-link2"
+              style={{textDecoration: 'none'}}>
+                      活動細節
+                    </Link></div>
+              <div className="u-BtnBlack">
+                <Link to="/"
+                className="u-link3"
+              style={{textDecoration: 'none'}}>
+                      票券細節
+                    </Link>
+              </div>
             </div>
                   </div>
             </div>

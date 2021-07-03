@@ -16,14 +16,14 @@ function OrderTic() {
         <div className="u-container-fluid">
           <div className="u-orderItem d-flex justify-content-around">
             <div className="u-userPro1">
-              <Nav.Link as={Link} to="/user-orderpro">
+              <Link to="/user-orderpro">
                 商品
-              </Nav.Link>
+              </Link>
             </div>
             <div className="u-userTic1">
-              <Nav.Link as={Link} to="/user-ordertic">
+              <Link to="/user-ordertic">
                 票券
-              </Nav.Link>
+              </Link>
             </div>
           </div>
           <div className="u-progress d-flex">
@@ -75,13 +75,13 @@ function OrderTic() {
               <div className="u-bt col-2">
                 <div className="u-Bbtn">
                   <button class="btn btn btn-dark">
-                    <Nav.Link
+                    <Link
+                      style={{textDecoration: 'none'}}
                       className="u-link"
-                      as={Link}
-                      to="/user-orderdetictail"
+                      to="/user-ordertic/detail"
                     >
                       詳細資料
-                    </Nav.Link>
+                    </Link>
                   </button>
                 </div>
                 <div className="u-Lbtn">

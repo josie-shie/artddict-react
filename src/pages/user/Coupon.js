@@ -13,10 +13,10 @@ class Coupon extends React.Component {
     const range = document.createRange() 
     window.getSelection().removeAllRanges() 
     range.selectNode(copyEle)
-    window.getSelection().addRange(range)
+    window.getSelection().addRange(range) // 加上選取範圍
 
     const copyStatus = document.execCommand('Copy')
-
+    // const copyStatus = 0;
     if (copyStatus) {
       var coupon_msg = "複製成功";
       var msg_type = "success";
@@ -28,10 +28,12 @@ class Coupon extends React.Component {
 
     swal({
       text: coupon_msg,
-      icon: msg_type
-    });   
+      icon: msg_type,
+      button: false,
+      timer: 1000,
+    });
 
-    window.getSelection().removeAllRanges()
+    window.getSelection().removeAllRanges() // 取消選取範圍
   }
   
 

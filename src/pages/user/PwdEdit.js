@@ -16,14 +16,14 @@ function PwdEdit() {
         <div className="u-container-fluid">
           <div className="d-flex u-row justify-content-around">
             <div className="u-usertitleLeft">
-              <Nav.Link as={Link} to="/user-msgedit">
+              <Link to="/user-msgedit">
                 會員資料
-              </Nav.Link>
+              </Link>
             </div>
             <div className="u-usertitleRight">
-              <Nav.Link as={Link} to="/user-pwdEdit">
+              <Link to="/user-pwdEdit">
                 修改密碼
-              </Nav.Link>
+              </Link>
             </div>
           </div>
         </div>
