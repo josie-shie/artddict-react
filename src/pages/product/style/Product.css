@@ -291,6 +291,9 @@
 
 .slick-prev:before{
     content: url('/src/pages/product/svg/leftArrow.svg');
+    max-width: 10px;
+    max-height: 10px;
+    
     
     }
 .slick-next:before{
