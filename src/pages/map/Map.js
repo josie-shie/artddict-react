@@ -8,6 +8,8 @@ import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
 
 const Map = () => {
+  // 參考資料 : https://leafletjs.com/examples/quick-start/ & https://juejin.im/post/5cc192976fb9a032092e8e0a
+
   return (
     <>
       <div className="map-area index-web-padding">
