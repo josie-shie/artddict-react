@@ -527,21 +527,7 @@ function event() {
                 </button>
               </div>
             </div>
-            {/* <div className="e-local-logo col justify-content-center d-flex ">
-                <div className="col-4 my-5">
-                  <img
-                    className="e-local-log-pic"
-                    src={LocationLogo}
-                    alt=""
-                  />
-                </div>
-                <div className="col-12 p-0">
-                  <button className="e-location-more-btn eng-font-bold">
-                    MORE+
-                  </button>
-                </div>
-              
-            </div> */}
+
           </Row>
         </Container>
       </div>
