@@ -15,15 +15,6 @@ const Map = () => {
         <MarqueeMap />
         <div className="d-flex">
           <div className="col-8 d-flex flex-column px-0">
-<<<<<<< Updated upstream
-            <div className="map-search-bar d-flex">
-              <div className="map-select">
-                <div className="pr-3">地區</div>
-                <select
-                  className="ed-select pl-3"
-                  name=""
-                  id=""
-=======
             <div className="map-search-bar d-flex align-items-center justify-content-center py-2">
               <div className="map-select-box px-4">
                 地區
@@ -36,7 +27,6 @@ const Map = () => {
                 <option
                   style={{ color: '#707070' }}
                   value=""
->>>>>>> Stashed changes
                 >
                   請選擇
                 </option>
