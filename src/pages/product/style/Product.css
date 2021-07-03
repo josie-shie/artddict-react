@@ -624,5 +624,30 @@ width:100%;
 .pro-gray5{
     background-color: #E8E8E8;
     width: 70vw;
+    height: 50vh;
+}
+
+.homepage5-word {
+    font-family: Engravers;
+    font-size:5rem;
+    padding-top:17%;
+    padding-left:43%;
+}
+
+.homepage5-wordB{
+    font-family: Engravers;
+    font-size:5rem;
+    padding-top:2%;
+    padding-left:40%;
+}
+
+/* -----------homepage6------- */
+.pro-outside6{
+    width: calc(100vw - 70px);
+}
+
+.pro-gray6{
+    background-color: #E8E8E8;
+    width: calc(100vw - 70px);
     height: 100vh;
 }
