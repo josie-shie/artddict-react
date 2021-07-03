@@ -31,6 +31,12 @@ import homepic3 from './img/homepic3.png'
 import homepic4 from './img/homepic4.png'
 import homepic5 from './img/homepic5.jpeg'
 import homepic6 from './img/homepic6.jpeg'
+import homepic7 from './img/homepic7.jpeg'
+import homepic8 from './img/homepic8.jpeg'
+import homepic9 from './img/homepic9.jpeg'
+import homepic10 from './img/homepic10.jpeg'
+import homepic11 from './img/homepic11.jpeg'
+import homepic12 from './img/homepic12.jpeg'
 import museumGif from './img/museumGif.gif'
 import slickA1 from './img/slickA1.jpeg'
 import slickA2 from './img/slickA2.jpeg'
@@ -431,7 +437,74 @@ function Product() {
       </div>
       {/* ------------------homepage5------ */}
       <div className="pro-outside5">
-        <div className="pro-gray5"></div>
+        <div className="pro-gray5">
+          <div className="homepage5-word">
+            <div className="homepage5-wordA">
+              <h1>PRODUCT</h1>
+            </div>
+            <div className="homepage5-wordB">
+              <h1> CATEGORY</h1>
+            </div>
+          </div>
+          <div className="homepage5-boxboss">
+            <div className="homepage5-box d-flex">
+              <div className="homepage5-boxA">
+                <Link>
+                  <img src={homepic7} alt="" />
+                  <p className="homepage5-boxA-word">
+                    服飾類
+                  </p>
+                </Link>
+              </div>
+              <div className="homepage5-boxB">
+                <Link>
+                  <img src={homepic8} alt="" />
+                  <p className="homepage5-boxB-word">
+                    文具類
+                  </p>
+                </Link>
+              </div>
+              <div className="homepage5-boxC">
+                <Link>
+                  <img src={homepic9} alt="" />
+                  <p className="homepage5-boxC-word">
+                    家飾類
+                  </p>
+                </Link>
+              </div>
+            </div>
+            <div className="homepage5-box2 d-flex">
+              <div className="homepage5-boxD">
+                <Link>
+                  <img src={homepic10} alt="" />
+                  <p className="homepage5-boxD-word">
+                    書籍類
+                  </p>
+                </Link>
+              </div>
+              <div className="homepage5-boxE">
+                <Link>
+                  <img src={homepic11} alt="" />
+                  <p className="homepage5-boxE-word">
+                    配件類
+                  </p>
+                </Link>
+              </div>
+              <div className="homepage5-boxF">
+                <Link>
+                  <img src={homepic12} alt="" />
+                  <p className="homepage5-boxF-word">
+                    休閒娛樂類
+                  </p>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* ------------------homepage6------ */}
+      <div className="pro-outside6">
+        <div className="pro-gray6"></div>
       </div>
     </>
   )

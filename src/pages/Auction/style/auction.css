@@ -1,0 +1,152 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+ margin: 0;
+ padding: 0;
+ border: 0;
+ font-size: 100%;
+ font: inherit;
+ vertical-align: baseline;
+}
+
+/* *{
+    outline:1px red solid;
+} */
+
+.auctionPage{
+    width:calc(100% - 70px);
+}
+
+.auctionHeroSection{
+    height: 443px;
+    background-color: #000;
+    position:relative;
+    color:#81FC4D;
+}
+
+.auctionHeroSectionLogo{
+    width: 270px;
+    padding-top: 152px;
+    margin: 0 0 0 6%;
+}
+
+.auctionHeroSectionLogo svg{
+    width: 100%;
+}
+
+.auctionTitleOne {
+    margin: 0 0 0 6%;
+    font-size: 28px;
+}
+
+.auctionTitleTwo{
+    margin: 0 0 0 6%;
+    font-size: 16px;
+}
+
+.auctiondecoration{
+    font-size: 150px;
+}
+
+.auctiondecorationA{
+    position: absolute;
+    left:58%;
+    top:0px;
+}
+
+.auctiondecorationT{
+    position: absolute;
+    left:58%;
+    bottom:0px;
+}
+
+.auctiondecorationR{
+    position: absolute;
+    left:80%;
+    top:37%;
+}
+
+.auctionMarquee{
+    font-size: 45px;
+    height: 110px;
+    padding-left:80px ;
+    display: flex;
+    align-items: center;
+}
+
+.auctionMain{
+    height: 900px;
+    background-color: #E4E4E4;
+}
+
+.auctionMainWrap{
+    display: flex;
+    flex-direction: column;
+    padding: 60px 5% 0 5%;
+}
+
+
+.auctionArrangement{
+    display: inline-block;
+    width: 74px;
+    height: 42px;
+    margin:29px 0 0 0;
+    font-size: 18px;
+    text-align: center;
+    line-height: 42px;
+    border:2px solid #000;
+}
+
+.auctionArrangementInput{
+    display: inline-block;
+    width: 117px;
+    height: 42px;
+    font-size: 18px;
+    line-height: 42px;
+    padding: 0 0 0 20px;
+    border-top:2px solid #000;
+    border-right:2px solid #000;
+    border-bottom:2px solid #000;
+}
+
+.auctionNumberOfProduct{
+    margin:10px 0 0 0;
+    font-size: 18px;
+}
+
+.auctionMainContent{
+    width: 100%;
+    margin: 28px 0 0 0;
+    border-top:2px solid #000 ;
+    display: flex;
+}
+
+.auctionsidebar{
+    width: 18%;
+}
+
+.auctionsidebarTitle{
+    width: 100%;
+    height: 50px;
+    margin: 30px 0 0 0;
+    padding: 0 0 0 10%;
+    background-color: #000;
+    color: #fff;
+    line-height: 50px;
+}
+
+.auctionsidebar li{
+    margin: 30px 0 0 0;
+    list-style: none;
+    padding: 0 0 0 10%;
+}

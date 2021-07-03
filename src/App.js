@@ -21,6 +21,8 @@ import Add from './pages/user/Add'
 import Login from './pages/user/Login'
 import MsgEdit from './pages/user/MsgEdit'
 import PwdEdit from './pages/user/PwdEdit'
+import AuctionDetail from './pages/Auction/AuctionDetail'
+import Auction from './pages/Auction/Auction'
 import OrderPro from './pages/user/OrderPro'
 import OrderTic from './pages/user/OrderTic'
 import OrderProDetail from './pages/user/OrderProDetail'
@@ -44,6 +46,12 @@ function App() {
         <Nav />
         <ScrollToTop>
           <Switch>
+          <Route exact path="/auctionDetail">
+              <AuctionDetail />
+            </Route>
+            <Route exact path="/auction">
+              <Auction />
+            </Route>
             <Route
               exact
               path="/event/event-list/detail/upload"
