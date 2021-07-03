@@ -1,15 +1,15 @@
 import React from 'react'
-import EventLogo from '../images/logo.svg'
+import LEventLogo from '../images/light-logo.svg'
 import '../style/Lightheader.scss'
 
 // please export after .reduce-width
 export default function Lightheader() {
   return (
     <header>
-      <div className="e-header">
+      <div className="e-l-header">
         <img
           className="e-header-logo"
-          src={EventLogo}
+          src={LEventLogo}
           alt=""
         />
       </div>

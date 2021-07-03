@@ -1,0 +1,32 @@
+// Leave Right Side For Navbar
+.reduce-width{
+    width: calc(100% - 70px);
+}
+
+// leave 70px left paddinf
+.left-padding{
+    padding-left: 70px;
+}
+
+.both-padding{
+    padding-left: 70px;
+    padding-right: 70px;
+
+}
+
+// ?Color Variable
+
+$egreen: #81FC4D;
+$eblue: #1D0AFF;
+$egreydk: #A7A7A7;
+$egreylt: #E8E8E8;
+
+// !Share Zone
+
+.e-share{
+    background-color: #E8E8E8;
+}
+
+.es-bread{
+    border-top: 2px solid black;
+}
