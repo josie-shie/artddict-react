@@ -271,13 +271,13 @@
 .switchLeftBtn{
     position: absolute;
     top: 71%;
-    left: -220px;
+    left: -215px;
     z-index: 0;
 }
 .switchRightBtn{
     position: absolute;
     top: 71%;
-    left: -140px;
+    left: -135px;
     z-index: 0;
 }
 /* cautionnnnnnnnnn */
@@ -311,7 +311,7 @@
     width: 80px;
     height: 50px;
     top:90%;
-    left: -28%;
+    left: -220px;
     /* left: -230px; */
     border:1px solid black;
     border-right: 0;
@@ -325,7 +325,7 @@
     width: 80px;
     height: 50px;
     top:90%;
-    left: -18%;
+    left: -140px;
     /* left: -150px; */
     border:1px solid black;
 
