@@ -51,7 +51,7 @@ function Auction(props) {
                         <div className="auctionMainFilter">
                             <div className="auctionMainFilterLeft">
                                 <div className="auctionBreadcrumb">
-                                    首頁/競標商品
+                                    首頁/競標
                                 </div>
                                 <div className="auctionArrangement">
                                     排列
