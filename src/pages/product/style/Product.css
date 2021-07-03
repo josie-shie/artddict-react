@@ -619,7 +619,6 @@ width:100%;
 /* -----------homepage5------- */
 .pro-outside5{
     width: calc(100vw - 70px);
-    position: relative;
 }
 
 .pro-gray5{
@@ -627,8 +626,27 @@ width:100%;
     width: 70vw;
     height: 50vh;
 }
+.homepage5-word{
+    width: 50vw;
+    height: 25vh;
+    margin-left: 40%;
+    padding-top: 18%;
+}
 
-.homepage5-word {
+.homepage5-wordA {
+    font-family: Engravers;
+    font-size:5rem;
+    margin-left: 5%;
+
+}
+
+.homepage5-wordB{
+    font-family: Engravers;
+    font-size:5rem;
+
+}
+
+/* .homepage5-word {
     font-family: Engravers;
     font-size:5rem;
     top:45%;
@@ -643,7 +661,9 @@ width:100%;
     left: 30%;
     position: absolute;
 
-}
+} */
+
+
 
 /* -----------homepage6------- */
 .pro-outside6{
