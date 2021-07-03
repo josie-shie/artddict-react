@@ -51,6 +51,7 @@
 }
 .prolist-titlewordB{
     font-family: notoSansTC-Medium;
+    font-size: 1.3vw;
     text-align: right;
     margin-top: 10px;
     justify-content: flex-end;
