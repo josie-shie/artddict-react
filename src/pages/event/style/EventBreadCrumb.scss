@@ -1,0 +1,46 @@
+$primary: #A7A7A7;
+$colDefault     : #a7a7a7;
+$colHighlight   : #505050;
+
+
+// ?Font for Chinese
+
+.cn-font{
+    font-family: 'Noto Sans TC', sans-serif;
+    letter-spacing: 3px;
+}
+// ?Font for English
+
+@font-face {
+    font-family: Engravers-Normal;
+    src: url(./font/Engravers_MT/EngraversMT.ttf);
+}
+
+@font-face {
+    font-family: Engravers-Bold;
+    src: url(./font/Engravers_MT/EngraversMTBold.ttf);
+}
+
+.breadcrumb a{
+    color: #A7A7A7 !important;
+}
+
+.breadcrumb {
+    font-size: 1rem;
+    background-color: transparent;
+    padding: 0px;
+    margin: 0px; 
+    color: #707070 !important;
+}
+
+.breadcrumb-left{
+    padding-left: .8rem;
+}
+
+
+
+
+
+.active {
+    color: #707070 !important;
+}

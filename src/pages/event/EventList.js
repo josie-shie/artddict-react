@@ -1,6 +1,6 @@
 import { React, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { Container, Row, Nav } from 'react-bootstrap'
+import { Container, Row } from 'react-bootstrap'
 import $ from 'jquery'
 
 // Component
