@@ -31,6 +31,12 @@ import homepic3 from './img/homepic3.png'
 import homepic4 from './img/homepic4.png'
 import homepic5 from './img/homepic5.jpeg'
 import homepic6 from './img/homepic6.jpeg'
+import homepic7 from './img/homepic7.jpeg'
+import homepic8 from './img/homepic8.jpeg'
+import homepic9 from './img/homepic9.jpeg'
+import homepic10 from './img/homepic10.jpeg'
+import homepic11 from './img/homepic11.jpeg'
+import homepic12 from './img/homepic12.jpeg'
 import museumGif from './img/museumGif.gif'
 import slickA1 from './img/slickA1.jpeg'
 import slickA2 from './img/slickA2.jpeg'
@@ -438,6 +444,28 @@ function Product() {
             </div>
             <div className="homepage5-wordB">
               <h1> CATEGORY</h1>
+            </div>
+          </div>
+          <div className="homepage5-box d-flex">
+            <div className="homepage5-boxA">
+              <img src={homepic7} alt="" />
+            </div>
+            <div className="homepage5-boxB">
+              <img src={homepic8} alt="" />
+            </div>
+            <div className="homepage5-boxC">
+              <img src={homepic9} alt="" />
+            </div>
+          </div>
+          <div className="homepage5-box2 d-flex">
+            <div className="homepage5-boxD">
+              <img src={homepic10} alt="" />
+            </div>
+            <div className="homepage5-boxE">
+              <img src={homepic11} alt="" />
+            </div>
+            <div className="homepage5-boxF">
+              <img src={homepic12} alt="" />
             </div>
           </div>
         </div>
