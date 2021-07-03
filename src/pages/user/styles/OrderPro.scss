@@ -35,22 +35,51 @@
 }
 
 /* ----- 進度查詢 ----- */
-.u-progress {
+// .u-progress {
+//     margin-top: 20px;
+//     height: 60px;
+//     background-color: #e8e8e8;
+// }
+
+// .u-progressText {
+//     width: 70px;
+//     height: 50px;
+//     border: 2px solid #000;
+//     border-right: none;
+//     line-height: 50px; 
+// }
+
+// .u-progressText > p {
+//     margin-left: 5px;
+// }
+
+.u-progress{
     margin-top: 20px;
-    height: 60px;
-    background-color: #e8e8e8;
+    width: 200px;
+    height: 55px;
+    font-size: 1.5rem;
+    font-weight: normal;
+    border: 2px solid black;
+    text-align: center;
+    line-height: 52px;
 }
 
-.u-progressText {
-    width: 70px;
-    height: 50px;
-    border: 2px solid #000;
-    border-right: none;
-    line-height: 50px; 
+.u-progress > div{
+
+    border-right: 2px solid black;
+    display: inline-block;
 }
 
-.u-progressText > p {
-    margin-left: 5px;
+.user-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("../img/select-arrow.svg");
+  background-repeat: no-repeat;
+  background-position-x: 100%;
+  background-position-y: 50%;
+  border: 0px;
+  padding-right: 2rem;
 }
 
 /* ----- select 箭頭樣式 ----- */
@@ -61,33 +90,11 @@
     height: 50px;
     background-color: #e8e8e8;
     border: 2px solid #000;
-    // -webkit-appearance: none;
-    // -moz-appearance: none;
-    // appearance: none;
 }
-
-// .progressSelect{
-//     position:relative;
-//     display:block;
-//     height: 40px;    
-//     width: 120px;
-// }
-// .progressSelect:after {
-//     /* 這裏就是那個箭頭啦 */
-//     content:"▼";    
-//     padding: 15px 5px;
-//     position: absolute; right: 40px; top: 10px;    
-//     z-index: 1;
-//     text-align: center;
-//     width: 10%;
-//     height: 100%;      
-//     pointer-events: none;
-//     box-sizing: border-box;  
-//     color: #1D0AFF;
-// }   
 
 /* ----- 訂單 ----- */
 .u-table {
+    margin-top: 20px;
     width: 1044px;
     height: 195px;
     border: 2px solid #707070;
