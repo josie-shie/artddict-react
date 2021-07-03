@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../pics/logo-bk.svg'
-import './map.scss'
+import './Map.css'
 import LeafLet from './components/LeafLet'
 import MarqueeMap from './components/MarqueeMap'
 

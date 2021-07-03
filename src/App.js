@@ -74,7 +74,7 @@ function App() {
             </Route>
             <Route
               exact
-              path="/product/product-list/product-detail"
+              path="/product/product-list/product-detail/product/product-list/product-detail"
             >
               <ProductDetail />
             </Route>

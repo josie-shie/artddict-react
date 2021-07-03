@@ -1,10 +1,21 @@
-.u-positionR {
-    display: flex;
-    position: relative;
+.u-tic1 > div, .u-tic2 > div {
+    font-size: 18px;
+    font-family: NotoSansTC-Medium;
 }
 
-.u-shadow {
-    display: flex;
-    position: absolute;
-    background-color: rgba(0, 0, 0, 0.60);
+.u-tic2 {
+    width: 100%;
+    height: 150px;
+    border: 2px solid #000;
+    line-height: 50px;
+}
+
+.u-QRcode {
+    margin-top: 10px;
+    width: 120px;
+    height: 120px;
+}
+
+.u-QRcode > img {
+    width: 100%;
 }
