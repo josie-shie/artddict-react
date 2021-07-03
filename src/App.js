@@ -64,6 +64,13 @@ function App() {
             <Route exact path="/event/event-list">
               <EventList />
             </Route>
+            <Route exact path="/user-orderpro/detail">
+              <OrderProDetail />
+            </Route>
+            <Route exact path="/user-ordertic/detail">
+              <OrderTicDetail />
+            </Route>
+
             {/* 單一路徑 */}
             <Route exact path="/product">
               <Product />
@@ -85,12 +92,6 @@ function App() {
             </Route>
             <Route exact path="/user-ordertic">
               <OrderTic />
-            </Route>
-            <Route exact path="/user-orderprodetail">
-              <OrderProDetail />
-            </Route>
-            <Route exact path="/user-orderdetictail">
-              <OrderTicDetail />
             </Route>
             <Route exact path="/user-coupon">
               <Coupon />
