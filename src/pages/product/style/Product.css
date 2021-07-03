@@ -475,9 +475,7 @@ width:100%;
     transform: rotate(-5deg);
     z-index:-5;
 }
-.pro-green2:hover{
-    background-color: black;
-}
+
 
 .pro-watchAll{
     background-color:black;
@@ -627,12 +625,31 @@ width:100%;
     background-color: #E8E8E8;
     width: 70vw;
     height: 50vh;
+    position: relative;
+    z-index: 0;
+
 }
 .homepage5-word{
     width: 50vw;
     height: 25vh;
     margin-left: 30%;
-    padding-top: 18%;
+    padding-top: 15%;
+    z-index:999;
+}
+.pro-green3{
+    width:30vw;
+    height:7vh;
+    background-color: #81FC4D;
+    position: absolute;
+    top:80%;
+    left:47%;
+    transform: rotate(-5deg);
+    z-index:-5;
+}
+@media (min-width: 1440px){
+    .homepage5-word{
+    padding-top: 15%;
+    }
 }
 
 .homepage5-wordA {
@@ -645,7 +662,7 @@ width:100%;
 .homepage5-wordB{
     font-family: Engravers;
     font-size:5.8rem;
-
+    z-index: 999;
 }
 @media (min-width: 1440px){
     .homepage5-word{
@@ -673,6 +690,7 @@ width:100%;
     width:100%;
     margin-left: 20%;
     margin-top: 19.5%;
+    z-index: 9;
 }
 
 .homepage5-boxA{
@@ -680,6 +698,7 @@ width:100%;
     height: 35vh;
     margin-left: 0%;
     position: relative;
+    z-index: 9;
 
 }
 .homepage5-boxA img{
@@ -738,6 +757,26 @@ width:100%;
 .homepage5-boxF img{
     width: 100%;
 }
+.homepage5-boxA-word, .homepage5-boxB-word, .homepage5-boxC-word, .homepage5-boxD-word, .homepage5-boxE-word{
+    font-family: NotoSansTC-Medium;
+    font-size: 1.2rem;
+    position: absolute;
+    bottom:15%;
+    left: calc(50% - 28px);
+    padding-bottom: 1px;
+    border-bottom: 1px solid black;
+    color: black;
+}
+.homepage5-boxF-word{
+    font-family: NotoSansTC-Medium;
+    font-size: 1.2rem;
+    position: absolute;
+    bottom:15%;
+    left: calc(50% - 48px);
+    padding-bottom: 1px;
+    border-bottom: 1px solid black;
+    color: black;
+}
 @media (min-width: 1440px){
     .homepage5-boxboss{
         width:100%;
@@ -795,7 +834,7 @@ width:100%;
         font-family: NotoSansTC-Medium;
         font-size: 1.2rem;
         position: absolute;
-        bottom:15%;
+        bottom:10%;
         left: calc(50% - 28px);
         padding-bottom: 5px;
         border-bottom: 1px solid black;
@@ -805,7 +844,7 @@ width:100%;
         font-family: NotoSansTC-Medium;
         font-size: 1.2rem;
         position: absolute;
-        bottom:15%;
+        bottom:10%;
         left: calc(50% - 48px);
         padding-bottom: 5px;
         border-bottom: 1px solid black;
@@ -813,26 +852,7 @@ width:100%;
     }
 }
 
-.homepage5-boxA-word, .homepage5-boxB-word, .homepage5-boxC-word, .homepage5-boxD-word, .homepage5-boxE-word{
-    font-family: NotoSansTC-Medium;
-    font-size: 1.2rem;
-    position: absolute;
-    bottom:15%;
-    left: calc(50% - 28px);
-    padding-bottom: 5px;
-    border-bottom: 1px solid black;
-    color: black;
-}
-.homepage5-boxF-word{
-    font-family: NotoSansTC-Medium;
-    font-size: 1.2rem;
-    position: absolute;
-    bottom:15%;
-    left: calc(50% - 48px);
-    padding-bottom: 5px;
-    border-bottom: 1px solid black;
-    color: black;
-}
+
 
 /* -----------homepage6------- */
 .pro-outside6{
