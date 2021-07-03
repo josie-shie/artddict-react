@@ -116,10 +116,42 @@
         letter-spacing: 5px;
    } 
 
+   .art-1 {
+       position:absolute;
+        z-index: 2;
+   }
+
    .art-area span{
        font-family: notoSansTC-bk;
        font-size: 1.5rem;
 
    }
-    
+
+
+   .art-name h2{
+       font-size:5rem;
+       position: absolute;
+        top:10%;
+        right:5%;
+        z-index: 2;
+   }
+
+   .art-hl{
+       width:55% ;
+       height: 50px;
+       background: #81FC4D;
+       position: absolute;
+        top:20%;
+        right:5%;
+        z-index: 1;
+   }
+   .art-hl2{
+       width:45% ;
+       height: 50px;
+       background: #81FC4D;
+       position: absolute;
+        top:35%;
+        right:5%;
+        z-index: 1;
+   }
     

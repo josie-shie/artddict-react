@@ -94,7 +94,8 @@
         bottom:0;
     }
     /*FIXME:*/
-    .logo{
+    .index-logo{
+        width: 40%;
         position: absolute;
         top:6vh;
         left:2vh;
@@ -109,6 +110,7 @@
     .news-slogen{
         position: relative;
         background-color: #E8E8E8;
+        z-index: 1;
     }
     .news-slogen h1{
         font-family: Engravers;
@@ -119,10 +121,10 @@
     .news-hl{
         position:absolute;
         z-index: 0;/*TODO: Zindex not working*/
-        top:43vh;
-        left:30vh;
-        width: 30vh;
-        height: 5vh;
+        top:43%;
+        left:35%;
+        width: 30%;
+        height: 5%;
         transform:rotate(1deg);
         transform-origin: 0 -10;
         background-color: #81FC4D;
@@ -196,13 +198,13 @@
         display: grid; 
         grid-template-rows: 1fr 1fr; 
         grid-template-columns: 1fr 1fr 1fr;
-        column-gap:5px; 
+        column-gap:20px; 
     }
     
     
 
     .item{
-        width: 200px;
+        width: 100%;
         /* height:280px; */
         break-inside:avoid;
         overflow: hidden;
@@ -274,6 +276,7 @@
     }
 
     .event-marquee h1{
+        letter-spacing: 4px;
         font-size: 3rem;
         font-family: NotoSansTC-md;
 
@@ -291,8 +294,8 @@
 
     .index-cirbl{
         position: absolute;
-        top:-30px;
-        right:350px;
+        top:-10%;
+        right:28%;
     }
 
     .index-box{
@@ -301,25 +304,25 @@
 
     .index-tage{
         position: absolute;
-        top:80px;
-        right:140px;
+        top:30%;
+        right:14%;
     }
     .index-eye{
         position: absolute;
-        top:0px;
-        right:400px;
+        top:-3%;
+        right:30%;
     }
     .index-eye2{
         position: absolute;
-        top:-30px;
-        right:430px;
+        top:-3%;
+        right:33.5%;
     }
 
     .cute-slogan{
         position: absolute;
         z-index: 1000;
-        top:-30px;
-        left:270px;
+        top:-5%;
+        left:25%;
         font-family: Engravers;
         font-size:2.5rem;
     }
@@ -329,10 +332,10 @@
     }
     .product-hl{
         position:absolute;
-        top:30px;
-        left:270px;
-        width: 57vh;
-        height: 5vh;
+        top:12%;
+        left:24%;
+        width: 33%;
+        height: 15%;
         transform:rotate(1deg);
         transform-origin: 0 -10;
         background-color: #81FC4D;
@@ -344,8 +347,8 @@
 
     .product-title-tc{
         position: absolute;
-        top:30px;
-        left: 380px;
+        top:20%;
+        left: 30%;
         font-size: 1.5rem;
     }
 
@@ -434,10 +437,10 @@
     }
 
     .auctime{
-        width: 20vh;
+        width: 15%;
         position:absolute;
-        top:50px;
-        left:450px;
+        top:5%;
+        left:35%;
     }
 
     .auction-slogan{
