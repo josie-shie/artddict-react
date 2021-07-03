@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../pics/logo-bk.svg'
-import './Map.css'
+import './map.scss'
 import LeafLet from './components/LeafLet'
 import MarqueeMap from './components/MarqueeMap'
 
@@ -14,7 +14,7 @@ const Map = () => {
         <div className="d-flex">
           <div className="col-8 d-flex flex-column px-0">
             <div className="map-search-bar d-flex">
-            <div className="map-select">
+              <div className="map-select">
                 <div className="pr-3">地區</div>
                 <select
                   className="ed-select pl-3"
@@ -32,7 +32,7 @@ const Map = () => {
                 </select>
               </div>
             </div>
-            <LeafLet className="  col-12"/>
+            <LeafLet className="  col-12" />
           </div>
           <div className="col-4">
             <div className="map-card-wrap">
