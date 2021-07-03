@@ -1,7 +1,17 @@
 import React from 'react'
 
 function ProductDetail() {
-  return <></>
+  return (
+    <>
+      <div>
+        <div>
+          <div>
+            <div></div>
+          </div>
+        </div>
+      </div>
+    </>
+  )
 }
 
 export default ProductDetail

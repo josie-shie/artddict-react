@@ -91,3 +91,20 @@
     font-size: 1.2rem;  
     margin: 20px 0 20px 0;
 }
+.prolist-full2{
+    background-color: #e8e8e8;
+    height: 2000px;
+    width: calc(100vw - 70px);
+}
+.prolist-row{
+    background-color: rgb(124, 252, 252);
+    width:calc(100vw - 210px);
+    height: 2000px;
+    margin: 0 auto;
+}
+
+.prolist-topOflist{
+    background-color:rgb(250, 250, 131);
+    width: 100%;
+    height: 200px;
+}
