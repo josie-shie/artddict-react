@@ -892,6 +892,12 @@ width:100%;
     color: white;
     border-bottom: 1px solid white;
 }
+@media (min-width: 1440px){
+    .pro-gray6{
+        background-color: #E8E8E8;
+        height: 193vh;
+    }
+}
 /* .pro-gray7{
     background-color: #E8E8E8;
     width: 100vw;
