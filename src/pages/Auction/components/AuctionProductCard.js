@@ -1,68 +1,78 @@
-import React from 'react';
-import monkey from '../images/monkey.jpg' 
+import React, { useState, useEffect } from 'react';
+import monkey from '../images/monkey.jpg'
+import { withRouter, Link } from 'react-router-dom'
+import useInterval from './useInterval';
 
 function AuctionProductCard(props) {
-    const { aucName, aucPriceNow ,deadline} = props
+    const { aucId, aucName, aucPriceNow, deadline, TimeRemaining } = props
+    const [delay, setDelay] = useState(1000);
+    const [auctionRunning, setAuctionrunning] = useState(false)
+    const [AuctionProductCard_CountDown, setAuctionProductCard_CountDown] = useState([0, '', 0, ''])
+    const [loading, setLoading] = useState('')
+    const [isRunning, setIsRunning] = useState(true);
 
-    console.log(props)
-    console.log(parseInt(deadline))
-    // 將資料拿到資料庫截止日期 從字串轉換成數字
-
-    //截止時間(毫秒)
-    const deadlineMin = new Date(parseInt(deadline));
-    console.log("截止日期:", deadlineMin)
-
-    //現在時間(毫秒)
-    const timeRightNowA = new Date()
-    const timeRightNow = timeRightNowA.getTime()
-    console.log('現在時間:', timeRightNow )
-
-    //呼叫函式
-    const AuctionProductCard_CountDown= TimeRemaining(parseInt(deadline), timeRightNow)
-    console.log(AuctionProductCard_CountDown)
-
-    //計算剩餘時間 
-    function TimeRemaining(deadlineMin, timeRightNow) {
-        console.log()
-        const TimeRemaining = deadline - timeRightNow
-
-        console.log("剩餘時 TimeRemaining")
-
-        const seconds = Math.floor(( TimeRemaining / 1000) % 60);
-        const minutes = Math.floor(( TimeRemaining / 1000 / 60) % 60);
-        const hours = Math.floor(( TimeRemaining / (1000 * 60 * 60)) % 24);
-        const days = Math.floor( TimeRemaining / (1000 * 60 * 60 * 24));
-        console.log(seconds,minutes,hours,days)
-
-        if(days>0){
-            return [days,'天',hours,'小時']
-        }else{
-            return [hours,'小時',minutes,'分鐘']
+    // 初始化倒數計時器
+    useEffect(() => {
+        //第一次計算剩餘時間(不控制)
+        let newAucProductTimeRemaining = TimeRemaining(deadline)
+        console.log("我是百變怪", newAucProductTimeRemaining)
+        //第一次計算剩餘時間(react資料流)
+        setAuctionProductCard_CountDown(newAucProductTimeRemaining)
+        // TimeRemaining(deadline)
+        console.log("判斷是:", (newAucProductTimeRemaining.reduce((a, b) => a + b)))
+        if ((newAucProductTimeRemaining.reduce((a, b) => a + b) < 0)) {
+            console.log('競標結束')
+            setLoading('競標結束')
+            setAuctionrunning(false)
+            setIsRunning(false)
+            console.log(aucName, 'loading', loading, 'isRunning', isRunning)
+        } else {
+            setAuctionrunning(true)
+            console.log('競標繼續')
+            if (newAucProductTimeRemaining[0] > 0)
+                setAuctionProductCard_CountDown([newAucProductTimeRemaining[0], '天', newAucProductTimeRemaining[1] + 1, '小時'])
+            if (newAucProductTimeRemaining[0] < 1)
+                setAuctionProductCard_CountDown([newAucProductTimeRemaining[1], '小時', newAucProductTimeRemaining[2] + 1, '分鐘'])
         }
-    }
+    }, [])
 
-
-    // console.log(time)
-    // console.log(time.getFullYear())
-    // console.log(time.getMonth())
-    // console.log(time.getDay())
-    // console.log(time.getHours())
-    // console.log(time.getMinutes())
-    // console.log(time.getSeconds())
-
-    // if(time.getMonth() < 1){
-
-    // }
-
+    useInterval(() => {
+        //設立一個變數來避免 setstate非同步問題
+        let TimeRemainingAA = TimeRemaining(deadline)
+        console.log(TimeRemainingAA)
+        //更改state狀態
+        //每秒計算剩餘時間
+        setAuctionProductCard_CountDown(TimeRemainingAA)
+        let bbb = TimeRemainingAA.reduce((a, b) => a + b)
+        if (bbb < 0) {
+            setAuctionrunning(false)
+            setIsRunning(false)
+            setLoading('競標結束')
+            console.log('bye')
+        } else {
+            if (TimeRemainingAA[0] > 0)
+                setAuctionProductCard_CountDown([TimeRemainingAA[0], '天', TimeRemainingAA[1] + 1, '小時'])
+            if (TimeRemainingAA[0] < 1)
+                setAuctionProductCard_CountDown([TimeRemainingAA[1], '小時', TimeRemainingAA[2] + 1, '分鐘'])
+        }
+    }, isRunning ? delay : null)
 
     return (
         <>
             <div className="col-4 auctionProductCard">
                 <div className="auctionProduct_Picture_time">
-                    <img src={monkey} alt="Background" />
-                    <div className="auctionProduct_countdown">
-                        截標倒數 <span>{AuctionProductCard_CountDown[0]}</span> {AuctionProductCard_CountDown[1]} <span>{AuctionProductCard_CountDown[2]}</span> {AuctionProductCard_CountDown[3]}
-                    </div>
+                    <Link to={`/AuctionDetail/${aucId}`}>
+                        <img src={monkey} alt="Background" />
+                    </Link>
+                    {console.log('loading', loading, 'isRunning', isRunning, 'auctionRunning', auctionRunning)}
+                    {auctionRunning ? (
+                        <div className="auctionProduct_countdown">
+                            截標倒數 <span>{AuctionProductCard_CountDown[0]}</span>
+                            {AuctionProductCard_CountDown[1]}
+                            <span>{AuctionProductCard_CountDown[2]}</span>
+                            {AuctionProductCard_CountDown[3]}
+                        </div>
+                    ) : (<div className="auctionProduct_countdown">{loading}</div>)}
                 </div>
                 <div className="auctionProductionTitle">
                     {aucName}
@@ -73,4 +83,4 @@ function AuctionProductCard(props) {
     );
 }
 
-export default AuctionProductCard;
+export default withRouter(AuctionProductCard);

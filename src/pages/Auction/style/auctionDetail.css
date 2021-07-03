@@ -130,9 +130,14 @@ time, mark, audio, video {
     position: fixed;
 }
 
-.countdown{
+.auctionDetailcountdown{
+    font-size: 25px;
+}
+
+.auctionDetailcountdown span{
     font-size: 40px;
 }
+
 
 .auctionDetailPicture{
     margin-top: 20px;

@@ -23,6 +23,7 @@ time, mark, audio, video {
     outline:1px red solid;
 } */
 
+
 .auctionPage{
     width:calc(100% - 70px);
 }
@@ -93,6 +94,15 @@ time, mark, audio, video {
     display: flex;
     flex-direction: column;
     padding: 60px 5% 0 5%;
+}
+
+.auctionMainFilter{
+    display: flex;
+    justify-content: space-between;
+}
+
+.auctionMainFilterRight{
+    display: flex;
 }
 
 

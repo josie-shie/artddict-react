@@ -60,7 +60,7 @@ time, mark, audio, video {
 
 
 
-
+/* 
 @media screen and (max-width: 992px){
     .auctionProduct_countdown{
         font-size: 10px;
@@ -69,4 +69,4 @@ time, mark, audio, video {
     .auctionProduct_countdown span{
         font-size: 18px;
     }
-}
+} */

@@ -51,7 +51,7 @@ function App() {
         <Nav />
         <ScrollToTop>
           <Switch>
-            <Route exact path="/auctionDetail">
+            <Route exact path="/auctionDetail/:id?">
               <AuctionDetail />
             </Route>
             <Route exact path="/auction">

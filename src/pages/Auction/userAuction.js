@@ -11,4 +11,4 @@ function userAuction(props) {
     );
 }
 
-export default userAuction;
+export default withRouter(userAuction);
