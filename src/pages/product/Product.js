@@ -372,12 +372,12 @@ function Product() {
               </div>
             </Slider>
           </div>
-          <Link to="/">
-            <div className="pro-watchAll">
-              <p className="pro-watchAllWord">WATCH ALL</p>
-            </div>
-          </Link>
         </div>
+        <Link to="/">
+          <div className="pro-watchAll">
+            <p className="pro-watchAllWord">WATCH ALL</p>
+          </div>
+        </Link>
       </div>
       {/* ------------------homepage5------ */}
       <div className="pro-outside5">
