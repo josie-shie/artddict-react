@@ -1,5 +1,6 @@
 import React from 'react'
 import Logoheader from './components/Logoheader'
+import Breadcrumb from './components/UserBreadcrumb'
 import Menu from './components/Menu'
 import { Link } from 'react-router-dom'
 import './styles/WorkShop.scss'
@@ -9,6 +10,9 @@ function WorkShop() {
     <>
       <div className="u-body">
         <Logoheader />
+        <div className="u-breadcrumb">
+          <Breadcrumb />
+        </div>
         <div className="u-userMenu">
           <Menu />
         </div>
@@ -58,7 +62,7 @@ function WorkShop() {
               </div>
               <div className="u-BtnBlack">
                 <Link
-                  to="/user/workshop/detail"
+                  to="/user-workshop/detail"
                   className="u-link3"
                   style={{ textDecoration: 'none' }}
                 >

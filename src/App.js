@@ -15,7 +15,9 @@ import Artist from './pages/artist/Artist'
 
 //Product
 import Product from './pages/product/Product'
-
+import ProductList from './pages/product/ProductList'
+import ProductDetail from './pages/product/ProductDetail'
+import MatchGame from './pages/product/MatchGame'
 // User
 import Add from './pages/user/Add'
 import Login from './pages/user/Login'
@@ -46,7 +48,7 @@ function App() {
         <Nav />
         <ScrollToTop>
           <Switch>
-          <Route exact path="/auctionDetail">
+            <Route exact path="/auctionDetail">
               <AuctionDetail />
             </Route>
             <Route exact path="/auction">
@@ -67,6 +69,12 @@ function App() {
             <Route exact path="/event/event-list/detail">
               <EventDetail />
             </Route>
+            <Route
+              exact
+              path="/product/product-list/product-detail"
+            >
+              <ProductDetail />
+            </Route>
             <Route exact path="/event/event-list">
               <EventList />
             </Route>
@@ -75,6 +83,9 @@ function App() {
             </Route>
             <Route exact path="/user-ordertic/detail">
               <OrderTicDetail />
+            </Route>
+            <Route exact path="/product/product-list">
+              <ProductList />
             </Route>
             <Route exact path="/user-ticket/detail">
               <TicketDetail />

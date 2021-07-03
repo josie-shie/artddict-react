@@ -3,12 +3,16 @@ import './styles/PwdEdit.scss'
 import { Link } from 'react-router-dom'
 import Menu from './components/Menu'
 import Logoheader from './components/Logoheader'
+import Breadcrumb from './components/UserBreadcrumb'
 
 function PwdEdit() {
   return (
     <>
       <div className="u-body">
         <Logoheader />
+        <div className="u-breadcrumb">
+          <Breadcrumb />
+        </div>
         <div className="u-userMenu">
           <Menu />
         </div>

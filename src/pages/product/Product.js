@@ -38,6 +38,7 @@ import homepic10 from './img/homepic10.jpeg'
 import homepic11 from './img/homepic11.jpeg'
 import homepic12 from './img/homepic12.jpeg'
 import museumGif from './img/museumGif.gif'
+import bottomGif from './img/bottomGif.gif'
 import slickA1 from './img/slickA1.jpeg'
 import slickA2 from './img/slickA2.jpeg'
 import slickA3 from './img/slickA3.jpeg'
@@ -446,35 +447,75 @@ function Product() {
               <h1> CATEGORY</h1>
             </div>
           </div>
+          <div className="pro-green3"></div>
           <div className="homepage5-boxboss">
             <div className="homepage5-box d-flex">
               <div className="homepage5-boxA">
-                <img src={homepic7} alt="" />
+                <Link>
+                  <img src={homepic7} alt="" />
+                  <p className="homepage5-boxA-word">
+                    服飾類
+                  </p>
+                </Link>
               </div>
               <div className="homepage5-boxB">
-                <img src={homepic8} alt="" />
+                <Link>
+                  <img src={homepic8} alt="" />
+                  <p className="homepage5-boxB-word">
+                    文具類
+                  </p>
+                </Link>
               </div>
               <div className="homepage5-boxC">
-                <img src={homepic9} alt="" />
+                <Link>
+                  <img src={homepic9} alt="" />
+                  <p className="homepage5-boxC-word">
+                    家飾類
+                  </p>
+                </Link>
               </div>
             </div>
             <div className="homepage5-box2 d-flex">
               <div className="homepage5-boxD">
-                <img src={homepic10} alt="" />
+                <Link>
+                  <img src={homepic10} alt="" />
+                  <p className="homepage5-boxD-word">
+                    書籍類
+                  </p>
+                </Link>
               </div>
               <div className="homepage5-boxE">
-                <img src={homepic11} alt="" />
+                <Link>
+                  <img src={homepic11} alt="" />
+                  <p className="homepage5-boxE-word">
+                    配件類
+                  </p>
+                </Link>
               </div>
               <div className="homepage5-boxF">
-                <img src={homepic12} alt="" />
+                <Link>
+                  <img src={homepic12} alt="" />
+                </Link>
+
+                <p className="homepage5-boxF-word">
+                  休閒娛樂類
+                </p>
               </div>
             </div>
           </div>
         </div>
       </div>
       {/* ------------------homepage6------ */}
-      <div className="pro-outside6">
-        <div className="pro-gray6"></div>
+      <div>
+        <div className="pro-gray6">
+          <div className="pro-bottomGif">
+            <img src={bottomGif} alt="" />
+            <p className="homepage6-wordA">
+              MAY YOUR PASSION FOR ART
+            </p>
+            <p className="homepage6-wordB">HAS NO END</p>
+          </div>
+        </div>
       </div>
     </>
   )
