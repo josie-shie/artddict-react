@@ -1,7 +1,6 @@
 import React from 'react'
 import './styles/MsgEdit.scss'
 import { Link } from 'react-router-dom'
-import { Nav } from 'react-bootstrap'
 import Menu from './components/Menu'
 import Logoheader from './components/Logoheader'
 
@@ -16,14 +15,10 @@ function MsgEdits() {
         <div className="u-container-fluid">
           <div className="d-flex u-row justify-content-around">
             <div className="u-usertitleLeft1">
-              <Link to="/user-msgedit">
-                會員資料
-              </Link>
+              <Link to="/user-msgedit">會員資料</Link>
             </div>
             <div className="u-usertitleRight1">
-              <Link to="/user-pwdEdit">
-                修改密碼
-              </Link>
+              <Link to="/user-pwdEdit">修改密碼</Link>
             </div>
           </div>
         </div>
@@ -83,16 +78,16 @@ function MsgEdits() {
               <label for="address">住址</label>
               <br />
               <div className="d-flex">
-              <div className="u-Select">
-                <select name="" id="" className="u-sel1">
-                  <option>請選擇縣市</option>
-                </select>
-              </div>
-              <div className="u-Select">
-                <select name="" id="" className="u-sel2">
-                  <option>請選擇區域</option>
-                </select>
-              </div>
+                <div className="u-Select">
+                  <select name="" id="" className="u-sel1">
+                    <option>請選擇縣市</option>
+                  </select>
+                </div>
+                <div className="u-Select">
+                  <select name="" id="" className="u-sel2">
+                    <option>請選擇區域</option>
+                  </select>
+                </div>
               </div>
               <input
                 type="text"

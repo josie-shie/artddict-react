@@ -2,31 +2,26 @@ import React from 'react'
 import Logoheader from './components/Logoheader'
 import Menu from './components/Menu'
 import { Link } from 'react-router-dom'
-import { Nav } from 'react-bootstrap'
 import './styles/Ticket.scss'
 
 function Ticket() {
   return (
     <>
-        <div className="u-body">
-          <Logoheader />
-            <div className="u-userMenu">
-              <Menu />
+      <div className="u-body">
+        <Logoheader />
+        <div className="u-userMenu">
+          <Menu />
+        </div>
+        <div className="u-container-fluid">
+          <div className="d-flex u-row justify-content-around">
+            <div className="u-userEve">
+              <Link to="/user-ticket">活動展</Link>
             </div>
-          <div className="u-container-fluid">
-              <div className="d-flex u-row justify-content-around">
-                  <div className="u-userEve">
-                    <Link  to="/user-ticket">
-                      活動展
-                    </Link>
-                  </div>
-                  <div className="u-userWshop">
-                    <Link to="/user-workshop">
-                      工作坊
-                    </Link>
-                  </div>
-              </div>
-                  <div className="u-ticbox d-flex">
+            <div className="u-userWshop">
+              <Link to="/user-workshop">工作坊</Link>
+            </div>
+          </div>
+          <div className="u-ticbox d-flex">
             <div className="u-ticImg"></div>
             <div className="u-ticMsg">
               <div className="u-Eve1 d-flex">
@@ -51,20 +46,28 @@ function Ticket() {
               </div>
             </div>
             <div className="u-ticBtn">
-              <div className="u-BtnLight"> <Link to="/event" className="u-link2"
-              style={{textDecoration: 'none'}}>
-                      活動細節
-                    </Link></div>
+              <div className="u-BtnLight">
+                {' '}
+                <Link
+                  to="/event"
+                  className="u-link2"
+                  style={{ textDecoration: 'none' }}
+                >
+                  活動細節
+                </Link>
+              </div>
               <div className="u-BtnBlack">
-                <Link to="/"
-                className="u-link3"
-              style={{textDecoration: 'none'}}>
-                      票券細節
-                    </Link>
+                <Link
+                  to="/user/ticket/detail"
+                  className="u-link3"
+                  style={{ textDecoration: 'none' }}
+                >
+                  票券細節
+                </Link>
               </div>
             </div>
-                  </div>
-            </div>
+          </div>
+        </div>
       </div>
     </>
   )
