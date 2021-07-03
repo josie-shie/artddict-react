@@ -272,13 +272,13 @@
     position: absolute;
     top: 71%;
     left: -220px;
-    z-index: 1000;
+    z-index: 0;
 }
 .switchRightBtn{
     position: absolute;
-    top: 405px;
-    left: -145px;
-    z-index: 1000;
+    top: 71%;
+    left: -140px;
+    z-index: 0;
 }
 /* cautionnnnnnnnnn */
 
@@ -308,8 +308,8 @@
 } */
 
 .slick-prev{
-    width: 5vw;
-    height: 8vh;
+    width: 80px;
+    height: 50px;
     top:90%;
     left: -28%;
     /* left: -230px; */
@@ -322,10 +322,10 @@
 }
 
 .slick-next{
-    width: 5vw;
-    height: 8vh;
+    width: 80px;
+    height: 50px;
     top:90%;
-    left: -20%;
+    left: -18%;
     /* left: -150px; */
     border:1px solid black;
 
