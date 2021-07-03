@@ -260,7 +260,7 @@
 
 .slickWidth{
     width: 62vw;
-    height: 82vh;
+    height: 59.5vh;
     margin-left: 3%;
     position: relative;
 }
@@ -270,14 +270,14 @@
 /* cautionnnnnnnnnn switchBtn*/
 .switchLeftBtn{
     position: absolute;
-    top: 71%;
-    left: -220px;
+    top: 100%;
+    left: -215px;
     z-index: 0;
 }
 .switchRightBtn{
     position: absolute;
-    top: 71%;
-    left: -140px;
+    top: 100%;
+    left: -135px;
     z-index: 0;
 }
 /* cautionnnnnnnnnn */
@@ -311,7 +311,7 @@
     width: 80px;
     height: 50px;
     top:90%;
-    left: -28%;
+    left: -220px;
     /* left: -230px; */
     border:1px solid black;
     border-right: 0;
@@ -325,7 +325,7 @@
     width: 80px;
     height: 50px;
     top:90%;
-    left: -18%;
+    left: -140px;
     /* left: -150px; */
     border:1px solid black;
 
@@ -372,9 +372,9 @@
 }
 /* -----------homepage4 */
 .pro-outside4 {
-    background-color: white;
     width: calc(100vw - 70px);
     height: 100vh;
+    position: relative;
 }
 .pro-gray4{
     background-color: #E8E8E8;
@@ -382,6 +382,7 @@
     height: 100vh;
     margin-top:150px;
     position: relative;
+    z-index: 1;
 }
 .homepage4-doublePicA{
 width: 30vw;
@@ -409,7 +410,7 @@ width:100%;
     height: 40vh;
     margin-left: 70%;
     padding-top: 15%;
-    z-index: 998;
+    z-index: 5;
 
 }
 .homepage4-wordA{
@@ -441,6 +442,9 @@ width:100%;
     z-index: 998;
 
 }
+.indexTry{
+    z-index: 100;
+}
 .pro-green2{
     width:21vw;
     height:7vh;
@@ -449,10 +453,29 @@ width:100%;
     top:41%;
     left: 85%;
     transform: rotate(-5deg);
-    z-index:995;
+    z-index:-5;
 }
 .pro-green2:hover{
     background-color: black;
+}
+
+.pro-watchAll{
+    background-color:black;
+    width: 6vw;
+    height: 50vh;
+    position: absolute;
+    top: 55%;
+    left: 110%;
+}
+
+.pro-watchAllWord{
+    writing-mode:vertical-lr;
+    text-orientation:inherit;
+    color: white;
+    font-family: Engravers;
+    font-size:2rem;
+    margin: 0 auto;
+    padding-top:70%;
 }
 
 /* ---------slick start----- */

@@ -290,8 +290,6 @@ function Product() {
       {/* ------------------homepage4------ */}
       <div className="pro-outside4">
         <div className="pro-gray4">
-          <div className="pro-green2"></div>
-
           <div className="homepage4-doublePicA">
             <img src={homepic5} alt="" />
           </div>
@@ -311,9 +309,10 @@ function Product() {
               <p>PRODUCT</p>
             </div>
             <div className="homepage4-wordD">
-              <p>IS IN</p>
+              <p className="indexTry">IS IN</p>
             </div>
           </div>
+          <div className="pro-green2"></div>
 
           <div className="slickWidth2">
             {/* <div className="switchLeftBtn">
@@ -373,6 +372,11 @@ function Product() {
               </div>
             </Slider>
           </div>
+          <Link to="/">
+            <div className="pro-watchAll">
+              <p className="pro-watchAllWord">WATCH ALL</p>
+            </div>
+          </Link>
         </div>
       </div>
       {/* ------------------homepage5------ */}
