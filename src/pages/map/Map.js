@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../pics/logo-bk.svg'
 import { GiPikeman } from 'react-icons/gi'
 import { RiArrowLeftSLine } from 'react-icons/ri'
-import './map.css'
+import './Map.css'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
 
