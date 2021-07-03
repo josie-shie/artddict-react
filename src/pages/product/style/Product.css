@@ -270,13 +270,13 @@
 /* cautionnnnnnnnnn switchBtn*/
 .switchLeftBtn{
     position: absolute;
-    top: 71%;
+    bottom: 95px;
     left: -215px;
     z-index: 0;
 }
 .switchRightBtn{
     position: absolute;
-    top: 71%;
+    bottom: 95px;
     left: -135px;
     z-index: 0;
 }
