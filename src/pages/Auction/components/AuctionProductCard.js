@@ -1,4 +1,5 @@
 import React from 'react';
+import monkey from '../images/monkey.jpg' 
 
 function AuctionProductCard(props) {
     const { aucName, aucPriceNow ,deadline} = props
@@ -58,7 +59,7 @@ function AuctionProductCard(props) {
         <>
             <div className="col-4 auctionProductCard">
                 <div className="auctionProduct_Picture_time">
-                    <img src="../images/5_001.jpg" alt="Background" />
+                    <img src={monkey} alt="Background" />
                     <div className="auctionProduct_countdown">
                         截標倒數 <span>{AuctionProductCard_CountDown[0]}</span> {AuctionProductCard_CountDown[1]} <span>{AuctionProductCard_CountDown[2]}</span> {AuctionProductCard_CountDown[3]}
                     </div>
