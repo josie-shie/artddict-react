@@ -495,10 +495,11 @@ function Product() {
               <div className="homepage5-boxF">
                 <Link>
                   <img src={homepic12} alt="" />
-                  <p className="homepage5-boxF-word">
-                    休閒娛樂類
-                  </p>
                 </Link>
+
+                <p className="homepage5-boxF-word">
+                  休閒娛樂類
+                </p>
               </div>
             </div>
           </div>
