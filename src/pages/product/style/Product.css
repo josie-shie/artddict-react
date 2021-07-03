@@ -270,15 +270,30 @@
 /* cautionnnnnnnnnn switchBtn*/
 .switchLeftBtn{
     position: absolute;
-    top: 100%;
+    top: 98%;
     left: -215px;
     z-index: 0;
 }
 .switchRightBtn{
     position: absolute;
-    top: 100%;
+    top: 98%;
     left: -135px;
     z-index: 0;
+}
+
+@media (min-width: 1440px){
+    .switchLeftBtn{
+        position: absolute;
+        top: 100%;
+        left: -215px;
+        z-index: 0;
+    }
+    .switchRightBtn{
+        position: absolute;
+        top: 100%;
+        left: -135px;
+        z-index: 0;
+    }
 }
 /* cautionnnnnnnnnn */
 
@@ -502,7 +517,7 @@ width:100%;
         color: white;
         font-family: Engravers;
         font-size:2rem;
-        padding: 70px 0 0 25px;
+        padding: 33px 0 0 6px;
         letter-spacing: 8px;
     }
     .pro-watchAll{
