@@ -57,11 +57,13 @@ function Product() {
   }
 
   let settings2 = {
+    className: '',
     dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 1,
+    adaptiveHeight: true,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
   }
@@ -323,11 +325,19 @@ function Product() {
               </div> */}
             <Slider {...settings2}>
               <div className="slickB1">
-                <div className="slickPicB-box">
+                <div className="slickPicB-box ">
                   <Link to="/">
                     <div className="slickPicB-black"></div>
                     <img src={slickB1} alt="" />
                   </Link>
+                </div>
+                <div className="d-flex pro-dflex">
+                  <div>
+                    <p>方形 美洲豹 圍巾</p>
+                  </div>
+                  <div>
+                    <p>1050元</p>
+                  </div>
                 </div>
               </div>
               <div className="slickB2">
@@ -337,6 +347,14 @@ function Product() {
                     <img src={slickB2} alt="" />
                   </Link>
                 </div>
+                <div className="d-flex pro-dflex">
+                  <div>
+                    <p>星象地圖 披肩 </p>
+                  </div>
+                  <div>
+                    <p>1300元</p>
+                  </div>
+                </div>
               </div>
               <div className="slickB3">
                 <div className="slickPicB-box">
@@ -344,6 +362,14 @@ function Product() {
                     <div className="slickPicB-black"></div>
                     <img src={slickB3} alt="" />
                   </Link>
+                </div>
+                <div className="d-flex pro-dflex">
+                  <div>
+                    <p>司宗譜紋章 圍巾</p>
+                  </div>
+                  <div>
+                    <p>1100元</p>
+                  </div>
                 </div>
               </div>
               <div className="slickB4">
@@ -353,6 +379,14 @@ function Product() {
                     <img src={slickB4} alt="" />
                   </Link>
                 </div>
+                <div className="d-flex pro-dflex">
+                  <div>
+                    <p>葛飾北齋 大浪 襪子</p>
+                  </div>
+                  <div>
+                    <p>300元</p>
+                  </div>
+                </div>
               </div>
               <div className="slickB5">
                 <div className="slickPicB-box">
@@ -361,6 +395,14 @@ function Product() {
                     <img src={slickB5} alt="" />
                   </Link>
                 </div>
+                <div className="d-flex pro-dflex">
+                  <div>
+                    <p>蒙德里安 幾何學 襪子</p>
+                  </div>
+                  <div>
+                    <p> 300元</p>
+                  </div>
+                </div>
               </div>
               <div className="slickB6">
                 <div className="slickPicB-box">
@@ -368,6 +410,14 @@ function Product() {
                     <div className="slickPicB-black"></div>
                     <img src={slickB6} alt="" />
                   </Link>
+                </div>
+                <div className="d-flex pro-dflex">
+                  <div>
+                    <p>蒙德里安 防護盾 襪子</p>
+                  </div>
+                  <div>
+                    <p>300元</p>
+                  </div>
                 </div>
               </div>
             </Slider>
