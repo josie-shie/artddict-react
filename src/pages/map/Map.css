@@ -25,6 +25,11 @@
         width: 100%;
     } */
 
+    .map-area{
+        height:100vh;
+        overflow: hidden;
+    }
+
     .index-web-padding{
         padding-right: 70px;
     }
@@ -33,4 +38,10 @@
         margin-left: 70px;
         margin-top: 30px;
         margin-bottom: 30px;
+    }
+
+    /*開源地圖*/
+    #osm-map{
+        height: 100vh;
+        width: 100%;
     }
