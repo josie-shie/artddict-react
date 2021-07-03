@@ -34,6 +34,7 @@ function EventDetail() {
   const [open, setOpen] = useState(true)
   const [open2, setOpen2] = useState(false)
   const [open3, setOpen3] = useState(false)
+  const [open4, setOpen4] = useState(false)
 
   return (
     <>
@@ -83,7 +84,7 @@ function EventDetail() {
           </Row>
           <Row className="left-padding cn-font ">
             <div className="col-8 pl-0 ed-detail-content">
-              <div className="col-12 p-0">
+              <div className="col-12 p-0 ">
                 {/* 第一個按鈕 */}
                 <button
                   onClick={() => setOpen(!open)}
@@ -161,6 +162,37 @@ function EventDetail() {
                     </p>
                   </div>
                 </Collapse>
+
+                {/* 留言按鈕 */}
+                <div className="col-12 p-0 d-flex justify-content-center flex-wrap">
+                  <button
+                    onClick={() => setOpen4(!open4)}
+                    aria-controls="example-collapse-text"
+                    aria-expanded={open4}
+                    className="ed-comment e-btn-m"
+                  >
+                    撰寫評論
+                  </button>
+                  <Collapse
+                    in={open4}
+                    className="col-12 p-0 mt-3 mb-5 "
+                  >
+                    <div className="col-12 p-0">
+                      <form className="border-0 d-flex flex-wrap justify-content-center" action="">
+                        <textarea
+                          className="ed-textarea col-12 p-0"
+                          name=""
+                          id=""
+                          cols="30"
+                          rows="10"
+                        ></textarea>
+                        <button className="ed-leave-msg e-btn-m col-l2 mt-3" type="submit">
+                          送出評論
+                        </button>
+                      </form>
+                    </div>
+                  </Collapse>
+                </div>
               </div>
             </div>
 

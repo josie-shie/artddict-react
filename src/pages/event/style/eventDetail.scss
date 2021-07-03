@@ -75,7 +75,7 @@ $egreylt: #E8E8E8;
 
 .ed-commu-btn{
     button{
-        height: 50%;
+        height: 50px;
         font-size: 1.5rem;
         text-align: center;
         color: white;
@@ -114,9 +114,28 @@ $egreylt: #E8E8E8;
 
 }
 
-.ed-message{
+.ed-comment{
+    background-color: transparent;
+    border: 2px solid white;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
 
+}
 
+.ed-leave-msg{
+    background-color: #1D0AFF;
+    border: 0px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+
+}
+
+.ed-textarea{
+    resize: none;
+    border: none;
+    height: 200px;
 }
 
 .ed-ticket{
