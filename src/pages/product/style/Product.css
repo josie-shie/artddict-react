@@ -629,39 +629,99 @@ width:100%;
 .homepage5-word{
     width: 50vw;
     height: 25vh;
-    margin-left: 40%;
+    margin-left: 30%;
     padding-top: 18%;
 }
 
 .homepage5-wordA {
     font-family: Engravers;
-    font-size:5rem;
+    font-size:5.8rem;
     margin-left: 5%;
 
 }
 
 .homepage5-wordB{
     font-family: Engravers;
-    font-size:5rem;
+    font-size:5.8rem;
 
 }
-
-/* .homepage5-word {
-    font-family: Engravers;
-    font-size:5rem;
-    top:45%;
-    left: 32%;
-    position: absolute;
+@media (min-width: 1440px){
+    .homepage5-word{
+        width: 50vw;
+        height: 25vh;
+        margin-left: 40%;
+        padding-top: 15%;
+        line-height: 150px;
+    }
+    
+    .homepage5-wordA {
+        font-family: Engravers;
+        font-size:6vw;
+        margin-left: 5%;
+    
+    }
+    
+    .homepage5-wordB{
+        font-family: Engravers;
+        font-size:6vw;
+    
+    }
+}
+.homepage5-boxboss{
+    width:100%;
+    margin-left: 20%;
+    margin-top: 20%;
 }
 
-.homepage5-wordB{
-    font-family: Engravers;
-    font-size:5rem;
-    top:70%;
-    left: 30%;
-    position: absolute;
-
-} */
+.homepage5-boxA{
+    width: 25vw;
+    height: 35vh;
+    margin-left: 0%;
+}
+.homepage5-boxA img{
+    width: 100%;
+}
+.homepage5-boxB{
+    width: 25vw;
+    height: 35vh;
+    margin-left: 1%;
+}
+.homepage5-boxB img{
+    width: 100%;
+}
+.homepage5-boxC{
+    width: 25vw;
+    height: 35vh;
+    margin-left: 1%;
+}
+.homepage5-boxC img{
+    width: 100%;
+}
+.homepage5-boxD{
+    width: 25vw;
+    height: 35vh;
+    margin-left: 0%;
+    margin-top: 0%;
+}
+.homepage5-boxD img{
+    width: 100%;
+}
+.homepage5-boxE{
+    width: 25vw;
+    height: 35vh;
+    margin-left: 1%;
+}
+.homepage5-boxE img{
+    width: 100%;
+}
+.homepage5-boxF{
+    width: 25vw;
+    height: 35vh;
+    margin-left: 1%;
+}
+.homepage5-boxF img{
+    width: 100%;
+}
 
 
 
