@@ -26,6 +26,7 @@ export default function EDetailCaro() {
           controls={false}
           indicators={false}
           activeIndex={index}
+          slide={true}
         >
           <Carousel.Item>
             <img
