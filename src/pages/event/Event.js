@@ -5,8 +5,8 @@ import Marquee from './components/Marquee'
 import MarqueeWork from './components/MarqueeWork'
 import MarqueeLocation from './components/MarqueeLocation'
 import './style/reset.css'
+import './style/fontAndBtn.scss'
 import './style/event.scss'
-import './style/font.scss'
 // HERO section
 import EventLogo from './images/logo.svg'
 import Square from './images/square.gif'
@@ -16,13 +16,15 @@ import ESpinBl from './images/arddict-circle-bl.svg'
 import EEyeBl from './images/arddict-eye-bl.svg'
 import ExhiDeco from './images/exhi-deco.svg'
 import ExhiDecoM from './images/m-exhi-deco.svg'
-
-import { FiArrowUpRight } from 'react-icons/fi'
-import { IoIosArrowRoundForward } from 'react-icons/io'
-import { IoIosArrowRoundBack } from 'react-icons/io'
 // WORK section
-import LogoDecoV from './images/arddict-deco-v.svg'
 import LogoDecoH from './images/artddict-deco-h.svg'
+
+// Location Section
+import LocationLogo from './images/location-logo.svg'
+// react icon
+import { FiArrowUpRight } from 'react-icons/fi'
+import { IoIosArrowBack } from 'react-icons/io'
+import { IoIosArrowForward } from 'react-icons/io'
 function event() {
   return (
     <>
@@ -397,9 +399,135 @@ function event() {
 
         <Container fluid className="event-location pt-5">
           <Row>
-            <div className="e-location-spin my-5">
+            <div className=" e-location-spin my-5 mb-5">
               <MarqueeLocation />
             </div>
+          </Row>
+          <Row className="e-location-title">
+            <div className="cn-font mx-auto mb-5">
+              <IoIosArrowBack />
+              <IoIosArrowBack />
+              <IoIosArrowBack />
+              <IoIosArrowBack />
+              <IoIosArrowBack />
+              從城市開始接觸藝術
+              <IoIosArrowForward />
+              <IoIosArrowForward />
+              <IoIosArrowForward />
+              <IoIosArrowForward />
+              <IoIosArrowForward />
+            </div>
+          </Row>
+          <Row className="p-0">
+            <div className="col-9 p-0 ">
+              {/* 第一行城市 */}
+              <div className="col-12 p-0 e-city-area d-flex border-top-0 justify-content-between">
+                <div className="col-3 p-0 ml-4">
+                  <div className="e-location-card">
+                    <div className="">
+                      <img
+                        className="pic-square"
+                        src={Square}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <button className="e-btn-l e-locaton-btn cn-font">
+                    彰化
+                  </button>
+                </div>
+                <div className="col-3 p-0 mx-5">
+                  <div className="e-location-card">
+                    <div className="">
+                      <img
+                        className="pic-square"
+                        src={Square}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <button className="e-btn-l e-locaton-btn cn-font">
+                    台北
+                  </button>
+                </div>
+                <div className="col-3 p-0 mr-4">
+                  <div className="e-location-card">
+                    <div className="">
+                      <img
+                        className="pic-square"
+                        src={Square}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <button className="e-btn-l e-locaton-btn cn-font">
+                    台中
+                  </button>
+                </div>
+              </div>
+              {/* 第二行城市 */}
+              <div className="col-12 p-0 e-city-area d-flex justify-content-around">
+                <div className="col-3 p-0">
+                  <div className="e-location-card">
+                    <div className="">
+                      <img
+                        className="pic-square"
+                        src={Square}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <button className="e-btn-l e-locaton-btn cn-font">
+                    新竹
+                  </button>
+                </div>
+                <div className="col-3 p-0">
+                  <div className="e-location-card">
+                    <div className="">
+                      <img
+                        className="pic-square"
+                        src={Square}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <button className="e-btn-l e-locaton-btn cn-font">
+                    台南
+                  </button>
+                </div>
+                <div className="col-3 p-0">
+                  <div className="e-location-card">
+                    <div className="">
+                      <img
+                        className="pic-square"
+                        src={Square}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <button className="e-btn-l e-locaton-btn cn-font">
+                    高雄
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div className="col-3 e-local-logo p-0">
+              <div className="col-12  d-flex justify-content-center">
+                <div className="col-4 my-5">
+                  <img
+                    className="e-local-log-pic"
+                    src={LocationLogo}
+                    alt=""
+                  />
+                </div>
+              </div>
+              <div className="col-12 p-0">
+                <button className="e-location-more-btn eng-font-bold">
+                  MORE+
+                </button>
+              </div>
+            </div>
+
           </Row>
         </Container>
       </div>

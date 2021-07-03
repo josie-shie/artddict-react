@@ -2,7 +2,7 @@ import React from 'react'
 // import { Accordion } from 'react-bootstrap'
 import './styles/OrderProDetail.scss'
 import Accordion from 'react-bootstrap/Accordion'
-import { Nav, Card, Button } from 'react-bootstrap'
+import { Card, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Logoheader from './components/Logoheader'
 
@@ -95,11 +95,17 @@ function OrderProDetail() {
                   as={Button}
                   variant="link"
                   eventKey="0"
+                  style={{ textDecoration: 'none' }}
                 >
                   我的評價
                 </Accordion.Toggle>
                 <div className="u-goEVAL">
-                  <a href="#/">前往評價</a>
+                  <Link
+                    to="/user-add"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    前往評價
+                  </Link>
                 </div>
               </Card.Header>
 
@@ -127,13 +133,9 @@ function OrderProDetail() {
         </div>
 
         <div className="u-back">
-          <Nav.Link
-            className="u-link"
-            as={Link}
-            to="/user-orderpro"
-          >
+          <Link className="u-link" to="/user-orderpro">
             回訂單查詢
-          </Nav.Link>
+          </Link>
         </div>
       </div>
     </>

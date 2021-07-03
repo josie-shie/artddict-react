@@ -1,3 +1,5 @@
+
+
 @font-face {
     font-family: Engravers;
     src: url(../../../style/font/ENGR.ttf);
@@ -13,8 +15,23 @@
     src: url(../../../style/font/NotoSansTC-Medium.otf)
 }
 
-.homepageA-word, .homepageA-wordB  {
+@font-face{
+    font-family: NotosansTC-Bold;
+    src: url(../../../style/font/NotoSansTC-Bold.otf);
+}
+
+.homepageA-word, .homepageA-wordB {
     font-family: NotoSansTC-Medium;
+}
+.homepage3-NewArrival{
+    font-family: Engravers;
+    font-size:6vw;
+    line-height: 90px;
+}
+.homepage3-word  {
+    font-family: NotoSansTC-Medium;
+    font-size: 1.5vw;
+    line-height:7vh;
 }
 
 
@@ -205,4 +222,456 @@
     top: 35%;
     line-height: 140%;
     z-index: 999;
+}
+
+/* --------------------homepage3 */
+.pro-outside3 {
+    background-color: white;
+    width: calc(100vw - 70px);
+    height: 100vh;
+}
+.homepage3{
+    height: 100vh;
+    width: 86vw;
+    margin-left: 8%;
+    position: relative;
+}
+
+
+.homepage3-NewArrival-box{
+    position: absolute;
+    top:5%;
+    z-index: 999;
+}
+.pro-green{
+    width:21vw;
+    height:7vh;
+    background-color: #81FC4D;
+    position: absolute;
+    top:23%;
+    transform: rotate(-8deg);
+}
+.homepage3-left-box{
+    padding-top: 23%;
+    width: 40vw;
+    height: 100vh;
+    position: relative;
+}
+
+.homepage3-NewArrival{
+    line-height: 13vh;
+
+}
+
+.slickWidth{
+    width: 62vw;
+    height: 59.5vh;
+    margin-left: 3%;
+    position: relative;
+}
+
+
+
+/* cautionnnnnnnnnn switchBtn*/
+.switchLeftBtn{
+    position: absolute;
+    top: 98%;
+    left: -215px;
+    z-index: 0;
+}
+.switchRightBtn{
+    position: absolute;
+    top: 98%;
+    left: -135px;
+    z-index: 0;
+}
+
+@media (min-width: 1440px){
+    .switchLeftBtn{
+        position: absolute;
+        top: 100%;
+        left: -215px;
+        z-index: 0;
+    }
+    .switchRightBtn{
+        position: absolute;
+        top: 100%;
+        left: -135px;
+        z-index: 0;
+    }
+}
+/* cautionnnnnnnnnn */
+
+
+
+.homepage3-right-box{
+    margin-top: 10%;
+
+}
+
+.pro-arrow{
+    margin-left: 28%;
+}
+
+
+
+/* .slick-prev:before{
+    content: url('/src/pages/product/svg/leftArrow.svg');
+    width: 0px;
+    height: 0px;
+    
+    
+    }
+.slick-next:before{
+    content: url('/src/pages/product/svg/rightArrow.svg');
+
+} */
+
+.slick-prev{
+    width: 80px;
+    height: 50px;
+    top:90%;
+    left: -220px;
+    /* left: -230px; */
+    border:1px solid black;
+    border-right: 0;
+}
+
+.slick-prev:hover{
+    color:transparent
+}
+
+.slick-next{
+    width: 80px;
+    height: 50px;
+    top:90%;
+    left: -140px;
+    /* left: -150px; */
+    border:1px solid black;
+
+}
+
+
+
+
+.slickPic-box{
+    width:30vw;
+    height:70vh;
+    overflow: hidden;
+
+}
+.slickPic1 img{
+    width:110%;
+    height: 100%;
+    margin-left: 0%;
+}
+.slickPic2 img{
+    width:110%;
+    height: 100%;
+    margin-left: -10%;
+}
+.slickPic3 img{
+    width:110%;
+    height: 100%;
+    margin-left: -10%;
+}
+.slickPic4 img{
+    width:110%;
+    height: 100%;
+    margin-left: -10%;
+}
+.slickPic5 img{
+    width:110%;
+    height: 100%;
+    margin-left: -5%;
+}
+.slickPic6 img{
+    width:110%;
+    height: 100%;
+    margin-left: 0%;
+}
+/* -----------homepage4 */
+.pro-outside4 {
+    width: calc(100vw - 70px);
+    height: 100vh;
+    position: relative;
+}
+.pro-gray4{
+    background-color: #E8E8E8;
+    width: 70vw;
+    height: 100vh;
+    margin-top:150px;
+    position: relative;
+    z-index: 1;
+}
+.homepage4-doublePicA{
+width: 30vw;
+height: 10vh;
+position: absolute;
+top: -15%;
+}
+
+.homepage4-doublePicA img{
+width:100%;
+}
+.homepage4-doublePicB{
+    width: 30vw;
+    height: 10vh;
+    position: absolute;
+    top: 22%;
+}
+    
+.homepage4-doublePicB img{
+    width:100%;
+}
+
+.homepage4-wordBox{
+    width: 35vw;
+    height: 40vh;
+    margin-left: 70%;
+    padding-top: 15%;
+    z-index: 5;
+
+}
+.homepage4-wordA{
+    font-family: NotoSansTC-Medium;
+    font-size: 2vw;
+    z-index: 998;
+
+}
+.homepage4-wordB{
+    font-family:Engravers;
+    font-size: 3.5vw;
+    margin-left: 10%;
+    z-index: 998;
+
+}
+.homepage4-wordC{
+    font-family:Engravers;
+    font-size: 3.5vw;
+    margin-left: 25%;
+    margin-top: 3%;
+    z-index: 998;
+
+}
+.homepage4-wordD{
+    font-family:Engravers;
+    font-size: 6vw;
+    margin-left: 36%;
+    margin-top: 3%;
+    z-index: 998;
+
+}
+.indexTry{
+    z-index: 100;
+}
+.pro-green2{
+    width:21vw;
+    height:7vh;
+    background-color: #81FC4D;
+    position: absolute;
+    top:41%;
+    left: 85%;
+    transform: rotate(-5deg);
+    z-index:-5;
+}
+.pro-green2:hover{
+    background-color: black;
+}
+
+.pro-watchAll{
+    background-color:black;
+    width: 6vw;
+    height: 50.5vh;
+    position: absolute;
+    top: 55%;
+    left: 80%;
+}
+/* .pro-watchAll{
+    background-color:black;
+    width: 80px;
+    height: 465px;
+    position: absolute;
+    top: 58%;
+    left: 80%;
+} */
+
+
+.pro-watchAllWord{
+    writing-mode:vertical-lr;
+    text-orientation:inherit;
+    color: white;
+    font-family: Engravers;
+    font-size:2rem;
+    margin: 0 auto;
+    margin-top: 70%;
+}
+/* .pro-watchAllWord{
+    writing-mode:vertical-lr;
+    text-orientation:inherit;
+    color: white;
+    font-family: Engravers;
+    font-size:2rem;
+    padding: 70px 0 0 25px;
+    letter-spacing: 8px;
+} */
+@media (min-width: 1440px) {
+    .pro-watchAllWord{
+        writing-mode:vertical-lr;
+        text-orientation:inherit;
+        color: white;
+        font-family: Engravers;
+        font-size:2rem;
+        padding: 33px 0 0 6px;
+        letter-spacing: 8px;
+    }
+    .pro-watchAll{
+        background-color:black;
+        width: 80px;
+        height: 465px;
+        position: absolute;
+        top: 58%;
+        left: 80%;
+    }
+  }
+
+/* ---------slick start----- */
+
+.slickWidth2{
+    width: 70vw;
+    height: 60vh;
+    margin-left: 8%;
+    position: relative;
+    margin-top: 12%;
+}
+
+.slickPicB-box{
+    width:20vw;
+    height:50vh;
+    overflow: hidden;
+    position: relative;
+
+}
+.slickPicB-black{
+    width: 100%;
+    height: 10px;
+    background-color: black;
+    position: absolute;
+    bottom: 0%;
+}
+.slickPicB-black:hover{
+    background-color:black;
+    color:black;
+
+}
+
+
+.slickPicB-box :hover img{
+    opacity:1
+}
+/* .slickPicB-box :hover .slickPicB-black{
+    height: 50px;
+    transition: .2s;
+} */
+
+
+.slickB1 img{
+    width:110%;
+    height: 100%;
+    margin-left: -5%;
+}
+.slickB2 img{
+    width:110%;
+    height: 100%;
+    margin-left: -5%;
+}
+.slickB3 img{
+    width:110%;
+    height: 100%;
+    margin-left: -5%;
+}
+.slickB4 img{
+    width:130%;
+    height: 100%;
+    margin-left: -15%;
+}
+.slickB5 img{
+    width:150%;
+    height: 120%;
+    margin-left: -15%;
+}
+.slickB6 img{
+    width:120%;
+    height: 120%;
+    margin-left: -7%;
+}
+
+.slickB1 p,.slickB2 p,.slickB3 p,.slickB4 p,.slickB5 p,.slickB6 p{
+    font-family:'NotosansTC-Bold';
+}
+.pro-dflex{
+    width:20vw;
+    justify-content: space-between;
+}
+/* --------slick end-------- */
+
+
+/* -----------homepage5------- */
+.pro-outside5{
+    width: calc(100vw - 70px);
+}
+
+.pro-gray5{
+    background-color: #E8E8E8;
+    width: 70vw;
+    height: 50vh;
+}
+.homepage5-word{
+    width: 50vw;
+    height: 25vh;
+    margin-left: 40%;
+    padding-top: 18%;
+}
+
+.homepage5-wordA {
+    font-family: Engravers;
+    font-size:5rem;
+    margin-left: 5%;
+
+}
+
+.homepage5-wordB{
+    font-family: Engravers;
+    font-size:5rem;
+
+}
+
+/* .homepage5-word {
+    font-family: Engravers;
+    font-size:5rem;
+    top:45%;
+    left: 32%;
+    position: absolute;
+}
+
+.homepage5-wordB{
+    font-family: Engravers;
+    font-size:5rem;
+    top:70%;
+    left: 30%;
+    position: absolute;
+
+} */
+
+
+
+/* -----------homepage6------- */
+.pro-outside6{
+    width: calc(100vw - 70px);
+}
+
+.pro-gray6{
+    background-color: #E8E8E8;
+    width: calc(100vw - 70px);
+    height: 100vh;
 }

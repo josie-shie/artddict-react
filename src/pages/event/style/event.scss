@@ -8,6 +8,10 @@
     padding-left: 70px;
 }
 
+.e-local-log-pic{
+    width: 100%;
+}
+
 
 
 
@@ -153,6 +157,7 @@
 }
 
 .bigger{
+    color: #81FC4D;
     font-size: 50px;
 }
 
@@ -181,6 +186,8 @@
     }
 
 .e-location-spin{
+    font-size: 4rem;
+    margin: 20px 0 20px 0;
     font-weight: 500;
 }
 
@@ -523,6 +530,52 @@
             border-left: 0px;
             border-right: 0px;
         }
+
+        .e-location-title{
+            font-size: 2.5rem;
+            font-weight: 500;
+            border-bottom: 4px solid black;
+        }
+        .e-local-logo{
+            border-left: 4px solid black;
+        }
+        
+        .e-city-area{
+            border-top: 4px solid black;
+        }
+
+        .e-location-card{
+            background-image: url(../images/museum/CHW.jpeg);
+            background-size: cover;
+            box-sizing: border-box;
+            border: 4px solid black;
+            border-top: 0px;
+
+        }
+
+        .e-locaton-btn{
+            border: 4px solid black;
+            border-top: 0px;
+            border-bottom: 0px;
+            width: 100%;
+            height: 64px;
+            font-size: 1.8rem;
+            font-weight: bold;
+
+        }
+
+        .e-location-more-btn{
+            height: 80px;
+            border: 0px;
+            border-top: 4px solid black;
+            font-size: 2rem;
+            width: 100%;
+            background-color: black;
+            color: white;
+        }
+
+
+        
 
 
 

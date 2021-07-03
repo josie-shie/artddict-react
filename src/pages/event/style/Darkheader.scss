@@ -1,0 +1,15 @@
+.e-header{
+    background-color: black;
+
+}
+
+.e-header-logo{
+    width: 162px;
+    margin: 30px 0px 30px 70px;
+}
+
+@media screen and (max-width:576px) {
+    .e-header{
+    display: none;
+}
+}

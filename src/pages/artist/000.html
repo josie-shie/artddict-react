@@ -1,0 +1,288 @@
+@font-face {
+  font-family: Engravers;
+  src:url(../../style/font/ENGR.ttf);
+  }
+  
+  @font-face {
+  font-family: EngraversBlod;
+  src:url(../../style/font/EngraversMTBold.ttf);
+  }
+  
+  @font-face {
+  font-family: NotoSansTC-md;
+  src:url(../../style/font/NotoSansTC-Medium.otf);
+  }
+  @font-face {
+  font-family: NotoSansTC-bd;
+  src:url(../../style/font/EngraversMTBold.ttf);
+  }
+  
+  @font-face {
+  font-family: NotoSansTC-bk;
+  src:url(../../style/font/NotoSansTC-Black.otf);
+  }
+
+
+  .notoSansTC-md{
+      font-family: NotoSansTC-md;
+  }
+  .notoSansTC-bd{
+      font-family: NotoSansTC-bd;
+  }
+  .notoSansTC-bk{
+      font-family:NotoSansTC-bk;
+  }
+
+  .engravers{
+      font-family: Engravers;
+  }
+  .engraversbd{
+      font-family: EngraversBlod;
+  }
+
+  .index-web-padding{
+      padding-right: 70px;
+  }
+
+  .art-area,.art-main{
+      padding-left: 70px;
+      padding-right: 140px;
+      background-color: #e8e8e8;
+  }
+
+  .art-area h5{
+      line-height:30px;
+      letter-spacing: 1px;
+      font-size:1rem;
+      color: #000;
+  }
+  
+  .art-date{
+      font-family: NotoSansTC-bd;
+      color: #1D0AFF;
+      margin: 0 auto;
+  }
+
+  .art-push{
+      margin-bottom: 200px;
+  }
+
+  .art-relative{
+      position: relative;
+      z-index: 0;
+  }
+
+  .art-logo{
+      margin-top: 30px;
+      margin-bottom: 30px;
+  }
+
+  /* 麵包屑 粗體直接跑英文襯線粗體超怪*/
+  
+  .breadcrumb-dk {
+      font-weight: 900;
+      display: flex;
+      flex-wrap: wrap;
+      padding:0;
+      margin-bottom: 30px;
+      margin-bottom: 1rem;
+      list-style: none;
+      background-color: none;
+      border-radius: 0.25rem;
+  }
+
+  .art-area a{
+      color: #707070;
+  }
+  
+  .art-area h2{
+      font-size: 5rem;
+  }
+  
+  .breadcrumb-item.active{
+      color:#000
+  }
+
+  /* 麵包屑 */
+
+ .art-area marquee{
+      letter-spacing: 5px;
+ } 
+ 
+ .art-slogan{
+     padding-left: 20px;
+     font-size: 4rem;
+     line-height: 80px;
+      letter-spacing: 5px;
+ } 
+
+ .art-1 {
+     position:absolute;
+      z-index: 2;
+ }
+
+ .art-area span{
+     font-family: notoSansTC-bk;
+     font-size: 1.5rem;
+
+ }
+
+
+ .art-name h2{
+     font-size:5rem;
+     position: absolute;
+      top:10%;
+      right:5%;
+      z-index: 2;
+ }
+
+ .art-hl{
+     width:55% ;
+     height: 50px;
+     background: #81FC4D;
+     position: absolute;
+      top:20%;
+      right:5%;
+      z-index: 1;
+ }
+ .art-hl2{
+     width:45% ;
+     height: 50px;
+     background: #81FC4D;
+     position: absolute;
+      top:35%;
+      right:5%;
+      z-index: 1;
+ }
+  
+
+
+
+
+<div className="art-area index-web-padding d-flex flex-column">
+    <Logo className="art-logo " />
+    <nav aria-label="breadcrumb-dk">
+      <ol className="breadcrumb-dk">
+        <li className="breadcrumb-item">
+          <Link href="/">首頁</Link>
+        </li>
+        <li className="breadcrumb-item">
+          <Link href="#">本月藝術家</Link>
+        </li>
+        <li
+          className="breadcrumb-item active"
+          aria-current="page"
+        >
+          Mr.moodel
+        </li>
+      </ol>
+    </nav>
+    <marquee
+      scrollamount="10"
+      className="event-marquee px-3"
+    >
+      <h1 className="notoSansTC-md my-3">
+        Pop Art藝術家 Mr.moodel
+        <RiMarkPenFill /> Pop-Art藝術家 Mr.moodel{' '}
+        <RiMarkPenFill /> Pop-Art藝術家 Mr.moodel
+        <RiMarkPenFill /> Pop-Art藝術家 Mr.moodel
+        <RiMarkPenFill />
+      </h1>
+    </marquee>
+    <div className="d-flex justify-content-center my-4">
+      <img src={artistImg1} alt="" />
+    </div>
+    <marquee
+      scrollamount="10"
+      className="event-marquee px-3"
+    >
+      <h1 className="notoSansTC-md my-3">
+        兩歲開始畫畫！ 23歲英國瘋狂藝術家 以密鋪塗鴉走紅{' '}
+        <RiMarkPenFill /> 兩歲開始畫畫！
+        23歲英國瘋狂藝術家 以密鋪塗鴉走紅{' '}
+        <RiMarkPenFill />
+      </h1>
+    </marquee>
+    <div className="px-5 mt-5 art-push">
+      <div className="d-flex flex-column">
+        <h5 classnames="notoSansTC-md">
+          每日畫足最少14小時的Mr.
+          Doodle，此行目的是參與Mira
+          Place的聖誕企劃「DOO Something This
+          Christmas」，
+          從倫敦的士畫到著名地標，其作品將在Mira
+          Place內公開展出，自言這是一次極棒的創作。聖誕節對於Mr
+          Doodle來說相當重要，那是和家人及朋友相聚的時刻，遇着重大節日，他笑言會收斂一下，減少瘋狂塗鴉。
+          確立風格對於Mr
+          Doodle來說是一大挑戰，他花了很長時間令自己的腦袋變成自動塗鴉模式！「我一個月用掉幾本畫簿，在iPhone上畫的塗鴉大概4,000個，外加一些如Mira
+          Place般的大型項目。」這位鐵人藝術家如常說，他每天堅持塗鴉不休息，為的是保持揮灑自如，並指這是一個永不歇息的創作過程。
+          塗鴉時，他腦海中浮現很多事情，笑言過程像銀河系歷險，完成作品才返回現實。作品縱然是單色，所描畫的人物不是露出笑臉就是神態古靈精怪，原來統統都是他真性情的反映。「我的作品是根據個人情感而走，由本能去創作人物，而且這些角色都是快樂的。」
+        </h5>
+      </div>
+    </div>
+    <div className="d-flex art-push art-relative">
+      <div className="art-1 col-6 mt-5">
+        <h2 className="mt-5 engraversbd">
+            Graffiti is the antidote
+          </h2>
+          <h5>
+            Mr
+            Doodle形容自己的作品為「強迫性塗鴉」，對此他說：「唯一的『解藥』就是放肆地創作，用以減輕強迫症帶來的難耐。起初我以為這個藝術行為不會被家人及朋友理解，怎料他們都覺得我的塗鴉方式很酷。」
+          </h5>
+      </div>
+        
+    
+      <div className="col-6">
+        <img src={artistImg2} alt="" />
+        <p className="art-date">19.03.22 London</p>
+      </div>
+    </div>
+    <div className="art-push">
+      <img src={artistImg3} alt="" />
+      <p className="art-date">13.06.02 London</p>
+    </div>
+    <p className="art-date mb-4">13.06.02 London</p>
+    <div className="d-flex justify-content-center mb-5">
+      <img
+        className="w-2 px-3"
+        src={artistImg4}
+        alt=""
+      />
+      <img
+        className="w-2 px-3"
+        src={artistImg5}
+        alt=""
+      />
+    </div>
+    <div className="art-push px-5">
+      <h5 classnames="notoSansTC-md">
+        創作至今，Mr
+        Doodle認為最具挑戰的項目是50小時塗鴉馬拉松。「完成後滿足感極大，尤其知道自己為慈善籌集了多少錢。至於終極的創作期許，希望有日能像那些偉大的藝術家如Haring、Picasso、
+        Banksy、
+        Warhol等，為藝術界作出貢獻吧。」相信年僅23歲的Mr.
+        Doodle前途無限，即管拭目以待他日後的驚人之作。
+        Keith
+        Haring，相信大家對他的作品都會有印象：色彩鮮艷、透過簡潔線條、符號和圖案表達複雜的批判訊息，辨識度極高，加上短暫傳奇的一生，令
+        Keith Haring 在藝術界擁有崇高地位，Mr.Doodle
+        亦坦言自己深受前輩 Keith Haring 影響。 Articks
+        同意兩者畫風相似，但不認為 Mr.Doodle
+        抄襲，他只是運用 Keith Haring
+        的藝術語言去創造自己的世界。
+      </h5>
+    </div>
+    <div className="art-name art-push px-5 art-relative">
+      <img className="mb-5" src={artistImg6} alt="" />
+      <h5>
+        <span>Pop-Art藝術家 Mr. Doodle</span>
+        <br />
+        顛覆塗鴉的原始規則，以獨特筆迹填滿所有空間。他的創作領域廣泛，由街道設施、隧道、家具、服飾到電器不等。他的畫風破格，可在毫無預備之下，於任何地方即席創作，不需作任何思考，作畫速度極快，畫作故事性及結構兼備。
+      </h5>
+      <h2 className="mt-5 engraversbd text-right">
+        About Mr <br />
+        Doodle
+      </h2>
+      <div className="art-hl"></div>
+      <div className="art-hl2"></div>
+    </div>
+  </div>
+</>

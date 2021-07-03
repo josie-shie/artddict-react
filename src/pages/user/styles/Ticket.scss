@@ -1,0 +1,103 @@
+.u-ticbox{
+    width: 1045px;
+    height: 260px;
+    border: 2px solid #000;
+    border-top: 25px solid #000;
+    margin-top: 50px;
+    position: relative;
+}
+
+// ===== 大標題 =====
+.u-userEve, .u-userWshop {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 480px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+}
+
+.u-userEve {
+    background-color: #000;
+}
+
+.u-userWshop > a {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 30px;
+    color: #000;
+    text-decoration: none;
+  }
+  
+  .u-userEve {
+    background-color: #000;
+  }
+  
+  .u-userEve > a {
+    font-family: 'Noto Sans TC', sans-serif;
+    font-size: 30px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  // ===== 票卷內容 =====
+  .u-ticImg {
+      width: 360px;
+      height: 175px;
+      border: 1px solid #000;
+      margin-top: 25px;
+      margin-left: 25px;
+  }
+
+  .u-ticMsg{
+      margin-top: 25px;
+      margin-left: 25px;
+    font-family: NotoSansTC-Medium;
+      font-size: 16px;
+  }
+
+  .u-Eve2, .u-Eve3, .u-Eve4, .u-Eve5{
+    margin-top: 23px;
+  }
+
+  .u-ticBtn{
+    font-family: NotoSansTC-Medium;
+    font-size: 18px;
+    margin-top: 25px;
+    line-height: 45px;
+    text-align: center;
+  }
+
+  .u-BtnLight {
+      width: 150px;
+      height: 50px;
+      border: 2px solid #000;
+      position: absolute;
+      top: 55px;
+      right: 50px;
+  }
+
+  .u-BtnBlack {
+    width: 150px;
+    height: 50px;
+    background-color: #000;
+    color: #fff;
+    position: absolute;
+    top: 135px;
+    right: 50px;
+  }
+
+  .u-link2 {
+    color: #000;
+  }
+
+  .u-link2:hover{
+    color:#000;
+  }
+
+  .u-link3 {
+    color: #fff;
+  }
+
+  .u-link3:hover{
+    color:#fff;
+  }

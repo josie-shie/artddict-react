@@ -1,0 +1,36 @@
+    @font-face {
+    font-family: Engravers;
+    src:url(../../style/font/ENGR.ttf);
+    }
+    
+    @font-face {
+    font-family: EngraversBlod;
+    src:url(../../style/font/EngraversMTBold.ttf);
+    }
+    
+    @font-face {
+    font-family: NotoSansTC-md;
+    src:url(../../style/font/NotoSansTC-Medium.otf);
+    }
+
+    .notoSansTC-md{
+        font-family: NotoSansTC-md;
+    }
+
+    .engravers{
+        font-family: Engravers;
+    }
+
+    /* body {
+        width: 100%;
+    } */
+
+    .index-web-padding{
+        padding-right: 70px;
+    }
+
+    .map-logo{
+        margin-left: 70px;
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }

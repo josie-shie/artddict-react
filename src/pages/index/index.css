@@ -8,14 +8,22 @@
     src:url(../../style/font/EngraversMTBold.ttf);
     }
     
-    /* @font-face {
+    @font-face {
     font-family: NotoSansTC-md;
     src:url(../../style/font/NotoSansTC-Medium.otf);
-    } */
-
-    body {
-        width: 100%;
     }
+
+    .notoSansTC-md{
+        font-family: NotoSansTC-md;
+    }
+
+    .engravers{
+        font-family: Engravers;
+    }
+
+    /* body {
+        width: 100%;
+    } */
 
     .index-web-padding{
         padding-right: 70px;
@@ -27,7 +35,7 @@
 
     .index-video {
     position: absolute;
-    z-index: -1000;
+    z-index: -1;
     top: 0;
     left: 0;
     width: 100%;
@@ -86,7 +94,8 @@
         bottom:0;
     }
     /*FIXME:*/
-    .logo{
+    .index-logo{
+        width: 40%;
         position: absolute;
         top:6vh;
         left:2vh;
@@ -99,12 +108,26 @@
     }
 
     .news-slogen{
+        position: relative;
         background-color: #E8E8E8;
+        z-index: 1;
     }
     .news-slogen h1{
         font-family: Engravers;
         font-size:3rem;
         background-color: #E8E8E8;
+    }
+
+    .news-hl{
+        position:absolute;
+        z-index: 0;/*TODO: Zindex not working*/
+        top:43%;
+        left:35%;
+        width: 30%;
+        height: 5%;
+        transform:rotate(1deg);
+        transform-origin: 0 -10;
+        background-color: #81FC4D;
     }
 
     .news-slogen-TC{
@@ -121,12 +144,12 @@
 
     /*FIXME:*/
     .news{
-        height: 380px;
         overflow:hidden;
     }
+
     div.news img{
         width: 100%;
-        hight: 100%;
+        height: 100%;
         
     }
 
@@ -146,10 +169,6 @@
     
     .artist-slogan strong{
         line-height: 100px;
-    }
-
-    .item{
-        height: 342px;
     }
 
     .artist-title-tc{
@@ -179,13 +198,13 @@
         display: grid; 
         grid-template-rows: 1fr 1fr; 
         grid-template-columns: 1fr 1fr 1fr;
-        column-gap:5px; 
+        column-gap:20px; 
     }
     
     
 
     .item{
-        width: 200px;
+        width: 100%;
         /* height:280px; */
         break-inside:avoid;
         overflow: hidden;
@@ -257,6 +276,7 @@
     }
 
     .event-marquee h1{
+        letter-spacing: 4px;
         font-size: 3rem;
         font-family: NotoSansTC-md;
 
@@ -272,21 +292,241 @@
         position: relative;
     }
 
-    .cirbl{
+    .index-cirbl{
         position: absolute;
-        top:-30px;
-        right:350px;
+        top:-10%;
+        right:28%;
     }
 
-    .box{
+    .index-box{
         padding-left: 50px;
     }
 
-    .tage{
+    .index-tage{
         position: absolute;
-        top:80px;
-        right:180px;
+        top:30%;
+        right:14%;
     }
+    .index-eye{
+        position: absolute;
+        top:-3%;
+        right:30%;
+    }
+    .index-eye2{
+        position: absolute;
+        top:-3%;
+        right:33.5%;
+    }
+
+    .cute-slogan{
+        position: absolute;
+        z-index: 1000;
+        top:-5%;
+        left:25%;
+        font-family: Engravers;
+        font-size:2.5rem;
+    }
+    .cute-slogan span{
+        font-family: Engravers;
+        font-size:3rem;
+    }
+    .product-hl{
+        position:absolute;
+        top:12%;
+        left:24%;
+        width: 33%;
+        height: 15%;
+        transform:rotate(1deg);
+        transform-origin: 0 -10;
+        background-color: #81FC4D;
+    }
+
+    .product-slogan{
+        position: relative;
+    }
+
+    .product-title-tc{
+        position: absolute;
+        top:20%;
+        left: 30%;
+        font-size: 1.5rem;
+    }
+
+    .product-title-tc span {
+        font-size: 1.5rem;
+        padding-left: 9em;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #000;
+        position: relative;
+    }
+
+    .product-title-tc span:before{
+        content: "";
+        position: absolute;
+        top: 50%;
+        background: #000;
+        width: calc(100% - 5em);
+        height: 2px;
+        right: calc(100% - 8.5em); 
+    }
+    
+
+    .product-slogan h1{
+        font-family: Engravers;
+        font-size:5rem;
+    }
+
+    .product-marquee{
+        width: 10vh;
+        color: #000;
+    }
+
+/* ----------product 卡片區 -----------*/
+
+    .index-card-rect{
+        width: 100%;
+        height: 1vh;
+        background: #000;
+    }
+
+    .product-card{
+        position: relative;
+        overflow: hidden;
+    }
+
+    .product-card-wrap{
+        margin-bottom: 100px;
+    }
+
+    .indexACC{
+        font-family: Engravers;
+        font-size:4rem;
+        text-align: center;
+        border-top: 2px solid #000;
+        border-bottom: 2px solid #000;
+    }
+
+    .product-card-wrap img{
+        width: 100%;
+        object-fit: cover;
+    }
+
+    /* .product-rect{
+        width: calc(100% - 30px);
+        height: 3vh;
+        position:absolute;
+        left: 0;
+        bottom: 0;
+        background: #000;
+    } */
+
+/* ----------競標區 -----------*/
+
+    .auction-area{
+        position: relative;
+    }
+
+    .aucline{
+        border-top: 3px solid #000
+    }
+    .aucline1{
+        border-left: 3px solid #000
+    }
+    .aucline2{
+        border-right: 3px solid #000
+    }
+
+    .auctime{
+        width: 15%;
+        position:absolute;
+        top:5%;
+        left:35%;
+    }
+
+    .auction-slogan{
+        font-family: Engravers;
+        font-size:5rem;
+    }
+
+    .auction-area button{
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-family: NotoSansTC;
+        font-weight: 900;
+        background: #000;
+        color:#81FC4D;
+        border: 1px solid #E8E8E8;
+        font-size: 1rem;
+    }
+
+    .auction-title-tc{
+        font-size: 1.5rem;
+    }
+
+    .auction-title-tc span {
+        font-size: 1.5rem;
+        padding-left: 9em;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #000;
+        position: relative;
+    }
+
+    .auction-title-tc span:before{
+        content: "";
+        position: absolute;
+        top: 50%;
+        background: #000;
+        width: calc(100% - 5em);
+        height: 2px;
+        right: calc(100% - 8.5em); 
+    }
+
+    .auction-card-wrap{
+        margin-top: 50px;
+    }
+
+    .auction-card{
+        overflow: hidden;
+    }
+
+    .auction-card img{
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    /* ----------Ending -----------*/
+
+    .index-ending{
+        padding-top: 200px;
+        background-color: #E8E8E8;
+    }
+
+    .index-ending div{
+        position: relative;
+        margin: auto;
+    }
+
+    .index-ending h1{
+        font-family: Engravers;
+        line-height:60px;
+        text-align: center;
+        color:#fff;
+        font-size: 3rem;
+        position:absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);  
+    }   
+    
+    .index-ending span{
+        text-decoration:underline 2px;
+    }
+
+
+    
+
+    
+
         
 
 
