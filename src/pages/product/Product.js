@@ -431,14 +431,13 @@ function Product() {
       </div>
       {/* ------------------homepage5------ */}
       <div className="pro-outside5">
-        <div className="pro-gray5">
-          <div className="homepage5-word">
-            <h1>PRODUCT</h1>
-          </div>
-          <div className="homepage5-wordB">
-            <h1> CATEGORY</h1>
-          </div>
+        <div className="homepage5-word">
+          <h1>PRODUCT</h1>
         </div>
+        <div className="homepage5-wordB">
+          <h1> CATEGORY</h1>
+        </div>
+        <div className="pro-gray5"></div>
       </div>
       {/* ------------------homepage6------ */}
       <div className="pro-outside6">
