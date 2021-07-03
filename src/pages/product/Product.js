@@ -446,26 +446,28 @@ function Product() {
               <h1> CATEGORY</h1>
             </div>
           </div>
-          <div className="homepage5-box d-flex">
-            <div className="homepage5-boxA">
-              <img src={homepic7} alt="" />
+          <div className="homepage5-boxboss">
+            <div className="homepage5-box d-flex">
+              <div className="homepage5-boxA">
+                <img src={homepic7} alt="" />
+              </div>
+              <div className="homepage5-boxB">
+                <img src={homepic8} alt="" />
+              </div>
+              <div className="homepage5-boxC">
+                <img src={homepic9} alt="" />
+              </div>
             </div>
-            <div className="homepage5-boxB">
-              <img src={homepic8} alt="" />
-            </div>
-            <div className="homepage5-boxC">
-              <img src={homepic9} alt="" />
-            </div>
-          </div>
-          <div className="homepage5-box2 d-flex">
-            <div className="homepage5-boxD">
-              <img src={homepic10} alt="" />
-            </div>
-            <div className="homepage5-boxE">
-              <img src={homepic11} alt="" />
-            </div>
-            <div className="homepage5-boxF">
-              <img src={homepic12} alt="" />
+            <div className="homepage5-box2 d-flex">
+              <div className="homepage5-boxD">
+                <img src={homepic10} alt="" />
+              </div>
+              <div className="homepage5-boxE">
+                <img src={homepic11} alt="" />
+              </div>
+              <div className="homepage5-boxF">
+                <img src={homepic12} alt="" />
+              </div>
             </div>
           </div>
         </div>

@@ -667,18 +667,12 @@ width:100%;
     
     }
 }
-
-.homepage5-box{
-    width: calc(100vw - 70px);
-    margin-left:12%;
-    margin-top: 19.5%;
+.homepage5-boxboss{
+    width:100%;
+    margin-left: 20%;
+    margin-top: 20%;
 }
 
-.homepage5-box2{
-    width: calc(100vw - 70px);
-    margin-left:12%;
-    margin-top: 1%;
-}
 .homepage5-boxA{
     width: 25vw;
     height: 35vh;
