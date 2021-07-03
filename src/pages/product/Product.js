@@ -217,14 +217,6 @@ function Product() {
                 MORE
               </Link>
             </p>
-            {/* <div className="switchLeftRight">
-              <button className="switchLeftBtn">
-                <IoIosArrowRoundBack size={50} />
-              </button>
-              <button className="switchRightBtn">
-                <IoIosArrowRoundForward size={50} />
-              </button>
-            </div> */}
           </div>
 
           <div className="homepage3-right-box">
@@ -241,12 +233,12 @@ function Product() {
               </marquee>
             </div>
             <div className="slickWidth">
-              {/* <div className="switchLeftBtn">
+              <div className="switchLeftBtn">
                 <IoIosArrowRoundBack size={70} />
               </div>
               <div className="switchRightBtn">
                 <IoIosArrowRoundForward size={70} />
-              </div> */}
+              </div>
               <Slider {...settings}>
                 <div className="slickPic1">
                   <div className="slickPic-box">
@@ -298,8 +290,6 @@ function Product() {
       {/* ------------------homepage4------ */}
       <div className="pro-outside4">
         <div className="pro-gray4">
-          <div className="pro-green2"></div>
-
           <div className="homepage4-doublePicA">
             <img src={homepic5} alt="" />
           </div>
@@ -319,9 +309,10 @@ function Product() {
               <p>PRODUCT</p>
             </div>
             <div className="homepage4-wordD">
-              <p>IS IN</p>
+              <p className="indexTry">IS IN</p>
             </div>
           </div>
+          <div className="pro-green2"></div>
 
           <div className="slickWidth2">
             {/* <div className="switchLeftBtn">
@@ -382,6 +373,11 @@ function Product() {
             </Slider>
           </div>
         </div>
+        <Link to="/">
+          <div className="pro-watchAll">
+            <p className="pro-watchAllWord">WATCH ALL</p>
+          </div>
+        </Link>
       </div>
       {/* ------------------homepage5------ */}
       <div className="pro-outside5">

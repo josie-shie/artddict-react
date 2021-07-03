@@ -258,23 +258,43 @@
 
 }
 
-
+.slickWidth{
+    width: 62vw;
+    height: 59.5vh;
+    margin-left: 3%;
+    position: relative;
+}
 
 
 
 /* cautionnnnnnnnnn switchBtn*/
-/* .switchLeftBtn{
+.switchLeftBtn{
     position: absolute;
-    top: 71%;
-    left: -220px;
-    z-index: 1000;
+    top: 98%;
+    left: -215px;
+    z-index: 0;
 }
 .switchRightBtn{
     position: absolute;
-    top: 405px;
-    left: -145px;
-    z-index: 1000;
-} */
+    top: 98%;
+    left: -135px;
+    z-index: 0;
+}
+
+@media (min-width: 1440px){
+    .switchLeftBtn{
+        position: absolute;
+        top: 100%;
+        left: -215px;
+        z-index: 0;
+    }
+    .switchRightBtn{
+        position: absolute;
+        top: 100%;
+        left: -135px;
+        z-index: 0;
+    }
+}
 /* cautionnnnnnnnnn */
 
 
@@ -288,12 +308,26 @@
     margin-left: 28%;
 }
 
+
+
+/* .slick-prev:before{
+    content: url('/src/pages/product/svg/leftArrow.svg');
+    width: 0px;
+    height: 0px;
+    
+    
+    }
+.slick-next:before{
+    content: url('/src/pages/product/svg/rightArrow.svg');
+
+} */
+
 .slick-prev{
     width: 80px;
-    height: 80px;
+    height: 50px;
     top:90%;
-    /* left: -30%; */
-    left: -230px;
+    left: -220px;
+    /* left: -230px; */
     border:1px solid black;
     border-right: 0;
 }
@@ -304,22 +338,16 @@
 
 .slick-next{
     width: 80px;
-    height: 80px;
+    height: 50px;
     top:90%;
-    /* left: -20%; */
-    left: -150px;
+    left: -140px;
+    /* left: -150px; */
     border:1px solid black;
 
 }
 
 
 
-.slickWidth{
-    width: 62vw;
-    height: 82vh;
-    margin-left: 3%;
-    position: relative;
-}
 
 .slickPic-box{
     width:30vw;
@@ -359,9 +387,9 @@
 }
 /* -----------homepage4 */
 .pro-outside4 {
-    background-color: white;
     width: calc(100vw - 70px);
     height: 100vh;
+    position: relative;
 }
 .pro-gray4{
     background-color: #E8E8E8;
@@ -369,6 +397,7 @@
     height: 100vh;
     margin-top:150px;
     position: relative;
+    z-index: 1;
 }
 .homepage4-doublePicA{
 width: 30vw;
@@ -396,7 +425,7 @@ width:100%;
     height: 40vh;
     margin-left: 70%;
     padding-top: 15%;
-    z-index: 998;
+    z-index: 5;
 
 }
 .homepage4-wordA{
@@ -428,6 +457,9 @@ width:100%;
     z-index: 998;
 
 }
+.indexTry{
+    z-index: 100;
+}
 .pro-green2{
     width:21vw;
     height:7vh;
@@ -436,11 +468,67 @@ width:100%;
     top:41%;
     left: 85%;
     transform: rotate(-5deg);
-    z-index:995;
+    z-index:-5;
 }
 .pro-green2:hover{
     background-color: black;
 }
+
+.pro-watchAll{
+    background-color:black;
+    width: 6vw;
+    height: 50.5vh;
+    position: absolute;
+    top: 55%;
+    left: 80%;
+}
+/* .pro-watchAll{
+    background-color:black;
+    width: 80px;
+    height: 465px;
+    position: absolute;
+    top: 58%;
+    left: 80%;
+} */
+
+
+.pro-watchAllWord{
+    writing-mode:vertical-lr;
+    text-orientation:inherit;
+    color: white;
+    font-family: Engravers;
+    font-size:2rem;
+    margin: 0 auto;
+    margin-top: 70%;
+}
+/* .pro-watchAllWord{
+    writing-mode:vertical-lr;
+    text-orientation:inherit;
+    color: white;
+    font-family: Engravers;
+    font-size:2rem;
+    padding: 70px 0 0 25px;
+    letter-spacing: 8px;
+} */
+@media (min-width: 1440px) {
+    .pro-watchAllWord{
+        writing-mode:vertical-lr;
+        text-orientation:inherit;
+        color: white;
+        font-family: Engravers;
+        font-size:2rem;
+        padding: 33px 0 0 6px;
+        letter-spacing: 8px;
+    }
+    .pro-watchAll{
+        background-color:black;
+        width: 80px;
+        height: 465px;
+        position: absolute;
+        top: 58%;
+        left: 80%;
+    }
+  }
 
 /* ---------slick start----- */
 
@@ -472,10 +560,15 @@ width:100%;
 
 }
 
-.slickPicB-black:hover .slickB1 img{
-    opacity: 0.1;
-    background-color:black
+
+.slickPicB-box :hover img{
+    opacity:1
 }
+/* .slickPicB-box :hover .slickPicB-black{
+    height: 50px;
+    transition: .2s;
+} */
+
 
 .slickB1 img{
     width:110%;
@@ -507,6 +600,9 @@ width:100%;
     height: 120%;
     margin-left: -7%;
 }
+/* --------slick end-------- */
+
+
 /* -----------homepage5------- */
 .pro-outside5{
     width: calc(100vw - 70px);

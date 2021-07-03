@@ -2,32 +2,27 @@ import React from 'react'
 import Logoheader from './components/Logoheader'
 import Menu from './components/Menu'
 import { Link } from 'react-router-dom'
-import { Nav } from 'react-bootstrap'
 import './styles/WorkShop.scss'
 
- function WorkShop() {
-    return (
-        <>
-            <div className="u-body">
-              <Logoheader />
-              <div className="u-userMenu">
-              <Menu />
-              </div>
-              <div className="u-container-fluid">
+function WorkShop() {
+  return (
+    <>
+      <div className="u-body">
+        <Logoheader />
+        <div className="u-userMenu">
+          <Menu />
+        </div>
+        <div className="u-container-fluid">
           <div className="d-flex u-row justify-content-around">
             <div className="u-userEve1">
-              <Nav.Link as={Link} to="/user-ticket">
-                活動展
-              </Nav.Link>
+              <Link to="/user-ticket">活動展</Link>
             </div>
             <div className="u-userWshop1">
-              <Nav.Link as={Link} to="/user-workshop">
-                工作坊
-              </Nav.Link>
+              <Link to="/user-workshop">工作坊</Link>
             </div>
-                  </div>
-                  <div className="u-ticbox  d-flex">
-                  <div className="u-ticImg"></div>
+          </div>
+          <div className="u-ticbox  d-flex">
+            <div className="u-ticImg"></div>
             <div className="u-ticMsg">
               <div className="u-Eve1 d-flex">
                 <div className="u-EveId">活動編號：</div>
@@ -51,14 +46,31 @@ import './styles/WorkShop.scss'
               </div>
             </div>
             <div className="u-ticBtn">
-              <div className="u-BtnLight">活動細節</div>
-              <div className="u-BtnBlack">票券細節</div>
+              <div className="u-BtnLight">
+                {' '}
+                <Link
+                  to="/evevt/detail"
+                  className="u-link2"
+                  style={{ textDecoration: 'none' }}
+                >
+                  活動細節
+                </Link>
+              </div>
+              <div className="u-BtnBlack">
+                <Link
+                  to="/user/workshop/detail"
+                  className="u-link3"
+                  style={{ textDecoration: 'none' }}
+                >
+                  票券細節
+                </Link>
+              </div>
             </div>
-                  </div>
+          </div>
         </div>
       </div>
-        </>
-    )
+    </>
+  )
 }
 
 export default WorkShop

@@ -112,7 +112,7 @@
   width: 200px;
   height: 70px;
   text-align: center;
-  line-height: 55px;
+  line-height: 70px;
 }
 
 .u-loginbtn1 > a {
@@ -129,7 +129,7 @@
   height: 70px;
   background-color: #000;
   text-align: center;
-  line-height: 55px;
+  line-height: 70px;
 }
 
 .u-addbtn1 > a {
@@ -168,8 +168,13 @@
   font-size: 16px;
 }
 
-// ===== checkbox 樣式 =====
+.u-form > input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0px 1000px #e8e8e8 inset;
+}
 
+// ===== checkbox 樣式 =====
 .u-checkbox > input[type='checkbox'] {
   margin-right: 15px;
   cursor: pointer;

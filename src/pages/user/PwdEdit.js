@@ -1,7 +1,6 @@
 import React from 'react'
 import './styles/PwdEdit.scss'
 import { Link } from 'react-router-dom'
-import { Nav } from 'react-bootstrap'
 import Menu from './components/Menu'
 import Logoheader from './components/Logoheader'
 
@@ -16,14 +15,10 @@ function PwdEdit() {
         <div className="u-container-fluid">
           <div className="d-flex u-row justify-content-around">
             <div className="u-usertitleLeft">
-              <Nav.Link as={Link} to="/user-msgedit">
-                會員資料
-              </Nav.Link>
+              <Link to="/user-msgedit">會員資料</Link>
             </div>
             <div className="u-usertitleRight">
-              <Nav.Link as={Link} to="/user-pwdEdit">
-                修改密碼
-              </Nav.Link>
+              <Link to="/user-pwdEdit">修改密碼</Link>
             </div>
           </div>
         </div>
