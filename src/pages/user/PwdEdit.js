@@ -27,7 +27,7 @@ function PwdEdit() {
             </div>
           </div>
         </Container>
-        <div className="u-userData">
+        <div className="u-userData col-6">
           <form>
             <div className="form-group u-form">
               <input

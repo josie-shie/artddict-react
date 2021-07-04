@@ -112,7 +112,7 @@ const Nav = () => {
                 </Link>
               </div>
               <div className="mb-4">
-                <Link to="/cart">
+                <Link to="/cart-product">
                   <i>
                     <BiCartAlt />
                   </i>

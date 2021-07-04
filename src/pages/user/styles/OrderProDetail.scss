@@ -1,7 +1,7 @@
  /* ----- 表單 ----- */
  .u-box {
     margin-top: 40px;
-    width: 1044px;
+    width: 100%;
     height: 254px;
     border: 2px solid #707070;
     font-size: 16px;
@@ -10,7 +10,7 @@
 
 @media screen and (max-width:576px) {
     .u-box{
-        width: 320px;
+        width: 100%;
         margin-left: 20px;
     }
 }
@@ -40,7 +40,7 @@
 
 .u-boxPro{
     margin-top: 40px;
-    width: 1044px;
+    width: 100%;
     height: 125px;
     border:2px solid #707070;
     // position: relative;
@@ -48,7 +48,7 @@
 
 @media screen and (max-width:576px) {
     .u-boxPro{
-        width: 320px;
+        width: 100%;
         margin-left: 20px;
     }
 }
@@ -67,7 +67,7 @@
 }
 
 .u-myEVAL {
-    width: 150px;
+    width: 10vw;
     height: 43px;
     background-color: #1D0AFF;
     text-align: center;
@@ -75,7 +75,7 @@
     margin-top: 5px;
     margin-left: -15px;
     font-family: NotoSansTC-Medium;
-    font-size: 18px;
+    font-size: 1.5rem;
 }
 
 .btn-link, .btn-link:hover{
@@ -84,7 +84,7 @@
 
 /* ===== 折疊 ===== */
 .u-Card {
-    width: 1044px;
+    width: 100%;
     background-color: #e8e8e8;
     border: #e8e8e8;
     // margin-left: 70px;
@@ -102,7 +102,7 @@
 
 // ===== 前往評價 btn =====
 .u-goEVAL {
-    width: 150px;
+    width: 10vw;
     height: 43px;
     border: 2px solid #000;
     line-height: 40px;
@@ -110,7 +110,8 @@
     margin-top: -42px;
     margin-left: 150px;
     font-family: NotoSansTC-Medium;
-    font-size: 18px;
+    font-size: 1.5rem;
+    border-radius: 3px;
 }
 
 .u-goEVAL > a {
