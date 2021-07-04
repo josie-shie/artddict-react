@@ -26,8 +26,7 @@ function MsgEdits() {
               <Link to="/user-pwdEdit">修改密碼</Link>
             </div>
           </div>
-
-          <div className="u-userData col-12">
+          <Container className="u-userData">
             <form>
               <div className="form-group u-form1">
                 <label for="username">帳號</label>
@@ -117,7 +116,7 @@ function MsgEdits() {
                 </button>
               </div>
             </form>
-          </div>
+          </Container>
         </Container>
       </div>
     </>

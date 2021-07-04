@@ -23,7 +23,7 @@ function TicketDetail(props) {
         </div>
 
         <div className="u-tic2 d-flex">
-          <div className="col-9">
+          <div className="col-8">
             <div className="d-flex ml-5">
               <div>場次時間：</div>
               <div>12344</div>
@@ -43,7 +43,12 @@ function TicketDetail(props) {
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        <Button
+          onClick={props.onHide}
+          variant="outline-dark"
+        >
+          Close
+        </Button>
       </Modal.Footer>
     </Modal>
   )
