@@ -174,8 +174,11 @@ color: white;
     height: 50px;
  align-items: center;
  justify-content: space-between;
-
-
+}
+@media (min-width: 1440px){
+    .proDe-numberAndBox{
+        width: 36%;
+    }
 }
 
 .proDe-numberName p{
