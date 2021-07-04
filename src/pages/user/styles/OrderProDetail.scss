@@ -1,6 +1,5 @@
  /* ----- 表單 ----- */
  .u-box {
-    margin-left: 70px;
     margin-top: 40px;
     width: 1044px;
     height: 254px;
@@ -36,7 +35,6 @@
 
 /* ----- 商品細節 ----- */
 .u-boxPro {
-    margin-left: 70px;
     font-family: NotoSansTC-Medium;
 }
 
@@ -89,7 +87,7 @@
     width: 1044px;
     background-color: #e8e8e8;
     border: #e8e8e8;
-    margin-left: 70px;
+    // margin-left: 70px;
     // position: relative;
 }
 
@@ -132,7 +130,7 @@
     font-size: 16px;
     margin-top: 30px;
     margin-bottom: 30px;
-    margin-left: 500px;
+    margin-left: 30vw;
     font-family: NotoSansTC-Medium;
     font-size: 18px;
 }

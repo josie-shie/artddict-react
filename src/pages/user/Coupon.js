@@ -42,7 +42,7 @@ class Coupon extends React.Component {
           <Breadcrumb />
         </div>
         <div className="u-userMenu">
-          <Menu />
+          <Menu className="d-none d-lg-block d-xl-block" />
         </div>
         <div className="u-couponbox d-flex">
           <div class="u-Text col-7">
