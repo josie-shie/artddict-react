@@ -65,29 +65,62 @@ function ProductList() {
               </div>
             </div>
             <div className="prolist-topofmiddle">
-              <div className="prolist-filter d-flex">
-                <div className="ed-select-box cn-font p-1">
-                  <div className="pr-3">排列</div>
-                  <select
-                    className="ed-select pl-2"
-                    name=""
-                    id=""
-                  >
-                    <option
-                      style={{ color: '#707070' }}
-                      value=""
-                      className=" pl-4"
-                    >
-                      推薦
-                    </option>
-                    <option value="">價格嗨</option>
-                    <option value="">價格嗨</option>
-                  </select>
+              <div className="prolist-filter d-flex ">
+                <div className="prolist-arrangeAndIcon d-flex col-4">
+                  <div>
+                    <div className="ed-select-box cn-font p-1">
+                      <div className="pr-3 pro-filterWord">
+                        排列
+                      </div>
+                      <select
+                        className="ed-select pl-2"
+                        name=""
+                        id=""
+                      >
+                        <option
+                          style={{ color: '#707070' }}
+                          value=""
+                          className=" pl-4 pro-filterWord"
+                        >
+                          推薦
+                        </option>
+                        <option value="">價格嗨</option>
+                        <option value="">價格嗨</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div className="prolist-searchIcon">
+                    <GoSearch size={30} />
+                  </div>
                 </div>
-                <div className="prolist-searchIcon">
-                  <GoSearch size={30} />
+
+                <div className="priceRangeBox d-flex">
+                  <div className="pro-priceRange">
+                    <p className="pro-filterWord ">
+                      PRICERANGE
+                    </p>
+                  </div>
+                  {/* 要用Jq做 */}
+                  <div className="prolist-sliderbox d-flex pro-filterWord">
+                    0
+                    <input
+                      type="range"
+                      min="0"
+                      max="3000"
+                      step="500"
+                      className="prolist-slider"
+                      id="myRange"
+                    />
+                    3000
+                  </div>
                 </div>
+                {/* 要用Jq做 */}
               </div>
+            </div>
+            <div className="pro-showing">
+              <p className="pro-filterWord">
+                showing 1-9 of 27
+              </p>
             </div>
           </div>
         </div>
