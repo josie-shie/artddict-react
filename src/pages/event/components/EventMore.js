@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link, withRouter } from 'react-router-dom'
 import { Row } from 'react-bootstrap'
 
 
@@ -35,7 +36,11 @@ function EventMore() {
         </div>
       </Row>
       <Row className="justify-content-between both-padding mt-5 pb-5">
-        <div className="e-more-card col-4">
+        <Link
+          to="/event/event-list/detail"
+          style={{ textDecoration: 'none' }}
+          className="e-more-card col-4 my-3 "
+        >
           <img
             className="col-12 p-0"
             src={EdListCardPic}
@@ -56,9 +61,13 @@ function EventMore() {
               <button className="col-8 py-2">MORE+</button>
             </div>
           </div>
-        </div>
+        </Link>
 
-        <div className="e-more-card col-4">
+        <Link
+          to="/event/event-list/detail"
+          style={{ textDecoration: 'none' }}
+          className="e-more-card col-4 my-3 "
+        >
           <img
             className="col-12 p-0"
             src={EdListCardPic}
@@ -79,9 +88,13 @@ function EventMore() {
               <button className="col-8 py-2">MORE+</button>
             </div>
           </div>
-        </div>
+        </Link>
 
-        <div className="e-more-card col-4">
+        <Link
+          to="/event/event-list/detail"
+          style={{ textDecoration: 'none' }}
+          className="e-more-card col-4 my-3 "
+        >
           <img
             className="col-12 p-0"
             src={EdListCardPic}
@@ -102,7 +115,7 @@ function EventMore() {
               <button className="col-8 py-2">MORE+</button>
             </div>
           </div>
-        </div>
+        </Link>
       </Row>
     </>
   )

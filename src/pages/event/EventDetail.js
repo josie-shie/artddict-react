@@ -1,4 +1,5 @@
 import { React, useState, useEffect } from 'react'
+import { Link, withRouter } from 'react-router-dom'
 import {
   Container,
   Row,
@@ -76,12 +77,22 @@ function EventDetail() {
               className="ed-commu-btn  col-6 d-flex justify-content-md-around
             align-items-center"
             >
-              <button className="col-4 cn-font">
-                上傳作品
-              </button>
-              <button className="col-4 cn-font">
-                觀賞作品
-              </button>
+              <Link
+                to="/event/event-list/detail/upload"
+                className="col-4"
+              >
+                <button className="col cn-font">
+                  上傳作品
+                </button>
+              </Link>
+              <Link
+                to="/event/event-list/detail/share"
+                className="col-4"
+              >
+                <button className="col cn-font">
+                  觀賞作品
+                </button>
+              </Link>
             </div>
           </Row>
           <Row className="left-padding cn-font ">
@@ -259,11 +270,11 @@ function EventDetail() {
           </Row>
         </Container>
         <Container className="ed-more" fluid>
-          <EventMore/>
+          <EventMore />
         </Container>
       </div>
     </>
   )
 }
 
-export default EventDetail
+export default withRouter (EventDetail)

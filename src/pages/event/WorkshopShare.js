@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { Container, Row } from 'react-bootstrap'
 
 // import component
@@ -70,9 +70,7 @@ function WorkshopShare() {
                 <h5 className="es-work-title col-11 p-0 cn-font mt-2">
                   作品說明:
                 </h5>
-                <p
-                  className="es-text cn-font col-11 p-0 pr-2"
-                >
+                <p className="es-text cn-font col-11 p-0 pr-2">
                   1889年9月，荷蘭後印象派畫家文森特·梵谷（Vincent
                   van
                   Gogh）在畫布上用油畫了自畫像。這幅作品可能是梵谷的最後一幅自畫像，是在他離開法國南部聖雷米的普羅旺斯之前不久畫的。這幅畫現在在巴黎的奧賽博物館（Muséed'Orsay）展出。
@@ -91,39 +89,48 @@ function WorkshopShare() {
                   </span>
                 </h2>
 
-                <div className="es-list-card col-12 pt-5 mb-5">
-                  <img
-                    className="col-12 p-0"
-                    src={EuListCardPic}
-                    alt=""
-                  />
-                  <h6 className="col-12 p-0 cn-font my-2">
-                    我是活動標題
-                  </h6>
-                  <div className="d-flex">
-                    <div className="col-8 p-0">
-                      <p>地點：台北市</p>
-                      <p>時間：JUN</p>
+                <Link
+                  to="/event/event-list/detail"
+                  style={{ textDecoration: 'none' }}
+                >
+                  <div className="es-list-card col-12 pt-5 mb-5">
+                    <img
+                      className="col-12 p-0"
+                      src={EuListCardPic}
+                      alt=""
+                    />
+                    <h6 className="col-12 p-0 cn-font my-2">
+                      我是活動標題
+                    </h6>
+                    <div className="d-flex">
+                      <div className="col-8 p-0">
+                        <p>地點：台北市</p>
+                        <p>時間：JUN</p>
+                      </div>
                     </div>
                   </div>
-                </div>
-
-                <div className="es-list-card col-12 pt-5 mb-5">
-                  <img
-                    className="col-12 p-0"
-                    src={EuListCardPic}
-                    alt=""
-                  />
-                  <h6 className="col-12 p-0 cn-font my-2">
-                    我是活動標題
-                  </h6>
-                  <div className="d-flex">
-                    <div className="col-8 p-0">
-                      <p>地點：台北市</p>
-                      <p>時間：JUN</p>
+                </Link>
+                <Link
+                  to="/event/event-list/detail"
+                  style={{ textDecoration: 'none' }}
+                >
+                  <div className="es-list-card col-12 pt-5 mb-5">
+                    <img
+                      className="col-12 p-0"
+                      src={EuListCardPic}
+                      alt=""
+                    />
+                    <h6 className="col-12 p-0 cn-font my-2">
+                      我是活動標題
+                    </h6>
+                    <div className="d-flex">
+                      <div className="col-8 p-0">
+                        <p>地點：台北市</p>
+                        <p>時間：JUN</p>
+                      </div>
                     </div>
                   </div>
-                </div>
+                </Link>
               </div>
             </div>
           </Row>

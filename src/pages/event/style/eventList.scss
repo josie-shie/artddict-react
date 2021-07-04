@@ -57,14 +57,17 @@ $egreylt: #E8E8E8;
 }
 
 .ed-select-box{
-    font-size: 1.5rem;
+    height: 52px;
+    font-size: 1.3rem;
     font-weight: normal;
     border: 2px solid black;
-}
-
-.ed-select-box > div{
-    border-right: 2px solid black;
-    display: inline-block;
+    h6{
+        padding-top: 8px;
+        border-right: 2px solid black;
+    }
+    select{
+        padding-bottom: 2px;
+    }
 }
 
 .ed-select {
@@ -73,13 +76,13 @@ $egreylt: #E8E8E8;
   background: transparent;
   background-image: url("../images/select-arrow.svg");
   background-repeat: no-repeat;
-  background-position-x: 100%;
+  background-position-x: 90%;
   background-position-y: 50%;
   border: 0px;
-  padding-right: 2rem;
 }
 
 .ed-list-btn{
+    height: 52px;
     border: 2px solid black;
     background-color: black;
     color: white;
@@ -98,6 +101,7 @@ $egreylt: #E8E8E8;
 }
 
 .ed-list-card h6{
+    color: black;
     font-size: 1.3rem;
     font-weight: 500;
 }

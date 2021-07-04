@@ -1,5 +1,5 @@
 import { React, useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { Container, Row } from 'react-bootstrap'
 import $ from 'jquery'
 
@@ -68,83 +68,75 @@ function EventList() {
               action=" "
             >
               {/* 地區選單 */}
-              <div className="ed-select-box cn-font p-3">
-                <div className="pr-3">地區</div>
+              <div
+                className="ed-select-box cn-font col-2 p-0 d-flex
+              "
+              >
+                <h6 className="col-5">地區</h6>
                 <select
-                  className="ed-select pl-3"
+                  className="ed-select col-7"
                   name=""
                   id=""
                 >
-                  <option
-                    style={{ color: '#707070' }}
-                    value=""
-                  >
-                    請選擇
-                  </option>
+                  <option value="">請選擇</option>
                   <option value="">123</option>
                   <option value="">123</option>
                 </select>
               </div>
 
               {/* 城市選單 */}
-              <div className="ed-select-box cn-font p-3">
-                <div className="pr-3">城市</div>
+              <div
+                className="ed-select-box cn-font col-2 p-0 d-flex
+              "
+              >
+                <h6 className="col-5">城市</h6>
                 <select
-                  className="ed-select pl-3"
+                  className="ed-select col-7"
                   name=""
                   id=""
                 >
-                  <option
-                    style={{ color: '#707070' }}
-                    value=""
-                  >
-                    請選擇
-                  </option>
+                  <option value="">請選擇</option>
                   <option value="">123</option>
                   <option value="">123</option>
                 </select>
               </div>
 
               {/* 美術館選單 */}
-              <div className="ed-select-box cn-font p-3">
-                <div className="pr-3">美術館</div>
+              <div
+                className="ed-select-box cn-font col-3 p-0 d-flex
+              "
+              >
+                <h6 className="col-5 pl-4">美術館</h6>
                 <select
-                  className="ed-select pl-3"
+                  className="ed-select col-7"
                   name=""
                   id=""
                 >
-                  <option
-                    style={{ color: '#707070' }}
-                    value=""
-                  >
-                    請選擇
-                  </option>
+                  <option value="">請選擇</option>
                   <option value="">123</option>
                   <option value="">123</option>
                 </select>
               </div>
 
               {/* 時間選單 */}
-              <div className="ed-select-box cn-font p-3">
-                <div className="pr-3">時間</div>
+              <div
+                className="ed-select-box cn-font col-2 p-0 d-flex
+              "
+              >
+                <h6 className="col-5">時間</h6>
                 <select
-                  className="ed-select pl-3"
+                  className="ed-select col-7"
                   name=""
                   id=""
                 >
-                  <option
-                    style={{ color: '#707070' }}
-                    value=""
-                  >
-                    請選擇
-                  </option>
+                  <option value="">請選擇</option>
                   <option value="">123</option>
                   <option value="">123</option>
                 </select>
               </div>
 
               <button
-                className="ed-list-btn col-1"
+                className="ed-list-btn col-1 p-0"
                 type="submit"
               >
                 <FaFilter />
@@ -154,20 +146,18 @@ function EventList() {
 
             {/* 第二行表單 */}
             <form className="col-12 d-flex p-0" action="">
-              {/* 排序 */}
-              <div className="ed-select-box cn-font p-3">
-                <div className="pr-3">排序</div>
+              {/* 排序選單 */}
+              <div
+                className="ed-select-box cn-font col-2 p-0 d-flex
+              "
+              >
+                <h6 className="col-5">排序</h6>
                 <select
-                  className="ed-select pl-3"
+                  className="ed-select col-7"
                   name=""
                   id=""
                 >
-                  <option
-                    style={{ color: '#707070' }}
-                    value=""
-                  >
-                    最近
-                  </option>
+                  <option value="">最近</option>
                   <option value="">123</option>
                   <option value="">123</option>
                 </select>
@@ -181,8 +171,12 @@ function EventList() {
               </button>
             </form>
           </Row>
-          <Row className="justify-content-between">
-            <div className="ed-list-card col-4">
+          <Row className="justify-content-between flex-wrap">
+            <Link
+              to="/event/event-list/detail"
+              style={{ textDecoration: 'none' }}
+              className="ed-list-card col-4 my-3 "
+            >
               <img
                 className="col-12 p-0"
                 src={EdListCardPic}
@@ -205,9 +199,13 @@ function EventList() {
                   </button>
                 </div>
               </div>
-            </div>
+            </Link>
 
-            <div className="ed-list-card col-4">
+            <Link
+              to="/event/event-list/detail"
+              style={{ textDecoration: 'none' }}
+              className="ed-list-card col-4 my-3"
+            >
               <img
                 className="col-12 p-0"
                 src={EdListCardPic}
@@ -230,9 +228,13 @@ function EventList() {
                   </button>
                 </div>
               </div>
-            </div>
+            </Link>
 
-            <div className="ed-list-card col-4">
+            <Link
+              to="/event/event-list/detail"
+              style={{ textDecoration: 'none' }}
+              className="ed-list-card col-4 my-3"
+            >
               <img
                 className="col-12 p-0"
                 src={EdListCardPic}
@@ -255,7 +257,95 @@ function EventList() {
                   </button>
                 </div>
               </div>
-            </div>
+            </Link>
+
+            
+            <Link
+              to="/event/event-list/detail"
+              style={{ textDecoration: 'none' }}
+              className="ed-list-card col-4 my-3 "
+            >
+              <img
+                className="col-12 p-0"
+                src={EdListCardPic}
+                alt=""
+              />
+              <h6 className="col-12 p-0 cn-font my-2">
+                我是活動標題
+              </h6>
+              <div className="d-flex">
+                <div className="col-8 p-0">
+                  <p>地點：台北市</p>
+                  <p>時間：JUN</p>
+                </div>
+                <div className="col-4 p-0">
+                  <button className="border-right col-4 py-2">
+                    <IoIosHeart />
+                  </button>
+                  <button className="col-8 py-2">
+                    MORE+
+                  </button>
+                </div>
+              </div>
+            </Link>
+
+            <Link
+              to="/event/event-list/detail"
+              style={{ textDecoration: 'none' }}
+              className="ed-list-card col-4 my-3"
+            >
+              <img
+                className="col-12 p-0"
+                src={EdListCardPic}
+                alt=""
+              />
+              <h6 className="col-12 p-0 cn-font my-2">
+                我是活動標題
+              </h6>
+              <div className="d-flex">
+                <div className="col-8 p-0">
+                  <p>地點：台北市</p>
+                  <p>時間：JUN</p>
+                </div>
+                <div className="col-4 p-0">
+                  <button className="border-right col-4 py-2">
+                    <IoIosHeart />
+                  </button>
+                  <button className="col-8 py-2">
+                    MORE+
+                  </button>
+                </div>
+              </div>
+            </Link>
+
+            <Link
+              to="/event/event-list/detail"
+              style={{ textDecoration: 'none' }}
+              className="ed-list-card col-4 my-3"
+            >
+              <img
+                className="col-12 p-0"
+                src={EdListCardPic}
+                alt=""
+              />
+              <h6 className="col-12 p-0 cn-font my-2">
+                我是活動標題
+              </h6>
+              <div className="d-flex">
+                <div className="col-8 p-0">
+                  <p>地點：台北市</p>
+                  <p>時間：JUN</p>
+                </div>
+                <div className="col-4 p-0">
+                  <button className="border-right col-4 py-2">
+                    <IoIosHeart />
+                  </button>
+                  <button className="col-8 py-2">
+                    MORE+
+                  </button>
+                </div>
+              </div>
+            </Link>
           </Row>
           <Row className="justify-content-center eng-font-regular mt-5 py-5">
             <Link className="ed-pagenum mx-3">
@@ -286,4 +376,4 @@ function EventList() {
   )
 }
 
-export default EventList
+export default withRouter (EventList)

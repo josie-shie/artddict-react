@@ -76,7 +76,10 @@ function event() {
           </div>
 
           {/* Card */}
-          <div className="row d-flex justify-content-left mt-5">
+          <Link
+            to="/event/event-list/detail"
+            className="row d-flex justify-content-left mt-5"
+          >
             <div className=" col-3 hero-event-1 p-0">
               <div className="e-cover-black">
                 <img
@@ -230,7 +233,7 @@ function event() {
               <div className="e-line position-absolute"></div>
               <div className="e-line2 position-absolute"></div>
             </div>
-          </div>
+          </Link>
         </div>
 
         <Container fluid className="exhi">
@@ -248,10 +251,12 @@ function event() {
           <Row className="position-relative">
             <div className="e-exhi-event col-6 p-0">
               <div className="e-exhi-white">
-                <button className="cn-font exhi-btn">
-                  立即搶票
-                  <FiArrowUpRight />
-                </button>
+                <Link to="/event/event-list">
+                  <button className="cn-font exhi-btn">
+                    立即搶票
+                    <FiArrowUpRight />
+                  </button>
+                </Link>
                 <img
                   className="pic-square"
                   src={Square}
@@ -275,28 +280,33 @@ function event() {
               />
             </div>
 
-            <div className="e-exhi-title ml-4 position-absolute">
-              <arrow className="arrow-cap">
-                <h1 className="eng-font-bold">
-                  EX­­
-                  <br />
-                  ­­HIBI
-                  <br />
-                  TION­­
-                </h1>
-                <p className="cn-font e-exhi-title-cn mt-2">
-                  藝文
-                  <span className="e-exhi-title-dash">
-                    活動展
-                  </span>
-                </p>
-                <img
-                  className="exhi-m-deco position-absolute"
-                  src={ExhiDecoM}
-                  alt=""
-                />
-              </arrow>
-            </div>
+            <Link
+              to="/event/event-list"
+              style={{ textDecoration: 'none' }}
+            >
+              <div className="e-exhi-title ml-4 position-absolute">
+                <arrow className="arrow-cap">
+                  <h1 className="eng-font-bold">
+                    EX­­
+                    <br />
+                    ­­HIBI
+                    <br />
+                    TION­­
+                  </h1>
+                  <p className="cn-font e-exhi-title-cn mt-2">
+                    藝文
+                    <span className="e-exhi-title-dash">
+                      活動展
+                    </span>
+                  </p>
+                  <img
+                    className="exhi-m-deco position-absolute"
+                    src={ExhiDecoM}
+                    alt=""
+                  />
+                </arrow>
+              </div>
+            </Link>
             <h2
               className="eng-font-bold e-exhi-name
                 my-4
@@ -341,7 +351,10 @@ function event() {
             </h3>
           </Row>
           <Row className="justify-content-center">
-            <div className="e-work1 position-relative col-3 p-0 mx-5">
+            <Link
+              to="/event/event-list/detail"
+              className="e-work1 position-relative  col-4 col-lg-3  p-0 mx-lg-3"
+            >
               <p className="e-work-name cn-font position-absolute">
                 解&nbsp;碼&emsp;&emsp;雲&nbsp;端
               </p>
@@ -354,9 +367,12 @@ function event() {
                 src={Square}
                 alt=""
               />
-            </div>
+            </Link>
 
-            <div className="e-work2 position-relative col-3 p-0 mx-5">
+            <Link
+              to="/event/event-list/detail"
+              className="e-work2 position-relativecol-4 col-4 col-lg-3  p-0 mx-lg-3"
+            >
               <p className="e-work-name cn-font position-absolute">
                 文&nbsp;藝&emsp;&emsp;復&nbsp;興
               </p>
@@ -370,9 +386,12 @@ function event() {
                 src={Square}
                 alt=""
               />
-            </div>
+            </Link>
 
-            <div className="e-work3 position-relative col-3 p-0 mx-5">
+            <Link
+              to="/event/event-list/detail"
+              className="e-work3 position-relativecol-4 col-4 col-lg-3  p-0 mx-lg-3"
+            >
               <p className="e-work-name cn-font position-absolute">
                 藝&nbsp;術&emsp;&emsp;方&nbsp;舟
               </p>
@@ -386,30 +405,34 @@ function event() {
                 src={Square}
                 alt=""
               />
-            </div>
+            </Link>
           </Row>
           <Row className="left-padding position-relative my-5">
-            <div className="e-work-title ml-4">
-              <arrow className="arrow-work-cap">
-                <p className="cn-font e-work-title-cn mt-2">
-                  手做
-                  <span className="e-work-title-dash">
-                    工作坊
-                  </span>
-                </p>
-                <h1 className="eng-font-bold">
-                  WORK
-                  <br />
-                  SHOP
-                </h1>
-
-                <img
-                  className="exhi-m-deco position-absolute"
-                  src={ExhiDecoM}
-                  alt=""
-                />
-              </arrow>
-            </div>
+            <Link
+              to="/event/event-list "
+              style={{ textDecoration: 'none' }}
+            >
+              <div className="e-work-title ml-4">
+                <arrow className="arrow-work-cap">
+                  <p className="cn-font e-work-title-cn mt-2">
+                    手作
+                    <span className="e-work-title-dash">
+                      工作坊
+                    </span>
+                  </p>
+                  <h1 className="eng-font-bold">
+                    WORK
+                    <br />
+                    SHOP
+                  </h1>
+                  <img
+                    className="exhi-m-deco position-absolute"
+                    src={ExhiDecoM}
+                    alt=""
+                  />
+                </arrow>
+              </div>
+            </Link>
           </Row>
           <Row>
             <MarqueeWork />
@@ -427,11 +450,7 @@ function event() {
               <IoIosArrowBack />
               <IoIosArrowBack />
               <IoIosArrowBack />
-              <IoIosArrowBack />
-              <IoIosArrowBack />
               從城市開始接觸藝術
-              <IoIosArrowForward />
-              <IoIosArrowForward />
               <IoIosArrowForward />
               <IoIosArrowForward />
               <IoIosArrowForward />
@@ -441,7 +460,10 @@ function event() {
             <div className="col-9 p-0 ">
               {/* 第一行城市 */}
               <div className="col-12 p-0 e-city-area d-flex border-top-0 justify-content-between">
-                <div className="col-3 p-0 ml-4">
+                <Link
+                  to="/event/event-list"
+                  className="el-c col-4 col-lg-3 p-0 ml-lg-4"
+                >
                   <div className="e-location-card position-relative">
                     <button className="cn-font e-loca-btn position-absolute">
                       立即搶票
@@ -458,8 +480,11 @@ function event() {
                   <button className="e-btn-l e-locaton-btn cn-font">
                     彰化
                   </button>
-                </div>
-                <div className="col-3 p-0 mx-5">
+                </Link>
+                <Link
+                  to="/event/event-list"
+                  className="el-c col-4 col-lg-3 p-0 ml-lg-4"
+                >
                   <div className="e-location-card2 position-relative">
                     <button className="cn-font e-loca-btn position-absolute">
                       立即搶票
@@ -476,8 +501,11 @@ function event() {
                   <button className="e-btn-l e-locaton-btn cn-font">
                     台北
                   </button>
-                </div>
-                <div className="col-3 p-0 mr-4">
+                </Link>
+                <Link
+                  to="/event/event-list"
+                  className="el-c col-4 col-lg-3 p-0 ml-lg-4 mr-lg-5"
+                >
                   <div className="e-location-card3 position-relative">
                     <button className="cn-font e-loca-btn position-absolute">
                       立即搶票
@@ -494,11 +522,14 @@ function event() {
                   <button className="e-btn-l e-locaton-btn cn-font">
                     台中
                   </button>
-                </div>
+                </Link>
               </div>
               {/* 第二行城市 */}
               <div className="col-12 p-0 e-city-area d-flex justify-content-around">
-                <div className="col-3 p-0">
+                <Link
+                  to="/event/event-list"
+                  className="el-c col-4 col-lg-3 p-0 ml-lg-4"
+                >
                   <div className="e-location-card4 position-relative">
                     <button className="cn-font e-loca-btn position-absolute">
                       立即搶票
@@ -515,8 +546,11 @@ function event() {
                   <button className="e-btn-l e-locaton-btn cn-font">
                     新竹
                   </button>
-                </div>
-                <div className="col-3 p-0">
+                </Link>
+                <Link
+                  to="/event/event-list"
+                  className="el-c col-4 col-lg-3 p-0 ml-lg-4"
+                >
                   <div className="e-location-card5 position-relative">
                     <button className="cn-font e-loca-btn position-absolute">
                       立即搶票
@@ -533,8 +567,11 @@ function event() {
                   <button className="e-btn-l e-locaton-btn cn-font">
                     台南
                   </button>
-                </div>
-                <div className="col-3 p-0">
+                </Link>
+                <Link
+                  to="/event/event-list"
+                  className="el-c col-4 col-lg-3 p-0 ml-lg-4"
+                >
                   <div className="e-location-card6 position-relative">
                     <button className="cn-font e-loca-btn position-absolute">
                       立即搶票
@@ -551,12 +588,15 @@ function event() {
                   <button className="e-btn-l e-locaton-btn cn-font">
                     高雄
                   </button>
-                </div>
+                </Link>
               </div>
             </div>
-            <div className="col-3 e-local-logo p-0">
-              <div className="col-12  d-flex justify-content-center">
-                <div className="col-4 my-5">
+            <div className="col-3 e-local-logo p-0 pt-auto">
+              <div
+                className="col-12  d-flex justify-content-center my-5
+              "
+              >
+                <div className="col-6 col-lg-4 my-5">
                   <img
                     className="e-local-log-pic"
                     src={LocationLogo}
@@ -564,11 +604,20 @@ function event() {
                   />
                 </div>
               </div>
-              <div className="col-12 p-0">
+              <div className="col-12 p-0 d-none d-lg-block">
+                <Link to="/event/event-list">
+                  <button className="e-location-more-btn eng-font-bold">
+                    MORE+
+                  </button>
+                </Link>
+              </div>
+            </div>
+            <div className="col-12 p-0 d-lg-none">
+              <Link to="/event/event-list">
                 <button className="e-location-more-btn eng-font-bold">
                   MORE+
                 </button>
-              </div>
+              </Link>
             </div>
           </Row>
         </Container>
