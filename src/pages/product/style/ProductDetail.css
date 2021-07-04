@@ -68,9 +68,9 @@ font-face {
     color: #6e6e6e;
 }
 .proDe-chooseBox{
-    background-color: aquamarine;
+    background-color: black;
     width: 100%;
-    height: 500px;
+    height: 1000px;
     margin-top: 35px;
 }
 .proDe-nameAndHeart{
@@ -92,6 +92,7 @@ font-face {
     width: 100%;
     height: 50px;
     background-color: black;
+    margin-top: 3%;
 }
 .proDe-scoresAndWrite {
     margin-top: 7px;
@@ -111,13 +112,14 @@ font-face {
 }
 .proDe-productPricee p{
 font-family: notoSansTC-Medium;
-font-size: 1.3rem;
+font-size: 1.5rem;
 color: white;
 }
 .proDe-sizeBtnBox{
     width: 100%;
     height: 100px;
     background-color:black;
+    margin-top: 3%;
 }
 .proDe-sizeBtnBox2{
     width: 60%;
