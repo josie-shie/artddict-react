@@ -13,7 +13,6 @@ import Square from './images/square.gif'
 import ESpin from './images/arddict-circle-g.svg'
 // EXHI section
 import ESpinBl from './images/arddict-circle-bl.svg'
-import EEyeBl from './images/arddict-eye-bl.svg'
 import ExhiDeco from './images/exhi-deco.svg'
 import ExhiDecoM from './images/m-exhi-deco.svg'
 // WORK section
@@ -122,6 +121,9 @@ function event() {
               >
                 VOL.0<span className="bigger">1</span>
               </h2>
+              <button className="cn-font e-hero-get e-btn-m position-absolute">
+                立即搶票
+              </button>
               <div className="e-line position-absolute"></div>
               <div className="e-line2 position-absolute"></div>
             </div>
@@ -169,6 +171,9 @@ function event() {
               >
                 VOL.0<span className="bigger">2</span>
               </h2>
+              <button className="cn-font e-hero-get e-btn-m position-absolute">
+                立即搶票
+              </button>
               <img
                 className="position-absolute spin-img"
                 src={ESpin}
@@ -219,6 +224,9 @@ function event() {
               >
                 VOL.0<span className="bigger">3</span>
               </h2>
+              <button className="cn-font e-hero-get e-btn-m position-absolute">
+                立即搶票
+              </button>
               <div className="e-line position-absolute"></div>
               <div className="e-line2 position-absolute"></div>
             </div>
@@ -339,10 +347,7 @@ function event() {
               </p>
               <div className="e-work-line position-absolute"></div>
               <div className="e-work-line2 position-absolute"></div>
-              <div className="e-work-border position-absolute">
-                <span className="e-work-box"></span>
-                <span className="e-work-box2"></span>
-              </div>
+              <div className="e-work-border position-absolute"></div>
               <div className="e-work-black"></div>
               <img
                 className="pic-square"
@@ -353,15 +358,12 @@ function event() {
 
             <div className="e-work2 position-relative col-3 p-0 mx-5">
               <p className="e-work-name cn-font position-absolute">
-                解&nbsp;碼&emsp;&emsp;雲&nbsp;端
+                文&nbsp;藝&emsp;&emsp;復&nbsp;興
               </p>
 
               <div className="e-work-line position-absolute"></div>
               <div className="e-work-line2 position-absolute"></div>
-              <div className="e-work-border position-absolute">
-                <span className="e-work-box"></span>
-                <span className="e-work-box2"></span>
-              </div>
+              <div className="e-work-border position-absolute"></div>
               <div className="e-work-black"></div>
               <img
                 className="pic-square"
@@ -372,15 +374,12 @@ function event() {
 
             <div className="e-work3 position-relative col-3 p-0 mx-5">
               <p className="e-work-name cn-font position-absolute">
-                解&nbsp;碼&emsp;&emsp;雲&nbsp;端
+                藝&nbsp;術&emsp;&emsp;方&nbsp;舟
               </p>
 
               <div className="e-work-line position-absolute"></div>
               <div className="e-work-line2 position-absolute"></div>
-              <div className="e-work-border position-absolute">
-                <span className="e-work-box"></span>
-                <span className="e-work-box2"></span>
-              </div>
+              <div className="e-work-border position-absolute"></div>
               <div className="e-work-black"></div>
               <img
                 className="pic-square"
@@ -438,13 +437,17 @@ function event() {
               <IoIosArrowForward />
             </div>
           </Row>
-          <Row className="p-0">
+          <Row className="p-0 e-locat-card">
             <div className="col-9 p-0 ">
               {/* 第一行城市 */}
               <div className="col-12 p-0 e-city-area d-flex border-top-0 justify-content-between">
                 <div className="col-3 p-0 ml-4">
-                  <div className="e-location-card">
-                    <div className="">
+                  <div className="e-location-card position-relative">
+                    <button className="cn-font e-loca-btn position-absolute">
+                      立即搶票
+                      <FiArrowUpRight />
+                    </button>
+                    <div>
                       <img
                         className="pic-square"
                         src={Square}
@@ -457,7 +460,11 @@ function event() {
                   </button>
                 </div>
                 <div className="col-3 p-0 mx-5">
-                  <div className="e-location-card">
+                  <div className="e-location-card2 position-relative">
+                    <button className="cn-font e-loca-btn position-absolute">
+                      立即搶票
+                      <FiArrowUpRight />
+                    </button>
                     <div className="">
                       <img
                         className="pic-square"
@@ -471,7 +478,11 @@ function event() {
                   </button>
                 </div>
                 <div className="col-3 p-0 mr-4">
-                  <div className="e-location-card">
+                  <div className="e-location-card3 position-relative">
+                    <button className="cn-font e-loca-btn position-absolute">
+                      立即搶票
+                      <FiArrowUpRight />
+                    </button>
                     <div className="">
                       <img
                         className="pic-square"
@@ -488,7 +499,11 @@ function event() {
               {/* 第二行城市 */}
               <div className="col-12 p-0 e-city-area d-flex justify-content-around">
                 <div className="col-3 p-0">
-                  <div className="e-location-card">
+                  <div className="e-location-card4 position-relative">
+                    <button className="cn-font e-loca-btn position-absolute">
+                      立即搶票
+                      <FiArrowUpRight />
+                    </button>
                     <div className="">
                       <img
                         className="pic-square"
@@ -502,7 +517,11 @@ function event() {
                   </button>
                 </div>
                 <div className="col-3 p-0">
-                  <div className="e-location-card">
+                  <div className="e-location-card5 position-relative">
+                    <button className="cn-font e-loca-btn position-absolute">
+                      立即搶票
+                      <FiArrowUpRight />
+                    </button>
                     <div className="">
                       <img
                         className="pic-square"
@@ -516,7 +535,11 @@ function event() {
                   </button>
                 </div>
                 <div className="col-3 p-0">
-                  <div className="e-location-card">
+                  <div className="e-location-card6 position-relative">
+                    <button className="cn-font e-loca-btn position-absolute">
+                      立即搶票
+                      <FiArrowUpRight />
+                    </button>
                     <div className="">
                       <img
                         className="pic-square"
