@@ -143,4 +143,4 @@ function WorkshopShare() {
   )
 }
 
-export default WorkshopShare
+export default withRouter (WorkshopShare)
