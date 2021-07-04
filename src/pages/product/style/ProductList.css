@@ -167,11 +167,18 @@
     font-size: 1.1rem;
 }
 .pro-showing{
+    margin-top: 10px;
 
 }
 .pro-filterWord{
     font-family: notoSansTC-Medium;
+    
 }
+.pro-filterWordA{
+    font-family: notoSansTC-Medium;
+}
+
+
 
 
 /* ------------------productAndCategory------ */
@@ -211,6 +218,7 @@
     color:white;
     padding: 13px 0 0 20px;
     font-size: 1.5rem;
+    text-decoration:none;
 
 }
 

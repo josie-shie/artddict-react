@@ -74,27 +74,37 @@ function ProductList() {
             <div className="prolist-topofmiddle">
               <div className="prolist-filter d-flex ">
                 <div className="prolist-arrangeAndIcon d-flex col-4">
-                  <div>
-                    <div className="ed-select-box cn-font p-1">
-                      <div className="pr-3 pro-filterWord">
-                        排列
-                      </div>
-                      <select
-                        className="ed-select pl-2"
-                        name=""
-                        id=""
+                  <div
+                    className="ed-select-box cn-font col-6 p-0 d-flex
+              "
+                  >
+                    <h6 className="col-5 px-0 text-center pro-filterWordA">
+                      排列
+                    </h6>
+                    <select
+                      className="ed-select col-7 pro-filterWord"
+                      name=""
+                      id=""
+                    >
+                      <option
+                        value=""
+                        className="pro-filterWord"
                       >
-                        <option
-                          style={{ color: '#707070' }}
-                          value=""
-                          className=" pl-4 pro-filterWord"
-                        >
-                          推薦
-                        </option>
-                        <option value="">價格嗨</option>
-                        <option value="">價格嗨</option>
-                      </select>
-                    </div>
+                        請選擇
+                      </option>
+                      <option
+                        value=""
+                        className="pro-filterWord"
+                      >
+                        價格
+                      </option>
+                      <option
+                        value=""
+                        className="pro-filterWord"
+                      >
+                        oooo
+                      </option>
+                    </select>
                   </div>
                   <div className="prolist-searchIcon">
                     <GoSearch size={30} />
@@ -164,7 +174,7 @@ function ProductList() {
                   <p>文具</p>
                 </div>
               </Link>
-              <Link style={{ textDecoration: 'none' }}>
+              <Link>
                 <div className="pro-books">
                   <p>書籍</p>
                 </div>
