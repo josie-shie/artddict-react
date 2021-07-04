@@ -336,3 +336,7 @@ font-family: notoSansTC-Medium;
 .proDe-commentsName{
     border: 1px solid #8e8e8e;
 }
+.proDe-lastWord{
+    font-family: notoSansTC-Regular;
+    font-size: 1.1rem;
+}

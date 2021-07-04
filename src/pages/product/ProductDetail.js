@@ -406,7 +406,7 @@ function ProductDetail() {
                   aria-expanded={open4}
                   className="ed-comment e-btn-m mb-5 mt-5 proDe-commentsName"
                 >
-                  撰寫評論
+                  <p className="proDe-lastWord">撰寫評論</p>
                 </button>
                 <Collapse
                   in={open4}
@@ -428,7 +428,9 @@ function ProductDetail() {
                         className="ed-leave-msg e-btn-m col-l2 mt-3"
                         type="submit"
                       >
-                        送出評論
+                        <p className="proDe-lastWord">
+                          送出評論
+                        </p>
                       </button>
                     </form>
                   </div>
