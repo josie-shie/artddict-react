@@ -9,6 +9,7 @@ import Nav from './components/Nav'
 import Footer from './components/Footer'
 import Index from './pages/index/Index'
 import Map from './pages/map/Map'
+import MapEvent from './pages/map/MapEvent'
 import Event from './pages/event/Event'
 import ScrollToTop from './components/ScrollToTop'
 import Artist from './pages/artist/Artist'
@@ -37,6 +38,7 @@ import Ticket from './pages/user/Ticket'
 import TicketDetail from './pages/user/TicketDetail'
 import WorkShop from './pages/user/WorkShop'
 import WorkShopDetail from './pages/user/WorkShopDetail'
+import UserMyFav from './pages/user/UserMyFav'
 
 // Event
 import EventList from './pages/event/EventList'
@@ -59,6 +61,9 @@ function App() {
         <Nav />
         <ScrollToTop>
           <Switch>
+          <Route exact path="/map/museum:id">
+          <MapEvent />
+        </Route>
             <Route exact path="/auctionDetail/:id?">
               <AuctionDetail />
             </Route>
@@ -135,6 +140,9 @@ function App() {
             </Route>
             <Route exact path="/user-workshop">
               <WorkShop />
+            </Route>
+            <Route exact path="/user-myfav">
+              <UserMyFav />
             </Route>
             {/* <Route exact path="/auction">
               <Auction />

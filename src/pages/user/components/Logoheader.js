@@ -5,15 +5,13 @@ import '../styles/Logoheader.scss'
 function Logoheader() {
   return (
     <>
-      <div className="u-headerbox"></div>
-      <header>
+      <header className="d-none d-lg-block d-xl-block">
         <div className="u-container-fluid">
           <div className="u-logo-header">
             <img src={logo} alt="logo" />
           </div>
         </div>
       </header>
-      <div className="u-breadcrumb"></div>
     </>
   )
 }

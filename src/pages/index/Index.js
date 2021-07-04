@@ -75,7 +75,7 @@ const Index = () => {
             <h1>devotes to ART</h1>
             <h5 className="mt-1">to the moon and back</h5>
             <div className="start-scroll mt-1">
-              <p className="vertical-line mb-4">|</p>
+              <marquee direction="down" className="mt-2"><p className="vertical-line mb-4">|</p></marquee>
               <p>scroll Down</p>
             </div>
           </div>
@@ -176,7 +176,7 @@ const Index = () => {
           </div>
           <div className="text-center col-5 pl-0">
             <img
-              className="event-eye"
+              className="event-eye spin-img"
               src={eventicon}
               alt=""
             />
@@ -358,10 +358,10 @@ const Index = () => {
             </div>
           </div>
           <h4 className="notoSansTC-md auction-title-tc pl-3 mb-5">
-            藝術 <span>點綴生活</span>
+            藝術 <span>與我爭鋒</span>
           </h4>
           <div className="auctime">
-            <img className="w-100" src={auctime} alt="" />
+            <img className="w-100 spin-img" src={auctime} alt="" />
           </div>
           <div className="auction-card-wrap d-flex">
             <div className="auction-card col-3">
@@ -389,7 +389,7 @@ const Index = () => {
               </div>
             </div>
             <div className="auction-card col-3">
-              <img src={product1} alt="" />
+              <img  src={product1} alt="" />
               <div className="index-card-rect"></div>
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">

@@ -125,7 +125,7 @@ function CartProduct() {
                 總計：<sapn className="h4">NT$ 1,560</sapn>
               </p>
               <p className="c-bline ml-5 mt-3">
-                運費＆退貨條款
+                選取你的折扣碼
               </p>
             </div>
           </div>

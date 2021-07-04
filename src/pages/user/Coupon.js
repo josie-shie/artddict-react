@@ -28,7 +28,7 @@ class Coupon extends React.Component {
       text: coupon_msg,
       icon: msg_type,
       button: false,
-      timer: 1000,
+      timer: 1500,
     })
 
     window.getSelection().removeAllRanges() // 取消選取範圍
@@ -41,7 +41,7 @@ class Coupon extends React.Component {
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
-        <div className="u-userMenu">
+        <div className="u-userMenu d-none d-lg-block d-xl-block">
           <Menu />
         </div>
         <div className="u-couponbox d-flex">

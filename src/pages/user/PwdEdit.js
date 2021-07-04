@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom'
 import Menu from './components/Menu'
 import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
+import { Container } from 'react-bootstrap'
 
 function PwdEdit() {
   return (
@@ -13,10 +14,10 @@ function PwdEdit() {
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
-        <div className="u-userMenu">
+        <div className="u-userMenu d-none d-lg-block d-xl-block">
           <Menu />
         </div>
-        <div className="u-container-fluid">
+        <Container fluid>
           <div className="d-flex u-row justify-content-around">
             <div className="u-usertitleLeft">
               <Link to="/user-msgedit">會員資料</Link>
@@ -25,8 +26,8 @@ function PwdEdit() {
               <Link to="/user-pwdEdit">修改密碼</Link>
             </div>
           </div>
-        </div>
-        <div className="u-userData">
+        </Container>
+        <div className="u-userData col-6">
           <form>
             <div className="form-group u-form">
               <input

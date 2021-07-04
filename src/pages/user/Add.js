@@ -1,4 +1,4 @@
-import { Carousel } from 'react-bootstrap'
+import { Carousel, Container } from 'react-bootstrap'
 import React, { useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import './styles/Add.scss'
@@ -72,8 +72,8 @@ function User(props) {
     <>
       <div className="u-body">
         <Logoheader />
-        <div className="d-flex">
-          <div className="u-contanier1 col-lg-5 d-none d-lg-block d-xl-block">
+        <Container className="d-flex">
+          <div className="u-contanier1 col-lg-6 d-none d-lg-block d-xl-block">
             <div className="u-img-carousel">
               <Carousel
                 fade
@@ -136,9 +136,9 @@ function User(props) {
             </div>
           </div>
 
-          <div className="u-container2 col-5">
-            <div className="u-member">
-              <h1>MEMBERSHIP</h1>
+          <div className="u-container2 col-lg-6 col-sm-12">
+            <div className="u-membertile">
+              <p>MEMBERSHIP</p>
             </div>
             <div className="u-addInput">
               <div className="u-addbutton d-flex justify-content-around">
@@ -254,7 +254,7 @@ function User(props) {
               </form>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
     </>
   )

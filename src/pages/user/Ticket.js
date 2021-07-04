@@ -3,7 +3,7 @@ import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
 import Menu from './components/Menu'
 import { Link } from 'react-router-dom'
-import { Button } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
 import './styles/Ticket.scss'
 import TicketDetail from './TicketDetail'
 
@@ -16,10 +16,10 @@ function Ticket() {
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
-        <div className="u-userMenu">
+        <div className="u-userMenu d-none d-lg-block d-xl-block">
           <Menu />
         </div>
-        <div className="u-container-fluid">
+        <Container fluid>
           <div className="d-flex u-row justify-content-around">
             <div className="u-userEve">
               <Link to="/user-ticket">活動展</Link>
@@ -85,7 +85,7 @@ function Ticket() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
     </>
   )

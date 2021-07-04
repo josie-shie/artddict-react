@@ -1,5 +1,6 @@
 import React from 'react'
 import Menu from './components/Menu'
+import { Container } from 'react-bootstrap'
 import Logoheader from './components/Logoheader'
 import './styles/OrderTic.scss'
 import { Link } from 'react-router-dom'
@@ -13,11 +14,11 @@ function OrderTic() {
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
-        <div className="u-userMenu">
+        <div className="u-userMenu d-none d-lg-block d-xl-block">
           <Menu />
         </div>
-        <div className="u-container-fluid">
-          <div className="u-orderItem d-flex justify-content-around">
+        <Container fluid>
+          <div className="u-row d-flex justify-content-around">
             <div className="u-userPro1">
               <Link to="/user-orderpro">商品</Link>
             </div>
@@ -26,7 +27,7 @@ function OrderTic() {
             </div>
           </div>
           <div className="u-progress">
-            <div className="pr-3">進度查詢</div>
+            <div className="pr-3 pl-3">進度查詢</div>
             <select
               className="user-select pl-3"
               name=""
@@ -82,7 +83,7 @@ function OrderTic() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
     </>
   )

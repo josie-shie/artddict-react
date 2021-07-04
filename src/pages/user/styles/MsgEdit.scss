@@ -1,20 +1,17 @@
 // ----- 麵包屑 -----
 .u-breadcrumb {
   margin-top: 20px;
-  margin-left: 70px;
 }
 
 // ===== Menu =====
 .u-userMenu {
   margin-top: 10px;
-  margin-left: 70px;
 }
 
 // ----- 大標 -----
 .u-row {
   margin-top: 30px;
-  width: 1045px;
-  margin-left: 0px;
+  width: 74vw;
   border-top: 2px solid #000;
   border-bottom: 2px solid #000;
 }
@@ -23,7 +20,7 @@
 .u-usertitleRight1 {
   margin-top: 10px;
   margin-bottom: 10px;
-  width: 480px;
+  width: 100%;
   height: 70px;
   text-align: center;
   line-height: 70px;
@@ -53,7 +50,7 @@
 
 /* =====btn 自訂顏色===== */
 .u-editBtn > .btn-outline-dark {
-  margin-left: 190px;
+  margin-left: 12vw;
   margin-bottom: 30px;
   width: 130px;
   height: 50px;
@@ -61,7 +58,8 @@
   font-size: 20px;
   color: #000;
   background-color: #e8e8e8;
-  border:2px solid #000;
+  border: 2px solid #000;
+  border-radius: 0px;
 }
 
 .u-editBtn > .btn-outline-dark:hover,
@@ -73,34 +71,38 @@
 }
 
 .u-editBtn {
-    margin-top: 50px;
+  margin-top: 20px;
+  
+}
+
+.u-userData {
+  margin-left: 18vw;
 }
 
 // ----- input 樣式 -----
 .u-form1 > input {
-  width: 520px;
-  height: 60px;
+  width: 50%;
+  height: 50px;
   background-color: #e8e8e8;
   border: 2px solid #000;
   font-family: 'Noto Sans TC', sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   margin-top: 5px;
-}
-
-.u-form1 > input:-webkit-autofill,
-textarea:-webkit-autofill,
-select:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #e8e8e8 inset;
+  border-radius: 0px;
+  &:focus {
+    outline: none !important;
+    border: 2px solid #1d0aff;
+    background-color: #e8e8e8;
+  }
 }
 
 .u-form1 > select {
-  width: 520px;
-  height: 60px;
+  width: 100%;
+  height: 50px;
   background-color: #e8e8e8;
   border: 2px solid #000;
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 16px;
-  border-radius: 3px;
   margin-top: 5px;
 }
 
@@ -110,31 +112,27 @@ select:-webkit-autofill {
   margin-top: 10px;
 }
 
-.u-userData {
-  margin-left: 370px;
-}
-
 .u-Select > select {
-  width: 250px;
-  height: 60px;
-  border-radius: 3px;
+  width: 17vw;
+  height: 50px;
   background-color: #e8e8e8;
   border: 2px solid #000;
   margin-bottom: 20px;
   margin-top: 5px;
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: normal;
 }
 
 .u-sel2 {
-  margin-left: 20px;
+  margin-left: 14px;
 }
 
-.u-sel1, .u-sel2{
+.u-sel1,
+.u-sel2 {
   -webkit-appearance: none;
   -moz-appearance: none;
   background: transparent;
-  background-image: url("../img/select-arrow.svg");
+  background-image: url('../img/select-arrow.svg');
   background-repeat: no-repeat;
   background-position-x: 100%;
   background-position-y: 50%;
@@ -156,20 +154,18 @@ select:-webkit-autofill {
   margin-right: 50px;
 }
 
-
-
-.u-gender-box > input[type="checkbox"]{
+.u-gender-box > input[type='checkbox'] {
   width: 25px;
   height: 25px;
   border: 2px solid #000;
-  padding-top: 10px; 
+  padding-top: 10px;
   margin-top: 10px;
   cursor: pointer;
   position: relative;
   margin-left: 50px;
 }
 
-.u-gender-box > input[type='checkbox']:after{
+.u-gender-box > input[type='checkbox']:after {
   position: absolute;
   width: 25px;
   height: 25px;
@@ -180,13 +176,11 @@ select:-webkit-autofill {
   display: inline-block;
   visibility: visible;
   padding: 0px 3px;
-  border-radius: 3px;
   border: 2px solid #000;
 }
 
-.u-gender-box > input[type='checkbox']:checked:after{
+.u-gender-box > input[type='checkbox']:checked:after {
   content: '✓';
   font-size: 20px;
   background-color: #000;
 }
-
