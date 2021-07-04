@@ -94,11 +94,11 @@
 .prolist-full2{
     background-color: #e8e8e8;
     height: 2000px;
-    width: calc(100vw - 80px);
+    width: calc(100vw - 70px);
 }
 .prolist-row{
     /* background-color: rgb(124, 252, 252); */
-    width:calc(100vw - 210px);
+    width:85vw;
     height: 2000px;
     margin: 0 auto;
 }
