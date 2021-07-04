@@ -130,24 +130,9 @@ function ProductDetail() {
                 <div className="proDe-sizeBtnBox">
                   <div className="proDe-sizeBtnBox2 d-flex">
                     <div className="proDe-sizeBtn d-flex">
-                      <Button
-                        variant="outline-dark"
-                        size="lg"
-                      >
-                        S
-                      </Button>
-                      <Button
-                        variant="outline-dark"
-                        size="lg"
-                      >
-                        M
-                      </Button>
-                      <Button
-                        variant="outline-dark"
-                        size="lg"
-                      >
-                        L
-                      </Button>
+                      <button>S</button>
+                      <button>M</button>
+                      <button>L</button>
                     </div>
                     <div className="proDe-sizeCheck">
                       <Link
