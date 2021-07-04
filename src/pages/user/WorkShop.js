@@ -2,7 +2,7 @@ import React from 'react'
 import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
 import Menu from './components/Menu'
-import { Button } from 'react-bootstrap'
+import { Button, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './styles/WorkShop.scss'
 import TicketDetail from './TicketDetail'
@@ -16,10 +16,10 @@ function WorkShop() {
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
-        <div className="u-userMenu">
+        <div className="u-userMenu d-none d-lg-block d-xl-block">
           <Menu />
         </div>
-        <div className="u-container-fluid">
+        <Container>
           <div className="d-flex u-row justify-content-around">
             <div className="u-userEve1">
               <Link to="/user-ticket">活動展</Link>
@@ -85,7 +85,7 @@ function WorkShop() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
     </>
   )
