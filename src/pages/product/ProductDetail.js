@@ -11,7 +11,8 @@ import Slider from 'react-slick'
 import {
   IoIosArrowBack,
   IoIosArrowForward,
-  IoIosHeart,
+  IoMdHeart,
+  IoIosStar,
 } from 'react-icons/io'
 import lightLogo from './svg/lightLogo.svg'
 // ---------picture------------
@@ -68,7 +69,51 @@ function ProductDetail() {
               </div>
               {/* --------------商品名稱SIZE zone------- */}
 
-              <div className="proDe-chooseBox"></div>
+              <div className="proDe-chooseBox">
+                <div className="proDe-nameAndHeart d-flex">
+                  <div className="proDe-name">
+                    <p>威廉 玫瑰粉 披肩</p>
+                  </div>
+                  <div className="proDe-heartlogo">
+                    <IoMdHeart
+                      size={40}
+                      color={'#FFFFFF'}
+                    />
+                  </div>
+                </div>
+                <div className="proDe-starsComment d-flex">
+                  <div className="proDe-stars">
+                    <IoIosStar
+                      size={30}
+                      color={'#1D0AFF'}
+                    />
+                    <IoIosStar
+                      size={30}
+                      color={'#1D0AFF'}
+                    />
+                    <IoIosStar
+                      size={30}
+                      color={'#1D0AFF'}
+                    />
+                    <IoIosStar
+                      size={30}
+                      color={'#1D0AFF'}
+                    />
+                    <IoIosStar
+                      size={30}
+                      color={'#1D0AFF'}
+                    />
+                  </div>
+                  <div className="proDe-scoresAndWrite">
+                    <p>
+                      5(12)
+                      <span className="proDe-writee">
+                        撰寫評論
+                      </span>
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
