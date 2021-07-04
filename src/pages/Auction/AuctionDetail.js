@@ -1,14 +1,26 @@
 import React, { useEffect, useState } from 'react';
-import './style/auctionDetail.css';
+import './style/auctionDetail.scss';
 import { withRouter, Link } from 'react-router-dom'
 import monkey from './images/monkey.jpg'
 import ArtDDICTLOGbw from './images/ArtDDICTLOGbw.svg'
 import AuctionDetailcountDown from './components/AuctionDetailcountDown'
 import useInterval from './components/useInterval'
+import { Container, Row, Button, Collapse, } from 'react-bootstrap'
+import minusButton from './images/minusButton.svg'
+// react icons
+import {
+  IoIosArrowBack,
+  IoIosArrowForward,
+  IoIosArrowRoundDown,
+  IoIosSearch,
+  IoIosHeart,
+  IoMdAdd,
+  IoMdRemove,
+} from 'react-icons/io'
+
 
 //模擬伺服器端的資料
 import { data } from './data/data.js'
-
 
 function AuctionDetail(props) {
   //倒數計時器間隔
@@ -16,10 +28,15 @@ function AuctionDetail(props) {
   //倒數計時器停止與否  
   const [isRunning, setIsRunning] = useState(true);
 
-  //是否要進行倒數
+  //是否要顯示倒數
   const [auctionRunning, setAuctionrunning] = useState(false)
   //是否還在loading 若loading 會給予空白 loading完成 render在螢幕上
   const [loading, setLoading] = useState('')
+
+  //商品描述開關
+  const [openOne, setOpenOne] = useState(false);
+  const [openTwo, setOpenTwo] = useState(false);
+  const [openThree, setOpenThree] = useState(false);
 
   //預設資料物件
   const [aucProduct, setAucProduct] = useState(
@@ -31,6 +48,8 @@ function AuctionDetail(props) {
     }
   )
 
+  
+console.log(props)
   //剩餘時間
   const [auctionDetailcountdown, setAuctionDetailcountdown] = useState([0, 0, 0, -1])
 
@@ -50,7 +69,7 @@ function AuctionDetail(props) {
     if (product)
       setAucProduct(product)
     newAucProduct = product
-    console.log('抓資料', newAucProduct)
+    // console.log('抓資料', newAucProduct)
 
   }, [])
 
@@ -70,7 +89,7 @@ function AuctionDetail(props) {
     const minutes = Math.floor((TimeRemaining / 1000 / 60) % 60);
     const hours = Math.floor((TimeRemaining / (1000 * 60 * 60)) % 24);
     const days = Math.floor(TimeRemaining / (1000 * 60 * 60 * 24));
-    console.log( days, "天", hours, '小時', minutes, '分鐘', seconds, '秒')
+    // console.log(days, "天", hours, '小時', minutes, '分鐘', seconds, '秒')
 
 
     return [days, hours, minutes, seconds]
@@ -83,13 +102,13 @@ function AuctionDetail(props) {
     let newAucProductTimeRemaining = TimeRemaining(newAucProduct.deadline)
     //第一次計算剩餘時間(react資料流)
     // TimeRemaining(aucProduct.deadline)
-    const cc =newAucProductTimeRemaining.reduce((a, b)=> a + b)
+    const cc = newAucProductTimeRemaining.reduce((a, b) => a + b)
     if (cc < 0) {
-      console.log('競標結束')
+      // console.log('競標結束')
       setLoading('競標結束')
       setIsRunning(false)
-    }else{
-      console.log('競標繼續')
+    } else {
+      // console.log('競標繼續')
     }
   }, [])
 
@@ -107,14 +126,14 @@ function AuctionDetail(props) {
       setIsRunning(false)
       setLoading('競標結束')
       console.log('bye')
-    }else{
-      console.log("有進來嗎")
+    } else {
+      // console.log("有進來嗎")
       setAuctionrunning(true)
     }
   }, isRunning ? delay : null)
 
 
-  console.log('--------------------')
+  // console.log('--------------------')
   return (
     <>
       <div className="auctionDetailContent">
@@ -139,51 +158,76 @@ function AuctionDetail(props) {
             </div>
           </div>
           <div className="leftContent_thirdpart">
-            <div className="auctionDetailProductDesTitle">
-              <div>商品描述</div>
-              <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="29" height="4" viewBox="0 0 29 4">
-                  <line id="Line_134" data-name="Line 134" x2="25" transform="translate(2 2)" fill="none" stroke="#fff" strokeLinecap="round" strokeWidth="4" />
-                </svg>
+            <div className="auctionDetailProductswitchTitle">
+              <button
+                className="auc-switch-buttom"
+                onClick={() => setOpenOne(!openOne)}
+                aria-controls="example-collapse-text"
+                aria-expanded={openOne}
+              >
+                {/* <img src={minusButton} /> */}
+                <span className="mr-auto">商品描述</span>
+                <span>
+                  <IoMdRemove />
+                </span>
+              </button>
+            </div>
+            <Collapse in={openOne}>
+              <div id="example-collapse-text">
+                <div className="auctionDetailProductDesContent">
+                  1889年9月，荷蘭後印象派畫家文森特·梵谷（Vincent van Gogh）在畫布上用油畫了自畫像。這幅作品可能是梵谷的最後一幅自畫像，是在他離開法國南部聖雷米的普羅旺斯之前不久畫的。這幅畫現在在巴黎的奧賽博物館（Muséed'Orsay）展出。
+                </div>
               </div>
-            </div>
-            <div className="auctionDetailProductDesContent">
-              1889年9月，荷蘭後印象派畫家文森特·梵谷（Vincent van Gogh）在畫布上用油畫了自畫像。這幅作品可能是梵谷的最後一幅自畫像，是在他離開法國南部聖雷米的普羅旺斯之前不久畫的。這幅畫現在在巴黎的奧賽博物館（Muséed'Orsay）展出。
-            </div>
+            </Collapse>
           </div>
           <div className="leftContent_forthpart">
-            <div className="auctionSpecification">
-              <div>商品規格</div>
-              <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="29" height="30.5" viewBox="0 0 29 30.5">
-                  <g id="Group_156" data-name="Group 156" transform="translate(2 2)">
-                    <g id="Group_153" data-name="Group 153">
-                      <line id="Line_59" data-name="Line 59" x2="25" transform="translate(0 13.25)" fill="none" stroke="#fff" strokeLinecap="round" strokeWidth="4" />
-                      <line id="Line_60" data-name="Line 60" y1="26.5" transform="translate(12.5)" fill="none" stroke="#fff" strokeLinecap="round" strokeWidth="4" />
-                    </g>
-                  </g>
-                </svg>
-              </div>
+            <div className="auctionDetailProductswitchTitle">
+              <button
+                className="auc-switch-buttom"
+                onClick={() => setOpenTwo(!openTwo)}
+                aria-controls="example-collapse-text"
+                aria-expanded={openTwo}
+              >
+                {/* <img src={minusButton} /> */}
+                <span className="mr-auto">商品規格</span>
+                <span>
+                  <IoMdRemove />
+                </span>
+              </button>
             </div>
-            <div></div>
+            <Collapse in={openTwo}>
+              <div id="example-collapse-text">
+                <div className="auctionDetailProductDesContent">
+                  aaaa
+                </div>
+              </div>
+            </Collapse>
           </div>
           <div className="leftContent_fifthpart">
-            <div className="priceRecord">
-              <div className="priceRecordTitle">出價紀錄</div>
-              <div>
-                <svg xmlns="http://www.w3.org/2000/svg" width="29" height="30.5" viewBox="0 0 29 30.5">
-                  <g id="Group_156" data-name="Group 156" transform="translate(2 2)">
-                    <g id="Group_153" data-name="Group 153">
-                      <line id="Line_59" data-name="Line 59" x2="25" transform="translate(0 13.25)" fill="none" stroke="#fff" strokeLinecap="round" strokeWidth="4" />
-                      <line id="Line_60" data-name="Line 60" y1="26.5" transform="translate(12.5)" fill="none" stroke="#fff" strokeLinecap="round" strokeWidth="4" />
-                    </g>
-                  </g>
-                </svg>
-              </div>
+            <div className="auctionDetailProductswitchTitle">
+              <button
+                className="auc-switch-buttom"
+                onClick={() => setOpenThree(!openThree)}
+                aria-controls="example-collapse-text"
+                aria-expanded={openThree}
+              >
+                {/* <img src={minusButton} /> */}
+                <span className="mr-auto">出價紀錄</span>
+                <span>
+                  <IoMdRemove />
+                </span>
+              </button>
             </div>
-            <div></div>
+            <Collapse in={openThree}>
+              <div id="example-collapse-text">
+                <div className="auctionDetailProductDesContent">
+                  aaaa
+                </div>
+              </div>
+            </Collapse>
           </div>
         </div>
+        {/* <div className="auc-vh"> */}
         <div className="rightContentFix">
           <div className="auctionDetailrightContent">
             {console.log('render一波')}
@@ -213,6 +257,7 @@ function AuctionDetail(props) {
             </button>
           </div>
         </div>
+      {/* </div> */}
       </div>
     </>
   );

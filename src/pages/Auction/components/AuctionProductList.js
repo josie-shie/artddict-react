@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import '../style/AuctionProductList.css';
+import '../style/AuctionProductList.scss';
 import { withRouter,Link } from 'react-router-dom'
 import '../../../bootstrap/css/bootstrap.css'
 import AuctionProductCard from './AuctionProductCard'
@@ -8,7 +8,6 @@ import AuctionProductCard from './AuctionProductCard'
 
 function AuctionProductList(props) {
     const {data} = props
-    console.log(data)
 
     function TimeRemaining(deadline) {
         //截止時間(毫秒)
@@ -25,7 +24,7 @@ function AuctionProductList(props) {
         const minutes = Math.floor((TimeRemaining / 1000 / 60) % 60);
         const hours = Math.floor((TimeRemaining / (1000 * 60 * 60)) % 24);
         const days = Math.floor(TimeRemaining / (1000 * 60 * 60 * 24));
-        console.log(days, "天", hours, '小時', minutes, '分鐘', seconds, '秒')
+        // console.log(days, "天", hours, '小時', minutes, '分鐘', seconds, '秒')
 
 
         return [days, hours, minutes, seconds]
