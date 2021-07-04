@@ -1,4 +1,4 @@
-import { Carousel } from 'react-bootstrap'
+import { Carousel, Container } from 'react-bootstrap'
 import React from 'react'
 import './styles/Login.scss'
 import { Link } from 'react-router-dom'
@@ -21,8 +21,8 @@ function Login() {
     <>
       <div className="u-body">
         <Logoheader />
-        <div className="d-flex">
-          <div className="u-contanier1 col-lg-5 d-none d-lg-block d-xl-block">
+        <Container className="d-flex">
+          <div className="u-contanier1 col-lg-6 d-none d-lg-block d-xl-block">
             <div className="u-img-carousel">
               <Carousel
                 fade
@@ -84,9 +84,9 @@ function Login() {
             </div>
           </div>
 
-          <div className="u-container2 col-5">
-            <div className="u-member">
-              <h1>MEMBERSHIP</h1>
+          <div className="u-container2  col-lg-6 col-sm-12">
+            <div className="u-membertile">
+              <p>MEMBERSHIP</p>
             </div>
             <div className="u-addInput">
               <div className="u-addbutton d-flex justify-content-around">
@@ -148,7 +148,7 @@ function Login() {
               </form>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
     </>
   )

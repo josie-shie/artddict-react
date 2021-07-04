@@ -1,26 +1,4 @@
-@font-face {
-  font-family: NotoSansTC-md;
-  src: url(../../../style/font/NotoSansTC-Medium.otf);
-}
-@font-face {
-  font-family: NotoSansTC-md;
-  src: url(../../../style/font/NotoSansTC-Bold.otf);
-}
-/* step */
-/* shipping info */
-/* .c-shippinginfo1 label {
-  font-family: NotoSansTC;
-  font-weight: medium;
-} */
-/* chechout */
-/* order list */
-.c-bg {
-  width: calc(100% - 70px);
-  height: 100%;
-  background-color: #e8e8e8;
-  padding: 0 10vw;
-  font-family: NotoSansTC;
-}
+
 .c-f12 {
   font-size: 12px;
 }
@@ -49,7 +27,6 @@
   }
 }
 .c-step {
-  font-weight: bold;
   font-size: 20px;
   padding: 50px 0 60px;
 }

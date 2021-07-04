@@ -4,6 +4,7 @@ import Menu from './components/Menu'
 import { Link } from 'react-router-dom'
 import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
+import { Container } from 'react-bootstrap'
 
 function OrderPro() {
   return (
@@ -13,11 +14,11 @@ function OrderPro() {
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
-        <div className="u-userMenu">
+        <div className="u-userMenu d-none d-lg-block d-xl-block">
           <Menu />
         </div>
-        <div className="u-container-fluid">
-          <div className="u-orderItem d-flex justify-content-around">
+        <Container fluid>
+          <div className="u-row d-flex justify-content-around">
             <div className="u-userPro">
               <Link to="/user-orderpro">商品</Link>
             </div>
@@ -78,7 +79,7 @@ function OrderPro() {
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
     </>
   )

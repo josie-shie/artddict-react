@@ -2,10 +2,13 @@ import React from 'react'
 import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
 import Menu from './components/Menu'
+import { Button, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './styles/WorkShop.scss'
+import TicketDetail from './TicketDetail'
 
 function WorkShop() {
+  const [modalShow, setModalShow] = React.useState(false)
   return (
     <>
       <div className="u-body">
@@ -13,10 +16,10 @@ function WorkShop() {
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
-        <div className="u-userMenu">
+        <div className="u-userMenu d-none d-lg-block d-xl-block">
           <Menu />
         </div>
-        <div className="u-container-fluid">
+        <Container fluid>
           <div className="d-flex u-row justify-content-around">
             <div className="u-userEve1">
               <Link to="/user-ticket">活動展</Link>
@@ -61,17 +64,28 @@ function WorkShop() {
                 </Link>
               </div>
               <div className="u-BtnBlack">
-                <Link
+                {/* <Link
                   to="/user-workshop/detail"
                   className="u-link3"
                   style={{ textDecoration: 'none' }}
                 >
                   票券細節
-                </Link>
+                </Link> */}
+                <Button
+                  className="u-ticdetail"
+                  variant="dark"
+                  onClick={() => setModalShow(true)}
+                >
+                  票券細節
+                </Button>
+                <TicketDetail
+                  show={modalShow}
+                  onHide={() => setModalShow(false)}
+                />
               </div>
             </div>
           </div>
-        </div>
+        </Container>
       </div>
     </>
   )
