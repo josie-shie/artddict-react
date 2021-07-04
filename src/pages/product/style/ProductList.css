@@ -185,7 +185,7 @@
 }
 .prolist-rightSide{
     background-color: greenyellow;
-    width: 67vw;
+    width: 60vw;
     height: 1500px;
 }
 
@@ -230,7 +230,7 @@
 }
 .prolist-imgBox{
 
-    border: 1px solid gray;
+    border:2px solid gray;
     border-bottom: 0 ;
 }
 
