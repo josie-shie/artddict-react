@@ -19,7 +19,29 @@ font-face {
 }
 
 .proDe-full{
-    width: 100vw;
+    width: calc(100vw - 70px);
     height: 2000px;
     background-color: #E8E8E8;
+}
+.proDe-leftSide{
+    width: 50vw;
+    height: 1000px;
+    background-color: aqua;
+}
+.proDe-rightSide{
+    width: 50vw;
+    height: 1000px;
+    background-color: black;
+}
+
+/* ------------slick-------- */
+.proDe-slickPic img{
+    width: 100%;
+}
+/* -------right hand side------ */
+.proDe-rightSideBox{
+    background-color: green;
+    width: 95%;
+    height: 2000px;
+    margin: 0 auto;
 }
