@@ -178,6 +178,18 @@ $egreylt: #E8E8E8;
     
 }
 
+
+.hero-event-1:hover, .hero-event-2:hover, .hero-event-3:hover{
+    border: 4px solid #81FC4D;
+    button{
+        opacity: 100%;
+    }
+    .e-line, .e-line2, .spin-img{
+        opacity: 0%;
+    }
+}
+
+
 .e-cover-black{
     width: 100%;
     height: 100%;
@@ -229,12 +241,27 @@ $egreylt: #E8E8E8;
     right: 20px;
 }
 
+
+
+.e-hero-get{
+    color: #81FC4D;
+    border: 2px solid #81FC4D;
+    font-size: 1.3rem;
+    font-weight: 500;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0%;
+}
+
+
 .e-line{
     width: 80%;
         border-top: 2px solid #81FC4D;
         top:50%;
         left: 50%;
         transform: translate(-50%,-50%) rotate(-45deg);
+        opacity: 100%;
 }
 .e-line2{
     width: 80%;
@@ -242,6 +269,7 @@ $egreylt: #E8E8E8;
         top:50%;
         left: 50%;
         transform: translate(-50%,-50%) rotate(45deg);
+        opacity: 100%;
 }
 
 // Vol.01 font-size
@@ -322,6 +350,13 @@ $egreylt: #E8E8E8;
     background-image: url(../images/museum/human-663298_1920.jpg);
     background-size: cover;
 
+}
+
+.e-exhi-event:hover{
+    button{
+        background-color: black;
+        color: white;
+    }
 }
 
 .e-exhi-white{
@@ -513,25 +548,54 @@ $egreylt: #E8E8E8;
         transform: translate(-50%,-50%) rotate(45deg);
     }
 
-    .e-work-box::after{
+    .e-work-border::after{
         position: absolute;
-        top: 0px;
-        left: 0px;
+        top: 0%;
+        left: 0%;
         content: '';
         display: block;
         width: 1.5rem;
         height: 1.5rem;
         background: white;
     }
-    .e-work-box2::after{
+    .e-work-border::before{
         position: absolute;
-        bottom: 0px;
-        right: 0px;
+        bottom: 0%;
+        right: 0%;
         content: '';
         display: block;
         width: 1.5rem;
         height: 1.5rem;
         background: white;
+    }
+
+    @keyframes workbox {
+    from{
+        left: 0%;
+    }
+    to{
+        left: calc(100% - 1.5rem);
+    }
+}
+
+ @keyframes workbox2 {
+    from{
+        right: 0%;
+    }
+    to{
+        right: calc(100% - 1.5rem);
+    }
+}
+
+
+    .e-work-border:hover::after{    
+        animation: workbox .8s;
+        animation-fill-mode: forwards;
+    }
+
+    .e-work-border:hover::before{    
+        animation: workbox2 .8s;
+        animation-fill-mode: forwards;
     }
 
     // !WORK 標題英文字
@@ -639,6 +703,33 @@ $egreylt: #E8E8E8;
         
         .e-city-area{
             border-top: 4px solid black;
+            border-bottom: 4px solid black;
+        }
+
+        .e-locat-card{
+            div{
+                div{
+                    div{
+                        opacity: .8;
+                    }
+                }
+            }
+        }
+
+        .e-locat-card{
+            div{
+                div{
+                    div:hover{
+                        opacity: 1;
+                        div{
+                            button{
+                                opacity: 1;
+                            }
+                        }
+                        
+                    }
+                }
+            }
         }
 
         .e-location-card{
@@ -647,8 +738,72 @@ $egreylt: #E8E8E8;
             box-sizing: border-box;
             border: 4px solid black;
             border-top: 0px;
+            
 
         }
+        .e-location-card2{
+            background-image: url(../images/museum/TNN00258.jpeg);
+            background-size: cover;
+            box-sizing: border-box;
+            border: 4px solid black;
+            border-top: 0px;
+           
+
+        }
+
+        .e-location-card3{
+            background-image: url(../images/museum/Taichun.jpg);
+            background-size: cover;
+            box-sizing: border-box;
+            border: 4px solid black;
+            border-top: 0px;
+       
+
+        }
+
+        .e-location-card4{
+            background-image: url(../images/museum/0012.jpeg);
+            background-size: cover;
+            box-sizing: border-box;
+            border: 4px solid black;
+            border-top: 0px;
+       
+
+        }
+        .e-location-card5{
+            background-image: url(../images/museum/Tainan.jpg);
+            background-size: cover;
+            box-sizing: border-box;
+            border: 4px solid black;
+            border-top: 0px;
+       
+
+        }
+        .e-location-card6{
+            background-image: url(../images/museum/KaoS.jpeg);
+            background-size: cover;
+            box-sizing: border-box;
+            border: 4px solid black;
+            border-top: 0px;
+            
+
+        }
+
+        .e-loca-btn{
+        color: white;
+        font-size: 20px;
+        width: 150px;
+        height: 50px;
+        border: 0px;
+        background-color: black;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        opacity: 0;
+        }
+
+
+
 
         .e-locaton-btn{
             border: 4px solid black;
