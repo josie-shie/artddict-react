@@ -173,6 +173,7 @@
     font-family: notoSansTC-Medium;
 }
 
+
 /* ------------------productAndCategory------ */
 .prolist-productAndCategory{
     justify-content: space-between;
@@ -180,6 +181,7 @@
 .prolist-leftSide{
     width: 200px;
     height: 800px;
+    margin-top: 50px;
 }
 .prolist-rightSide{
     background-color: greenyellow;
@@ -210,4 +212,45 @@
     color:white;
     padding: 13px 0 0 20px;
     font-size: 1.5rem;
+}
+
+/* ----------------product item--------- */
+.prolist-card{
+    padding: 0;
+    flex: 0 0 32%;
+  max-width: 32%;
+}
+.prolist-cardTop{
+    width: 100%;
+    height: 50px;
+}
+.prolist-imgBorderBox{
+    position: relative;
+
+}
+.prolist-imgBox{
+
+    border: 1px solid gray;
+    border-bottom: 0 ;
+}
+
+.prolist-imgBox img{
+    width: 100%;
+}
+.prolist-blackBar{
+    background-color:black;
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    bottom: 0%;
+}
+.prolist-cardWordBox {
+    padding-top: 5px;
+    justify-content:space-between;
+}
+.prolist-cardProName p{
+    font-family: notoSansTC-Medium;
+}
+.prolist-cardProPrice p {
+    font-family: notoSansTC-Medium;
 }

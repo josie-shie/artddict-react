@@ -8,7 +8,8 @@ import './style/ProductList.css'
 import logobk from './svg/logobk.svg'
 import { GoSearch } from 'react-icons/go'
 // ---------picture------------
-import listtitle from './img/producrList/listtitle.jpeg'
+import listtitle from './img/productList/listtitle.jpeg'
+import productPic1 from './img/productList/productPic1.jpeg'
 function ProductList() {
   return (
     <>
@@ -44,6 +45,8 @@ function ProductList() {
           </div>
         </div>
       </div>
+
+      {/* -------------------------Part2------ */}
       <div className="prolist-full2">
         <div className="prolist-row">
           <div className="prolist-topOflist">
@@ -123,6 +126,8 @@ function ProductList() {
               </p>
             </div>
           </div>
+
+          {/* --------------------Category------- */}
           <div className="prolist-productAndCategory d-flex">
             <div className="prolist-leftSide">
               <Link>
@@ -130,32 +135,110 @@ function ProductList() {
                   <p>美術館商品</p>
                 </div>
               </Link>
-              <div className="newArrival">
-                <p>新品上市</p>
-              </div>
-              <div className="hotProduct">
-                <p>暢銷商品</p>
-              </div>
-              <div className="pro-clothes">
-                <p>服飾</p>
-              </div>
-              <div className="pro-furniture">
-                <p>家飾</p>
-              </div>
-              <div className="pro-stationery">
-                <p>文具</p>
-              </div>
-              <div className="pro-books">
-                <p>書籍</p>
-              </div>
-              <div className="pro-accessories">
-                <p>配件</p>
-              </div>
-              <div className="pro-casual">
-                <p>休閒娛樂</p>
+              <Link>
+                <div className="newArrival">
+                  <p>新品上市</p>
+                </div>
+              </Link>
+              <Link>
+                <div className="hotProduct">
+                  <p>暢銷商品</p>
+                </div>
+              </Link>
+              <Link>
+                <div className="pro-clothes">
+                  <p>服飾</p>
+                </div>
+              </Link>
+              <Link>
+                <div className="pro-furniture">
+                  <p>家飾</p>
+                </div>
+              </Link>
+              <Link>
+                <div className="pro-stationery">
+                  <p>文具</p>
+                </div>
+              </Link>
+              <Link>
+                <div className="pro-books">
+                  <p>書籍</p>
+                </div>
+              </Link>
+              <Link>
+                <div className="pro-accessories">
+                  <p>配件</p>
+                </div>
+              </Link>
+              <Link>
+                <div className="pro-casual">
+                  <p>休閒娛樂</p>
+                </div>
+              </Link>
+            </div>
+
+            {/* ------------商品區------------ */}
+            <div className="prolist-rightSide">
+              <div className="d-flex justify-content-between">
+                {/* ---------------------- */}
+                <div className="prolist-card ">
+                  <div className="prolist-cardTop"></div>
+                  <div className="prolist-imgBorderBox">
+                    <div className="prolist-imgBox">
+                      <img src={productPic1} alt="" />
+                    </div>
+                    <div className="prolist-blackBar"></div>
+                  </div>
+                  <div className="prolist-cardWordBox d-flex">
+                    <div className="prolist-cardProName">
+                      <p>莫內 睡蓮 T恤</p>
+                    </div>
+                    <div className="prolist-cardProPrice">
+                      <p>490元</p>
+                    </div>
+                  </div>
+                </div>
+                {/* ---x2-- */}
+                <div className="prolist-card ">
+                  <div className="prolist-cardTop"></div>
+                  <div className="prolist-imgBorderBox">
+                    <div className="prolist-imgBox">
+                      <img src={productPic1} alt="" />
+                    </div>
+                    <div className="prolist-blackBar"></div>
+                  </div>
+                  <div className="prolist-cardWordBox d-flex">
+                    <div className="prolist-cardProName">
+                      <p>莫內 睡蓮 T恤</p>
+                    </div>
+                    <div className="prolist-cardProPrice">
+                      <p>490元</p>
+                    </div>
+                  </div>
+                </div>
+                {/* ---x3-- */}
+                <div className="prolist-card">
+                  <div className="prolist-cardTop"></div>
+                  <div className="prolist-imgBorderBox">
+                    <div className="prolist-imgBox">
+                      <img src={productPic1} alt="" />
+                    </div>
+                    <div className="prolist-blackBar"></div>
+                  </div>
+                  <div className="prolist-cardWordBox d-flex">
+                    <div className="prolist-cardProName">
+                      <p>莫內 睡蓮 T恤</p>
+                    </div>
+                    <div className="prolist-cardProPrice">
+                      <p>490元</p>
+                    </div>
+                  </div>
+                </div>
+                {/* ------------ */}
               </div>
             </div>
-            <div className="prolist-rightSide"></div>
+
+            {/* ----------------商品卡片截止線----- */}
           </div>
         </div>
       </div>
