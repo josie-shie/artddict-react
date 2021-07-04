@@ -14,6 +14,7 @@
 }
 
 .u-body {
+  width: calc(100% - 70px);
   background-color: #e8e8e8;
   min-height: 150vh;
 }
@@ -84,7 +85,7 @@
 
 .u-container2 {
   margin-top: 84px;
-  margin-left: -75px;
+  // margin-left: -75px;
 }
 
 .u-member {
@@ -143,7 +144,7 @@
 
 .u-gf {
   width: 520px;
-  height: 80px;
+  height: 90px;
   border-bottom: 2px solid #000;
   font-size: 60px;
 }
@@ -186,15 +187,15 @@ select:-webkit-autofill {
 
 .u-checkbox > input[type='checkbox']:after {
   position: absolute;
-  width: 20px;
-  height: 20px;
+  width: 23px;
+  height: 23px;
   top: 0;
   content: ' ';
   background-color: #e8e8e8;
   color: #fff;
   display: inline-block;
   visibility: visible;
-  padding: 0px 3px;
+  padding: 0px 4px;
   border-radius: 3px;
   border: 2px solid #000;
 }
@@ -213,61 +214,10 @@ select:-webkit-autofill {
 }
 
 // ----- label 文字 -----
-
 .u-checkbox > label {
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 14px;
 }
-
-/* =====btn 自訂顏色===== */
-
-// .btn-outline-dark {
-//   margin-top: 30px;
-//   width: 200px;
-//   height: 60px;
-//   font-family: 'Noto Sans TC', sans-serif;
-//   font-size: 24px;
-//   margin-left: 150px;
-//   color: #000;
-//   background-color: #e8e8e8;
-//   border-color: #000;
-// }
-
-// .btn-outline-dark:hover,
-// .btn-outline-dark:focus,
-// .btn-outline-dark:active:hover {
-//   color: #fff;
-//   background-color: #000;
-//   border-color: #000;
-// }
-
-/* .btn {
-    margin-top: 30px;
-    width: 200px;
-    height: 60px;
-    font-family: 'Noto Sans TC', sans-serif;
-    font-size: 24px;
-     margin-left: 150px;
-} */
-
-/*===== onClick =====*/
-/* .loginbtn {
-    width: 200px;
-    height: 70px;
-    margin-top: 13px;
-    background-color: #000;
-    text-align: center;
-    line-height:70px;
-} */
-
-/* .addbtn {
-    width: 200px;
-    height: 70px;
-    margin-top: 13px;
-    background-color: #000;
-    text-align: center;
-    line-height:70px;
-} */
 
 .u-link1 {
   color: #000;
