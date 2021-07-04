@@ -9,6 +9,7 @@ import Nav from './components/Nav'
 import Footer from './components/Footer'
 import Index from './pages/index/Index'
 import Map from './pages/map/Map'
+import MapEvent from './pages/map/MapEvent'
 import Event from './pages/event/Event'
 import ScrollToTop from './components/ScrollToTop'
 import Artist from './pages/artist/Artist'
@@ -60,6 +61,9 @@ function App() {
         <Nav />
         <ScrollToTop>
           <Switch>
+          <Route exact path="/map/museum:id">
+          <MapEvent />
+        </Route>
             <Route exact path="/auctionDetail/:id?">
               <AuctionDetail />
             </Route>
