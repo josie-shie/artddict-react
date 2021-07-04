@@ -1,19 +1,4 @@
-@font-face {
-  font-family: NotoSansTC-md;
-  src: url(../../../style/font/NotoSansTC-Medium.otf);
-}
-@font-face {
-  font-family: NotoSansTC-md;
-  src: url(../../../style/font/NotoSansTC-Bold.otf);
-}
 
-.c-bg {
-  width: calc(100% - 70px);
-  height: 100%;
-  background-color: #e8e8e8;
-  padding: 0 10vw;
-  font-family: NotoSansTC;
-}
 .c-f12 {
   font-size: 12px;
 }
@@ -41,11 +26,7 @@
     }
   }
 }
-.c-step {
-  font-weight: bold;
-  font-size: 20px;
-  padding: 50px 0 60px;
-}
+
 .c-shipment2 {
   padding-bottom: 3px;
   border-bottom: 2px solid black;
