@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { Container, Row } from 'react-bootstrap'
 import Marquee from './components/Marquee'
 import MarqueeWork from './components/MarqueeWork'
@@ -49,13 +49,30 @@ function event() {
             </div>
 
             <div className="col-12">
-              <h3 className="cn-font e-topic">親身參與</h3>
-              <h3 className="cn-font e-topic">
-                每一場關於藝術的盛宴
-              </h3>
-              <h3 className="cn-font e-topic">
-                陶冶於文藝的氛圍中，散發出如藝術品般的氣息
-              </h3>
+              <div className="position-relative overflow-hidden">
+                <h3 className="cn-font e-topic e-green-ani position-absolute e-move1 e-delay1">
+                  &emsp;&emsp;&emsp;&emsp;
+                </h3>
+                <h3 className="e-word-ani cn-font e-topic e-delay1">
+                  親身參與
+                </h3>
+              </div>
+              <div className="position-relative overflow-hidden">
+                <h3 className="e-green-ani cn-font e-topic position-absolute e-delay2 e-move2">
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                </h3>
+                <h3 className="e-word-ani cn-font e-topic e-delay2 ">
+                  每一場關於藝術的盛宴
+                </h3>
+              </div>
+              <div className="position-relative overflow-hidden">
+                <h3 className="e-green-ani cn-font e-topic position-absolute e-delay3 e-move3">
+                  &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                </h3>
+                <h3 className="e-word-ani cn-font e-topic e-delay3">
+                  陶冶於文藝的氛圍中，散發出如藝術品般的氣息
+                </h3>
+              </div>
             </div>
           </div>
 
@@ -152,8 +169,11 @@ function event() {
               >
                 VOL.0<span className="bigger">2</span>
               </h2>
-              <div className="e-line position-absolute"></div>
-              <div className="e-line2 position-absolute"></div>
+              <img
+                className="position-absolute spin-img"
+                src={ESpin}
+                alt=""
+              />
             </div>
             <div className=" col-3 hero-event-3 p-0">
               <div className="e-cover-black">
@@ -241,7 +261,7 @@ function event() {
             </div>
             <div className="e-spin-eye-area position-absolute">
               <img
-                className="e-spin-eye col-7"
+                className="e-spin-eye spin-img col-7"
                 src={ESpinBl}
                 alt=""
               />
@@ -527,7 +547,6 @@ function event() {
                 </button>
               </div>
             </div>
-
           </Row>
         </Container>
       </div>
@@ -535,4 +554,4 @@ function event() {
   )
 }
 
-export default event
+export default withRouter(event)

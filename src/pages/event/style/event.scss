@@ -12,6 +12,96 @@
     width: 100%;
 }
 
+// ?Color Variable
+
+$egreen: #81FC4D;
+$eblue: #1D0AFF;
+$egreydk: #A7A7A7;
+$egreylt: #E8E8E8;
+
+// TODO: SPINNER 
+
+.spin-img{
+    animation: spinning 200s linear infinite alternate;
+}
+
+@keyframes spinning {
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(7200deg);}
+}
+
+.e-green-ani{
+    background-color: #81FC4D ;
+    top: 0%;
+    left: 0%;
+    transform: translate(0%,0%);
+    animation-duration:2s;
+    animation-fill-mode: forwards;
+}
+
+.e-move1{
+     animation-name:eBarMove1;
+}
+.e-move2{
+     animation-name:eBarMove2;
+}
+.e-move3{
+     animation-name:eBarMove3;
+}
+
+@keyframes eBarMove1 {
+    from{
+        width: 10%;
+    }
+    to{
+        width: 0%;
+    }
+}
+
+@keyframes eBarMove2 {
+    from{
+        width: 25%;
+    }
+    to{
+        width: 0%;
+    }
+}
+
+@keyframes eBarMove3 {
+    from{
+        width: 50%;
+    }
+    to{
+        width: 0%;
+    }
+}
+
+.e-word-ani{
+    opacity: 100%;
+    animation-name:eWordShow;
+    animation-duration:1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes eWordShow {
+    from{
+        opacity: 0%;
+    }
+    to{
+        opacity: 100%;
+    }
+}
+
+.e-delay1{
+    animation-delay:1s;
+}
+.e-delay2{
+    animation-delay:1.5s;
+}
+.e-delay3{
+    animation-delay:2s;
+}
+
 
 
 
@@ -72,6 +162,13 @@
 .hero-event-2{
     background-image: url(../images/museum/art-542320__480.jpeg);
     background-size: cover;
+    img{
+        width: 65%;
+        top:17%;
+        left: 20%;
+        transform: translate(-50%,-50%);
+    }
+
     
 }
 
