@@ -44,6 +44,14 @@ import EventDetail from './pages/event/EventDetail'
 import WorkshopShare from './pages/event/WorkshopShare'
 import WorkshopUpload from './pages/event/WorkshopUpload'
 
+// Cart
+import CartProduct from './pages/cart/CartProduct'
+import CartEvent from './pages/cart/CartEvent'
+import CartAuction from './pages/cart/CartAuction'
+import CartShipping from './pages/cart/CartShipping'
+import CartPayment from './pages/cart/CartPayment'
+import CartFinish from './pages/cart/CartFinish'
+
 function App() {
   return (
     <Router>
@@ -131,9 +139,24 @@ function App() {
             {/* <Route exact path="/auction">
               <Auction />
             </Route> */}
-            {/* <Route exact path="/cart">
-              <Cart />
-            </Route> */}
+            <Route exact path="/cart-payment">
+              <CartPayment />
+            </Route>
+            <Route exact path="/cart-shipping">
+              <CartShipping />
+            </Route>
+            <Route exact path="/cart-product">
+              <CartProduct />
+            </Route>
+            <Route exact path="/cart-finish">
+              <CartFinish />
+            </Route>
+            <Route exact path="/cart-event">
+              <CartEvent />
+            </Route>
+            <Route exact path="/cart-auction">
+              <CartAuction />
+            </Route>
             <Route exact path="/event">
               <Event />
             </Route>
