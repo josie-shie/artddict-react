@@ -30,7 +30,7 @@ font-face {
 }
 .proDe-rightSide{
     width: calc(50vw - 35px);
-    height: 1000px;
+    height: 1500px;
     background-color: black;
 }
 
@@ -221,4 +221,21 @@ color: white;
     color: white;
     font-family: notoSansTC-Medium;
     font-size: 1.2rem;
+}
+/* ------------appendPlus----- */
+.proDe-appendPlus{
+    width: 100%;
+    margin-top:28px;
+    border-bottom:2px solid #6e6e6e;
+}
+.proDe-titleName{
+    font-family: notoSansTC-Medium;
+    font-size: 1.7rem;
+}
+.proDe-invisibleWord{
+    font-family: notoSansTC-Medium;
+    color: white;
+}
+.proDe-bottomLines{
+    border-bottom: 2px solid #6e6e6e;
 }

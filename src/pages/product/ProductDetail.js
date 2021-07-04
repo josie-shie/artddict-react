@@ -1,7 +1,7 @@
-import React from 'react'
+import { React, useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import '../../bootstrap/css/bootstrap.css'
-import { Button } from 'react-bootstrap'
+import { Button, Collapse } from 'react-bootstrap'
 import './style/ProductDetail.css'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -23,6 +23,10 @@ import product2 from './img/productDetail/product2.jpeg'
 import product3 from './img/productDetail/product3.jpeg'
 
 function ProductDetail() {
+  const [open, setOpen] = useState(true)
+  const [open2, setOpen2] = useState(false)
+  const [open3, setOpen3] = useState(false)
+  const [open4, setOpen4] = useState(false)
   const settings = {
     customPaging: function (i) {
       return (
@@ -175,6 +179,92 @@ function ProductDetail() {
                     </div>
                   </div>
                 </div>
+              </div>
+              {/* ------第一個+-------- */}
+              <div className="proDe-appendPlus">
+                <button
+                  onClick={() => setOpen(!open)}
+                  aria-controls="example-collapse-text"
+                  aria-expanded={open}
+                  className="ed-detail-btn col-12 d-flex justify-content-center
+                  cn-font p-0 my-3 "
+                >
+                  <p className="mr-auto proDe-titleName">
+                    商品描述
+                  </p>
+                  <span>
+                    <BiPlus size={50} />
+                  </span>
+                </button>
+                <Collapse
+                  in={open}
+                  className="col-12 p-0  mb-5"
+                >
+                  <p
+                    id="example-collapse-text"
+                    className="proDe-invisibleWord"
+                  >
+                    1889年9月，荷蘭後印象派畫家文森特·梵谷（Vincent
+                    van
+                    Gogh）在畫布上用油畫了自畫像。這幅作品可能是梵谷的最後一幅自畫像，是在他離開法國南部聖雷米的普羅旺斯之前不久畫的。這幅畫現在在巴黎的奧賽博物館（Muséed'Orsay）展出。
+                  </p>
+                </Collapse>
+              </div>
+              {/* ---------第二個+------- */}
+              <div className="proDe-appendPlus">
+                <button
+                  onClick={() => setOpen2(!open2)}
+                  aria-controls="example-collapse-text"
+                  aria-expanded={open2}
+                  className="ed-detail-btn col-12 d-flex justify-content-center
+                  cn-font p-0 my-3 "
+                >
+                  <p className="mr-auto proDe-titleName">
+                    商品規格
+                  </p>
+                  <span>
+                    <BiPlus size={50} />
+                  </span>
+                </button>
+                <Collapse
+                  in={open2}
+                  className="col-12 p-0  mb-5"
+                >
+                  <p
+                    id="example-collapse-text"
+                    className="proDe-invisibleWord"
+                  >
+                    123喵321
+                  </p>
+                </Collapse>
+              </div>
+              {/* ------------第三個----------- */}
+              <div className="proDe-appendPlus">
+                <button
+                  onClick={() => setOpen3(!open3)}
+                  aria-controls="example-collapse-text"
+                  aria-expanded={open3}
+                  className="ed-detail-btn col-12 d-flex justify-content-center
+                  cn-font p-0 my-3 "
+                >
+                  <p className="mr-auto proDe-titleName">
+                    運費 & 退貨條款
+                  </p>
+                  <span>
+                    <BiPlus size={50} />
+                  </span>
+                </button>
+                <Collapse
+                  in={open3}
+                  className="col-12 p-0  mb-5"
+                >
+                  <p
+                    id="example-collapse-text"
+                    className="proDe-invisibleWord"
+                  >
+                    123喵321777777 777 777 777 77 77
+                  </p>
+                </Collapse>
               </div>
             </div>
           </div>
