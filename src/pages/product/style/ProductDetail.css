@@ -1,0 +1,25 @@
+font-face {
+    font-family: Engravers;
+    src: url(../../../style/font/ENGR.ttf);
+}
+
+@font-face {
+    font-family: EngraversBold;
+    src: url(../../../style/font/EngraversMTBold.ttf);
+}
+
+@font-face {
+    font-family: NotoSansTC-Medium;
+    src: url(../../../style/font/NotoSansTC-Medium.otf)
+}
+
+@font-face{
+    font-family: NotosansTC-Bold;
+    src: url(../../../style/font/NotoSansTC-Bold.otf);
+}
+
+.proDe-full{
+    width: 100vw;
+    height: 2000px;
+    background-color: #E8E8E8;
+}
