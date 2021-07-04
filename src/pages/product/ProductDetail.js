@@ -398,6 +398,43 @@ function ProductDetail() {
                   </div>
                 </div>
               </div>
+              {/* ------------寫評論---------- */}
+              <div className="col-12 p-0 d-flex justify-content-center flex-wrap">
+                <button
+                  onClick={() => setOpen4(!open4)}
+                  aria-controls="example-collapse-text"
+                  aria-expanded={open4}
+                  className="ed-comment e-btn-m mb-5 mt-5 proDe-commentsName"
+                >
+                  撰寫評論
+                </button>
+                <Collapse
+                  in={open4}
+                  className="col-12 p-0 mt-3 mb-5 "
+                >
+                  <div className="col-12 p-0">
+                    <form
+                      className="border-0 d-flex flex-wrap justify-content-center"
+                      action=""
+                    >
+                      <textarea
+                        className="ed-textarea col-12 p-0"
+                        name=""
+                        id=""
+                        cols="30"
+                        rows="10"
+                      ></textarea>
+                      <button
+                        className="ed-leave-msg e-btn-m col-l2 mt-3"
+                        type="submit"
+                      >
+                        送出評論
+                      </button>
+                    </form>
+                  </div>
+                </Collapse>
+              </div>
+              {/* ----------------留言結束--------- */}
             </div>
           </div>
         </div>
