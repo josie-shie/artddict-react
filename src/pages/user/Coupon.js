@@ -28,7 +28,7 @@ class Coupon extends React.Component {
       text: coupon_msg,
       icon: msg_type,
       button: false,
-      timer: 1000,
+      timer: 1500,
     })
 
     window.getSelection().removeAllRanges() // 取消選取範圍
