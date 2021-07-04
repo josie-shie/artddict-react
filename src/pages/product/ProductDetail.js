@@ -361,6 +361,43 @@ function ProductDetail() {
                   </div>
                 </div>
               </div>
+              <div className="proDe-commentsCard d-flex">
+                <div className="proDe-commentsCardLeft">
+                  <div className="proDe-starsSSSSS">
+                    <IoIosStar
+                      size={20}
+                      color={'#1D0AFF'}
+                    />
+                    <IoIosStar
+                      size={20}
+                      color={'#1D0AFF'}
+                    />
+                    <IoIosStar
+                      size={20}
+                      color={'#1D0AFF'}
+                    />
+                    <IoIosStar
+                      size={20}
+                      color={'#1D0AFF'}
+                    />
+                    <IoIosStar
+                      size={20}
+                      color={'#1D0AFF'}
+                    />
+                  </div>
+                  <p className="proDe-userName">暢哥</p>
+                  <p className="proDe-userDate">
+                    05-22-2021
+                  </p>
+                </div>
+                <div className="proDe-commentsCardRight d-flex">
+                  <div className="proDe-commentsContent d-flex">
+                    <p>
+                      穿上後我考試都100分，也交了女友，股票怎麼買怎麼賺，還找到了年薪千萬的工作，直接變成人生勝利組，謝謝刻這個版面的人看到這個資訊，謝謝老師半夜五點還回我訊息，謝謝爸媽把我養成一個人，謝謝煮飯的人讓我有飯吃，我回本了所以我不用改姓，姓劉很爽，我要唱我愛世界，讚
+                    </p>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
