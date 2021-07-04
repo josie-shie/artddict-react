@@ -7,10 +7,10 @@ import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
 import { Link } from 'react-router-dom'
 
-function userAuction(props) {
+function userAuctionOver(props) {
     return (
-        <>
-            <div className="u-body">
+        <div>
+             <div className="u-body">
                 <Logoheader />
                 <div className="u-breadcrumb">
                     <Breadcrumb />
@@ -29,8 +29,8 @@ function userAuction(props) {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     );
 }
 
-export default withRouter(userAuction);
+export default userAuctionOver;

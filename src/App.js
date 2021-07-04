@@ -23,6 +23,7 @@ import MatchGame from './pages/product/MatchGame'
 import AuctionDetail from './pages/Auction/AuctionDetail'
 import Auction from './pages/Auction/Auction'
 import UserAuction from './pages/Auction/userAuction'
+import UserAuctionOver from './pages/Auction/userAuctionOver'
 
 // User
 import Add from './pages/user/Add'
@@ -128,6 +129,9 @@ function App() {
             </Route>
             <Route exact path="/user-Auction">
               <UserAuction />
+            </Route>
+            <Route exact path="/user-AuctionOver">
+              <UserAuctionOver />
             </Route>
             {/* <Route exact path="/auction">
               <Auction />
