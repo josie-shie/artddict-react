@@ -12,7 +12,7 @@ function UserMyFav() {
         <div className="u-userMenu d-none d-lg-block d-xl-block">
           <Menu />
         </div>
-        <Container></Container>
+        <Container fluid></Container>
       </div>
     </>
   )
