@@ -27,7 +27,7 @@ function OrderPro() {
             </div>
           </div>
           <div className="u-progress">
-            <div className="pr-3">進度查詢</div>
+            <div className="pr-3 pl-3">進度查詢</div>
             <select
               className="user-select pl-3"
               name=""

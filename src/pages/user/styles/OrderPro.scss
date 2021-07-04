@@ -27,17 +27,15 @@
 
 .u-progress{
     margin-top: 20px;
-    width: 14vw;
+    width: 14.7vw;
     height: 50px;
     font-size: 1.5rem;
     font-weight: normal;
     border: 2px solid black;
-    // text-align: center;
-    line-height: 47px;
+    line-height: 48px;
 }
 
 .u-progress > div{
-
     border-right: 2px solid black;
     display: inline-block;
 }
@@ -55,14 +53,14 @@
 }
 
 /* ----- select 箭頭樣式 ----- */
-.u-progressSelect > select {
-    padding-left: 5px;
-    padding-top: 1px;
-    width: 90px;
-    height: 50px;
-    background-color: #e8e8e8;
-    border: 2px solid #000;
-}
+// .u-progressSelect > select {
+//     padding-left: 5px;
+//     padding-top: 1px;
+//     width: 90px;
+//     height: 50px;
+//     background-color: #e8e8e8;
+//     border: 2px solid #000;
+// }
 
 /* ----- 訂單 ----- */
 .u-table {
