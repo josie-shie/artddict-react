@@ -19,6 +19,10 @@ time, mark, audio, video {
  vertical-align: baseline;
 }
 
+.body{
+    font-family:'Noto Sans TC';
+}
+
 /* *{
     outline:1px red solid;
 } */
@@ -47,16 +51,16 @@ time, mark, audio, video {
 
 .auctionTitleOne {
     margin: 0 0 0 6%;
-    font-size: 28px;
+    font-size: 1.75rem;
 }
 
 .auctionTitleTwo{
     margin: 0 0 0 6%;
-    font-size: 16px;
+    font-size: 1rem;
 }
 
 .auctiondecoration{
-    font-size: 150px;
+    font-size:9.375rem;
 }
 
 .auctiondecorationA{
@@ -78,7 +82,7 @@ time, mark, audio, video {
 }
 
 .auctionMarquee{
-    font-size: 45px;
+    font-size: 2.8rem;
     height: 110px;
     padding-left:80px ;
     display: flex;
@@ -86,8 +90,9 @@ time, mark, audio, video {
 }
 
 .auctionMain{
-    height: 900px;
+    height: 100%;
     background-color: #E4E4E4;
+    padding: 0 0 3rem 0;
 }
 
 .auctionMainWrap{
@@ -95,6 +100,18 @@ time, mark, audio, video {
     flex-direction: column;
     padding: 60px 5% 0 5%;
 }
+
+.auc-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background: transparent;
+    background-image: url("../images/selectArrow.svg");
+    background-repeat: no-repeat;
+    background-position-x: 100%;
+    background-position-y: 50%;
+    border: 0px ;
+    padding-right: 2rem;
+  }
 
 .auctionMainFilter{
     display: flex;
@@ -127,6 +144,21 @@ time, mark, audio, video {
     border-top:2px solid #000;
     border-right:2px solid #000;
     border-bottom:2px solid #000;
+}
+
+.auc-Search{
+    display: inline-block;
+    margin: 0 0 0 1.5rem;
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0);
+    border:0rem;
+    padding: 0;
+}
+
+.auc-Searchbox{
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px;
+    border-bottom: 1px solid #000; 
 }
 
 .auctionNumberOfProduct{

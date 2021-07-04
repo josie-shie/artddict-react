@@ -15,17 +15,16 @@ function AuctionProductCard(props) {
     useEffect(() => {
         //第一次計算剩餘時間(不控制)
         let newAucProductTimeRemaining = TimeRemaining(deadline)
-        console.log("我是百變怪", newAucProductTimeRemaining)
+        // console.log("我是百變怪", newAucProductTimeRemaining)
         //第一次計算剩餘時間(react資料流)
         setAuctionProductCard_CountDown(newAucProductTimeRemaining)
         // TimeRemaining(deadline)
-        console.log("判斷是:", (newAucProductTimeRemaining.reduce((a, b) => a + b)))
         if ((newAucProductTimeRemaining.reduce((a, b) => a + b) < 0)) {
             console.log('競標結束')
             setLoading('競標結束')
             setAuctionrunning(false)
             setIsRunning(false)
-            console.log(aucName, 'loading', loading, 'isRunning', isRunning)
+            // console.log(aucName, 'loading', loading, 'isRunning', isRunning)
         } else {
             setAuctionrunning(true)
             console.log('競標繼續')
@@ -39,7 +38,7 @@ function AuctionProductCard(props) {
     useInterval(() => {
         //設立一個變數來避免 setstate非同步問題
         let TimeRemainingAA = TimeRemaining(deadline)
-        console.log(TimeRemainingAA)
+        // console.log(TimeRemainingAA)
         //更改state狀態
         //每秒計算剩餘時間
         setAuctionProductCard_CountDown(TimeRemainingAA)
@@ -64,7 +63,6 @@ function AuctionProductCard(props) {
                     <Link to={`/AuctionDetail/${aucId}`}>
                         <img src={monkey} alt="Background" />
                     </Link>
-                    {console.log('loading', loading, 'isRunning', isRunning, 'auctionRunning', auctionRunning)}
                     {auctionRunning ? (
                         <div className="auctionProduct_countdown">
                             截標倒數 <span>{AuctionProductCard_CountDown[0]}</span>
