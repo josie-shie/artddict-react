@@ -1,6 +1,6 @@
 import React from 'react';
 // import { useState } from 'react';
-import '../../style/auctionDetail.css';
+import './style/userAuction.scss';
 import { withRouter } from 'react-router-dom'
 
 function userAuction(props) {
