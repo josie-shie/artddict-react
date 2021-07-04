@@ -1,12 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../../bootstrap/css/bootstrap.css'
-import {} from 'react-bootstrap'
+import { Row } from 'react-bootstrap'
 import {} from 'react-icons/cg'
 import './style/ProductList.css'
 // -----------svg---------
 import logobk from './svg/logobk.svg'
 import { GoSearch } from 'react-icons/go'
+import {
+  IoIosArrowBack,
+  IoIosArrowForward,
+} from 'react-icons/io'
 // ---------picture------------
 import listtitle from './img/productList/listtitle.jpeg'
 import productPic1 from './img/productList/productPic1.jpeg'
@@ -130,47 +134,47 @@ function ProductList() {
           {/* --------------------Category------- */}
           <div className="prolist-productAndCategory d-flex">
             <div className="prolist-leftSide">
-              <Link>
+              <Link style={{ textDecoration: 'none' }}>
                 <div className="museumProduct">
                   <p>美術館商品</p>
                 </div>
               </Link>
-              <Link>
+              <Link style={{ textDecoration: 'none' }}>
                 <div className="newArrival">
                   <p>新品上市</p>
                 </div>
               </Link>
-              <Link>
+              <Link style={{ textDecoration: 'none' }}>
                 <div className="hotProduct">
                   <p>暢銷商品</p>
                 </div>
               </Link>
-              <Link>
+              <Link style={{ textDecoration: 'none' }}>
                 <div className="pro-clothes">
                   <p>服飾</p>
                 </div>
               </Link>
-              <Link>
+              <Link style={{ textDecoration: 'none' }}>
                 <div className="pro-furniture">
                   <p>家飾</p>
                 </div>
               </Link>
-              <Link>
+              <Link style={{ textDecoration: 'none' }}>
                 <div className="pro-stationery">
                   <p>文具</p>
                 </div>
               </Link>
-              <Link>
+              <Link style={{ textDecoration: 'none' }}>
                 <div className="pro-books">
                   <p>書籍</p>
                 </div>
               </Link>
-              <Link>
+              <Link style={{ textDecoration: 'none' }}>
                 <div className="pro-accessories">
                   <p>配件</p>
                 </div>
               </Link>
-              <Link>
+              <Link style={{ textDecoration: 'none' }}>
                 <div className="pro-casual">
                   <p>休閒娛樂</p>
                 </div>
@@ -350,9 +354,33 @@ function ProductList() {
                 </div>
                 {/* ------------ */}
               </div>
+              {/* --------------商品卡片截止線----- */}
+              <div className="prolist-switchPage">
+                <Row className="justify-content-center eng-font-regular mt-1 py-5">
+                  <Link className="ed-pagenum mx-3">
+                    <IoIosArrowBack />
+                  </Link>
+                  <Link className="ed-pagenum mx-3">
+                    <p>1</p>
+                  </Link>
+                  <Link className="ed-pagenum mx-3">
+                    <p>2</p>
+                  </Link>
+                  <Link className="ed-pagenum mx-3">
+                    <p>3</p>
+                  </Link>
+                  <Link className="ed-pagenum mx-3">
+                    <p>4</p>
+                  </Link>
+                  <Link className="ed-pagenum mx-3">
+                    <p>5</p>
+                  </Link>
+                  <Link className="ed-pagenum mx-3">
+                    <IoIosArrowForward />
+                  </Link>
+                </Row>
+              </div>
             </div>
-
-            {/* ----------------商品卡片截止線----- */}
           </div>
         </div>
       </div>
