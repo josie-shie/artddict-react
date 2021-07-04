@@ -194,7 +194,7 @@ function ProductList() {
                       <p>莫內 睡蓮 T恤</p>
                     </div>
                     <div className="prolist-cardProPrice">
-                      <p>490元</p>
+                      <p>NT$490</p>
                     </div>
                   </div>
                 </div>
@@ -212,7 +212,7 @@ function ProductList() {
                       <p>莫內 睡蓮 T恤</p>
                     </div>
                     <div className="prolist-cardProPrice">
-                      <p>490元</p>
+                      <p>NT$490</p>
                     </div>
                   </div>
                 </div>
@@ -230,7 +230,7 @@ function ProductList() {
                       <p>莫內 睡蓮 T恤</p>
                     </div>
                     <div className="prolist-cardProPrice">
-                      <p>490元</p>
+                      <p>NT$490</p>
                     </div>
                   </div>
                 </div>

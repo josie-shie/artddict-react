@@ -185,7 +185,7 @@
 }
 .prolist-rightSide{
     background-color: greenyellow;
-    width: 60vw;
+    width: 55vw;
     height: 1500px;
 }
 
@@ -250,7 +250,6 @@
 }
 .prolist-cardProName p{
     font-family: notoSansTC-Medium;
-    font-size: 1.3vw;
 }
 .prolist-cardProPrice p {
     font-family: notoSansTC-Medium;
