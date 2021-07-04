@@ -37,6 +37,7 @@ import Ticket from './pages/user/Ticket'
 import TicketDetail from './pages/user/TicketDetail'
 import WorkShop from './pages/user/WorkShop'
 import WorkShopDetail from './pages/user/WorkShopDetail'
+import UserMyFav from './pages/user/UserMyFav'
 
 // Event
 import EventList from './pages/event/EventList'
@@ -135,6 +136,9 @@ function App() {
             </Route>
             <Route exact path="/user-workshop">
               <WorkShop />
+            </Route>
+            <Route exact path="/user-myfav">
+              <UserMyFav />
             </Route>
             {/* <Route exact path="/auction">
               <Auction />
