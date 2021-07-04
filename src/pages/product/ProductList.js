@@ -179,7 +179,7 @@ function ProductList() {
 
             {/* ------------商品區------------ */}
             <div className="prolist-rightSide">
-              <div className="d-flex justify-content-between">
+              <div className="d-flex justify-content-between flex-wrap">
                 {/* ---------------------- */}
                 <div className="prolist-card ">
                   <div className="prolist-cardTop"></div>
@@ -217,6 +217,120 @@ function ProductList() {
                   </div>
                 </div>
                 {/* ---x3-- */}
+                <div className="prolist-card">
+                  <div className="prolist-cardTop"></div>
+                  <div className="prolist-imgBorderBox">
+                    <div className="prolist-imgBox">
+                      <img src={productPic1} alt="" />
+                    </div>
+                    <div className="prolist-blackBar"></div>
+                  </div>
+                  <div className="prolist-cardWordBox d-flex">
+                    <div className="prolist-cardProName">
+                      <p>莫內 睡蓮 T恤</p>
+                    </div>
+                    <div className="prolist-cardProPrice">
+                      <p>NT$490</p>
+                    </div>
+                  </div>
+                </div>
+                {/* ------------ */}
+                {/* ---card-- */}
+                <div className="prolist-card">
+                  <div className="prolist-cardTop"></div>
+                  <div className="prolist-imgBorderBox">
+                    <div className="prolist-imgBox">
+                      <img src={productPic1} alt="" />
+                    </div>
+                    <div className="prolist-blackBar"></div>
+                  </div>
+                  <div className="prolist-cardWordBox d-flex">
+                    <div className="prolist-cardProName">
+                      <p>莫內 睡蓮 T恤</p>
+                    </div>
+                    <div className="prolist-cardProPrice">
+                      <p>NT$490</p>
+                    </div>
+                  </div>
+                </div>
+                {/* ------------ */}
+                {/* ---card-- */}
+                <div className="prolist-card">
+                  <div className="prolist-cardTop"></div>
+                  <div className="prolist-imgBorderBox">
+                    <div className="prolist-imgBox">
+                      <img src={productPic1} alt="" />
+                    </div>
+                    <div className="prolist-blackBar"></div>
+                  </div>
+                  <div className="prolist-cardWordBox d-flex">
+                    <div className="prolist-cardProName">
+                      <p>莫內 睡蓮 T恤</p>
+                    </div>
+                    <div className="prolist-cardProPrice">
+                      <p>NT$490</p>
+                    </div>
+                  </div>
+                </div>
+                {/* ------------ */}
+                {/* ---card-- */}
+                <div className="prolist-card">
+                  <div className="prolist-cardTop"></div>
+                  <div className="prolist-imgBorderBox">
+                    <div className="prolist-imgBox">
+                      <img src={productPic1} alt="" />
+                    </div>
+                    <div className="prolist-blackBar"></div>
+                  </div>
+                  <div className="prolist-cardWordBox d-flex">
+                    <div className="prolist-cardProName">
+                      <p>莫內 睡蓮 T恤</p>
+                    </div>
+                    <div className="prolist-cardProPrice">
+                      <p>NT$490</p>
+                    </div>
+                  </div>
+                </div>
+                {/* ------------ */}
+                {/* ---card-- */}
+                <div className="prolist-card">
+                  <div className="prolist-cardTop"></div>
+                  <div className="prolist-imgBorderBox">
+                    <div className="prolist-imgBox">
+                      <img src={productPic1} alt="" />
+                    </div>
+                    <div className="prolist-blackBar"></div>
+                  </div>
+                  <div className="prolist-cardWordBox d-flex">
+                    <div className="prolist-cardProName">
+                      <p>莫內 睡蓮 T恤</p>
+                    </div>
+                    <div className="prolist-cardProPrice">
+                      <p>NT$490</p>
+                    </div>
+                  </div>
+                </div>
+                {/* ------------ */}
+                {/* ---card-- */}
+                <div className="prolist-card">
+                  <div className="prolist-cardTop"></div>
+                  <div className="prolist-imgBorderBox">
+                    <div className="prolist-imgBox">
+                      <img src={productPic1} alt="" />
+                    </div>
+                    <div className="prolist-blackBar"></div>
+                  </div>
+                  <div className="prolist-cardWordBox d-flex">
+                    <div className="prolist-cardProName">
+                      <p>莫內 睡蓮 T恤</p>
+                    </div>
+                    <div className="prolist-cardProPrice">
+                      <p>NT$490</p>
+                    </div>
+                  </div>
+                </div>
+                {/* ------------ */}
+                {/* ---card-- */}
                 <div className="prolist-card">
                   <div className="prolist-cardTop"></div>
                   <div className="prolist-imgBorderBox">
