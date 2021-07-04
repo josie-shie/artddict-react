@@ -266,6 +266,44 @@ function ProductDetail() {
                   </p>
                 </Collapse>
               </div>
+
+              {/* ------------商品評價zone------- */}
+              <div className="proDe-commentsAndBar">
+                <div className="proDe-commentsLeft">
+                  <div className="proDe-commentsWord1">
+                    <p>商品評價</p>
+                  </div>
+                  <div className="proDe-commentsNumAndStar d-flex ">
+                    <p>5</p>
+                    <div className="proDe-pushLeft">
+                      <IoIosStar
+                        size={30}
+                        color={'#1D0AFF'}
+                      />
+                      <IoIosStar
+                        size={30}
+                        color={'#1D0AFF'}
+                      />
+                      <IoIosStar
+                        size={30}
+                        color={'#1D0AFF'}
+                      />
+                      <IoIosStar
+                        size={30}
+                        color={'#1D0AFF'}
+                      />
+                      <IoIosStar
+                        size={30}
+                        color={'#1D0AFF'}
+                      />
+                      <p className="proDe-underStarWord">
+                        12則評論
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div className="proDe-commentsRight"></div>
+              </div>
             </div>
           </div>
         </div>

@@ -239,3 +239,27 @@ color: white;
 .proDe-bottomLines{
     border-bottom: 2px solid #6e6e6e;
 }
+.proDe-commentsLeft{
+    width: 40%;
+    height: 130px;
+    background-color: antiquewhite;
+    margin-top: 28px;
+}
+.proDe-commentsWord1{
+    color: white;
+    font-family: notoSansTC-Medium;
+    font-size: 1.7rem;
+}
+.proDe-commentsNumAndStar{
+    color: white;
+    font-family: notoSansTC-Medium;
+    font-size: 2rem;
+    align-items: center;
+}
+.proDe-pushLeft{
+    margin-left: 30px;
+}
+.proDe-underStarWord{
+    font-size: 1rem;
+    color: #6e6e6e;
+}
