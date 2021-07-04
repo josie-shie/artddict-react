@@ -13,7 +13,7 @@ import {
   IoIosArrowForward,
   IoIosHeart,
 } from 'react-icons/io'
-import logobk from './svg/logobk.svg'
+import lightLogo from './svg/lightLogo.svg'
 // ---------picture------------
 import product1 from './img/productDetail/product1.jpeg'
 import product2 from './img/productDetail/product2.jpeg'
@@ -57,7 +57,18 @@ function ProductDetail() {
           </div>
           <div className="proDe-rightSide">
             <div className="proDe-rightSideBox">
-              <div className="proDe-logo"></div>
+              <div className="proDe-logoTopBox d-flex">
+                <div className="proDe-logoBox">
+                  <img src={lightLogo} alt="" />
+                  <p>
+                    商店 / 服飾 /
+                    <span>威廉 玫瑰粉 披肩</span>
+                  </p>
+                </div>
+              </div>
+              {/* --------------商品名稱SIZE zone------- */}
+
+              <div className="proDe-chooseBox"></div>
             </div>
           </div>
         </div>
