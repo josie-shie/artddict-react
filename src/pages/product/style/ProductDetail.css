@@ -92,7 +92,7 @@ font-face {
     width: 100%;
     height: 50px;
     background-color: black;
-    margin-top: 3%;
+    margin-top: 1.5%;
 }
 .proDe-scoresAndWrite {
     margin-top: 7px;
@@ -127,8 +127,16 @@ color: white;
     background-color:black;
 }
 .proDe-sizeBtn{
-    width: 50%;
+    width: 200px;
     justify-content: space-between;
+
+}
+.proDe-sizeBtn button{
+    border: 1px solid #6e6e6e;
+    background-color: transparent;
+    color: #6e6e6e;
+    width: 50px;
+    height: 50px;
 }
 .proDe-sizeCheck{
     color: #6e6e6e;
