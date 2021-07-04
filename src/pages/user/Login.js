@@ -85,8 +85,8 @@ function Login() {
           </div>
 
           <div className="u-container2  col-lg-6 col-sm-12">
-            <div className="u-member">
-              <h1>MEMBERSHIP</h1>
+            <div className="u-membertile">
+              <p>MEMBERSHIP</p>
             </div>
             <div className="u-addInput">
               <div className="u-addbutton d-flex justify-content-around">

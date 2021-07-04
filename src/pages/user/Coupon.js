@@ -41,8 +41,8 @@ class Coupon extends React.Component {
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
-        <div className="u-userMenu">
-          <Menu className="d-none d-lg-block d-xl-block" />
+        <div className="u-userMenu d-none d-lg-block d-xl-block">
+          <Menu />
         </div>
         <div className="u-couponbox d-flex">
           <div class="u-Text col-7">

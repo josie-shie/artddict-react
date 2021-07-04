@@ -1,5 +1,6 @@
 import React from 'react'
 import './styles/MsgEdit.scss'
+import { Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Menu from './components/Menu'
 import Logoheader from './components/Logoheader'
@@ -13,11 +14,11 @@ function MsgEdits() {
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
-        <div className="u-userMenu">
+        <div className="u-userMenu d-none d-lg-block d-xl-block">
           <Menu />
         </div>
-        <div className="u-container-fluid">
-          <div className="d-flex u-row justify-content-around">
+        <Container>
+          <div className="u-row d-flex justify-content-around">
             <div className="u-usertitleLeft1">
               <Link to="/user-msgedit">會員資料</Link>
             </div>
@@ -26,7 +27,7 @@ function MsgEdits() {
             </div>
           </div>
 
-          <div className="u-userData">
+          <div className="u-userData col-12">
             <form>
               <div className="form-group u-form1">
                 <label for="username">帳號</label>
@@ -117,7 +118,7 @@ function MsgEdits() {
               </div>
             </form>
           </div>
-        </div>
+        </Container>
       </div>
     </>
   )
