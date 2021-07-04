@@ -17,7 +17,7 @@ function PwdEdit() {
         <div className="u-userMenu d-none d-lg-block d-xl-block">
           <Menu />
         </div>
-        <Container>
+        <Container fluid>
           <div className="d-flex u-row justify-content-around">
             <div className="u-usertitleLeft">
               <Link to="/user-msgedit">會員資料</Link>

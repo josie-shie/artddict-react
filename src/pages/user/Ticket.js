@@ -19,7 +19,7 @@ function Ticket() {
         <div className="u-userMenu d-none d-lg-block d-xl-block">
           <Menu />
         </div>
-        <Container>
+        <Container fluid>
           <div className="d-flex u-row justify-content-around">
             <div className="u-userEve">
               <Link to="/user-ticket">活動展</Link>

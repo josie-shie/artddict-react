@@ -17,7 +17,7 @@ function OrderPro() {
         <div className="u-userMenu d-none d-lg-block d-xl-block">
           <Menu />
         </div>
-        <Container>
+        <Container fluid>
           <div className="u-row d-flex justify-content-around">
             <div className="u-userPro">
               <Link to="/user-orderpro">商品</Link>
