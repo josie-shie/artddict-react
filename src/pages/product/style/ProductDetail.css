@@ -239,10 +239,18 @@ color: white;
 .proDe-bottomLines{
     border-bottom: 2px solid #6e6e6e;
 }
+
+
+/* --------商品評價-------- */
+.proDe-commentsAndBar{
+    justify-content:space-between;
+    border-bottom: 2px solid #6e6e6e;
+    padding-bottom: 20px;
+
+}
 .proDe-commentsLeft{
     width: 40%;
     height: 130px;
-    background-color: antiquewhite;
     margin-top: 28px;
 }
 .proDe-commentsWord1{
@@ -255,6 +263,7 @@ color: white;
     font-family: notoSansTC-Medium;
     font-size: 2rem;
     align-items: center;
+    margin-top: 5%;
 }
 .proDe-pushLeft{
     margin-left: 30px;
@@ -262,4 +271,22 @@ color: white;
 .proDe-underStarWord{
     font-size: 1rem;
     color: #6e6e6e;
+}
+.proDe-commentsRight{
+    width: 52%;
+    height: 130px;
+    margin-top:28px;
+}
+
+.proDe-commentsBar1 p{
+font-family: notoSansTC-Medium;
+
+}
+.pro-slider{
+}
+.proDe-1{
+    margin-right: 20px;
+}
+.proDe-2{
+    margin-left: 20px;
 }

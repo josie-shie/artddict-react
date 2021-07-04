@@ -268,7 +268,7 @@ function ProductDetail() {
               </div>
 
               {/* ------------商品評價zone------- */}
-              <div className="proDe-commentsAndBar">
+              <div className="proDe-commentsAndBar d-flex">
                 <div className="proDe-commentsLeft">
                   <div className="proDe-commentsWord1">
                     <p>商品評價</p>
@@ -302,7 +302,63 @@ function ProductDetail() {
                     </div>
                   </div>
                 </div>
-                <div className="proDe-commentsRight"></div>
+                <div className="proDe-commentsRight ">
+                  <div className="proDe-commentsBar1 d-flex">
+                    <p className="proDe-1">5星</p>
+                    <input
+                      type="range"
+                      min="0"
+                      className="pro-slider"
+                      id="myRange"
+                      value="100"
+                    />
+                    <p className="proDe-2">12(100%)</p>
+                  </div>
+                  <div className="proDe-commentsBar1 d-flex">
+                    <p className="proDe-1">4星</p>
+                    <input
+                      type="range"
+                      min="0"
+                      className="pro-slider"
+                      id="myRange"
+                      value="50"
+                    />
+                    <p className="proDe-2">6(50%)</p>
+                  </div>
+                  <div className="proDe-commentsBar1 d-flex">
+                    <p className="proDe-1">3星</p>
+                    <input
+                      type="range"
+                      min="0"
+                      className="pro-slider"
+                      id="myRange"
+                      value="0"
+                    />
+                    <p className="proDe-2">0(0%)</p>
+                  </div>
+                  <div className="proDe-commentsBar1 d-flex">
+                    <p className="proDe-1">2星</p>
+                    <input
+                      type="range"
+                      min="0"
+                      className="pro-slider"
+                      id="myRange"
+                      value="0"
+                    />
+                    <p className="proDe-2">0(0%)</p>
+                  </div>
+                  <div className="proDe-commentsBar1 d-flex">
+                    <p className="proDe-1">1星</p>
+                    <input
+                      type="range"
+                      min="0"
+                      className="pro-slider"
+                      id="myRange"
+                      value="0"
+                    />
+                    <p className="proDe-2">0(0%)</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
