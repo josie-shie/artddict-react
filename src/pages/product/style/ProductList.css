@@ -105,12 +105,13 @@
 
 .prolist-topOflist{
     width: 100%;
-    height: 170px;
+    height: 180px;
     border-bottom: 2px solid black;
 }
 .prolist-breadbox{
     width: 100%;
     height: 70px;
+    margin-bottom: 10px;
 }
 .prolist-bread{
     padding-top: 35px;
@@ -170,4 +171,43 @@
 }
 .pro-filterWord{
     font-family: notoSansTC-Medium;
+}
+
+/* ------------------productAndCategory------ */
+.prolist-productAndCategory{
+    justify-content: space-between;
+}
+.prolist-leftSide{
+    width: 15vw;
+    height: 800px;
+}
+.prolist-rightSide{
+    background-color: greenyellow;
+    width: 67vw;
+    height: 1500px;
+}
+
+/* ---------------------Category-------------------- */
+ .newArrival p, .hotProduct p, .pro-clothes p, .pro-furniture p, .pro-stationery p, .pro-books p, .pro-accessories p, .pro-casual p{
+    font-family: notoSansTC-Medium;
+    font-size: 1.5rem;
+    padding: 5px 0 0 20px;
+    color: black;
+}
+
+.museumProduct{
+    width: 100%;
+    height:50px;
+    background-color:black
+}
+.newArrival, .hotProduct, .pro-clothes, .pro-furniture, .pro-stationery, .pro-books, .pro-accessories, .pro-casual{
+    width: 100%;
+    height: 50px;
+    background-color:transparent;
+}
+.museumProduct p{
+    font-family: notoSansTC-Medium;
+    color:white;
+    padding: 5px 0 0 20px;
+    font-size: 1.5rem;
 }

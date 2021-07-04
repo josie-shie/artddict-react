@@ -123,6 +123,40 @@ function ProductList() {
               </p>
             </div>
           </div>
+          <div className="prolist-productAndCategory d-flex">
+            <div className="prolist-leftSide">
+              <Link>
+                <div className="museumProduct">
+                  <p>美術館商品</p>
+                </div>
+              </Link>
+              <div className="newArrival">
+                <p>新品上市</p>
+              </div>
+              <div className="hotProduct">
+                <p>暢銷商品</p>
+              </div>
+              <div className="pro-clothes">
+                <p>服飾</p>
+              </div>
+              <div className="pro-furniture">
+                <p>家飾</p>
+              </div>
+              <div className="pro-stationery">
+                <p>文具</p>
+              </div>
+              <div className="pro-books">
+                <p>書籍</p>
+              </div>
+              <div className="pro-accessories">
+                <p>配件</p>
+              </div>
+              <div className="pro-casual">
+                <p>休閒娛樂</p>
+              </div>
+            </div>
+            <div className="prolist-rightSide"></div>
+          </div>
         </div>
       </div>
     </>
