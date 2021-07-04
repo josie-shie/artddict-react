@@ -14,6 +14,8 @@ import {
   IoMdHeart,
   IoIosStar,
 } from 'react-icons/io'
+import { BiPlus } from 'react-icons/bi'
+import { RiSubtractLine } from 'react-icons/ri'
 import lightLogo from './svg/lightLogo.svg'
 // ---------picture------------
 import product1 from './img/productDetail/product1.jpeg'
@@ -140,6 +142,36 @@ function ProductDetail() {
                       >
                         <p>尺寸對照表</p>
                       </Link>
+                    </div>
+                  </div>
+                  <div className="proDe-proId">
+                    <p> 產品編號#886886</p>
+                  </div>
+                  <div className="proDe-countAndAdd d-flex">
+                    <div className="proDe-numberAndBox d-flex">
+                      <div className="proDe-numberName">
+                        <p>數量</p>
+                      </div>
+                      <div className="proDe-numberCount ">
+                        <form action="">
+                          <div className="d-flex proDe-CountBtn">
+                            <button>
+                              <RiSubtractLine size={30} />
+                            </button>
+                            <div className="proDe-spaceMid">
+                              <p> 1</p>
+                            </div>
+                            <button>
+                              <BiPlus size={30} />
+                            </button>
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                    <div className="proDe-addToCart">
+                      <button>
+                        <p>加入購物車</p>
+                      </button>
                     </div>
                   </div>
                 </div>
