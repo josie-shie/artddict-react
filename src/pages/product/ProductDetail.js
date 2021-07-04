@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import '../../bootstrap/css/bootstrap.css'
-import {} from 'react-bootstrap'
+import { Button } from 'react-bootstrap'
 import './style/ProductDetail.css'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -75,10 +75,12 @@ function ProductDetail() {
                     <p>威廉 玫瑰粉 披肩</p>
                   </div>
                   <div className="proDe-heartlogo">
-                    <IoMdHeart
-                      size={40}
-                      color={'#FFFFFF'}
-                    />
+                    <Link style={{ decoration: 'none' }}>
+                      <IoMdHeart
+                        size={40}
+                        color={'#FFFFFF'}
+                      />
+                    </Link>
                   </div>
                 </div>
                 <div className="proDe-starsComment d-flex">
@@ -107,10 +109,53 @@ function ProductDetail() {
                   <div className="proDe-scoresAndWrite">
                     <p>
                       5(12)
-                      <span className="proDe-writee">
-                        撰寫評論
-                      </span>
+                      <Link
+                        style={{ textDecoration: 'none' }}
+                      >
+                        <span className="proDe-writee">
+                          撰寫評論
+                        </span>
+                      </Link>
                     </p>
+                  </div>
+                </div>
+                {/* -------------price-------- */}
+
+                <div className="proDe-productPrice">
+                  <div className="proDe-productPricee">
+                    <p>售價：NT$ 780</p>
+                  </div>
+                </div>
+
+                <div className="proDe-sizeBtnBox">
+                  <div className="proDe-sizeBtnBox2 d-flex">
+                    <div className="proDe-sizeBtn d-flex">
+                      <Button
+                        variant="outline-dark"
+                        size="lg"
+                      >
+                        S
+                      </Button>
+                      <Button
+                        variant="outline-dark"
+                        size="lg"
+                      >
+                        M
+                      </Button>
+                      <Button
+                        variant="outline-dark"
+                        size="lg"
+                      >
+                        L
+                      </Button>
+                    </div>
+                    <div className="proDe-sizeCheck">
+                      <Link
+                        style={{ textDecoration: 'none' }}
+                      >
+                        <p>尺寸對照表</p>
+                      </Link>
+                    </div>
                   </div>
                 </div>
               </div>

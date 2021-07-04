@@ -102,4 +102,40 @@ font-face {
 .proDe-writee{
     margin-left: 20px;
     border-bottom: 1px solid #6e6e6e;
+    color: #6e6e6e;
+}
+.proDe-productPrice{
+    width: 100%;
+    height: 50px;
+    background-color: black;
+}
+.proDe-productPricee p{
+font-family: notoSansTC-Medium;
+font-size: 1.3rem;
+color: white;
+}
+.proDe-sizeBtnBox{
+    width: 100%;
+    height: 100px;
+    background-color:black;
+}
+.proDe-sizeBtnBox2{
+    width: 60%;
+    height: 50px;
+    background-color:black;
+}
+.proDe-sizeBtn{
+    width: 50%;
+    justify-content: space-between;
+}
+.proDe-sizeCheck{
+    color: #6e6e6e;
+    border-bottom: 1px solid #6e6e6e;
+    margin-left: 20px;
+
+
+}
+.proDe-sizeCheck p{
+    margin-top: 27px;
+    color: #6e6e6e;
 }
