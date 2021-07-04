@@ -1,5 +1,6 @@
 import { React, useState } from 'react'
 import { ReactComponent as Logo } from '../../pics/logo-bk.svg'
+import { countries, townships } from './data/townships'
 
 import '../../bootstrap/css/bootstrap.css'
 import './styles/cart-shipping.scss'
@@ -17,6 +18,8 @@ function CartProduct() {
   const radioHandler = (status) => {
     setStatus(status)
   }
+  const [country, setCountry] = useState(-1)
+  const [township, setTownship] = useState(-1)
   return (
     <>
       <div className="c-bg">
@@ -85,16 +88,46 @@ function CartProduct() {
                   <div className="d-flex">
                     <div className="col-6 pl-0">
                       <p className="pt-3">縣市*</p>
-                      <select className="w-100">
-                        <option>台北市</option>
-                        <option>新北市</option>
+                      <select
+                        className="w-100"
+                        value={country}
+                        onChange={(e) => {
+                          // 將字串轉成數字
+                          setCountry(+e.target.value)
+                          // 重置township的值
+                          setTownship(-1)
+                        }}
+                      >
+                        <option value="-1">選擇縣市</option>
+                        {countries.map((value, index) => (
+                          <option key={index} value={index}>
+                            {value}
+                          </option>
+                        ))}
                       </select>
                     </div>
                     <div className="col-6 pr-0">
                       <p className="pt-3">地區*</p>
-                      <select className="w-100">
-                        <option>北投區</option>
-                        <option>士林區</option>
+                      <select
+                        className="w-100"
+                        value={township}
+                        onChange={(e) => {
+                          // 將字串轉成數字
+                          setTownship(+e.target.value)
+                        }}
+                      >
+                        <option value="-1">選擇區域</option>
+                        {country > -1 &&
+                          townships[country].map(
+                            (value, index) => (
+                              <option
+                                key={index}
+                                value={index}
+                              >
+                                {value}
+                              </option>
+                            )
+                          )}
                       </select>
                     </div>
                   </div>
@@ -145,7 +178,7 @@ function CartProduct() {
           <div className="col-5 px-0">
             <div className="c-item1 d-flex mb-4">
               <img className="mr-4" src={img1} />
-              <div className="mr-auto my-2">
+              <div className="mr-auto">
                 <p>梵谷自畫像T-Shirt</p>
                 <p className="c-pid pt-2">
                   商品編號 # 200123
@@ -153,11 +186,11 @@ function CartProduct() {
                 <p className="c-f12 pt-2">尺寸：S</p>
                 <p className="c-f12 pt-1">數量：1</p>
               </div>
-              <p className="my-2">NT$ 780</p>
+              <p>NT$ 780</p>
             </div>
-            <div className="c-item2 d-flex mb-4">
+            <div className="c-item1 d-flex mb-4">
               <img className="mr-4" src={img2} />
-              <div className="mr-auto my-2">
+              <div className="mr-auto">
                 <p>梵谷自畫像T-Shirt</p>
                 <p className="c-pid pt-2">
                   商品編號 # 200123
@@ -165,7 +198,7 @@ function CartProduct() {
                 <p className="c-f12 pt-2">尺寸：S</p>
                 <p className="c-f12 pt-1">數量：1</p>
               </div>
-              <p className="my-2">NT$ 780</p>
+              <p>NT$ 780</p>
             </div>
             <div className="c-bb d-flex pb-4 px-3 mb-4">
               <p className="mr-auto">商品小計</p>
