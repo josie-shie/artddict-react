@@ -302,6 +302,7 @@ function ProductDetail() {
                     </div>
                   </div>
                 </div>
+
                 <div className="proDe-commentsRight ">
                   <div className="proDe-commentsBar1 d-flex">
                     <p className="proDe-1">5星</p>

@@ -277,6 +277,12 @@ color: white;
     height: 130px;
     margin-top:28px;
 }
+@media (min-width: 1440px){
+    .proDe-commentsRight{
+        margin-left: 30%;
+    }
+}
+
 
 .proDe-commentsBar1 p{
 font-family: notoSansTC-Medium;
