@@ -1,0 +1,22 @@
+// ?Color Variable
+
+$egreen: #81FC4D;
+$eblue: #1D0AFF;
+$egreydk: #A7A7A7;
+$egreylt: #E8E8E8;
+
+.e-l-header{
+    background-color: #E8E8E8;
+
+}
+
+.e-header-logo{
+    width: 162px;
+    margin: 30px 0px 30px 70px;
+}
+
+@media screen and (max-width:576px) {
+    .e-header{
+    display: none;
+}
+}

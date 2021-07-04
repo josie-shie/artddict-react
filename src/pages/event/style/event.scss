@@ -12,6 +12,96 @@
     width: 100%;
 }
 
+// ?Color Variable
+
+$egreen: #81FC4D;
+$eblue: #1D0AFF;
+$egreydk: #A7A7A7;
+$egreylt: #E8E8E8;
+
+// TODO: SPINNER 
+
+.spin-img{
+    animation: spinning 200s linear infinite alternate;
+}
+
+@keyframes spinning {
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(7200deg);}
+}
+
+.e-green-ani{
+    background-color: #81FC4D ;
+    top: 0%;
+    left: 0%;
+    transform: translate(0%,0%);
+    animation-duration:2s;
+    animation-fill-mode: forwards;
+}
+
+.e-move1{
+     animation-name:eBarMove1;
+}
+.e-move2{
+     animation-name:eBarMove2;
+}
+.e-move3{
+     animation-name:eBarMove3;
+}
+
+@keyframes eBarMove1 {
+    from{
+        width: 10%;
+    }
+    to{
+        width: 0%;
+    }
+}
+
+@keyframes eBarMove2 {
+    from{
+        width: 25%;
+    }
+    to{
+        width: 0%;
+    }
+}
+
+@keyframes eBarMove3 {
+    from{
+        width: 50%;
+    }
+    to{
+        width: 0%;
+    }
+}
+
+.e-word-ani{
+    opacity: 100%;
+    animation-name:eWordShow;
+    animation-duration:1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes eWordShow {
+    from{
+        opacity: 0%;
+    }
+    to{
+        opacity: 100%;
+    }
+}
+
+.e-delay1{
+    animation-delay:1s;
+}
+.e-delay2{
+    animation-delay:1.5s;
+}
+.e-delay3{
+    animation-delay:2s;
+}
+
 
 
 
@@ -72,6 +162,13 @@
 .hero-event-2{
     background-image: url(../images/museum/art-542320__480.jpeg);
     background-size: cover;
+    img{
+        width: 65%;
+        top:17%;
+        left: 20%;
+        transform: translate(-50%,-50%);
+    }
+
     
 }
 
@@ -80,6 +177,18 @@
     background-size: cover;
     
 }
+
+
+.hero-event-1:hover, .hero-event-2:hover, .hero-event-3:hover{
+    border: 4px solid #81FC4D;
+    button{
+        opacity: 100%;
+    }
+    .e-line, .e-line2, .spin-img{
+        opacity: 0%;
+    }
+}
+
 
 .e-cover-black{
     width: 100%;
@@ -132,12 +241,27 @@
     right: 20px;
 }
 
+
+
+.e-hero-get{
+    color: #81FC4D;
+    border: 2px solid #81FC4D;
+    font-size: 1.3rem;
+    font-weight: 500;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    opacity: 0%;
+}
+
+
 .e-line{
     width: 80%;
         border-top: 2px solid #81FC4D;
         top:50%;
         left: 50%;
         transform: translate(-50%,-50%) rotate(-45deg);
+        opacity: 100%;
 }
 .e-line2{
     width: 80%;
@@ -145,6 +269,7 @@
         top:50%;
         left: 50%;
         transform: translate(-50%,-50%) rotate(45deg);
+        opacity: 100%;
 }
 
 // Vol.01 font-size
@@ -225,6 +350,13 @@
     background-image: url(../images/museum/human-663298_1920.jpg);
     background-size: cover;
 
+}
+
+.e-exhi-event:hover{
+    button{
+        background-color: black;
+        color: white;
+    }
 }
 
 .e-exhi-white{
@@ -416,25 +548,54 @@
         transform: translate(-50%,-50%) rotate(45deg);
     }
 
-    .e-work-box::after{
+    .e-work-border::after{
         position: absolute;
-        top: 0px;
-        left: 0px;
+        top: 0%;
+        left: 0%;
         content: '';
         display: block;
         width: 1.5rem;
         height: 1.5rem;
         background: white;
     }
-    .e-work-box2::after{
+    .e-work-border::before{
         position: absolute;
-        bottom: 0px;
-        right: 0px;
+        bottom: 0%;
+        right: 0%;
         content: '';
         display: block;
         width: 1.5rem;
         height: 1.5rem;
         background: white;
+    }
+
+    @keyframes workbox {
+    from{
+        left: 0%;
+    }
+    to{
+        left: calc(100% - 1.5rem);
+    }
+}
+
+ @keyframes workbox2 {
+    from{
+        right: 0%;
+    }
+    to{
+        right: calc(100% - 1.5rem);
+    }
+}
+
+
+    .e-work-border:hover::after{    
+        animation: workbox .8s;
+        animation-fill-mode: forwards;
+    }
+
+    .e-work-border:hover::before{    
+        animation: workbox2 .8s;
+        animation-fill-mode: forwards;
     }
 
     // !WORK 標題英文字
@@ -542,6 +703,33 @@
         
         .e-city-area{
             border-top: 4px solid black;
+            border-bottom: 4px solid black;
+        }
+
+        .e-locat-card{
+            div{
+                div{
+                    div{
+                        opacity: .8;
+                    }
+                }
+            }
+        }
+
+        .e-locat-card{
+            div{
+                div{
+                    div:hover{
+                        opacity: 1;
+                        div{
+                            button{
+                                opacity: 1;
+                            }
+                        }
+                        
+                    }
+                }
+            }
         }
 
         .e-location-card{
@@ -550,8 +738,72 @@
             box-sizing: border-box;
             border: 4px solid black;
             border-top: 0px;
+            
 
         }
+        .e-location-card2{
+            background-image: url(../images/museum/TNN00258.jpeg);
+            background-size: cover;
+            box-sizing: border-box;
+            border: 4px solid black;
+            border-top: 0px;
+           
+
+        }
+
+        .e-location-card3{
+            background-image: url(../images/museum/Taichun.jpg);
+            background-size: cover;
+            box-sizing: border-box;
+            border: 4px solid black;
+            border-top: 0px;
+       
+
+        }
+
+        .e-location-card4{
+            background-image: url(../images/museum/0012.jpeg);
+            background-size: cover;
+            box-sizing: border-box;
+            border: 4px solid black;
+            border-top: 0px;
+       
+
+        }
+        .e-location-card5{
+            background-image: url(../images/museum/Tainan.jpg);
+            background-size: cover;
+            box-sizing: border-box;
+            border: 4px solid black;
+            border-top: 0px;
+       
+
+        }
+        .e-location-card6{
+            background-image: url(../images/museum/KaoS.jpeg);
+            background-size: cover;
+            box-sizing: border-box;
+            border: 4px solid black;
+            border-top: 0px;
+            
+
+        }
+
+        .e-loca-btn{
+        color: white;
+        font-size: 20px;
+        width: 150px;
+        height: 50px;
+        border: 0px;
+        background-color: black;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        opacity: 0;
+        }
+
+
+
 
         .e-locaton-btn{
             border: 4px solid black;

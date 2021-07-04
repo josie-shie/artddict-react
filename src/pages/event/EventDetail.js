@@ -10,6 +10,8 @@ import {
 import EHeader from './components/Darkheader'
 import BreadCrumb from './components/EventBreadCrumb'
 
+import EventMore from './components/EventMore'
+
 // react icons
 import {
   IoIosArrowBack,
@@ -169,7 +171,7 @@ function EventDetail() {
                     onClick={() => setOpen4(!open4)}
                     aria-controls="example-collapse-text"
                     aria-expanded={open4}
-                    className="ed-comment e-btn-m"
+                    className="ed-comment e-btn-m mb-5"
                   >
                     撰寫評論
                   </button>
@@ -178,7 +180,10 @@ function EventDetail() {
                     className="col-12 p-0 mt-3 mb-5 "
                   >
                     <div className="col-12 p-0">
-                      <form className="border-0 d-flex flex-wrap justify-content-center" action="">
+                      <form
+                        className="border-0 d-flex flex-wrap justify-content-center"
+                        action=""
+                      >
                         <textarea
                           className="ed-textarea col-12 p-0"
                           name=""
@@ -186,7 +191,10 @@ function EventDetail() {
                           cols="30"
                           rows="10"
                         ></textarea>
-                        <button className="ed-leave-msg e-btn-m col-l2 mt-3" type="submit">
+                        <button
+                          className="ed-leave-msg e-btn-m col-l2 mt-3"
+                          type="submit"
+                        >
                           送出評論
                         </button>
                       </form>
@@ -249,6 +257,9 @@ function EventDetail() {
               </div>
             </div>
           </Row>
+        </Container>
+        <Container className="ed-more" fluid>
+          <EventMore/>
         </Container>
       </div>
     </>

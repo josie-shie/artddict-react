@@ -1,0 +1,148 @@
+// Leave Right Side For Navbar
+.reduce-width{
+    width: calc(100% - 70px);
+}
+
+// leave 70px left paddinf
+.left-padding{
+    padding-left: 70px;
+}
+
+.both-padding{
+    padding-left: 70px;
+    padding-right: 70px;
+
+}
+
+// ?Color Variable
+
+$egreen: #81FC4D;
+$eblue: #1D0AFF;
+$egreydk: #A7A7A7;
+$egreylt: #E8E8E8;
+
+// !Share Zone
+
+.e-upload{
+    background-color: #E8E8E8;
+}
+
+.eu-bread{
+    border-top: 2px solid black;
+}
+
+// !Upload Left Area
+
+.eu-pic-up{
+    h5{
+        font-weight: normal;
+        font-size: 1.3rem;
+    }
+    h2{
+        font-weight: 500;
+        font-size: 1.9rem;
+    }
+
+}
+
+.eu-upload-title {
+    font-size: 1.3rem;
+}
+
+.eu-pic-left{
+    div{
+        background-color: white; 
+        border: 2px solid #707070;
+        .up-spin{
+            width: 80%;
+            height: 80%;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        button{
+            background-color: black;
+            font-size: 1rem;
+            font-weight: 500;
+            color: white;
+            border: 0px;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+        }
+        img{
+        width: 100%;
+        }
+    }
+}   
+    
+
+.eu-pic-right{
+    div{
+        div{
+            background-color: white; 
+            border: 2px solid #707070; 
+            button{
+            background-color: #707070;
+            font-size: 1.3rem;
+            font-weight: 500;
+            line-height: 1.3rem;
+            color: white;
+            border: 0px;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            
+        }
+            img{
+                width: 100%;
+            }
+        }
+    }
+}
+
+.eu-more-event{
+    background-color: white;
+    h2{
+        font-weight: bold;
+        font-size: 1.9rem;
+        letter-spacing: 4px;
+        span{
+            font-size: 2.2rem;
+            color: #1D0AFF;
+            letter-spacing: 0px;
+        }
+    }
+}
+
+.eu-text{
+    resize: none;
+}
+
+.eu-send-cmt{
+    background-color: #1D0AFF;
+    border: 0px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.eu-list-card {
+    border-top: 1px solid black;
+    img{
+    border: 2px solid #707070;
+    }
+    h6{
+    font-size: 1.3rem;
+    font-weight: 500;
+    }
+    p{
+    font-size: 1rem;
+    font-weight: normal;
+    color: #535353;
+    line-height: 1.2rem;
+    letter-spacing: 2px;
+}
+}
+

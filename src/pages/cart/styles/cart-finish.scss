@@ -1,0 +1,84 @@
+.c-thank {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.c-shipment3 {
+  padding-bottom: 3px;
+  border-bottom: 2px solid black;
+}
+.c-payment3 {
+  padding-bottom: 3px;
+  border-bottom: 2px solid black;
+}
+.c-complete3 {
+  padding-bottom: 3px;
+  border-bottom: 3px solid #81fc4d;
+}
+
+.c-order {
+  width: 100%;
+  border: 2px solid #707070;
+  th {
+    background-color: #707070;
+    color: white;
+  }
+  th,
+  td {
+    padding: 16px 30px;
+  }
+}
+
+.c-td-dark {
+  background-color: #c7c7c7;
+}
+
+.c-td-p1 {
+  border: 2px solid #b9b9b9;
+  padding: 16px 20px;
+  img {
+    width: 50px;
+    height: 50px;
+  }
+}
+
+.c-fgray {
+  color: #707070;
+}
+
+.c-finish-bottom {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.c-finbtn {
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  background-color: black;
+  p {
+    color: white;
+    letter-spacing: 0.3rem;
+    text-align: center;
+    line-height: 50px;
+  }
+}
+
+.c-finbtn1 {
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  border: 2px solid black;
+  p {
+    color: black;
+    letter-spacing: 0.3rem;
+    text-align: center;
+    line-height: 46px;
+  }
+  &:hover {
+    background-color: black;
+    p {
+      color: white;
+    }
+  }
+}

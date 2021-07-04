@@ -1,0 +1,47 @@
+font-face {
+    font-family: Engravers;
+    src: url(../../../style/font/ENGR.ttf);
+}
+
+@font-face {
+    font-family: EngraversBold;
+    src: url(../../../style/font/EngraversMTBold.ttf);
+}
+
+@font-face {
+    font-family: NotoSansTC-Medium;
+    src: url(../../../style/font/NotoSansTC-Medium.otf)
+}
+
+@font-face{
+    font-family: NotosansTC-Bold;
+    src: url(../../../style/font/NotoSansTC-Bold.otf);
+}
+
+.proDe-full{
+    width: calc(100vw - 70px);
+    height: 2000px;
+    background-color: #E8E8E8;
+}
+.proDe-leftSide{
+    width: 50vw;
+    height: 1000px;
+    background-color: aqua;
+}
+.proDe-rightSide{
+    width: 50vw;
+    height: 1000px;
+    background-color: black;
+}
+
+/* ------------slick-------- */
+.proDe-slickPic img{
+    width: 100%;
+}
+/* -------right hand side------ */
+.proDe-rightSideBox{
+    background-color: green;
+    width: 95%;
+    height: 2000px;
+    margin: 0 auto;
+}

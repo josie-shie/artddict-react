@@ -3,9 +3,12 @@ import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
 import Menu from './components/Menu'
 import { Link } from 'react-router-dom'
+import { Button } from 'react-bootstrap'
 import './styles/Ticket.scss'
+import TicketDetail from './TicketDetail'
 
 function Ticket() {
+  const [modalShow, setModalShow] = React.useState(false)
   return (
     <>
       <div className="u-body">
@@ -61,13 +64,24 @@ function Ticket() {
                 </Link>
               </div>
               <div className="u-BtnBlack">
-                <Link
+                {/* <Link
                   to="/user-ticket/detail"
                   className="u-link3"
                   style={{ textDecoration: 'none' }}
                 >
                   票券細節
-                </Link>
+                </Link> */}
+                <Button
+                  className="u-ticdetail"
+                  variant="dark"
+                  onClick={() => setModalShow(true)}
+                >
+                  票券細節
+                </Button>
+                <TicketDetail
+                  show={modalShow}
+                  onHide={() => setModalShow(false)}
+                />
               </div>
             </div>
           </div>

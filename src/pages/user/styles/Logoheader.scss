@@ -6,7 +6,8 @@
 
   //----- Logo -----
 .u-logo-header {
-    width: 1045px;
+    // margin-left: 70px;
+    max-width: calc(100% - 70px);
     border-bottom: 2px solid #000;
   }
   

@@ -31,32 +31,48 @@
     position: absolute;
     top: 30%;
     left: 70%;
+    display: flex;
+    flex-wrap: wrap;
+
 }
 .prolist-ArtDdictlogo{
     width: 100%;
+    
 }
 .prolist-titlewordA{
     font-family: notoSansTC-Medium;
     font-size: 2.5vw;
-    text-align: right;
     letter-spacing: 8px;
+    justify-content: flex-end;
+    text-align: right;
+    padding: 0;
+
+
 }
 .prolist-titlewordB{
     font-family: notoSansTC-Medium;
+    font-size: 1.3vw;
     text-align: right;
     margin-top: 10px;
+    justify-content: flex-end;
+    padding: 0;
 
 }
 .prolist-zzzzzz{
     letter-spacing: 0;
 }
+
 .prolist-shopnowBtn{
     background-color: black;
-    margin-left: 49%;
     margin-top: 15px;
     width: 130px;
     border: 0 solid black;
 }
+.prolist-justify{
+    justify-content: flex-end;
+    padding: 0;
+}
+
 .prolist-shopnowBtn p{
     padding: 5px;
     font-family: notoSansTC-Medium;
@@ -66,7 +82,7 @@
 .prolist-quote p{
     font-family: Engravers;
     text-align: center;
-    font-size: 2rem;
+    font-size: 2vw;
     margin-top: 20px;
 }
 .prolist-quote2 p{
@@ -74,4 +90,169 @@
     text-align: center;
     font-size: 1.2rem;  
     margin: 20px 0 20px 0;
+}
+.prolist-full2{
+    background-color: #e8e8e8;
+    height: 2000px;
+    width: calc(100vw - 70px);
+}
+.prolist-row{
+    /* background-color: rgb(124, 252, 252); */
+    width:75vw;
+    height: 2000px;
+    margin: 0 auto;
+}
+
+.prolist-topOflist{
+    width: 100%;
+    height: 180px;
+    border-bottom: 2px solid black;
+}
+.prolist-breadbox{
+    width: 100%;
+    height: 70px;
+    margin-bottom: 10px;
+}
+.prolist-bread{
+    padding-top: 35px;
+}
+.prolist-breadwordall{
+    font-family: notoSansTC-Medium;
+    color: black;
+}
+.prolist-breadwordA{
+    color: #7a7a7a;
+    font-family: notoSansTC-Medium;
+
+}
+.prolist-breadwordB{
+    color: black;
+    font-family: notoSansTC-Medium;
+
+}
+.prolist-filter{
+    justify-content: space-between;
+    height: 50px;
+}
+.prolist-arrangeAndIcon{
+    padding: 0;
+}
+.prolist-filterName{
+    border: 1px solid black;
+    padding: 7px 10px;
+}
+.prolist-controlFilter{
+    padding-left: 20px
+    ;
+}
+.prolist-searchIcon{
+    margin-top: 10px;
+    margin-left: 5%;
+}
+.prolist-sliderbox{
+    width: 200px;
+    height: 50px;
+    justify-content: flex-end;
+    margin-top: 15px;
+}
+.prolist-slider{
+    width: 100%; 
+    height: 25px;
+    background: #d3d3d3;
+    opacity: 0.7; 
+}
+.pro-priceRange{
+    margin-top: 15px;
+    margin-right: 30px;
+    font-size: 1.1rem;
+}
+.pro-showing{
+
+}
+.pro-filterWord{
+    font-family: notoSansTC-Medium;
+}
+
+
+/* ------------------productAndCategory------ */
+.prolist-productAndCategory{
+    justify-content: space-between;
+}
+.prolist-leftSide{
+    width: 200px;
+    height: 800px;
+    margin-top: 50px;
+}
+.prolist-rightSide{
+    width: 55vw;
+    height: 1500px;
+}
+
+/* ---------------------Category-------------------- */
+ .newArrival p, .hotProduct p, .pro-clothes p, .pro-furniture p, .pro-stationery p, .pro-books p, .pro-accessories p, .pro-casual p{
+    font-family: notoSansTC-Medium;
+    font-size: 1.5rem;
+    padding: 13px 0 0 20px;
+    color: black;
+    text-decoration:none;
+}
+
+.museumProduct{
+    width: 100%;
+    height:70px;
+    background-color:black
+}
+.newArrival, .hotProduct, .pro-clothes, .pro-furniture, .pro-stationery, .pro-books, .pro-accessories, .pro-casual{
+    width: 100%;
+    height: 70px;
+    background-color:transparent;
+}
+.museumProduct p{
+    font-family: notoSansTC-Medium;
+    color:white;
+    padding: 13px 0 0 20px;
+    font-size: 1.5rem;
+    text-decoration:none;
+
+}
+
+/* ----------------product item--------- */
+.prolist-card{
+    padding: 0;
+    flex: 0 0 32%;
+  max-width: 32%;
+}
+.prolist-cardTop{
+    width: 100%;
+    height: 50px;
+}
+.prolist-imgBorderBox{
+    position: relative;
+
+}
+.prolist-imgBox{
+
+    border:2px solid gray;
+    border-bottom: 0 ;
+}
+
+.prolist-imgBox img{
+    width: 100%;
+}
+.prolist-blackBar{
+    background-color:black;
+    width: 100%;
+    height: 10px;
+    position: absolute;
+    bottom: 0%;
+}
+.prolist-cardWordBox {
+    padding-top: 5px;
+    justify-content:space-between;
+}
+.prolist-cardProName p{
+    font-family: notoSansTC-Medium;
+}
+.prolist-cardProPrice p {
+    font-family: notoSansTC-Medium;
 }
