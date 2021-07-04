@@ -178,7 +178,7 @@
     justify-content: space-between;
 }
 .prolist-leftSide{
-    width: 15vw;
+    width: 200px;
     height: 800px;
 }
 .prolist-rightSide{
@@ -191,23 +191,23 @@
  .newArrival p, .hotProduct p, .pro-clothes p, .pro-furniture p, .pro-stationery p, .pro-books p, .pro-accessories p, .pro-casual p{
     font-family: notoSansTC-Medium;
     font-size: 1.5rem;
-    padding: 5px 0 0 20px;
+    padding: 13px 0 0 20px;
     color: black;
 }
 
 .museumProduct{
     width: 100%;
-    height:50px;
+    height:70px;
     background-color:black
 }
 .newArrival, .hotProduct, .pro-clothes, .pro-furniture, .pro-stationery, .pro-books, .pro-accessories, .pro-casual{
     width: 100%;
-    height: 50px;
+    height: 70px;
     background-color:transparent;
 }
 .museumProduct p{
     font-family: notoSansTC-Medium;
     color:white;
-    padding: 5px 0 0 20px;
+    padding: 13px 0 0 20px;
     font-size: 1.5rem;
 }
