@@ -23,17 +23,17 @@ $egreylt: #E8E8E8;
 
 // !Share Zone
 
-.e-upload{
+.e-share{
     background-color: #E8E8E8;
 }
 
-.eu-bread{
+.es-bread{
     border-top: 2px solid black;
 }
 
 // !Upload Left Area
 
-.eu-pic-up{
+.es-pic-up{
     h5{
         font-weight: normal;
         font-size: 1.3rem;
@@ -45,32 +45,14 @@ $egreylt: #E8E8E8;
 
 }
 
-.eu-upload-title {
+.es-work-title{
     font-size: 1.3rem;
 }
 
-.eu-pic-left{
+.es-pic-left{
     div{
         background-color: white; 
         border: 2px solid #707070;
-        .up-spin{
-            width: 80%;
-            height: 80%;
-            top:50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
-        button{
-            background-color: black;
-            font-size: 1rem;
-            font-weight: 500;
-            color: white;
-            border: 0px;
-            top:50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            
-        }
         img{
         width: 100%;
         }
@@ -78,23 +60,11 @@ $egreylt: #E8E8E8;
 }   
     
 
-.eu-pic-right{
+.es-pic-right{
     div{
         div{
             background-color: white; 
             border: 2px solid #707070; 
-            button{
-            background-color: #707070;
-            font-size: 1.3rem;
-            font-weight: 500;
-            line-height: 1.3rem;
-            color: white;
-            border: 0px;
-            top:50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            
-        }
             img{
                 width: 100%;
             }
@@ -102,7 +72,7 @@ $egreylt: #E8E8E8;
     }
 }
 
-.eu-more-event{
+.es-more-event{
     background-color: white;
     h2{
         font-weight: bold;
@@ -116,19 +86,12 @@ $egreylt: #E8E8E8;
     }
 }
 
-.eu-text{
-    resize: none;
-}
-
-.eu-send-cmt{
-    background-color: #1D0AFF;
-    border: 0px;
-    color: white;
+.es-text{
     font-size: 1rem;
-    font-weight: 500;
+    color: #707070;
 }
 
-.eu-list-card {
+.es-list-card {
     border-top: 1px solid black;
     img{
     border: 2px solid #707070;
