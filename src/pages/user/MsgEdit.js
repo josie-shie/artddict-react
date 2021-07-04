@@ -1,4 +1,5 @@
-import React from 'react'
+import { React, useState } from 'react'
+import { countries, townships } from './data/address'
 import './styles/MsgEdit.scss'
 import { Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
@@ -7,6 +8,8 @@ import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
 
 function MsgEdits() {
+  const [country, setCountry] = useState(-1)
+  const [township, setTownship] = useState(-1)
   return (
     <>
       <div className="u-body">
@@ -78,35 +81,59 @@ function MsgEdits() {
                   id="birthday"
                 />
               </div>
+
               <div className="form-group u-form1">
                 <label for="address">住址</label>
                 <br />
-                <div className="d-flex">
-                  <div className="u-Select">
-                    <select
-                      name=""
-                      id=""
-                      className="u-sel1"
-                    >
-                      <option>請選擇縣市</option>
-                    </select>
-                  </div>
-                  <div className="u-Select">
-                    <select
-                      name=""
-                      id=""
-                      className="u-sel2"
-                    >
-                      <option>請選擇區域</option>
-                    </select>
-                  </div>
+                <div className="u-Select">
+                  <select
+                    name=""
+                    id=""
+                    className="u-sel1"
+                    value={country}
+                    onChange={(e) => {
+                      setCountry(+e.target.value)
+                      setTownship(-1)
+                    }}
+                  >
+                    <option>請選擇縣市</option>
+                    {countries.map((value, index) => (
+                      <option key={index} value={index}>
+                        {value}
+                      </option>
+                    ))}
+                  </select>
                 </div>
+
+                <div className="u-Select">
+                  <select
+                    name=""
+                    id=""
+                    className="u-sel2"
+                    value={township}
+                    onChange={(e) => {
+                      setTownship(+e.target.value)
+                    }}
+                  >
+                    <option>請選擇區域</option>
+                    {country > -1 &&
+                      townships[country].map(
+                        (value, index) => (
+                          <option key={index} value={index}>
+                            {value}
+                          </option>
+                        )
+                      )}
+                  </select>
+                </div>
+
                 <input
                   type="text"
                   className="form-control"
                   id="address"
                 />
               </div>
+
               <div className="u-editBtn">
                 <button
                   type="submit"
