@@ -128,7 +128,7 @@ function CartProduct() {
           <div className="col-5 px-0">
             <div className="c-item1 d-flex mb-4">
               <img className="mr-4" src={img1} />
-              <div className="mr-auto my-2">
+              <div className="mr-auto">
                 <p>梵谷自畫像T-Shirt</p>
                 <p className="c-pid pt-2">
                   商品編號 # 200123
@@ -136,11 +136,11 @@ function CartProduct() {
                 <p className="c-f12 pt-2">尺寸：S</p>
                 <p className="c-f12 pt-1">數量：1</p>
               </div>
-              <p className="my-2">NT$ 780</p>
+              <p>NT$ 780</p>
             </div>
-            <div className="c-item2 d-flex mb-4">
+            <div className="c-item1 d-flex mb-4">
               <img className="mr-4" src={img2} />
-              <div className="mr-auto my-2">
+              <div className="mr-auto">
                 <p>梵谷自畫像T-Shirt</p>
                 <p className="c-pid pt-2">
                   商品編號 # 200123
@@ -148,7 +148,7 @@ function CartProduct() {
                 <p className="c-f12 pt-2">尺寸：S</p>
                 <p className="c-f12 pt-1">數量：1</p>
               </div>
-              <p className="my-2">NT$ 780</p>
+              <p>NT$ 780</p>
             </div>
             <div className="c-bb d-flex pb-4 px-3 mb-4">
               <p className="mr-auto">商品小計</p>
@@ -174,7 +174,9 @@ function CartProduct() {
                 <div className="px-3  d-flex">
                   <p className="mr-auto">付款資訊</p>
                   <a href="#">
-                    <p className="c-f12 c-store">回上一頁修改</p>
+                    <p className="c-f12 c-store">
+                      回上一頁修改
+                    </p>
                   </a>
                 </div>
               </div>
