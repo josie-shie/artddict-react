@@ -20,29 +20,32 @@ font-face {
 
 .proDe-full{
     width: calc(100vw - 70px);
-    height: 2000px;
     background-color: #E8E8E8;
 }
 .proDe-leftSide{
     width: calc(50vw - 35px);
-    height: 1000px;
+    height: 100vh;
     background-color: aqua;
+    position:sticky;
+    top: 0;
 }
 .proDe-rightSide{
     width: calc(50vw - 35px);
-    height: 2000px;
     background-color: black;
 }
 
 /* ------------slick-------- */
+.proDe-slickPic{
+    width: 300px;
+}
+
 .proDe-slickPic img{
-    width: 100%;
+    width: 10%;
 }
 /* -------right hand side------ */
 .proDe-rightSideBox{
     background-color: black;
     width: 90%;
-    height: 2000px;
     margin: 0 auto;
 }
 .proDe-logoTopBox{

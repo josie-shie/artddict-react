@@ -27,40 +27,19 @@ function ProductDetail() {
   const [open2, setOpen2] = useState(false)
   const [open3, setOpen3] = useState(false)
   const [open4, setOpen4] = useState(false)
-  const settings = {
-    customPaging: function (i) {
-      return (
-        <a>
-          <img src={`${product1}/abstract0${i + 1}.jpg`} />
-        </a>
-      )
-    },
-    dots: true,
-    dotsClass: 'slick-dots slick-thumb',
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  }
   return (
     <>
       <div className="proDe-full">
         <div className="d-flex">
           <div className="proDe-leftSide">
-            <div>
-              <h2>Custom Paging</h2>
-              <Slider {...settings}>
-                <div className=".proDe-slickPic">
-                  <img src={product1 + '/abstract01.jpg'} />
-                </div>
-                <div>
-                  <img src={product2 + '/abstract02.jpg'} />
-                </div>
-                <div>
-                  <img src={product3 + '/abstract03.jpg'} />
-                </div>
-              </Slider>
-            </div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur,
+              adipisicing elit. Ratione, quos sed? Fuga
+              veniam facere in explicabo assumenda officiis.
+              Deserunt labore cumque inventore iste
+              cupiditate perspiciatis praesentium dolore
+              nobis consectetur alias.
+            </p>
           </div>
           <div className="proDe-rightSide">
             <div className="proDe-rightSideBox">
