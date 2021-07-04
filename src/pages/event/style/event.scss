@@ -10,6 +10,8 @@
 
 .e-local-log-pic{
     width: 100%;
+    height: 100%;
+    margin: 0 auto 0 auto;
 }
 
 // ?Color Variable
@@ -384,6 +386,7 @@ $egreylt: #E8E8E8;
 
 // EXHIBITION 標題英文字
 .e-exhi-title{
+    color: black;
     bottom: 150px;
     right: 400px;
     font-size: 5.8rem;
@@ -417,7 +420,7 @@ $egreylt: #E8E8E8;
     top: 230px;
     content: '';
     display: block;
-    width: 300px;
+    width: 400px;
     height: 2px;
     background: black;
     margin-left:400px;
@@ -426,6 +429,7 @@ $egreylt: #E8E8E8;
 .arrow-cap::after{
     position: absolute;
     top: 231px;
+    right: -425px;
     content: '';
     display: block;
     width: 80px;
@@ -433,7 +437,7 @@ $egreylt: #E8E8E8;
     border-top: 2px solid black;
     border-right: 2px solid black;
     transform: translate(-50%, -50%) rotate(45deg);
-    margin-left:645px;
+    // margin-left:645px;
 }
 
 
@@ -628,31 +632,7 @@ $egreylt: #E8E8E8;
         background: white;
     }
 
-        //  WORK ARROW
-        .e-work-title::after{
-            position: absolute;
-            top: 230px;
-            content: '';
-            display: block;
-            width: 300px;
-            height: 2px;
-            background: white;
-            margin-left:400px;
-        }
-
-        .arrow-work-cap::after{
-            position: absolute;
-            top: 231px;
-            content: '';
-            display: block;
-            width: 80px;
-            height: 80px;
-            border-top: 2px solid white;
-            border-right: 2px solid white;
-            transform: translate(-50%, -50%) rotate(45deg);
-            margin-left:645px;
-        }
-
+       
         //  WORK ARROW
         .e-work-title::after{
             position: absolute;
@@ -660,7 +640,7 @@ $egreylt: #E8E8E8;
             top: 175px;
             content: '';
             display: block;
-            width: 690px;
+            width: 1300px;
             height: 2px;
             background: white;
             margin-left:400px;
@@ -669,7 +649,7 @@ $egreylt: #E8E8E8;
         .arrow-work-cap::after{
             position: absolute;
             top: 176px;
-            left: 580px;
+            right: -25px;
             content: '';
             display: block;
             width: 80px;
@@ -709,7 +689,7 @@ $egreylt: #E8E8E8;
         .e-locat-card{
             div{
                 div{
-                    div{
+                    .el-c{
                         opacity: .8;
                     }
                 }
@@ -719,7 +699,7 @@ $egreylt: #E8E8E8;
         .e-locat-card{
             div{
                 div{
-                    div:hover{
+                    .el-c:hover{
                         opacity: 1;
                         div{
                             button{
@@ -827,144 +807,226 @@ $egreylt: #E8E8E8;
         }
 
 
-        
+
+// !!!!!This is Where RWD Start!!!!!
+// @media screen and (max-width:576px) {}
+// @media screen and (max-width:768px) {}
 
 
+@media screen and (max-width:991px) {
+    // .e-work-title::after{
+    //      width: 300px;
+    // }
+    // .arrow-work-cap::after{
+    //     left: 490px;
+    // }
+
+}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-@media screen and (max-width:576px) {
-    .reduce-width{
-    width: 100%;
-    }
-
-    //! HERO
-
-    .hero{
-    padding-top: 50px;
-    width: 100%;
-    background-color: black;
-    position: relative;
-    }
-
-    .e-logo-area{
-        display: none;
-    }
-
-    .m-spin-eye{
-        margin-top: 20px;
-        margin-left: 300px;
-    }
-
-    .e-topic{
-    font-size: 1.3rem;
-    font-weight: bold;
-    color: #81FC4D;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    }
-    .e-pictures-margin{
-    margin-top: 75px;}
-
-    .e-hero-event-font{
-        font-size: 20px;
-        font-weight: 500;
-        color: #81FC4D;
-    }
-
-
-    // 系列展覽 position
-    .e-left-top{
-        top: 20px;
-        left: 20px;
-
-    }
-
-    .e-right-top{
-        top: 20px;
-        right: 20px;
-        
-    }
-
-    .e-left-btm{
-        bottom: 20px;
-        left: 20px;
-        
-    }
-
-    .e-right-btm{
-        bottom: 20px;
-        right: 20px;
-    }
-
-    .e-line{
-        width: 80%;
-        border-top: 2px solid #81FC4D;
-        top:50%;
-        left: 50%;
-        transform: translate(-50%,-50%) rotate(-45deg);
-    }
-    .e-line2{
-        width: 80%;
-        border-top: 2px solid #81FC4D;
-        top:50%;
-        left: 50%;
-        transform: translate(-50%,-50%) rotate(45deg);
-    }
-
-    // Vol.01 font-size
+@media screen and (max-width:1171px) {
     .e-hero-vol{
-        font-size: 30px;
-        color: #81FC4D;
-        left: 50%;
-        bottom: 10px;
-        transform: translate(-50%,0%)
+        font-size: 20px;
+        bottom: 20px;
     }
-
     .bigger{
-        font-size: 50px;
+        font-size: 30px;
+    }
+    .e-work-name{
+        width: 150px;
+        left: calc(50% + 8px);
     }
 
-    // !EXHI
 
+}
+@media screen and (max-width:1255px) {
     .e-exhi-title{
-        font-size: 2rem;
+        right: 300px;
+        bottom: 100px;
     }
-
-    .e-exhi-title::after{
-        width: 0px;
-        height: 0px;
-        display:none
-    }
-
     .arrow-cap::after{
-        width: 0px;
-        height: 0px;
-        display:none
+        right: -325px;
+    }
+}
+
+@media screen and (max-width:1348px) {
+    .e-exhi-title{
+         bottom: 130px;
+    }
+    .e-work-name{
+        font-size: 1.1rem;
     }
 
-    .exhi-m-deco{
-        left: 140%;
-    }
+
+}
+
+
+        
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// @media screen and (max-width:576px) {
+//     .reduce-width{
+//     width: 100%;
+//     }
+
+//     //! HERO
+
+//     .hero{
+//     padding-top: 50px;
+//     width: 100%;
+//     background-color: black;
+//     position: relative;
+//     }
+
+//     .e-logo-area{
+//         display: none;
+//     }
+
+//     .m-spin-eye{
+//         margin-top: 20px;
+//         margin-left: 300px;
+//     }
+
+//     .e-topic{
+//     font-size: 1.3rem;
+//     font-weight: bold;
+//     color: #81FC4D;
+//     margin-top: 10px;
+//     margin-bottom: 10px;
+//     }
+//     .e-pictures-margin{
+//     margin-top: 75px;}
+
+//     .e-hero-event-font{
+//         font-size: 20px;
+//         font-weight: 500;
+//         color: #81FC4D;
+//     }
+
+
+//     // 系列展覽 position
+//     .e-left-top{
+//         top: 20px;
+//         left: 20px;
+
+//     }
+
+//     .e-right-top{
+//         top: 20px;
+//         right: 20px;
+        
+//     }
+
+//     .e-left-btm{
+//         bottom: 20px;
+//         left: 20px;
+        
+//     }
+
+//     .e-right-btm{
+//         bottom: 20px;
+//         right: 20px;
+//     }
+
+//     .e-line{
+//         width: 80%;
+//         border-top: 2px solid #81FC4D;
+//         top:50%;
+//         left: 50%;
+//         transform: translate(-50%,-50%) rotate(-45deg);
+//     }
+//     .e-line2{
+//         width: 80%;
+//         border-top: 2px solid #81FC4D;
+//         top:50%;
+//         left: 50%;
+//         transform: translate(-50%,-50%) rotate(45deg);
+//     }
+
+//     // Vol.01 font-size
+//     .e-hero-vol{
+//         font-size: 30px;
+//         color: #81FC4D;
+//         left: 50%;
+//         bottom: 10px;
+//         transform: translate(-50%,0%)
+//     }
+
+//     .bigger{
+//         font-size: 50px;
+//     }
+
+//     // !EXHI
+
+//     .e-exhi-title{
+//         color: black;
+//         font-size: 2rem;
+//     }
+
+//     .e-exhi-title::after{
+//         width: 0px;
+//         height: 0px;
+//         display:none
+//     }
+
+//     .arrow-cap::after{
+//         width: 0px;
+//         height: 0px;
+//         display:none
+//     }
+
+//     .exhi-m-deco{
+//         left: 140%;
+//     }
 
 
  
-}
+// }
+
+
+// @media screen and (max-width:576px) {}
+// @media screen and (max-width:768px) {}
+
+
+
+// @media screen and (max-width:1137px) {
+//     .e-hero-vol{
+//         font-size: 20px;
+//         bottom: 20px;
+//     }
+//     .bigger{
+//         font-size: 30px;
+//     }
+// }
+// @media screen and (max-width:1355px) {
+//     .e-exhi-title{
+//         bottom: 130px;
+//     }
+//     .e-work-title::after{
+//         width: 600px;
+//     }
+//     .arrow-work-cap::after{
+//         left: 490px;
+//     }
+// }
