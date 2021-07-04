@@ -59,6 +59,7 @@
   color: #000;
   background-color: #e8e8e8;
   border: 2px solid #000;
+  border-radius: 0px;
 }
 
 .u-editBtn > .btn-outline-dark:hover,
@@ -70,7 +71,8 @@
 }
 
 .u-editBtn {
-  margin-top: 50px;
+  margin-top: 20px;
+  
 }
 
 // ----- input 樣式 -----
@@ -80,14 +82,14 @@
   background-color: #e8e8e8;
   border: 2px solid #000;
   font-family: 'Noto Sans TC', sans-serif;
-  font-size: 16px;
+  font-size: 1rem;
   margin-top: 5px;
-}
-
-.u-form1 > input:-webkit-autofill,
-textarea:-webkit-autofill,
-select:-webkit-autofill {
-  -webkit-box-shadow: 0 0 0px 1000px #e8e8e8 inset;
+  border-radius: 0px;
+  &:focus {
+    outline: none !important;
+    border: 2px solid #1d0aff;
+    background-color: #e8e8e8;
+  }
 }
 
 .u-form1 > select {
@@ -97,7 +99,6 @@ select:-webkit-autofill {
   border: 2px solid #000;
   font-family: 'Noto Sans TC', sans-serif;
   font-size: 16px;
-  border-radius: 3px;
   margin-top: 5px;
 }
 
@@ -107,14 +108,9 @@ select:-webkit-autofill {
   margin-top: 10px;
 }
 
-// .u-userData {
-//   margin-left: 370px;
-// }
-
 .u-Select > select {
   width: 17vw;
   height: 60px;
-  border-radius: 3px;
   background-color: #e8e8e8;
   border: 2px solid #000;
   margin-bottom: 20px;
@@ -124,7 +120,7 @@ select:-webkit-autofill {
 }
 
 .u-sel2 {
-  margin-left: 20px;
+  margin-left: 14px;
 }
 
 .u-sel1,
@@ -176,7 +172,6 @@ select:-webkit-autofill {
   display: inline-block;
   visibility: visible;
   padding: 0px 3px;
-  border-radius: 3px;
   border: 2px solid #000;
 }
 
