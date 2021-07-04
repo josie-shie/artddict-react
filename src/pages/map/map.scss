@@ -30,9 +30,24 @@
     // !Default
 
     .map-area{
-        // height:100vh;
-        overflow: hidden;
+        height:100vh;
+        overflow: hidden;   
     }
+
+    .map-area a{
+        direction: none;
+        color: #000;
+        
+    }
+    .map-area a:hover{
+        direction: none;
+        color: #000;
+        
+        .map-card button{
+            opacity: 0.8;
+        }
+    }
+    
 
     
 
@@ -42,9 +57,13 @@
         margin-bottom: 30px;
     }
 
+    .map-content{
+        height: calc(100vh - 32vh);
+    }
+
     /*開源地圖*/
     #osm-map{
-        height: calc(100vh - 15vh);
+        height: 100vh;
         width: 100%;
     }
 
@@ -60,7 +79,7 @@
         font-size: 1rem;
         color: #E8E8E8;
         font-weight: normal;
-        border: 1px solid #E8E8E8;
+        border: 2px solid #E8E8E8;
     }
 
     .map-select{
@@ -77,9 +96,6 @@
 
     // 搜尋
 
-    .map-search{
-        position: relative;
-    }
 
     .map-search input[type="text"] {
         height: 60px;
@@ -132,4 +148,58 @@
         opacity: 0.8;
       }
 
+      // ? map card 
+
+      .map-card-area{
+          height: 100%;
+          overflow:scroll;
+      }
+
+      .map-card{
+          font-family: notoSansTC;
+          border-bottom: 2px solid #000;
+          overflow: scroll;
+
+          strong{
+              font-weight: bold;
+              font-size:1.5rem;
+          }
+          
+          p{
+              font-size:1rem;
+          }
+      }
+
+      .map-card-btn {
+          background: #000;
+        
+          button {
+              background-color: #000;
+              border:0;
+            color: #E8E8E8;
+
+        }
+
+        a{
+            border-top: 1px solid #E8E8E8;
+        }
+
+        .map-card-select{
+            font-family: NotoSansTC;
+            letter-spacing:2px;
+
+
+        }
+
+        
+      }
+
+      .map-select-box-dk{
+        height: 5vh;
+        font-size: 1rem;
+        color: #000000;
+        font-weight: normal;
+        border: 2px solid #000000;
+    }
+      
     
