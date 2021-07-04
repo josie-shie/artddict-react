@@ -27,40 +27,19 @@ function ProductDetail() {
   const [open2, setOpen2] = useState(false)
   const [open3, setOpen3] = useState(false)
   const [open4, setOpen4] = useState(false)
-  const settings = {
-    customPaging: function (i) {
-      return (
-        <a>
-          <img src={`${product1}/abstract0${i + 1}.jpg`} />
-        </a>
-      )
-    },
-    dots: true,
-    dotsClass: 'slick-dots slick-thumb',
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  }
   return (
     <>
       <div className="proDe-full">
         <div className="d-flex">
           <div className="proDe-leftSide">
-            <div>
-              <h2>Custom Paging</h2>
-              <Slider {...settings}>
-                <div className=".proDe-slickPic">
-                  <img src={product1 + '/abstract01.jpg'} />
-                </div>
-                <div>
-                  <img src={product2 + '/abstract02.jpg'} />
-                </div>
-                <div>
-                  <img src={product3 + '/abstract03.jpg'} />
-                </div>
-              </Slider>
-            </div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur,
+              adipisicing elit. Ratione, quos sed? Fuga
+              veniam facere in explicabo assumenda officiis.
+              Deserunt labore cumque inventore iste
+              cupiditate perspiciatis praesentium dolore
+              nobis consectetur alias.
+            </p>
           </div>
           <div className="proDe-rightSide">
             <div className="proDe-rightSideBox">
@@ -361,6 +340,82 @@ function ProductDetail() {
                   </div>
                 </div>
               </div>
+              <div className="proDe-commentsCard d-flex">
+                <div className="proDe-commentsCardLeft">
+                  <div className="proDe-starsSSSSS">
+                    <IoIosStar
+                      size={20}
+                      color={'#1D0AFF'}
+                    />
+                    <IoIosStar
+                      size={20}
+                      color={'#1D0AFF'}
+                    />
+                    <IoIosStar
+                      size={20}
+                      color={'#1D0AFF'}
+                    />
+                    <IoIosStar
+                      size={20}
+                      color={'#1D0AFF'}
+                    />
+                    <IoIosStar
+                      size={20}
+                      color={'#1D0AFF'}
+                    />
+                  </div>
+                  <p className="proDe-userName">暢哥</p>
+                  <p className="proDe-userDate">
+                    05-22-2021
+                  </p>
+                </div>
+                <div className="proDe-commentsCardRight d-flex">
+                  <div className="proDe-commentsContent d-flex">
+                    <p>
+                      穿上後我考試都100分，也交了女友，股票怎麼買怎麼賺，還找到了年薪千萬的工作，直接變成人生勝利組，謝謝刻這個版面的人看到這個資訊，謝謝老師半夜五點還回我訊息，謝謝爸媽把我養成一個人，謝謝煮飯的人讓我有飯吃，我回本了所以我不用改姓，姓劉很爽，我要唱我愛世界，讚
+                    </p>
+                  </div>
+                </div>
+              </div>
+              {/* ------------寫評論---------- */}
+              <div className="col-12 p-0 d-flex justify-content-center flex-wrap">
+                <button
+                  onClick={() => setOpen4(!open4)}
+                  aria-controls="example-collapse-text"
+                  aria-expanded={open4}
+                  className="ed-comment e-btn-m mb-5 mt-5 proDe-commentsName"
+                >
+                  <p className="proDe-lastWord">撰寫評論</p>
+                </button>
+                <Collapse
+                  in={open4}
+                  className="col-12 p-0 mt-3 mb-5 "
+                >
+                  <div className="col-12 p-0">
+                    <form
+                      className="border-0 d-flex flex-wrap justify-content-center"
+                      action=""
+                    >
+                      <textarea
+                        className="ed-textarea col-12 p-0"
+                        name=""
+                        id=""
+                        cols="30"
+                        rows="10"
+                      ></textarea>
+                      <button
+                        className="ed-leave-msg e-btn-m col-l2 mt-3"
+                        type="submit"
+                      >
+                        <p className="proDe-lastWord">
+                          送出評論
+                        </p>
+                      </button>
+                    </form>
+                  </div>
+                </Collapse>
+              </div>
+              {/* ----------------留言結束--------- */}
             </div>
           </div>
         </div>

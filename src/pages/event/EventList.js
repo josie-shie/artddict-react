@@ -50,15 +50,15 @@ function EventList() {
           </Row>
 
           <EDetailCaro />
-          <Row className="mt-2 pb-5">
-            <h4 className="col-6 e-detail-class cn-font border-right py-4">
+          <Row className="mt-2 pb-5 ed-type">
+            <button className="col-6 e-detail-class cn-font border-left-0 py-4 shadow-none">
               藝文活動展
               <IoIosArrowRoundDown />
-            </h4>
-            <h4 className="col-6 e-detail-class cn-font py-4">
+            </button>
+            <button className="col-6 e-detail-class cn-font py-4 border-right-0">
               活動工作坊
               <IoIosArrowRoundDown />
-            </h4>
+            </button>
           </Row>
         </Container>
         <Container className="ed-list both-padding" fluid>
@@ -72,7 +72,9 @@ function EventList() {
                 className="ed-select-box cn-font col-2 p-0 d-flex
               "
               >
-                <h6 className="col-5">地區</h6>
+                <h6 className="col-5 px-0 text-center">
+                  地區
+                </h6>
                 <select
                   className="ed-select col-7"
                   name=""
@@ -89,7 +91,9 @@ function EventList() {
                 className="ed-select-box cn-font col-2 p-0 d-flex
               "
               >
-                <h6 className="col-5">城市</h6>
+                <h6 className="col-5 px-0 text-center">
+                  城市
+                </h6>
                 <select
                   className="ed-select col-7"
                   name=""
@@ -106,7 +110,9 @@ function EventList() {
                 className="ed-select-box cn-font col-3 p-0 d-flex
               "
               >
-                <h6 className="col-5 pl-4">美術館</h6>
+                <h6 className="col-5 px-0 text-center">
+                  美術館
+                </h6>
                 <select
                   className="ed-select col-7"
                   name=""
@@ -123,7 +129,9 @@ function EventList() {
                 className="ed-select-box cn-font col-2 p-0 d-flex
               "
               >
-                <h6 className="col-5">時間</h6>
+                <h6 className="col-5 px-0 text-center">
+                  時間
+                </h6>
                 <select
                   className="ed-select col-7"
                   name=""
@@ -151,7 +159,9 @@ function EventList() {
                 className="ed-select-box cn-font col-2 p-0 d-flex
               "
               >
-                <h6 className="col-5">排序</h6>
+                <h6 className="col-5 px-0 text-center">
+                  排序
+                </h6>
                 <select
                   className="ed-select col-7"
                   name=""
@@ -171,7 +181,7 @@ function EventList() {
               </button>
             </form>
           </Row>
-          <Row className="justify-content-between flex-wrap">
+          <Row className="ed-list-card justify-content-between flex-wrap cn-font">
             <Link
               to="/event/event-list/detail"
               style={{ textDecoration: 'none' }}
@@ -191,10 +201,10 @@ function EventList() {
                   <p>時間：JUN</p>
                 </div>
                 <div className="col-4 p-0">
-                  <button className="border-right col-4 py-2">
+                  <button className="border-right col-4 text-center">
                     <IoIosHeart />
                   </button>
-                  <button className="col-8 py-2">
+                  <button className="col-8 text-center">
                     MORE+
                   </button>
                 </div>
@@ -220,10 +230,10 @@ function EventList() {
                   <p>時間：JUN</p>
                 </div>
                 <div className="col-4 p-0">
-                  <button className="border-right col-4 py-2">
+                  <button className="border-right col-4 text-center">
                     <IoIosHeart />
                   </button>
-                  <button className="col-8 py-2">
+                  <button className="col-8 text-center">
                     MORE+
                   </button>
                 </div>
@@ -249,17 +259,16 @@ function EventList() {
                   <p>時間：JUN</p>
                 </div>
                 <div className="col-4 p-0">
-                  <button className="border-right col-4 py-2">
+                  <button className="border-right col-4 text-center">
                     <IoIosHeart />
                   </button>
-                  <button className="col-8 py-2">
+                  <button className="col-8 text-center">
                     MORE+
                   </button>
                 </div>
               </div>
             </Link>
 
-            
             <Link
               to="/event/event-list/detail"
               style={{ textDecoration: 'none' }}
@@ -279,10 +288,10 @@ function EventList() {
                   <p>時間：JUN</p>
                 </div>
                 <div className="col-4 p-0">
-                  <button className="border-right col-4 py-2">
+                  <button className="border-right col-4 text-center">
                     <IoIosHeart />
                   </button>
-                  <button className="col-8 py-2">
+                  <button className="col-8 text-center">
                     MORE+
                   </button>
                 </div>
@@ -308,10 +317,10 @@ function EventList() {
                   <p>時間：JUN</p>
                 </div>
                 <div className="col-4 p-0">
-                  <button className="border-right col-4 py-2">
+                  <button className="border-right col-4 text-center">
                     <IoIosHeart />
                   </button>
-                  <button className="col-8 py-2">
+                  <button className="col-8 text-center">
                     MORE+
                   </button>
                 </div>
@@ -337,10 +346,10 @@ function EventList() {
                   <p>時間：JUN</p>
                 </div>
                 <div className="col-4 p-0">
-                  <button className="border-right col-4 py-2">
+                  <button className="border-right col-4 text-center">
                     <IoIosHeart />
                   </button>
-                  <button className="col-8 py-2">
+                  <button className="col-8 text-center">
                     MORE+
                   </button>
                 </div>

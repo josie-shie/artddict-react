@@ -1,9 +1,9 @@
 import { React, useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
+import $ from 'jquery'
 import {
   Container,
   Row,
-  Button,
   Collapse,
 } from 'react-bootstrap'
 
@@ -79,17 +79,17 @@ function EventDetail() {
             >
               <Link
                 to="/event/event-list/detail/upload"
-                className="col-4"
+                className="col-6"
               >
-                <button className="col cn-font">
+                <button className="cn-font px-0">
                   上傳作品
                 </button>
               </Link>
               <Link
                 to="/event/event-list/detail/share"
-                className="col-4"
+                className="col-6"
               >
-                <button className="col cn-font">
+                <button className="cn-font px-0">
                   觀賞作品
                 </button>
               </Link>
@@ -234,10 +234,18 @@ function EventDetail() {
                   className="col-12 d-block d-flex flex-wrap justify-content-between"
                   action=""
                 >
-                  <button className="col-5">成人票</button>
-                  <button className="col-5">孩童票</button>
-                  <button className="col-5">敬老票</button>
-                  <button className="col-5">愛心票</button>
+                  <button className="col-5 e-ticket-type ">
+                    成人票
+                  </button>
+                  <button className="col-5 e-ticket-type">
+                    孩童票
+                  </button>
+                  <button className="col-5 e-ticket-type">
+                    敬老票
+                  </button>
+                  <button className="col-5 e-ticket-type">
+                    愛心票
+                  </button>
                   <p className="col-12 pb-2 ticket-num mt-4 p-0">
                     數量：
                   </p>

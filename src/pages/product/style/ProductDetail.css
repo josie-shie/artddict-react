@@ -20,29 +20,32 @@ font-face {
 
 .proDe-full{
     width: calc(100vw - 70px);
-    height: 2000px;
     background-color: #E8E8E8;
 }
 .proDe-leftSide{
     width: calc(50vw - 35px);
-    height: 1000px;
+    height: 100vh;
     background-color: aqua;
+    position:sticky;
+    top: 0;
 }
 .proDe-rightSide{
     width: calc(50vw - 35px);
-    height: 1500px;
     background-color: black;
 }
 
 /* ------------slick-------- */
+.proDe-slickPic{
+    width: 300px;
+}
+
 .proDe-slickPic img{
-    width: 100%;
+    width: 10%;
 }
 /* -------right hand side------ */
 .proDe-rightSideBox{
     background-color: black;
     width: 90%;
-    height: 2000px;
     margin: 0 auto;
 }
 .proDe-logoTopBox{
@@ -298,4 +301,45 @@ font-family: notoSansTC-Medium;
     margin-left: 20px;
     color: white;
 
+}
+/* -------------commentSarea--------- */
+.proDe-commentsCard{
+    width: 100%;
+    padding-bottom: 28px;
+    border-bottom: 2px solid #8e8e8e;
+    align-items: center;
+    justify-content: space-between;
+}
+.proDe-commentsCardLeft{
+    width: 30%;
+    margin-top: 28px;
+}
+
+.proDe-userName, .proDe-userDate{
+    font-family:notoSansTC-Medium;
+    color: white;
+    margin-top: 10px;
+}
+.proDe-userName{
+    font-size: 1.2rem;
+}
+
+.proDe-commentsCardRight{
+    width: 65%;
+    margin-top: 28px;
+}
+.proDe-commentsContent{
+    
+}
+.proDe-commentsContent p{
+    color: white;
+    font-family: notoSansTC-Medium;
+} 
+/* --------評論------- */
+.proDe-commentsName{
+    border: 1px solid #8e8e8e;
+}
+.proDe-lastWord{
+    font-family: notoSansTC-Medium;
+    font-size: 1.1rem;
 }

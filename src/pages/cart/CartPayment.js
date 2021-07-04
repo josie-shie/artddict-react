@@ -83,9 +83,9 @@ function CartProduct() {
                     </div>
                     <a
                       href="#"
-                      className="ml-2 mt-auto c-f12 c-store px-0"
+                      className="ml-2 mt-auto c-store px-0 pb-0"
                     >
-                      <p className="pb-0">這是什麼?</p>
+                      這是什麼?
                     </a>
                   </div>
                 </div>
@@ -173,11 +173,11 @@ function CartProduct() {
               <div className="c-shipleft">
                 <div className="px-3  d-flex">
                   <p className="mr-auto">付款資訊</p>
-                  <a href="#">
-                    <p className="c-f12 c-store">
+                  <p>
+                    <a href="#" className="c-store pb-0">
                       回上一頁修改
-                    </p>
-                  </a>
+                    </a>
+                  </p>
                 </div>
               </div>
               <div class="c-shipdetail px-3 pb-5">
