@@ -23,6 +23,7 @@ import MatchGame from './pages/product/MatchGame'
 //auction
 import AuctionDetail from './pages/Auction/AuctionDetail'
 import Auction from './pages/Auction/Auction'
+import userAuction from './pages/Auction/userAuction'
 
 // User
 import Add from './pages/user/Add'
@@ -66,9 +67,6 @@ function App() {
         </Route>
             <Route exact path="/auctionDetail/:id?">
               <AuctionDetail />
-            </Route>
-            <Route exact path="/auction">
-              <Auction />
             </Route>
             <Route
               exact
@@ -144,6 +142,9 @@ function App() {
             <Route exact path="/user-myfav">
               <UserMyFav />
             </Route>
+            <Route exact path="/user-Auction">
+              <userAuction />
+            </Route>
             {/* <Route exact path="/auction">
               <Auction />
             </Route> */}
@@ -170,6 +171,9 @@ function App() {
             </Route>
             <Route exact path="/artist">
               <Artist />
+            </Route>
+            <Route exact path="/auction">
+              <Auction />
             </Route>
             <Route exact path="/map">
               <Map />
