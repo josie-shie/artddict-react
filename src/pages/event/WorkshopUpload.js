@@ -195,4 +195,4 @@ function WorkshopUpload() {
   )
 }
 
-export default WorkshopUpload
+export default withRouter (WorkshopUpload)

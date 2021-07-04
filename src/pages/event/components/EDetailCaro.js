@@ -13,7 +13,7 @@ import { ReactComponent as CaroCtrR } from '../images/caroR.svg'
 
 import '../style/EDetailCaro.scss'
 
-export default function EDetailCaro() {
+function EDetailCaro() {
     const [index, setIndex] = useState(0)
     const handleSelect = (selectedIndex, e) => {
       setIndex(selectedIndex)
@@ -33,39 +33,49 @@ export default function EDetailCaro() {
           slide={true}
         >
           <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={CaroPic1}
-              alt="First slide"
-            />
+            <Link to="/event/event-list/detail">
+              <img
+                className="d-block w-100"
+                src={CaroPic1}
+                alt="First slide"
+              />
+            </Link>
           </Carousel.Item>
           <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={CaroPic2}
-              alt="Second slide"
-            />
+            <Link to="/event/event-list/detail">
+              <img
+                className="d-block w-100"
+                src={CaroPic2}
+                alt="Second slide"
+              />
+            </Link>
           </Carousel.Item>
           <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={CaroPic3}
-              alt="Third slide"
-            />
+            <Link to="/event/event-list/detail">
+              <img
+                className="d-block w-100"
+                src={CaroPic3}
+                alt="Third slide"
+              />
+            </Link>
           </Carousel.Item>
           <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={CaroPic4}
-              alt="Second slide"
-            />
+            <Link to="/event/event-list/detail">
+              <img
+                className="d-block w-100"
+                src={CaroPic4}
+                alt="Second slide"
+              />
+            </Link>
           </Carousel.Item>
           <Carousel.Item>
-            <img
-              className="d-block w-100"
-              src={CaroPic5}
-              alt="Third slide"
-            />
+            <Link to="/event/event-list/detail">
+              <img
+                className="d-block w-100"
+                src={CaroPic5}
+                alt="Third slide"
+              />
+            </Link>
           </Carousel.Item>
         </Carousel>
         <CaroCtrL
@@ -84,3 +94,5 @@ export default function EDetailCaro() {
     </>
   )
 }
+
+export default withRouter(EDetailCaro)

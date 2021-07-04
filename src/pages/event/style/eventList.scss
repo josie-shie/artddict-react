@@ -36,14 +36,20 @@ $egreylt: #E8E8E8;
 }
 
 .e-detail-class{
-    cursor: pointer;
     background: black;
     color: white;
     font-size: 1.5rem;
     letter-spacing: 1rem;
     text-align: center;
+    border-right: 2px solid white ;
     border-top: 2px solid white;
     border-bottom: 2px solid white;
+}
+
+.ed-type > button:hover {
+    background-color: white;
+    color: black;
+
 }
 
 // !List Section
@@ -58,11 +64,11 @@ $egreylt: #E8E8E8;
 
 .ed-select-box{
     height: 52px;
-    font-size: 1.3rem;
+    font-size: 1rem;
     font-weight: normal;
     border: 2px solid black;
     h6{
-        padding-top: 8px;
+        padding-top: 11px;
         border-right: 2px solid black;
     }
     select{
@@ -123,8 +129,19 @@ $egreylt: #E8E8E8;
 }
 
 .ed-list-card button{
+    font-size: .8rem;
     height: 100%;
     border: 0px;
-    background-color: #535353;
+    background-color: #A7A7A7;
     color: white;
+}
+.ed-list-card{
+    button:hover{
+        background-color: #1D0AFF;
+        color: #81FC4D;
+    }
+    button[className="col-8"]:hover{
+        background-color: #1D0AFF;
+        color: white;
+    }
 }
