@@ -48,7 +48,7 @@
   background: transparent;
   background-image: url("../img/select-arrow.svg");
   background-repeat: no-repeat;
-  background-position-x: 100%;
+  background-position-x: 95%;
   background-position-y: 50%;
   border: 0px;
   padding-right: 6.5rem;
@@ -60,7 +60,7 @@
     width: 100%;
     height: 230px;
     border: 2px solid #707070;
-    font-size: 1rem;
+    font-size: 16px;
     font-family: NotoSansTC-Medium;
 }
 
@@ -81,9 +81,8 @@
     color: #000;
     background-color: #e8e8e8;
     border-color: #000;
-    position: absolute;
-    top: 60px;
     border-radius: 0px;
+    margin-top: 10px;
 }
 
 .u-Lbtn > .btn-light:hover,
@@ -101,13 +100,11 @@
     height: 50px;
     font-family: 'Noto Sans TC', sans-serif;
     font-size: 18px;
-    /* margin-left: 150px; */
     color: #fff;
     background-color: #000;
     border-color: #000;
-    position: absolute;
-    bottom: 0px;
     border-radius: 0px;
+    margin-bottom: 10px;
     }
 
 .u-Bbtn > .btn-dark:hover,
