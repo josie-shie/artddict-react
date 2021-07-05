@@ -5,7 +5,7 @@ import '../styles/Menu.scss'
 import $ from 'jquery'
 
 function Menu() {
-  $('.mr-auto').on('click', function () {
+  $('.u-mr-auto').on('click', function () {
     $(this)
       .css('background', '#000')
       .css('color', '#fff')
@@ -20,7 +20,7 @@ function Menu() {
       <Navbar bg="" expand="lg">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
+          <Nav className="u-mr-auto">
             {/* 用as屬性然後變成Link元件 */}
             <Nav.Link as={Link} to="/user-msgedit">
               <div className="u-edit">修改資料</div>

@@ -131,10 +131,11 @@
   background: transparent;
   background-image: url('../img/select-arrow.svg');
   background-repeat: no-repeat;
-  background-position-x: 100%;
+  background-position-x: 98%;
   background-position-y: 50%;
   border: 0px;
-  padding-right: 1rem;
+  // padding-right: 150px;
+  padding-left: 10px;
 }
 
 // ===== checkbox 樣式 =====
