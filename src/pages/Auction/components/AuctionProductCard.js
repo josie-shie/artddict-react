@@ -70,7 +70,7 @@ function AuctionProductCard(props) {
                             <span>{AuctionProductCard_CountDown[2]}</span>
                             {AuctionProductCard_CountDown[3]}
                         </div>
-                    ) : (<div className="auctionProduct_countdown">{loading}</div>)}
+                    ) : (<div className="auctionProduct_countdown auctionOver">{loading}</div>)}
                 </div>
                 <div className="auctionProductionTitle">
                     {aucName}
