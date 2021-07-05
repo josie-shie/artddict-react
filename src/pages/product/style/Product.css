@@ -106,7 +106,7 @@
 }
 .homepageA-boxScrollBox{
     text-align: center;
-    justify-content: space-between;
+    justify-content: center;
 }
 .homepageA-boxScroll {
     border: none;
@@ -302,6 +302,9 @@
     .pro-arrow2{
         top: 50%;
         left: 45%;
+    }
+    .homepageA-boxScrollBox{
+       margin-top: 5%;
     }
 }
 
