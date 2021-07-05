@@ -1,6 +1,6 @@
 import React from 'react';
 // import { useState } from 'react';
-import './style/userAuction.scss';
+import './style/userAuctionOver.scss';
 import { withRouter } from 'react-router-dom'
 import Menu from './components/Menu'
 import Logoheader from './components/Logoheader'
@@ -10,7 +10,7 @@ import { Link } from 'react-router-dom'
 function userAuctionOver(props) {
     return (
         <div>
-             <div className="u-body">
+            <div className="u-body">
                 <Logoheader />
                 <div className="u-breadcrumb">
                     <Breadcrumb />
@@ -20,10 +20,10 @@ function userAuctionOver(props) {
                 </div>
                 <div className="u-container-fluid">
                     <div className="d-flex u-row justify-content-around">
-                        <div className="u-usertitleLeft1">
+                        <div className="u-usertitleLeft">
                             <Link to="/user-auction">競標中</Link>
                         </div>
-                        <div className="u-usertitleRight1">
+                        <div className="u-usertitleRight">
                             <Link to="/user-auctionOver">已得標</Link>
                         </div>
                     </div>

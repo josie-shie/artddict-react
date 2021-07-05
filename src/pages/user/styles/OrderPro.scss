@@ -1,17 +1,18 @@
 .u-userPro, .u-userTic {
     margin-top: 10px;
     margin-bottom: 10px;
-    width: 100%;
-    height: 70px;
+    width: 22vw;
+    height: 60px;
     text-align: center;
-    line-height: 70px;
+    line-height: 60px;
 }
 
 .u-userTic > a{
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 30px;
+    font-size: 2rem;
     color:#000;
     text-decoration: none;
+    letter-spacing: 0.3rem;
 }
 
 .u-userPro {
@@ -20,9 +21,10 @@
 
 .u-userPro > a { 
     font-family: 'Noto Sans TC', sans-serif;
-    font-size: 30px;
+    font-size: 2rem;
     color: #fff;
     text-decoration: none;
+    letter-spacing: 0.3rem;
 }
 
 .u-progress{

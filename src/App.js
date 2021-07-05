@@ -63,25 +63,28 @@ function App() {
         <Nav />
         <ScrollToTop>
           <Switch>
-          <Route exact path="/map/museum:id">
-          <MapEvent />
-        </Route>
+            <Route exact path="/map/museum:id">
+              <MapEvent />
+            </Route>
             <Route exact path="/auctionDetail/:id?">
               <AuctionDetail />
             </Route>
             <Route
               exact
-              path="/event/event-list/detail/upload"
+              path="/event/event-list/detail/:eventId?/upload?"
             >
               <WorkshopUpload />
             </Route>
             <Route
               exact
-              path="/event/event-list/detail/share"
+              path="/event/event-list/detail/:eventId?/share?"
             >
               <WorkshopShare />
             </Route>
-            <Route exact path="/event/event-list/detail">
+            <Route
+              exact
+              path="/event/event-list/detail/:eventId?"
+            >
               <EventDetail />
             </Route>
             <Route

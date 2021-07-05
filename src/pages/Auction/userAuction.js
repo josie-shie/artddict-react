@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom'
 
 function userAuction(props) {
     return (
-        <>
+        <>  <div className="u-body-flex">
             <div className="u-body">
                 <Logoheader />
                 <div className="u-breadcrumb">
@@ -28,6 +28,7 @@ function userAuction(props) {
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </>
     );
