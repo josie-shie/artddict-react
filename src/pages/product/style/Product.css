@@ -34,7 +34,9 @@
     line-height:7vh;
 }
 
-
+.pro-EnglishB{
+    font-family: notoSansTC-Medium;
+}
 
 .pro-English {
     font-family: Engravers;
@@ -102,6 +104,20 @@
     text-align: center;
     padding: 10px 50px;
 }
+.homepageA-boxScrollBox{
+    text-align: center;
+    justify-content: center;
+}
+.homepageA-boxScroll {
+    border: none;
+    border-radius: 0;
+    background-color: #1D0Aff;
+    color: white;
+    /* margin-left: calc(50% - 90px); */
+    text-align: center;
+    padding: 10px 50px;
+}
+
 
 .btn:hover {
     color: white;
@@ -199,10 +215,103 @@
 
 }
 .homepageB-right{
-    background-color:rgb(129, 189, 39);
+    background-color:white;
     height: 100vh;
     width: 44vw;
+    overflow: scroll;
+    margin: 0 ;
+    padding: 0;
+    position: relative;
 }
+
+.homepageB-scrollMove{
+    width: 80%;
+    height: 80%;
+    padding-top: 3%;
+    margin: 0;
+}
+.pro-arrow2{
+    z-index: 999;
+    position: absolute;
+    top: 40%;
+    left: 25%;
+}
+.pro-special{
+    position:absolute;
+    top: 20%;
+    right: 0%;
+
+}
+.pro-special p{
+    writing-mode:vertical-lr;
+    font-family: Engravers;
+    font-size:6rem;
+    color: #1D0AFF;
+    letter-spacing:1.3rem;
+}
+
+.homepageB-srcollPicA{
+    width: 85%;
+}
+.homepageB-srcollPicA img{
+    width: 100%;
+    padding: 0;
+
+}
+
+.homepageB-scrollDiv{
+    height: 100%;  
+    background-color:white;
+    Height:150px;
+}
+.homepageB-scrollDiv p{
+    font-family:notoSansTC-Medium;
+    font-size:3rem;
+    color: #1D0Aff;
+    padding-left: 5%;
+}
+
+.homepageB-srcollPicB{
+    width: 100%;
+    overflow:hidden;
+    }
+.homepageB-srcollPicB img{
+    width: 100%;
+}
+.pro-arrowC{
+    text-align:center;
+    height: 50px;
+}
+.proTest{
+    margin-top: 5%;
+}
+
+@media (min-width: 1440px){
+    .homepageB-scrollDiv p{
+        letter-spacing:20px;
+        padding-left: 10%;
+    }
+    .pro-special{
+        top: 20%;
+        right: 0%;
+    }
+    .pro-special p{
+        font-size:10rem;
+        letter-spacing:1.3rem;
+    }
+    .pro-arrow2{
+        top: 50%;
+        left: 45%;
+    }
+    .pro-arrowC{
+        width: 35%;
+    }
+    .homepageA-boxScrollBox{
+       margin-top: 2%;
+       margin-bottom: 2%;
+    }
+}
+
 .pro-gif{
     width: 25vw;
     height: 60vh;
@@ -885,7 +994,7 @@ width:100%;
     font-size: 3rem;
     position: absolute;
     top: 65%;
-    left: calc(50% - 426px);
+    left: calc(50% - 496px);
     color: white;
 }
 .homepage6-wordB{
@@ -893,16 +1002,11 @@ width:100%;
     font-size: 3rem;
     position: absolute;
     top: 70%;
-    left: calc(50% - 222px);
+    left: calc(50% - 262px);
     color: white;
     border-bottom: 1px solid white;
 }
-@media (min-width: 1440px){
-    .pro-gray6{
-        background-color: #E8E8E8;
-        height: 193vh;
-    }
-}
+
 /* .pro-gray7{
     background-color: #E8E8E8;
     width: 100vw;

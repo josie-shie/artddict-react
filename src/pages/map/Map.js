@@ -22,11 +22,11 @@ const Map = () => {
         <MarqueeMap />
         <div className="map-content d-flex mb-5">
           <div className="col-8 d-flex flex-column px-0 ml-3">
-            <div className="map-search-bar d-flex align-items-center justify-content-center py-2">
+            <div className="map-search-bar d-flex justify-content-center align-items-center py-2">
               <div className="map-select-box px-4">
                 地區
               </div>
-              <from>
+              <from className="d-flex justify-content-between">
                 <select
                   className="map-select-box map-select pl-3 border-left-0 "
                   name=""

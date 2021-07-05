@@ -5,7 +5,10 @@ import '../../bootstrap/css/bootstrap.css'
 import { Card, Button } from 'react-bootstrap'
 //----------icon and css and slick----------
 import {} from 'react-icons/cg'
-import { MdKeyboardArrowRight } from 'react-icons/md'
+import {
+  MdKeyboardArrowRight,
+  MdKeyboardArrowLeft,
+} from 'react-icons/md'
 
 import {
   IoIosArrowRoundBack,
@@ -51,6 +54,9 @@ import slickB3 from './img/slickB3.jpeg'
 import slickB4 from './img/slickB4.jpeg'
 import slickB5 from './img/slickB5.jpeg'
 import slickB6 from './img/slickB6.jpeg'
+import artist1 from './img/artist1.jpeg'
+import artist2 from './img/artist2.jpeg'
+import artist3 from './img/artist3.jpeg'
 
 function Product() {
   let settings = {
@@ -128,10 +134,7 @@ function Product() {
                 </span>
               </p>
             </div>
-            <button
-              onclick="javascript:location.href='productList'"
-              className="homepageA-box btn-lg pro-English "
-            >
+            <button className="homepageA-box btn-lg pro-EnglishB ">
               Go Shop
             </button>
           </div>
@@ -169,7 +172,7 @@ function Product() {
           </div>
         </div>
         <img
-          className="arddictCircleG"
+          className="arddictCircleG spin-img"
           src={arddictCircleG}
           alt=""
         />
@@ -198,7 +201,65 @@ function Product() {
               />
             </div>
           </div>
-          <div className="homepageB-right"> </div>
+          <div className="homepageB-right">
+            <div className="pro-arrow2">
+              <IoIosArrowRoundForward
+                size={400}
+                color={'#1D0Aff'}
+              />
+            </div>
+            <div className="pro-special">
+              <p>SPECIAL</p>
+            </div>
+            <div>
+              <div className="homepageB-srcollPicA">
+                <img src={artist1} alt="" />
+              </div>
+            </div>
+            <div className="homepageB-scrollDiv">
+              <div className="homepageB-scrollMove">
+                <p>藝術家聯名系列</p>
+              </div>
+            </div>
+            <div className="homepageB-srcollPicB ">
+              <img src={artist2} alt="" />
+            </div>
+            <div className="homepageA-boxScrollBox d-flex">
+              <div className="pro-arrowC d-flex">
+                <marquee
+                  scrollamount="10"
+                  direction="right"
+                  className="d-flex proTest"
+                >
+                  <MdKeyboardArrowRight size={30} />
+                  <MdKeyboardArrowRight size={30} />
+                  <MdKeyboardArrowRight size={30} />
+                  <MdKeyboardArrowRight size={30} />
+                  <MdKeyboardArrowRight size={30} />
+                  <MdKeyboardArrowRight size={30} />
+                </marquee>
+              </div>
+              <div>
+                <button className="homepageA-boxScroll btn-lg pro-EnglishB ">
+                  Go Shop
+                </button>
+              </div>
+              <div className="pro-arrowC d-flex">
+                <marquee
+                  scrollamount="10"
+                  direction="left"
+                  className="proTest"
+                >
+                  <MdKeyboardArrowLeft size={30} />
+                  <MdKeyboardArrowLeft size={30} />
+                  <MdKeyboardArrowLeft size={30} />
+                  <MdKeyboardArrowLeft size={30} />
+                  <MdKeyboardArrowLeft size={30} />
+                  <MdKeyboardArrowLeft size={30} />
+                </marquee>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       {/* --------------------------homepage3 */}
