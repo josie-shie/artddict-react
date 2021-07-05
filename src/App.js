@@ -113,6 +113,9 @@ function App() {
             </Route>
 
             {/* 單一路徑 */}
+            <Route exact path="/matchgame">
+              <MatchGame />
+            </Route>
             <Route exact path="/product">
               <Product />
             </Route>

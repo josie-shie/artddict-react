@@ -77,8 +77,8 @@ function Product() {
     slidesToShow: 3,
     slidesToScroll: 1,
     adaptiveHeight: true,
-    nextArrow: <SampleNextArrow />,
-    prevArrow: <SamplePrevArrow />,
+    // nextArrow: <SampleNextArrow />,
+    // prevArrow: <SamplePrevArrow />,
   }
   function SampleNextArrow(props) {
     const { className, style, onClick } = props
