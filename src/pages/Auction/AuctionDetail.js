@@ -136,7 +136,7 @@ console.log(props)
   // console.log('--------------------')
   return (
     <>
-      <div className="auctionDetailContent">
+      <div className="auctionDetailContent cn-font">
         <div className="auctionDetailleftContent">
           <div className="leftContent_firstpart">
             <div id="auctionDetailLOGO">

@@ -2,7 +2,7 @@
 //TODO:flying event img
 //TODO:hero sectionu 應該要flex
 //TODO:Ending door
-import React, { useRef, useEffect, useState } from 'react'
+import React, { useRef, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../pics/logo.svg'
 import StickyBox from "react-sticky-box/dist/esnext"
@@ -65,8 +65,8 @@ import aucline from './image/acution/aucline.svg'
 
 import gif from './video/gif-marble.gif'
 
-const Index = () => {
 
+const Index = () => {
   return (
     <>
       {/* hero-section */}
@@ -338,8 +338,8 @@ const Index = () => {
             </h4>
           </div>
         </div>
-        <ProCard />
-        <ProCard2 />
+        <ProCard/>
+        <ProCard2/>
         {/* auction */}
         <div className="auction-area px-4">
           <div className="auction-slogan d-flex mb-3">

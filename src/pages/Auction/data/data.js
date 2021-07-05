@@ -9,7 +9,7 @@ const data = [
     aucId:2,
     aucName: '梵谷的帽子',
     aucPriceNow: 64000,
-    deadline:"1625306323816",
+    deadline:"1625497956201",
   },
   {
     aucId:3,
