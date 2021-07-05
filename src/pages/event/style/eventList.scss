@@ -107,6 +107,9 @@ $egreylt: #E8E8E8;
 }
 
 .ed-list-card h6{
+    overflow: hidden;
+    text-overflow: ellipsis; 
+    white-space:nowrap;
     color: black;
     font-size: 1.3rem;
     font-weight: 500;
