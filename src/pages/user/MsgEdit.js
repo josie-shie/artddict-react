@@ -109,7 +109,7 @@ function MsgEdits() {
                   <select
                     name=""
                     id=""
-                    className="u-sel2 mt-4"
+                    className="u-sel2 mt-5"
                     value={township}
                     onChange={(e) => {
                       setTownship(+e.target.value)
@@ -128,7 +128,7 @@ function MsgEdits() {
                 </div>
                 <input
                   type="text"
-                  className="form-control mt-4"
+                  className="form-control mt-5"
                   id="address"
                 />
               </div>

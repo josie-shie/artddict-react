@@ -134,7 +134,11 @@ function OrderProDetail() {
           </div>
 
           <div className="u-back">
-            <Link className="u-link" to="/user-orderpro">
+            <Link
+              className="u-link"
+              to="/user-orderpro"
+              style={{ textDecoration: 'none' }}
+            >
               回訂單查詢
             </Link>
           </div>
