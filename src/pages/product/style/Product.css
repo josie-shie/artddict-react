@@ -866,21 +866,19 @@ width:100%;
 
 
 /* -----------homepage6------- */
-.pro-outside6{
-    width: calc(100vw - 70px);
-}
+
 
 .pro-gray6{
     background-color: #E8E8E8;
-    height: 175vh;
     z-index: 0;
+    margin-bottom: -10px;
 }
 .pro-bottomGif{
     position: relative;
 }
 .pro-gray6 img{
     width:100%;
-    margin-top:39%;
+    margin-top:38%;
 }
 .homepage6-wordA{
     font-family: Engravers;

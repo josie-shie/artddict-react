@@ -29,14 +29,14 @@ function PwdEdit() {
         </Container>
         <div className="u-userData col-6">
           <form>
-            <div className="form-group u-form">
+            <div className="form-group u-form1">
               <input
                 type="password"
                 className="form-control"
                 id="password"
               />
             </div>
-            <div className="form-group u-form">
+            <div className="form-group u-form1">
               <input
                 type="password"
                 className="form-control"
@@ -44,7 +44,7 @@ function PwdEdit() {
                 placeholder="請輸入新密碼"
               />
             </div>
-            <div className="form-group u-form">
+            <div className="form-group u-form1">
               <input
                 type="password"
                 className="form-control"

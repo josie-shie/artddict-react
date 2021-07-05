@@ -135,7 +135,7 @@ function OrderProDetail() {
 
           <div className="u-back">
             <Link
-              style={{ textDecoration: 'none' }}
+               style={{ textDecoration: 'none' }}
               className="u-link"
               to="/user-ordertic"
             >

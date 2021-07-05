@@ -57,7 +57,7 @@ function CartProduct() {
                 <p className="c-">*必填項目</p>
               </div>
               <div className="c-ship1 py-4">
-                <label className="d-flex align-items-baseline">
+                <label className="d-flex align-items-baseline pb-2">
                   <input
                     type="radio"
                     className="mr-2"
@@ -67,7 +67,7 @@ function CartProduct() {
                   />
                   <p>謝喬心 - 台北市大安區大馬路123號5樓</p>
                 </label>
-                <br />
+
                 <label className="d-flex align-items-baseline">
                   <input
                     type="radio"
@@ -140,7 +140,7 @@ function CartProduct() {
 
               <div className="c-shipmethod pt-4">
                 <p className="pb-4">運送方式</p>
-                <label className="d-flex align-items-baseline">
+                <label className="d-flex align-items-baseline pb-2">
                   <input
                     type="radio"
                     className="mr-2"
@@ -149,7 +149,7 @@ function CartProduct() {
                   />
                   <p>宅配到府 - 運費：NT$ 80</p>
                 </label>
-                <br />
+             
                 <label className="d-flex align-items-baseline">
                   <input
                     type="radio"
@@ -157,7 +157,7 @@ function CartProduct() {
                     name="ship"
                   />
                   <p>超商取貨 - 運費：NT$ 50</p>
-                  <a href="#" className="c-store ml-3">
+                  <a href="#" className="c-store ml-3 pb-0">
                     選擇門市
                   </a>
                 </label>
@@ -210,7 +210,7 @@ function CartProduct() {
             </div>
             <div className="c-bb d-flex align-items-baseline pb-4 px-3 mb-4">
               <p className="mr-3">折扣碼 - 五月優惠</p>
-              <a href="#" className="mr-auto c-store">
+              <a href="#" className="mr-auto c-store pb-0">
                 移除
               </a>
               <p>- NT$ 50</p>

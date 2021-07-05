@@ -7,8 +7,8 @@
   src: url(../../../style/font/NotoSansTC-Bold.otf);
 }
 /* tab-product */
-/* product list */
-/* total section */
+
+
 /* chechout */
 .c-bg {
   font-family: 'Noto Sans TC Medium', sans-serif;
@@ -80,6 +80,7 @@
     color: black;
   }
 }
+/* product list */
 .c-product-r1 {
   border-bottom: 1px solid black;
   img {
@@ -95,7 +96,6 @@
 }
 .c-bline {
   border-bottom: 1px solid black;
-  padding-bottom: 3px;
 }
 .c-qbox {
   width: 50px;
@@ -120,5 +120,21 @@
     letter-spacing: 0.3rem;
     text-align: center;
     line-height: 50px;
+  }
+}
+.c-product-a {
+  color: black;
+  &:hover {
+    color: #1d0aff;
+    text-decoration: none;
+  }
+}
+.c-store2 {
+  color: black;
+  border-bottom: 1px solid black;
+  &:hover {
+    color: #1d0aff;
+    text-decoration: none;
+    border-bottom: 1px solid #1d0aff;
   }
 }

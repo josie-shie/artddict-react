@@ -15,17 +15,21 @@ function Breadcrumb(props) {
     '/user-ticket',
     '/user-workshop',
     '/user-myfav',
+    'user-auction',
+    'user-auctionOver',
   ]
 
   const pathnameTextList = [
-    '會員資料修改',
-    '會員密碼修改',
-    '商品訂單查詢',
-    '票券訂單查詢',
+    '資料修改 / 基本資料',
+    '資料修改 / 密碼',
+    '訂單查詢 / 商品',
+    '訂單查詢 / 票券',
     '我的優惠券',
-    '活動展票券',
-    '工作坊票券',
+    '我的票券 / 活動展',
+    '我的票券 / 工作坊',
     '我的收藏',
+    '競標查詢 / 競標中',
+    '競標查詢 / 已結標',
   ]
 
   const convertPathnameToText = () => {
