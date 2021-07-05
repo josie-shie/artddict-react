@@ -283,13 +283,21 @@
     margin-top: 5%;
 }
 
+.pro-auction{
+    position: absolute;
+    bottom: 15%;
+}
+.pro-auction img{
+    width: 75%;
+
+}
 @media (min-width: 1440px){
     .homepageB-scrollDiv p{
         letter-spacing:20px;
         padding-left: 10%;
     }
     .pro-special{
-        top: 20%;
+        top: 10%;
         right: 0%;
     }
     .pro-special p{
