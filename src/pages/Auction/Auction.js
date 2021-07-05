@@ -34,24 +34,24 @@ function Auction(props) {
                     <div className="auctionHeroSectionLogo">
                         <img src={auctionLogo} />
                     </div>
-                    <div className="auctionTitleOne">
+                    <div className="auctionTitleOne cn-font">
                         藝術競標
                     </div>
-                    <div className="auctionTitleTwo">
+                    <div className="auctionTitleTwo cn-font">
                         ArtDDICT  相信藝術不只有單一價值
                     </div>
-                    <div className="auctiondecorationA auctiondecoration">
+                    <div className="auctiondecorationA auctiondecoration eng-font-bold">
                         A
                     </div>
-                    <div className="auctiondecorationT auctiondecoration">
+                    <div className="auctiondecorationT auctiondecoration eng-font-bold">
                         T
                     </div>
-                    <div className="auctiondecorationR auctiondecoration">
-                        R
+                    <div className="auctiondecorationR auctiondecoration eng-font-bold">
+                        R 
                     </div>
                 </div>
                 <marquee>
-                    <div className="auctionMarquee">
+                    <div className="auctionMarquee eng-font-bold">
                         AUCTION  &nbsp;&nbsp;&nbsp;
                         <img src={auctionarrow} />
                         &nbsp;&nbsp;&nbsp;
@@ -70,11 +70,11 @@ function Auction(props) {
                                     <AucBreadcrumb/>
                                     //
                                 </div>
-                                <div className="auctionArrangement">
+                                <div className="auctionArrangement cn-font">
                                     排列
                                 </div>
                                 <div className="auctionArrangementInput">
-                                    <select className="auc-select pl-1" name="" id="">
+                                    <select className="auc-select pl-1 cn-font" name="" id="">
                                         <option style={{ color: '#707070' }} value="">
                                             推薦
                                         </option>
@@ -88,7 +88,7 @@ function Auction(props) {
                                 <input className="auc-Searchbox">
 
                                 </input>
-                                    <div className="auctionNumberOfProduct">
+                                    <div className="auctionNumberOfProduct cn-font">
                                         Showing 1-9 of 27
                                     </div>
                             </div>
@@ -97,9 +97,9 @@ function Auction(props) {
                                     <AuctionSlider />
                                 </div>
                             </div>
-                            <div className="auctionMainContent">
-                                <div className="auctionsidebar">
-                                    <div className="auctionsidebarTitle">美術館商品</div>
+                            <div className="auctionMainContent cn-font">
+                                <div className="auctionsidebar cn_font">
+                                    <div className="auctionsidebarTitle ">美術館商品</div>
                                     <ul>
                                         <li>服飾</li>
                                         <li>家飾</li>
