@@ -219,4 +219,23 @@
   color: #000;
   }
 
+// 註冊、登入按鈕
 
+.u-AddBtn {
+  margin-left: 12.5vw;
+  margin-top: 50px;
+  text-align: center;
+  line-height: 45px;
+  width: 130px;
+  height: 50px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 18px;
+  color: #000;
+  border: 2px solid #000;
+  &:hover{
+    .u-link1 {
+      color: #fff;
+    }
+    background-color: #000;
+  }
+}
