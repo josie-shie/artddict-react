@@ -5,7 +5,7 @@ import Menu from './components/Menu'
 import Breadcrumb from './components/UserBreadcrumb'
 import { Container, Row, Card } from 'react-bootstrap'
 import { IoIosHeart } from 'react-icons/io'
-import { FaShoppingCart } from 'react-icons/fa'
+import { CgShoppingCart } from 'react-icons/cg'
 import { Link } from 'react-router-dom'
 import EventPic from './img/EventPic.png'
 
@@ -86,7 +86,7 @@ function UserMyFav() {
                       <IoIosHeart className="u-heart" />
                     </Link>
                     <Link to="/cart-product">
-                      <FaShoppingCart className="u-shopingcart" />
+                      <CgShoppingCart className="u-shopingcart" />
                     </Link>
                   </div>
                 </div>
@@ -122,7 +122,7 @@ function UserMyFav() {
                       <IoIosHeart className="u-heart" />
                     </Link>
                     <Link to="/cart-product">
-                      <FaShoppingCart className="u-shopingcart" />
+                      <CgShoppingCart className="u-shopingcart" />
                     </Link>
                   </div>
                 </div>
@@ -161,7 +161,7 @@ function UserMyFav() {
                       />
                     </Link>
                     <Link to="/cart-product">
-                      <FaShoppingCart className="u-shopingcart" />
+                      <CgShoppingCart className="u-shopingcart" />
                     </Link>
                   </div>
                 </div>
