@@ -172,7 +172,7 @@ function Product() {
           </div>
         </div>
         <img
-          className="arddictCircleG"
+          className="arddictCircleG spin-img"
           src={arddictCircleG}
           alt=""
         />
