@@ -35,6 +35,7 @@
   font-size: 2rem;
   color: #000;
   letter-spacing: 0.3rem;
+  text-decoration: none;
 
 }
 
@@ -46,11 +47,12 @@
   font-size: 2rem;
   color: white;
   letter-spacing: 0.3rem;
+  text-decoration: none;
 }
 
 /* =====btn 自訂顏色===== */
 .u-editBtn > .btn-outline-dark {
-  margin-left: 12vw;
+  margin-left: 10vw;
   margin-bottom: 30px;
   width: 130px;
   height: 50px;
@@ -76,11 +78,11 @@
 }
 
 .u-editBtn {
-  margin-top: 20px;
+  margin-top: 50px;
 }
 
 .u-userData {
-  margin-left: 18vw;
+  margin-left: 20vw;
 }
 
 // ----- input 樣式 -----
@@ -162,8 +164,8 @@
 
 .u-gender-box > input[type='checkbox']:after {
   position: absolute;
-  width: 22px;
-  height: 22px;
+  width: 23px;
+  height: 23px;
   top: 0;
   content: ' ';
   background-color: #e8e8e8;
@@ -176,6 +178,6 @@
 
 .u-gender-box > input[type='checkbox']:checked:after {
   content: '✓';
-  font-size: 18px;
+  font-size: 17px;
   background-color: #000;
 }
