@@ -218,7 +218,7 @@ const Index = () => {
           <img className="img5" src={eventimg5} alt="" />
           <img className="img6" src={eventimg6} alt="" />
         </div>
-        <div className="event-slogan d-flex pl-4 mb-3">
+        <div className="event-slogan d-flex justify-content-center pl-4 mb-3">
           <div className="col-7">
             <h1 className=" text-break">
               Chasing art never stops
