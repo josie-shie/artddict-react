@@ -94,13 +94,12 @@ function CartProduct() {
               {/* 通訊選項 */}
               <p className="c-shipleft mt-4">通訊選項</p>
               <div className="c-shipmethod pt-4">
-                <label className="d-flex align-items-baseline">
+                <label className="d-flex align-items-baseline pb-2">
                   <input type="checkbox" className="mr-2" />
                   <p>
                     儲存我的收件資訊，以便未來的訂購使用
                   </p>
                 </label>
-                <br />
                 <label className="d-flex align-items-baseline">
                   <input type="checkbox" className="mr-2" />
                   <p>我願意收到活動及商品的相關優惠資訊</p>
@@ -160,7 +159,7 @@ function CartProduct() {
             </div>
             <div className="c-bb d-flex align-items-baseline pb-4 px-3 mb-4">
               <p className="mr-3">折扣碼 - 五月優惠</p>
-              <a href="#" className="mr-auto c-store">
+              <a href="#" className="mr-auto c-store pb-0">
                 移除
               </a>
               <p>- NT$ 50</p>
