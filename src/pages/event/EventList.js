@@ -26,20 +26,32 @@ import './style/fontAndBtn.scss'
 import './style/eventList.scss'
 
 function EventList() {
-  const [eventList, setEventList] = useState(123)
+  const [events, setEvens] = useState([])
+
+  async function getEventServer() {
+
+    const url = 'http://localhost:6005/event-list'
+
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    // 設定資料
+    setEvens(data)
+
+  }
 
   useEffect(() => {
-   
-    return () => {
-     
-    }
+    getEventServer()
   }, [])
 
-
-  //  掛載 button ref
-  const eExhiBtn = useRef()
-  const eWorkBtn = useRef()
-
+  
 
   return (
     <>
@@ -67,14 +79,12 @@ function EventList() {
           <EDetailCaro />
           <Row className="mt-2 pb-5 ed-type">
             <button
-              ref={eExhiBtn}
               className="col-6 e-detail-class cn-font border-left-0 py-4 shadow-none"
             >
               藝文活動展
               <IoIosArrowRoundDown />
             </button>
             <button
-              ref={eWorkBtn}
               className="col-6 e-detail-class cn-font py-4 border-right-0"
             >
               活動工作坊
