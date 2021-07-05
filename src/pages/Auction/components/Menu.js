@@ -1,7 +1,6 @@
 import React from 'react'
 import { Navbar, Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import '../style/Menu.scss'
 import $ from 'jquery'
 
 function Menu() {
