@@ -179,16 +179,17 @@ const Index = () => {
       </div>
       {/* artist */}
       <div className="artist-area index-web-padding">
-        <div className="artist-slogan">
-          <strong>
-            Always doing that which I cannot do, in order
-            that I may learn how to do it
-          </strong>
-          <h4 className="notoSansTC-md artist-title-tc">
-            藝術 <span>TALK TO TALK</span>
-          </h4>
-        </div>
-
+        <StickyBox className="artist-slogan">
+          <div>
+            <strong>
+              Always doing that which I cannot do, in order
+              that I may learn how to do it
+            </strong>
+            <h4 className="notoSansTC-md artist-title-tc">
+              藝術 <span>TALK TO TALK</span>
+            </h4>
+          </div>
+        </StickyBox>
         <div className="waterfall ml-auto col-7 pl-0">
           <div className="item">
             <img src={artist1} />
