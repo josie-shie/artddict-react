@@ -252,26 +252,39 @@
 
     /* ----------event區域 -----------*/
     .event-area{
-
+        position: relative;
         background-color: #E8E8E8;
+        z-index: 0;
     }
     .event-img{
         width: 100%;
+        height: 50vh;
         position: relative;
+        z-index: 0;
+
+        .marquee1{
+            position: absolute;
+            top: 20%;
+            z-index: -1;
+        } 
+        .marquee2{
+            position: absolute;
+            top: 60%;
+            z-index: 0;
+        } 
+        .marquee3{
+            position: absolute;
+            top: 100%;
+            z-index: -1;
+        } 
     }
     .event-img img{
-        position: absolute;
+        margin-right: 50vh;
     }
 
-    .img1{top:180px;}
-    .img2{top:100px;left: 70px;}
-    .img3{top:100px;right:0;}
-    .img4{top:200px;right: calc(100% - 70%);}
-    .img5{top:350px;right:70px;}
-    .img6{top:350px;left:150px;}
 
     .event-slogan{
-        padding-top: 500px;
+        padding-top: 40vh;
 
         button{
             background: #000;
@@ -376,6 +389,11 @@
     .product-area{
         background-color: #E8E8E8;
         padding-top: 100px;
+
+        a{
+            
+            color: #000;
+        }
     }
 
     .product-cute{
@@ -468,10 +486,12 @@
         font-size:5vw;
     }
 
+
     .product-marquee{
         width: 10vh;
         color: #000;
     }
+
 
 /* ----------product 卡片區 -----------*/
 
@@ -501,6 +521,11 @@
     .product-card-wrap img{
         width: 100%;
         object-fit: cover;
+    }
+
+    .index-card-btn{
+        text-align:center;
+        border:1px solid #000;
     }
 
     /* .product-rect{

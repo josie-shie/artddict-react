@@ -7,9 +7,23 @@ import Menu from './components/Menu'
 import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
 
-function MsgEdits() {
+// @material-ui
+import RadioGroup from '@material-ui/core/RadioGroup'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import FormControl from '@material-ui/core/FormControl'
+import StyledRadio from './StyledRadio'
+
+function MsgEdits(props) {
+  // 縣市
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
+
+  // 性別
+  // const [value, setValue] = useState('female')
+  // const handleChange = (event) => {
+  //   setValue(event.target.value)
+  // }
+
   return (
     <>
       <div className="u-body">
@@ -31,7 +45,7 @@ function MsgEdits() {
           </div>
           <Container className="u-userData">
             <form>
-              <div className="form-group u-form1">
+              <div className="form-group u-form1 cn-font">
                 <label for="username">帳號</label>
                 <input
                   type="email"
@@ -39,7 +53,7 @@ function MsgEdits() {
                   id="username"
                 />
               </div>
-              <div className="form-group u-form1">
+              <div className="form-group u-form1 cn-font">
                 <label for="name">姓名</label>
                 <input
                   type="text"
@@ -47,7 +61,7 @@ function MsgEdits() {
                   id="name"
                 />
               </div>
-              <div className="form-group u-form1">
+              <div className="form-group u-form1 cn-font">
                 <label for="tel">手機</label>
                 <input
                   type="tel"
@@ -56,24 +70,36 @@ function MsgEdits() {
                 />
               </div>
 
-              <div className="form-group  u-gender-ckb d-flex">
+              <div className="form-group  u-gender-ckb cn-font">
                 <label for="gender">性別</label>
                 <br />
-                <div className="u-gender-box">
-                  <input type="checkbox" />
-                  <label htmlFor="gender">先生</label>
-                </div>
-                <div className="u-gender-box">
-                  <input type="checkbox" />
-                  <label htmlFor="gender">小姐</label>
-                </div>
-                <div className="u-gender-box">
-                  <input type="checkbox" />
-                  <label htmlFor="gender">不提供</label>
-                </div>
+                <FormControl component="fieldset">
+                  <RadioGroup
+                    row
+                    defaultValue="female"
+                    aria-label="gender"
+                    name="customized-radios"
+                  >
+                    <FormControlLabel
+                      value="female"
+                      control={<StyledRadio />}
+                      label="男"
+                    />
+                    <FormControlLabel
+                      value="male"
+                      control={<StyledRadio />}
+                      label="女"
+                    />
+                    <FormControlLabel
+                      value="other"
+                      control={<StyledRadio />}
+                      label="其他"
+                    />
+                  </RadioGroup>
+                </FormControl>
               </div>
 
-              <div className="form-group u-form1">
+              <div className="form-group u-form1 cn-font">
                 <label for="birthday">生日</label>
                 <input
                   type="date"
@@ -82,7 +108,7 @@ function MsgEdits() {
                 />
               </div>
 
-              <div className="form-group u-form1">
+              <div className="form-group u-form1 cn-font">
                 <label for="address">住址</label>
                 <br />
                 <div className="u-Select">

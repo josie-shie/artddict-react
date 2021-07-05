@@ -92,7 +92,7 @@
   background-color: #e8e8e8;
   border: 2px solid #000;
   font-family: 'Noto Sans TC', sans-serif;
-  font-size: 16px;
+  font-size: 12px;
   margin-top: 5px;
   border-radius: 0px;
   &:focus {
@@ -114,7 +114,7 @@
   background-color: #e8e8e8;
   border: 2px solid #000;
   font-family: 'Noto Sans TC', sans-serif;
-  font-size: 16px;
+  font-size: 12px;
   margin-top: 5px;
   border-radius: 0px;
   &:focus {
@@ -143,41 +143,4 @@
   font-size: 16px;
   margin-top: 10px;
   margin-right: 0.5vw;
-}
-
-.u-gender-box > label {
-  font-family: 'Noto Sans TC';
-  font-size: 16px;
-  margin-right: 1vw;
-}
-
-.u-gender-box > input[type='checkbox'] {
-  width: 22px;
-  height: 22px;
-  border: 2px solid #000;
-  // padding-top: 10px;
-  margin-top: 0.7vw;
-  cursor: pointer;
-  position: relative;
-  margin-left: 3vw;
-}
-
-.u-gender-box > input[type='checkbox']:after {
-  position: absolute;
-  width: 23px;
-  height: 23px;
-  top: 0;
-  content: ' ';
-  background-color: #e8e8e8;
-  color: #fff;
-  display: inline-block;
-  visibility: visible;
-  padding: 0px 3px;
-  border: 2px solid #000;
-}
-
-.u-gender-box > input[type='checkbox']:checked:after {
-  content: '✓';
-  font-size: 17px;
-  background-color: #000;
 }

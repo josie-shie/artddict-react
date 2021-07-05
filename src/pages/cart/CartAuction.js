@@ -42,17 +42,23 @@ function CartProduct() {
             </Nav.Link>
           </div>
         </div>
-        <div className="c-productlist mt-5">
-          <div className="c-product-r1 d-flex pb-5">
-          <img className="col-2" src={img4} />
-            <div className="c-product1 d-flex col-4">
+        <div className="c-productlist">
+          <div className="c-product-r1 d-flex py-5 pl-4">
+            <div className="c-img150">
+              <img src={img4} />
+            </div>
+            <div className="c-product1 d-flex col-4 pl-4">
               <div className="c-product1detail d-flex flex-column justify-content-between">
                 <div>
                   <p className="h4">
-                    BTS 麥當勞飲料杯<br/>防彈少年團聯名 不防彈款
+                    BTS 麥當勞飲料杯
+                    <br />
+                    防彈少年團聯名 不防彈款
                   </p>
                   <p className="c-pid">拍賣編號 # 200123</p>
-                  <p className="c-time mt-3">請於時間內付款：02 小時 34 分鐘 56 秒</p>
+                  <p className="c-time mt-2">
+                    請於時間內付款：02 小時 34 分鐘 56 秒
+                  </p>
                 </div>
                 <div className="d-flex flex-row">
                   <div className="d-flex">

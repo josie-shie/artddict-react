@@ -26,20 +26,67 @@ import './style/fontAndBtn.scss'
 import './style/eventList.scss'
 
 function EventList() {
-  const [eventList, setEventList] = useState(123)
+  const [events, setEvents] = useState([])
+
+  async function getEventServer() {
+    const url = 'http://localhost:6005/event/event-list'
+
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    // 設定資料
+    setEvents(data)
+  }
 
   useEffect(() => {
-   
-    return () => {
-     
-    }
+    getEventServer()
   }, [])
 
+  // useEffect(() => {
+  //   getEventServer()
+  // }, [events])
 
-  //  掛載 button ref
-  const eExhiBtn = useRef()
-  const eWorkBtn = useRef()
-
+  const eventDisplay = events.map((event) => {
+    return (
+        
+        <Link
+          to="/event/event-list/detail"
+          style={{ textDecoration: 'none' }}
+          className="ed-list-card col-4 my-3 "
+          key={event.id}
+        >
+          <img
+            className="col-12 p-0"
+            src={`http://localhost:6005/eventpic/event/${event.eventImg}`}
+            alt="/"
+          />
+          <h6 className="col-12 p-0 cn-font my-2">
+            {event.eventName}
+          </h6>
+          <div className="d-flex">
+            <div className="col-8 p-0">
+              <p>{event.eventCity}</p>
+              <p>時間：JUN</p>
+            </div>
+            <div className="col-4 p-0">
+              <button className="border-right col-4 text-center">
+                <IoIosHeart />
+              </button>
+              <button className="col-8 text-center">
+                MORE+
+              </button>
+            </div>
+          </div>
+        </Link>
+    )
+  })
 
   return (
     <>
@@ -66,17 +113,11 @@ function EventList() {
 
           <EDetailCaro />
           <Row className="mt-2 pb-5 ed-type">
-            <button
-              ref={eExhiBtn}
-              className="col-6 e-detail-class cn-font border-left-0 py-4 shadow-none"
-            >
+            <button className="col-6 e-detail-class cn-font border-left-0 py-4 shadow-none">
               藝文活動展
               <IoIosArrowRoundDown />
             </button>
-            <button
-              ref={eWorkBtn}
-              className="col-6 e-detail-class cn-font py-4 border-right-0"
-            >
+            <button className="col-6 e-detail-class cn-font py-4 border-right-0">
               活動工作坊
               <IoIosArrowRoundDown />
             </button>
@@ -203,6 +244,9 @@ function EventList() {
             </form>
           </Row>
           <Row className="ed-list-card justify-content-between flex-wrap cn-font">
+            {/* test node area */}
+            {eventDisplay}
+            {/* test node area */}
             <Link
               to="/event/event-list/detail"
               style={{ textDecoration: 'none' }}
@@ -406,4 +450,4 @@ function EventList() {
   )
 }
 
-export default withRouter (EventList)
+export default withRouter(EventList)

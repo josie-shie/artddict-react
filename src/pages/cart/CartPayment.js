@@ -44,7 +44,7 @@ function CartProduct() {
         </div>
         <div className="d-flex">
           <div className="c-shippinginfo1 col-6 px-0 mr-auto">
-            <form action="">
+            <form action="./cart-finish">
               <div className="c-shipleft d-flex">
                 <p className="mr-auto">付款資訊</p>
                 <p className="c-f12">*必填項目</p>
@@ -111,11 +111,15 @@ function CartProduct() {
                   付費＆退貨條款
                 </a>
               </p>
-              <a href="./cart-finish">
-                <div className="c-checkoutbtn my-4">
-                  <p>確認付款</p>
-                </div>
-              </a>
+
+              <div className="my-4">
+                <input
+                  type="submit"
+                  value="確認付款"
+                  className="c-checkoutbtn2"
+                />
+              </div>
+
               <div className="c-checkout1 pt-3 pb-5 d-flex align-items-center">
                 <FaLock size={20} />
                 <p className="c-lock ml-1">

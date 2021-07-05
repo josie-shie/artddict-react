@@ -1,9 +1,14 @@
 import { Carousel, Container } from 'react-bootstrap'
-import React, { useState } from 'react'
+import { React, useState } from 'react'
 import { withRouter } from 'react-router-dom'
 import './styles/Add.scss'
 import { Link } from 'react-router-dom'
 import Logoheader from './components/Logoheader'
+
+// @material-ui
+import FormGroup from '@material-ui/core/FormGroup'
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Checkbox from '@material-ui/core/Checkbox'
 
 // images
 import pic1 from './img/1.png'
@@ -17,11 +22,23 @@ import pic6 from './img/6.png'
 import { AiFillGoogleCircle } from 'react-icons/ai'
 import { RiFacebookCircleFill } from 'react-icons/ri'
 
-function User(props) {
+function Add(props) {
   const [dataLoading, setDataLoading] = useState(false)
   const [username, setUsername] = useState()
   const [name, setName] = useState()
   const [password, setPassword] = useState()
+
+  const [state, setState] = useState({
+    checkedA: true,
+    checkedB: true,
+  })
+
+  const handleChange = (event) => {
+    setState({
+      ...state,
+      [event.target.name]: event.target.checked,
+    })
+  }
 
   async function addUserToSever() {
     // 開啟載入指示
@@ -208,34 +225,32 @@ function User(props) {
                   />
                 </div>
                 <div className="form-group u-ckb">
-                  <div className="u-checkbox">
-                    <input
-                      type="checkbox"
-                      className="form-check-input u-ck1"
-                      id="check1"
+                  <FormGroup>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={state.checkedA}
+                          onChange={handleChange}
+                          name="checkedA"
+                          style={{ color: 'black' }}
+                        />
+                      }
+                      label="我同意使用者條款與隱私權聲明政策"
                     />
-                    <label
-                      className="form-check-label"
-                      for="check1"
-                    >
-                      我同意使用者條款與隱私權聲明政策
-                    </label>
-                  </div>
-                  <div className="u-ck2 ">
-                    <div className="u-checkbox">
-                      <input
-                        type="checkbox"
-                        className="form-check-input u-ck2"
-                        id="check2"
-                      />
-                      <label
-                        className="form-check-label"
-                        for="check2"
-                      >
-                        我願意收到ArtDDICT電子報與活動訊息
-                      </label>
-                    </div>
-                  </div>
+                    <FormControlLabel
+                      control={
+                        <Checkbox
+                          checked={state.checkedB}
+                          onChange={handleChange}
+                          name="checkedB"
+                          // 我愛寶貝
+                          style={{ color: 'black' }}
+                        />
+                      }
+                      label="我願意收到ArtDDICT電子報與活動訊息"
+                    />
+                  </FormGroup>
+                  <div className="u-check"></div>
                 </div>
                 <div className="u-AddBtn">
                   <Link
@@ -257,4 +272,4 @@ function User(props) {
   return <>{dataLoading ? loading : display}</>
 }
 
-export default withRouter(User)
+export default withRouter(Add)
