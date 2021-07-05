@@ -5,7 +5,6 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../pics/logo.svg'
-import StickyBox from "react-sticky-box/dist/esnext"
 import './index.scss'
 import '../../bootstrap/css/bootstrap.css'
 import { CgArrowLongRightL, CgPacman } from 'react-icons/cg'
@@ -100,20 +99,18 @@ const Index = () => {
       </div>
 
       {/* news */}
-      <div className="news-area d-flex align-items-start'">
-        <StickyBox className="news-slogen col-6 d-flex flex-column align-center justify-content-center text-center col-6 px-0">
-          <div >
-            <h1>TODAY’S</h1>
-            <h1>NEWS</h1>
-            <div className="news-hl"></div>
-            <h1 className="news-slogen-TC mt-3">
-              “我們接軌藝術
-            </h1>
-            <h1 className="notoSansTC-md news-slogen-TC mt-2">
-              藝術接軌國際"
-            </h1>
-          </div>
-        </StickyBox>
+      <div className="news-area d-flex">
+        <div className="news-slogen col-6 d-flex flex-column align-center justify-content-center text-center col-6 px-0">
+          <h1>TODAY’S</h1>
+          <h1>NEWS</h1>
+          <div className="news-hl"></div>
+          <h1 className="news-slogen-TC mt-3">
+            “我們接軌藝術
+          </h1>
+          <h1 className="notoSansTC-md news-slogen-TC mt-2">
+            藝術接軌國際"
+          </h1>
+        </div>
         <div className="news-cards col-6 px-0 row">
           <div className="news col-6 px-0">
             <img src={imgFlimward} alt="" />

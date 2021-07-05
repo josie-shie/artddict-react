@@ -104,10 +104,10 @@
     /* ----------news區域 -----------*/
     .news-area{
         width:calc(100% - 55px) ;/*TODO:為何不能用70?*/
+        height: 100vh;
     }
 
     .news-slogen{
-        height: 100vh;
         position: relative;
         background-color: #E8E8E8;
         z-index: 0;
@@ -143,6 +143,7 @@
 
     /*FIXME:*/
     .news{
+        overflow:hidden;
         position: relative;
     }
 
