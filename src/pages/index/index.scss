@@ -9,12 +9,12 @@
     }
     
     @font-face {
-    font-family: NotoSansTC-md;
+    font-family: notoSansTC-md;
     src:url(../../style/font/NotoSansTC-Medium.otf);
     }
 
-    .notoSansTC-md{
-        font-family: NotoSansTC-md;
+    .notoSansTC-md-md{
+        font-family: notoSansTC-md;
     }
 
     .engravers{
@@ -210,7 +210,7 @@
     .artist-title-tc span {
         font-size: 1.5vw;
         padding-left: 9em;
-        font-family: notoSansTC;
+        font-family: notoSansTC-md;
         color: #81FC4D;
         position: relative;
     }
@@ -357,7 +357,7 @@
     .event-title-tc span {
         font-size: 1.5vw;
         padding-left: 9em;
-        font-family: notoSansTC;
+        font-family: notoSansTC-md;
         color: #000;
         position: relative;
     }
@@ -380,7 +380,7 @@
     .event-marquee h1{
         letter-spacing: 4px;
         font-size: 3vw;
-        font-family: NotoSansTC-md;
+        font-family: notoSansTC-md;
 
     }
 
@@ -464,7 +464,7 @@
     .product-title-tc span {
         font-size: 1.5vw;
         padding-left: 9em;
-        font-family: notoSansTC;
+        font-family: notoSansTC-md;
         color: #000;
         position: relative;
     }
@@ -523,6 +523,7 @@
     }
 
     .index-card-btn{
+        height: 5vh;
         text-align:center;
         border:1px solid #000;
     }
@@ -572,7 +573,7 @@
     .auction-area button{
         padding-top: 10px;
         padding-bottom: 10px;
-        font-family: NotoSansTC;
+        font-family: notoSansTC-md;
         font-weight: 900;
         background: #000;
         color:#81FC4D;
@@ -587,7 +588,7 @@
     .auction-title-tc span {
         font-size: 1.5rem;
         padding-left: 9em;
-        font-family: notoSansTC;
+        font-family: notoSansTC-md;
         color: #000;
         position: relative;
     }

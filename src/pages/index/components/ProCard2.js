@@ -148,10 +148,11 @@ const ProCard2 = () => {
             </Link>
             <div className="d-flex w-100">
               <div
-                className="index-card-btn col-6"
+                className="index-card-btn col-6" 
                 onClick={() =>
-                  index <= 0 ? 0 : setIndex(index - 1)
+                  index >= 2 ? 2 : setIndex(index + 1)
                 }
+                
               >
                 <IoIosArrowRoundBack size={30} />
               </div>
@@ -159,7 +160,7 @@ const ProCard2 = () => {
                 className="index-card-btn col-6"
                 size={30}
                 onClick={() =>
-                  index >= 2 ? 2 : setIndex(index + 1)
+                  index <= 0 ? 0 : setIndex(index - 1)
                 }
               >
                 <IoIosArrowRoundForward size={30} />
