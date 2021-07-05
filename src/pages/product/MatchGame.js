@@ -1,4 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react'
+import StickyBox from 'react-sticky-box/dist/esnext'
+
 import './style/MatchGame.css'
 
 function MatchGame() {
@@ -11,14 +13,31 @@ function MatchGame() {
 
   return (
     <>
-      <input
-        type="text"
-        ref={inputRef}
-        value={name}
-        onChange={(e) => setName(e.target.value)}
-      />
-      <div>My name is {name}</div>
-      <button onClick={focus}>focus</button>
+      <div style={{ height: '1000px', overflow: 'auto' }}>
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'flex-start',
+          }}
+        >
+          <StickyBox
+            style={{
+              border: '3px solid green',
+              height: '100vh',
+            }}
+          >
+            Sidebar
+          </StickyBox>
+          <div
+            style={{
+              height: '1500px',
+              border: '3px solid blue',
+            }}
+          >
+            Main Content
+          </div>
+        </div>
+      </div>
     </>
   )
 }
