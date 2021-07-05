@@ -213,13 +213,13 @@ function Product() {
                 color={'#1D0Aff'}
               />
             </div>
-            <div className="pro-auction">
+            {/* <div className="pro-auction">
               <img
                 src={auction}
                 alt=""
                 className="spin-img"
               />
-            </div>
+            </div> */}
             <div className="pro-special">
               <p>SPECIAL</p>
             </div>

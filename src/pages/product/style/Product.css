@@ -107,6 +107,7 @@
 .homepageA-boxScrollBox{
     text-align: center;
     justify-content: center;
+    margin: 30px 0 30px 0;
 }
 .homepageA-boxScroll {
     border: none;
@@ -305,8 +306,8 @@
         letter-spacing:1.3rem;
     }
     .pro-arrow2{
-        top: 50%;
-        left: 45%;
+        top: 30%;
+        left: 40%;
     }
     .pro-arrowC{
         width: 35%;
@@ -822,6 +823,9 @@ width:100%;
     z-index: 101;
 
 
+}
+.homepage5-boxA:hover, .homepage5-boxB:hover, .homepage5-boxC:hover, .homepage5-boxD:hover, .homepage5-boxE:hover, .homepage5-boxF:hover{
+-webkit-filter:brightness(.5)
 }
 .homepage5-boxA img{
     width: 100%;
