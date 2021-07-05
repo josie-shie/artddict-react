@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^4.11.4",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -31,6 +32,7 @@
     "react-slick": "^0.28.1",
     "react-ticker": "^1.2.2",
     "slick-carousel": "^1.8.1",
+    "start": "^5.1.0",
     "sweetalert": "^2.1.2",
     "video-react": "^0.14.1",
     "web-vitals": "^1.0.1"

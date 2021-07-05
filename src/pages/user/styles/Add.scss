@@ -172,42 +172,42 @@
 }
 
 // ===== checkbox 樣式 =====
-.u-checkbox > input[type='checkbox'] {
-  border-radius: 0px;
-  margin-right: 15px;
-  cursor: pointer;
-  font-size: 14px;
-  width: 15px;
-  height: 12px;
-  position: relative;
-}
+// .u-checkbox > input[type='checkbox'] {
+//   border-radius: 0px;
+//   margin-right: 15px;
+//   cursor: pointer;
+//   font-size: 14px;
+//   width: 15px;
+//   height: 12px;
+//   position: relative;
+// }
 
-.u-checkbox > input[type='checkbox']:after {
-  position: absolute;
-  width: 23px;
-  height: 23px;
-  top: 0;
-  content: ' ';
-  background-color: #e8e8e8;
-  color: #fff;
-  display: inline-block;
-  visibility: visible;
-  padding: 0px 3px;
-  border: 2px solid #000;
-}
+// .u-checkbox > input[type='checkbox']:after {
+//   position: absolute;
+//   width: 23px;
+//   height: 23px;
+//   top: 0;
+//   content: ' ';
+//   background-color: #e8e8e8;
+//   color: #fff;
+//   display: inline-block;
+//   visibility: visible;
+//   padding: 0px 3px;
+//   border: 2px solid #000;
+// }
 
-.u-checkbox > input[type='checkbox']:checked:after {
-  content: '✓';
-  font-size: 17px;
-  background-color: #000;
-}
+// .u-checkbox > input[type='checkbox']:checked:after {
+//   content: '✓';
+//   font-size: 17px;
+//   background-color: #000;
+// }
 
-.u-ckb {
-  margin-left: 130px;
-}
-.u-ck2 {
-  margin-top: 8px;
-}
+// .u-ckb {
+//   margin-left: 130px;
+// }
+// .u-ck2 {
+//   margin-top: 8px;
+// }
 
 // ----- label 文字 -----
 .u-checkbox > label {
@@ -217,7 +217,7 @@
 
 .u-link1 {
   color: #000;
-  }
+}
 
 // 註冊、登入按鈕
 
@@ -232,7 +232,7 @@
   font-size: 18px;
   color: #000;
   border: 2px solid #000;
-  &:hover{
+  &:hover {
     .u-link1 {
       color: #fff;
     }
