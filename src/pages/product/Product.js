@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../pics/logo.svg'
 import '../../bootstrap/css/bootstrap.css'
 import { Card, Button } from 'react-bootstrap'
+import StickyBox from 'react-sticky-box/dist/esnext'
+
 //----------icon and css and slick----------
 import {} from 'react-icons/cg'
 import {
@@ -185,22 +187,24 @@ function Product() {
       {/* -----------------------首頁第一頁 以下第二頁 */}
       <div className="pro-outside2">
         <div className="row">
-          <div className="homepageB-left">
-            <p className="pro-English homepageB-left-word">
-              TO DRAW, <br />
-              YOU MUST CLOSE <br /> YOUR EYES
-              <br /> AND SING
-              <br />
-              ——PABLO
-            </p>
-            <div className="pro-gif">
-              <img
-                className="museumGif"
-                src={museumGif}
-                alt=""
-              />
+          <StickyBox className="homepageB-left">
+            <div>
+              <p className="pro-English homepageB-left-word">
+                TO DRAW, <br />
+                YOU MUST CLOSE <br /> YOUR EYES
+                <br /> AND SING
+                <br />
+                ——PABLO
+              </p>
+              <div className="pro-gif">
+                <img
+                  className="museumGif"
+                  src={museumGif}
+                  alt=""
+                />
+              </div>
             </div>
-          </div>
+          </StickyBox>
           <div className="homepageB-right">
             <div className="pro-arrow2">
               <IoIosArrowRoundForward
