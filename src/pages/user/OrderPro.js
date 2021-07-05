@@ -53,7 +53,7 @@ function OrderPro() {
               <div class="u-orderType">訂單狀態</div>
               <div class="u-bt col-2"></div>
             </div>
-            <div class="u-tb d-flex justify-content-around mt-5">
+            <div class="u-tb d-flex justify-content-around">
               <div class="u-orderId  mt-4">訂單編號</div>
               <div class="u-orderDate mt-4">訂單日期</div>
               <div class="u-payType c mt-4">付款狀態</div>
