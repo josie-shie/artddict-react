@@ -205,6 +205,9 @@ function Product() {
                 color={'#1D0Aff'}
               />
             </div>
+            <div className="pro-special">
+              <p>SPECIAL</p>
+            </div>
             <div>
               <div className="homepageB-srcollPicA">
                 <img src={artist1} alt="" />

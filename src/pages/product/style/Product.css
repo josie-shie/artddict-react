@@ -217,8 +217,21 @@
 .pro-arrow2{
     z-index: 999;
     position: absolute;
-    top: 43%;
+    top: 40%;
     left: 25%;
+}
+.pro-special{
+    position:absolute;
+    top: 20%;
+    right: 0%;
+
+}
+.pro-special p{
+    writing-mode:vertical-lr;
+    font-family: Engravers;
+    font-size:6rem;
+    color: #1D0AFF;
+    letter-spacing:1.3rem;
 }
 
 .homepageB-srcollPicA{
@@ -256,6 +269,17 @@
     }
 .homepageB-srcollPicC img{
     width: 100%;
+}
+
+@media (min-width: 1440px){
+    .homepageB-scrollDiv p{
+        letter-spacing:20px;
+        padding-left: 15%;
+    }
+    .pro-arrow2{
+        top: 50%;
+        left: 45%;
+    }
 }
 
 .pro-gif{
