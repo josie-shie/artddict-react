@@ -209,7 +209,7 @@ const Index = () => {
       </div>
 
       {/* Event */}
-      <div className="event-area index-web-padding">
+      <div className="event-area index-web-padding d-flex flex-column">
         <div className="event-img">
           <img className="img1" src={eventimg1} alt="" />
           <img className="img2" src={eventimg2} alt="" />
@@ -281,7 +281,6 @@ const Index = () => {
       {/* Shop */}
       <div className="product-area index-web-padding">
         <div className="product-cute d-flex align-items-end justify-content-center pb-5">
-          <h5></h5>
           <img src={tri} alt="" />
           <img className="pl-4" src={cirhf} alt="" />
           <img src={cirbk} alt="" />
@@ -404,7 +403,12 @@ const Index = () => {
         {/* auction */}
         <div className="auction-area px-4">
           <div className="auction-slogan d-flex mb-3">
-            <h1 className="col-6">AUCTION</h1>
+            <div className="col-6">
+              <h1 >AUCTION</h1>
+              <h4 className="notoSansTC-md auction-title-tc pl-3 mb-5">
+                藝術 <span>頂尖對決</span>
+              </h4>
+            </div>
             <div className="col-6 d-flex flex-column pt-4">
               <img src={aucline} alt="" />
               <div className="d-flex px-5">
@@ -420,9 +424,6 @@ const Index = () => {
               </div>
             </div>
           </div>
-          <h4 className="notoSansTC-md auction-title-tc pl-3 mb-5">
-            藝術 <span>與我爭鋒</span>
-          </h4>
           <div className="auctime">
             <img
               className="w-100 spin-img"

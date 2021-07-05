@@ -131,19 +131,14 @@ function Login() {
                     </div>
                   </small>
                 </div>
-                <div className="u-editBtn">
-                  <button
-                    type="submit"
-                    class="u-btn btn-outline-dark"
+                <div className="u-AddBtn">
+                  <Link
+                    to="/user-msgedit"
+                    className="u-link1"
+                    style={{ textDecoration: 'none' }}
                   >
-                    <Link
-                      to="/user-msgedit"
-                      className="u-link1"
-                      style={{ textDecoration: 'none' }}
-                    >
-                      登入
-                    </Link>
-                  </button>
+                    登入
+                  </Link>
                 </div>
               </form>
             </div>
