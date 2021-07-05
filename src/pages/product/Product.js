@@ -199,13 +199,21 @@ function Product() {
             </div>
           </div>
           <div className="homepageB-right">
+            <div className="pro-arrow2">
+              <IoIosArrowRoundForward
+                size={400}
+                color={'#1D0Aff'}
+              />
+            </div>
             <div>
               <div className="homepageB-srcollPicA">
                 <img src={artist1} alt="" />
               </div>
             </div>
             <div className="homepageB-scrollDiv">
-              <p>藝術家聯名系列</p>
+              <div className="homepageB-scrollMove">
+                <p>藝術家聯名系列</p>
+              </div>
             </div>
             <div className="homepageB-srcollPicB ">
               <img src={artist2} alt="" />

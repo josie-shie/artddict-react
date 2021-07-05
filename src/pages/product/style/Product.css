@@ -199,17 +199,30 @@
 
 }
 .homepageB-right{
-    background-color:rgb(129, 189, 39);
+    background-color:white;
     height: 100vh;
     width: 44vw;
     overflow: scroll;
     margin: 0 ;
     padding: 0;
+    position: relative;
+}
+
+.homepageB-scrollMove{
+    width: 80%;
+    height: 80%;
+    padding-top: 3%;
+    margin: 0;
+}
+.pro-arrow2{
+    z-index: 999;
+    position: absolute;
+    top: 43%;
+    left: 25%;
 }
 
 .homepageB-srcollPicA{
-    width: 80%;
-    overflow:hidden;
+    width: 85%;
 }
 .homepageB-srcollPicA img{
     width: 100%;
@@ -224,9 +237,9 @@
 }
 .homepageB-scrollDiv p{
     font-family:notoSansTC-Medium;
-    font-size:3vw;
+    font-size:3rem;
     color: #1D0Aff;
-    padding: 20px 0 0 100px;
+    padding-left: 5%;
 }
 
 .homepageB-srcollPicB{
