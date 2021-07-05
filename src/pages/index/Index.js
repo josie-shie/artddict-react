@@ -226,6 +226,11 @@ const Index = () => {
             <h4 className="notoSansTC-md event-title-tc">
               藝術 <span>活動展</span>
             </h4>
+            <Link to="/map">
+              <button className="notoSansTC-md py-3 px-4 mt-4">
+                前往地圖搜尋
+              </button>
+            </Link>
           </div>
           <div className="eventicon text-center col-5 pl-0">
             <Link to="/event">
