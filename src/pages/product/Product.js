@@ -5,7 +5,10 @@ import '../../bootstrap/css/bootstrap.css'
 import { Card, Button } from 'react-bootstrap'
 //----------icon and css and slick----------
 import {} from 'react-icons/cg'
-import { MdKeyboardArrowRight } from 'react-icons/md'
+import {
+  MdKeyboardArrowRight,
+  MdKeyboardArrowLeft,
+} from 'react-icons/md'
 
 import {
   IoIosArrowRoundBack,
@@ -131,7 +134,7 @@ function Product() {
                 </span>
               </p>
             </div>
-            <button className="homepageA-box btn-lg pro-English ">
+            <button className="homepageA-box btn-lg pro-EnglishB ">
               Go Shop
             </button>
           </div>
@@ -221,8 +224,40 @@ function Product() {
             <div className="homepageB-srcollPicB ">
               <img src={artist2} alt="" />
             </div>
-            <div className="homepageB-srcollPicC">
-              <img src={artist3} alt="" />
+            <div className="homepageA-boxScrollBox d-flex">
+              <div className="pro-arrowC d-flex">
+                <marquee
+                  scrollamount="10"
+                  direction="right"
+                  className="d-flex proTest"
+                >
+                  <MdKeyboardArrowRight size={30} />
+                  <MdKeyboardArrowRight size={30} />
+                  <MdKeyboardArrowRight size={30} />
+                  <MdKeyboardArrowRight size={30} />
+                  <MdKeyboardArrowRight size={30} />
+                  <MdKeyboardArrowRight size={30} />
+                </marquee>
+              </div>
+              <div>
+                <button className="homepageA-boxScroll btn-lg pro-EnglishB ">
+                  Go Shop
+                </button>
+              </div>
+              <div className="pro-arrowC d-flex">
+                <marquee
+                  scrollamount="10"
+                  direction="left"
+                  className="proTest"
+                >
+                  <MdKeyboardArrowLeft size={30} />
+                  <MdKeyboardArrowLeft size={30} />
+                  <MdKeyboardArrowLeft size={30} />
+                  <MdKeyboardArrowLeft size={30} />
+                  <MdKeyboardArrowLeft size={30} />
+                  <MdKeyboardArrowLeft size={30} />
+                </marquee>
+              </div>
             </div>
           </div>
         </div>

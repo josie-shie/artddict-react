@@ -34,7 +34,9 @@
     line-height:7vh;
 }
 
-
+.pro-EnglishB{
+    font-family: notoSansTC-Medium;
+}
 
 .pro-English {
     font-family: Engravers;
@@ -102,6 +104,20 @@
     text-align: center;
     padding: 10px 50px;
 }
+.homepageA-boxScrollBox{
+    text-align: center;
+    justify-content: space-between;
+}
+.homepageA-boxScroll {
+    border: none;
+    border-radius: 0;
+    background-color: #1D0Aff;
+    color: white;
+    /* margin-left: calc(50% - 90px); */
+    text-align: center;
+    padding: 10px 50px;
+}
+
 
 .btn:hover {
     color: white;
@@ -262,19 +278,26 @@
 .homepageB-srcollPicB img{
     width: 100%;
 }
-
-.homepageB-srcollPicC{
-    width: 100%;
-    overflow:hidden;
-    }
-.homepageB-srcollPicC img{
-    width: 100%;
+.pro-arrowC{
+    text-align:center;
+    height: 50px;
+}
+.proTest{
+    margin-top: 5%;
 }
 
 @media (min-width: 1440px){
     .homepageB-scrollDiv p{
         letter-spacing:20px;
-        padding-left: 15%;
+        padding-left: 10%;
+    }
+    .pro-special{
+        top: 20%;
+        right: 0%;
+    }
+    .pro-special p{
+        font-size:10rem;
+        letter-spacing:1.3rem;
     }
     .pro-arrow2{
         top: 50%;
