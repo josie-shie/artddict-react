@@ -205,7 +205,24 @@ function Product() {
               </div>
             </div>
             <div className="homepageB-scrollDiv">
-              <p>藝術家聯名系列</p>
+              <div className="homepageB-scrollMove">
+                <p>藝術家聯名系列</p>
+                <div className="pro-arrow2">
+                  <marquee
+                    scrollamount="10"
+                    direction="right"
+                  >
+                    <MdKeyboardArrowRight size={40} />
+                    <MdKeyboardArrowRight size={40} />
+                    <MdKeyboardArrowRight size={40} />
+                    <MdKeyboardArrowRight size={40} />
+                    <MdKeyboardArrowRight size={40} />
+                    <MdKeyboardArrowRight size={40} />
+                    <MdKeyboardArrowRight size={40} />
+                    <MdKeyboardArrowRight size={40} />
+                  </marquee>
+                </div>
+              </div>
             </div>
             <div className="homepageB-srcollPicB ">
               <img src={artist2} alt="" />

@@ -207,9 +207,16 @@
     padding: 0;
 }
 
+.homepageB-scrollMove{
+    padding-top: 3%;
+}
+.pro-arrow2{
+    margin-left: 17%;
+    width: 57%;
+}
+
 .homepageB-srcollPicA{
-    width: 80%;
-    overflow:hidden;
+    width: 85%;
 }
 .homepageB-srcollPicA img{
     width: 100%;
@@ -224,9 +231,9 @@
 }
 .homepageB-scrollDiv p{
     font-family:notoSansTC-Medium;
-    font-size:3vw;
+    font-size:3rem;
     color: #1D0Aff;
-    padding: 20px 0 0 100px;
+    padding-left: 15%;
 }
 
 .homepageB-srcollPicB{
