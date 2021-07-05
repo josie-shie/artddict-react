@@ -3,12 +3,15 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { ReactComponent as Logo } from '../pics/logo.svg'
-import { BiArrowToTop, BiCartAlt } from 'react-icons/bi'
+import { BiCartAlt } from 'react-icons/bi'
 import {
   FaUserAstronaut,
   FaMapMarkedAlt,
 } from 'react-icons/fa'
+import ScrollBtn from './ScrollBtn'
 import $ from 'jquery'
+
+
 import '../style/Nav.css'
 import '../bootstrap/css/bootstrap.css'
 
@@ -121,7 +124,7 @@ const Nav = () => {
               <div className="mb-4">
                 <Link to="#">
                   <i>
-                    <BiArrowToTop />
+                    <ScrollBtn />
                   </i>
                 </Link>
               </div>
