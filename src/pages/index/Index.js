@@ -218,7 +218,7 @@ const Index = () => {
           <img className="img5" src={eventimg5} alt="" />
           <img className="img6" src={eventimg6} alt="" />
         </div>
-        <div className="event-slogan d-flex pl-4 mb-3">
+        <div className="event-slogan d-flex justify-content-center pl-4 mb-3">
           <div className="col-7">
             <h1 className=" text-break">
               Chasing art never stops
@@ -226,6 +226,11 @@ const Index = () => {
             <h4 className="notoSansTC-md event-title-tc">
               藝術 <span>活動展</span>
             </h4>
+            <Link to="/map">
+              <button className="notoSansTC-md py-3 px-4 mt-4">
+                前往地圖搜尋
+              </button>
+            </Link>
           </div>
           <div className="eventicon text-center col-5 pl-0">
             <Link to="/event">
