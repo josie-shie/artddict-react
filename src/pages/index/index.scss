@@ -145,13 +145,47 @@
     /*FIXME:*/
     .news{
         overflow:hidden;
+
+        position: relative;
     }
+
+    
 
     div.news img{
         width: 100%;
         height: 100%;
         
     }
+
+    .index-img-title{
+        display:none ;
+        text-align: center;
+        background-color: #000;
+        color: #81FC4D;
+        font-size: 1.2rem;
+        font-weight: bold;
+        position: absolute;
+        top:50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+
+    }
+    
+    div.news:hover{
+        
+        img{-webkit-filter:brightness(.5);
+        
+    }
+    div{
+        display:block;
+    }
+
+        
+    }
+
+
+        
+
 
     /* ----------waterfall區域 -----------*/
     .artist-area{
@@ -246,8 +280,50 @@
         line-height: 100px;
     
     }
-    .event-eye{width: 70%;}
 
+    .eventicon{
+        
+        
+        
+        .event-eye{width: 70%;
+            position: relative;}
+
+        .event-eye2{
+            width: 40%;
+            position: absolute;
+            top:50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+
+        h1{
+            font-family: Engravers;
+            color: #1D0AFF;
+            text-align: center;
+            font-size: 3rem;
+            line-height: 40px;
+            display:none;
+            width: 40%;
+            position: absolute;
+            top:50%;
+            left: 45%;
+            transform: translate(-50%,-50%);
+
+        }
+
+    }
+
+    .eventicon:hover{
+        
+        .event-eye2{
+            display:none
+        }
+        h1{
+            display: block;
+        }
+    }
+    
+    
     .event-title-tc{
         font-size: 1.5rem;
     }

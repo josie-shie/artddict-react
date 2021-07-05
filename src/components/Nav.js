@@ -105,7 +105,7 @@ const Nav = () => {
                 </Link>
               </div>
               <div className="mb-4">
-                <Link to="/">
+                <Link to="/user-login">
                   <i>
                     <FaUserAstronaut />
                   </i>
@@ -140,7 +140,7 @@ const Nav = () => {
             <div>
               <ul>
                 <li>
-                  <Link ref={liRef} to="/store">
+                  <Link ref={liRef} to="/product">
                     Shop
                   </Link>
                 </li>

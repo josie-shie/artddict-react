@@ -3,7 +3,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../pics/logo-bk.svg'
-import './Artist.css'
+import './Artist.scss'
 import { RiMarkPenFill } from 'react-icons/ri'
 
 import artistImg1 from './img/Mr-Doodle_img_1040_780.jpg'

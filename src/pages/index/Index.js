@@ -3,9 +3,9 @@
 //TODO:hero sectionu 應該要flex
 //TODO:Ending door
 import React, { useRef, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../pics/logo.svg'
-import './index.css'
+import './index.scss'
 import '../../bootstrap/css/bootstrap.css'
 import { CgArrowLongRightL, CgPacman } from 'react-icons/cg'
 import {
@@ -18,19 +18,26 @@ import {
   IoIosArrowRoundForward,
 } from 'react-icons/io'
 
+//? index img
 import video from './video/Graffiti street art.mp4'
+
+//? news img
 import imgFlimward from './image/news/flimward.jpg'
 import imgDance from './image/news/dance.jpg'
 import imgGoldpin from './image/news/goldpin.jpg'
 import imgHeart from './image/news/heart.jpg'
 import imgHk from './image/news/hk.jpg'
 import imglipstick from './image/news/lipstick.jpg'
+
+//? artist img
 import artist1 from './image/artist/carpat.jpg'
 import artist2 from './image/artist/katzu daro.jpg'
 import artist3 from './image/artist/marimekko.jpg'
 import artist4 from './image/artist/merrido.jpg'
 import artist5 from './image/artist/takashi.jpg'
 import artist6 from './image/artist/mr-doodel.jpg'
+
+//? event img
 import eventimg1 from './image/event/001.jpg'
 import eventimg2 from './image/event/002.jpg'
 import eventimg3 from './image/event/003.jpg'
@@ -38,6 +45,9 @@ import eventimg4 from './image/event/004.jpg'
 import eventimg5 from './image/event/005.jpg'
 import eventimg6 from './image/event/006.jpg'
 import eventicon from '../../pics/arddict-circle-bl.svg'
+import eventicon2 from '../../pics/arddict-eye-bl.svg'
+
+//? product img
 import tri from './image/cute/tri.svg'
 import cirhf from './image/cute/cirhf.svg'
 import cirbk from './image/cute/cirbk.svg'
@@ -53,7 +63,6 @@ import product3 from './image/product/19.威廉 綠啄花 披肩03.jpeg'
 import auctime from './image/acution/auction.svg'
 import aucline from './image/acution/aucline.svg'
 
-import door1 from './image/ending/door1.svg'
 import gif from './video/gif-marble.gif'
 
 const Index = () => {
@@ -75,7 +84,9 @@ const Index = () => {
             <h1>devotes to ART</h1>
             <h5 className="mt-1">to the moon and back</h5>
             <div className="start-scroll mt-1">
-              <marquee direction="down" className="mt-2"><p className="vertical-line mb-4">|</p></marquee>
+              <marquee direction="down" className="mt-2">
+                <p className="vertical-line mb-4">|</p>
+              </marquee>
               <p>scroll Down</p>
             </div>
           </div>
@@ -103,21 +114,63 @@ const Index = () => {
         <div className="news-cards col-6 px-0 row">
           <div className="news col-6 px-0">
             <img src={imgFlimward} alt="" />
+            <div className="index-img-title">
+              <h1>
+                放視徵件中，高手們齊聚，就等你海放對手！
+              </h1>
+            </div>
           </div>
           <div className="news col-6 px-0">
             <img src={imgDance} alt="" />
+            <div className="index-img-title">
+              <h1>
+                在她的歌裡，誰都 能跳舞，來自邊緣 的連結者。
+              </h1>
+            </div>
           </div>
           <div className="news col-6 px-0">
             <img src={imgGoldpin} alt="" />
+            <div className="index-img-title">
+              <h1>
+                金點設計
+                <br />
+                名單出爐！
+                <br />
+                設計超新星
+                <br />
+                獎落誰家？
+              </h1>
+            </div>
           </div>
           <div className="news col-6 px-0">
             <img src={imgHeart} alt="" />
+            <div className="index-img-title">
+              <h1>
+                新視覺藝術！
+                <br />
+                板根芽子
+                <br />
+                創意再升級！
+              </h1>
+            </div>
           </div>
           <div className="news col-6 px-0">
             <img src={imgHk} alt="" />
+            <div className="index-img-title">
+              <h1>
+                《理大圍城》： <br />
+                沒有名字和臉孔
+                <br />的 運動與拍攝。
+              </h1>
+            </div>
           </div>
           <div className="news col-6 px-0">
             <img src={imglipstick} alt="" />
+            <div className="index-img-title">
+              <h1>
+                渡邊直美再造！ 另人食慾變好的 化妝品行銷
+              </h1>
+            </div>
           </div>
         </div>
       </div>
@@ -174,12 +227,20 @@ const Index = () => {
               藝術 <span>活動展</span>
             </h4>
           </div>
-          <div className="text-center col-5 pl-0">
-            <img
-              className="event-eye spin-img"
-              src={eventicon}
-              alt=""
-            />
+          <div className="eventicon text-center col-5 pl-0">
+            <Link to="/event">
+              <img
+                className="event-eye spin-img"
+                src={eventicon}
+                alt=""
+              />
+              <img
+                className="event-eye2"
+                src={eventicon2}
+                alt=""
+              />
+              <h1>CHECK</h1>
+            </Link>
           </div>
         </div>
         <div className="px-4">
@@ -347,12 +408,14 @@ const Index = () => {
             <div className="col-6 d-flex flex-column pt-4">
               <img src={aucline} alt="" />
               <div className="d-flex px-5">
-                <button className="notoSansTC-md col-6">WATCH ALL</button>
+                <button className="notoSansTC-md col-6">
+                  WATCH ALL
+                </button>
                 <button className="col-3">
                   <IoIosArrowRoundBack size={30} />
                 </button>
                 <button className="col-3 ">
-                  <IoIosArrowRoundForward size={30}/>
+                  <IoIosArrowRoundForward size={30} />
                 </button>
               </div>
             </div>
@@ -361,7 +424,11 @@ const Index = () => {
             藝術 <span>與我爭鋒</span>
           </h4>
           <div className="auctime">
-            <img className="w-100 spin-img" src={auctime} alt="" />
+            <img
+              className="w-100 spin-img"
+              src={auctime}
+              alt=""
+            />
           </div>
           <div className="auction-card-wrap d-flex">
             <div className="auction-card col-3">
@@ -389,7 +456,7 @@ const Index = () => {
               </div>
             </div>
             <div className="auction-card col-3">
-              <img  src={product1} alt="" />
+              <img src={product1} alt="" />
               <div className="index-card-rect"></div>
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
@@ -432,4 +499,4 @@ const Index = () => {
   )
 }
 
-export default Index
+export default withRouter(Index)

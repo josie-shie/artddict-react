@@ -26,23 +26,25 @@ const Map = () => {
               <div className="map-select-box px-4">
                 地區
               </div>
-              <select
-                className="map-select-box map-select pl-3 border-left-0 "
-                name=""
-                id=""
-              >
-                <option
-                  style={{ color: '#707070' }}
-                  value=""
+              <from>
+                <select
+                  className="map-select-box map-select pl-3 border-left-0 "
+                  name=""
+                  id=""
                 >
-                  請選擇
-                </option>
-                <option value="">123</option>
-                <option value="">123</option>
-              </select>
-              <div className="map-select-box ml-5 px-4">
-                搜尋
-              </div>
+                  <option
+                    style={{ color: '#707070' }}
+                    value=""
+                  >
+                    請選擇
+                  </option>
+                  <option value="">123</option>
+                  <option value="">123</option>
+                </select>
+                <div className="map-select-box ml-5 px-4">
+                  搜尋
+                </div>
+              </from>
               <div className="pl-5 ml-5 mr-4">
                 <MdMyLocation size={30} color={'#81FC4D'} />
               </div>
