@@ -866,13 +866,10 @@ width:100%;
 
 
 /* -----------homepage6------- */
-.pro-outside6{
-    width: calc(100vw - 70px);
-}
+
 
 .pro-gray6{
     background-color: #E8E8E8;
-    height: 175vh;
     z-index: 0;
 }
 .pro-bottomGif{
