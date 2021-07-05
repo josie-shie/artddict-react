@@ -60,9 +60,12 @@ function User(props) {
 
   const loading = (
     <>
-      <div className="d-flex justify-content-center">
-        <div className="spinner-border" role="status">
-          <span className="sr-only">Loading...</span>
+      <div className="u-body">
+        <Logoheader />
+        <div className="d-flex justify-content-center">
+          <div className="spinner-border" role="status">
+            <span className="sr-only">Loading...</span>
+          </div>
         </div>
       </div>
     </>
@@ -234,22 +237,14 @@ function User(props) {
                     </div>
                   </div>
                 </div>
-                <div className="u-editBtn">
-                  <button
-                    type="submit"
-                    onClick={() => {
-                      addUserToSever()
-                    }}
-                    className="u-btn btn-outline-dark"
+                <div className="u-AddBtn">
+                  <Link
+                    to="/user-msgedit"
+                    className="u-link1"
+                    style={{ textDecoration: 'none' }}
                   >
-                    <Link
-                      to="/user-msgedit"
-                      className="u-link1"
-                      style={{ textDecoration: 'none' }}
-                    >
-                      註冊
-                    </Link>
-                  </button>
+                    註冊
+                  </Link>
                 </div>
               </form>
             </div>
