@@ -83,10 +83,14 @@
 /* product list */
 .c-product-r1 {
   border-bottom: 1px solid black;
+}
+.c-img150 {
+  max-width: 150px;
+  height: 150px;
+  min-width: 100px;
+  min-height: 100px;
   img {
-    width: 150px;
-    height: 150px;
-    min-width: 100px;
+    width: 100%;
     object-fit: cover;
   }
 }
