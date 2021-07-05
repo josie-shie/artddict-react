@@ -51,6 +51,9 @@ import slickB3 from './img/slickB3.jpeg'
 import slickB4 from './img/slickB4.jpeg'
 import slickB5 from './img/slickB5.jpeg'
 import slickB6 from './img/slickB6.jpeg'
+import artist1 from './img/artist1.jpeg'
+import artist2 from './img/artist2.jpeg'
+import artist3 from './img/artist3.jpeg'
 
 function Product() {
   let settings = {
@@ -128,10 +131,7 @@ function Product() {
                 </span>
               </p>
             </div>
-            <button
-              onclick="javascript:location.href='productList'"
-              className="homepageA-box btn-lg pro-English "
-            >
+            <button className="homepageA-box btn-lg pro-English ">
               Go Shop
             </button>
           </div>
@@ -198,7 +198,22 @@ function Product() {
               />
             </div>
           </div>
-          <div className="homepageB-right"> </div>
+          <div className="homepageB-right">
+            <div>
+              <div className="homepageB-srcollPicA">
+                <img src={artist1} alt="" />
+              </div>
+            </div>
+            <div className="homepageB-scrollDiv">
+              <p>藝術家聯名系列</p>
+            </div>
+            <div className="homepageB-srcollPicB ">
+              <img src={artist2} alt="" />
+            </div>
+            <div className="homepageB-srcollPicC">
+              <img src={artist3} alt="" />
+            </div>
+          </div>
         </div>
       </div>
       {/* --------------------------homepage3 */}
