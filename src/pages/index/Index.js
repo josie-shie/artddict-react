@@ -38,14 +38,9 @@ import artist5 from './image/artist/takashi.jpg'
 import artist6 from './image/artist/mr-doodel.jpg'
 
 //? event img
-import eventimg1 from './image/event/001.jpg'
-import eventimg2 from './image/event/002.jpg'
-import eventimg3 from './image/event/003.jpg'
-import eventimg4 from './image/event/004.jpg'
-import eventimg5 from './image/event/005.jpg'
-import eventimg6 from './image/event/006.jpg'
 import eventicon from '../../pics/arddict-circle-bl.svg'
 import eventicon2 from '../../pics/arddict-eye-bl.svg'
+import IndexEventMarquee from './components/IndexEventMarquee'
 
 //? product img
 import tri from './image/cute/tri.svg'
@@ -211,12 +206,7 @@ const Index = () => {
       {/* Event */}
       <div className="event-area index-web-padding d-flex flex-column">
         <div className="event-img">
-          <img className="img1" src={eventimg1} alt="" />
-          <img className="img2" src={eventimg2} alt="" />
-          <img className="img3" src={eventimg3} alt="" />
-          <img className="img4" src={eventimg4} alt="" />
-          <img className="img5" src={eventimg5} alt="" />
-          <img className="img6" src={eventimg6} alt="" />
+          <IndexEventMarquee />
         </div>
         <div className="event-slogan d-flex justify-content-center pl-4 mb-3">
           <div className="col-7">
@@ -302,26 +292,43 @@ const Index = () => {
         </div>
         <div className="product-slogan pl-4">
           <h1>SURE!</h1>
-          <h1>embellish it!</h1>
+          <div className="d-flex mb-4">
+            <h1>embellish it!</h1>
+            <Link to="/product">
+              <div className="index-pro-more d-flex justify-content-end align-items-center ml-5">
+                <marquee
+                  direction="right"
+                  scrollamount="10"
+                  className="product-marquee py-2"
+                >
+                  <strong className="h4">
+                    <BsArrowRight />
+                    <BsArrowRight />
+                    <BsArrowRight />
+                  </strong>
+                </marquee>
+                <h2 className="mx-2 text-center pt-2">
+                  WATCH MORE
+                </h2>
+                <marquee
+                  direction="left"
+                  scrollamount="10"
+                  className="product-marquee py-2"
+                >
+                  <strong className="h4">
+                    <BsArrowLeft />
+                    <BsArrowLeft />
+                    <BsArrowLeft />
+                  </strong>
+                </marquee>
+              </div>
+            </Link>
+          </div>
           <div>
             <h4 className="notoSansTC-md product-title-tc">
               藝術 <span>點綴生活</span>
             </h4>
           </div>
-        </div>
-        <div className="d-flex justify-content-end pr-4">
-          <marquee
-            direction="right"
-            scrollamount="10"
-            className="product-marquee py-2"
-          >
-            <strong className="h4">
-              <BsArrowRight />
-              <BsArrowRight />
-              <BsArrowRight />
-            </strong>
-          </marquee>
-          <h1 className="ml-2 text-center">WATCH MORE</h1>
         </div>
         <div className="product-card-wrap px-4 d-flex">
           <div className="product-card col-3">
@@ -338,7 +345,15 @@ const Index = () => {
           </div>
           <div className="product-card col-3">
             <h1 className="indexACC">ACC</h1>
-            <div className="index-card-btn"></div>
+            <div className="d-flex flex-column justify-content-center align-items-center mt-5">
+              <div className="index-card-btn notoSansTC-md w-100 mt-auto">
+                MORE
+              </div>
+              <div className="d-flex w-100">
+                <div className="index-card-btn col-6"><IoIosArrowRoundBack size={30}/></div>
+                <div className="index-card-btn col-6"><IoIosArrowRoundForward size={30}/></div>
+              </div>
+            </div>
           </div>
           <div className="product-card col-3">
             <img src={product1} alt="" />
@@ -390,6 +405,15 @@ const Index = () => {
           </div>
           <div className="product-card col-3">
             <h1 className="indexACC">Book</h1>
+            <div className="d-flex flex-column justify-content-center align-items-center mt-5">
+              <div className="index-card-btn notoSansTC-md w-100 mt-auto">
+                MORE
+              </div>
+              <div className="d-flex w-100">
+                <div className="index-card-btn col-6"><IoIosArrowRoundBack size={30}/></div>
+                <div className="index-card-btn col-6"><IoIosArrowRoundForward size={30}/></div>
+              </div>
+            </div>
           </div>
           <div className="product-card col-3">
             <img src={product3} alt="" />
@@ -409,7 +433,7 @@ const Index = () => {
         <div className="auction-area px-4">
           <div className="auction-slogan d-flex mb-3">
             <div className="col-6">
-              <h1 >AUCTION</h1>
+              <h1>AUCTION</h1>
               <h4 className="notoSansTC-md auction-title-tc pl-3 mb-5">
                 藝術 <span>頂尖對決</span>
               </h4>
@@ -496,8 +520,10 @@ const Index = () => {
         <div className="col-12 px-0 mt-5">
           <img className="w-100" src={gif} alt="" />
           <h1>
-            May your passion for art <br />
-            <span>has no end</span>
+            May your passion <br />
+            for art
+            <br />
+            <span> has no end</span>
           </h1>
         </div>
       </div>
