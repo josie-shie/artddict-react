@@ -199,6 +199,12 @@ function Product() {
             </div>
           </div>
           <div className="homepageB-right">
+            <div className="pro-arrow2">
+              <IoIosArrowRoundForward
+                size={400}
+                color={'#1D0Aff'}
+              />
+            </div>
             <div>
               <div className="homepageB-srcollPicA">
                 <img src={artist1} alt="" />
@@ -207,21 +213,6 @@ function Product() {
             <div className="homepageB-scrollDiv">
               <div className="homepageB-scrollMove">
                 <p>藝術家聯名系列</p>
-                <div className="pro-arrow2">
-                  <marquee
-                    scrollamount="10"
-                    direction="right"
-                  >
-                    <MdKeyboardArrowRight size={40} />
-                    <MdKeyboardArrowRight size={40} />
-                    <MdKeyboardArrowRight size={40} />
-                    <MdKeyboardArrowRight size={40} />
-                    <MdKeyboardArrowRight size={40} />
-                    <MdKeyboardArrowRight size={40} />
-                    <MdKeyboardArrowRight size={40} />
-                    <MdKeyboardArrowRight size={40} />
-                  </marquee>
-                </div>
               </div>
             </div>
             <div className="homepageB-srcollPicB ">

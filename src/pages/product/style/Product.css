@@ -205,14 +205,20 @@
     overflow: scroll;
     margin: 0 ;
     padding: 0;
+    position: relative;
 }
 
 .homepageB-scrollMove{
+    width: 80%;
+    height: 80%;
     padding-top: 3%;
+    margin: 0;
 }
 .pro-arrow2{
-    margin-left: 17%;
-    width: 57%;
+    z-index: 999;
+    position: absolute;
+    top: 43%;
+    left: 25%;
 }
 
 .homepageB-srcollPicA{
@@ -233,7 +239,7 @@
     font-family:notoSansTC-Medium;
     font-size:3rem;
     color: #1D0Aff;
-    padding-left: 15%;
+    padding-left: 5%;
 }
 
 .homepageB-srcollPicB{
