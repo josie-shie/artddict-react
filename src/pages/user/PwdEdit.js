@@ -27,7 +27,7 @@ function PwdEdit() {
             </div>
           </div>
         </Container>
-        <div className="u-userData col-6">
+        <div className="u-userData col-6 mt-5">
           <form>
             <div className="form-group u-form1">
               <input
@@ -36,7 +36,7 @@ function PwdEdit() {
                 id="password"
               />
             </div>
-            <div className="form-group u-form1">
+            <div className="form-group u-form1 mt-5">
               <input
                 type="password"
                 className="form-control"
@@ -44,7 +44,7 @@ function PwdEdit() {
                 placeholder="請輸入新密碼"
               />
             </div>
-            <div className="form-group u-form1">
+            <div className="form-group u-form1 mt-5">
               <input
                 type="password"
                 className="form-control"
