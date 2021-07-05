@@ -60,10 +60,10 @@
     }
     
     .slogan h1{
-        font-size:3rem;
+        font-size:3vw;
     }
     .slogan h5{
-        font-size:1.5rem;
+        font-size:1.5vw;
     }
 
     .start-scroll{
@@ -72,7 +72,7 @@
     
     .vertical-line {
         text-align:center;
-        font-size:3rem;
+        font-size:3vw;
     }
 
     .start-scroll p{
@@ -114,7 +114,7 @@
     }
     .news-slogen h1{
         font-family: Engravers;
-        font-size:3rem;
+        font-size:3vw;
         background-color: #E8E8E8;
     }
 
@@ -131,7 +131,7 @@
     }
 
     .news-slogen-TC{
-        font-size:3rem;
+        font-size:3vw;
         font-weight: bolder;
         color:transparent;
         -webkit-text-stroke: 1px rgb(0, 0, 0);
@@ -195,7 +195,7 @@
     .artist-slogan{
         font-family: Engravers;
         color: #81FC4D;
-        font-size: 4rem;
+        font-size: 4vw;
         padding-top: 50px;
         margin-left: 35px;
 
@@ -258,6 +258,7 @@
         background-color: #E8E8E8;
     }
     .event-img{
+        width: 100%;
         position: relative;
     }
     .event-img img{
@@ -276,17 +277,17 @@
     }
     .event-slogan h1{
         font-family: Engravers;
-        font-size:5rem;
+        font-size:5vw;
         line-height: 100px;
     
     }
 
     .eventicon{
-        
+        position: relative;
         
         
         .event-eye{width: 70%;
-            position: relative;}
+            }
 
         .event-eye2{
             width: 40%;
@@ -300,7 +301,7 @@
             font-family: Engravers;
             color: #1D0AFF;
             text-align: center;
-            font-size: 3rem;
+            font-size: 4vw;
             line-height: 40px;
             display:none;
             width: 40%;
@@ -353,7 +354,7 @@
 
     .event-marquee h1{
         letter-spacing: 4px;
-        font-size: 3rem;
+        font-size: 3vw;
         font-family: NotoSansTC-md;
 
     }
@@ -365,6 +366,7 @@
     }
 
     .product-cute{
+        width: 100%;
         position: relative;
     }
 
@@ -381,7 +383,7 @@
     .index-tage{
         position: absolute;
         top:30%;
-        right:14%;
+        right:16%;
     }
     .index-eye{
         position: absolute;
@@ -400,17 +402,17 @@
         top:-5%;
         left:25%;
         font-family: Engravers;
-        font-size:2.5rem;
+        font-size:2.5vw;
     }
     .cute-slogan span{
         font-family: Engravers;
-        font-size:3rem;
+        font-size:3vw;
     }
     .product-hl{
         position:absolute;
         top:12%;
         left:24%;
-        width: 33%;
+        width: 28%;
         height: 15%;
         transform:rotate(1deg);
         transform-origin: 0 -10;
@@ -449,7 +451,7 @@
 
     .product-slogan h1{
         font-family: Engravers;
-        font-size:5rem;
+        font-size:5vw;
     }
 
     .product-marquee{
@@ -476,7 +478,7 @@
 
     .indexACC{
         font-family: Engravers;
-        font-size:4rem;
+        font-size:4vw;
         text-align: center;
         border-top: 2px solid #000;
         border-bottom: 2px solid #000;
@@ -521,7 +523,7 @@
 
     .auction-slogan{
         font-family: Engravers;
-        font-size:5rem;
+        font-size:5vw;
     }
 
     .auction-area button{
@@ -587,7 +589,7 @@
         line-height:60px;
         text-align: center;
         color:#fff;
-        font-size: 3rem;
+        font-size: 3vw;
         position:absolute;
         top: 50%;
         left: 50%;

@@ -209,7 +209,7 @@ const Index = () => {
       </div>
 
       {/* Event */}
-      <div className="event-area index-web-padding">
+      <div className="event-area index-web-padding d-flex flex-column">
         <div className="event-img">
           <img className="img1" src={eventimg1} alt="" />
           <img className="img2" src={eventimg2} alt="" />
@@ -279,9 +279,8 @@ const Index = () => {
         </div>
       </div>
       {/* Shop */}
-      <div className="product-area index-web-padding">
+      <div className="product-area index-web-padding d-flex flex-column">
         <div className="product-cute d-flex align-items-end justify-content-center pb-5">
-          <h5></h5>
           <img src={tri} alt="" />
           <img className="pl-4" src={cirhf} alt="" />
           <img src={cirbk} alt="" />
