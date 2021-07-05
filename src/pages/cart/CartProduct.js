@@ -43,16 +43,18 @@ function CartProduct() {
             </Nav.Link>
           </div>
         </div>
-        <div className="c-productlist mt-5">
-          <div className="c-product-r1 d-flex pb-5">
-            <img className="col-2" src={img1} />
-            <div className="c-product1detail d-flex flex-column justify-content-between col-4">
+        <div className="c-productlist">
+          <div className="c-product-r1 d-flex py-5 pl-4">
+            <div className="c-img150">
+              <img src={img1} />
+            </div>
+            <div className="c-product1detail d-flex flex-column justify-content-between col-4 pl-4">
               <div>
                 <p className="h4">梵谷自畫像T-Shirt</p>
                 <p className="c-pid">商品編號 # 200123</p>
                 <p className="mt-3">尺寸：S</p>
               </div>
-              <div className="d-flex">
+              <div className="d-lg-flex">
                 <a
                   href="#"
                   className="c-product-a d-flex align-items-center"
@@ -66,7 +68,7 @@ function CartProduct() {
                   href="#"
                   className="c-product-a d-flex align-items-center"
                 >
-                  <FaRegEdit size={20} />
+                  <RiDeleteBinLine size={20} />
                   <p className="c-store2 ml-1 mr-4">
                     移除商品
                   </p>
@@ -87,9 +89,11 @@ function CartProduct() {
               <p>NT$ 780</p>
             </div>
           </div>
-          <div className="c-product-r1 d-flex pt-5 pb-5">
-            <img className="col-2" src={img2} />
-            <div className="c-product1detail d-flex flex-column justify-content-between col-4">
+          <div className="c-product-r1 d-flex py-5 pl-4">
+            <div className="c-img150">
+              <img src={img2} />
+            </div>
+            <div className="c-product1detail d-flex flex-column justify-content-between col-4 pl-4">
               <div>
                 <p className="h4">梵谷自畫像T-Shirt</p>
                 <p className="c-pid">商品編號 # 200123</p>
@@ -109,7 +113,7 @@ function CartProduct() {
                   href="#"
                   className="c-product-a d-flex align-items-center"
                 >
-                  <FaRegEdit size={20} />
+                  <RiDeleteBinLine size={20} />
                   <p className="c-store2 ml-1 mr-4">
                     移除商品
                   </p>

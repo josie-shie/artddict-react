@@ -43,10 +43,12 @@ function CartProduct() {
             </Nav.Link>
           </div>
         </div>
-        <div className="c-productlist mt-5">
-          <div className="c-product-r1 d-flex pb-5">
-            <img className="col-2" src={img3} />
-            <div className="c-product1 d-flex col-4">
+        <div className="c-productlist">
+          <div className="c-product-r1 d-flex py-5 pl-4">
+            <div className="c-img150">
+              <img src={img3} />
+            </div>
+            <div className="c-product1 d-flex col-4 pl-4">
               <div className="c-product1detail d-flex flex-column justify-content-between">
                 <div>
                   <p className="h4">
@@ -56,7 +58,7 @@ function CartProduct() {
                   <p className="mt-2">
                     票卷日期：2021-04-24
                   </p>
-                  <p className="mt-1">票卷種類：成人票</p>
+                  <p className="mt-0">票卷種類：成人票</p>
                 </div>
                 <div className="d-flex flex-row">
                   <div className="d-flex">
