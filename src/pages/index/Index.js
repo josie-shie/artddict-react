@@ -5,7 +5,7 @@
 import React, { useRef, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../pics/logo.svg'
-import StickyBox from "react-sticky-box/dist/esnext"
+import StickyBox from 'react-sticky-box/dist/esnext'
 import './index.scss'
 import '../../bootstrap/css/bootstrap.css'
 import { CgArrowLongRightL, CgPacman } from 'react-icons/cg'
@@ -65,7 +65,6 @@ import aucline from './image/acution/aucline.svg'
 
 import gif from './video/gif-marble.gif'
 
-
 const Index = () => {
   return (
     <>
@@ -102,7 +101,7 @@ const Index = () => {
       {/* news */}
       <div className="news-area d-flex align-items-start'">
         <StickyBox className="news-slogen col-6 d-flex flex-column align-center justify-content-center text-center col-6 px-0">
-          <div >
+          <div>
             <h1>TODAY’S</h1>
             <h1>NEWS</h1>
             <div className="news-hl"></div>
@@ -179,7 +178,7 @@ const Index = () => {
       </div>
       {/* artist */}
       <div className="artist-area index-web-padding">
-        <StickyBox className="artist-slogan">
+        <StickyBox className="artist-slogan pb-5">
           <div>
             <strong>
               Always doing that which I cannot do, in order
@@ -190,7 +189,7 @@ const Index = () => {
             </h4>
           </div>
         </StickyBox>
-        <div className="waterfall ml-auto col-7 pl-0">
+        <div className="waterfall ml-auto col-7 pl-0 pb-5">
           <div className="item">
             <img src={artist1} />
           </div>
@@ -316,7 +315,7 @@ const Index = () => {
                     <BsArrowRight />
                   </strong>
                 </marquee>
-                <h2 className="mx-2 text-center pt-2">
+                <h2 className="mx-2 text-center pt-2 NotoSansTC-md">
                   WATCH MORE
                 </h2>
                 <marquee
@@ -339,8 +338,8 @@ const Index = () => {
             </h4>
           </div>
         </div>
-        <ProCard/>
-        <ProCard2/>
+        <ProCard />
+        <ProCard2 />
         {/* auction */}
         <div className="auction-area px-4">
           <div className="auction-slogan d-flex mb-3">
@@ -430,7 +429,12 @@ const Index = () => {
           <img src={door1} alt="" />
         </div> */}
         <div className="col-12 px-0 mt-5">
-          <img className="w-100" src={gif} alt="" />
+          <img
+            className="w-100"
+            style={{ marginBottom: '-15px' }}
+            src={gif}
+            alt=""
+          />
           <h1>
             May your passion <br />
             for art
