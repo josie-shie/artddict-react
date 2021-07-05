@@ -17,6 +17,7 @@ import {
   IoIosArrowRoundBack,
   IoIosArrowRoundForward,
 } from 'react-icons/io'
+import ProCrard from './components/ProCard'
 
 //? index img
 import video from './video/Graffiti street art.mp4'
@@ -54,11 +55,15 @@ import eye from './image/cute/eye.svg'
 import product1 from './image/product/24.植物園 獨角獸 圍巾03.jpeg'
 import product2 from './image/product/33.司宗譜紋章 圍巾03.jpeg'
 import product3 from './image/product/19.威廉 綠啄花 披肩03.jpeg'
+import ProCard from './components/ProCard'
+import ProCard2 from './components/ProCard2'
 
+//? product img
 import auctime from './image/acution/auction.svg'
 import aucline from './image/acution/aucline.svg'
 
 import gif from './video/gif-marble.gif'
+
 
 const Index = () => {
   return (
@@ -330,105 +335,8 @@ const Index = () => {
             </h4>
           </div>
         </div>
-        <div className="product-card-wrap px-4 d-flex">
-          <div className="product-card col-3">
-            <img src={product2} alt="" />
-            <div className="index-card-rect"></div>
-            <div className="d-flex justify-content-between mt-2">
-              <h5 className="notoSansTC-md font-weight-bold">
-                達利的畫布
-              </h5>
-              <h5 className="notoSansTC-md font-weight-bold">
-                490元
-              </h5>
-            </div>
-          </div>
-          <div className="product-card col-3">
-            <h1 className="indexACC">ACC</h1>
-            <div className="d-flex flex-column justify-content-center align-items-center mt-5">
-              <div className="index-card-btn notoSansTC-md w-100 mt-auto">
-                MORE
-              </div>
-              <div className="d-flex w-100">
-                <div className="index-card-btn col-6"><IoIosArrowRoundBack size={30}/></div>
-                <div className="index-card-btn col-6"><IoIosArrowRoundForward size={30}/></div>
-              </div>
-            </div>
-          </div>
-          <div className="product-card col-3">
-            <img src={product1} alt="" />
-            <div className="index-card-rect"></div>
-            <div className="d-flex justify-content-between mt-2">
-              <h5 className="notoSansTC-md font-weight-bold">
-                馬蒂斯的花園
-              </h5>
-              <h5 className="font-weight-bold">1180元</h5>
-            </div>
-          </div>
-          <div className="product-card col-3">
-            <img src={product3} alt="" />
-            <div className="index-card-rect"></div>
-            <div className="d-flex justify-content-between mt-2">
-              <h5 className="notoSansTC-md font-weight-bold">
-                慕夏的後院
-              </h5>
-              <h5 className="notoSansTC-md font-weight-bold">
-                980元
-              </h5>
-            </div>
-          </div>
-        </div>
-        <div className="product-card-wrap px-4 d-flex">
-          <div className="product-card col-3">
-            <img src={product2} alt="" />
-            <div className="index-card-rect"></div>
-            <div className="d-flex justify-content-between mt-2">
-              <h5 className="notoSansTC-md font-weight-bold">
-                後現代主義解析
-              </h5>
-              <h5 className="notoSansTC-md font-weight-bold">
-                799元
-              </h5>
-            </div>
-          </div>
-          <div className="product-card col-3">
-            <img src={product1} alt="" />
-            <div className="index-card-rect"></div>
-            <div className="d-flex justify-content-between mt-2">
-              <h5 className="notoSansTC-md font-weight-bold">
-                梵谷傳 天生藝術家
-              </h5>
-              <h5 className="notoSansTC-md font-weight-bold">
-                1280元
-              </h5>
-            </div>
-          </div>
-          <div className="product-card col-3">
-            <h1 className="indexACC">Book</h1>
-            <div className="d-flex flex-column justify-content-center align-items-center mt-5">
-              <div className="index-card-btn notoSansTC-md w-100 mt-auto">
-                MORE
-              </div>
-              <div className="d-flex w-100">
-                <div className="index-card-btn col-6"><IoIosArrowRoundBack size={30}/></div>
-                <div className="index-card-btn col-6"><IoIosArrowRoundForward size={30}/></div>
-              </div>
-            </div>
-          </div>
-          <div className="product-card col-3">
-            <img src={product3} alt="" />
-            <div className="index-card-rect"></div>
-            <div className="d-flex justify-content-between mt-2">
-              <h5 className="notoSansTC-md font-weight-bold">
-                文藝復興時期的形狀
-              </h5>
-              <h5 className="notoSansTC-md font-weight-bold">
-                1980元
-              </h5>
-            </div>
-          </div>
-        </div>
-
+        <ProCard/>
+        <ProCard2/>
         {/* auction */}
         <div className="auction-area px-4">
           <div className="auction-slogan d-flex mb-3">
