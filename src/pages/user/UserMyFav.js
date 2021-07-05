@@ -27,7 +27,7 @@ function UserMyFav() {
                 to="/user-msgedit"
                 style={{ textDecoration: 'none' }}
               >
-                商品列
+                活動展
               </Link>
             </div>
             <div className="u-Myfavtitle2">
@@ -35,7 +35,7 @@ function UserMyFav() {
                 to="/"
                 style={{ textDecoration: 'none' }}
               >
-                活動展
+                商品列
               </Link>
             </div>
             <div className="u-Myfavtitle3">

@@ -15,8 +15,8 @@ function Breadcrumb(props) {
     '/user-ticket',
     '/user-workshop',
     '/user-myfav',
-    'user-auction',
-    'user-auctionOver',
+    '/user-auction',
+    '/user-auctionOver',
   ]
 
   const pathnameTextList = [
