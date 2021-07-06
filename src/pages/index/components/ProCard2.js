@@ -3,9 +3,9 @@ import { Row, Carousel } from 'react-bootstrap'
 import { Link, withRouter } from 'react-router-dom'
 
 // Pictures
-import product1 from '../image/product/24.植物園 獨角獸 圍巾03.jpeg'
-import product2 from '../image/product/33.司宗譜紋章 圍巾03.jpeg'
-import product3 from '../image/product/19.威廉 綠啄花 披肩03.jpeg'
+import product4 from '../image/product/BU.jpg'
+import product5 from '../image/product/TEP.jpg'
+import product6 from '../image/product/GN.jpg'
 import {
   IoIosArrowRoundBack,
   IoIosArrowRoundForward,
@@ -31,16 +31,16 @@ const ProCard2 = () => {
             <Link to="/event/event-list/detail">
               <img
                 className=" w-100"
-                src={product1}
+                src={product4}
                 alt="First slide"
               />
               <div className="index-card-rect"></div>
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  達利的畫布
+                  西西里蘭卡唱歌
                 </h5>
                 <h5 className="notoSansTC-md font-weight-bold">
-                  490元
+                  690元
                 </h5>
               </div>
             </Link>
@@ -49,15 +49,15 @@ const ProCard2 = () => {
             <Link to="/event/event-list/detail">
               <img
                 className=" w-100"
-                src={product2}
+                src={product5}
                 alt="Second slide"
               />
               <div className="index-card-rect"></div>
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  馬蒂斯的花園
+                  一頁台北 專刊
                 </h5>
-                <h5 className="font-weight-bold">1180元</h5>
+                <h5 className="font-weight-bold">2180元</h5>
               </div>
             </Link>
           </Carousel.Item>
@@ -65,13 +65,13 @@ const ProCard2 = () => {
             <Link to="/event/event-list/detail">
               <img
                 className=" w-100"
-                src={product2}
+                src={product6}
                 alt="Third slide"
               />
               <div className="index-card-rect"></div>
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  馬蒂斯的花園
+                  濃綠色的情緒
                 </h5>
                 <h5 className="font-weight-bold">1180元</h5>
               </div>
@@ -89,15 +89,15 @@ const ProCard2 = () => {
             <Link to="/event/event-list/detail">
               <img
                 className=" w-100"
-                src={product2}
+                src={product5}
                 alt="First slide"
               />
               <div className="index-card-rect"></div>
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  馬蒂斯的花園
+                  一頁台北 專刊
                 </h5>
-                <h5 className="font-weight-bold">1180元</h5>
+                <h5 className="font-weight-bold">2180元</h5>
               </div>
             </Link>
           </Carousel.Item>
@@ -105,16 +105,16 @@ const ProCard2 = () => {
             <Link to="/event/event-list/detail">
               <img
                 className=" w-100"
-                src={product3}
+                src={product6}
                 alt="Second slide"
               />
               <div className="index-card-rect"></div>
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  慕夏的後院
+                  濃綠色的情緒
                 </h5>
                 <h5 className="notoSansTC-md font-weight-bold">
-                  980元
+                  1180元
                 </h5>
               </div>
             </Link>
@@ -123,16 +123,16 @@ const ProCard2 = () => {
             <Link to="/event/event-list/detail">
               <img
                 className=" w-100"
-                src={product1}
+                src={product4}
                 alt="Third slide"
               />
               <div className="index-card-rect"></div>
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  達利的畫布
+                  西西里蘭卡唱歌
                 </h5>
                 <h5 className="notoSansTC-md font-weight-bold">
-                  490元
+                  690元
                 </h5>
               </div>
             </Link>
@@ -179,16 +179,16 @@ const ProCard2 = () => {
             <Link to="/event/event-list/detail">
               <img
                 className=" w-100"
-                src={product3}
+                src={product6}
                 alt="First slide"
               />
               <div className="index-card-rect"></div>
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  慕夏的後院
+                  濃綠色的情緒
                 </h5>
                 <h5 className="notoSansTC-md font-weight-bold">
-                  980元
+                  1180元
                 </h5>
               </div>
             </Link>
@@ -197,16 +197,16 @@ const ProCard2 = () => {
             <Link to="/event/event-list/detail">
               <img
                 className=" w-100"
-                src={product1}
+                src={product4}
                 alt="Second slide"
               />
               <div className="index-card-rect"></div>
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  達利的畫布
+                  西西里蘭卡唱歌
                 </h5>
                 <h5 className="notoSansTC-md font-weight-bold">
-                  490元
+                  690元
                 </h5>
               </div>
             </Link>
@@ -215,13 +215,13 @@ const ProCard2 = () => {
             <Link to="/product/product-detail">
               <img
                 className=" w-100"
-                src={product2}
+                src={product5}
                 alt="Third slide"
               />
               <div className="index-card-rect"></div>
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  馬蒂斯的花園
+                  一頁台北 專刊 專刊
                 </h5>
                 <h5 className="font-weight-bold">1180元</h5>
               </div>

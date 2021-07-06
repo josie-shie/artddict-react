@@ -51,7 +51,7 @@ const MapCardSql = () => {
             </div>
             <div className="map-card-btn text-center">
               <Link to="/map/museum:sid">
-                <button className="px-2">
+                <button className="px-2 pt-3">
                   更多活動
                   <RiArrowRightUpLine />
                 </button>

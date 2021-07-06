@@ -4,7 +4,7 @@ import { Link, withRouter } from 'react-router-dom'
 import './map.scss'
 
 //? components
-import LeafLet from './components/LeafLet'
+import LeafLet2 from './components/LeafLet2'
 import MarqueeMap from './components/MarqueeMap'
 import MarqueeMapEnd from './components/MarqueeMapEnd'
 import MapCard from './components/MapCard'
@@ -17,31 +17,6 @@ import { RiArrowRightSLine } from 'react-icons/ri'
 import { RiArrowRightUpLine } from 'react-icons/ri'
 
 const Map = () => {
-  const [museums, setMuseums] = useState([])
-  const [dataLoading, setDataLoading] = useState(false)
-
-  // 連接的伺服器資料網址
-  async function getMuseumServer() {
-    const url = 'http://localhost:6005/map'
-
-    // 注意header資料格式要設定，伺服器才知道是json格式
-    const request = new Request(url, {
-      method: 'GET',
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
-      }),
-    })
-
-    const response = await fetch(request)
-    const data = await response.json()
-    // 設定資料
-    setMuseums(data)
-  }
-
-  useEffect(() => {
-    getMuseumServer()
-  }, [])
 
   return (
     <>
@@ -49,9 +24,9 @@ const Map = () => {
         <Logo className="map-logo" />
         <MarqueeMap />
         <div className="map-content d-flex mb-5">
-          <div className="col-8 d-flex flex-column px-0 ml-3">
+          <div className=" col-8 d-flex flex-column px-0 ml-3">
             <div className="map-search-bar d-flex justify-content-center align-items-center py-2">
-              <div className="map-select-box px-4">
+              <div className="map-select-box px-4 pt-1">
                 地區
               </div>
               <from className="d-flex justify-content-between">
@@ -61,6 +36,7 @@ const Map = () => {
                   id=""
                 >
                   <option
+                    className="pr-2"
                     style={{ color: '#707070' }}
                     value=""
                   >
@@ -69,7 +45,7 @@ const Map = () => {
                   <option value="">123</option>
                   <option value="">123</option>
                 </select>
-                <div className="map-select-box ml-5 px-4">
+                <div className="map-select-box ml-5 px-4 pt-1">
                   搜尋
                 </div>
               </from>
@@ -95,7 +71,7 @@ const Map = () => {
                 </div>
               </div>
             </div>
-            <LeafLet />
+            <LeafLet2 />
           </div>
           <div className="map-card-area col-4 pl-0">
             <div className="map-card-select">
@@ -108,7 +84,7 @@ const Map = () => {
               </h1>
             </div>
             <div className="px-4">
-              <MapCardSql/>
+              <MapCardSql />
             </div>
           </div>
         </div>

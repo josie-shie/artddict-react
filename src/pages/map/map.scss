@@ -30,7 +30,7 @@
     // !Default
 
     .map-area{
-        overflow: hidden;   
+        overflow: auto;   
     }
 
     .map-area a{
@@ -47,7 +47,9 @@
         }
     }
     
-
+    .map-content{
+        height: 100vh;
+    }
     
 
     .map-logo{
@@ -56,9 +58,9 @@
         margin-bottom: 30px;
     }
 
-    .map-content{
-        height: calc(100vh - 32vh);
-    }
+    // .map-content{
+    //     height: calc(100vh - 32vh);
+    // }
 
     /*開源地圖*/
     #osm-map{
@@ -87,7 +89,7 @@
         background: transparent;
         background-image: url('./img/select-arrow.svg');
         background-repeat: no-repeat;
-        background-position-x: 100%;
+        background-position-x: 90%;
         background-position-y: 50%;
         padding-right: 2rem;
     }
@@ -174,6 +176,12 @@
         
           button {
               background-color: #000;
+              border:0;
+            color: #E8E8E8;
+
+        }
+          button:hover{
+              background-color: #1D0AFF;
               border:0;
             color: #E8E8E8;
 

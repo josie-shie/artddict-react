@@ -22,17 +22,13 @@ const LeafLet = () => {
       }
     ).addTo(map)
 
-    const circle = L.circle([37.8157, -122.5295], {
-      color: 'gold',
-      fillColor: '#f03',
-      fillOpacity: 0.5,
-      radius: 200,
-    }).addTo(map)
+    let marker = L.marker([-25.363, 131.044])
+    marker.addTo(map)
   }, [])
 
   return (
     <>
-      <div id="osm-map" />
+      <div id="osm-map2" />
     </>
   )
 }
