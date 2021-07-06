@@ -1,15 +1,14 @@
-import { Carousel, Container } from 'react-bootstrap'
 import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
-import './styles/Add.scss'
 import { Link } from 'react-router-dom'
+import { Carousel, Container } from 'react-bootstrap'
+// style
 import Logoheader from './components/Logoheader'
-
+import './styles/Add.scss'
 // @material-ui
 import FormGroup from '@material-ui/core/FormGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
-
 // images
 import pic1 from './img/1.png'
 import pic2 from './img/2.png'
@@ -17,7 +16,6 @@ import pic3 from './img/3.png'
 import pic4 from './img/4.png'
 import pic5 from './img/5.png'
 import pic6 from './img/6.png'
-
 // icons
 import { AiFillGoogleCircle } from 'react-icons/ai'
 import { RiFacebookCircleFill } from 'react-icons/ri'
@@ -33,7 +31,6 @@ function Add(props) {
     checkedA: true,
     checkedB: true,
   })
-
   const handleChange = (event) => {
     setState({
       ...state,
@@ -45,7 +42,7 @@ function Add(props) {
     // 開啟載入指示
     setDataLoading(true)
 
-    const newData = { name, username, password }
+    const newData = { username, name, password }
 
     // 連接的伺服器資料網址
     const url = 'http://localhost:6005/users/'
@@ -188,7 +185,6 @@ function Add(props) {
                     }}
                     className="form-control "
                     id="email"
-                    aria-describedby="emailHelp"
                     placeholder="請輸入信箱"
                   />
                 </div>
