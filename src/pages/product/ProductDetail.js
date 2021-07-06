@@ -53,13 +53,15 @@ function ProductDetail() {
       opacity: 0,
       top: 0,
       right: 0,
-      left: 0,
+      left: 1000,
       bottom: 0,
+      transitionTimingFunction: transitionTimingFunction,
     }
 
     if (!state.swiping) {
       slideStyle = {
         ...slideStyle,
+        WebkitTransitionDuration: transitionTime,
       }
     }
 
