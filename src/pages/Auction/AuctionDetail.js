@@ -98,8 +98,11 @@ console.log(props)
 
   // 初始化倒數計時器
   useEffect(() => {
+
+    let deadlineA = new Date(newAucProduct.deadline).getTime()
+    console.log(deadlineA)
     //第一次計算剩餘時間(不控制)
-    let newAucProductTimeRemaining = TimeRemaining(newAucProduct.deadline)
+    let newAucProductTimeRemaining = TimeRemaining(deadlineA)
     //第一次計算剩餘時間(react資料流)
     // TimeRemaining(aucProduct.deadline)
     const cc = newAucProductTimeRemaining.reduce((a, b) => a + b)
@@ -114,8 +117,9 @@ console.log(props)
 
   //倒時計時器
   useInterval(() => {
+    let deadlineA = new Date(aucProduct.deadline).getTime()
     //設立一個變數來避免 setstate非同步問題
-    let TimeRemainingAA = TimeRemaining(aucProduct.deadline)
+    let TimeRemainingAA = TimeRemaining(deadlineA)
     //更改state狀態
     setAuctionDetailcountdown(TimeRemainingAA)
     //利用加總來計算時間是否歸0
@@ -230,7 +234,7 @@ console.log(props)
         {/* <div className="auc-vh"> */}
         <div className="rightContentFix">
           <div className="auctionDetailrightContent">
-            {console.log('render一波')}
+            {/* {console.log('render一波')} */}
             <AuctionDetailcountDown
               aucProduct={aucProduct}
               setAucProduct={setAucProduct}
@@ -240,7 +244,7 @@ console.log(props)
               auctionRunning={auctionRunning}
               loading={loading}
             />
-            {console.log("rneder二波")}
+            {/* {console.log("rneder二波")} */}
             <div className="auctionDetailPicture">
               <img src={monkey} alt="Background" />
             </div>
