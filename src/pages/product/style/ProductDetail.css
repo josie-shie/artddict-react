@@ -24,7 +24,7 @@ font-face {
 }
 .proDe-leftSide{
     width: calc(50vw - 35px);
-    height: 100vh;
+    height: 105vh;
     background-color: aqua;
     position:sticky;
     top: 0;
@@ -41,6 +41,11 @@ font-face {
 
 .proDe-slickPic img{
     width: 10%;
+}
+.carousel-root{
+    height: 100%;
+}
+.thumbs {
 }
 /* -------right hand side------ */
 .proDe-rightSideBox{

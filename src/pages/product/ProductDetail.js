@@ -1,4 +1,13 @@
-import { React, useState, useEffect } from 'react'
+import {
+  React,
+  useState,
+  useEffect,
+  Component,
+} from 'react'
+import ReactDOM from 'react-dom'
+import 'react-responsive-carousel/lib/styles/carousel.min.css'
+import { Carousel } from 'react-responsive-carousel'
+
 import { Link } from 'react-router-dom'
 import '../../bootstrap/css/bootstrap.css'
 import { Button, Collapse } from 'react-bootstrap'
@@ -21,6 +30,8 @@ import lightLogo from './svg/lightLogo.svg'
 import product1 from './img/productDetail/product1.jpeg'
 import product2 from './img/productDetail/product2.jpeg'
 import product3 from './img/productDetail/product3.jpeg'
+import try1 from './img/productDetail/try1.jpeg'
+import try2 from './img/productDetail/try2.jpeg'
 
 function ProductDetail() {
   const [open, setOpen] = useState(true)
@@ -32,14 +43,17 @@ function ProductDetail() {
       <div className="proDe-full">
         <div className="d-flex">
           <div className="proDe-leftSide">
-            <p>
-              Lorem ipsum dolor sit amet consectetur,
-              adipisicing elit. Ratione, quos sed? Fuga
-              veniam facere in explicabo assumenda officiis.
-              Deserunt labore cumque inventore iste
-              cupiditate perspiciatis praesentium dolore
-              nobis consectetur alias.
-            </p>
+            <Carousel>
+              <div>
+                <img src={product1} />
+              </div>
+              <div>
+                <img src={product2} />
+              </div>
+              <div>
+                <img src={product3} />
+              </div>
+            </Carousel>
           </div>
           <div className="proDe-rightSide">
             <div className="proDe-rightSideBox">
