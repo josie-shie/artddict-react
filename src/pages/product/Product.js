@@ -60,6 +60,7 @@ import slickB6 from './img/slickB6.jpeg'
 import artist1 from './img/artist1.jpeg'
 import artist2 from './img/artist2.jpeg'
 import artist3 from './img/artist3.jpeg'
+import artist4 from './img/artist4.jpg'
 
 function Product() {
   let settings = {
@@ -236,6 +237,13 @@ function Product() {
             <div className="homepageB-srcollPicB ">
               <img src={artist2} alt="" />
             </div>
+            {/* <div className="homepageB-scrollPicC">
+              <img
+                className="homepageB-scrollPicD"
+                src={artist3}
+                alt=""
+              />
+            </div> */}
             <div className="homepageA-boxScrollBox d-flex">
               <div className="pro-arrowC d-flex">
                 <marquee
@@ -251,6 +259,7 @@ function Product() {
                   <MdKeyboardArrowRight size={30} />
                 </marquee>
               </div>
+
               <div>
                 <button className="homepageA-boxScroll btn-lg pro-EnglishB ">
                   Go Shop

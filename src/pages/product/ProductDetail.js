@@ -103,7 +103,7 @@ function ProductDetail() {
                   </p>
                 </div>
               </div>
-              {/* --------------商品名稱SIZE zone------- */}
+              {/* --------------商品名稱SIZE zone------ */}
 
               <div className="proDe-chooseBox">
                 <div className="proDe-nameAndHeart d-flex">

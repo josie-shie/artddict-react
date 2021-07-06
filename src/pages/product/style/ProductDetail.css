@@ -27,7 +27,7 @@ font-face {
     background-color:black;
     height: 105vh;
     position:sticky;
-    top: 0;
+    top: 0%;
 }
 .proDe-rightSide{
     width: calc(50vw - 35px);
