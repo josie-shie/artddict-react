@@ -120,7 +120,7 @@ const Nav = () => {
                 </Link>
               </div>
               <div className="mb-4">
-                <Link to="#">
+                <Link to="./auction">
                   <i>
                     <ScrollBtn />
                   </i>
