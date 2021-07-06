@@ -8,6 +8,7 @@ import LeafLet from './components/LeafLet'
 import MarqueeMap from './components/MarqueeMap'
 import MarqueeMapEnd from './components/MarqueeMapEnd'
 import MapCard from './components/MapCard'
+import MapCardSql from './components/MapCardSql'
 
 //? icons
 import { MdMyLocation } from 'react-icons/md'
@@ -41,37 +42,6 @@ const Map = () => {
   useEffect(() => {
     getMuseumServer()
   }, [])
-
-  const museumDisplay = museums.map((mus) => {
-    return (
-      <>
-        <div className="map-card pb-3 mb-3">
-          <Link key={mus.id}>
-            <img
-              className="w-100"
-              src={`http://localhost:6005/museumpics/mus/${mus.musImg}`}
-              alt=""
-            />
-          </Link>
-          <div className="d-flex justify-content-between">
-            <div className="col-9 pl-0">
-              <strong>{mus.musName}</strong>
-              <p>地點：{mus.musCity}</p>
-              <p>時間：09:00-17:00</p>
-            </div>
-            <div className="map-card-btn text-center">
-              <Link to="/map/museum:sid">
-                <button className="px-2">
-                  更多活動
-                  <RiArrowRightUpLine />
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </>
-    )
-  })
 
   return (
     <>
@@ -125,9 +95,7 @@ const Map = () => {
                 </div>
               </div>
             </div>
-            //!這邊有問題
-            {/* <LeafLet /> */}
-            //!這邊有問題
+            <LeafLet />
           </div>
           <div className="map-card-area col-4 pl-0">
             <div className="map-card-select">
@@ -140,9 +108,7 @@ const Map = () => {
               </h1>
             </div>
             <div className="px-4">
-              {museumDisplay}
-              <MapCard />
-              <MapCard />
+              <MapCardSql/>
             </div>
           </div>
         </div>

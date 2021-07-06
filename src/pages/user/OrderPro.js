@@ -26,7 +26,7 @@ function OrderPro() {
               <Link to="/user-ordertic">票券</Link>
             </div>
           </div>
-          <div className="u-progress">
+          <div className="u-progress d-flex">
             <div className="pr-3 pl-3">進度查詢</div>
             <select
               className="user-select pl-3"

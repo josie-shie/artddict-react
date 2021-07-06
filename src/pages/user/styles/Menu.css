@@ -15,6 +15,6 @@
   margin-bottom: 10px;
 }
 .u-edit:hover ,.u-userOrder:hover, .u-coupon:hover, .u-ticket:hover, .u-userfav:hover, .u-userauction:hover{ 
-  color: #81fc4d;
+  color: #fff;
   background-color: #000;
 }

@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import './map.scss'
+import '../map.scss'
 
 import { RiArrowRightUpLine } from 'react-icons/ri'
 
