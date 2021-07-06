@@ -1,18 +1,23 @@
 import React from 'react'
+import { Link, withRouter } from 'react-router-dom'
 import EventLogo from '../images/logo.svg'
 import '../style/Darkheader.scss'
 
 // please export after .reduce-width
-export default function Darkheader() {
+function Darkheader() {
   return (
     <header>
       <div className="e-header">
-        <img
-          className="e-header-logo"
-          src={EventLogo}
-          alt=""
-        />
+        <Link to="/">
+          <img
+            className="e-header-logo"
+            src={EventLogo}
+            alt=""
+          />
+        </Link>
       </div>
     </header>
   )
 }
+
+export default withRouter(Darkheader)

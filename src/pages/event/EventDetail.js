@@ -32,7 +32,7 @@ import './style/reset.css'
 import './style/fontAndBtn.scss'
 import './style/eventDetail.scss'
 
-function EventDetail() {
+function EventDetail(props) {
   //開合功能state
   const [open, setOpen] = useState(true)
   const [open2, setOpen2] = useState(false)

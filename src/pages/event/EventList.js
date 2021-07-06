@@ -38,7 +38,7 @@ function EventList() {
   const [order, setOrder] = useState(true)
 
   async function getEventServer() {
-    const url = 'http://localhost:6005/event/event-list'
+    const url = 'http://localhost:6005/event'
 
     const request = new Request(url, {
       method: 'GET',
@@ -55,7 +55,7 @@ function EventList() {
   }
 
   async function getEventQueryServer() {
-    const url = `http://localhost:6005/event/event-list?city=${city}`
+    const url = `http://localhost:6005/event?city=${city}`
 
     const request = new Request(url, {
       method: 'GET',
