@@ -1,5 +1,5 @@
 import { Carousel, Container } from 'react-bootstrap'
-import { React, useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import './styles/Add.scss'
 import { Link } from 'react-router-dom'
@@ -28,6 +28,7 @@ function Add(props) {
   const [name, setName] = useState()
   const [password, setPassword] = useState()
 
+  // checkbox
   const [state, setState] = useState({
     checkedA: true,
     checkedB: true,
