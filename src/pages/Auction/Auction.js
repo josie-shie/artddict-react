@@ -109,7 +109,7 @@ function Auction(props) {
                                     </ul>
                                 </div>
                                 <AuctionProductList
-                                    data={data}
+                                    // data={data}
                                 />
                             </div>
                         </div>
