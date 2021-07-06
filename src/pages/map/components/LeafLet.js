@@ -28,7 +28,7 @@ const LeafLet = () => {
       fillOpacity: 0.5,
       radius: 200,
     }).addTo(map)
-  })
+  }, [])
 
   return (
     <>
