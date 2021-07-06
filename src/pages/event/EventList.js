@@ -55,36 +55,35 @@ function EventList() {
 
   const eventDisplay = events.map((event) => {
     return (
-        
-        <Link
-          to="/event/event-list/detail"
-          style={{ textDecoration: 'none' }}
-          className="ed-list-card col-4 my-3 "
-          key={event.id}
-        >
-          <img
-            className="col-12 p-0"
-            src={`http://localhost:6005/eventpic/event/${event.eventImg}`}
-            alt="/"
-          />
-          <h6 className="col-12 p-0 cn-font my-2">
-            {event.eventName}
-          </h6>
-          <div className="d-flex">
-            <div className="col-8 p-0">
-              <p>{event.eventCity}</p>
-              <p>時間：JUN</p>
-            </div>
-            <div className="col-4 p-0">
-              <button className="border-right col-4 text-center">
-                <IoIosHeart />
-              </button>
-              <button className="col-8 text-center">
-                MORE+
-              </button>
-            </div>
+      <Link
+        to="/event/event-list/detail"
+        style={{ textDecoration: 'none' }}
+        className="ed-list-card col-4 my-3 "
+        key={event.id}
+      >
+        <img
+          className="col-12 p-0"
+          src={`http://localhost:6005/eventpic/event/${event.eventImg}`}
+          alt="/"
+        />
+        <h6 className="col-12 p-0 cn-font my-2">
+          {event.eventName}
+        </h6>
+        <div className="d-flex">
+          <div className="col-8 p-0">
+            <p>{event.eventCity}</p>
+            <p>時間：JUN</p>
           </div>
-        </Link>
+          <div className="col-4 p-0">
+            <button className="border-right col-4 text-center">
+              <IoIosHeart />
+            </button>
+            <button className="col-8 text-center">
+              MORE+
+            </button>
+          </div>
+        </div>
+      </Link>
     )
   })
 
