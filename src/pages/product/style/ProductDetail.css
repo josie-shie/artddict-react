@@ -33,6 +33,17 @@ font-face {
     width: calc(50vw - 35px);
     background-color: black;
 }
+@media (min-width:1440px){
+    .proDe-full{
+        background-color:black;
+    }
+    .proDe-leftSide{
+        width: 45vw;
+    }
+    .proDe-move{
+        margin-left: 2%;
+    }
+}
 
 /* ------------slick-------- */
 

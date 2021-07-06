@@ -78,7 +78,7 @@ function ProductDetail() {
   return (
     <>
       <div className="proDe-full">
-        <div className="d-flex">
+        <div className="d-flex proDe-move">
           <div className="proDe-leftSide">
             <Carousel className="proDe-wall">
               <div>
