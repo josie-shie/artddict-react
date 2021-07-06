@@ -276,6 +276,16 @@
 .homepageB-srcollPicB img{
     width: 100%;
 }
+/* .homepageB-scrollPicC{
+    width: 85%;
+    overflow:hidden;
+
+}
+.homepageB-srcollPicD{
+    width: 100%;
+    padding-left:-70%
+
+} */
 .pro-arrowC{
     text-align:center;
     height: 50px;

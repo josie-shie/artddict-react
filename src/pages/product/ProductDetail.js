@@ -53,13 +53,15 @@ function ProductDetail() {
       opacity: 0,
       top: 0,
       right: 0,
-      left: 0,
+      left: 1000,
       bottom: 0,
+      transitionTimingFunction: transitionTimingFunction,
     }
 
     if (!state.swiping) {
       slideStyle = {
         ...slideStyle,
+        WebkitTransitionDuration: transitionTime,
       }
     }
 
@@ -76,7 +78,7 @@ function ProductDetail() {
   return (
     <>
       <div className="proDe-full">
-        <div className="d-flex">
+        <div className="d-flex proDe-move">
           <div className="proDe-leftSide">
             <Carousel className="proDe-wall">
               <div>
@@ -101,7 +103,7 @@ function ProductDetail() {
                   </p>
                 </div>
               </div>
-              {/* --------------商品名稱SIZE zone------- */}
+              {/* --------------商品名稱SIZE zone------ */}
 
               <div className="proDe-chooseBox">
                 <div className="proDe-nameAndHeart d-flex">

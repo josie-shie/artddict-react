@@ -1,4 +1,4 @@
-const data = {
+export const data = {
   北部: {
     臺北市: '',
     新北市: '',
@@ -30,6 +30,7 @@ const data = {
     連江縣: '',
   },
 }
+
 
 export const countries = Object.getOwnPropertyNames(data)
 export const townships = countries.map((v, i, array) =>

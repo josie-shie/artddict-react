@@ -27,17 +27,30 @@ font-face {
     background-color:black;
     height: 105vh;
     position:sticky;
-    top: 0;
+    top: 0%;
 }
 .proDe-rightSide{
     width: calc(50vw - 35px);
     background-color: black;
+}
+@media (min-width:1440px){
+    .proDe-full{
+        background-color:black;
+    }
+    .proDe-leftSide{
+        width: 45vw;
+    }
+    .proDe-move{
+        margin-left: 2%;
+    }
 }
 
 /* ------------slick-------- */
 
 .proDe-wall img{
     height: 85vh;
+}
+.proDe-wallBottom{
 }
 .carousel-root{
     height: 100%;

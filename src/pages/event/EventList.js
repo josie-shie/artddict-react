@@ -7,7 +7,7 @@ import $ from 'jquery'
 import EHeader from './components/Darkheader'
 import EDetailCaro from './components/EDetailCaro'
 import {parts, cities } from './config/location'
-import { countries, townships } from './config/townships'
+import { data, countries, townships } from './config/townships'
 
 // react icons
 import {
@@ -31,9 +31,31 @@ function EventList() {
   const [events, setEvents] = useState([])
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
+  const [city, setCity] = useState('')
+  // const [museum, setMuseum] = useState('')
+  // const [date, setDate] = useState('')
+  // const [isFilter, setIsfFilter] = useState(false)
+  const [order, setOrder] = useState(true)
 
   async function getEventServer() {
     const url = 'http://localhost:6005/event/event-list'
+
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    // 設定資料
+    setEvents(data)
+  }
+
+  async function getEventQueryServer() {
+    const url = `http://localhost:6005/event/event-list?city=${city}`
 
     const request = new Request(url, {
       method: 'GET',
@@ -53,9 +75,10 @@ function EventList() {
     getEventServer()
   }, [])
 
+  // 測試城市選單
   // useEffect(() => {
-  //   getEventServer()
-  // }, [events])
+  //   console.log(country, township, city)
+  // }, [country, township, city])
 
   const eventDisplay = events.map((event) => {
     return (
@@ -137,7 +160,7 @@ function EventList() {
             >
               {/* 地區選單 */}
               <div
-                className="ed-select-box cn-font col-2 p-0 d-flex
+                className="ed-select-box cn-font col-3 p-0 d-flex
               "
               >
                 <h6 className="col-5 px-0 text-center">
@@ -151,6 +174,7 @@ function EventList() {
                     setCountry(+e.target.value)
                     // 重置township的值
                     setTownship(-1)
+                    setCity('')
                   }}
                   name=""
                   id=""
@@ -166,7 +190,7 @@ function EventList() {
 
               {/* 城市選單 */}
               <div
-                className="ed-select-box cn-font col-2 p-0 d-flex
+                className="ed-select-box cn-font col-3 p-0 d-flex
               "
               >
                 <h6 className="col-5 px-0 text-center">
@@ -178,6 +202,9 @@ function EventList() {
                   onChange={(e) => {
                     // 將字串轉成數字
                     setTownship(+e.target.value)
+                    setCity(
+                      townships[country][+e.target.value]
+                    )
                   }}
                   name=""
                   id=""
@@ -195,7 +222,7 @@ function EventList() {
               </div>
 
               {/* 美術館選單 */}
-              <div
+              {/* <div
                 className="ed-select-box cn-font col-3 p-0 d-flex
               "
               >
@@ -211,42 +238,27 @@ function EventList() {
                   <option value="">123</option>
                   <option value="">123</option>
                 </select>
-              </div>
+              </div> */}
 
               {/* 時間選單 */}
-              <div
+              {/* <div
                 className="ed-select-box cn-font col-2 p-0 d-flex
               "
               >
                 <h6 className="col-5 px-0 text-center">
                   時間
                 </h6>
-                <select
-                  className="ed-select col-7"
+                <input
+                  className="ed-select-date col-7"
                   type="date"
                   name=""
                   id=""
-                >
-                  <option value="">請選擇</option>
-                  <option value="">123</option>
-                  <option value="">123</option>
-                </select>
-              </div>
+                  placeholder="日期"
+                ></input>
+              </div> */}
 
-              <button
-                className="ed-list-btn col-1 p-0"
-                type="submit"
-              >
-                <FaFilter />
-              </button>
-            </form>
-            <div className="my-5"></div>
-
-            {/* 第二行表單 */}
-            <form className="col-12 d-flex p-0" action="">
-              {/* 排序選單 */}
               <div
-                className="ed-select-box cn-font col-2 p-0 d-flex
+                className="ed-select-box cn-font col-3 p-0 d-flex
               "
               >
                 <h6 className="col-5 px-0 text-center">
@@ -263,191 +275,53 @@ function EventList() {
                 </select>
               </div>
 
+
+
               <button
+                className="ed-list-btn col-1 p-0"
+                type="submit"
+                onChange={() => {
+                  getEventQueryServer()
+                }}
+              >
+                <FaFilter />
+              </button>
+            </form>
+            <div className="my-5"></div>
+
+            {/* 第二行表單 */}
+            <form className="col-12 d-flex p-0" action="">
+              {/* 排序選單 */}
+              {/* <div
+                className="ed-select-box cn-font col-2 p-0 d-flex
+              "
+              >
+                <h6 className="col-5 px-0 text-center">
+                  排序
+                </h6>
+                <select
+                  className="ed-select col-7"
+                  name=""
+                  id=""
+                >
+                  <option value="">最近</option>
+                  <option value="">123</option>
+                  <option value="">123</option>
+                </select>
+              </div> */}
+
+              {/* <button
                 className="ed-list-btn2 col-1"
                 type="submit"
               >
                 <IoIosSearch />
-              </button>
+              </button> */}
             </form>
           </Row>
           <Row className="ed-list-card justify-content-between flex-wrap cn-font">
             {/* test node area */}
             {eventDisplay}
             {/* test node area */}
-            <Link
-              to="/event/event-list/detail"
-              style={{ textDecoration: 'none' }}
-              className="ed-list-card col-4 my-3 "
-            >
-              <img
-                className="col-12 p-0"
-                src={EdListCardPic}
-                alt=""
-              />
-              <h6 className="col-12 p-0 cn-font my-2">
-                我是活動標題
-              </h6>
-              <div className="d-flex">
-                <div className="col-8 p-0">
-                  <p>地點：台北市</p>
-                  <p>時間：JUN</p>
-                </div>
-                <div className="col-4 p-0">
-                  <button className="border-right col-4 text-center">
-                    <IoIosHeart />
-                  </button>
-                  <button className="col-8 text-center">
-                    MORE+
-                  </button>
-                </div>
-              </div>
-            </Link>
-
-            <Link
-              to="/event/event-list/detail"
-              style={{ textDecoration: 'none' }}
-              className="ed-list-card col-4 my-3"
-            >
-              <img
-                className="col-12 p-0"
-                src={EdListCardPic}
-                alt=""
-              />
-              <h6 className="col-12 p-0 cn-font my-2">
-                我是活動標題
-              </h6>
-              <div className="d-flex">
-                <div className="col-8 p-0">
-                  <p>地點：台北市</p>
-                  <p>時間：JUN</p>
-                </div>
-                <div className="col-4 p-0">
-                  <button className="border-right col-4 text-center">
-                    <IoIosHeart />
-                  </button>
-                  <button className="col-8 text-center">
-                    MORE+
-                  </button>
-                </div>
-              </div>
-            </Link>
-
-            <Link
-              to="/event/event-list/detail"
-              style={{ textDecoration: 'none' }}
-              className="ed-list-card col-4 my-3"
-            >
-              <img
-                className="col-12 p-0"
-                src={EdListCardPic}
-                alt=""
-              />
-              <h6 className="col-12 p-0 cn-font my-2">
-                我是活動標題
-              </h6>
-              <div className="d-flex">
-                <div className="col-8 p-0">
-                  <p>地點：台北市</p>
-                  <p>時間：JUN</p>
-                </div>
-                <div className="col-4 p-0">
-                  <button className="border-right col-4 text-center">
-                    <IoIosHeart />
-                  </button>
-                  <button className="col-8 text-center">
-                    MORE+
-                  </button>
-                </div>
-              </div>
-            </Link>
-
-            <Link
-              to="/event/event-list/detail"
-              style={{ textDecoration: 'none' }}
-              className="ed-list-card col-4 my-3 "
-            >
-              <img
-                className="col-12 p-0"
-                src={EdListCardPic}
-                alt=""
-              />
-              <h6 className="col-12 p-0 cn-font my-2">
-                我是活動標題
-              </h6>
-              <div className="d-flex">
-                <div className="col-8 p-0">
-                  <p>地點：台北市</p>
-                  <p>時間：JUN</p>
-                </div>
-                <div className="col-4 p-0">
-                  <button className="border-right col-4 text-center">
-                    <IoIosHeart />
-                  </button>
-                  <button className="col-8 text-center">
-                    MORE+
-                  </button>
-                </div>
-              </div>
-            </Link>
-
-            <Link
-              to="/event/event-list/detail"
-              style={{ textDecoration: 'none' }}
-              className="ed-list-card col-4 my-3"
-            >
-              <img
-                className="col-12 p-0"
-                src={EdListCardPic}
-                alt=""
-              />
-              <h6 className="col-12 p-0 cn-font my-2">
-                我是活動標題
-              </h6>
-              <div className="d-flex">
-                <div className="col-8 p-0">
-                  <p>地點：台北市</p>
-                  <p>時間：JUN</p>
-                </div>
-                <div className="col-4 p-0">
-                  <button className="border-right col-4 text-center">
-                    <IoIosHeart />
-                  </button>
-                  <button className="col-8 text-center">
-                    MORE+
-                  </button>
-                </div>
-              </div>
-            </Link>
-
-            <Link
-              to="/event/event-list/detail"
-              style={{ textDecoration: 'none' }}
-              className="ed-list-card col-4 my-3"
-            >
-              <img
-                className="col-12 p-0"
-                src={EdListCardPic}
-                alt=""
-              />
-              <h6 className="col-12 p-0 cn-font my-2">
-                我是活動標題
-              </h6>
-              <div className="d-flex">
-                <div className="col-8 p-0">
-                  <p>地點：台北市</p>
-                  <p>時間：JUN</p>
-                </div>
-                <div className="col-4 p-0">
-                  <button className="border-right col-4 text-center">
-                    <IoIosHeart />
-                  </button>
-                  <button className="col-8 text-center">
-                    MORE+
-                  </button>
-                </div>
-              </div>
-            </Link>
           </Row>
           <Row className="justify-content-center eng-font-regular mt-5 py-5">
             <Link className="ed-pagenum mx-3">
