@@ -20,14 +20,14 @@ import {
 import { FaFilter } from 'react-icons/fa'
 
 // Pictures
-import EdListCardPic from './images/event/006.jpg'
+// import EdListCardPic from './images/event/006.jpg'
 
 // styles
 import './style/reset.css'
 import './style/fontAndBtn.scss'
 import './style/eventList.scss'
 
-function EventList() {
+function EventList(props) {
   const [events, setEvents] = useState([])
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
@@ -75,10 +75,10 @@ function EventList() {
     getEventServer()
   }, [])
 
-  // 測試城市選單
-  // useEffect(() => {
-  //   console.log(country, township, city)
-  // }, [country, township, city])
+  //測試城市選單
+  useEffect(() => {
+    console.log(country, township, city)
+  }, [country, township, city])
 
   const eventDisplay = events.map((event) => {
     return (
@@ -275,12 +275,10 @@ function EventList() {
                 </select>
               </div>
 
-
-
               <button
                 className="ed-list-btn col-1 p-0"
-                type="submit"
-                onChange={() => {
+                type="button"
+                onClick={() => {
                   getEventQueryServer()
                 }}
               >
@@ -318,7 +316,7 @@ function EventList() {
               </button> */}
             </form>
           </Row>
-          <Row className="ed-list-card justify-content-between flex-wrap cn-font">
+          <Row className="ed-list-card justify-content-start flex-wrap cn-font">
             {/* test node area */}
             {eventDisplay}
             {/* test node area */}

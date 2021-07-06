@@ -93,7 +93,7 @@ function App() {
             >
               <ProductDetail />
             </Route>
-            <Route exact path="/event/event-list">
+            <Route exact path="/event/event-list/">
               <EventList />
             </Route>
             <Route exact path="/user-orderpro/detail">

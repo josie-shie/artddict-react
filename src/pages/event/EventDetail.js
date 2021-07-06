@@ -33,11 +33,56 @@ import './style/fontAndBtn.scss'
 import './style/eventDetail.scss'
 
 function EventDetail(props) {
+  const { eventId } = props
+  // const eventId = props.match.params.eventId
+  
   //開合功能state
   const [open, setOpen] = useState(true)
   const [open2, setOpen2] = useState(false)
   const [open3, setOpen3] = useState(false)
   const [open4, setOpen4] = useState(false)
+
+
+  const [eventName, setEventName] = useState('')
+  const [eventDateStart, setEventDateStart] = useState('')
+  const [eventDateEnd, setEventDateEnd] = useState('')
+  const [eventDesc, setEventDesc] = useState('')
+  const [eventPrice, setEventPrice] = useState('')
+  const [eventImg, setEventImg] = useState('')
+  const [eventCity, setEventCity] = useState('')
+
+
+   async function getAnEventServer(eventId){
+
+
+    const url = 'http://localhost:6005/event/' + eventId
+
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+
+  
+    setEventName(data.eventName)
+    setEventDateStart(data.eEventDateStar)
+    setEventDateEnd(data.eventDateEnd)
+    setEventDesc(data.eventDescription)
+    setEventPrice(data.eventPrice)
+    setEventImg(data.eventImg)
+    setEventCity(data.cityName)
+
+
+   }
+
+   useEffect(() => {
+     getAnEventServer(eventId)
+   }, [])
 
   return (
     <>
@@ -49,7 +94,7 @@ function EventDetail(props) {
           </Row>
           <Row className="both-padding ed-detail-main">
             <h4 className="col-12 p-0 cn-font ed-event-name py-4">
-              我是活動名稱
+              {eventName}
             </h4>
             <img
               className="col-12 p-0 mb-5"
@@ -60,17 +105,17 @@ function EventDetail(props) {
           <Row className="ed-detail-intro both-padding mt-5 pb-5">
             <div className="col-6 p-0 d-flex flex-wrap">
               <h4 className="col-10 cn-font p-0">
-                我是活動名稱
+                {eventName}
               </h4>
               <div className="ed-like-icon col-2">
                 {' '}
                 <IoIosHeart />
               </div>
               <p className="col-12 cn-font p-0 mt-3">
-                時間：2020/10/31 - 2021/02/28
+                時間：{eventDateStart} - {eventDateEnd}
               </p>
               <p className="col-12 cn-font p-0 mt-2">
-                地點：臺中市
+                地點：{eventCity}
               </p>
             </div>
             <div
@@ -116,9 +161,7 @@ function EventDetail(props) {
                   className="col-12 p-0  mb-5"
                 >
                   <p id="example-collapse-text">
-                    1889年9月，荷蘭後印象派畫家文森特·梵谷（Vincent
-                    van
-                    Gogh）在畫布上用油畫了自畫像。這幅作品可能是梵谷的最後一幅自畫像，是在他離開法國南部聖雷米的普羅旺斯之前不久畫的。這幅畫現在在巴黎的奧賽博物館（Muséed'Orsay）展出。
+                    {eventDesc}
                   </p>
                 </Collapse>
 
@@ -228,7 +271,7 @@ function EventDetail(props) {
                   </span>
                 </h2>
                 <p className="col-12 pb-4 mb-4">
-                  票價：NT$ <span>1500</span>
+                  票價：NT$ <span>{eventPrice}</span>
                 </p>
                 <form
                   className="col-12 d-block d-flex flex-wrap justify-content-between"
