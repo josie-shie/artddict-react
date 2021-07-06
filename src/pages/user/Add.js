@@ -240,7 +240,6 @@ function Add(props) {
                           checked={state.checkedB}
                           onChange={handleChange}
                           name="checkedB"
-                          // 我愛寶貝
                           style={{ color: 'black' }}
                         />
                       }

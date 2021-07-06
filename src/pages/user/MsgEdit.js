@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import React, { useState } from 'react'
 import { countries, townships } from './data/address'
 import './styles/MsgEdit.scss'
 import { Container } from 'react-bootstrap'
@@ -18,12 +18,18 @@ function MsgEdits(props) {
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
 
-  // 性別
-  // const [value, setValue] = useState('female')
-  // const handleChange = (event) => {
-  //   setValue(event.target.value)
-  // }
+  // const userid = props.match.params.userid
+  // const [dataLoading, setDataLoading] = useState(false)
 
+  // const [username, name] = useState('')
+  // const [name, setName] = useState('')
+  // const [mobile, setMobile = useState('')
+  // const [gender, setGender = useState('')
+  // const [birthday, setBirthday] = useState('')
+  // const [address, setAddress] = useState('')
+
+  // const [userDataIsExist, setUserDataIsExist] =
+  //   useState(true)
   return (
     <>
       <div className="u-body">
@@ -48,17 +54,23 @@ function MsgEdits(props) {
               <div className="form-group u-form1 cn-font">
                 <label for="username">帳號</label>
                 <input
+                  // value={username}
                   type="email"
                   className="form-control"
-                  id="username"
+                  // onChange={(event) => {
+                  //   setUsername(event.target.value)
+                  // }}
                 />
               </div>
               <div className="form-group u-form1 cn-font">
                 <label for="name">姓名</label>
                 <input
+                  // value={name}
                   type="text"
                   className="form-control"
-                  id="name"
+                  // onChange={(event) => {
+                  //   setName(event.target.value)
+                  // }}
                 />
               </div>
               <div className="form-group u-form1 cn-font">

@@ -2,25 +2,25 @@ import React from 'react'
 import { Navbar, Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import '../styles/Menu.css'
-// import $ from 'jquery'
+import $ from 'jquery'
 
 function Menu() {
-  // $('.u-mr-auto').on('click', function () {
-  //   $(this)
-  //     .css('background', '#000')
-  //     .css('color', '#fff')
-  //     .parent()
-  //     .siblings()
-  //     .children()
-  //     .css('background', 'transparent')
-  // })
+  $('#u-mr-auto').on('click', function () {
+    $(this)
+      .css('background', '#000')
+      .css('color', '#fff')
+      .parent()
+      .siblings()
+      .children()
+      .css('background', 'transparent')
+  })
 
   return (
     <>
       <Navbar bg="" expand="lg">
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="u-mr-auto">
+          <Nav id="u-mr-auto">
             {/* 用as屬性然後變成Link元件 */}
             <Nav.Link as={Link} to="/user-msgedit">
               <div className="u-edit" s>
