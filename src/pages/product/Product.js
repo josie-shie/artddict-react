@@ -195,7 +195,7 @@ function Product() {
                 YOU MUST CLOSE <br /> YOUR EYES
                 <br /> AND SING
                 <br />
-                ——PABLO
+                ——PABLO PICASSO
               </p>
               <div className="pro-gif">
                 <img
