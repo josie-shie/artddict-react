@@ -3,6 +3,13 @@ import { ReactComponent as Logo } from '../../pics/logo-bk.svg'
 import { Link, withRouter } from 'react-router-dom'
 import './map.scss'
 
+//? config
+import {
+  data,
+  countries,
+  townships,
+} from './config/townships'
+
 //? components
 import LeafLet2 from './components/LeafLet2'
 import MarqueeMap from './components/MarqueeMap'
@@ -17,6 +24,9 @@ import { RiArrowRightSLine } from 'react-icons/ri'
 import { RiArrowRightUpLine } from 'react-icons/ri'
 
 const Map = () => {
+  const [country, setCountry] = useState(-1)
+  const [township, setTownship] = useState(-1)
+  const [city, setCity] = useState('')
 
   return (
     <>
@@ -34,16 +44,51 @@ const Map = () => {
                   className="map-select-box map-select pl-3 border-left-0 "
                   name=""
                   id=""
+                  value={country}
+                  onChange={(e) => {
+                    //得到選取的setCountry 索引值
+                    setCountry(+e.target.value)
+                    //需要將setTownshipe歸零
+                    setTownship(-1)
+                    //空自字串 用來接取最後選定的值
+                    setCity('')
+                  }}
                 >
-                  <option
-                    className="pr-2"
-                    style={{ color: '#707070' }}
-                    value=""
-                  >
-                    請選擇
-                  </option>
-                  <option value="">123</option>
-                  <option value="">123</option>
+                  <option value="-1">請選擇</option>
+                  {/* map出資料表countries的value */}
+                  {countries.map((value, index) => (
+                    <option key={index} value={index}>
+                      {value}
+                    </option>
+                  ))}
+                </select>
+                <div className="map-select-box px-4 pt-1">
+                  城市
+                </div>
+                <select
+                  className="map-select-box map-select pl-3 border-left-0 "
+                  name=""
+                  id=""
+                  value={township}
+                  Onchange={(e) => {
+                    //得到選取的setCountry 索引值
+                    setTownship(+e.target.value)
+                    //二維陣列得到townships中的country[選取的index]
+                    //設定回去city中
+                    setCity(
+                      townships[country][+e.target.value]
+                    )
+                  }}
+                >
+                  <option value="-1">請選擇</option>
+                  {country > -1 &&
+                    townships[country].map(
+                      (value, index) => (
+                        <option key={index} value={index}>
+                          {value}
+                        </option>
+                      )
+                    )}
                 </select>
                 <div className="map-select-box ml-5 px-4 pt-1">
                   搜尋
@@ -54,21 +99,6 @@ const Map = () => {
               </div>
               <div className="map-search mr-2">
                 <IoIosSearch size={30} color={'#81FC4D'} />
-                <div className="">
-                  <form action="" autocomplete="on">
-                    <input
-                      id="search"
-                      name="map-search"
-                      type="text"
-                      placeholder="Search somthing ?"
-                    />
-                    <input
-                      id="search-submit"
-                      value="Rechercher"
-                      type="submit"
-                    />
-                  </form>
-                </div>
               </div>
             </div>
             <LeafLet2 />
