@@ -38,12 +38,37 @@ function ProductDetail() {
   const [open2, setOpen2] = useState(false)
   const [open3, setOpen3] = useState(false)
   const [open4, setOpen4] = useState(false)
+  const fadeAnimationHandler: AnimationHandler = (
+    props,
+    state
+  ): AnimationHandlerResponse => {
+    const transitionTime = props.transitionTime + 'ms'
+    const transitionTimingFunction = 'ease-in-out'
+
+    let slideStyle: React.CSSProperties = {}
+
+    if (!state.swiping) {
+      slideStyle = {
+        ...slideStyle,
+      }
+    }
+
+    return {
+      slideStyle,
+      selectedStyle: {
+        ...slideStyle,
+        opacity: 1,
+        position: 'relative',
+      },
+      prevStyle: { ...slideStyle },
+    }
+  }
   return (
     <>
       <div className="proDe-full">
         <div className="d-flex">
           <div className="proDe-leftSide">
-            <Carousel>
+            <Carousel className="proDe-wall">
               <div>
                 <img src={product1} />
               </div>
