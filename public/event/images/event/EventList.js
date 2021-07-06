@@ -6,8 +6,6 @@ import $ from 'jquery'
 // Component
 import EHeader from './components/Darkheader'
 import EDetailCaro from './components/EDetailCaro'
-import {parts, cities } from './config/location'
-import { countries, townships } from './config/townships'
 
 // react icons
 import {
@@ -29,8 +27,6 @@ import './style/eventList.scss'
 
 function EventList() {
   const [events, setEvents] = useState([])
-  const [country, setCountry] = useState(-1)
-  const [township, setTownship] = useState(-1)
 
   async function getEventServer() {
     const url = 'http://localhost:6005/event/event-list'
@@ -75,11 +71,8 @@ function EventList() {
         </h6>
         <div className="d-flex">
           <div className="col-8 p-0">
-            <p>{event.cityName}</p>
-            <p>
-              時間：{event.eventDateStart.split('-')[0]}年
-              {event.eventDateStart.split('-')[1]}月
-            </p>
+            <p>{event.eventCity}</p>
+            <p>時間：JUN</p>
           </div>
           <div className="col-4 p-0">
             <button className="border-right col-4 text-center">
@@ -145,22 +138,12 @@ function EventList() {
                 </h6>
                 <select
                   className="ed-select col-7"
-                  value={country}
-                  onChange={(e) => {
-                    // 將字串轉成數字
-                    setCountry(+e.target.value)
-                    // 重置township的值
-                    setTownship(-1)
-                  }}
                   name=""
                   id=""
                 >
-                  <option value="-1">請選擇</option>
-                  {countries.map((value, index) => (
-                    <option key={index} value={index}>
-                      {value}
-                    </option>
-                  ))}
+                  <option value="">請選擇</option>
+                  <option value="">123</option>
+                  <option value="">123</option>
                 </select>
               </div>
 
@@ -174,23 +157,12 @@ function EventList() {
                 </h6>
                 <select
                   className="ed-select col-7"
-                  value={township}
-                  onChange={(e) => {
-                    // 將字串轉成數字
-                    setTownship(+e.target.value)
-                  }}
                   name=""
                   id=""
                 >
-                  <option value="-1">請選擇</option>
-                  {country > -1 &&
-                    townships[country].map(
-                      (value, index) => (
-                        <option key={index} value={index}>
-                          {value}
-                        </option>
-                      )
-                    )}
+                  <option value="">請選擇</option>
+                  <option value="">123</option>
+                  <option value="">123</option>
                 </select>
               </div>
 
@@ -223,7 +195,6 @@ function EventList() {
                 </h6>
                 <select
                   className="ed-select col-7"
-                  type="date"
                   name=""
                   id=""
                 >
