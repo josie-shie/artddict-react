@@ -1,8 +1,13 @@
 import { React, useState } from 'react'
 import { ReactComponent as Logo } from '../../pics/logo-bk.svg'
 
+// style
 import '../../bootstrap/css/bootstrap.css'
 import './styles/cart-payment.scss'
+
+// @material-ui
+import FormControlLabel from '@material-ui/core/FormControlLabel'
+import Checkbox from '@material-ui/core/Checkbox'
 
 // imgae
 import img1 from './img/1.png'
@@ -13,6 +18,17 @@ import { FaLock } from 'react-icons/fa'
 import { RiArrowRightSLine } from 'react-icons/ri'
 
 function CartProduct() {
+  // checkbox
+  const [state, setState] = useState({
+    checkedA: true,
+    checkedB: true,
+  })
+  const handleChange = (event) => {
+    setState({
+      ...state,
+      [event.target.name]: event.target.checked,
+    })
+  }
   return (
     <>
       <div className="c-bg">
@@ -94,16 +110,44 @@ function CartProduct() {
               {/* 通訊選項 */}
               <p className="c-shipleft mt-4">通訊選項</p>
               <div className="c-shipmethod pt-4">
-                <label className="d-flex align-items-baseline pb-2">
-                  <input type="checkbox" className="mr-2" />
-                  <p>
-                    儲存我的收件資訊，以便未來的訂購使用
-                  </p>
-                </label>
-                <label className="d-flex align-items-baseline">
-                  <input type="checkbox" className="mr-2" />
-                  <p>我願意收到活動及商品的相關優惠資訊</p>
-                </label>
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={state.checkedA}
+                      onChange={handleChange}
+                      name="checkedA"
+                      style={{ color: 'black' }}
+                    />
+                  }
+                  label={
+                    <span
+                      style={{
+                        fontFamily: 'Noto Sans TC Medium',
+                      }}
+                    >
+                      儲存我的收件資訊，以便未來的訂購使用
+                    </span>
+                  }
+                />
+                <FormControlLabel
+                  control={
+                    <Checkbox
+                      checked={state.checkedB}
+                      onChange={handleChange}
+                      name="checkedB"
+                      style={{ color: 'black' }}
+                    />
+                  }
+                  label={
+                    <span
+                      style={{
+                        fontFamily: 'Noto Sans TC Medium',
+                      }}
+                    >
+                      我願意收到活動及商品的相關優惠資訊
+                    </span>
+                  }
+                />
               </div>
               <p className="c-f12 mt-3">
                 點選「確認付款」表示您接受我們的

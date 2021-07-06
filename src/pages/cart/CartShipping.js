@@ -57,25 +57,25 @@ function CartProduct() {
                 <p className="c-">*必填項目</p>
               </div>
               <div className="c-ship1 py-4">
-                <label className="d-flex align-items-baseline pb-2">
+                <label className="c-label-r1 d-flex align-items-baseline pb-3">
                   <input
                     type="radio"
-                    className="mr-2"
                     name="address"
                     checked={status === 2}
                     onClick={(e) => radioHandler(2)}
                   />
+                  <span className="c-label"></span>
                   <p>謝喬心 - 台北市大安區大馬路123號5樓</p>
                 </label>
 
-                <label className="d-flex align-items-baseline">
+                <label className="c-label-r1 d-flex align-items-baseline">
                   <input
                     type="radio"
-                    className="mr-2"
                     name="address"
                     checked={status === 1}
                     onClick={(e) => radioHandler(1)}
                   />
+                  <span className="c-label"></span>
                   <p>輸入其他收件資訊</p>
                 </label>
               </div>
@@ -140,22 +140,15 @@ function CartProduct() {
 
               <div className="c-shipmethod pt-4">
                 <p className="pb-4">運送方式</p>
-                <label className="d-flex align-items-baseline pb-2">
-                  <input
-                    type="radio"
-                    className="mr-2"
-                    name="ship"
-                    checked
-                  />
+                <label className="c-label-r1 d-flex align-items-baseline pb-3">
+                  <input type="radio" name="ship" checked />
+                  <span className="c-label"></span>
                   <p>宅配到府 - 運費：NT$ 80</p>
                 </label>
-             
-                <label className="d-flex align-items-baseline">
-                  <input
-                    type="radio"
-                    className="mr-2"
-                    name="ship"
-                  />
+
+                <label className="c-label-r1 d-flex align-items-baseline">
+                  <input type="radio" name="ship" />
+                  <span className="c-label"></span>
                   <p>超商取貨 - 運費：NT$ 50</p>
                   <a href="#" className="c-store ml-3 pb-0">
                     選擇門市

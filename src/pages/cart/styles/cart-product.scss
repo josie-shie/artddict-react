@@ -8,7 +8,6 @@
 }
 /* tab-product */
 
-
 /* chechout */
 .c-bg {
   font-family: 'Noto Sans TC Medium', sans-serif;
@@ -141,5 +140,47 @@
     color: #1d0aff;
     text-decoration: none;
     border-bottom: 1px solid #1d0aff;
+  }
+}
+
+// customized radio
+
+/* Hide the browser's default radio button */
+
+.c-label-r1 {
+  position: relative;
+  p {
+    margin-left: 40px;
+  }
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  input:checked ~ .c-label:after {
+    display: block;
+  }
+}
+
+/* Create a custom radio button */
+.c-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 26px;
+  width: 26px;
+  background-color: none;
+  border-radius: 50%;
+  border: 2px solid black;
+  &:after {
+    content: '';
+    position: absolute;
+    display: none;
+    top: 5px;
+    left: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: black;
   }
 }
