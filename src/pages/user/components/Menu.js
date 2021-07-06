@@ -1,19 +1,19 @@
 import React from 'react'
 import { Navbar, Nav } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import '../styles/Menu.scss'
-import $ from 'jquery'
+import '../styles/Menu.css'
+// import $ from 'jquery'
 
 function Menu() {
-  $('.u-mr-auto').on('click', function () {
-    $(this)
-      .css('background', '#000')
-      .css('color', '#fff')
-      .parent()
-      .siblings()
-      .children()
-      .css('background', 'transparent')
-  })
+  // $('.u-mr-auto').on('click', function () {
+  //   $(this)
+  //     .css('background', '#000')
+  //     .css('color', '#fff')
+  //     .parent()
+  //     .siblings()
+  //     .children()
+  //     .css('background', 'transparent')
+  // })
 
   return (
     <>
@@ -23,7 +23,9 @@ function Menu() {
           <Nav className="u-mr-auto">
             {/* 用as屬性然後變成Link元件 */}
             <Nav.Link as={Link} to="/user-msgedit">
-              <div className="u-edit">修改資料</div>
+              <div className="u-edit" s>
+                修改資料
+              </div>
             </Nav.Link>
             <Nav.Link as={Link} to="/user-orderpro">
               <div className="u-userOrder">訂單查詢</div>
@@ -32,7 +34,13 @@ function Menu() {
               <div className="u-coupon">我的優惠券</div>
             </Nav.Link>
             <Nav.Link as={Link} to="/user-ticket">
-              <div className="u-ticket">我的票券</div>
+              <div
+                className="u-ticket"
+                onclick="changeD()"
+                id="menuD"
+              >
+                我的票券
+              </div>
             </Nav.Link>
             <Nav.Link as={Link} to="/user-myfav">
               <div className="u-userfav">我的收藏</div>
