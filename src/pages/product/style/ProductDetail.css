@@ -24,8 +24,8 @@ font-face {
 }
 .proDe-leftSide{
     width: calc(50vw - 35px);
+    background-color:black;
     height: 105vh;
-    background-color: aqua;
     position:sticky;
     top: 0;
 }
@@ -37,14 +37,16 @@ font-face {
 /* ------------slick-------- */
 
 .proDe-wall img{
-    height: 80vh;
+    height: 85vh;
 }
 .carousel-root{
     height: 100%;
 }
 .thumb {
-    width: 100%;
-    height: 100px;
+    width: 80px;
+    height: 80px;
+    margin-right: 20%;
+    border: 0 solid transparent;
 }
 .thumb img{
     width: 100%;

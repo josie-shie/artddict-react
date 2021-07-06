@@ -45,7 +45,17 @@ function ProductDetail() {
     const transitionTime = props.transitionTime + 'ms'
     const transitionTimingFunction = 'ease-in-out'
 
-    let slideStyle: React.CSSProperties = {}
+    let slideStyle: React.CSSProperties = {
+      position: 'absolute',
+      display: 'block',
+      zIndex: -2,
+      minHeight: '100%',
+      opacity: 0,
+      top: 0,
+      right: 0,
+      left: 0,
+      bottom: 0,
+    }
 
     if (!state.swiping) {
       slideStyle = {
@@ -73,7 +83,7 @@ function ProductDetail() {
                 <img src={product1} />
               </div>
               <div>
-                <img src={product2} />
+                <img src={try1} />
               </div>
               <div>
                 <img src={product3} />
