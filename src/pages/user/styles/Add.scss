@@ -16,7 +16,7 @@
 .u-body {
   font-family: 'Noto Sans TC Medium', sans-serif;
   width: calc(100% - 70px);
-  height: 160vh;
+  height: 100%;
   background-color: #e8e8e8;
   padding: 0 10vw;
 }
@@ -24,9 +24,9 @@
 //----- carousel -----
 .u-img-carousel {
   position: relative;
-  margin-top: 90px;
+  margin-top: 50px;
+  margin-bottom: 40px;
   width: 450px;
-  // margin-left: 30px;
   z-index: 0;
 }
 
@@ -79,7 +79,7 @@
 // ----- form 表單 -----
 
 .u-container2 {
-  margin-top: 84px;
+  margin-top: 40px;
 }
 
 .u-membertile {

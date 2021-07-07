@@ -1,5 +1,5 @@
 import React from 'react'
-import Menu from './components/Menu'
+import Menu2 from './components/Menu2'
 import { Container } from 'react-bootstrap'
 import Logoheader from './components/Logoheader'
 import './styles/OrderTic.scss'
@@ -15,7 +15,7 @@ function OrderTic() {
           <Breadcrumb />
         </div>
         <div className="u-userMenu d-none d-lg-block d-xl-block">
-          <Menu />
+          <Menu2 />
         </div>
         <Container fluid>
           <div className="u-row d-flex justify-content-around">
