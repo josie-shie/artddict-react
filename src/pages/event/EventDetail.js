@@ -122,7 +122,7 @@ function EventDetail(props) {
             align-items-center"
             >
               <Link
-                to= {`/event/event-list/detail/upload/2`}
+                to={`/event/event-list/detail/upload/13`}
                 className="col-6"
               >
                 <button className="cn-font px-0">
@@ -130,7 +130,8 @@ function EventDetail(props) {
                 </button>
               </Link>
               <Link
-                to="/event/event-list/detail/share"
+                //{`/event/event-list/detail/${event.id}`}
+                to="/event/event-list/detail/share/13"
                 className="col-6"
               >
                 <button className="cn-font px-0">
