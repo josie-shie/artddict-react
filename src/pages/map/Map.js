@@ -14,8 +14,6 @@ import {
 import LeafLet2 from './components/LeafLet2'
 import MarqueeMap from './components/MarqueeMap'
 import MarqueeMapEnd from './components/MarqueeMapEnd'
-import MapCard from './components/MapCard'
-import MapCardSql from './components/MapCardSql'
 
 //? icons
 import { MdMyLocation } from 'react-icons/md'
@@ -49,9 +47,9 @@ const Map = () => {
   }
 
   //撈出城市的id
-  async function getMusQueryServer() {
+  async function getMusByQuerySQL() {
     // e.preventDefault();
-    const url = `http://localhost:6005/map?cityId=${city}`
+    const url = `http://localhost:6005/map?city=${city}`
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
       method: 'GET',
@@ -79,7 +77,10 @@ const Map = () => {
     return (
       <>
         <div className="map-card pb-3 mb-3">
-          <Link key={mus.id}>
+          <Link
+            key={mus.id}
+            to={`/map/mapevent/${mus.id}?`}
+          >
             <img
               className="w-100"
               src={`http://localhost:6005/museumpics/mus/${mus.musImg}`}
@@ -174,7 +175,7 @@ const Map = () => {
                 <button
                   className="map-select-box px-4 pt-1"
                   onClick={() => {
-                    getMusQueryServer()
+                    getMusByQuerySQL()
                   }}
                 >
                   搜尋
