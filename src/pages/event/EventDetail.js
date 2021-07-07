@@ -91,7 +91,7 @@ function EventDetail(props) {
             </h4>
             <img
               className="col-12 p-0 mb-5"
-              src={TopicPic}
+              src={`http://localhost:6005/eventpic/event/${eventImg}`}
               alt=""
             />
           </Row>
