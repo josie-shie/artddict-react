@@ -37,6 +37,8 @@ function EventList(props) {
   // const [isFilter, setIsfFilter] = useState(false)
   const [order, setOrder] = useState(true)
 
+
+
   async function getEventServer() {
     const url = 'http://localhost:6005/event'
 
@@ -71,6 +73,7 @@ function EventList(props) {
     setEvents(data)
   }
 
+  
   useEffect(() => {
     getEventServer()
   }, [])
@@ -83,10 +86,10 @@ function EventList(props) {
   const eventDisplay = events.map((event) => {
     return (
       <Link
-        to="/event/event-list/detail"
+        to={`event-list/detail/${event.id}?`}
         style={{ textDecoration: 'none' }}
         className="ed-list-card col-4 my-3 "
-        key={event.id}
+        key={event.eventId}
       >
         <img
           className="col-12 p-0"

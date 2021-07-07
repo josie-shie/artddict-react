@@ -83,7 +83,7 @@ function App() {
             </Route>
             <Route
               exact
-              path="/event/event-list/detail/:eventId?"
+              path="/event/event-list/detail/:id?"
             >
               <EventDetail />
             </Route>
