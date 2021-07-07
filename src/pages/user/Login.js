@@ -1,5 +1,5 @@
 import { Carousel, Container } from 'react-bootstrap'
-import React from 'react'
+import React, { useState } from 'react'
 import './styles/Login.scss'
 import { Link } from 'react-router-dom'
 import Logoheader from './components/Logoheader'
@@ -17,6 +17,9 @@ import { AiFillGoogleCircle } from 'react-icons/ai'
 import { RiFacebookCircleFill } from 'react-icons/ri'
 
 function Login() {
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+
   return (
     <>
       <div className="u-body">
@@ -108,20 +111,28 @@ function Login() {
               <form action="">
                 <div class="form-group u-form">
                   <input
+                    value={username}
                     type="email"
                     class="form-control"
                     id="email"
                     aria-describedby="emailHelp"
                     placeholder="請輸入信箱"
+                    onChange={(event) => {
+                      setUsername(event.target.value)
+                    }}
                   />
                 </div>
 
                 <div class="form-group u-form">
                   <input
+                    value={password}
                     type="password"
                     class="form-control"
                     id="password1"
                     placeholder="請輸入密碼"
+                    onChange={(event) => {
+                      setPassword(event.target.value)
+                    }}
                   />
                 </div>
                 <div>
