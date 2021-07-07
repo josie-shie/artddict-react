@@ -2,8 +2,7 @@ import React, { useEffect, useState } from 'react';
 import useInterval from './useInterval'
 
 function AuctionDetailcountDown(props) {
-    const { aucProduct, setAucProduct, TimeRemaining, auctionDetailcountdown, setAuctionDetailcountdown,auctionRunning,loading } = props
-
+    const { aucDetailinfo, setAucProduct, TimeRemaining, auctionDetailcountdown, setAuctionDetailcountdown,auctionRunning,loading } = props
     return (
         <>
             {auctionRunning ? (

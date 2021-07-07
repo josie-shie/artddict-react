@@ -21,13 +21,20 @@ time, mark, audio, video {
 
 .auctionProductCard{
     padding: 34px 0 0 45px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .auctionProduct_Picture_time{
     width: 100%;
 }
 
-.auctionProduct_Picture_time img{
+.auctionProduct_Picture{
+    width: 100%;
+}
+
+.auctionProduct_Picture img{
     width: 100%;
     object-fit: cover;
     border: 0px #707070 solid;

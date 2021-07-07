@@ -4,7 +4,7 @@ import { withRouter, Link } from 'react-router-dom'
 import useInterval from './useInterval';
 
 function AuctionProductCard(props) {
-    const { aucId, aucName, aucPriceNow, deadline, TimeRemaining } = props
+    const { aucId, aucName, aucPriceNow, deadline,aucImg, TimeRemaining } = props
     const [delay, setDelay] = useState(1000);
     const [auctionRunning, setAuctionrunning] = useState(false)
     const [AuctionProductCard_CountDown, setAuctionProductCard_CountDown] = useState([0, '', 0, ''])
@@ -67,9 +67,11 @@ function AuctionProductCard(props) {
         <>
             <div className="col-4 auctionProductCard">
                 <div className="auctionProduct_Picture_time">
+                    <div className="auctionProduct_Picture">
                     <Link to={`/AuctionDetail/${aucId}`}>
-                        <img src={monkey} alt="Background" />
+                        <img src={`http://localhost:6005/aucpics/auc/${aucImg}`} alt="Background" />
                     </Link>
+                    </div>
                     {auctionRunning ? (
                         <div className="auctionProduct_countdown">
                             截標倒數 <span>{AuctionProductCard_CountDown[0]}</span>
