@@ -1,4 +1,4 @@
-import React from 'react'
+import { React, useEffect, useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import '../../bootstrap/css/bootstrap.css'
 import { Row } from 'react-bootstrap'
@@ -15,6 +15,77 @@ import {
 import listtitle from './img/productList/listtitle.jpeg'
 import productPic1 from './img/productList/productPic1.jpeg'
 function ProductList() {
+  const [products, setProducts] = useState([])
+
+  // 連接的伺服器資料網址
+  async function getProductServer() {
+    const url = 'http://localhost:6005/product/'
+
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    // 設定資料
+    setProducts(data)
+  }
+
+  // //撈出城市的id
+  // async function getProductQueryServer() {
+  //   const url = `http://localhost:6005/map?cityId=${city}`
+  //   // 注意header資料格式要設定，伺服器才知道是json格式
+  //   const request = new Request(url, {
+  //     method: 'GET',
+  //     headers: new Headers({
+  //       Accept: 'application/json',
+  //       'Content-Type': 'appliaction/json',
+  //     }),
+  //   })
+
+  //   const response = await fetch(request)
+  //   const data = await response.json()
+  //   setMuseums(data)
+  //   // 設定資料
+  // }
+
+  useEffect(() => {
+    getProductServer()
+  }, [])
+
+  const productListCard = products.map((pro) => {
+    let trydd = JSON.parse(`${pro.proImg}`)
+    return (
+      <>
+        <div className="prolist-card ">
+          <div className="prolist-cardTop"></div>
+          <div className="prolist-imgBorderBox">
+            <div className="prolist-imgBox d-flex">
+              <img
+                src={`http://localhost:6005/productpics/${trydd}`}
+                alt=""
+              />
+            </div>
+            <div className="prolist-blackBar"></div>
+          </div>
+          <div className="prolist-cardWordBox d-flex">
+            <div className="prolist-cardProName">
+              <p>{pro.proName}</p>
+            </div>
+            <div className="prolist-cardProPrice">
+              <p>NT${pro.proPrice}</p>
+            </div>
+          </div>
+        </div>
+      </>
+    )
+  })
+
   return (
     <>
       <div className="prolist-full">
@@ -194,8 +265,9 @@ function ProductList() {
             {/* ------------商品區------------ */}
             <div className="prolist-rightSide">
               <div className="d-flex justify-content-between flex-wrap">
+                {productListCard}
                 {/* ---------------------- */}
-                <div className="prolist-card ">
+                {/* <div className="prolist-card ">
                   <div className="prolist-cardTop"></div>
                   <div className="prolist-imgBorderBox">
                     <div className="prolist-imgBox">
@@ -211,9 +283,9 @@ function ProductList() {
                       <p>NT$490</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 {/* ---x2-- */}
-                <div className="prolist-card ">
+                {/* <div className="prolist-card ">
                   <div className="prolist-cardTop"></div>
                   <div className="prolist-imgBorderBox">
                     <div className="prolist-imgBox">
@@ -229,9 +301,9 @@ function ProductList() {
                       <p>NT$490</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 {/* ---x3-- */}
-                <div className="prolist-card">
+                {/* <div className="prolist-card">
                   <div className="prolist-cardTop"></div>
                   <div className="prolist-imgBorderBox">
                     <div className="prolist-imgBox">
@@ -247,10 +319,10 @@ function ProductList() {
                       <p>NT$490</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 {/* ------------ */}
                 {/* ---card-- */}
-                <div className="prolist-card">
+                {/* <div className="prolist-card">
                   <div className="prolist-cardTop"></div>
                   <div className="prolist-imgBorderBox">
                     <div className="prolist-imgBox">
@@ -266,10 +338,10 @@ function ProductList() {
                       <p>NT$490</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 {/* ------------ */}
                 {/* ---card-- */}
-                <div className="prolist-card">
+                {/* <div className="prolist-card">
                   <div className="prolist-cardTop"></div>
                   <div className="prolist-imgBorderBox">
                     <div className="prolist-imgBox">
@@ -285,10 +357,10 @@ function ProductList() {
                       <p>NT$490</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 {/* ------------ */}
                 {/* ---card-- */}
-                <div className="prolist-card">
+                {/* <div className="prolist-card">
                   <div className="prolist-cardTop"></div>
                   <div className="prolist-imgBorderBox">
                     <div className="prolist-imgBox">
@@ -304,10 +376,10 @@ function ProductList() {
                       <p>NT$490</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 {/* ------------ */}
                 {/* ---card-- */}
-                <div className="prolist-card">
+                {/* <div className="prolist-card">
                   <div className="prolist-cardTop"></div>
                   <div className="prolist-imgBorderBox">
                     <div className="prolist-imgBox">
@@ -323,10 +395,10 @@ function ProductList() {
                       <p>NT$490</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 {/* ------------ */}
                 {/* ---card-- */}
-                <div className="prolist-card">
+                {/* <div className="prolist-card">
                   <div className="prolist-cardTop"></div>
                   <div className="prolist-imgBorderBox">
                     <div className="prolist-imgBox">
@@ -342,10 +414,10 @@ function ProductList() {
                       <p>NT$490</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 {/* ------------ */}
                 {/* ---card-- */}
-                <div className="prolist-card">
+                {/* <div className="prolist-card">
                   <div className="prolist-cardTop"></div>
                   <div className="prolist-imgBorderBox">
                     <div className="prolist-imgBox">
@@ -361,7 +433,7 @@ function ProductList() {
                       <p>NT$490</p>
                     </div>
                   </div>
-                </div>
+                </div> */}
                 {/* ------------ */}
               </div>
               {/* --------------商品卡片截止線----- */}

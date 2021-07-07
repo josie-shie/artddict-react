@@ -26,6 +26,8 @@ const Map = () => {
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
   const [city, setCity] = useState('')
+  const [musPx, setMusePx] = useState('')
+  const [musPy, setMusePy] = useState('')
 
   // 連接的伺服器資料網址
   async function getMuseumServer() {
@@ -69,9 +71,12 @@ const Map = () => {
     getMuseumServer()
   }, [])
 
-  // useEffect(() => {
-  //   console.log(country, township, city)
-  // },[country, township, city])
+  useEffect(() => {
+    museums.map((mus) => {
+      setMusePx(mus.Px)
+      setMusePy(mus.Py)
+    })
+  }, [country, township, city])
 
   const museumDisplay = museums.map((mus) => {
     return (
@@ -188,7 +193,7 @@ const Map = () => {
                 <IoIosSearch size={30} color={'#81FC4D'} />
               </div>
             </div>
-            <LeafLet2 />
+            <LeafLet2 musPx={musPx} musPy={musPy} />
           </div>
           <div className="map-card-area col-4 pl-0">
             <div className="map-card-select">

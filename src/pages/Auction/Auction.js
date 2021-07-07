@@ -78,8 +78,8 @@ function Auction(props) {
                                         <option style={{ color: '#707070' }} value="">
                                             推薦
                                         </option>
-                                        <option value="">123</option>
-                                        <option value="">123</option>
+                                        <option value="">剩餘時間(由多至少)</option>
+                                        <option value="">剩餘時間(由少至多)</option>
                                     </select>
                                 </div>
                                 <button className="auc-Search">
@@ -101,6 +101,7 @@ function Auction(props) {
                                 <div className="auctionsidebar cn_font">
                                     <div className="auctionsidebarTitle ">美術館商品</div>
                                     <ul>
+                                        <li>畫作</li>
                                         <li>服飾</li>
                                         <li>家飾</li>
                                         <li>文具</li>

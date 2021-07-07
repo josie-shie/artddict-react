@@ -162,7 +162,7 @@ const Nav = () => {
                 </li>
                 <li>
                   <Link ref={liRef} to="/auction">
-                  Acution
+                  Auction
                   </Link>
                 </li>
                 <li>
