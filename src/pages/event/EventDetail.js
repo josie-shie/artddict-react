@@ -33,8 +33,7 @@ import './style/fontAndBtn.scss'
 import './style/eventDetail.scss'
 
 function EventDetail(props) {
-  const { eventId } = props
-  // const eventId = props.match.params.eventId
+  const id = props.match.params.id
   
   //開合功能state
   const [open, setOpen] = useState(true)
@@ -52,36 +51,30 @@ function EventDetail(props) {
   const [eventCity, setEventCity] = useState('')
 
 
-   async function getAnEventServer(eventId){
+   async function getEventQueryServer() {
+     const url = `http://localhost:6005/event/event-list/${id}`
+     const request = new Request(url, {
+       method: 'GET',
+       headers: new Headers({
+         Accept: 'application/json',
+         'Content-Type': 'appliaction/json',
+       }),
+     })
 
+     const response = await fetch(request)
+     const data = await response.json()
 
-    const url = 'http://localhost:6005/event/' + eventId
-
-    const request = new Request(url, {
-      method: 'GET',
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
-      }),
-    })
-
-    const response = await fetch(request)
-    const data = await response.json()
-
-  
-    setEventName(data.eventName)
-    setEventDateStart(data.eEventDateStar)
-    setEventDateEnd(data.eventDateEnd)
-    setEventDesc(data.eventDescription)
-    setEventPrice(data.eventPrice)
-    setEventImg(data.eventImg)
-    setEventCity(data.cityName)
-
-
+     setEventName(data.eventName)
+     setEventDateStart(data.eEventDateStar)
+     setEventDateEnd(data.eventDateEnd)
+     setEventDesc(data.eventDescription)
+     setEventPrice(data.eventPrice)
+     setEventImg(data.eventImg)
+     setEventCity(data.cityName)
    }
 
    useEffect(() => {
-     getAnEventServer(eventId)
+     getEventQueryServer()
    }, [])
 
   return (
@@ -98,7 +91,7 @@ function EventDetail(props) {
             </h4>
             <img
               className="col-12 p-0 mb-5"
-              src={TopicPic}
+              src={`http://localhost:6005/eventpic/event/${eventImg}`}
               alt=""
             />
           </Row>
