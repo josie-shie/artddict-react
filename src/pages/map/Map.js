@@ -50,6 +50,7 @@ const Map = () => {
 
   //撈出城市的id
   async function getMusQueryServer() {
+    // e.preventDefault();
     const url = `http://localhost:6005/map?cityId=${city}`
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -69,6 +70,10 @@ const Map = () => {
   useEffect(() => {
     getMuseumServer()
   }, [])
+
+  // useEffect(() => {
+  //   console.log(country, township, city)
+  // },[country, township, city])
 
   const museumDisplay = museums.map((mus) => {
     return (
@@ -109,10 +114,13 @@ const Map = () => {
         <div className="map-content d-flex mb-5">
           <div className=" col-8 d-flex flex-column px-0 ml-3">
             <div className="map-search-bar d-flex justify-content-center align-items-center py-2">
-              <div className="map-select-box px-4 pt-2">
+              <div className="map-select-box px-4 pt-1">
                 地區
               </div>
-              <from className="d-flex justify-content-between">
+              <from
+                className="d-flex justify-content-between"
+                return="false"
+              >
                 <select
                   className="map-select-box map-select pl-3 border-left-0 "
                   name=""
@@ -143,7 +151,7 @@ const Map = () => {
                   name=""
                   id=""
                   value={township}
-                  Onchange={(e) => {
+                  onChange={(e) => {
                     //得到選取的setCountry 索引值
                     setTownship(+e.target.value)
                     //二維陣列得到townships中的country[選取的index]
@@ -164,7 +172,7 @@ const Map = () => {
                     )}
                 </select>
                 <button
-                  className="map-select-box ml-5 px-4 pt-2"
+                  className="map-select-box px-4 pt-1"
                   onClick={() => {
                     getMusQueryServer()
                   }}
