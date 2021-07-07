@@ -37,6 +37,13 @@ function EventList(props) {
   // const [isFilter, setIsfFilter] = useState(false)
   const [order, setOrder] = useState(true)
 
+  let orderBy = ''
+  if (order){
+    orderBy = 'latest'
+  }else{
+    orderBy = 'oldest'
+  }
+
 
 
   async function getEventServer() {
@@ -57,7 +64,7 @@ function EventList(props) {
   }
 
   async function getEventQueryServer() {
-    const url = `http://localhost:6005/event?city=${city}`
+    const url = `http://localhost:6005/event?city=${city}&order=${orderBy}`
 
     const request = new Request(url, {
       method: 'GET',
@@ -80,8 +87,8 @@ function EventList(props) {
 
   //測試城市選單
   useEffect(() => {
-    console.log(country, township, city)
-  }, [country, township, city])
+    console.log(country, township, city, orderBy)
+  }, [country, township, city, order])
 
   const eventDisplay = events.map((event) => {
     return (
@@ -265,16 +272,19 @@ function EventList(props) {
               "
               >
                 <h6 className="col-5 px-0 text-center">
-                  排序
+                  開始日期
                 </h6>
                 <select
                   className="ed-select col-7"
+                  onChange={(e) => {
+                    // 將字串轉成數字
+                    setOrder(!order)
+                  }}
                   name=""
                   id=""
                 >
-                  <option value="">最近</option>
-                  <option value="">123</option>
-                  <option value="">123</option>
+                  <option value="latest">最近</option>
+                  <option value="oldest">最遠</option>
                 </select>
               </div>
 
