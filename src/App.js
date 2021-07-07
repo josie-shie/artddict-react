@@ -74,13 +74,13 @@ function App() {
             </Route>
             <Route
               exact
-              path="/event/event-list/detail/share"
+              path="/event/event-list/detail/share/:id"
             >
               <WorkshopShare />
             </Route>
             <Route
               exact
-              path="/event/event-list/detail/:id?"
+              path="/event/event-list/detail/:id"
             >
               <EventDetail />
             </Route>

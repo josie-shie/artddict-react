@@ -28,7 +28,9 @@ import './style/reset.css'
 import './style/fontAndBtn.scss'
 import './style/WorkshopShare.scss'
 
-function WorkshopShare() {
+function WorkshopShare(props) {
+  const id = props.match.params.id
+  
   return (
     <>
       <div className="reduce-width">
