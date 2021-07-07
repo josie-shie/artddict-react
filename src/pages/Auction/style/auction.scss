@@ -23,9 +23,9 @@ time, mark, audio, video {
     font-family:'Noto Sans TC';
 }
 
-/* *{
-    outline:1px red solid;
-} */
+//  *{
+//     outline:1px red solid;
+// } 
 
 
 .auctionPage{
@@ -84,7 +84,6 @@ time, mark, audio, video {
 .auctionMarquee{
     font-size: 2.8rem;
     height: 110px;
-    padding-left:80px ;
     display: flex;
     align-items: center;
 }
@@ -109,6 +108,7 @@ time, mark, audio, video {
     background-repeat: no-repeat;
     background-position-x: 100%;
     background-position-y: 50%;
+    width: 100px;
     border: 0px ;
     padding-right: 2rem;
   }
@@ -140,7 +140,7 @@ time, mark, audio, video {
     height: 42px;
     font-size: 18px;
     line-height: 42px;
-    padding: 0 0 0 20px;
+    padding: 0 0 0 10px;
     border-top:2px solid #000;
     border-right:2px solid #000;
     border-bottom:2px solid #000;
