@@ -4,7 +4,9 @@ import { Row } from 'react-bootstrap'
 
 
 // Pictures
-import EdListCardPic from '../images/event/006.jpg'
+import EdListCardPic from '../images/event/004.jpg'
+import EdListCardPic2 from '../images/event/010.jpg'
+import EdListCardPic3 from '../images/event/104.jpg'
 
 // react icons
 import {
@@ -17,7 +19,7 @@ import '../style/reset.css'
 import '../style/fontAndBtn.scss'
 import '../style/EventMore.scss'
 
-function EventMore() {
+function EventMore(props) {
   return (
     <>
       <Row className="e-look-more both-padding">
@@ -37,7 +39,7 @@ function EventMore() {
       </Row>
       <Row className="justify-content-between both-padding mt-5 pb-5 cn-font">
         <Link
-          to="/event/event-list/detail"
+          to="/event/"
           style={{ textDecoration: 'none' }}
           className="e-more-card col-4 my-3 "
         >
@@ -51,8 +53,8 @@ function EventMore() {
           </h6>
           <div className="d-flex">
             <div className="col-8 p-0">
-              <p>地點：台北市</p>
-              <p>時間：JUN</p>
+              <p>地點：臺中市</p>
+              <p>時間：2021年06月</p>
             </div>
             <div className="col-4 p-0">
               <button className="border-right py-2 col-4">
@@ -64,22 +66,22 @@ function EventMore() {
         </Link>
 
         <Link
-          to="/event/event-list/detail"
+          to="/event/"
           style={{ textDecoration: 'none' }}
           className="e-more-card col-4 my-3 "
         >
           <img
             className="col-12 p-0"
-            src={EdListCardPic}
+            src={EdListCardPic2}
             alt=""
           />
           <h6 className="col-12 p-0 cn-font my-2">
-            我是活動標題
+            臺博館建築再發
           </h6>
           <div className="d-flex">
             <div className="col-8 p-0">
-              <p>地點：台北市</p>
-              <p>時間：JUN</p>
+              <p>地點：新竹市</p>
+              <p>時間：2021年07月</p>
             </div>
             <div className="col-4 p-0">
               <button className="border-right  py-2 col-4">
@@ -91,22 +93,22 @@ function EventMore() {
         </Link>
 
         <Link
-          to="/event/event-list/detail"
+          to="/event/"
           style={{ textDecoration: 'none' }}
           className="e-more-card col-4 my-3 "
         >
           <img
             className="col-12 p-0"
-            src={EdListCardPic}
+            src={EdListCardPic3}
             alt=""
           />
           <h6 className="col-12 p-0 cn-font my-2">
-            我是活動標題
+            品牌設計實戰工作坊
           </h6>
           <div className="d-flex">
             <div className="col-8 p-0">
-              <p>地點：台北市</p>
-              <p>時間：JUN</p>
+              <p>地點：臺中市</p>
+              <p>時間：2021年05月</p>
             </div>
             <div className="col-4 p-0">
               <button className="col-4 border-right  py-2">

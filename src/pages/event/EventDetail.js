@@ -65,7 +65,7 @@ function EventDetail(props) {
      const data = await response.json()
 
      setEventName(data.eventName)
-     setEventDateStart(data.eEventDateStar)
+     setEventDateStart(data.eventDateStart)
      setEventDateEnd(data.eventDateEnd)
      setEventDesc(data.eventDescription)
      setEventPrice(data.eventPrice)
@@ -105,7 +105,10 @@ function EventDetail(props) {
                 <IoIosHeart />
               </div>
               <p className="col-12 cn-font p-0 mt-3">
-                時間：{eventDateStart} - {eventDateEnd}
+                時間：{eventDateStart.split('-')[0]}年
+                {eventDateStart.split('-')[1]}月～
+                {eventDateEnd.split('-')[0]}年
+                {eventDateEnd.split('-')[1]}月
               </p>
               <p className="col-12 cn-font p-0 mt-2">
                 地點：{eventCity}
@@ -176,9 +179,10 @@ function EventDetail(props) {
                   className="col-12 p-0 ed-detail-content mb-5"
                 >
                   <p id="example-collapse-text">
-                    1889年9月，荷蘭後印象派畫家文森特·梵谷（Vincent
-                    van
-                    Gogh）在畫布上用油畫了自畫像。這幅作品可能是梵谷的最後一幅自畫像，是在他離開法國南部聖雷米的普羅旺斯之前不久畫的。這幅畫現在在巴黎的奧賽博物館（Muséed'Orsay）展出。
+                    || 為示範以活動介紹文字取代活動規範 ||{' '}
+                    <br />
+                    <br />
+                    {eventDesc}
                   </p>
                 </Collapse>
 
