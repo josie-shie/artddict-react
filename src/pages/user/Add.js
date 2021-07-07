@@ -72,10 +72,10 @@ function Add(props) {
       setDataLoading(false)
 
       swal({
-        text: '註冊成功',
+        text: '註冊成功，請重新登入!',
         icon: 'success',
         button: false,
-        timer: 2000,
+        timer: 3000,
       })
     }, 500)
   }
@@ -257,7 +257,7 @@ function Add(props) {
                 </div>
                 <div className="u-AddBtn">
                   <Link
-                    to="/user-msgedit"
+                    to="/user-login"
                     className="u-link1"
                     style={{ textDecoration: 'none' }}
                     onClick={() => {

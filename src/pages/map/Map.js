@@ -26,8 +26,8 @@ const Map = () => {
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
   const [city, setCity] = useState('')
-  const [musPx, setMusePx] = useState('')
-  const [musPy, setMusePy] = useState('')
+  const [musPx, setMusePx] = useState([])
+  const [musPy, setMusePy] = useState([])
 
   // 連接的伺服器資料網址
   async function getMuseumServer() {
@@ -63,20 +63,23 @@ const Map = () => {
 
     const response = await fetch(request)
     const data = await response.json()
-    setMuseums(data)
     // 設定資料
+    setMuseums(data)
   }
 
   useEffect(() => {
     getMuseumServer()
   }, [])
 
-  useEffect(() => {
-    museums.map((mus) => {
-      setMusePx(mus.Px)
-      setMusePy(mus.Py)
-    })
-  }, [country, township, city])
+
+
+  // useEffect(() => {
+  //   museums.map((mus) => {
+  //     setMusePx(mus.Px)
+  //     setMusePy(mus.Py)
+  //     console.log(mus.Px,mus.Py);
+  //   })
+  // }, [city])
 
   const museumDisplay = museums.map((mus) => {
     return (
@@ -99,7 +102,10 @@ const Map = () => {
               <p>時間：09:00-17:00</p>
             </div>
             <div className="map-card-btn text-center">
-              <Link to="/map/museum:sid">
+              <Link
+                key={mus.id}
+                to={`/map/mapevent/${mus.id}?`}
+              >
                 <button className="px-2 pt-3">
                   更多活動
                   <RiArrowRightUpLine />
@@ -193,7 +199,7 @@ const Map = () => {
                 <IoIosSearch size={30} color={'#81FC4D'} />
               </div>
             </div>
-            <LeafLet2 musPx={musPx} musPy={musPy} />
+            <LeafLet2 museums={museums} />
           </div>
           <div className="map-card-area col-4 pl-0">
             <div className="map-card-select">

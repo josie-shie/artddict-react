@@ -1,20 +1,70 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ReactComponent as Logo } from '../../pics/logo-bk.svg'
 import { Link } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
 import '../../bootstrap/css/bootstrap.css'
 import './styles/cart-product.scss'
 
-// imgae
-import img1 from './img/1.png'
-import img2 from './img/2.png'
+// demo
+import fakedata from './data/fakedata'
+import Main from './demo/Main'
+import Basket from './demo/Basket'
 
-// icon
-import { FaRegEdit } from 'react-icons/fa'
-import { FaLock } from 'react-icons/fa'
-import { RiDeleteBinLine } from 'react-icons/ri'
+// // imgae
+// import img1 from './img/1.png'
+// import img2 from './img/2.png'
+
+// // icon
+// import { FaRegEdit } from 'react-icons/fa'
+// import { FaLock } from 'react-icons/fa'
+// import { RiDeleteBinLine } from 'react-icons/ri'
 
 function CartProduct() {
+  const { products } = fakedata
+  const [cartItems, setCartItems] = useState([])
+
+  // 加進購物車/加1
+  const onAdd = (product) => {
+    const exist = cartItems.find((x) => x.id === product.id)
+    if (exist) {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === product.id
+            ? { ...exist, qty: exist.qty + 1 }
+            : x
+        )
+      )
+    } else {
+      setCartItems([...cartItems, { ...product, qty: 1 }])
+    }
+  }
+  // 移出購物車/減1
+  const onRemove = (product) => {
+    const exist = cartItems.find((x) => x.id === product.id)
+    if (exist.qty === 1) {
+      setCartItems(
+        cartItems.filter((x) => x.id !== product.id)
+      )
+    } else {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === product.id
+            ? { ...exist, qty: exist.qty - 1 }
+            : x
+        )
+      )
+    }
+  }
+  // 移出購物車
+  const onDelete = (product) => {
+    const exist = cartItems.find((x) => x.id === product.id)
+    if (exist.qty >= 1) {
+      setCartItems(
+        cartItems.filter((x) => x.id !== product.id)
+      )
+    }
+  }
+
   return (
     <>
       <div className="c-bg">
@@ -43,133 +93,14 @@ function CartProduct() {
             </Nav.Link>
           </div>
         </div>
-        <div className="c-productlist">
-          <div className="c-product-r1 d-flex py-5 pl-4">
-            <div className="c-img150">
-              <img src={img1} />
-            </div>
-            <div className="c-product1detail d-flex flex-column justify-content-between col-4 pl-4">
-              <div>
-                <p className="h4">梵谷自畫像T-Shirt</p>
-                <p className="c-pid">商品編號 # 200123</p>
-                <p className="mt-3">尺寸：S</p>
-              </div>
-              <div className="d-lg-flex">
-                <a
-                  href="#"
-                  className="c-product-a d-flex align-items-center"
-                >
-                  <FaRegEdit size={20} />
-                  <p className="c-store2 ml-1 mr-4">
-                    商品細節
-                  </p>
-                </a>
-                <a
-                  href="#"
-                  className="c-product-a d-flex align-items-center"
-                >
-                  <RiDeleteBinLine size={20} />
-                  <p className="c-store2 ml-1 mr-4">
-                    移除商品
-                  </p>
-                </a>
-              </div>
-            </div>
 
-            <div className="c-price d-flex flex-column align-items-center col-2">
-              <p className="mb-5">價格</p>
-              <p>NT$ 780</p>
-            </div>
-            <div className="c-quantity d-flex flex-column align-items-center col-2">
-              <p className="mb-3 pb-3">數量</p>
-              <div className="c-qbox">1</div>
-            </div>
-            <div className="c-total d-flex flex-column align-items-center col-2">
-              <p className="mb-5">小計</p>
-              <p>NT$ 780</p>
-            </div>
-          </div>
-          <div className="c-product-r1 d-flex py-5 pl-4">
-            <div className="c-img150">
-              <img src={img2} />
-            </div>
-            <div className="c-product1detail d-flex flex-column justify-content-between col-4 pl-4">
-              <div>
-                <p className="h4">梵谷自畫像T-Shirt</p>
-                <p className="c-pid">商品編號 # 200123</p>
-                <p className="mt-3">尺寸：S</p>
-              </div>
-              <div className="d-flex">
-                <a
-                  href="#"
-                  className="c-product-a d-flex align-items-center"
-                >
-                  <FaRegEdit size={20} />
-                  <p className="c-store2 ml-1 mr-4">
-                    商品細節
-                  </p>
-                </a>
-                <a
-                  href="#"
-                  className="c-product-a d-flex align-items-center"
-                >
-                  <RiDeleteBinLine size={20} />
-                  <p className="c-store2 ml-1 mr-4">
-                    移除商品
-                  </p>
-                </a>
-              </div>
-            </div>
-
-            <div className="c-price d-flex flex-column align-items-center col-2">
-              <p className="mb-5">價格</p>
-              <p>NT$ 780</p>
-            </div>
-            <div className="c-quantity d-flex flex-column align-items-center col-2">
-              <p className="mb-3 pb-3">數量</p>
-              <div className="c-qbox">1</div>
-            </div>
-            <div className="c-total d-flex flex-column align-items-center col-2">
-              <p className="mb-5">小計</p>
-              <p>NT$ 780</p>
-            </div>
-          </div>
-          {/* 總金額＆折價卷 */}
-          <div className="d-flex justify-content-between mt-3 pt-3 pb-5">
-            <div className>
-              <a href="#" className="c-store2 mr-5">
-                聯絡客服
-              </a>
-              <a href="#" className="c-store2 d-block mt-2">
-                運費＆退貨條款
-              </a>
-            </div>
-            <div>
-              <p>
-                總計：<sapn className="h4">NT$ 1,560</sapn>
-              </p>
-              <a
-                href="#"
-                className="c-store2 d-block ml-5 mt-3"
-              >
-                選取你的折扣碼
-              </a>
-            </div>
-          </div>
-          <div className="c-checkout pt-4 d-flex justify-content-between">
-            <div className="d-flex align-items-center">
-              <FaLock size={20} />
-              <p className="c-lock ml-1">
-                本賣場使用綠界科技安全結帳系統，保障您的資安
-              </p>
-            </div>
-            <a href="./cart-shipping">
-              <div className="c-checkoutbtn">
-                <p>結帳</p>
-              </div>
-            </a>
-          </div>
-        </div>
+        <Main products={products} onAdd={onAdd}></Main>
+        <Basket
+          cartItems={cartItems}
+          onAdd={onAdd}
+          onRemove={onRemove}
+          onDelete={onDelete}
+        ></Basket>
       </div>
     </>
   )
