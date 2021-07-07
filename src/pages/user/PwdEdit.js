@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 // style
 import './styles/PwdEdit.scss'
-import Menu from './components/Menu'
+import Menu2 from './components/Menu2'
 import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
 
@@ -118,7 +118,7 @@ export default class RegistrationForm extends Component {
           <Breadcrumb />
         </div>
         <div className="u-userMenu d-none d-lg-block d-xl-block">
-          <Menu />
+          <Menu2 />
         </div>
         <Container fluid>
           <div className="d-flex u-row justify-content-around">

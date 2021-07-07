@@ -79,6 +79,42 @@ function OrderPro() {
               </div>
             </div>
           </div>
+
+          <div class="u-table">
+            <div class="u-th d-flex justify-content-around">
+              <div class="u-orderId">訂單編號</div>
+              <div class="u-orderDate">訂單日期</div>
+              <div class="u-payType">付款狀態</div>
+              <div class="u-price">總價</div>
+              <div class="u-orderType">訂單狀態</div>
+              <div class="u-bt col-2"></div>
+            </div>
+            <div class="u-tb d-flex justify-content-around">
+              <div class="u-ordrtInput1">訂單編號</div>
+              <div class="u-ordrtInput2">訂單日期</div>
+              <div class="u-ordrtInput3">付款狀態</div>
+              <div class="u-ordrtInput4">總價</div>
+              <div class="u-ordrtInput5 ">訂單狀態</div>
+              <div class="u-bt col-2">
+                <div className="u-Bbtn">
+                  <button class="btn btn btn-dark">
+                    <Link
+                      className="u-link"
+                      to="/user-orderpro/detail"
+                      style={{ textDecoration: 'none' }}
+                    >
+                      詳細資料
+                    </Link>
+                  </button>
+                </div>
+                <div className="u-Lbtn">
+                  <button class="btn btn btn-light">
+                    取消
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </Container>
       </div>
     </>

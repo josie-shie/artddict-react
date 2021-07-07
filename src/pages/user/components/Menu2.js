@@ -2,14 +2,14 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 import '../styles/classes.css'
 
-function Menu() {
+function Menu2() {
   return (
     <>
       <div className="tab-bar">
         <NavLink
           activeClassName="activenav"
           className={'tab'}
-          to="/user-msgedit"
+          to="/user-pwdEdit"
           style={{ textDecoration: 'none' }}
         >
           修改資料
@@ -18,7 +18,7 @@ function Menu() {
         <NavLink
           activeClassName="activenav"
           className={'tab'}
-          to="/user-orderpro"
+          to="/user-ordertic"
           style={{ textDecoration: 'none' }}
         >
           訂單查詢
@@ -34,7 +34,7 @@ function Menu() {
         <NavLink
           activeClassName="activenav"
           className={'tab'}
-          to="/user-ticket"
+          to="/user-workshop"
           style={{ textDecoration: 'none' }}
         >
           我的票券
@@ -50,7 +50,7 @@ function Menu() {
         <NavLink
           activeClassName="activenav"
           className={'tab'}
-          to="/user-auction"
+          to="/user-auctionOver"
           style={{ textDecoration: 'none' }}
         >
           競標查詢
@@ -60,4 +60,4 @@ function Menu() {
   )
 }
 
-export default Menu
+export default Menu2
