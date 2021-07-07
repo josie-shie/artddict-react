@@ -1,4 +1,4 @@
-import { React, useState } from 'react'
+import { React, useState, useRef, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import {
   Container,
@@ -13,13 +13,8 @@ import BreadCrumb from './components/EventBreadCrumb'
 
 // react icons
 import {
-  IoIosArrowBack,
   IoIosArrowForward,
-  IoIosArrowRoundDown,
-  IoIosSearch,
-  IoIosHeart,
   IoMdAdd,
-  IoMdRemove,
 } from 'react-icons/io'
 
 // import pictures
@@ -36,11 +31,16 @@ import './style/fontAndBtn.scss'
 import './style/WorkshopUpload.scss'
 
 function WorkshopUpload() {
+  const inputRef = useRef()
 
   const [show, setShow] = useState(false)
+  // const [inputData, setInputData] = useState(false)
 
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
+  // const triggerFileSelectPopup = () => inputRef.current.click()
+
+  // useEffect( handleShow, [inputData])
 
 
   return (
@@ -64,6 +64,9 @@ function WorkshopUpload() {
               <form
                 className="col-8 p-0 justify-content-start d-flex flex-wrap"
                 action=""
+                form
+                method="post"
+                enctype="multipart/form-data"
               >
                 <div className="eu-pic-left col-8 p-0 mr-3">
                   <div className="position-relative">
@@ -72,9 +75,19 @@ function WorkshopUpload() {
                       src={EuGreySpin}
                       alt=""
                     />
+                    <input
+                      type="file"
+                      accept="image/*"
+                      ref={inputRef}
+                      // onChange={}
+                      style={{ display: 'none' }}
+                    />
                     <button
                       className="e-btn-m cn-font position-absolute"
-                      onClick={handleShow}
+                      type="button"
+                      onClick={() => {
+                        // triggerFileSelectPopup()
+                      }}
                     >
                       上傳圖片
                       <IoMdAdd />
@@ -117,6 +130,7 @@ function WorkshopUpload() {
                 ></textarea>
 
                 <div className="col-11 d-flex flex-wrap justify-content-center my-4">
+                 
                   <button
                     className="eu-send-cmt e-btn-m col-l2 my-3"
                     type="submit"

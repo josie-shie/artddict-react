@@ -77,7 +77,7 @@ function event() {
 
           {/* Card */}
           <Link
-            to="/event/event-list/detail"
+            to="/event/event-list/"
             className="row d-flex justify-content-left mt-5"
           >
             <div className=" col-3 hero-event-1 p-0">
@@ -352,7 +352,7 @@ function event() {
           </Row>
           <Row className="justify-content-center">
             <Link
-              to="/event/event-list/detail"
+              to="/event/event-list/"
               className="e-work1 position-relative  col-4 col-lg-3  p-0 mx-lg-3"
             >
               <p className="e-work-name cn-font position-absolute">
@@ -370,7 +370,7 @@ function event() {
             </Link>
 
             <Link
-              to="/event/event-list/detail"
+              to="/event/event-list/"
               className="e-work2 position-relativecol-4 col-4 col-lg-3  p-0 mx-lg-3"
             >
               <p className="e-work-name cn-font position-absolute">
@@ -389,7 +389,7 @@ function event() {
             </Link>
 
             <Link
-              to="/event/event-list/detail"
+              to="/event/event-list/"
               className="e-work3 position-relativecol-4 col-4 col-lg-3  p-0 mx-lg-3"
             >
               <p className="e-work-name cn-font position-absolute">
@@ -461,7 +461,7 @@ function event() {
               {/* 第一行城市 */}
               <div className="col-12 p-0 e-city-area d-flex border-top-0 justify-content-between">
                 <Link
-                  to="/event/event-list"
+                  to="/event/event-list?city=彰化縣&order=latest"
                   className="el-c col-4 col-lg-3 p-0 ml-lg-4"
                 >
                   <div className="e-location-card position-relative">
@@ -482,7 +482,7 @@ function event() {
                   </button>
                 </Link>
                 <Link
-                  to="/event/event-list"
+                  to="/event/event-list?city=臺北市"
                   className="el-c col-4 col-lg-3 p-0 ml-lg-4"
                 >
                   <div className="e-location-card2 position-relative">

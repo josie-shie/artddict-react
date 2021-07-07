@@ -76,6 +76,9 @@ function EventDetail(props) {
    useEffect(() => {
      getEventQueryServer()
    }, [])
+   useEffect(() => {
+     getEventQueryServer()
+   }, [id])
 
   return (
     <>

@@ -39,7 +39,7 @@ function EventMore(props) {
       </Row>
       <Row className="justify-content-between both-padding mt-5 pb-5 cn-font">
         <Link
-          to="/event/"
+          to="/event/event-list/detail/4"
           style={{ textDecoration: 'none' }}
           className="e-more-card col-4 my-3 "
         >
@@ -66,7 +66,7 @@ function EventMore(props) {
         </Link>
 
         <Link
-          to="/event/"
+          to="/event/event-list/detail/10"
           style={{ textDecoration: 'none' }}
           className="e-more-card col-4 my-3 "
         >
@@ -93,7 +93,7 @@ function EventMore(props) {
         </Link>
 
         <Link
-          to="/event/"
+          to="/event/event-list/detail/15"
           style={{ textDecoration: 'none' }}
           className="e-more-card col-4 my-3 "
         >

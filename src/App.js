@@ -74,7 +74,7 @@ function App() {
             </Route>
             <Route
               exact
-              path="/event/event-list/detail/share/:id"
+              path="/event/event-list/detail/share/"
             >
               <WorkshopShare />
             </Route>

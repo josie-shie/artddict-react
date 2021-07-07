@@ -28,6 +28,7 @@ import './style/fontAndBtn.scss'
 import './style/eventList.scss'
 
 function EventList(props) {
+
   const [events, setEvents] = useState([])
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
@@ -36,6 +37,11 @@ function EventList(props) {
   // const [date, setDate] = useState('')
   // const [isFilter, setIsfFilter] = useState(false)
   const [order, setOrder] = useState(true)
+
+
+  // setCity(props.match.params.city)
+
+
 
   let orderBy = ''
   if (order){
@@ -82,7 +88,7 @@ function EventList(props) {
 
   
   useEffect(() => {
-    getEventServer()
+    getEventQueryServer()
   }, [])
 
   //測試城市選單
