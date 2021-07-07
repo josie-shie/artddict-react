@@ -4,7 +4,7 @@ import { withRouter } from 'react-router-dom'
 import './map.scss'
 
 //? components
-import LeafLet from './components/LeafLet'
+import LeafLet2 from './components/LeafLet2'
 import MarqueeMap from './components/MarqueeMap'
 import MarqueeMapEnd from './components/MarqueeMapEnd'
 import MapCard from './components/MapCard'
@@ -24,7 +24,7 @@ const Map = () => {
         <div className="map-content d-flex mb-5">
           <div className="col-8 d-flex flex-column px-0 ml-3">
             <div className="map-search-bar d-flex align-items-center justify-content-center py-2">
-              <div className="map-select-box px-4">
+              <div className="map-select-box px-4 pt-1">
                 地區
               </div>
               <from className="d-flex justify-content-between">
@@ -42,7 +42,24 @@ const Map = () => {
                   <option value="">123</option>
                   <option value="">123</option>
                 </select>
-                <div className="map-select-box ml-5 px-4">
+                <div className="map-select-box px-4 pt-1">
+                  城市
+                </div>
+                <select
+                  className="map-select-box map-select pl-3 border-left-0 "
+                  name=""
+                  id=""
+                >
+                  <option
+                    style={{ color: '#707070' }}
+                    value=""
+                  >
+                    請選擇
+                  </option>
+                  <option value="">123</option>
+                  <option value="">123</option>
+                </select>
+                <div className="map-select-box px-4 pt-1">
                   搜尋
                 </div>
               </from>
@@ -52,23 +69,10 @@ const Map = () => {
               <div className="map-search mr-2">
                 <IoIosSearch size={30} color={'#81FC4D'} />
                 <div className="">
-                  <form action="" autocomplete="on">
-                    <input
-                      id="search"
-                      name="map-search"
-                      type="text"
-                      placeholder="Search somthing ?"
-                    />
-                    <input
-                      id="search-submit"
-                      value="Rechercher"
-                      type="submit"
-                    />
-                  </form>
                 </div>
               </div>
             </div>
-            <LeafLet />
+            <LeafLet2 />
           </div>
           <div className="map-card-area col-4 pl-0">
             <div className="d-flex justify-content-center">
