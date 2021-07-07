@@ -72,10 +72,10 @@ function Add(props) {
       setDataLoading(false)
 
       swal({
-        text: '註冊成功，請重新登入～',
+        text: '註冊成功，請重新登入!',
         icon: 'success',
         button: false,
-        timer: 3500,
+        timer: 3000,
       })
     }, 500)
   }
