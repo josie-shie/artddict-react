@@ -30,6 +30,10 @@
   z-index: 0;
 }
 
+.u-img-carousel > img {
+  width: 100%;
+}
+
 .u-title01 {
   width: 152px;
   height: 44px;
@@ -77,7 +81,6 @@
 }
 
 // ----- form 表單 -----
-
 .u-container2 {
   margin-top: 84px;
 }
@@ -87,13 +90,19 @@
 }
 
 .u-membertile > p {
+  width: 100%;
   font-family: EngraversBold;
   font-size: 3rem;
   letter-spacing: 5px;
 }
 
-//----- 登入、註冊btn -----
+@media screen and (max-width:1216px){
+  .u-membertile > p {
+    font-size: 28px;
+  }
+}
 
+//----- 登入、註冊btn -----
 .u-addbutton {
   width: 100%;
   border-top: 2px solid #000;
@@ -134,7 +143,6 @@
 }
 
 //----- icons -----
-
 .u-gf {
   width: 100%;
   height: 95px;
@@ -151,7 +159,6 @@
 }
 
 //----- input 樣式 -----
-
 .u-form > input {
   margin-top: 20px;
   width: 100%;
@@ -179,9 +186,8 @@
 }
 
 // 註冊、登入按鈕
-
 .u-AddBtn {
-  margin-left: 38%;
+  margin-left: 35%;
   margin-top: 50px;
   text-align: center;
   line-height: 45px;
@@ -196,5 +202,11 @@
       color: #fff;
     }
     background-color: #000;
+  }
+}
+
+@media screen and (max-width:580){
+  .u-AddBtn {
+    margin-right: 10%;
   }
 }
