@@ -45,10 +45,10 @@ class Coupon extends React.Component {
         <div className="u-userMenu d-none d-lg-block d-xl-block">
           <Menu />
         </div>
-        <Row className="d-flex">
+        <Row className="d-flex ml-1">
           <div className="col-6">
             <div className="u-couponbox d-flex">
-              <div class="u-Text col-7">
+              <div class="u-Text col-6">
                 <div class="u-couponTitle">
                   <p>生日禮</p>
                 </div>
