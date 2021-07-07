@@ -121,7 +121,7 @@ function EventDetail(props) {
               </p>
             </div>
             <div
-              className="ed-commu-btn  col-6 d-flex justify-content-md-around
+              className="ed-commu-btn  col-6 d-flex justify-content-center
             align-items-center"
             >
               <Link
