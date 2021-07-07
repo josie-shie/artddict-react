@@ -1,13 +1,44 @@
 import React from 'react';
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import '../style/AuctionProductList.scss';
-import { withRouter,Link } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import '../../../bootstrap/css/bootstrap.css'
 import AuctionProductCard from './AuctionProductCard'
 
 
 function AuctionProductList(props) {
-    const {data} = props
+    //用來放資料
+    const [aucInfo, setAucInfo] = useState([])
+
+    // const { data } = props
+
+    async function getAucProFromServer() {
+        // 開啟載入指示
+        // setDataLoading(true)
+
+        // 連接的伺服器資料網址
+        const url = 'http://localhost:6005/auctoin/auction-list'
+
+        // 注意header資料格式要設定，伺服器才知道是json格式
+        const request = new Request(url, {
+            method: 'GET',
+            headers: new Headers({
+                Accept: 'application/json',
+                'Content-Type': 'appliaction/json',
+            }),
+        })
+
+        const response = await fetch(request)
+        const data = await response.json()
+        console.log(data)
+        // 設定資料
+        setAucInfo(data)
+    }
+
+    // 一開始就會開始載入資料
+    useEffect(() => {
+        getAucProFromServer()
+    }, [])
 
     function TimeRemaining(deadline) {
         //截止時間(毫秒)
@@ -35,15 +66,16 @@ function AuctionProductList(props) {
         <>
             <div className="container">
                 <div className="row">
-                {data.map((auctionProduct , index ) =>(
-                    <AuctionProductCard
-                        aucId={auctionProduct.aucId}
-                        aucName={auctionProduct.aucName}
-                        aucPriceNow={auctionProduct.aucPriceNow}
-                        deadline={auctionProduct.deadline}
-                        TimeRemaining={TimeRemaining}
-                    />
-                ))}
+                {/* const eventDisplay = events.map((event) => { */}
+                    {aucInfo.map((auctionProduct, index) => (
+                        <AuctionProductCard
+                            aucId={auctionProduct.aucId}
+                            aucName={auctionProduct.aucName}
+                            aucPriceNow={auctionProduct.aucPriceNow}
+                            deadline={auctionProduct.aucDeadline}
+                            TimeRemaining={TimeRemaining}
+                        />
+                    ))}
                 </div>
             </div>
         </>

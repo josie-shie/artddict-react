@@ -205,7 +205,7 @@ function ProductList() {
                   </div>
                   <div className="prolist-cardWordBox d-flex">
                     <div className="prolist-cardProName">
-                      <p>蒙德里安之杯</p>
+                      <p>蒙德里安之杯之杯之</p>
                     </div>
                     <div className="prolist-cardProPrice">
                       <p>NT$490</p>

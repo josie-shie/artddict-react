@@ -4,10 +4,10 @@ import '../map.scss'
 
 import { RiArrowRightUpLine } from 'react-icons/ri'
 
-const MapCardSql = () => {
-
-    const [museums, setMuseums] = useState([])
-  const [dataLoading, setDataLoading] = useState(false)
+const MapCardSql = (props) => {
+  const [city, setCity] = props
+  const [museums, setMuseums] = useState([])
+  //const [dataLoading, setDataLoading] = useState(false)
 
   // 連接的伺服器資料網址
   async function getMuseumServer() {
@@ -26,6 +26,23 @@ const MapCardSql = () => {
     const data = await response.json()
     // 設定資料
     setMuseums(data)
+  }
+
+  async function getMusQueryServer() {
+    const url = `http://localhost:6005/map?cityId=${city}`
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    setMuseums(data)
+    // 設定資料
   }
 
   useEffect(() => {
@@ -62,11 +79,7 @@ const MapCardSql = () => {
       </>
     )
   })
-    return (
-        <div>
-            {museumDisplay}
-        </div>
-    );
+  return <div>{museumDisplay}</div>
 }
 
-export default withRouter(MapCardSql);
+export default withRouter(MapCardSql)

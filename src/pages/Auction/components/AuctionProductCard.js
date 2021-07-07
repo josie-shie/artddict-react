@@ -10,11 +10,16 @@ function AuctionProductCard(props) {
     const [AuctionProductCard_CountDown, setAuctionProductCard_CountDown] = useState([0, '', 0, ''])
     const [loading, setLoading] = useState('')
     const [isRunning, setIsRunning] = useState(true);
+    // const [deadlineB,setDeadline] = useState()
 
     // 初始化倒數計時器
     useEffect(() => {
         //第一次計算剩餘時間(不控制)
-        let newAucProductTimeRemaining = TimeRemaining(deadline)
+        
+        let deadlineA = new Date(deadline).getTime()
+        // setDeadline(deadlineA)
+        console.log(deadlineA)
+        let newAucProductTimeRemaining = TimeRemaining(deadlineA)
         // console.log("我是百變怪", newAucProductTimeRemaining)
         //第一次計算剩餘時間(react資料流)
         setAuctionProductCard_CountDown(newAucProductTimeRemaining)
@@ -36,8 +41,10 @@ function AuctionProductCard(props) {
     }, [])
 
     useInterval(() => {
+        
+        let deadlineA = new Date(deadline).getTime()
         //設立一個變數來避免 setstate非同步問題
-        let TimeRemainingAA = TimeRemaining(deadline)
+        let TimeRemainingAA = TimeRemaining(deadlineA)
         // console.log(TimeRemainingAA)
         //更改state狀態
         //每秒計算剩餘時間
