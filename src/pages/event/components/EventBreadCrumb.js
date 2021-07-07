@@ -8,7 +8,9 @@ import '../style/EventBreadCrumb.scss'
 import { pathnameList, pathnameTextList } from '../config'
 
 function EventBreadCrumb(props) {
+  const id = props.match.params.id
   const { location } = props
+  
 
   const findPathnameIndex = (pathname) => {
     const foundIndex = pathnameList.findIndex(
@@ -33,6 +35,12 @@ function EventBreadCrumb(props) {
     const pathArray = pathnameList[index].split('/')
 
     console.log(textArray, pathArray)
+
+    // '/event',
+    // '/event/event-list',
+    // '/event/event-list/detail',
+    // '/event/event-list/detail/share',
+    // '/event/event-list/detail/upload',
 
     const listArray = textArray.map((v, i, array) => {
       if (i === 0) return ''

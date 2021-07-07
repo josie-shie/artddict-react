@@ -1,11 +1,7 @@
 import { React, useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import $ from 'jquery'
-import {
-  Container,
-  Row,
-  Collapse,
-} from 'react-bootstrap'
+import { Container, Row, Collapse } from 'react-bootstrap'
 
 // Component
 import EHeader from './components/Darkheader'
@@ -34,13 +30,12 @@ import './style/eventDetail.scss'
 
 function EventDetail(props) {
   const id = props.match.params.id
-  
+
   //開合功能state
   const [open, setOpen] = useState(true)
   const [open2, setOpen2] = useState(false)
   const [open3, setOpen3] = useState(false)
   const [open4, setOpen4] = useState(false)
-
 
   const [eventName, setEventName] = useState('')
   const [eventDateStart, setEventDateStart] = useState('')
@@ -49,36 +44,44 @@ function EventDetail(props) {
   const [eventPrice, setEventPrice] = useState('')
   const [eventImg, setEventImg] = useState('')
   const [eventCity, setEventCity] = useState('')
+  const [isShared, setIsShared] = useState(true)
 
+  async function getEventQueryServer() {
+    const url = `http://localhost:6005/event/event-list/${id}`
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
 
-   async function getEventQueryServer() {
-     const url = `http://localhost:6005/event/event-list/${id}`
-     const request = new Request(url, {
-       method: 'GET',
-       headers: new Headers({
-         Accept: 'application/json',
-         'Content-Type': 'appliaction/json',
-       }),
-     })
+    const response = await fetch(request)
+    const data = await response.json()
 
-     const response = await fetch(request)
-     const data = await response.json()
+    setEventName(data.eventName)
+    setEventDateStart(data.eventDateStart)
+    setEventDateEnd(data.eventDateEnd)
+    setEventDesc(data.eventDescription)
+    setEventPrice(data.eventPrice)
+    setEventImg(data.eventImg)
+    setEventCity(data.cityName)
+    setIsShared(data.shareId)
+  }
 
-     setEventName(data.eventName)
-     setEventDateStart(data.eventDateStart)
-     setEventDateEnd(data.eventDateEnd)
-     setEventDesc(data.eventDescription)
-     setEventPrice(data.eventPrice)
-     setEventImg(data.eventImg)
-     setEventCity(data.cityName)
-   }
+  let shareBtn = ''
+  if (isShared) {
+    shareBtn = 'block'
+  } else {
+    shareBtn = 'none'
+  }
 
-   useEffect(() => {
-     getEventQueryServer()
-   }, [])
-   useEffect(() => {
-     getEventQueryServer()
-   }, [id])
+  useEffect(() => {
+    getEventQueryServer()
+  }, [])
+  useEffect(() => {
+    getEventQueryServer()
+  }, [id])
 
   return (
     <>
@@ -130,11 +133,17 @@ function EventDetail(props) {
                 </button>
               </Link>
               <Link
-                //{`/event/event-list/detail/${event.id}`}
-                to="/event/event-list/detail/share/13"
+                to={`/event/event-list/detail/share/${id}`}
                 className="col-6"
+                style={{ textDecoration: 'none'
+                  }}
               >
-                <button className="cn-font px-0">
+                <button
+                  className="cn-font px-0"
+                  style={{
+                    display: `${shareBtn}`
+                  }}
+                >
                   觀賞作品
                 </button>
               </Link>
@@ -329,4 +338,4 @@ function EventDetail(props) {
   )
 }
 
-export default withRouter (EventDetail)
+export default withRouter(EventDetail)
