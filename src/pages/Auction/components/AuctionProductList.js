@@ -33,6 +33,7 @@ function AuctionProductList(props) {
         console.log(data)
         // 設定資料
         setAucInfo(data)
+        // console.log('資料:',aucInfo)
     }
 
     // 一開始就會開始載入資料
@@ -73,6 +74,7 @@ function AuctionProductList(props) {
                             aucName={auctionProduct.aucName}
                             aucPriceNow={auctionProduct.aucPriceNow}
                             deadline={auctionProduct.aucDeadline}
+                            aucImg={auctionProduct.aucImg}
                             TimeRemaining={TimeRemaining}
                         />
                     ))}

@@ -23,6 +23,7 @@ import {
 import { data } from './data/data.js'
 
 function AuctionDetail(props) {
+  // console.log(props.match.params.id)
   //倒數計時器間隔
   const [delay, setDelay] = useState(500);
   //倒數計時器停止與否  
@@ -38,6 +39,13 @@ function AuctionDetail(props) {
   const [openTwo, setOpenTwo] = useState(false);
   const [openThree, setOpenThree] = useState(false);
 
+  const [aucDetailinfo, setAucDetailInfo] = useState([])
+
+  //千分位逗號分隔的api
+  const internationalNumberFormat = new Intl.NumberFormat('en-US')
+
+  //剩餘時間
+  const [auctionDetailcountdown, setAuctionDetailcountdown] = useState([0, 0, 0, -1])
   //預設資料物件
   const [aucProduct, setAucProduct] = useState(
     {
@@ -47,30 +55,37 @@ function AuctionDetail(props) {
       deadline: 0,
     }
   )
+  let newAucProduct = [];
+  async function getAucProDetailFromServer(aucId) {
+    // 開啟載入指示
+    // setDataLoading(true)
 
-  
-console.log(props)
-  //剩餘時間
-  const [auctionDetailcountdown, setAuctionDetailcountdown] = useState([0, 0, 0, -1])
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:6005/auctoin/' + aucId
 
-  // console.log('delay',delay,'auctionRunning',auctionRunning,'loading',loading,'isRunning',isRunning,'aucProduct',aucProduct)
-  //千分位逗號分隔的api
-  const internationalNumberFormat = new Intl.NumberFormat('en-US')
-
-
-  let newAucProduct = 0;
-  useEffect(() => {
-    //從資料庫抓取資料
-    const product = data.find((v, i) => {
-
-      return parseInt(props.match.params.id) === v.aucId
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
     })
 
-    if (product)
-      setAucProduct(product)
-    newAucProduct = product
-    // console.log('抓資料', newAucProduct)
+    const response = await fetch(request)
+    const data = await response.json()
+    // 設定資料
+    setAucDetailInfo(data)
+    newAucProduct = data
+  }
 
+  // console.log(props)
+
+  // console.log('delay',delay,'auctionRunning',auctionRunning,'loading',loading,'isRunning',isRunning,'aucProduct',aucProduct)
+
+  useEffect(() => {
+    //從資料庫抓取資料
+    getAucProDetailFromServer(props.match.params.id)
   }, [])
 
   //計算剩餘時間 
@@ -96,11 +111,9 @@ console.log(props)
 
   }
 
-  // 初始化倒數計時器
+  // 初始化倒數計時器 可以在第一瞬間顯示是否競標結束
   useEffect(() => {
-
-    let deadlineA = new Date(newAucProduct.deadline).getTime()
-    console.log(deadlineA)
+    let deadlineA = new Date(newAucProduct.aucDeadline).getTime()
     //第一次計算剩餘時間(不控制)
     let newAucProductTimeRemaining = TimeRemaining(deadlineA)
     //第一次計算剩餘時間(react資料流)
@@ -109,6 +122,7 @@ console.log(props)
     if (cc < 0) {
       // console.log('競標結束')
       setLoading('競標結束')
+      //結束計時器(雖然他還沒開始)
       setIsRunning(false)
     } else {
       // console.log('競標繼續')
@@ -117,7 +131,7 @@ console.log(props)
 
   //倒時計時器
   useInterval(() => {
-    let deadlineA = new Date(aucProduct.deadline).getTime()
+    let deadlineA = new Date(aucDetailinfo.aucDeadline).getTime()
     //設立一個變數來避免 setstate非同步問題
     let TimeRemainingAA = TimeRemaining(deadlineA)
     //更改state狀態
@@ -152,7 +166,7 @@ console.log(props)
           </div>
           <div className="leftContent_secondpart">
             <div className="auctionDetailTitle">
-              {aucProduct.aucName}
+              {aucDetailinfo.aucName}
             </div>
             <div className="currentPrice">
               目前出價:NT${internationalNumberFormat.format(aucProduct.aucPriceNow)}
@@ -179,7 +193,7 @@ console.log(props)
             <Collapse in={openOne}>
               <div id="example-collapse-text">
                 <div className="auctionDetailProductDesContent">
-                  1889年9月，荷蘭後印象派畫家文森特·梵谷（Vincent van Gogh）在畫布上用油畫了自畫像。這幅作品可能是梵谷的最後一幅自畫像，是在他離開法國南部聖雷米的普羅旺斯之前不久畫的。這幅畫現在在巴黎的奧賽博物館（Muséed'Orsay）展出。
+                  {aucDetailinfo.aucDes}
                 </div>
               </div>
             </Collapse>
@@ -236,7 +250,7 @@ console.log(props)
           <div className="auctionDetailrightContent">
             {/* {console.log('render一波')} */}
             <AuctionDetailcountDown
-              aucProduct={aucProduct}
+              aucDetailinfo={aucDetailinfo}
               setAucProduct={setAucProduct}
               TimeRemaining={TimeRemaining}
               auctionDetailcountdown={auctionDetailcountdown}
@@ -261,7 +275,7 @@ console.log(props)
             </button>
           </div>
         </div>
-      {/* </div> */}
+        {/* </div> */}
       </div>
     </>
   );
