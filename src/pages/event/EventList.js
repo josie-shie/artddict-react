@@ -93,7 +93,7 @@ function EventList(props) {
   const eventDisplay = events.map((event) => {
     return (
       <Link
-        to={`event-list/detail/${event.id}`}
+        to={`/event-list/detail/${event.id}`}
         style={{ textDecoration: 'none' }}
         className="ed-list-card col-4 my-3 "
         key={event.eventId}

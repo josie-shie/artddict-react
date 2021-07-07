@@ -1,6 +1,11 @@
-import React from 'react'
+import { React, useState } from 'react'
 import { Link, withRouter } from 'react-router-dom'
-import { Container, Row } from 'react-bootstrap'
+import {
+  Container,
+  Row,
+  Modal,
+  Button,
+} from 'react-bootstrap'
 
 // import component
 import Lightheader from './components/Lightheader'
@@ -31,6 +36,13 @@ import './style/fontAndBtn.scss'
 import './style/WorkshopUpload.scss'
 
 function WorkshopUpload() {
+
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
+
+
   return (
     <>
       <div className="reduce-width">
@@ -60,7 +72,10 @@ function WorkshopUpload() {
                       src={EuGreySpin}
                       alt=""
                     />
-                    <button className="e-btn-m cn-font position-absolute">
+                    <button
+                      className="e-btn-m cn-font position-absolute"
+                      onClick={handleShow}
+                    >
                       上傳圖片
                       <IoMdAdd />
                     </button>
@@ -188,6 +203,26 @@ function WorkshopUpload() {
                 </Link>
               </div>
             </div>
+
+            <Modal show={show} onHide={handleClose}>
+              <Modal.Body>
+                Woohoo, you're reading this text in a modal!
+              </Modal.Body>
+              <Modal.Footer>
+                <Button
+                  variant="secondary"
+                  onClick={handleClose}
+                >
+                  Close
+                </Button>
+                <Button
+                  variant="primary"
+                  onClick={handleClose}
+                >
+                  Save Changes
+                </Button>
+              </Modal.Footer>
+            </Modal>
           </Row>
         </Container>
       </div>

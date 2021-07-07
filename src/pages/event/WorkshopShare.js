@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { Container, Row } from 'react-bootstrap'
+import AvatarEditor from 'react-avatar-editor'
 
 // import component
 import Lightheader from './components/Lightheader'
@@ -9,13 +10,7 @@ import EventMore from './components/EventMore'
 
 // react icons
 import {
-  IoIosArrowBack,
   IoIosArrowForward,
-  IoIosArrowRoundDown,
-  IoIosSearch,
-  IoIosHeart,
-  IoMdAdd,
-  IoMdRemove,
 } from 'react-icons/io'
 
 // import pictures
@@ -30,7 +25,7 @@ import './style/WorkshopShare.scss'
 
 function WorkshopShare(props) {
   const id = props.match.params.id
-  
+
   return (
     <>
       <div className="reduce-width">
