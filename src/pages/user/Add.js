@@ -90,7 +90,7 @@ function Add(props) {
     <>
       <div className="u-body">
         <Logoheader />
-        <Container className="d-flex">
+        <Container className="d-flex justify-content-center">
           <div className="u-contanier1 col-lg-6 d-none d-lg-block d-xl-block">
             <div className="u-img-carousel">
               <Carousel

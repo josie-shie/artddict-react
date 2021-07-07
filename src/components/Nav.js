@@ -161,8 +161,13 @@ const Nav = () => {
                   </Link>
                 </li>
                 <li>
+                  <Link ref={liRef} to="/auction">
+                  Acution
+                  </Link>
+                </li>
+                <li>
                   <Link ref={liRef} to="/contact">
-                    Contact
+                  our Team
                   </Link>
                 </li>
               </ul>
