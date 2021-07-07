@@ -9,6 +9,8 @@ import './styles/Add.scss'
 import FormGroup from '@material-ui/core/FormGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
+// SweetAlert
+import swal from 'sweetalert'
 // images
 import pic1 from './img/1.png'
 import pic2 from './img/2.png'
@@ -68,8 +70,13 @@ function Add(props) {
     //直接在一段x秒關掉指示器
     setTimeout(() => {
       setDataLoading(false)
-      alert('儲存完成')
-      props.history.push('/')
+
+      swal({
+        text: '註冊成功',
+        icon: 'success',
+        button: false,
+        timer: 2000,
+      })
     }, 500)
   }
 
@@ -184,7 +191,7 @@ function Add(props) {
                       setUsername(event.target.value)
                     }}
                     className="form-control "
-                    id="email"
+                    id="username"
                     placeholder="請輸入信箱"
                   />
                 </div>
@@ -212,7 +219,7 @@ function Add(props) {
                     placeholder="請輸入欲設定的密碼"
                   />
                 </div>
-                <div className="form-group u-form">
+                {/* <div className="form-group u-form">
                   <input
                     type="password"
                     value={password}
@@ -220,7 +227,7 @@ function Add(props) {
                     id="password2"
                     placeholder="請再次輸入密碼"
                   />
-                </div>
+                </div> */}
                 <div className="form-group u-ckb">
                   <FormGroup>
                     <FormControlLabel
@@ -253,6 +260,9 @@ function Add(props) {
                     to="/user-msgedit"
                     className="u-link1"
                     style={{ textDecoration: 'none' }}
+                    onClick={() => {
+                      addUserToSever()
+                    }}
                   >
                     註冊
                   </Link>
