@@ -1,4 +1,4 @@
-import React from 'react'
+import { React, useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { Container, Row } from 'react-bootstrap'
 import AvatarEditor from 'react-avatar-editor'
@@ -9,15 +9,12 @@ import BreadCrumb from './components/EventBreadCrumb'
 import EventMore from './components/EventMore'
 
 // react icons
-import {
-  IoIosArrowForward,
-} from 'react-icons/io'
+import { IoIosArrowForward } from 'react-icons/io'
 
 // import pictures
 import Square from './images/square.gif'
 // Pictures
 import EuListCardPic from './images/event/006.jpg'
-
 
 import './style/reset.css'
 import './style/fontAndBtn.scss'
@@ -25,6 +22,42 @@ import './style/WorkshopShare.scss'
 
 function WorkshopShare(props) {
   const id = props.match.params.id
+
+  const [eventName, setEventName] = useState('')
+  const [shareImg, setShareImg] = useState('')
+  const [shareImg2, setShareImg2] = useState('')
+  const [shareImg3, setShareImg3] = useState('')
+  const [shareImg4, setShareImg4] = useState('')
+  const [shareComment, setShareComment] = useState('')
+
+  async function getShareIdServer() {
+    const url = `http://localhost:6005/event/share/${id}`
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    var objData = JSON.parse(data)
+
+  
+    
+    setEventName(data.eventName)
+    setShareImg(objData.shareImg[0])
+    setShareImg2(objData.shareImg[1])
+    setShareImg3(objData.shareImg[2])
+    setShareImg4(objData.shareImg[3])
+    setShareComment(data.shareComment)
+    
+  }
+
+  useEffect(() => {
+    getShareIdServer()
+  }, [])
 
   return (
     <>
@@ -37,7 +70,7 @@ function WorkshopShare(props) {
           <Row className="both-padding">
             <div className="es-pic-up col-12 p-0 mb-4">
               <h5 className="cn-font">主題工作坊</h5>
-              <h2>我是活動名稱</h2>
+              <h2>{eventName}</h2>
             </div>
             {/* 資料form表單 */}
             <div className="col-12 pl-0 justify-content-between d-flex flex-wrap">
@@ -45,7 +78,9 @@ function WorkshopShare(props) {
                 作品圖片:
               </h5>
               <div className="col-8 p-0 justify-content-start d-flex flex-wrap">
-                <div className="es-pic-left col-8 p-0 mr-3">
+                <div
+                  className="es-pic-left col-8 p-0 mr-3"
+                >
                   <div>
                     <img src={Square} alt="" />
                   </div>
@@ -140,4 +175,4 @@ function WorkshopShare(props) {
   )
 }
 
-export default withRouter (WorkshopShare)
+export default withRouter(WorkshopShare)
