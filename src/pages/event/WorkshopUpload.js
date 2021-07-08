@@ -102,6 +102,11 @@ function WorkshopUpload(props) {
   useEffect(() => {
     getEventIdServer()
   }, [])
+  useEffect(() => {
+    console.log(shareComment)
+  }, [shareComment])
+
+
 
 
   return (
@@ -186,8 +191,8 @@ function WorkshopUpload(props) {
                   className="eu-text col-11 pr-2"
                   cols="30"
                   rows="10"
-                  onChange={(event) => {
-                    setShareComment(event.target.value)
+                  onChange={(e) => {
+                    setShareComment(e.target.value)
                   }}
                 ></textarea>
 

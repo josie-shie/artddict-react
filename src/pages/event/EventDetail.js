@@ -124,7 +124,7 @@ function EventDetail(props) {
             align-items-center"
             >
               <Link
-                to={`/event/event-list/detail/upload/13`}
+                to={`/event/event-list/detail/upload/${id}`}
                 className="col-6"
               >
                 <button className="cn-font px-0">
@@ -134,13 +134,12 @@ function EventDetail(props) {
               <Link
                 to={`/event/event-list/detail/share/${id}`}
                 className="col-6"
-                style={{ textDecoration: 'none'
-                  }}
+                style={{ textDecoration: 'none' }}
               >
                 <button
                   className="cn-font px-0"
                   style={{
-                    display: `${shareBtn}`
+                    display: `${shareBtn}`,
                   }}
                 >
                   觀賞作品
