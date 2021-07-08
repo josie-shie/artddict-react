@@ -1,4 +1,4 @@
-import React from 'react'
+import { React, useEffect, useState } from 'react'
 import { ReactComponent as Logo } from '../../pics/logo-bk.svg'
 import { withRouter } from 'react-router-dom'
 import './map.scss'
@@ -16,6 +16,27 @@ import { IoIosSearch } from 'react-icons/io'
 import { RiArrowLeftSLine } from 'react-icons/ri'
 
 const Map = () => {
+
+// const [musEvent,setMusEvent] = useState([])
+
+//   async function getMuseumServer() {
+//     const url = 'http://localhost:6005/map/mapevent/:id?'
+
+//     // 注意header資料格式要設定，伺服器才知道是json格式
+//     const request = new Request(url, {
+//       method: 'GET',
+//       headers: new Headers({
+//         Accept: 'application/json',
+//         'Content-Type': 'appliaction/json',
+//       }),
+//     })
+
+//     const response = await fetch(request)
+//     const data = await response.json()
+//     // 設定資料
+//     setMusEvent(data)
+//   }
+
   return (
     <>
       <div className="map-area index-web-padding">
