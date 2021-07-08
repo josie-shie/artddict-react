@@ -38,6 +38,7 @@ function EventDetail(props) {
   const [open4, setOpen4] = useState(false)
 
   const [eventName, setEventName] = useState('')
+  const [eventId, setEventId] = useState('')
   const [eventDateStart, setEventDateStart] = useState('')
   const [eventDateEnd, setEventDateEnd] = useState('')
   const [eventDesc, setEventDesc] = useState('')
@@ -46,7 +47,7 @@ function EventDetail(props) {
   const [eventCity, setEventCity] = useState('')
   const [isShared, setIsShared] = useState(true)
 
-  async function getEventQueryServer() {
+  async function getEventIdServer() {
     const url = `http://localhost:6005/event/event-list/${id}`
     const request = new Request(url, {
       method: 'GET',
@@ -60,6 +61,7 @@ function EventDetail(props) {
     const data = await response.json()
 
     setEventName(data.eventName)
+    setEventId(data.eventId)
     setEventDateStart(data.eventDateStart)
     setEventDateEnd(data.eventDateEnd)
     setEventDesc(data.eventDescription)
@@ -77,11 +79,8 @@ function EventDetail(props) {
   }
 
   useEffect(() => {
-    getEventQueryServer()
+    getEventIdServer()
   }, [])
-  useEffect(() => {
-    getEventQueryServer()
-  }, [id])
 
   return (
     <>

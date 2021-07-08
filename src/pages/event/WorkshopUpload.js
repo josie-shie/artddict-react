@@ -30,10 +30,12 @@ import './style/reset.css'
 import './style/fontAndBtn.scss'
 import './style/WorkshopUpload.scss'
 
-function WorkshopUpload() {
+function WorkshopUpload(props) {
+  const id = props.match.params.id
   const inputRef = useRef()
 
   const [shareImg, setShareImg] = useState('')
+  const [eventId, setEventId] = useState('')
   const [shareImg2, setShareImg2] = useState('')
   const [shareImg3, setShareImg3] = useState('')
   const [shareImg4, setShareImg4] = useState('')
@@ -47,6 +49,59 @@ function WorkshopUpload() {
   // const triggerFileSelectPopup = () => inputRef.current.click()
 
   // useEffect( handleShow, [inputData])
+
+  async function getEventIdServer() {
+    const url = `http://localhost:6005/event/event-list/${id}`
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+
+    setEventId(data.eventId)
+   
+  }
+
+  async function addEventShareSever() {
+
+
+    const newData = { shareComment, eventId }
+
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:6005/event/upload'
+
+    // 注意資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify(newData),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+
+    console.log(JSON.stringify(newData))
+
+    const response = await fetch(request)
+    const data = await response.json()
+
+    console.log('伺服器回傳的json資料', data)
+    // 要等驗証過，再設定資料(簡單的直接設定)
+
+    //直接在一段x秒關掉指示器
+    setTimeout(() => {
+      props.history.push(`/event/event-list/detail/share/${id}`)
+    }, 500)
+  }
+
+  useEffect(() => {
+    getEventIdServer()
+  }, [])
 
 
   return (
@@ -129,17 +184,20 @@ function WorkshopUpload() {
                 </h5>
                 <textarea
                   className="eu-text col-11 pr-2"
-                  name=""
-                  id=""
                   cols="30"
                   rows="10"
+                  onChange={(event) => {
+                    setShareComment(event.target.value)
+                  }}
                 ></textarea>
 
                 <div className="col-11 d-flex flex-wrap justify-content-center my-4">
-                 
                   <button
                     className="eu-send-cmt e-btn-m col-l2 my-3"
-                    type="submit"
+                    type="button"
+                    onClick={() => {
+                      addEventShareSever()
+                    }}
                   >
                     上傳作品
                   </button>
