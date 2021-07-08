@@ -244,9 +244,41 @@
     }
 
 
-    .item img{
-        width: 100%;
-        object-fit: cover;
+    .item{
+        position: relative;
+
+        img{width: 100%;
+            object-fit: cover;}
+        
+        h1{
+            display:none ;
+            font-family:EngraversBold;
+            text-align: center;
+            background-color: #1D0AFF;
+            color: #E8E8E8;
+            line-height:25px;
+            font-size: 1.5vw;
+            font-weight: bold;
+            position: absolute;
+            top:0%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+        }
+    }
+
+
+
+
+    .item:hover{
+        
+        img:hover{
+            -webkit-filter:brightness(.5);
+        }
+        h1{
+            display:block;
+            top:50%;
+            transition: easing;
+        }
     }
 
     /* ----------event區域 -----------*/

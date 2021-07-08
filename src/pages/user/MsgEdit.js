@@ -53,7 +53,7 @@ function UserEdit(props) {
 
     const response = await fetch(request)
     const data = await response.json()
-    console.log(data)
+
     // 設定資料
 
     // 如果從伺服器回傳的資料沒有id值
@@ -108,7 +108,6 @@ function UserEdit(props) {
     setTimeout(() => {
       setDataLoading(false)
       alert('修改完成')
-      props.history.push('/')
     }, 1000)
   }
 
@@ -213,16 +212,25 @@ function UserEdit(props) {
                       value="female"
                       control={<StyledRadio />}
                       label="男"
+                      onChange={(event) => {
+                        setGender(event.target.value)
+                      }}
                     />
                     <FormControlLabel
                       value="male"
                       control={<StyledRadio />}
                       label="女"
+                      onChange={(event) => {
+                        setGender(event.target.value)
+                      }}
                     />
                     <FormControlLabel
                       value="other"
                       control={<StyledRadio />}
                       label="其他"
+                      onChange={(event) => {
+                        setGender(event.target.value)
+                      }}
                     />
                   </RadioGroup>
                 </FormControl>

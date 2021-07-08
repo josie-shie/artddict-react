@@ -243,7 +243,9 @@
     overflow: hidden;
 }
 
-.prolist-imgBox img{
+
+.prolist-inImg{
+    height: 100%;
     width: 100%;
 }
 .prolist-blackBar{
@@ -265,7 +267,7 @@
 }
 
 @media (min-width: 1440px){
-    .prolist.imgBox{
+    .prolist-imgBox{
         height: 350px;
     }
 }

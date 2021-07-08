@@ -19,8 +19,7 @@ import pic4 from './img/4.png'
 import pic5 from './img/5.png'
 import pic6 from './img/6.png'
 // icons
-import { AiFillGoogleCircle } from 'react-icons/ai'
-import { RiFacebookCircleFill } from 'react-icons/ri'
+import { FaFacebook } from 'react-icons/fa'
 
 function Add(props) {
   const [dataLoading, setDataLoading] = useState(false)
@@ -174,13 +173,8 @@ function Add(props) {
                   <Link to="/user-add">註冊</Link>
                 </div>
               </div>
-              <div className="u-gf d-flex justify-content-center">
-                <div className="u-g">
-                  <AiFillGoogleCircle />
-                </div>
-                <div className="u-f">
-                  <RiFacebookCircleFill />
-                </div>
+              <div className="u-FB d-flex justify-content-around">
+                <FaFacebook />
               </div>
               <form action="">
                 <div className="form-group u-form">
@@ -192,6 +186,7 @@ function Add(props) {
                     }}
                     className="form-control "
                     id="username"
+                    required
                     placeholder="請輸入信箱"
                   />
                 </div>
@@ -205,6 +200,7 @@ function Add(props) {
                     className="form-control "
                     id="name"
                     placeholder="請輸入姓名"
+                    required
                   />
                 </div>
                 <div className="form-group u-form">
@@ -217,6 +213,7 @@ function Add(props) {
                     className="form-control"
                     id="password1"
                     placeholder="請輸入欲設定的密碼"
+                    required
                   />
                 </div>
                 {/* <div className="form-group u-form">
