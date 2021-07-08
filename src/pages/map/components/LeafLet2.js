@@ -9,7 +9,7 @@ class LeafLet2 extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
+    console.log(this.props)
     // //? 測試的資料
     // const data = [
     //   {
@@ -70,7 +70,6 @@ class LeafLet2 extends React.Component {
     //   // console.log(data);
     // }
 
-
     // for (let i = 0; museums.length > i; i++) {
     //   L.marker([museums[i].Px, museums[i].Py], {
     //     icon: greenIcon,
@@ -83,9 +82,8 @@ class LeafLet2 extends React.Component {
   }
 
   compontentDidUpdate(prevProps, prevState) {
-    
-    console.log(this.props.museums);
-    
+    console.log(this.props.museums)
+
     let museums = this.props.museums
 
     const osmMap = L.map('osm-map', {
@@ -129,8 +127,6 @@ class LeafLet2 extends React.Component {
       shadowSize: [41, 41],
     })
 
-    
-
     for (let i = 0; museums.length > i; i++) {
       L.marker([museums[i].Px, museums[i].Py], {
         icon: greenIcon,
@@ -138,7 +134,6 @@ class LeafLet2 extends React.Component {
 
         .addTo(osmMap)
         .bindPopup(`<b>${museums[i].musName}</b>`)
-
     }
   }
 

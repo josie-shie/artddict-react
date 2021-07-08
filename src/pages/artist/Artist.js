@@ -140,6 +140,12 @@ const Artist = () => {
           <div className="art-hl"></div>
           <div className="art-hl2"></div>
         </div>
+        <div
+          class="fb-comments mb-5"
+          data-href="http://localhost:3000/artist"
+          data-width="100%"
+          data-numposts="5"
+        ></div>
       </div>
     </>
   )
