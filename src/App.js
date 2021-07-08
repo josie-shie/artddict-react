@@ -68,7 +68,7 @@ function App() {
             </Route>
             <Route
               exact
-              path="/event/event-list/detail/upload"
+              path="/event/event-list/detail/upload/:id?"
             >
               <WorkshopUpload />
             </Route>

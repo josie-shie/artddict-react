@@ -33,6 +33,12 @@ import './style/WorkshopUpload.scss'
 function WorkshopUpload() {
   const inputRef = useRef()
 
+  const [shareImg, setShareImg] = useState('')
+  const [shareImg2, setShareImg2] = useState('')
+  const [shareImg3, setShareImg3] = useState('')
+  const [shareImg4, setShareImg4] = useState('')
+  const [shareComment, setShareComment] = useState('')
+
   const [show, setShow] = useState(false)
   // const [inputData, setInputData] = useState(false)
 
