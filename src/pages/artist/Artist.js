@@ -22,10 +22,10 @@ const Artist = () => {
         <nav aria-label="breadcrumb-dk">
           <ol className="breadcrumb-dk">
             <li className="breadcrumb-item">
-              <Link href="/">首頁</Link>
+              <Link to="/">首頁</Link>
             </li>
             <li className="breadcrumb-item">
-              <Link href="#">本月藝術家</Link>
+              <Link to="#">本月藝術家</Link>
             </li>
             <li
               className="breadcrumb-item active"
@@ -126,7 +126,7 @@ const Artist = () => {
             的藝術語言去創造自己的世界。
           </h5>
         </div>
-        <div className="art-name art-push px-5 art-relative">
+        <div className="art-name art-push pt-5 pb-3 art-relative">
           <img className="mb-5" src={artistImg6} alt="" />
           <h5>
             <span>Pop-Art藝術家 Mr. Doodle</span>
