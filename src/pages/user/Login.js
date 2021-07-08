@@ -13,12 +13,56 @@ import pic5 from './img/5.png'
 import pic6 from './img/6.png'
 
 // icons
-import { AiFillGoogleCircle } from 'react-icons/ai'
-import { RiFacebookCircleFill } from 'react-icons/ri'
+import { FaFacebook } from 'react-icons/fa'
 
 function Login() {
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
+
+  // // instance 物件實體，預設為空物件
+  // async function userLogin(sql, req, res, instance) {
+  //   try {
+  //     const [rows, fields] =
+  //       await dbMysql2.promisePool.query(sql)
+
+  //     // 仿照json-server的回傳，有找到會回傳單一值，沒找到會回到空的物件字串
+  //     let result = {}
+  //     if (rows.length) {
+  //       result = rows[0]
+
+  //       req.session.regenerate(function (err) {
+  //         if (err) {
+  //           res
+  //             .status(200)
+  //             .json({ status: 2, message: '登入失敗' })
+  //         }
+
+  //         req.session.loginId = result.id
+  //         req.session.loginName = result.name
+  //         req.session.loginUsername = result.username
+  //         req.session.loginCreatedDate = result.createDate
+
+  //         // 如果要用全訊息可以用以下的回傳
+  //         // res.json({ status: 0, message: '登入成功' })
+  //         res.status(200).json(result)
+  //       })
+  //     } else {
+  //       res
+  //         .status(200)
+  //         .json({ status: 1, message: '帳號或密碼錯誤' })
+
+  //       //res.status(200).json(result)
+  //     }
+  //   } catch (error) {
+  //     // 錯誤處理
+  //     console.log(error)
+
+  //     // 顯示錯誤於json字串
+  //     res.status(200).json({
+  //       message: error,
+  //     })
+  //   }
+  // }
 
   return (
     <>
@@ -100,13 +144,8 @@ function Login() {
                   <Link to="/user-add">註冊</Link>
                 </div>
               </div>
-              <div className="u-gf d-flex justify-content-center">
-                <div className="u-g">
-                  <AiFillGoogleCircle />
-                </div>
-                <div className="u-f">
-                  <RiFacebookCircleFill />
-                </div>
+              <div className="u-FB d-flex justify-content-around">
+                <FaFacebook />
               </div>
               <form action="">
                 <div class="form-group u-form">
@@ -144,7 +183,7 @@ function Login() {
                 </div>
                 <div className="u-AddBtn">
                   <Link
-                    to="/user-msgedit"
+                    to="/"
                     className="u-link1"
                     style={{ textDecoration: 'none' }}
                   >

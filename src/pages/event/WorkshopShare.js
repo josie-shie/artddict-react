@@ -43,24 +43,27 @@ function WorkshopShare(props) {
     const response = await fetch(request)
     const data = await response.json()
     const imgData = data.shareImg
+
+    // data.shareImg 在資料庫中長這樣 ：["001.jpg","002.jpg","003.jpg","004.jpg"]
     const imgArr = JSON.parse(imgData)
+    
     setEventName(data.eventName)
 
-    // if (imgArr.length >= 4) {
-    //   setShareImg(imgArr[0])
-    //   setShareImg2(imgArr[1])
-    //   setShareImg3(imgArr[2])
-    //   setShareImg4(imgArr[3])
-    // }else if(imgArr.length >= 3) {
-    //   setShareImg(imgArr[0])
-    //   setShareImg2(imgArr[1])
-    //   setShareImg3(imgArr[2])
-    // }else if (imgArr.length >= 2) {
-    //   setShareImg(imgArr[0])
-    //   setShareImg2(imgArr[1])
-    // }else if (imgArr.length >= 1) {
-    //   setShareImg(imgArr[0])
-    // }
+    if (imgArr.length >= 4) {
+      setShareImg(imgArr[0])
+      setShareImg2(imgArr[1])
+      setShareImg3(imgArr[2])
+      setShareImg4(imgArr[3])
+    }else if(imgArr.length >= 3) {
+      setShareImg(imgArr[0])
+      setShareImg2(imgArr[1])
+      setShareImg3(imgArr[2])
+    }else if (imgArr.length >= 2) {
+      setShareImg(imgArr[0])
+      setShareImg2(imgArr[1])
+    }else if (imgArr.length >= 1) {
+      setShareImg(imgArr[0])
+    }
 
     setShareComment(data.shareComment)
   }
