@@ -80,9 +80,9 @@ class LeafLet2 extends React.Component {
 
     const greenIcon = new L.Icon({
       iconUrl:
-        'http://leafletjs.com/examples/custom-icons/leaf-green.png',
+        'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
       shadowUrl:
-        'http://leafletjs.com/examples/custom-icons/leaf-shadow.png',
+        'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
       iconSize: [25, 41],
       iconAnchor: [12, 41],
       popupAnchor: [1, -34],
@@ -101,8 +101,11 @@ class LeafLet2 extends React.Component {
         {
           icon: greenIcon,
         }
-      ).addTo(this.state.osmMap)
-      .bindPopup(`<b>${nextProps.museums[i].musName}</b>`)
+      )
+        .addTo(this.state.osmMap)
+        .bindPopup(
+          `<Link><b>${nextProps.museums[i].musName}</b><br><button >查看活動<button></Link>`
+        )
     }
   }
 
