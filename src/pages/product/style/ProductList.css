@@ -263,3 +263,9 @@
 .prolist-cardProPrice p {
     font-family: notoSansTC-Medium;
 }
+
+@media (min-width: 1440px){
+    .prolist.imgBox{
+        height: 350px;
+    }
+}

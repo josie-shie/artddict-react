@@ -16,12 +16,32 @@ import listtitle from './img/productList/listtitle.jpeg'
 import productPic1 from './img/productList/productPic1.jpeg'
 function ProductList() {
   const [products, setProducts] = useState([])
+  const [proClass, setProClass] = useState('')
+  const [clothes, setClothes] = useState('')
 
-  // 連接的伺服器資料網址
-  async function getProductServer() {
-    const url = 'http://localhost:6005/product/'
+  async function getAllProductSQL() {
+    const url = `http://localhost:6005/product/product-list/`
 
-    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    // 設定資料
+    setProducts(data)
+  }
+  useEffect(() => {
+    getAllProductSQL()
+  }, [])
+
+  async function getClassBySQLnew() {
+    const url = `http://localhost:6005/product/product-list/new`
+
     const request = new Request(url, {
       method: 'GET',
       headers: new Headers({
@@ -36,27 +56,124 @@ function ProductList() {
     setProducts(data)
   }
 
-  // //撈出城市的id
-  // async function getProductQueryServer() {
-  //   const url = `http://localhost:6005/map?cityId=${city}`
-  //   // 注意header資料格式要設定，伺服器才知道是json格式
-  //   const request = new Request(url, {
-  //     method: 'GET',
-  //     headers: new Headers({
-  //       Accept: 'application/json',
-  //       'Content-Type': 'appliaction/json',
-  //     }),
-  //   })
+  async function getClassBySQLhot() {
+    const url = `http://localhost:6005/product/product-list/hot`
 
-  //   const response = await fetch(request)
-  //   const data = await response.json()
-  //   setMuseums(data)
-  //   // 設定資料
-  // }
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
 
-  useEffect(() => {
-    getProductServer()
-  }, [])
+    const response = await fetch(request)
+    const data = await response.json()
+    // 設定資料
+    setProducts(data)
+  }
+
+  async function getClassBySQLbooks() {
+    const url = `http://localhost:6005/product/product-list/books`
+
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    // 設定資料
+    setProducts(data)
+  }
+
+  async function getClassBySQLfurniture() {
+    const url = `http://localhost:6005/product/product-list/furniture`
+
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    // 設定資料
+    setProducts(data)
+  }
+
+  async function getClassBySQLclothes() {
+    const url = `http://localhost:6005/product/product-list/clothes`
+
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    // 設定資料
+    setProducts(data)
+  }
+
+  async function getClassBySQLaccessories() {
+    const url = `http://localhost:6005/product/product-list/accessories`
+
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    // 設定資料
+    setProducts(data)
+  }
+
+  async function getClassBySQLstationery() {
+    const url = `http://localhost:6005/product/product-list/stationery`
+
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    // 設定資料
+    setProducts(data)
+  }
+
+  async function getClassBySQLcasual() {
+    const url = `http://localhost:6005/product/product-list/casual`
+
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    // 設定資料
+    setProducts(data)
+  }
 
   const productListCard = products.map((pro) => {
     let trydd = JSON.parse(`${pro.proImg}`)
@@ -66,10 +183,12 @@ function ProductList() {
           <div className="prolist-cardTop"></div>
           <div className="prolist-imgBorderBox">
             <div className="prolist-imgBox d-flex">
-              <img
-                src={`http://localhost:6005/productpics/${trydd}`}
-                alt=""
-              />
+              <Link to="/">
+                <img
+                  src={`http://localhost:6005/productpics/${trydd}`}
+                  alt=""
+                />
+              </Link>
             </div>
             <div className="prolist-blackBar"></div>
           </div>
@@ -167,13 +286,13 @@ function ProductList() {
                         value=""
                         className="pro-filterWord"
                       >
-                        價格
+                        價格由高至低
                       </option>
                       <option
                         value=""
                         className="pro-filterWord"
                       >
-                        oooo
+                        價格由低至高
                       </option>
                     </select>
                   </div>
@@ -215,47 +334,110 @@ function ProductList() {
           {/* --------------------Category------- */}
           <div className="prolist-productAndCategory d-flex">
             <div className="prolist-leftSide">
-              <Link style={{ textDecoration: 'none' }}>
+              <Link
+                style={{ textDecoration: 'none' }}
+                // to="/product/product-list"
+                onClick={(e) => {
+                  e.preventDefault()
+                  getAllProductSQL()
+                }}
+              >
                 <div className="museumProduct">
                   <p>美術館商品</p>
                 </div>
               </Link>
-              <Link style={{ textDecoration: 'none' }}>
+              <Link
+                style={{ textDecoration: 'none' }}
+                // to="/product/product-list-newarrival"
+                onClick={(e) => {
+                  e.preventDefault()
+                  getClassBySQLnew()
+                }}
+              >
                 <div className="newArrival">
                   <p>新品上市</p>
                 </div>
               </Link>
-              <Link style={{ textDecoration: 'none' }}>
+              <Link
+                style={{ textDecoration: 'none' }}
+                // to="/product/product-list-hotproduct"
+                onClick={(e) => {
+                  e.preventDefault()
+                  getClassBySQLhot()
+                }}
+              >
                 <div className="hotProduct">
                   <p>暢銷商品</p>
                 </div>
               </Link>
-              <Link style={{ textDecoration: 'none' }}>
+              <Link
+                style={{ textDecoration: 'none' }}
+                // to="/product/product-list-clothes"
+                onClick={(e) => {
+                  e.preventDefault()
+                  getClassBySQLclothes()
+                }}
+              >
                 <div className="pro-clothes">
                   <p>服飾</p>
                 </div>
               </Link>
-              <Link style={{ textDecoration: 'none' }}>
+              <Link
+                style={{ textDecoration: 'none' }}
+                // to="/product/product-list-furniture"
+                onClick={(e) => {
+                  e.preventDefault()
+                  getClassBySQLfurniture()
+                }}
+              >
                 <div className="pro-furniture">
                   <p>家飾</p>
                 </div>
               </Link>
-              <Link style={{ textDecoration: 'none' }}>
+              <Link
+                style={{ textDecoration: 'none' }}
+                // to="/product/product-list-stationery"
+                onClick={(e) => {
+                  e.preventDefault()
+                  getClassBySQLstationery()
+                }}
+              >
                 <div className="pro-stationery">
                   <p>文具</p>
                 </div>
               </Link>
-              <Link>
+              <Link
+                // to="/product/product-list-books"
+                style={{ textDecoration: 'none' }}
+                onClick={(e) => {
+                  e.preventDefault()
+                  getClassBySQLbooks()
+                }}
+              >
                 <div className="pro-books">
                   <p>書籍</p>
                 </div>
               </Link>
-              <Link style={{ textDecoration: 'none' }}>
+              <Link
+                style={{ textDecoration: 'none' }}
+                // to="/product/product-list-accessories"
+                onClick={(e) => {
+                  e.preventDefault()
+                  getClassBySQLaccessories()
+                }}
+              >
                 <div className="pro-accessories">
                   <p>配件</p>
                 </div>
               </Link>
-              <Link style={{ textDecoration: 'none' }}>
+              <Link
+                style={{ textDecoration: 'none' }}
+                // to="/product/product-list-casual"
+                onClick={(e) => {
+                  e.preventDefault()
+                  getClassBySQLcasual()
+                }}
+              >
                 <div className="pro-casual">
                   <p>休閒娛樂</p>
                 </div>
@@ -266,175 +448,6 @@ function ProductList() {
             <div className="prolist-rightSide">
               <div className="d-flex justify-content-between flex-wrap">
                 {productListCard}
-                {/* ---------------------- */}
-                {/* <div className="prolist-card ">
-                  <div className="prolist-cardTop"></div>
-                  <div className="prolist-imgBorderBox">
-                    <div className="prolist-imgBox">
-                      <img src={productPic1} alt="" />
-                    </div>
-                    <div className="prolist-blackBar"></div>
-                  </div>
-                  <div className="prolist-cardWordBox d-flex">
-                    <div className="prolist-cardProName">
-                      <p>蒙德里安之杯之杯之</p>
-                    </div>
-                    <div className="prolist-cardProPrice">
-                      <p>NT$490</p>
-                    </div>
-                  </div>
-                </div> */}
-                {/* ---x2-- */}
-                {/* <div className="prolist-card ">
-                  <div className="prolist-cardTop"></div>
-                  <div className="prolist-imgBorderBox">
-                    <div className="prolist-imgBox">
-                      <img src={productPic1} alt="" />
-                    </div>
-                    <div className="prolist-blackBar"></div>
-                  </div>
-                  <div className="prolist-cardWordBox d-flex">
-                    <div className="prolist-cardProName">
-                      <p>莫內 睡蓮 T恤</p>
-                    </div>
-                    <div className="prolist-cardProPrice">
-                      <p>NT$490</p>
-                    </div>
-                  </div>
-                </div> */}
-                {/* ---x3-- */}
-                {/* <div className="prolist-card">
-                  <div className="prolist-cardTop"></div>
-                  <div className="prolist-imgBorderBox">
-                    <div className="prolist-imgBox">
-                      <img src={productPic1} alt="" />
-                    </div>
-                    <div className="prolist-blackBar"></div>
-                  </div>
-                  <div className="prolist-cardWordBox d-flex">
-                    <div className="prolist-cardProName">
-                      <p>莫內 睡蓮 T恤</p>
-                    </div>
-                    <div className="prolist-cardProPrice">
-                      <p>NT$490</p>
-                    </div>
-                  </div>
-                </div> */}
-                {/* ------------ */}
-                {/* ---card-- */}
-                {/* <div className="prolist-card">
-                  <div className="prolist-cardTop"></div>
-                  <div className="prolist-imgBorderBox">
-                    <div className="prolist-imgBox">
-                      <img src={productPic1} alt="" />
-                    </div>
-                    <div className="prolist-blackBar"></div>
-                  </div>
-                  <div className="prolist-cardWordBox d-flex">
-                    <div className="prolist-cardProName">
-                      <p>莫內 睡蓮 T恤</p>
-                    </div>
-                    <div className="prolist-cardProPrice">
-                      <p>NT$490</p>
-                    </div>
-                  </div>
-                </div> */}
-                {/* ------------ */}
-                {/* ---card-- */}
-                {/* <div className="prolist-card">
-                  <div className="prolist-cardTop"></div>
-                  <div className="prolist-imgBorderBox">
-                    <div className="prolist-imgBox">
-                      <img src={productPic1} alt="" />
-                    </div>
-                    <div className="prolist-blackBar"></div>
-                  </div>
-                  <div className="prolist-cardWordBox d-flex">
-                    <div className="prolist-cardProName">
-                      <p>莫內 睡蓮 T恤</p>
-                    </div>
-                    <div className="prolist-cardProPrice">
-                      <p>NT$490</p>
-                    </div>
-                  </div>
-                </div> */}
-                {/* ------------ */}
-                {/* ---card-- */}
-                {/* <div className="prolist-card">
-                  <div className="prolist-cardTop"></div>
-                  <div className="prolist-imgBorderBox">
-                    <div className="prolist-imgBox">
-                      <img src={productPic1} alt="" />
-                    </div>
-                    <div className="prolist-blackBar"></div>
-                  </div>
-                  <div className="prolist-cardWordBox d-flex">
-                    <div className="prolist-cardProName">
-                      <p>莫內 睡蓮 T恤</p>
-                    </div>
-                    <div className="prolist-cardProPrice">
-                      <p>NT$490</p>
-                    </div>
-                  </div>
-                </div> */}
-                {/* ------------ */}
-                {/* ---card-- */}
-                {/* <div className="prolist-card">
-                  <div className="prolist-cardTop"></div>
-                  <div className="prolist-imgBorderBox">
-                    <div className="prolist-imgBox">
-                      <img src={productPic1} alt="" />
-                    </div>
-                    <div className="prolist-blackBar"></div>
-                  </div>
-                  <div className="prolist-cardWordBox d-flex">
-                    <div className="prolist-cardProName">
-                      <p>莫內 睡蓮 T恤</p>
-                    </div>
-                    <div className="prolist-cardProPrice">
-                      <p>NT$490</p>
-                    </div>
-                  </div>
-                </div> */}
-                {/* ------------ */}
-                {/* ---card-- */}
-                {/* <div className="prolist-card">
-                  <div className="prolist-cardTop"></div>
-                  <div className="prolist-imgBorderBox">
-                    <div className="prolist-imgBox">
-                      <img src={productPic1} alt="" />
-                    </div>
-                    <div className="prolist-blackBar"></div>
-                  </div>
-                  <div className="prolist-cardWordBox d-flex">
-                    <div className="prolist-cardProName">
-                      <p>莫內 睡蓮 T恤</p>
-                    </div>
-                    <div className="prolist-cardProPrice">
-                      <p>NT$490</p>
-                    </div>
-                  </div>
-                </div> */}
-                {/* ------------ */}
-                {/* ---card-- */}
-                {/* <div className="prolist-card">
-                  <div className="prolist-cardTop"></div>
-                  <div className="prolist-imgBorderBox">
-                    <div className="prolist-imgBox">
-                      <img src={productPic1} alt="" />
-                    </div>
-                    <div className="prolist-blackBar"></div>
-                  </div>
-                  <div className="prolist-cardWordBox d-flex">
-                    <div className="prolist-cardProName">
-                      <p>莫內 睡蓮 T恤</p>
-                    </div>
-                    <div className="prolist-cardProPrice">
-                      <p>NT$490</p>
-                    </div>
-                  </div>
-                </div> */}
-                {/* ------------ */}
               </div>
               {/* --------------商品卡片截止線----- */}
               <div className="prolist-switchPage">
