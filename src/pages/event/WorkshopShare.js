@@ -1,7 +1,7 @@
 import { React, useState, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { Container, Row } from 'react-bootstrap'
-import AvatarEditor from 'react-avatar-editor'
+import axios from 'axios'
 
 // import component
 import Lightheader from './components/Lightheader'

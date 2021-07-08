@@ -56,7 +56,6 @@ function WorkshopUpload(props) {
   const [preview3, setPreview3] = useState()
   const [preview4, setPreview4] = useState()
 
-
   const [shareImg, setShareImg] = useState('[]')
   const [userId, setUserId] = useState('')
   const [shareComment, setShareComment] = useState('')
@@ -121,11 +120,11 @@ function WorkshopUpload(props) {
   useEffect(() => {
     if (isImg) {
       const reader = new FileReader()
-      reader.onloadend = () =>{
-         setPreview(reader.result)
+      reader.onloadend = () => {
+        setPreview(reader.result)
       }
       reader.readAsDataURL(isImg)
-    }else{
+    } else {
       setPreview(null)
     }
   }, [isImg])
@@ -165,7 +164,7 @@ function WorkshopUpload(props) {
       setPreview4(null)
     }
   }, [isImg4])
- 
+
   useEffect(() => {
     console.log(shareComment)
   }, [shareComment])
@@ -191,7 +190,6 @@ function WorkshopUpload(props) {
               <form
                 className="col-8 p-0 justify-content-start d-flex flex-wrap"
                 action=""
-                form
                 method="post"
                 enctype="multipart/form-data"
               >
@@ -270,18 +268,21 @@ function WorkshopUpload(props) {
                           }
                         }}
                       />
-                      {preview2 ? (<img
-                        className="w-100 h-100 position-absolute"
-                        src={preview2}
-                        style={{ objectFit: 'cover' }}
-                        alt=""
-                      />):(
-                      <button
-                        className="position-absolute"
-                        type="button"
-                      >
-                        <IoMdAdd />
-                      </button>)}
+                      {preview2 ? (
+                        <img
+                          className="w-100 h-100 position-absolute"
+                          src={preview2}
+                          style={{ objectFit: 'cover' }}
+                          alt=""
+                        />
+                      ) : (
+                        <button
+                          className="position-absolute"
+                          type="button"
+                        >
+                          <IoMdAdd />
+                        </button>
+                      )}
                       <img src={Square} alt="" />
                     </div>
                     <div
@@ -305,18 +306,20 @@ function WorkshopUpload(props) {
                         }}
                       />
                       {preview3 ? (
-                      <img
-                        className="w-100 h-100 position-absolute"
-                        src={preview3}
-                        style={{ objectFit: 'cover' }}
-                        alt=""
-                      />):(
-                      <button
-                        className="position-absolute"
-                        type="button"
-                      >
-                        <IoMdAdd />
-                      </button>)}
+                        <img
+                          className="w-100 h-100 position-absolute"
+                          src={preview3}
+                          style={{ objectFit: 'cover' }}
+                          alt=""
+                        />
+                      ) : (
+                        <button
+                          className="position-absolute"
+                          type="button"
+                        >
+                          <IoMdAdd />
+                        </button>
+                      )}
                       <img src={Square} alt="" />
                     </div>
                     <div
@@ -339,15 +342,21 @@ function WorkshopUpload(props) {
                           }
                         }}
                       />
-                      {preview4 ? (<img
-                        className="w-100 h-100 position-absolute"
-                        src={preview4}
-                        style={{ objectFit: 'cover' }}
-                        alt=""
-                      /> ) :(
-                      <button className="position-absolute" type="button">
-                        <IoMdAdd />
-                      </button>)}
+                      {preview4 ? (
+                        <img
+                          className="w-100 h-100 position-absolute"
+                          src={preview4}
+                          style={{ objectFit: 'cover' }}
+                          alt=""
+                        />
+                      ) : (
+                        <button
+                          className="position-absolute"
+                          type="button"
+                        >
+                          <IoMdAdd />
+                        </button>
+                      )}
                       <img src={Square} alt="" />
                     </div>
                   </div>

@@ -32,9 +32,6 @@ function UserEdit(props) {
   const [birthday, setBirthday] = useState('')
   const [address, setAddress] = useState('')
 
-  const [userDataIsExist, setUserDataIsExist] =
-    useState(true)
-
   async function getUserFromServer(userid) {
     // 開啟載入指示
     setDataLoading(true)
@@ -53,14 +50,6 @@ function UserEdit(props) {
 
     const response = await fetch(request)
     const data = await response.json()
-
-    // 設定資料
-
-    // 如果從伺服器回傳的資料沒有id值
-    if (!data.id) {
-      setUserDataIsExist(false)
-      return
-    }
 
     setUsername(data.username)
     setName(data.name)
@@ -306,7 +295,6 @@ function UserEdit(props) {
 
               <div className="u-editBtn">
                 <button
-                  type="submit"
                   className="btn btn-outline-dark editBtn"
                   onClick={() => {
                     updateUserToSever()
