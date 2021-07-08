@@ -12,28 +12,28 @@ class LeafLet2 extends React.Component {
     
     let museum = this.props.museum
     //? 測試的資料
-    // const data = [
-    //   {
-    //     name: '夢時代購物中心',
-    //     lat: '22.595153',
-    //     lng: '120.306923',
-    //   },
-    //   {
-    //     name: '漢神百貨',
-    //     lat: '22.61942',
-    //     lng: '120.296386',
-    //   },
-    //   {
-    //     name: '漢神巨蛋',
-    //     lat: '22.669603',
-    //     lng: '120.302288',
-    //   },
-    //   {
-    //     name: '大統百貨',
-    //     lat: '22.630748',
-    //     lng: '120.318033',
-    //   },
-    // ]
+    const data = [
+      {
+        name: '夢時代購物中心',
+        lat: '22.595153',
+        lng: '120.306923',
+      },
+      {
+        name: '漢神百貨',
+        lat: '22.61942',
+        lng: '120.296386',
+      },
+      {
+        name: '漢神巨蛋',
+        lat: '22.669603',
+        lng: '120.302288',
+      },
+      {
+        name: '大統百貨',
+        lat: '22.630748',
+        lng: '120.318033',
+      },
+    ]
 
     // create map
     const osmMap = L.map('osm-map', {
@@ -82,21 +82,32 @@ class LeafLet2 extends React.Component {
 
     // let markers = new L.MarkerClusterGroup().addTO(osmMap)
 
-    for (let i = 0; museums.length > i; i++) {
-      L.marker([museum[i].Px, museum[i].Py], {
+    for (let i = 0; data.length > i; i++) {
+      L.marker([data[i].lat, data[i].lng], {
         icon: greenIcon,
       })
 
         .addTo(osmMap)
-        .bindPopup(`<b>${museum[i].musName}</b>`)
+        .bindPopup(`<b>${data[i].name}</b>`)
       // console.log(data);
     }
+
+
+    // for (let i = 0; museums.length > i; i++) {
+    //   L.marker([museum[i].Px, museum[i].Py], {
+    //     icon: greenIcon,
+    //   })
+
+    //     .addTo(osmMap)
+    //     .bindPopup(`<b>${museum[i].musName}</b>`)
+    //   // console.log(data);
+    // }
   }
 
   compontentDidUpdate(prevProps, prevState) {
-    if (prevState.data !== this.state.data) {
+    // if (prevState.data !== this.state.data) {
 
-    }
+    // }
   }
 
   //test

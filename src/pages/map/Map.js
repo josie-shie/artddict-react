@@ -73,13 +73,13 @@ const Map = () => {
 
 
 
-  // useEffect(() => {
-  //   museums.map((mus) => {
-  //     setMusePx(mus.Px)
-  //     setMusePy(mus.Py)
-  //     console.log(mus.Px,mus.Py);
-  //   })
-  // }, [city])
+  useEffect(() => {
+    museums.map((mus) => {
+      setMusePx(mus.Px)
+      setMusePy(mus.Py)
+      console.log(museums);
+    })
+  }, [city])
 
   const museumDisplay = museums.map((mus) => {
     return (
