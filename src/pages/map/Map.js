@@ -199,6 +199,7 @@ const Map = () => {
                 <IoIosSearch size={30} color={'#81FC4D'} />
               </div>
             </div>
+            {/* //TODO */}
             <LeafLet2 museums={museums} />
           </div>
           <div className="map-card-area col-4 pl-0">

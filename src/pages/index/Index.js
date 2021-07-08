@@ -190,24 +190,30 @@ const Index = () => {
           </div>
         </StickyBox>
         <div className="waterfall ml-auto col-7 pl-0 pb-5">
-          <div className="item">
+          <Link to="/artist" className="item">
             <img src={artist1} />
-          </div>
-          <div className="item">
+            <h1>kATZU DORA</h1>
+          </Link>
+          <Link to="/artist" className="item">
             <img src={artist2} />
-          </div>
-          <div className="item">
+            <h1>TAKASHI</h1>
+          </Link>
+          <Link to="/artist" className="item">
             <img src={artist3} />
-          </div>
-          <div className="item">
+            <h1>MARIMEKKO</h1>
+          </Link>
+          <Link to="/artist" className="item">
             <img src={artist4} />
-          </div>
-          <div className="item">
+            <h1>MERRIDO</h1>
+          </Link>
+          <Link to="/artist" className="item">
             <img src={artist5} />
-          </div>
-          <div className="item">
+            <h1>LUES COOPER</h1>
+          </Link>
+          <Link to="/artist" className="item">
             <img src={artist6} />
-          </div>
+            <h1>MR DOODEL</h1>
+          </Link>
         </div>
       </div>
 
