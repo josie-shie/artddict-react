@@ -183,8 +183,9 @@ function ProductList() {
           <div className="prolist-cardTop"></div>
           <div className="prolist-imgBorderBox">
             <div className="prolist-imgBox d-flex">
-              <Link to="/">
+              <Link to="/" className="prolist-imgLink">
                 <img
+                  className="prolist-inImg"
                   src={`http://localhost:6005/productpics/${trydd}`}
                   alt=""
                 />
