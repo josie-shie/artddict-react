@@ -195,23 +195,59 @@
 }
 
 /* ---------------------Category-------------------- */
- .newArrival p, .hotProduct p, .pro-clothes p, .pro-furniture p, .pro-stationery p, .pro-books p, .pro-accessories p, .pro-casual p{
+  .hotProduct p, .pro-clothes p, .pro-furniture p, .pro-stationery p, .pro-books p, .pro-accessories p, .pro-casual p{
+    font-family: notoSansTC-Medium;
+    font-size: 1.5rem;
+    padding: 13px 0 0 20px;
+    color: black;
+}
+.museumProduct2{
+    width: 100%;
+    height:70px;
+    background-color:white;
+    font-family: notoSansTC-Medium;
+    color:black;
+    padding: 13px 0 0 20px;
+    font-size: 1.5rem;
+    text-decoration:none;
+}
+
+
+
+.museumProduct2{
+    width: 100%;
+    height:70px;
+    background-color:#e8e8e8;
+    font-family: notoSansTC-Medium;
+    color:black;
+    padding: 13px 0 0 20px;
+    font-size: 1.5rem;
+    text-decoration:none;
+}
+.museumProduct{
+    width: 100%;
+    height:70px;
+    background-color:black;
+    font-family: notoSansTC-Medium;
+    color:white;
+    padding: 13px 0 0 20px;
+    font-size: 1.5rem;
+    text-decoration:none;
+}
+.newArrival, .hotProduct, .pro-clothes, .pro-furniture, .pro-stationery, .pro-books, .pro-accessories, .pro-casual{
+    width: 100%;
+    height: 70px;
+    background-color:transparent;
+    width: 100%;
+    height: 70px;
+    background-color:transparent;
     font-family: notoSansTC-Medium;
     font-size: 1.5rem;
     padding: 13px 0 0 20px;
     color: black;
 }
 
-.museumProduct{
-    width: 100%;
-    height:70px;
-    background-color:black
-}
-.newArrival, .hotProduct, .pro-clothes, .pro-furniture, .pro-stationery, .pro-books, .pro-accessories, .pro-casual{
-    width: 100%;
-    height: 70px;
-    background-color:transparent;
-}
+/* 
 .museumProduct p{
     font-family: notoSansTC-Medium;
     color:white;
@@ -219,7 +255,7 @@
     font-size: 1.5rem;
     text-decoration:none;
 
-}
+} */
 
 /* ----------------product item--------- */
 .prolist-card{
@@ -270,4 +306,18 @@
     .prolist-imgBox{
         height: 350px;
     }
+}
+
+
+/* --------------左邊category JQ CSS------- */
+.changeColors{
+    background-color: black;
+    color: white;
+    transition:.8s
+}
+.changeColors2{
+ 
+    background-color: white;;
+    color:black;
+ 
 }
