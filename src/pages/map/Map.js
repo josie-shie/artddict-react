@@ -1,4 +1,4 @@
-import { React, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { ReactComponent as Logo } from '../../pics/logo-bk.svg'
 import { Link, withRouter } from 'react-router-dom'
 import './map.scss'
@@ -308,9 +308,7 @@ const Map = () => {
           <div className="map-card-area col-4 pl-0">
             <div className="px-4">
               {/* {museumDisplay} */}
-              {{ idMuseum }
-                ? { museumEvent }
-                : { museumDisplay }}
+              {idMuseum ? museumEvent : museumDisplay}
               {/* <MapCardSql city={city} setCity={setCity} /> */}
             </div>
           </div>

@@ -142,7 +142,7 @@ const Artist = () => {
         </div>
         <div
           className="fb-comments mb-5"
-          data-href="http://localhost:3002/artist"
+          data-href="http://localhost:3000/artist"
           data-width="100%"
           data-numposts="5"
         ></div>
