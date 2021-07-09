@@ -2,7 +2,7 @@ import React from 'react'
 import { withRouter, Link } from 'react-router-dom'
 
 function Breadcrumb(props) {
-  console.log(props)
+  // console.log(props)
 
   // 可從 props.location.pathname 得到目前的路由名稱
   // 查表功能，為了要轉網址路由為中文

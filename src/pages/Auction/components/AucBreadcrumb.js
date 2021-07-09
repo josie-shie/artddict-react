@@ -4,7 +4,7 @@ import { pathnameList, pathnameTextList } from '../config/aucIndex'
 
 function AucBreadcrumb(props) {
     const { location } = props
-    console.log(location)
+    // console.log(location)
     // find index，目前匹配的pathname，它的中文是什麼
     const findPathnameIndex = (pathname) => {
         // 找到剛好的，從前面開始找起
