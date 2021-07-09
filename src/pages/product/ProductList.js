@@ -18,7 +18,7 @@ function ProductList() {
   const [products, setProducts] = useState([])
   const [search, setSearch] = useState('')
   const [arrangement, setArrangement] = useState('')
-  const [category, setCategory] = useState('')
+  const [category, setCategory] = useState('allproduct')
 
   // async function getAllProductSQL() {
   //   const url = `http://localhost:6005/product/product-list/`
