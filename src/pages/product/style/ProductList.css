@@ -313,6 +313,7 @@
 .changeColors{
     background-color: black;
     color: white;
+    transition:.8s
 }
 .changeColors2{
  
