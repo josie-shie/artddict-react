@@ -81,7 +81,7 @@ class Coupon extends React.Component {
 
           <div className="col-6">
             <div className="u-couponbox d-flex">
-              <div class="u-Text col-7">
+              <div class="u-Text col-6">
                 <div class="u-couponTitle">
                   <p>生日禮</p>
                 </div>
