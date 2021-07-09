@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import '../style/AuctionProductList.scss';
 import { withRouter, Link } from 'react-router-dom'
 import '../../../bootstrap/css/bootstrap.css'
@@ -7,14 +7,13 @@ import AuctionProductCard from './AuctionProductCard'
 
 
 function AuctionProductList(props) {
+
+    const { search, setSearch, arrangement } = props
     //用來放資料
     const [aucInfo, setAucInfo] = useState([])
-
-    // const { data } = props
+    const [a,seta] = useState('')
 
     async function getAucProFromServer() {
-        // 開啟載入指示
-        // setDataLoading(true)
 
         // 連接的伺服器資料網址
         const url = 'http://localhost:6005/auctoin/auction-list'
@@ -30,16 +29,48 @@ function AuctionProductList(props) {
 
         const response = await fetch(request)
         const data = await response.json()
-        console.log(data)
         // 設定資料
         setAucInfo(data)
-        // console.log('資料:',aucInfo)
+    }
+
+    async function getAucProArrFromServer() {
+
+        // 連接的伺服器資料網址
+        const url = 'http://localhost:6005/auctoin/aucSeaArr' + `?search=${search}` + `&arrangement=${arrangement}`
+
+        // 注意header資料格式要設定，伺服器才知道是json格式
+        const request = new Request(url, {
+            method: 'GET',
+            headers: new Headers({
+                Accept: 'application/json',
+                'Content-Type': 'appliaction/json',
+            }),
+        })
+
+        const response = await fetch(request)
+        const data = await response.json()
+        console.log('發送資料時的a',a)
+        console.log('收到的資料',data,"AUCINFO",aucInfo)
+        // 設定資料
+        setAucInfo(data)
+        console.log('收到的資料a',data,"AUCINFO666",aucInfo)
     }
 
     // 一開始就會開始載入資料
     useEffect(() => {
         getAucProFromServer()
     }, [])
+
+    useEffect(() => {
+        getAucProArrFromServer()
+        // console.log('呼叫資料')
+    }, [search,arrangement])
+
+    // useEffect(() => {
+    //     getAucProArrFromServer()
+    // }, [arrangement])
+
+
 
     function TimeRemaining(deadline) {
         //截止時間(毫秒)
@@ -64,10 +95,12 @@ function AuctionProductList(props) {
     }
 
     return (
-        <>
+        <>  
+        {/* {console.log('-----------------------------')} */}
             <div className="container">
                 <div className="row">
-                {/* const eventDisplay = events.map((event) => { */}
+                    {console.log("render時商品名稱",aucInfo)}
+                    {/* const eventDisplay = events.map((event) => { */}
                     {aucInfo.map((auctionProduct, index) => (
                         <AuctionProductCard
                             aucId={auctionProduct.aucId}
@@ -76,6 +109,9 @@ function AuctionProductList(props) {
                             deadline={auctionProduct.aucDeadline}
                             aucImg={auctionProduct.aucImg}
                             TimeRemaining={TimeRemaining}
+                            search={search}
+                            arrangement={arrangement}
+                            aucInfo={aucInfo}
                         />
                     ))}
                 </div>

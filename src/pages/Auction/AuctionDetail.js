@@ -260,7 +260,7 @@ function AuctionDetail(props) {
             />
             {/* {console.log("rneder二波")} */}
             <div className="auctionDetailPicture">
-              <img src={monkey} alt="Background" />
+              <img src={`http://localhost:6005/aucpics/auc/${aucDetailinfo.aucImg}`} alt="Background" />
             </div>
             <div className="auctionDetailcurrentPriceInput">
               <div className="auctionDetailcurrentPriceAboveInput">
