@@ -4,6 +4,7 @@ import '../../bootstrap/css/bootstrap.css'
 import { Row } from 'react-bootstrap'
 import {} from 'react-icons/cg'
 import './style/ProductList.css'
+import $ from 'jquery'
 // -----------svg---------
 import logobk from './svg/logobk.svg'
 import { GoSearch } from 'react-icons/go'
@@ -19,190 +20,6 @@ function ProductList() {
   const [search, setSearch] = useState('')
   const [arrangement, setArrangement] = useState('')
   const [category, setCategory] = useState('allproduct')
-
-  // async function getAllProductSQL() {
-  //   const url = `http://localhost:6005/product/product-list/`
-
-  //   const request = new Request(url, {
-  //     method: 'GET',
-  //     headers: new Headers({
-  //       Accept: 'application/json',
-  //       'Content-Type': 'appliaction/json',
-  //     }),
-  //   })
-
-  //   const response = await fetch(request)
-  //   const data = await response.json()
-  //   // 設定資料
-  //   setProducts(data)
-  // }
-  // useEffect(() => {
-  //   getAllProductSQL()
-  // }, [])
-
-  // async function getClassBySQLnew() {
-  //   const url = `http://localhost:6005/product/product-list/new`
-
-  //   const request = new Request(url, {
-  //     method: 'GET',
-  //     headers: new Headers({
-  //       Accept: 'application/json',
-  //       'Content-Type': 'appliaction/json',
-  //     }),
-  //   })
-
-  //   const response = await fetch(request)
-  //   const data = await response.json()
-  //   // 設定資料
-  //   setProducts(data)
-  // }
-
-  // async function getClassBySQLhot() {
-  //   const url = `http://localhost:6005/product/product-list/hot`
-
-  //   const request = new Request(url, {
-  //     method: 'GET',
-  //     headers: new Headers({
-  //       Accept: 'application/json',
-  //       'Content-Type': 'appliaction/json',
-  //     }),
-  //   })
-
-  //   const response = await fetch(request)
-  //   const data = await response.json()
-  //   // 設定資料
-  //   setProducts(data)
-  // }
-
-  // async function getClassBySQLbooks() {
-  //   const url = `http://localhost:6005/product/product-list/books`
-
-  //   const request = new Request(url, {
-  //     method: 'GET',
-  //     headers: new Headers({
-  //       Accept: 'application/json',
-  //       'Content-Type': 'appliaction/json',
-  //     }),
-  //   })
-
-  //   const response = await fetch(request)
-  //   const data = await response.json()
-  //   // 設定資料
-  //   setProducts(data)
-  // }
-
-  // async function getClassBySQLfurniture() {
-  //   const url = `http://localhost:6005/product/product-list/furniture`
-
-  //   const request = new Request(url, {
-  //     method: 'GET',
-  //     headers: new Headers({
-  //       Accept: 'application/json',
-  //       'Content-Type': 'appliaction/json',
-  //     }),
-  //   })
-
-  //   const response = await fetch(request)
-  //   const data = await response.json()
-  //   // 設定資料
-  //   setProducts(data)
-  // }
-
-  // async function getClassBySQLclothes() {
-  //   const url = `http://localhost:6005/product/product-list/clothes`
-
-  //   const request = new Request(url, {
-  //     method: 'GET',
-  //     headers: new Headers({
-  //       Accept: 'application/json',
-  //       'Content-Type': 'appliaction/json',
-  //     }),
-  //   })
-
-  //   const response = await fetch(request)
-  //   const data = await response.json()
-  //   // 設定資料
-  //   setProducts(data)
-  // }
-
-  // async function getClassBySQLaccessories() {
-  //   const url = `http://localhost:6005/product/product-list/accessories`
-
-  //   const request = new Request(url, {
-  //     method: 'GET',
-  //     headers: new Headers({
-  //       Accept: 'application/json',
-  //       'Content-Type': 'appliaction/json',
-  //     }),
-  //   })
-
-  //   const response = await fetch(request)
-  //   const data = await response.json()
-  //   // 設定資料
-  //   setProducts(data)
-  // }
-
-  // async function getClassBySQLstationery() {
-  //   const url = `http://localhost:6005/product/product-list/stationery`
-
-  //   const request = new Request(url, {
-  //     method: 'GET',
-  //     headers: new Headers({
-  //       Accept: 'application/json',
-  //       'Content-Type': 'appliaction/json',
-  //     }),
-  //   })
-
-  //   const response = await fetch(request)
-  //   const data = await response.json()
-  //   // 設定資料
-  //   setProducts(data)
-  // }
-
-  // async function getClassBySQLcasual() {
-  //   const url = `http://localhost:6005/product/product-list/casual`
-
-  //   const request = new Request(url, {
-  //     method: 'GET',
-  //     headers: new Headers({
-  //       Accept: 'application/json',
-  //       'Content-Type': 'appliaction/json',
-  //     }),
-  //   })
-
-  //   const response = await fetch(request)
-  //   const data = await response.json()
-  //   // 設定資料
-  //   setProducts(data)
-  // }
-
-  // async function getPriceSearchByQuerySQL() {
-  //   const url =
-  //     'http://localhost:6005/product/productArr' +
-  //     `?search=${search}` +
-  //     `&arrangement=${arrangement}`
-
-  //   const request = new Request(url, {
-  //     method: 'GET',
-  //     headers: new Headers({
-  //       Accept: 'application/json',
-  //       'Content-Type': 'appliaction/json',
-  //     }),
-  //   })
-
-  //   const response = await fetch(request)
-  //   const data = await response.json()
-  //   console.log(data)
-  //   // 設定資料
-  //   setProducts(data)
-  // }
-  // useEffect(() => {
-  //   getPriceSearchByQuerySQL()
-  // }, [search, arrangement])
-
-  // useEffect(() => {
-  //   console.log(search, arrangement)
-  // }, [search, arrangement])
 
   async function getClassPriceSearchByQuerySQL() {
     const url =
@@ -232,10 +49,16 @@ function ProductList() {
   useEffect(() => {
     console.log(category, search, arrangement)
   }, [category, search, arrangement])
-  // const testCategory = (value = '123456768') => {
-  //   setCategory(value)
-  //   console.log(value)
-  // }
+
+  $('.siblings').click(function () {
+    $(this)
+      .addClass('changeColors')
+      .parent()
+      .siblings()
+      .children()
+      .removeClass('changeColors')
+      .removeClass('museumProduct')
+  })
 
   const productListCard = products.map((pro) => {
     let trydd = JSON.parse(`${pro.proImg}`)
@@ -326,13 +149,13 @@ function ProductList() {
             </div>
             <div className="prolist-topofmiddle">
               <div className="prolist-filter d-flex ">
-                <div className="prolist-arrangeAndIcon d-flex col-4">
+                <div className="prolist-arrangeAndIcon d-flex col-3">
                   <div
-                    className="ed-select-box cn-font col-6 p-0 d-flex
+                    className="ed-select-box cn-font col-9 p-0 d-flex
               "
                   >
                     <h6 className="col-5 px-0 text-center pro-filterWordA">
-                      排列
+                      價格
                     </h6>
                     <select
                       className="ed-select col-7 pro-filterWord"
@@ -352,31 +175,34 @@ function ProductList() {
                         value="highToLow"
                         className="pro-filterWord"
                       >
-                        價格由高至低
+                        高至低
                       </option>
                       <option
                         value="lowToHigh"
                         className="pro-filterWord"
                       >
-                        價格由低至高
+                        低至高
                       </option>
                     </select>
                   </div>
                   {/* <div className="prolist-searchIcon">
                     <GoSearch size={30} />
                   </div> */}
-                  <div className="prolist-searchIcon">
-                    <button className="auc-Search">
-                      <GoSearch size={30} />
-                    </button>
-                    <input
-                      className="auc-Searchbox"
-                      value={search}
-                      onChange={(event) => {
-                        setSearch(event.target.value)
-                      }}
-                    ></input>
-                  </div>
+                  <form action="">
+                    <div className="prolist-searchIcon d-flex">
+                      <button className="auc-Search">
+                        <GoSearch size={30} />
+                      </button>
+                      <input
+                        name="tryme"
+                        className="auc-Searchbox"
+                        value={search}
+                        onChange={(event) => {
+                          setSearch(event.target.value)
+                        }}
+                      ></input>
+                    </div>
+                  </form>
                 </div>
 
                 <div className="priceRangeBox d-flex">
@@ -414,123 +240,101 @@ function ProductList() {
             <div className="prolist-leftSide">
               <Link
                 style={{ textDecoration: 'none' }}
-                // to="/product/product-list"
-                data-id={99999}
                 onClick={(e) => {
-                  // setCategory(
-                  //   e.target.getAttribute('data-id')
                   e.preventDefault()
-
                   setCategory('allproduct')
                 }}
               >
-                <div className="museumProduct">
-                  <p>美術館商品</p>
+                <div className="museumProduct2 museumProduct siblings">
+                  美術館商品
                 </div>
               </Link>
               <Link
                 style={{ textDecoration: 'none' }}
-                // to="/product/product-list-newarrival"
-                value="newarrival"
-                key={category}
                 onClick={(e) => {
                   e.preventDefault()
                   setCategory('newarrival')
                 }}
               >
-                <div className="newArrival">
-                  <p>新品上市</p>
+                <div className="newArrival siblings">
+                  新品上市
                 </div>
               </Link>
               <Link
                 style={{ textDecoration: 'none' }}
-                // to="/product/product-list-hotproduct"
-                value="hotproduct"
                 onClick={(e) => {
                   e.preventDefault()
                   setCategory('hotproduct')
                 }}
               >
-                <div className="hotProduct">
-                  <p>暢銷商品</p>
+                <div className="hotProduct siblings">
+                  暢銷商品
                 </div>
               </Link>
               <Link
                 style={{ textDecoration: 'none' }}
-                // to="/product/product-list-clothes"
-                value="clothes"
                 onClick={(e) => {
                   e.preventDefault()
                   setCategory('clothes')
                 }}
               >
-                <div className="pro-clothes">
-                  <p>服飾</p>
+                <div className="pro-clothes siblings">
+                  服飾
                 </div>
               </Link>
               <Link
                 style={{ textDecoration: 'none' }}
-                // to="/product/product-list-furniture"
-                value="furniture"
                 onClick={(e) => {
                   e.preventDefault()
                   setCategory('furniture')
                 }}
               >
-                <div className="pro-furniture">
-                  <p>家飾</p>
+                <div className="pro-furniture siblings">
+                  家飾
                 </div>
               </Link>
               <Link
                 style={{ textDecoration: 'none' }}
-                // to="/product/product-list-stationery"
-                value="stationery"
                 onClick={(e) => {
                   e.preventDefault()
                   setCategory('stationery')
                 }}
               >
-                <div className="pro-stationery">
-                  <p>文具</p>
+                <div className="pro-stationery siblings">
+                  文具
                 </div>
               </Link>
               <Link
-                // to="/product/product-list-books"
                 style={{ textDecoration: 'none' }}
-                value="books"
                 onClick={(e) => {
                   e.preventDefault()
                   setCategory('books')
                 }}
               >
-                <div className="pro-books">
-                  <p>書籍</p>
+                <div className="pro-books siblings">
+                  書籍
                 </div>
               </Link>
               <Link
                 style={{ textDecoration: 'none' }}
-                // to="/product/product-list-accessories"
-                value="accessories"
                 onClick={(e) => {
                   e.preventDefault()
                   setCategory('accessories')
                 }}
               >
-                <div className="pro-accessories">
-                  <p>配件</p>
+                <div className="pro-accessories siblings">
+                  配件
                 </div>
               </Link>
               <Link
                 style={{ textDecoration: 'none' }}
-                // to="/product/product-list-casual"
-                value="casual"
                 onClick={(e) => {
                   e.preventDefault()
                   setCategory('casual')
                 }}
               >
-                <div className="pro-casual">
-                  <p>休閒娛樂</p>
+                <div className="pro-casual siblings">
+                  休閒娛樂
                 </div>
               </Link>
             </div>
