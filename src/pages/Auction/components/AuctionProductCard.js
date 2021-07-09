@@ -13,8 +13,6 @@ function AuctionProductCard(props) {
     const [isRunning, setIsRunning] = useState(true);
     // const [deadlineB,setDeadline] = useState()   
 
-    console.log(deadline)
-
     return (
         <>
             {/* {console.log('card的render')}
@@ -34,7 +32,7 @@ function AuctionProductCard(props) {
                             {AuctionProductCard_CountDown[3]}
                         </div>
                     ) : (<div className="auctionProduct_countdown auctionOver">{loading}</div>)} */}
-                    <div className="auctionProduct_countdown">{deadline}</div>
+                    <div className="auctionProduct_countdown"> {deadline}</div>
                 </div>
                 <div className="auctionProductionTitle">
                     {aucName}

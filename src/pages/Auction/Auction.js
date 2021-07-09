@@ -30,7 +30,6 @@ function Auction(props) {
     const [search, setSearch] = useState('')
     const [arrangement, setArrangement] = useState('')
     const [count, setCount] = useState(0)
-    const [start, setStart] = useState(false)
     const [aucInfo, setAucInfo] = useState([])
     const [aucRemainT, setAucRemainT] = useState([])
 
@@ -79,6 +78,7 @@ function Auction(props) {
 
         const response = await fetch(request)
         const data = await response.json()
+        console.log(data)
         // 設定資料
         setAucInfo(data)
     }
@@ -91,7 +91,7 @@ function Auction(props) {
         getAucProArrFromServer()
     }, [search, arrangement])
 
-    
+
     const TimeRemaining = (deadline) => {
         //截止時間(毫秒)
         // 將資料拿到資料庫截止日期 從字串轉換成數字
@@ -107,27 +107,31 @@ function Auction(props) {
         const hours = Math.floor((TimeRemaining / (1000 * 60 * 60)) % 24);
         const days = Math.floor(TimeRemaining / (1000 * 60 * 60 * 24));
         // console.log(days, "天", hours, '小時', minutes, '分鐘', seconds, '秒')
-        if(TimeRemaining<0){
+        if (TimeRemaining < 0) {
             return '競標結束'
         }
 
-        if (days > 0)
-            return `${days}天${hours}小時${seconds}`
+        if (days > 0) {
+            if (String(days).length < 2) {
+                return `截標倒數0${days}天${hours}小時${seconds}`
+            } else {
+                return `截標倒數${days}天${hours}小時${seconds}`
+            }
+        }
         if (days < 1)
-            return `${hours}小時${minutes}分鐘${seconds}`
-
-        // return [days, hours, minutes, seconds]
+            if (String(hours).length < 2) {
+                return `截標倒數0${hours}小時${minutes}分鐘${seconds}`
+            }else {
+                return `截標倒數${hours}小時${minutes}分鐘${seconds}`
+            }
 
     }
 
     useEffect(() => {
         let remainTime = []
+        //把所有deadline取出來計算剩餘時間
         if (aucInfo.length > 0) {
-            // console.log(aucInfo)
-            // console.log(aucInfo.length)
-            // console.log(aucInfo[0].aucDeadline)
             for (let i = 0; i < (aucInfo.length); i++) {
-                // console.log(aucInfo[0].aucDeadline)
                 let deadlineA = new Date(aucInfo[i].aucDeadline).getTime()
                 remainTime.push(TimeRemaining(deadlineA))
             }
@@ -137,15 +141,14 @@ function Auction(props) {
         let test = setInterval(() => {
             setCount(count => count + 1)
         }, 1000)
-        console.log('+++++++++++++++++++++++', count)
+        // console.log('+++++++++++++++++++++++', count)
         return () => clearInterval(test)
     }, [count])
 
     // 一開始就會開始載入資料
 
     return (
-        <>
-        {console.log('aa')}
+        <>  
             <div className="auctionPage">
                 <div className="auctionHeroSection">
                     <div className="auctionHeroSectionLogo">

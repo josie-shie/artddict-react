@@ -9,7 +9,7 @@ import AuctionProductCard from './AuctionProductCard'
 function AuctionProductList(props) {
 
     const { search, setSearch, arrangement,getAucProFromServer,getAucProArrFromServer,aucInfo,setAucInfo, TimeRemaining,aucRemainT} = props
-    console.log(aucRemainT)
+
     return (
         <>  
         {/* {console.log('-----------------------------')} */}
@@ -17,7 +17,7 @@ function AuctionProductList(props) {
                 <div className="row">
                     {/* {console.log("render時商品名稱",aucInfo)} */}
                     {aucInfo.map((auctionProduct,i) => (
-                        <span key={i} className="d-flex col-4">
+                        <span key={i} className="d-flex col-4 p-0">
                         <AuctionProductCard
                             aucId={auctionProduct.aucId}
                             aucName={auctionProduct.aucName}
