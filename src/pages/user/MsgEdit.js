@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter, Link } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
-
 import { countries, townships } from './data/address'
 // styles
 import './styles/MsgEdit.scss'
@@ -13,6 +12,8 @@ import RadioGroup from '@material-ui/core/RadioGroup'
 import FormControlLabel from '@material-ui/core/FormControlLabel'
 import FormControl from '@material-ui/core/FormControl'
 import StyledRadio from './StyledRadio'
+// SweetAlert
+import swal from 'sweetalert'
 
 function UserEdit(props) {
   // 縣市
@@ -27,8 +28,8 @@ function UserEdit(props) {
 
   const [username, setUsername] = useState('')
   const [name, setName] = useState('')
-  const [mobile, setMobile] = useState('')
   const [gender, setGender] = useState('')
+  const [mobile, setMobile] = useState('')
   const [birthday, setBirthday] = useState('')
   const [address, setAddress] = useState('')
 
@@ -53,8 +54,8 @@ function UserEdit(props) {
 
     setUsername(data.username)
     setName(data.name)
-    setMobile(data.mobile)
     setGender(data.gender)
+    setMobile(data.mobile)
     setBirthday(data.birthday)
     setAddress(data.address)
   }
@@ -66,9 +67,11 @@ function UserEdit(props) {
     const newData = {
       username,
       name,
-      mobile,
       gender,
+      mobile,
       birthday,
+      country,
+      township,
       address,
     }
 
@@ -96,7 +99,12 @@ function UserEdit(props) {
     //直接在一段x秒關掉指示器
     setTimeout(() => {
       setDataLoading(false)
-      alert('修改完成')
+      swal({
+        text: '修改成功！！！',
+        icon: 'success',
+        button: false,
+        timer: 3000,
+      })
     }, 1000)
   }
 
@@ -144,7 +152,9 @@ function UserEdit(props) {
               <Link to="/user-msgedit">會員資料</Link>
             </div>
             <div className="u-usertitleRight1">
-              <Link to="/user-pwdEdit">修改密碼</Link>
+              <Link to="/user-pwdedit/:userid?">
+                修改密碼
+              </Link>
             </div>
           </div>
           <Container className="u-userData">
@@ -168,18 +178,6 @@ function UserEdit(props) {
                   className="form-control"
                   onChange={(event) => {
                     setName(event.target.value)
-                  }}
-                />
-              </div>
-              <div className="form-group u-form1 cn-font">
-                <label for="tel">手機</label>
-                <input
-                  value={mobile}
-                  type="tel"
-                  className="form-control"
-                  id="tel"
-                  onChange={(event) => {
-                    setMobile(event.target.value)
                   }}
                 />
               </div>
@@ -223,6 +221,18 @@ function UserEdit(props) {
                     />
                   </RadioGroup>
                 </FormControl>
+              </div>
+              <div className="form-group u-form1 cn-font">
+                <label for="tel">手機</label>
+                <input
+                  value={mobile}
+                  type="tel"
+                  className="form-control"
+                  id="tel"
+                  onChange={(event) => {
+                    setMobile(event.target.value)
+                  }}
+                />
               </div>
 
               <div className="form-group u-form1 cn-font">

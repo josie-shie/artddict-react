@@ -8,7 +8,7 @@ function Breadcrumb(props) {
   // 查表功能，為了要轉網址路由為中文
   const pathnameList = [
     '/user-msgedit',
-    '/user-pwdEdit',
+    '/user-pwdedit',
     '/user-orderpro',
     '/user-ordertic',
     '/user-coupon',
