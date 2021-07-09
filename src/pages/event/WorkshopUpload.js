@@ -1,4 +1,5 @@
 import { React, useState, useRef, useEffect } from 'react'
+import axios from 'axios'
 import { Link, withRouter } from 'react-router-dom'
 import {
   Container,
@@ -50,6 +51,11 @@ function WorkshopUpload(props) {
   const [isImg2, setIsImg2] = useState()
   const [isImg3, setIsImg3] = useState()
   const [isImg4, setIsImg4] = useState()
+  // 圖檔名稱
+  const [fileName, setFileName] = useState('')
+  const [fileName2, setFileName2] = useState('')
+  const [fileName3, setFileName3] = useState('')
+  const [fileName4, setFileName4] = useState('')
   // 圖片的base64資料
   const [preview, setPreview] = useState()
   const [preview2, setPreview2] = useState()
@@ -59,6 +65,7 @@ function WorkshopUpload(props) {
   const [shareImg, setShareImg] = useState('[]')
   const [userId, setUserId] = useState('')
   const [shareComment, setShareComment] = useState('')
+
 
   // const [show, setShow] = useState(false)
   // const [inputData, setInputData] = useState('')
@@ -84,6 +91,23 @@ function WorkshopUpload(props) {
   //   setEventId(data.eventId)
 
   // }
+
+    const uploadFile = async (e) => {
+      const formData = new FormData()
+      formData.append('file', isImg)
+      formData.append('fileName', fileName)
+      try {
+        const res = await axios.post(
+          'http://localhost:6005/event/uploadShare',
+          formData
+        )
+        console.log(res)
+      } catch (ex) {
+        console.log(ex)
+      }
+    }
+
+  
 
   async function addEventShareSever() {
     const newData = { id, shareComment, shareImg }
@@ -221,6 +245,7 @@ function WorkshopUpload(props) {
                         const file = e.target.files[0]
                         if (file) {
                           setIsImg(file)
+                          setFileName(file.name)
                         } else {
                           setIsImg(null)
                         }
@@ -263,6 +288,7 @@ function WorkshopUpload(props) {
                           const file = e.target.files[0]
                           if (file) {
                             setIsImg2(file)
+                            setFileName2(file.name)
                           } else {
                             setIsImg2(null)
                           }
@@ -300,6 +326,7 @@ function WorkshopUpload(props) {
                           const file = e.target.files[0]
                           if (file) {
                             setIsImg3(file)
+                            setFileName3(file.name)
                           } else {
                             setIsImg3(null)
                           }
@@ -337,6 +364,7 @@ function WorkshopUpload(props) {
                           const file = e.target.files[0]
                           if (file) {
                             setIsImg4(file)
+                            setFileName4(file.name)
                           } else {
                             setIsImg4(null)
                           }
@@ -379,6 +407,7 @@ function WorkshopUpload(props) {
                     type="button"
                     onClick={() => {
                       addEventShareSever()
+                      uploadFile()
                     }}
                   >
                     上傳作品
