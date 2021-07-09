@@ -468,6 +468,12 @@ function ProductDetail() {
               </div>
               {/* ----------------留言結束--------- */}
             </div>
+            <div
+              class="fb-comments"
+              data-href="http://localhost:3000/product/product-list/product-detail"
+              data-width="100%"
+              data-numposts="5"
+            ></div>
           </div>
         </div>
       </div>

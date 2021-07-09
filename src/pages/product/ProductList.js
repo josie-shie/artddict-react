@@ -16,11 +16,200 @@ import listtitle from './img/productList/listtitle.jpeg'
 import productPic1 from './img/productList/productPic1.jpeg'
 function ProductList() {
   const [products, setProducts] = useState([])
-  const [proClass, setProClass] = useState('')
-  const [clothes, setClothes] = useState('')
+  const [search, setSearch] = useState('')
+  const [arrangement, setArrangement] = useState('')
+  const [category, setCategory] = useState('')
 
-  async function getAllProductSQL() {
-    const url = `http://localhost:6005/product/product-list/`
+  // async function getAllProductSQL() {
+  //   const url = `http://localhost:6005/product/product-list/`
+
+  //   const request = new Request(url, {
+  //     method: 'GET',
+  //     headers: new Headers({
+  //       Accept: 'application/json',
+  //       'Content-Type': 'appliaction/json',
+  //     }),
+  //   })
+
+  //   const response = await fetch(request)
+  //   const data = await response.json()
+  //   // 設定資料
+  //   setProducts(data)
+  // }
+  // useEffect(() => {
+  //   getAllProductSQL()
+  // }, [])
+
+  // async function getClassBySQLnew() {
+  //   const url = `http://localhost:6005/product/product-list/new`
+
+  //   const request = new Request(url, {
+  //     method: 'GET',
+  //     headers: new Headers({
+  //       Accept: 'application/json',
+  //       'Content-Type': 'appliaction/json',
+  //     }),
+  //   })
+
+  //   const response = await fetch(request)
+  //   const data = await response.json()
+  //   // 設定資料
+  //   setProducts(data)
+  // }
+
+  // async function getClassBySQLhot() {
+  //   const url = `http://localhost:6005/product/product-list/hot`
+
+  //   const request = new Request(url, {
+  //     method: 'GET',
+  //     headers: new Headers({
+  //       Accept: 'application/json',
+  //       'Content-Type': 'appliaction/json',
+  //     }),
+  //   })
+
+  //   const response = await fetch(request)
+  //   const data = await response.json()
+  //   // 設定資料
+  //   setProducts(data)
+  // }
+
+  // async function getClassBySQLbooks() {
+  //   const url = `http://localhost:6005/product/product-list/books`
+
+  //   const request = new Request(url, {
+  //     method: 'GET',
+  //     headers: new Headers({
+  //       Accept: 'application/json',
+  //       'Content-Type': 'appliaction/json',
+  //     }),
+  //   })
+
+  //   const response = await fetch(request)
+  //   const data = await response.json()
+  //   // 設定資料
+  //   setProducts(data)
+  // }
+
+  // async function getClassBySQLfurniture() {
+  //   const url = `http://localhost:6005/product/product-list/furniture`
+
+  //   const request = new Request(url, {
+  //     method: 'GET',
+  //     headers: new Headers({
+  //       Accept: 'application/json',
+  //       'Content-Type': 'appliaction/json',
+  //     }),
+  //   })
+
+  //   const response = await fetch(request)
+  //   const data = await response.json()
+  //   // 設定資料
+  //   setProducts(data)
+  // }
+
+  // async function getClassBySQLclothes() {
+  //   const url = `http://localhost:6005/product/product-list/clothes`
+
+  //   const request = new Request(url, {
+  //     method: 'GET',
+  //     headers: new Headers({
+  //       Accept: 'application/json',
+  //       'Content-Type': 'appliaction/json',
+  //     }),
+  //   })
+
+  //   const response = await fetch(request)
+  //   const data = await response.json()
+  //   // 設定資料
+  //   setProducts(data)
+  // }
+
+  // async function getClassBySQLaccessories() {
+  //   const url = `http://localhost:6005/product/product-list/accessories`
+
+  //   const request = new Request(url, {
+  //     method: 'GET',
+  //     headers: new Headers({
+  //       Accept: 'application/json',
+  //       'Content-Type': 'appliaction/json',
+  //     }),
+  //   })
+
+  //   const response = await fetch(request)
+  //   const data = await response.json()
+  //   // 設定資料
+  //   setProducts(data)
+  // }
+
+  // async function getClassBySQLstationery() {
+  //   const url = `http://localhost:6005/product/product-list/stationery`
+
+  //   const request = new Request(url, {
+  //     method: 'GET',
+  //     headers: new Headers({
+  //       Accept: 'application/json',
+  //       'Content-Type': 'appliaction/json',
+  //     }),
+  //   })
+
+  //   const response = await fetch(request)
+  //   const data = await response.json()
+  //   // 設定資料
+  //   setProducts(data)
+  // }
+
+  // async function getClassBySQLcasual() {
+  //   const url = `http://localhost:6005/product/product-list/casual`
+
+  //   const request = new Request(url, {
+  //     method: 'GET',
+  //     headers: new Headers({
+  //       Accept: 'application/json',
+  //       'Content-Type': 'appliaction/json',
+  //     }),
+  //   })
+
+  //   const response = await fetch(request)
+  //   const data = await response.json()
+  //   // 設定資料
+  //   setProducts(data)
+  // }
+
+  // async function getPriceSearchByQuerySQL() {
+  //   const url =
+  //     'http://localhost:6005/product/productArr' +
+  //     `?search=${search}` +
+  //     `&arrangement=${arrangement}`
+
+  //   const request = new Request(url, {
+  //     method: 'GET',
+  //     headers: new Headers({
+  //       Accept: 'application/json',
+  //       'Content-Type': 'appliaction/json',
+  //     }),
+  //   })
+
+  //   const response = await fetch(request)
+  //   const data = await response.json()
+  //   console.log(data)
+  //   // 設定資料
+  //   setProducts(data)
+  // }
+  // useEffect(() => {
+  //   getPriceSearchByQuerySQL()
+  // }, [search, arrangement])
+
+  // useEffect(() => {
+  //   console.log(search, arrangement)
+  // }, [search, arrangement])
+
+  async function getClassPriceSearchByQuerySQL() {
+    const url =
+      'http://localhost:6005/product/productArr' +
+      `?category=${category}` +
+      `&search=${search}` +
+      `&arrangement=${arrangement}`
 
     const request = new Request(url, {
       method: 'GET',
@@ -32,148 +221,21 @@ function ProductList() {
 
     const response = await fetch(request)
     const data = await response.json()
+    console.log(data)
     // 設定資料
     setProducts(data)
   }
   useEffect(() => {
-    getAllProductSQL()
-  }, [])
+    getClassPriceSearchByQuerySQL()
+  }, [category, search, arrangement])
 
-  async function getClassBySQLnew() {
-    const url = `http://localhost:6005/product/product-list/new`
-
-    const request = new Request(url, {
-      method: 'GET',
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
-      }),
-    })
-
-    const response = await fetch(request)
-    const data = await response.json()
-    // 設定資料
-    setProducts(data)
-  }
-
-  async function getClassBySQLhot() {
-    const url = `http://localhost:6005/product/product-list/hot`
-
-    const request = new Request(url, {
-      method: 'GET',
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
-      }),
-    })
-
-    const response = await fetch(request)
-    const data = await response.json()
-    // 設定資料
-    setProducts(data)
-  }
-
-  async function getClassBySQLbooks() {
-    const url = `http://localhost:6005/product/product-list/books`
-
-    const request = new Request(url, {
-      method: 'GET',
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
-      }),
-    })
-
-    const response = await fetch(request)
-    const data = await response.json()
-    // 設定資料
-    setProducts(data)
-  }
-
-  async function getClassBySQLfurniture() {
-    const url = `http://localhost:6005/product/product-list/furniture`
-
-    const request = new Request(url, {
-      method: 'GET',
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
-      }),
-    })
-
-    const response = await fetch(request)
-    const data = await response.json()
-    // 設定資料
-    setProducts(data)
-  }
-
-  async function getClassBySQLclothes() {
-    const url = `http://localhost:6005/product/product-list/clothes`
-
-    const request = new Request(url, {
-      method: 'GET',
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
-      }),
-    })
-
-    const response = await fetch(request)
-    const data = await response.json()
-    // 設定資料
-    setProducts(data)
-  }
-
-  async function getClassBySQLaccessories() {
-    const url = `http://localhost:6005/product/product-list/accessories`
-
-    const request = new Request(url, {
-      method: 'GET',
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
-      }),
-    })
-
-    const response = await fetch(request)
-    const data = await response.json()
-    // 設定資料
-    setProducts(data)
-  }
-
-  async function getClassBySQLstationery() {
-    const url = `http://localhost:6005/product/product-list/stationery`
-
-    const request = new Request(url, {
-      method: 'GET',
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
-      }),
-    })
-
-    const response = await fetch(request)
-    const data = await response.json()
-    // 設定資料
-    setProducts(data)
-  }
-
-  async function getClassBySQLcasual() {
-    const url = `http://localhost:6005/product/product-list/casual`
-
-    const request = new Request(url, {
-      method: 'GET',
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
-      }),
-    })
-
-    const response = await fetch(request)
-    const data = await response.json()
-    // 設定資料
-    setProducts(data)
-  }
+  useEffect(() => {
+    console.log(category, search, arrangement)
+  }, [category, search, arrangement])
+  // const testCategory = (value = '123456768') => {
+  //   setCategory(value)
+  //   console.log(value)
+  // }
 
   const productListCard = products.map((pro) => {
     let trydd = JSON.parse(`${pro.proImg}`)
@@ -274,8 +336,11 @@ function ProductList() {
                     </h6>
                     <select
                       className="ed-select col-7 pro-filterWord"
-                      name=""
-                      id=""
+                      name="name"
+                      id="id"
+                      onChange={(e) => {
+                        setArrangement(e.target.value)
+                      }}
                     >
                       <option
                         value=""
@@ -284,21 +349,33 @@ function ProductList() {
                         請選擇
                       </option>
                       <option
-                        value=""
+                        value="highToLow"
                         className="pro-filterWord"
                       >
                         價格由高至低
                       </option>
                       <option
-                        value=""
+                        value="lowToHigh"
                         className="pro-filterWord"
                       >
                         價格由低至高
                       </option>
                     </select>
                   </div>
-                  <div className="prolist-searchIcon">
+                  {/* <div className="prolist-searchIcon">
                     <GoSearch size={30} />
+                  </div> */}
+                  <div className="prolist-searchIcon">
+                    <button className="auc-Search">
+                      <GoSearch size={30} />
+                    </button>
+                    <input
+                      className="auc-Searchbox"
+                      value={search}
+                      onChange={(event) => {
+                        setSearch(event.target.value)
+                      }}
+                    ></input>
                   </div>
                 </div>
 
@@ -338,9 +415,13 @@ function ProductList() {
               <Link
                 style={{ textDecoration: 'none' }}
                 // to="/product/product-list"
+                data-id={99999}
                 onClick={(e) => {
+                  // setCategory(
+                  //   e.target.getAttribute('data-id')
                   e.preventDefault()
-                  getAllProductSQL()
+
+                  setCategory('allproduct')
                 }}
               >
                 <div className="museumProduct">
@@ -350,9 +431,11 @@ function ProductList() {
               <Link
                 style={{ textDecoration: 'none' }}
                 // to="/product/product-list-newarrival"
+                value="newarrival"
+                key={category}
                 onClick={(e) => {
                   e.preventDefault()
-                  getClassBySQLnew()
+                  setCategory('newarrival')
                 }}
               >
                 <div className="newArrival">
@@ -362,9 +445,10 @@ function ProductList() {
               <Link
                 style={{ textDecoration: 'none' }}
                 // to="/product/product-list-hotproduct"
+                value="hotproduct"
                 onClick={(e) => {
                   e.preventDefault()
-                  getClassBySQLhot()
+                  setCategory('hotproduct')
                 }}
               >
                 <div className="hotProduct">
@@ -374,9 +458,10 @@ function ProductList() {
               <Link
                 style={{ textDecoration: 'none' }}
                 // to="/product/product-list-clothes"
+                value="clothes"
                 onClick={(e) => {
                   e.preventDefault()
-                  getClassBySQLclothes()
+                  setCategory('clothes')
                 }}
               >
                 <div className="pro-clothes">
@@ -386,9 +471,10 @@ function ProductList() {
               <Link
                 style={{ textDecoration: 'none' }}
                 // to="/product/product-list-furniture"
+                value="furniture"
                 onClick={(e) => {
                   e.preventDefault()
-                  getClassBySQLfurniture()
+                  setCategory('furniture')
                 }}
               >
                 <div className="pro-furniture">
@@ -398,9 +484,10 @@ function ProductList() {
               <Link
                 style={{ textDecoration: 'none' }}
                 // to="/product/product-list-stationery"
+                value="stationery"
                 onClick={(e) => {
                   e.preventDefault()
-                  getClassBySQLstationery()
+                  setCategory('stationery')
                 }}
               >
                 <div className="pro-stationery">
@@ -410,9 +497,10 @@ function ProductList() {
               <Link
                 // to="/product/product-list-books"
                 style={{ textDecoration: 'none' }}
+                value="books"
                 onClick={(e) => {
                   e.preventDefault()
-                  getClassBySQLbooks()
+                  setCategory('books')
                 }}
               >
                 <div className="pro-books">
@@ -422,9 +510,10 @@ function ProductList() {
               <Link
                 style={{ textDecoration: 'none' }}
                 // to="/product/product-list-accessories"
+                value="accessories"
                 onClick={(e) => {
                   e.preventDefault()
-                  getClassBySQLaccessories()
+                  setCategory('accessories')
                 }}
               >
                 <div className="pro-accessories">
@@ -434,9 +523,10 @@ function ProductList() {
               <Link
                 style={{ textDecoration: 'none' }}
                 // to="/product/product-list-casual"
+                value="casual"
                 onClick={(e) => {
                   e.preventDefault()
-                  getClassBySQLcasual()
+                  setCategory('casual')
                 }}
               >
                 <div className="pro-casual">
