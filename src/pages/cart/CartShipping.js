@@ -13,7 +13,7 @@ import img2 from './img/2.png'
 import { FaLock } from 'react-icons/fa'
 import { RiArrowRightSLine } from 'react-icons/ri'
 
-function CartProduct() {
+function CartShipping() {
   const [status, setStatus] = useState(0)
   const radioHandler = (status) => {
     setStatus(status)
@@ -219,4 +219,4 @@ function CartProduct() {
   )
 }
 
-export default CartProduct
+export default CartShipping

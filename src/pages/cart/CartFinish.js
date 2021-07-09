@@ -1,5 +1,6 @@
-import { React, useState } from 'react'
+import { React, useState, useEffect } from 'react'
 import { ReactComponent as Logo } from '../../pics/logo-bk.svg'
+import { withRouter } from 'react-router-dom'
 
 import '../../bootstrap/css/bootstrap.css'
 import './styles/cart-finish.scss'
@@ -12,68 +13,62 @@ import img2 from './img/2.png'
 import { FaLock } from 'react-icons/fa'
 import { RiArrowRightSLine } from 'react-icons/ri'
 
-function CartProduct() {
-  return (
-    <>
-      <div className="c-bg">
-        <div className="c-header">
-          <Logo className="c-logo" />
-          <p>Hello JoJo</p>
-        </div>
-        <div className="c-crumbs1">
-          <a href="./">
-            <p>首頁&nbsp;/&nbsp;</p>
-          </a>
-          <a href="./cart-product">
-            <p>購物車&nbsp;/&nbsp;</p>
-          </a>
-          <p>結帳</p>
-        </div>
-        <div className="c-step d-flex align-items-center justify-content-center">
-          <div className="c-shipment3">收件資訊</div>
-          <RiArrowRightSLine
-            size={30}
-            className="c-grayarrow1"
-          />
-          <div className="c-payment3">付款資訊</div>
-          <RiArrowRightSLine
-            size={30}
-            className="c-grayarrow1"
-          />
-          <div className="c-complete3">完成訂單</div>
-        </div>
-        <div className="c-thank">
-          <p className="h5">感謝您的訂購！</p>
-          <p className="pt-2">
-            您的訂單資訊如下，並已同步寄到您填寫的e-mail信箱
-          </p>
-        </div>
+function CartFinish() {
+  const [orders, setOrders] = useState([])
+
+  async function getOrdersServer() {
+    const url = 'http://localhost:6005/orders'
+
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    console.log(response)
+    const data = await response.json()
+    // 設定資料
+    setOrders(data)
+  }
+
+  useEffect(() => {
+    getOrdersServer()
+  }, [])
+
+  const ordersDisplay = orders.map((orders) => {
+    orders.created_at = orders.created_at.split('T')[0]
+    return (
+      <div>
         <table className="c-order">
           <thead>
             <th>訂單明細</th>
           </thead>
           <tbody>
             <tr>
-              <td>訂單編號：001234</td>
+              <td>訂單編號：{orders.orderId}</td>
             </tr>
+
             <tr>
               <td className="c-td-dark">
-                訂單日期：2021-06-04
+                訂單日期：{orders.created_at}
               </td>
             </tr>
+            {/* <tr>
+                <td>商品小計：NT$ 1,560</td>
+              </tr>
+              <tr>
+                <td className="c-td-dark">
+                  運費小計：NT$ 80
+                </td>
+              </tr>
+              <tr>
+                <td>折扣碼：- NT$ 50</td>
+              </tr> */}
             <tr>
-              <td>商品小計：NT$ 1,560</td>
-            </tr>
-            <tr>
-              <td className="c-td-dark">
-                運費小計：NT$ 80
-              </td>
-            </tr>
-            <tr>
-              <td>折扣碼：- NT$ 50</td>
-            </tr>
-            <tr>
-              <td className="c-td-dark">總價：NT$ 1,590</td>
+              <td>總價：NT$ 1,590</td>
             </tr>
             <tr>
               <td>
@@ -117,14 +112,14 @@ function CartProduct() {
             <tr>
               <td>信用卡別：VISA</td>
             </tr>
-            <tr>
-              <td className="c-td-dark">
-                信用卡號：XXXX-XXXX-XXXX-2348
-              </td>
-            </tr>
-            <tr>
-              <td>有效期限：XX-2025</td>
-            </tr>
+            {/* <tr>
+                <td className="c-td-dark">
+                  信用卡號：XXXX-XXXX-XXXX-2348
+                </td>
+              </tr>
+              <tr>
+                <td>有效期限：XX-2025</td>
+              </tr> */}
             <tr>
               <td className="c-td-dark">
                 刷卡金額：NT$ 1,590
@@ -155,6 +150,49 @@ function CartProduct() {
             </tr>
           </tbody>
         </table>
+      </div>
+    )
+  })
+
+  return (
+    <>
+      <div className="c-bg">
+        <div className="c-header">
+          <Logo className="c-logo" />
+          <p>Hello JoJo</p>
+        </div>
+        <div className="c-crumbs1">
+          <a href="./">
+            <p>首頁&nbsp;/&nbsp;</p>
+          </a>
+          <a href="./cart-product">
+            <p>購物車&nbsp;/&nbsp;</p>
+          </a>
+          <p>結帳</p>
+        </div>
+        <div className="c-step d-flex align-items-center justify-content-center">
+          <div className="c-shipment3">收件資訊</div>
+          <RiArrowRightSLine
+            size={30}
+            className="c-grayarrow1"
+          />
+          <div className="c-payment3">付款資訊</div>
+          <RiArrowRightSLine
+            size={30}
+            className="c-grayarrow1"
+          />
+          <div className="c-complete3">完成訂單</div>
+        </div>
+        <div className="c-thank">
+          <p className="h5">感謝您的訂購！</p>
+          <p className="pt-2">
+            您的訂單資訊如下，並已同步寄到您填寫的e-mail信箱
+          </p>
+        </div>
+
+        {/* 訂單資訊 */}
+        {ordersDisplay}
+
         <div className="c-finish-bottom">
           <a href="#" className="">
             <div className="c-finbtn1">
@@ -181,4 +219,4 @@ function CartProduct() {
   )
 }
 
-export default CartProduct
+export default withRouter(CartFinish)

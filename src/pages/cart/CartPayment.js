@@ -17,7 +17,7 @@ import img2 from './img/2.png'
 import { FaLock } from 'react-icons/fa'
 import { RiArrowRightSLine } from 'react-icons/ri'
 
-function CartProduct() {
+function CartPayment() {
   // checkbox
   const [state, setState] = useState({
     checkedA: true,
@@ -157,7 +157,7 @@ function CartProduct() {
               </p>
 
               <div className="my-4">
-                <input
+                <inputㄐ
                   type="submit"
                   value="確認付款"
                   className="c-checkoutbtn2"
@@ -241,4 +241,4 @@ function CartProduct() {
   )
 }
 
-export default CartProduct
+export default CartPayment

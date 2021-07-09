@@ -2,7 +2,7 @@ import React from 'react'
 import FakeProduct from './FakeProduct'
 
 export default function Main(props) {
-  const { products, onAdd } = props
+  const { products, onAddToCart } = props
   return (
     <main>
       <div className="d-flex">
@@ -10,7 +10,7 @@ export default function Main(props) {
           <FakeProduct
             key={product.id}
             product={product}
-            onAdd={onAdd}
+            onAddToCart={onAddToCart}
           ></FakeProduct>
         ))}
       </div>

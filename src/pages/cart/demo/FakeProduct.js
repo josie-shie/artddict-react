@@ -1,7 +1,7 @@
 import React from 'react'
 
 export default function FakeProduct(props) {
-  const { product, onAdd } = props
+  const { product, onAddToCart } = props
   return (
     <div className="c-fakeplist mt-3 mr-4">
       {/* <img
@@ -15,7 +15,7 @@ export default function FakeProduct(props) {
       <div>尺寸：{product.size}</div>
       <div>${product.price}</div>
       <div>
-        <button onClick={() => onAdd(product)}>
+        <button onClick={() => onAddToCart(product, 1)}>
           <p>Add To Cart</p>
         </button>
       </div>

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 // icon
 import { FaRegEdit } from 'react-icons/fa'
@@ -6,7 +6,7 @@ import { FaLock } from 'react-icons/fa'
 import { RiDeleteBinLine } from 'react-icons/ri'
 
 export default function Basket(props) {
-  const { cartItems, onAdd, onRemove, onDelete } = props
+  const { onCartNumChange, onDelete, cartItems } = props
   const itemsPrice = cartItems.reduce(
     (a, c) => a + c.qty * c.price,
     0
@@ -66,22 +66,7 @@ export default function Basket(props) {
                   type="number"
                   value={item.qty}
                   onChange={(evt) => {
-                    const diffAmount =
-                      evt.target.value - item.qty
-                    if (diffAmount > 0) {
-                      new Array(diffAmount)
-                        .fill(null)
-                        .forEach(() => {
-                          onAdd(item)
-                        })
-                    } else {
-                      if (item.qty === 0) return
-                      new Array(Math.abs(diffAmount))
-                        .fill(null)
-                        .forEach(() => {
-                          onRemove(item)
-                        })
-                    }
+                    onCartNumChange(item, evt.target.value)
                   }}
                 />
               </div>
