@@ -99,6 +99,7 @@ function WorkshopShare(props) {
                         `http://localhost:6005/eventpic/share/${shareImg}` +
                         ')',
                       backgroundSize: 'cover',
+                      backgroundPosition: 'center center',
                     }}
                   >
                     <img src={Square} alt="" />
@@ -115,6 +116,7 @@ function WorkshopShare(props) {
                           `http://localhost:6005/eventpic/share/${shareImg2}` +
                           ')',
                         backgroundSize: 'cover',
+                        backgroundPosition: 'center center',
                       }}
                     >
                       <img src={Square} alt="" />
@@ -127,6 +129,7 @@ function WorkshopShare(props) {
                           `http://localhost:6005/eventpic/share/${shareImg3}` +
                           ')',
                         backgroundSize: 'cover',
+                        backgroundPosition: 'center center',
                       }}
                     >
                       <img src={Square} alt="" />
@@ -139,6 +142,7 @@ function WorkshopShare(props) {
                           `http://localhost:6005/eventpic/share/${shareImg4}` +
                           ')',
                         backgroundSize: 'cover',
+                        backgroundPosition: 'center center',
                       }}
                     >
                       <img src={Square} alt="" />

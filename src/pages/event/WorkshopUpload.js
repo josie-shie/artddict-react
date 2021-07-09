@@ -66,7 +66,6 @@ function WorkshopUpload(props) {
   const [userId, setUserId] = useState('')
   const [shareComment, setShareComment] = useState('')
 
-
   // const [show, setShow] = useState(false)
   // const [inputData, setInputData] = useState('')
 
@@ -92,26 +91,32 @@ function WorkshopUpload(props) {
 
   // }
 
-    const uploadFile = async (e) => {
-      const formData = new FormData()
-      formData.append('file', isImg)
-      formData.append('fileName', fileName)
-      try {
-        const res = await axios.post(
-          'http://localhost:6005/event/uploadShare',
-          formData
-        )
-        console.log(res)
-      } catch (ex) {
-        console.log(ex)
-      }
-      console.log(formData, isImg, fileName)
+  const uploadFile = async (e) => {
+    const formData = new FormData()
+    formData.append('file', isImg)
+    formData.append('file', isImg2)
+    formData.append('file', isImg3)
+    formData.append('file', isImg4)
+    try {
+      const res = await axios.post(
+        'http://localhost:6005/event/uploadPic',
+        formData
+      )
+      console.log(res)
+    } catch (ex) {
+      console.log(ex)
     }
-
-  
+    console.log(formData, isImg, fileName)
+  }
 
   async function addEventShareSever() {
-    const newData = { id, shareComment, shareImg }
+    const sharePhoto = [
+      fileName,
+      fileName2,
+      fileName3,
+      fileName4,
+    ]
+    const newData = { id, shareComment, sharePhoto }
 
     // 連接的伺服器資料網址
     const url = 'http://localhost:6005/event/upload'
@@ -126,7 +131,7 @@ function WorkshopUpload(props) {
       }),
     })
 
-    console.log(JSON.stringify(newData))
+    console.log(JSON.stringify(newData, fileName))
 
     const response = await fetch(request)
     const data = await response.json()
