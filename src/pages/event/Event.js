@@ -285,7 +285,7 @@ function event() {
               style={{ textDecoration: 'none' }}
             >
               <div className="e-exhi-title ml-4 position-absolute">
-                <arrow className="arrow-cap">
+                <div className="arrow-cap">
                   <h1 className="eng-font-bold">
                     EX­­
                     <br />
@@ -304,7 +304,7 @@ function event() {
                     src={ExhiDecoM}
                     alt=""
                   />
-                </arrow>
+                </div>
               </div>
             </Link>
             <h2
@@ -413,7 +413,7 @@ function event() {
               style={{ textDecoration: 'none' }}
             >
               <div className="e-work-title ml-4">
-                <arrow className="arrow-work-cap">
+                <div className="arrow-work-cap">
                   <p className="cn-font e-work-title-cn mt-2">
                     手作
                     <span className="e-work-title-dash">
@@ -430,7 +430,7 @@ function event() {
                     src={ExhiDecoM}
                     alt=""
                   />
-                </arrow>
+                </div>
               </div>
             </Link>
           </Row>
