@@ -9,7 +9,7 @@ function Menu2() {
         <NavLink
           activeClassName="activenav"
           className={'tab'}
-          to="/user-pwdEdit"
+          to="/user-pwdedit"
           style={{ textDecoration: 'none' }}
         >
           修改資料
