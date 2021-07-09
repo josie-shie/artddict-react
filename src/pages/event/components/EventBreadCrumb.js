@@ -34,7 +34,7 @@ function EventBreadCrumb(props) {
 
     const pathArray = pathnameList[index].split('/')
 
-    console.log(textArray, pathArray)
+    // console.log(textArray, pathArray)
 
     // '/event',
     // '/event/event-list',

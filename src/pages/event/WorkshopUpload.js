@@ -105,6 +105,7 @@ function WorkshopUpload(props) {
       } catch (ex) {
         console.log(ex)
       }
+      console.log(formData, isImg, fileName)
     }
 
   
