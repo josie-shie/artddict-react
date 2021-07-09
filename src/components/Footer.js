@@ -30,7 +30,7 @@ const Footer = () => {
             {/* <!-- Facebook --> */}
             <Link
               className="footer-icon btn btn-floating m-1"
-              href="#!"
+              to="#!"
               role="button"
             >
               <FaFacebookF />
@@ -39,7 +39,7 @@ const Footer = () => {
             {/* <!-- Twitter --> */}
             <Link
               className=" footer-icon btn btn-floating m-1"
-              href="#!"
+              to="#!"
               role="button"
             >
               <GrTwitter />
@@ -47,7 +47,7 @@ const Footer = () => {
             {/* <!-- Instagram --> */}
             <Link
               className="footer-icon btn btn-floating m-1"
-              href="#!"
+              to="#!"
               role="button"
             >
               <GrInstagram />
@@ -56,7 +56,7 @@ const Footer = () => {
             {/* <!-- Linkedin --> */}
             <Link
               className="footer-icon btn btn-floating m-1"
-              href="#!"
+              to="#!"
               role="button"
             >
               <IoLogoYoutube />

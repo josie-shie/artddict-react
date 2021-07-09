@@ -94,7 +94,7 @@ const Nav = () => {
   return (
     <>
       <div className="nav-area">
-        <nav class="index-nav">
+        <nav className="index-nav">
           <div className="mynav">
             <div ref={circleRef} className="circle"></div>
             <div className="nav-icon text-center">
@@ -151,23 +151,18 @@ const Nav = () => {
                   </Link>
                 </li>
                 <li>
-                  <Link ref={liRef} to="/news">
-                    News
+                  <Link ref={liRef} to="/auction">
+                    Auction
                   </Link>
                 </li>
                 <li>
                   <Link ref={liRef} to="/user-login">
-                    Account
-                  </Link>
-                </li>
-                <li>
-                  <Link ref={liRef} to="/auction">
-                  Auction
+                    Member
                   </Link>
                 </li>
                 <li>
                   <Link ref={liRef} to="/contact">
-                  our Team
+                    our Team
                   </Link>
                 </li>
               </ul>

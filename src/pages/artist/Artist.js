@@ -126,7 +126,7 @@ const Artist = () => {
             的藝術語言去創造自己的世界。
           </h5>
         </div>
-        <div className="art-name art-push pt-5 pb-3 art-relative">
+        <div className="art-name mb-5 pt-5 pb-3 art-relative">
           <img className="mb-5" src={artistImg6} alt="" />
           <h5>
             <span>Pop-Art藝術家 Mr. Doodle</span>
@@ -141,8 +141,8 @@ const Artist = () => {
           <div className="art-hl2"></div>
         </div>
         <div
-          class="fb-comments mb-5"
-          data-href="http://localhost:3000/artist"
+          className="fb-comments mb-5"
+          data-href="http://localhost:3002/artist"
           data-width="100%"
           data-numposts="5"
         ></div>
