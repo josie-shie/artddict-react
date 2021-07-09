@@ -18,19 +18,16 @@ import MarqueeMapEnd from './components/MarqueeMapEnd'
 //? icons
 import { MdMyLocation } from 'react-icons/md'
 import {
-  IoIosSearch,
-  IoIosHeartEmpty,
-} from 'react-icons/io'
-import {
-  RiArrowRightSLine,
+  RiArrowRightUpLine,
   RiArrowLeftSLine,
+  RiArrowRightSLine,
 } from 'react-icons/ri'
-import { RiArrowRightUpLine } from 'react-icons/ri'
+import { IoIosSearch,IoIosHeartEmpty } from 'react-icons/io'
 
 const Map = () => {
   const [museums, setMuseums] = useState([])
-  const [idMuseum, setIdMuseum] = useState()
-  const [musEvent, setmusEvent] = useState([])
+  const [idMuseun, setIdMuseun] = useState()
+  const [musEvent, setMusEvent] = useState([])
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
   const [city, setCity] = useState('')
@@ -67,24 +64,23 @@ const Map = () => {
       }),
     })
 
-    const response = await fetch(request)
-    const data = await response.json()
-    // 設定資料
-    setMuseums(data)
-  }
+    async function getMusEventServer() {
+      const url = `http://localhost:6005/map/musEvent?idMuseum=${idMuseun}?`
 
-  //撈出活動
-  async function getMusEventServer() {
-    const url = `http://localhost:6005/map/musEvent?idMuseum=${idMuseum}?`
+      // 注意header資料格式要設定，伺服器才知道是json格式
+      const request = new Request(url, {
+        method: 'GET',
+        headers: new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'appliaction/json',
+        }),
+      })
 
-    // 注意header資料格式要設定，伺服器才知道是json格式
-    const request = new Request(url, {
-      method: 'GET',
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
-      }),
-    })
+      const response = await fetch(request)
+      const data = await response.json()
+      // 設定資料
+      setMuseums(data)
+    }
 
     const response = await fetch(request)
     const data = await response.json()
@@ -95,15 +91,6 @@ const Map = () => {
   useEffect(() => {
     getMuseumServer()
   }, [])
-  
-  useEffect(() => {
-    console.log(idMuseum);
-  }, [idMuseum])
-
-  // onClick={(e)=>{
-  //   e.preventDefault()
-  //   setmusEvent()
-  // }}
 
   const museumDisplay = museums.map((mus) => {
     return (
@@ -111,10 +98,7 @@ const Map = () => {
         <div className="map-card pb-3 mb-3">
           <Link
             key={mus.id}
-            onClick={(e) => {
-              e.preventDefault()
-              setIdMuseum(mus.id)
-            }}
+            to={`/map/mapevent/${mus.id}?`}
           >
             <img
               className="w-100"
@@ -131,9 +115,7 @@ const Map = () => {
             <div className="map-card-btn text-center">
               <Link
                 key={mus.id}
-                onClick={(e) => {
-                  e.preventDefault()
-                }}
+                to={`/map/mapevent/${mus.id}?`}
               >
                 <button className="px-2 pt-3">
                   更多活動
@@ -221,8 +203,6 @@ const Map = () => {
     )
   })
 
- 
-
   return (
     <>
       <div className="map-area index-web-padding">
@@ -234,7 +214,7 @@ const Map = () => {
               <div className="map-select-box px-4 pt-1">
                 地區
               </div>
-              <from
+              <form
                 className="d-flex justify-content-between"
                 return="false"
               >
@@ -296,7 +276,7 @@ const Map = () => {
                 >
                   搜尋
                 </button>
-              </from>
+              </form>
               <div className="pl-5 ml-5 mr-4">
                 <MdMyLocation size={30} color={'#81FC4D'} />
               </div>
@@ -318,7 +298,7 @@ const Map = () => {
               </h1>
             </div>
             <div className="px-4">
-              (){museumDisplay}
+              {museumDisplay}
               {/* <MapCardSql city={city} setCity={setCity} /> */}
             </div>
           </div>

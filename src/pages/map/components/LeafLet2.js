@@ -104,7 +104,7 @@ class LeafLet2 extends React.Component {
       )
         .addTo(this.state.osmMap)
         .bindPopup(
-          `<Link><b>${nextProps.museums[i].musName}</b><br><button >查看活動<button></Link>`
+          `<Link><b>${nextProps.museums[i].musName}</b><br><button>查看活動<button></Link>`
         )
     }
   }

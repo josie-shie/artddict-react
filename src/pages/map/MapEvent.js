@@ -48,7 +48,7 @@ const Map = () => {
               <div className="map-select-box px-4 pt-1">
                 地區
               </div>
-              <from className="d-flex justify-content-between">
+              <form className="d-flex justify-content-between">
                 <select
                   className="map-select-box map-select pl-3 border-left-0 "
                   name=""
@@ -83,7 +83,7 @@ const Map = () => {
                 <div className="map-select-box px-4 pt-1">
                   搜尋
                 </div>
-              </from>
+              </form>
               <div className="pl-5 ml-5 mr-4">
                 <MdMyLocation size={30} color={'#81FC4D'} />
               </div>
