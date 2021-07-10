@@ -43,6 +43,14 @@ const Nav = () => {
         closeMenu()
       }
     })
+
+    $('.menu li').on('click', function () {
+      closeMenu()
+    })
+
+    $(logoRef.current).on('click', function () {
+      closeMenu()
+    })
   }, [])
 
   const openMenu = () => {
