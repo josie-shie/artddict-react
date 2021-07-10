@@ -1,19 +1,19 @@
 import { React, useState, useEffect } from 'react'
-import { ReactComponent as Logo } from '../../pics/logo-bk.svg'
+import { ReactComponent as Logo } from '../../../pics/logo-bk.svg'
 import { withRouter } from 'react-router-dom'
 
-import '../../bootstrap/css/bootstrap.css'
-import './styles/cart-finish.scss'
+import '../../../bootstrap/css/bootstrap.css'
+import '../styles/cart-finish.scss'
 
 // imgae
-import img1 from './img/1.png'
-import img2 from './img/2.png'
+import img1 from '../img/1.png'
+import img2 from '../img/2.png'
 
 // icon
 import { FaLock } from 'react-icons/fa'
 import { RiArrowRightSLine } from 'react-icons/ri'
 
-function CartFinish() {
+function CartFormFinish() {
   const [orders, setOrders] = useState([])
 
   async function getOrdersServer() {
@@ -156,33 +156,7 @@ function CartFinish() {
 
   return (
     <>
-      <div className="c-bg">
-        <div className="c-header">
-          <Logo className="c-logo" />
-          <p>Hello JoJo</p>
-        </div>
-        <div className="c-crumbs1">
-          <a href="./">
-            <p>首頁&nbsp;/&nbsp;</p>
-          </a>
-          <a href="./cart-product">
-            <p>購物車&nbsp;/&nbsp;</p>
-          </a>
-          <p>結帳</p>
-        </div>
-        <div className="c-step d-flex align-items-center justify-content-center">
-          <div className="c-shipment3">收件資訊</div>
-          <RiArrowRightSLine
-            size={30}
-            className="c-grayarrow1"
-          />
-          <div className="c-payment3">付款資訊</div>
-          <RiArrowRightSLine
-            size={30}
-            className="c-grayarrow1"
-          />
-          <div className="c-complete3">完成訂單</div>
-        </div>
+      <div className="c-bg2">
         <div className="c-thank">
           <p className="h5">感謝您的訂購！</p>
           <p className="pt-2">
@@ -219,4 +193,4 @@ function CartFinish() {
   )
 }
 
-export default withRouter(CartFinish)
+export default withRouter(CartFormFinish)

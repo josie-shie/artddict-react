@@ -108,7 +108,7 @@ export default function Basket(props) {
             本賣場使用綠界科技安全結帳系統，保障您的資安
           </p>
         </div>
-        <a href="./cart-shipping">
+        <a href="./cart-form">
           <div className="c-checkoutbtn">
             <p>結帳</p>
           </div>

@@ -53,9 +53,7 @@ import WorkshopUpdate from './pages/event/WorkshopUpdate'
 import CartProduct from './pages/cart/CartProduct'
 import CartEvent from './pages/cart/CartEvent'
 import CartAuction from './pages/cart/CartAuction'
-import CartShipping from './pages/cart/CartShipping'
-import CartPayment from './pages/cart/CartPayment'
-import CartFinish from './pages/cart/CartFinish'
+import CartForm from './pages/cart/CartForm'
 
 function App() {
   return (
@@ -165,23 +163,17 @@ function App() {
             {/* <Route exact path="/auction">
               <Auction />
             </Route> */}
-            <Route exact path="/cart-payment">
-              <CartPayment />
-            </Route>
-            <Route exact path="/cart-shipping">
-              <CartShipping />
-            </Route>
             <Route exact path="/cart-product">
               <CartProduct />
-            </Route>
-            <Route exact path="/cart-finish">
-              <CartFinish />
             </Route>
             <Route exact path="/cart-event">
               <CartEvent />
             </Route>
             <Route exact path="/cart-auction">
               <CartAuction />
+            </Route>
+            <Route exact path="/cart-form">
+              <CartForm />
             </Route>
             <Route exact path="/event">
               <Event />
