@@ -135,7 +135,7 @@ function App() {
             <Route exact path="/user-msgedit/:userid?">
               <MsgEdit />
             </Route>
-            <Route exact path="/user-pwdedit/">
+            <Route exact path="/user-pwdedit/:userid?">
               <PwdEdit />
             </Route>
             <Route exact path="/user-orderpro">
