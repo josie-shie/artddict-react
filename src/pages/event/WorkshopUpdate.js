@@ -24,8 +24,6 @@ import EuListCardPic from './images/event/108.jpg'
 import EuListCardPic2 from './images/event/011.jpg'
 import EuListCardPic3 from './images/event/009.jpg'
 
-import EuGreySpin from './images/arddict-circle-gr.svg'
-
 import './style/reset.css'
 import './style/fontAndBtn.scss'
 import './style/WorkshopUpload.scss'
@@ -42,6 +40,13 @@ function WorkshopUpload(props) {
 
   // 一開始需要載入的狀態
   const [eventName, setEventName] = useState('')
+
+  // Modal 顯示狀態
+  const [show, setShow] = useState(false)
+
+  // Modal 開關 function
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
 
   // button 啟動 input
@@ -315,7 +320,7 @@ function WorkshopUpload(props) {
                           `http://localhost:6005/eventpic/share/${fileName2}` +
                           ')',
                         backgroundSize: 'cover',
-                        opacity: (preview2 ? 1 : 0.7),
+                        opacity: preview2 ? 1 : 0.7,
                       }}
                     >
                       <input
@@ -361,7 +366,7 @@ function WorkshopUpload(props) {
                           `http://localhost:6005/eventpic/share/${fileName3}` +
                           ')',
                         backgroundSize: 'cover',
-                        opacity: (preview3 ? 1 : 0.7),
+                        opacity: preview3 ? 1 : 0.7,
                       }}
                     >
                       <input
@@ -407,7 +412,7 @@ function WorkshopUpload(props) {
                           `http://localhost:6005/eventpic/share/${fileName4}` +
                           ')',
                         backgroundSize: 'cover',
-                        opacity: (preview4 ? 1 : 0.7),
+                        opacity: preview4 ? 1 : 0.7,
                       }}
                     >
                       <input
@@ -457,7 +462,16 @@ function WorkshopUpload(props) {
                   value={shareComment}
                 />
 
-                <div className="col-11 d-flex flex-wrap justify-content-center my-4">
+                <div className="col-11 d-flex flex-wrap justify-content-between my-4">
+                  <button
+                    className="eu-send-del e-btn-m col-l2 my-3"
+                    type="button"
+                    onClick={() => {
+                      handleShow()
+                    }}
+                  >
+                    刪除作品
+                  </button>
                   <button
                     className="eu-send-cmt e-btn-m col-l2 my-3"
                     type="button"
@@ -549,10 +563,19 @@ function WorkshopUpload(props) {
               </div>
             </div>
 
-            {/* <Modal show={show} onHide={handleClose}>
-              <Modal.Body>
-                Woohoo, you're reading this text in a modal!
-              </Modal.Body>
+            {/* 刪除 Modal警告 */}
+            <Modal
+              centered
+              show={show}
+              onHide={handleClose}
+              id="eventModal"
+            >
+              <Modal.Header closeButton>
+                <Modal.Title>
+                  即將移除您建立的作品!
+                </Modal.Title>
+              </Modal.Header>
+              <Modal.Body>即將移除您建立的作品!</Modal.Body>
               <Modal.Footer>
                 <Button
                   variant="secondary"
@@ -567,7 +590,7 @@ function WorkshopUpload(props) {
                   Save Changes
                 </Button>
               </Modal.Footer>
-            </Modal> */}
+            </Modal>
           </Row>
         </Container>
       </div>
