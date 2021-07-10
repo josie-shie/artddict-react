@@ -49,7 +49,7 @@ function EventMore(props) {
             alt=""
           />
           <h6 className="col-12 p-0 cn-font my-2">
-            我是活動標題
+            INITIATION
           </h6>
           <div className="d-flex">
             <div className="col-8 p-0">

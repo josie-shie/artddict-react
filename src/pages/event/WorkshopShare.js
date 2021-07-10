@@ -15,6 +15,7 @@ import { IoIosArrowForward } from 'react-icons/io'
 import Square from './images/square.gif'
 // Pictures
 import EuListCardPic from './images/event/006.jpg'
+import EuListCardPic2 from './images/event/007.jpg'
 
 import './style/reset.css'
 import './style/fontAndBtn.scss'
@@ -170,28 +171,28 @@ function WorkshopShare(props) {
                 </h2>
 
                 <Link
-                  to="/event/event-list/detail"
+                  to="/event/event-list/detail/7"
                   style={{ textDecoration: 'none' }}
                 >
                   <div className="es-list-card col-12 pt-5 mb-5">
                     <img
                       className="col-12 p-0"
-                      src={EuListCardPic}
+                      src={EuListCardPic2}
                       alt=""
                     />
                     <h6 className="col-12 p-0 cn-font my-2">
-                      我是活動標題
+                      探索臺北城
                     </h6>
                     <div className="d-flex">
                       <div className="col-8 p-0">
                         <p>地點：台北市</p>
-                        <p>時間：JUN</p>
+                        <p>2021年06月</p>
                       </div>
                     </div>
                   </div>
                 </Link>
                 <Link
-                  to="/event/event-list/detail"
+                  to="/event/event-list/detail/6"
                   style={{ textDecoration: 'none' }}
                 >
                   <div className="es-list-card col-12 pt-5 mb-5">
@@ -201,12 +202,12 @@ function WorkshopShare(props) {
                       alt=""
                     />
                     <h6 className="col-12 p-0 cn-font my-2">
-                      我是活動標題
+                      解碼雲端
                     </h6>
                     <div className="d-flex">
                       <div className="col-8 p-0">
-                        <p>地點：台北市</p>
-                        <p>時間：JUN</p>
+                        <p>地點：彰化縣</p>
+                        <p>時間：2021年06月</p>
                       </div>
                     </div>
                   </div>

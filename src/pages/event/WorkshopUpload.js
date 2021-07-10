@@ -20,7 +20,9 @@ import { IoIosArrowForward, IoMdAdd } from 'react-icons/io'
 // import pictures
 import Square from './images/square.gif'
 // Pictures
-import EuListCardPic from './images/event/006.jpg'
+import EuListCardPic from './images/event/108.jpg'
+import EuListCardPic2 from './images/event/011.jpg'
+import EuListCardPic3 from './images/event/009.jpg'
 
 import EuGreySpin from './images/arddict-circle-gr.svg'
 
@@ -433,7 +435,7 @@ function WorkshopUpload(props) {
                   </span>
                 </h2>
                 <Link
-                  to="/event/event-list/detail"
+                  to="/event/event-list/detail/26"
                   style={{ textDecoration: 'none' }}
                 >
                   <div className="eu-list-card col-12 pt-5 mb-5">
@@ -443,55 +445,55 @@ function WorkshopUpload(props) {
                       alt=""
                     />
                     <h6 className="col-12 p-0 cn-font my-2">
-                      我是活動標題
+                      VERSE Forum 旅遊之夜
                     </h6>
                     <div className="d-flex">
                       <div className="col-8 p-0">
-                        <p>地點：台北市</p>
-                        <p>時間：JUN</p>
+                        <p>地點：彰化縣</p>
+                        <p>時間：2021年05月</p>
                       </div>
                     </div>
                   </div>
                 </Link>
                 <Link
-                  to="/event/event-list/detail"
+                  to="/event/event-list/detail/11"
                   style={{ textDecoration: 'none' }}
                 >
                   <div className="eu-list-card col-12 pt-5 mb-5">
                     <img
                       className="col-12 p-0"
-                      src={EuListCardPic}
+                      src={EuListCardPic2}
                       alt=""
                     />
                     <h6 className="col-12 p-0 cn-font my-2">
-                      我是活動標題
+                      故宮南院戶外美術館-藝術方舟ARK OF ART
                     </h6>
                     <div className="d-flex">
                       <div className="col-8 p-0">
-                        <p>地點：台北市</p>
-                        <p>時間：JUN</p>
+                        <p>地點：嘉義市</p>
+                        <p>時間：2021年07月</p>
                       </div>
                     </div>
                   </div>
                 </Link>
 
                 <Link
-                  to="/event/event-list/detail"
+                  to="/event/event-list/detail/9"
                   style={{ textDecoration: 'none' }}
                 >
                   <div className="eu-list-card col-12 pt-5 mb-5">
                     <img
                       className="col-12 p-0"
-                      src={EuListCardPic}
+                      src={EuListCardPic3}
                       alt=""
                     />
                     <h6 className="col-12 p-0 cn-font my-2">
-                      我是活動標題
+                      巷弄之間-尋找藏達人計畫
                     </h6>
                     <div className="d-flex">
                       <div className="col-8 p-0">
-                        <p>地點：台北市</p>
-                        <p>時間：JUN</p>
+                        <p>地點：新竹市</p>
+                        <p>時間：2021年07月</p>
                       </div>
                     </div>
                   </div>

@@ -58,7 +58,7 @@ function EventBreadCrumb(props) {
 
       return (
         <li className="breadcrumb-item cn-font">
-          <Link to={pathArray.slice(0, i + 1).join('/')}>
+          <Link to={pathArray.slice(0, i + 1).join('/') + '/' + id }>
             {v}
           </Link>
         </li>
