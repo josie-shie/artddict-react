@@ -47,6 +47,7 @@ import EventList from './pages/event/EventList'
 import EventDetail from './pages/event/EventDetail'
 import WorkshopShare from './pages/event/WorkshopShare'
 import WorkshopUpload from './pages/event/WorkshopUpload'
+import WorkshopUpdate from './pages/event/WorkshopUpdate'
 
 // Cart
 import CartProduct from './pages/cart/CartProduct'
@@ -65,6 +66,12 @@ function App() {
           <Switch>
             <Route exact path="/auctionDetail/:id?">
               <AuctionDetail />
+            </Route>
+            <Route
+              exact
+              path="/event/event-list/detail/update/:id?"
+            >
+              <WorkshopUpdate />
             </Route>
             <Route
               exact
