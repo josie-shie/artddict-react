@@ -45,29 +45,30 @@ class Coupon extends React.Component {
         <div className="u-userMenu d-none d-lg-block d-xl-block">
           <Menu />
         </div>
+        <div className="u-Line"></div>
         <Row className="d-flex ml-5">
           <div className="col-6">
             <div className="u-couponbox d-flex">
               <div class="u-Text col-6">
                 <div class="u-couponTitle">
-                  <p>生日禮</p>
+                  <p>新會員！</p>
                 </div>
                 <div class="u-couponText">
-                  <p>消費不論金額即享免運！</p>
+                  <p>300元折價券</p>
                 </div>
                 <div class="u-couponDate d-flex">
                   <div class="u-cd">
                     <h5>使用期限：</h5>
                   </div>
                   <div class="u-end">
-                    <h5>2021-12-22</h5>
+                    <h5>2021-08-30</h5>
                   </div>
                 </div>
               </div>
               <div class="u-couponBtn col">
                 <div class="u-SNnumbox">
                   <p type="copy" className="contentText">
-                    HBD 123
+                    tru4r8
                   </p>
                 </div>
                 <div class="u-cobyBtn">
@@ -83,24 +84,24 @@ class Coupon extends React.Component {
             <div className="u-couponbox d-flex">
               <div class="u-Text col-6">
                 <div class="u-couponTitle">
-                  <p>生日禮</p>
+                  <p>低消滿 $1000</p>
                 </div>
                 <div class="u-couponText">
-                  <p>消費不論金額即享免運！</p>
+                  <p>現折 $100</p>
                 </div>
                 <div class="u-couponDate d-flex">
                   <div class="u-cd">
                     <h5>使用期限：</h5>
                   </div>
                   <div class="u-end">
-                    <h5>2021-12-22</h5>
+                    <h5>2021-07-31</h5>
                   </div>
                 </div>
               </div>
               <div class="u-couponBtn col">
                 <div class="u-SNnumbox">
                   <p type="copy" className="contentText">
-                    HBD 123
+                    DFg2FW
                   </p>
                 </div>
                 <div class="u-cobyBtn">

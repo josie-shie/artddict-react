@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 // style
 import './styles/PwdEdit.scss'
@@ -13,7 +13,9 @@ function PwdEdit(props) {
   const userid = props.match.params.userid
   const [dataLoading, setDataLoading] = useState(false)
   const [password, setPassword] = useState('')
-
+  const [newPwd1, setNewPwd1] = useState('')
+  const [newPwd2, setNewPwd2] = useState('')
+  console.log('before get request')
   async function getUserFromServer(userid) {
     // 開啟載入指示
     setDataLoading(true)
@@ -32,49 +34,85 @@ function PwdEdit(props) {
 
     const response = await fetch(request)
     const data = await response.json()
+    console.log(`[GET] response = ${data}`)
 
     setPassword(data.password)
+  }
+
+  async function checkedPassword(pwd1, pwd2) {
+    if (pwd1 === pwd2 && pwd2 != '') {
+      return true
+    } else {
+      return false
+    }
   }
 
   async function updatePwdToSever() {
     // 開啟載入指示
     setDataLoading(true)
+    // 檢查新密碼==再次輸入密碼
 
-    const newData = {
-      password,
-    }
+    // 檢查成功, 才送request
+    if (await checkedPassword(newPwd1, newPwd2)) {
+      // var new_password = newPwd1
+      const newData = {
+        password: newPwd1,
+      }
 
-    // 連接的伺服器資料網址
-    const url = 'http://localhost:6005/users/' + userid
+      // 連接的伺服器資料網址 (node端的門牌號碼)
+      // node = http://localhost:6005/users/ + route.get(門牌)
+      // node = http://localhost:6005/users/ + route.put(門牌)
+      // node = http://localhost:6005/users/ + route.post(門牌)
+      const url =
+        'http://localhost:6005/users/pwd/' + userid
 
-    // 注意資料格式要設定，伺服器才知道是json格式
-    const request = new Request(url, {
-      method: 'PUT',
-      body: JSON.stringify(newData),
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      }),
-    })
+      // 以下實際發出request
+      // 注意資料格式要設定，伺服器才知道是json格式
+      const request = new Request(url, {
+        method: 'PUT',
+        body: JSON.stringify(newData),
+        // request:
+        //    header
+        //    body
+        headers: new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }),
+      })
+      console.log(`request header = ${request.headers}`)
+      console.log(`request body = ${request.body}`)
 
-    console.log(JSON.stringify(newData))
+      // if (newData.password != null) {
+      const response = await fetch(request)
+      const data = await response.json()
+      // } else {
+      //   alert(password)
+      // }
+      // end if
 
-    const response = await fetch(request)
-    const data = await response.json()
+      console.log('伺服器回傳的json資料', data)
+      // 要等驗証過，再設定資料(簡單的直接設定)
 
-    console.log('伺服器回傳的json資料', data)
-    // 要等驗証過，再設定資料(簡單的直接設定)
-
-    //直接在一段x秒關掉指示器
-    setTimeout(() => {
+      //直接在一段x秒關掉指示器
+      setTimeout(() => {
+        setDataLoading(false)
+        swal({
+          text: '密碼修改成功！！！',
+          icon: 'success',
+          button: false,
+          timer: 3000,
+        })
+      }, 1000)
+    } else {
+      // 抓出了空字串或者兩行不同 警訊以下內容
       setDataLoading(false)
       swal({
-        text: '密碼修改成功！！！',
-        icon: 'success',
+        text: '密碼檢查有誤, 請重新檢查',
+        icon: 'error',
         button: false,
         timer: 3000,
       })
-    }, 1000)
+    }
   }
 
   // 一開始就會開始載入資料
@@ -124,31 +162,36 @@ function PwdEdit(props) {
         </Container>
         <div className="u-userData col-6 mt-5">
           <form>
-            <div className="form-group u-form1">
-              <input
-                type="password"
-                className="form-control"
-                id="password"
-              />
-            </div>
-            <div className="form-group u-form1 mt-5">
+            {/* <div className="form-group u-form1">
               <input
                 value={password}
-                type="password"
+                type="text"
                 className="form-control"
-                id="password"
-                placeholder="請輸入新密碼"
                 onChange={(event) => {
                   setPassword(event.target.value)
+                }}
+              />
+            </div> */}
+            <div className="form-group u-form1 mt-5">
+              <input
+                value={newPwd1}
+                type="password"
+                className="form-control"
+                placeholder="請輸入新密碼"
+                onChange={(event) => {
+                  setNewPwd1(event.target.value)
                 }}
               />
             </div>
             <div className="form-group u-form1 mt-5">
               <input
+                value={newPwd2}
                 type="password"
                 className="form-control"
-                id="password"
                 placeholder="再次輸入新密碼"
+                onChange={(event) => {
+                  setNewPwd2(event.target.value)
+                }}
               />
             </div>
             <div className="u-editBtn">
@@ -177,4 +220,4 @@ function PwdEdit(props) {
   )
 }
 
-export default PwdEdit
+export default withRouter(PwdEdit)
