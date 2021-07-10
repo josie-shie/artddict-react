@@ -123,14 +123,25 @@ function EventDetail(props) {
               className="ed-commu-btn  col-6 d-flex justify-content-center
             align-items-center"
             >
-              <Link
-                to={`/event/event-list/detail/upload/${id}`}
-                className="col-6"
-              >
-                <button className="cn-font px-0">
-                  上傳作品
-                </button>
-              </Link>
+              {isShared ? (
+                <Link
+                  to={`/event/event-list/detail/update/${id}`}
+                  className="col-6"
+                >
+                  <button className="cn-font px-0">
+                    修改作品
+                  </button>
+                </Link>
+              ) : (
+                <Link
+                  to={`/event/event-list/detail/upload/${id}`}
+                  className="col-6"
+                >
+                  <button className="cn-font px-0">
+                    上傳作品
+                  </button>
+                </Link>
+              )}
               <Link
                 to={`/event/event-list/detail/share/${id}`}
                 className="col-6"

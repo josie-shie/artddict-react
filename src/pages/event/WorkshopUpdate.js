@@ -38,6 +38,12 @@ function WorkshopUpload(props) {
   const inputRef2 = useRef()
   const inputRef3 = useRef()
   const inputRef4 = useRef()
+
+
+  // 一開始需要載入的狀態
+  const [eventName, setEventName] = useState('')
+
+
   // button 啟動 input
   const triggerFileSelectPopup = () =>
     inputRef.current.click()
@@ -64,34 +70,50 @@ function WorkshopUpload(props) {
   const [preview3, setPreview3] = useState()
   const [preview4, setPreview4] = useState()
 
-  const [shareImg, setShareImg] = useState('[]')
   const [userId, setUserId] = useState('')
   const [shareComment, setShareComment] = useState('')
 
-  // const [show, setShow] = useState(false)
-  // const [inputData, setInputData] = useState('')
 
-  // const handleClose = () => setShow(false)
-  // const handleShow = () => setShow(true)
 
-  // useEffect( handleShow, [inputData])
 
-  // async function getEventIdServer() {
-  //   const url = `http://localhost:6005/event/event-list/${id}`
-  //   const request = new Request(url, {
-  //     method: 'GET',
-  //     headers: new Headers({
-  //       Accept: 'application/json',
-  //       'Content-Type': 'appliaction/json',
-  //     }),
-  //   })
+    // 先取得修改前資料
+  async function getShareIdServer() {
+    const url = `http://localhost:6005/event/share/${id}`
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
 
-  //   const response = await fetch(request)
-  //   const data = await response.json()
+    const response = await fetch(request)
+    const data = await response.json()
+    const imgData = data.shareImg
 
-  //   setEventId(data.eventId)
+    // data.shareImg 在資料庫中長這樣 ：["001.jpg","002.jpg","003.jpg","004.jpg"]
+    const imgArr = JSON.parse(imgData)
 
-  // }
+    setEventName(data.eventName)
+
+    if (imgArr.length >= 4) {
+      setFileName(imgArr[0])
+      setFileName2(imgArr[1])
+      setFileName3(imgArr[2])
+      setFileName4(imgArr[3])
+    } else if (imgArr.length >= 3) {
+      setFileName(imgArr[0])
+      setFileName2(imgArr[1])
+      setFileName3(imgArr[2])
+    } else if (imgArr.length >= 2) {
+      setFileName(imgArr[0])
+      setFileName2(imgArr[1])
+    } else if (imgArr.length >= 1) {
+      setFileName(imgArr[0])
+    }
+
+    setShareComment(data.shareComment)
+  }
 
   const uploadFile = async (e) => {
     const formData = new FormData()
@@ -111,7 +133,7 @@ function WorkshopUpload(props) {
     console.log(formData, isImg, fileName)
   }
 
-  async function addEventShareSever() {
+  async function updateEventShareSever() {
     const sharePhoto = [
       fileName,
       fileName2,
@@ -121,11 +143,11 @@ function WorkshopUpload(props) {
     const newData = { id, shareComment, sharePhoto }
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:6005/event/upload'
+    const url = 'http://localhost:6005/event/shareUpdate'
 
     // 注意資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
-      method: 'POST',
+      method: 'PUT',
       body: JSON.stringify(newData),
       headers: new Headers({
         Accept: 'application/json',
@@ -148,6 +170,16 @@ function WorkshopUpload(props) {
       )
     }, 500)
   }
+
+  useEffect(() => {
+    getShareIdServer()
+  }, [])
+
+
+// test shareComment is loaded
+  useEffect(() => {
+    console.log(shareComment)
+  }, [isImg])
 
   useEffect(() => {
     if (isImg) {
@@ -197,10 +229,6 @@ function WorkshopUpload(props) {
     }
   }, [isImg4])
 
-  useEffect(() => {
-    console.log(shareComment)
-  }, [shareComment])
-
   return (
     <>
       <div className="reduce-width">
@@ -212,7 +240,7 @@ function WorkshopUpload(props) {
           <Row className="both-padding">
             <div className="eu-pic-up col-12 p-0 mb-4">
               <h5 className="cn-font">主題工作坊</h5>
-              <h2>我是活動名稱</h2>
+              <h2>{eventName}</h2>
             </div>
             {/* 資料form表單 */}
             <div className="col-12 pl-0 justify-content-between d-flex flex-wrap">
@@ -233,17 +261,12 @@ function WorkshopUpload(props) {
                     style={{
                       backgroundImage:
                         'url(' +
-                        `http://localhost:6005/eventpic/share/` +
+                        `http://localhost:6005/eventpic/share/${fileName}` +
                         ')',
                       backgroundSize: 'cover',
+                      opacity: preview ? 1 : 0.7,
                     }}
                   >
-                    <img
-                      className="up-spin position-absolute"
-                      src={EuGreySpin}
-                      alt=""
-                    />
-
                     <input
                       type="file"
                       style={{ display: 'none' }}
@@ -271,7 +294,7 @@ function WorkshopUpload(props) {
                         className="e-btn-m cn-font position-absolute"
                         type="button"
                       >
-                        上傳圖片
+                        上傳新圖片
                         <IoMdAdd />
                       </button>
                     )}
@@ -286,6 +309,14 @@ function WorkshopUpload(props) {
                       onClick={() =>
                         triggerFileSelectPopup2()
                       }
+                      style={{
+                        backgroundImage:
+                          'url(' +
+                          `http://localhost:6005/eventpic/share/${fileName2}` +
+                          ')',
+                        backgroundSize: 'cover',
+                        opacity: (preview2 ? 1 : 0.7),
+                      }}
                     >
                       <input
                         type="file"
@@ -324,6 +355,14 @@ function WorkshopUpload(props) {
                       onClick={() =>
                         triggerFileSelectPopup3()
                       }
+                      style={{
+                        backgroundImage:
+                          'url(' +
+                          `http://localhost:6005/eventpic/share/${fileName3}` +
+                          ')',
+                        backgroundSize: 'cover',
+                        opacity: (preview3 ? 1 : 0.7),
+                      }}
                     >
                       <input
                         type="file"
@@ -362,6 +401,14 @@ function WorkshopUpload(props) {
                       onClick={() =>
                         triggerFileSelectPopup4()
                       }
+                      style={{
+                        backgroundImage:
+                          'url(' +
+                          `http://localhost:6005/eventpic/share/${fileName4}` +
+                          ')',
+                        backgroundSize: 'cover',
+                        opacity: (preview4 ? 1 : 0.7),
+                      }}
                     >
                       <input
                         type="file"
@@ -407,18 +454,19 @@ function WorkshopUpload(props) {
                   onChange={(e) => {
                     setShareComment(e.target.value)
                   }}
-                ></textarea>
+                  value={shareComment}
+                />
 
                 <div className="col-11 d-flex flex-wrap justify-content-center my-4">
                   <button
                     className="eu-send-cmt e-btn-m col-l2 my-3"
                     type="button"
                     onClick={() => {
-                      addEventShareSever()
+                      updateEventShareSever()
                       uploadFile()
                     }}
                   >
-                    上傳作品
+                    更新作品
                   </button>
                 </div>
               </form>
