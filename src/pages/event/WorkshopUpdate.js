@@ -37,7 +37,6 @@ function WorkshopUpload(props) {
   const inputRef3 = useRef()
   const inputRef4 = useRef()
 
-
   // 一開始需要載入的狀態
   const [eventName, setEventName] = useState('')
 
@@ -47,7 +46,6 @@ function WorkshopUpload(props) {
   // Modal 開關 function
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
-
 
   // button 啟動 input
   const triggerFileSelectPopup = () =>
@@ -78,10 +76,7 @@ function WorkshopUpload(props) {
   const [userId, setUserId] = useState('')
   const [shareComment, setShareComment] = useState('')
 
-
-
-
-    // 先取得修改前資料
+  // 先取得修改前資料
   async function getShareIdServer() {
     const url = `http://localhost:6005/event/share/${id}`
     const request = new Request(url, {
@@ -176,12 +171,41 @@ function WorkshopUpload(props) {
     }, 500)
   }
 
+  async function deleteShareFromServer(id) {
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:6005/event/delete/' + id
+
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'DELETE',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    console.log(data)
+
+    // 設定資料
+    // if (!data.id) {
+    //   const newUsers = users.filter((value, index) => {
+    //     return value.id !== userid
+    //   })
+    // }
+    setTimeout(() => {
+      props.history.push(
+        `/event/event-list/detail/${id}`
+      )
+    }, 500)
+  }
+
   useEffect(() => {
     getShareIdServer()
   }, [])
 
-
-// test shareComment is loaded
+  // test shareComment is loaded
   useEffect(() => {
     console.log(shareComment)
   }, [isImg])
@@ -575,20 +599,28 @@ function WorkshopUpload(props) {
                   即將移除您建立的作品!
                 </Modal.Title>
               </Modal.Header>
-              <Modal.Body>即將移除您建立的作品!</Modal.Body>
+              <Modal.Body>
+                即將移除您建立的作品!當您
+                <span>
+                  按下確定刪除時，作品將無法復原。
+                </span>
+                我們認為每個作品都是藝術家嘔心瀝血之作，透過分享創意能夠為藝術帶來更多的美感傳播，不論作品如何我們都以最珍視的方式將他保存在ARTDDICT。
+              </Modal.Body>
               <Modal.Footer>
-                <Button
-                  variant="secondary"
-                  onClick={handleClose}
+                <button
+                  type="button"
+                  className="e-btn-s e-modal-close"
+                  //   onClick={handleClose}
                 >
-                  Close
-                </Button>
-                <Button
-                  variant="primary"
-                  onClick={handleClose}
+                  關閉
+                </button>
+                <button
+                  type="button"
+                  className="e-btn-s e-modal-del"
+                  onClick={deleteShareFromServer(id)}
                 >
-                  Save Changes
-                </Button>
+                  確定刪除
+                </button>
               </Modal.Footer>
             </Modal>
           </Row>

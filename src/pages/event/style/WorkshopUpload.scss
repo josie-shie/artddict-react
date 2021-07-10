@@ -172,22 +172,52 @@ $egreylt: #E8E8E8;
 
 
 #eventModal{
+    span{
+        color: #d44035;
+    }
     .modal-content{
-    border-radius: 0px;
-    padding: 1.2rem 1.8rem;
-    box-shadow: -10px -10px 0px black ;
+        border-radius: 0px;
+        padding: 1.2rem 1.8rem;
+        box-shadow: -10px -10px 0px black ;
     }
     .modal-title {
-    font-size: 1.3rem;
+        font-size: 1.3rem;
     }
     .modal-content {
-    padding: 1.2rem 1.8rem;
+        padding: 1.2rem 1.8rem;
     }
     .modal-header {
-    border-bottom: 2px solid black;
+        border-bottom: 2px solid black;
     }
     .modal-footer {
-    border: 0px;
+        border: 0px;
+    }
+    .e-modal-close{
+        background-color: transparent;
+        border: 2px solid #A7A7A7;
+        color: #A7A7A7;
+        font-size: 1rem;
+        font-weight: 500;
+
+    }
+    .e-modal-close:hover{
+        background-color: #A7A7A7;
+        border: 2px solid #A7A7A7;
+        color: white;
+    }
+    .e-modal-del{
+        background-color: #d44035;
+        border: 0px solid #A7A7A7;
+        color: white;
+        font-size: 1rem;
+        font-weight: 500;
+    }
+    .e-modal-del:hover{
+        background-color: #c44d45;
+        border: 0px solid #A7A7A7;
+        color: white;
+        font-size: 1rem;
+        font-weight: 500;
     }
 
 }

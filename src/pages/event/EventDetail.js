@@ -209,7 +209,7 @@ function EventDetail(props) {
                 </Collapse>
 
                 {/* 第三個按鈕 */}
-                <button
+                {/* <button
                   onClick={() => setOpen3(!open3)}
                   aria-controls="example-collapse-text"
                   aria-expanded={open3}
@@ -236,7 +236,7 @@ function EventDetail(props) {
                       Gogh）在畫布上用油畫了自畫像。這幅作品可能是梵谷的最後一幅自畫像，是在他離開法國南部聖雷米的普羅旺斯之前不久畫的。這幅畫現在在巴黎的奧賽博物館（Muséed'Orsay）展出。
                     </p>
                   </div>
-                </Collapse>
+                </Collapse> */}
 
                 {/* 留言按鈕 */}
                 <div className="col-12 p-0 d-flex justify-content-center flex-wrap">
@@ -246,14 +246,20 @@ function EventDetail(props) {
                     aria-expanded={open4}
                     className="ed-comment e-btn-m mb-5"
                   >
-                    撰寫評論
+                    Facebook 留言
                   </button>
                   <Collapse
                     in={open4}
                     className="col-12 p-0 mt-3 mb-5 "
                   >
                     <div className="col-12 p-0">
-                      <form
+                      <div
+                        className="fb-comments mb-5"
+                        data-href="http://localhost:3000/event/event-list/detail"
+                        data-width="100%"
+                        data-numposts="5"
+                      ></div>
+                      {/* <form
                         className="border-0 d-flex flex-wrap justify-content-center"
                         action=""
                       >
@@ -270,7 +276,7 @@ function EventDetail(props) {
                         >
                           送出評論
                         </button>
-                      </form>
+                      </form> */}
                     </div>
                   </Collapse>
                 </div>
