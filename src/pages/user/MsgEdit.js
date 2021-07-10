@@ -51,12 +51,17 @@ function UserEdit(props) {
 
     const response = await fetch(request)
     const data = await response.json()
+    console.log(`[GET] response = ${data}`)
 
     setUsername(data.username)
     setName(data.name)
     setGender(data.gender)
     setMobile(data.mobile)
-    setBirthday(data.birthday)
+    // setBirthday(data.birthday)
+    const myDate = new Date(data.birthday)
+    const js_date = `${myDate.getFullYear()}-${myDate.getMonth()}-${myDate.getDate()}`
+    console.log(`js_date=${js_date}`)
+    setBirthday(js_date)
     setAddress(data.address)
   }
 
@@ -88,7 +93,9 @@ function UserEdit(props) {
       }),
     })
 
-    console.log(JSON.stringify(newData))
+    console.log(
+      `data from react = ${JSON.stringify(newData)}`
+    )
 
     const response = await fetch(request)
     const data = await response.json()
@@ -152,9 +159,7 @@ function UserEdit(props) {
               <Link to="/user-msgedit">會員資料</Link>
             </div>
             <div className="u-usertitleRight1">
-              <Link to="/user-pwdedit/:userid?">
-                修改密碼
-              </Link>
+              <Link to="/user-pwdedit">修改密碼</Link>
             </div>
           </div>
           <Container className="u-userData">
@@ -196,7 +201,7 @@ function UserEdit(props) {
                     }}
                   >
                     <FormControlLabel
-                      value="female"
+                      value="male"
                       control={<StyledRadio />}
                       label="男"
                       onChange={(event) => {
@@ -204,7 +209,7 @@ function UserEdit(props) {
                       }}
                     />
                     <FormControlLabel
-                      value="male"
+                      value="female"
                       control={<StyledRadio />}
                       label="女"
                       onChange={(event) => {

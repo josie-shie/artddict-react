@@ -128,6 +128,26 @@ $egreylt: #E8E8E8;
     font-weight: 500;
 }
 
+.eu-send-cmt:hover{
+    background-color: #1f12b3;
+    border: 0px;
+    color: white;
+}
+
+.eu-send-del{
+    background-color: transparent;
+    border: 2px solid #A7A7A7;
+    color: #A7A7A7;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.eu-send-del:hover{
+    background-color: #A7A7A7;
+    border: 2px solid #A7A7A7;
+    color: white;
+}
+
 .eu-list-card {
     border-top: 1px solid black;
     img{
@@ -147,3 +167,27 @@ $egreylt: #E8E8E8;
 }
 }
 
+
+// !!!! For React-Bootstrap
+
+
+#eventModal{
+    .modal-content{
+    border-radius: 0px;
+    padding: 1.2rem 1.8rem;
+    box-shadow: -10px -10px 0px black ;
+    }
+    .modal-title {
+    font-size: 1.3rem;
+    }
+    .modal-content {
+    padding: 1.2rem 1.8rem;
+    }
+    .modal-header {
+    border-bottom: 2px solid black;
+    }
+    .modal-footer {
+    border: 0px;
+    }
+
+}
