@@ -59,16 +59,29 @@ function UserEdit(props) {
     setMobile(data.mobile)
     // setBirthday(data.birthday)
     const myDate = new Date(data.birthday)
-    const js_date = `${myDate.getFullYear()}-${myDate.getMonth()}-${myDate.getDate()}`
+    const js_date = `${myDate.getFullYear()}-${
+      myDate.getMonth() + 1
+    }-${myDate.getDate()}`
     console.log(`js_date=${js_date}`)
     setBirthday(js_date)
-    setAddress(data.address)
+    // 拆解得到的addres => country, township, addresses
+    const raw_address = data.address
+    const split_address = raw_address.split('_')
+    console.log(
+      `country = ${split_address[0]}, township = ${split_address[1]}`
+    )
+    setCountry(split_address[0])
+    setTownship(split_address[1])
+    setAddress(split_address[2])
   }
 
   async function updateUserToSever() {
     // 開啟載入指示
     setDataLoading(true)
-
+    // 印出市: countries[country]
+    // 印出區: townships[country][township]
+    const whole_address = `${country}_${township}_${address}`
+    // 準備好送給node的json資料
     const newData = {
       username,
       name,
@@ -77,7 +90,8 @@ function UserEdit(props) {
       birthday,
       country,
       township,
-      address,
+      address: whole_address,
+      // address : _ + _ + _
     }
 
     // 連接的伺服器資料網址
@@ -286,7 +300,7 @@ function UserEdit(props) {
                       setTownship(+e.target.value)
                     }}
                   >
-                    <option>請選擇區域</option>
+                    <options>請選擇區域</options>
                     {country > -1 &&
                       townships[country].map(
                         (value, index) => (
