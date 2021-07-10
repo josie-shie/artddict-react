@@ -297,16 +297,26 @@
             position: absolute;
             top: 20%;
             z-index: -1;
+
+            img{
+                width: 35%;
+            }
         } 
         .marquee2{
             position: absolute;
             top: 60%;
             z-index: 0;
+            img{
+                width: 35%;
+            }
         } 
         .marquee3{
             position: absolute;
             top: 100%;
             z-index: -1;
+            img{
+                width: 35%;
+            }
         } 
     }
     .event-img img{
@@ -331,7 +341,7 @@
 
     .event-slogan h1{
         font-family: Engravers;
-        font-size:5vw;
+        font-size:6vw;
         line-height: 100px;
     
     }

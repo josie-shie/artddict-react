@@ -22,13 +22,34 @@ const Nav = () => {
   const liRef = useRef()
   const logoRef = useRef()
 
+  // const [li, setli] = useState(false) //!why not false
+  // const [burger, setburger] = useState(false) //!why not false
+
   useEffect(() => {
+    // if ('ontouchstart' in window) {
+    //   var click = 'touchstart'
+    // } else {
+    //   var click = 'click'
+    // }
+
+    //!測試使用burger狀態去判斷
+    // $(burgerRef.current).on('click', function () {
+    //   burger ? openMenu() : closeMenu()
+    //   console.log(burger)
     $(burgerRef.current).on('click', function () {
       if (!$(this).hasClass('open')) {
         openMenu()
       } else {
         closeMenu()
       }
+
+      $('.menu li').on('click', function () {
+        closeMenu()
+      })
+
+      $(logoRef.current).on('click', function () {
+        closeMenu()
+      })
     })
   }, [])
 
@@ -74,10 +95,6 @@ const Nav = () => {
       $(zRef.current).css('top', '37px')
     }, 30)
   }
-
-  const [menu, setMenu] = useState({
-    Menuopen: false,
-  })
 
   // useEffect(() => {}, [])
 
@@ -141,7 +158,13 @@ const Nav = () => {
             <div>
               <ul>
                 <li>
-                  <Link ref={liRef} to="/product">
+                  <Link
+                    ref={liRef}
+                    to="/product"
+                    onCLick={() => {
+                      closeMenu()
+                    }}
+                  >
                     Shop
                   </Link>
                 </li>
