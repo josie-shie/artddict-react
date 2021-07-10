@@ -22,7 +22,7 @@ const Nav = () => {
   const liRef = useRef()
   const logoRef = useRef()
 
-  // const [li, setli] = useState(true)) //!why not false
+  // const [li, setli] = useState(false) //!why not false
   // const [burger, setburger] = useState(false) //!why not false
 
   useEffect(() => {
@@ -32,7 +32,7 @@ const Nav = () => {
     //   var click = 'click'
     // }
 
-    //!測試使用burger狀態去判斷
+    //!測試使用burger狀態去判斷 
     // $(burgerRef.current).on('click', function () {
     //   burger ? openMenu() : closeMenu()
     //   console.log(burger)
@@ -42,6 +42,14 @@ const Nav = () => {
       } else {
         closeMenu()
       }
+
+      $('.menu li').on('click', function () {
+        closeMenu()
+      })
+
+      $(logoRef.current).on('click', function () {
+        closeMenu()
+      })
     })
   }, [])
 
@@ -150,7 +158,13 @@ const Nav = () => {
             <div>
               <ul>
                 <li>
-                  <Link ref={liRef} to="/product">
+                  <Link
+                    ref={liRef}
+                    to="/product"
+                    onCLick={() => {
+                      closeMenu()
+                    }}
+                  >
                     Shop
                   </Link>
                 </li>

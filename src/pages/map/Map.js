@@ -14,6 +14,8 @@ import {
 import LeafLet2 from './components/LeafLet2'
 import MarqueeMap from './components/MarqueeMap'
 import MarqueeMapEnd from './components/MarqueeMapEnd'
+import MusEventTitle from './components/MusEventTitle'
+import MapMusTitale from './components/MapMusTitale'
 
 //? icons
 import { MdMyLocation } from 'react-icons/md'
@@ -21,15 +23,11 @@ import {
   IoIosSearch,
   IoIosHeartEmpty,
 } from 'react-icons/io'
-import {
-  RiArrowRightSLine,
-  RiArrowLeftSLine,
-} from 'react-icons/ri'
 import { RiArrowRightUpLine } from 'react-icons/ri'
 
 const Map = () => {
   const [museums, setMuseums] = useState([])
-  const [idMuseum, setIdMuseum] = useState()
+  // const [idMuseum, setIdMuseum] = useState()
   const [musEvent, setmusEvent] = useState([])
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
@@ -74,8 +72,8 @@ const Map = () => {
   }
 
   //撈出活動
-  async function getMusEventServer() {
-    const url = `http://localhost:6005/map/musEvent?idMuseum=${idMuseum}?`
+  async function getMusEventServer(id) {
+    const url = `http://localhost:6005/map/musEvent?idMuseum=${id}`
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -92,13 +90,14 @@ const Map = () => {
     setmusEvent(data)
   }
 
+  //!
   useEffect(() => {
     getMuseumServer()
   }, [])
 
-  useEffect(() => {
-    getMusEventServer()
-  }, [idMuseum])
+  // useEffect(() => {
+  //     getMusEventServer()
+  // }, [idMuseum])
 
   // onClick={(e)=>{
   //   e.preventDefault()
@@ -108,20 +107,12 @@ const Map = () => {
   const museumDisplay = museums.map((mus) => {
     return (
       <React.Fragment key={mus.id}>
-        <div className="map-card-select">
-          <h1 className="h3 text-center my-3">
-            美術館別
-            <RiArrowRightSLine color={'#1D0AFF'} />
-            <RiArrowRightSLine color={'#1D0AFF'} />
-            <RiArrowRightSLine color={'#1D0AFF'} />
-            <RiArrowRightSLine color={'#1D0AFF'} />
-          </h1>
-        </div>
         <div className="map-card pb-3 mb-3">
           <Link
-            onClick={(e) => {
+            onClick={async (e) => {
               e.preventDefault()
-              setIdMuseum(mus.id)
+              console.log(mus.id)
+              await getMusEventServer(mus.id)
             }}
           >
             <img
@@ -158,28 +149,6 @@ const Map = () => {
   const museumEvent = musEvent.map((musEve) => {
     return (
       <React.Fragment key={musEve.id}>
-        <div className="d-flex justify-content-center">
-          <div className="py-3 mr-3">
-            <RiArrowLeftSLine color={'#1D0AFF'} size={30} />
-          </div>
-          <h1 className="h3 text-center my-3">
-            {musEve.musName}
-          </h1>
-        </div>
-        <div className="d-flex align-items-center justify-content-center py-2 mb-2">
-          <div className="map-select-box-dk px-4">排序</div>
-          <select
-            className="map-select-box-dk map-select pl-3 border-left-0 "
-            name=""
-            id=""
-          >
-            <option style={{ color: '#707070' }} value="">
-              距離最近的
-            </option>
-            <option value="">123</option>
-            <option value="">123</option>
-          </select>
-        </div>
         <div className="px-4">
           <Link
             to={`/event/event-list/detail/${musEve.id}`}
@@ -188,7 +157,7 @@ const Map = () => {
               <div>
                 <img
                   className="w-100"
-                  src={musEve.eventImg}
+                  src={`http://localhost:6005/museumpics/musEvent/${musEve.musImg}`}
                   alt=""
                 />
               </div>
@@ -306,10 +275,15 @@ const Map = () => {
             <LeafLet2 museums={museums} />
           </div>
           <div className="map-card-area col-4 pl-0">
+            {musEvent.length ? (
+              <MusEventTitle />
+            ) : (
+              <MapMusTitale musEvent={musEvent} />
+            )}
             <div className="px-4">
-              {/* {museumDisplay} */}
-              {idMuseum ? museumEvent : museumDisplay}
-              {/* <MapCardSql city={city} setCity={setCity} /> */}
+              {musEvent.length
+                ? museumEvent
+                : museumDisplay}
             </div>
           </div>
         </div>
