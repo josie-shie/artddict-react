@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
 import { MdLocationCity } from 'react-icons/md'
+import $ from 'jquery'
 
 class LeafLet2 extends React.Component {
   constructor() {
@@ -10,35 +11,42 @@ class LeafLet2 extends React.Component {
       osmMap: '',
       center: [25.072615859459205, 121.52481019741808],
       zoom: 8,
+      id: '',
     }
+    this.setmusEvent = this.setmusEvent.bind(this)
   }
 
-  componentDidMount() {
+  componentDidMount(props) {
+
     //console.log(this)
 
-    // //? 測試的資料
-    // const data = [
-    //   {
-    //     name: '夢時代購物中心',
-    //     lat: '22.595153',
-    //     lng: '120.306923',
-    //   },
-    //   {
-    //     name: '漢神百貨',
-    //     lat: '22.61942',
-    //     lng: '120.296386',
-    //   },
-    //   {
-    //     name: '漢神巨蛋',
-    //     lat: '22.669603',
-    //     lng: '120.302288',
-    //   },
-    //   {
-    //     name: '大統百貨',
-    //     lat: '22.630748',
-    //     lng: '120.318033',
-    //   },
-    // ]
+    $('#osm-map').on('click', 'button', function () {
+      let id = $('#osm-map button').data('id')
+      // let id = 1
+      getMusEventServer(id)
+    })
+
+    async function getMusEventServer(id) {
+
+      const url = `http://localhost:6005/map/musEvent?idMuseum=${id}`
+
+      // 注意header資料格式要設定，伺服器才知道是json格式
+      const request = new Request(url, {
+        method: 'GET',
+        headers: new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'appliaction/json',
+        }),
+      })
+
+      const response = await fetch(request)
+      const data = await response.json()
+      // 設定資料
+      //TODO:無法拿到props
+      this.props.setmusEvent(data)
+      // console.log(data)
+    }
+
     // create map
     this.setState({
       osmMap: L.map('osm-map', {
@@ -58,6 +66,7 @@ class LeafLet2 extends React.Component {
             }
           ),
         ],
+        id: '',
       }),
     })
 
@@ -71,6 +80,9 @@ class LeafLet2 extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     console.log('nextProps.museums', nextProps.museums)
+
+    // this.setState({ id: nextProps.museums.musId })
+    // const btnRef = { useRef }
 
     //flyto
     this.state.osmMap.flyTo(
@@ -104,7 +116,7 @@ class LeafLet2 extends React.Component {
       )
         .addTo(this.state.osmMap)
         .bindPopup(
-          `<Link><b>${nextProps.museums[i].musName}</b><br><button>查看活動<button></Link>`
+          `<b>${nextProps.museums[i].musName}</b><br><b>營業時間：09:00-17:00</b><br><b>休館時間：每週一 休管</b><br><button data-id=${nextProps.museums[i].musId}  class="mt-2 map-card-btn loca-btn" >查看活動`
         )
     }
   }

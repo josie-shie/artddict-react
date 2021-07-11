@@ -2,11 +2,11 @@ import React, { useEffect } from 'react'
 import { RiArrowLeftSLine } from 'react-icons/ri'
 
 const MusEventTitle = (props) => {
-  const { musEvent } = props
-
+  
+  
   useEffect(() => {
-    console.log(musEvent)
-  })
+    console.log(props.musEvent)
+  }, [])
 
   return (
     <>
@@ -15,7 +15,7 @@ const MusEventTitle = (props) => {
           <RiArrowLeftSLine color={'#1D0AFF'} size={30} />
         </div>
         <h1 className="h3 text-center my-3">
-          {/* {musEvent.musName} */}123
+          {props.musEvent[0].musName}
         </h1>
       </div>
       <div className="d-flex align-items-center justify-content-center py-2 mb-2">

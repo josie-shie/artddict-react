@@ -121,22 +121,26 @@
 
       .map-card-btn {
           background: #000;
+          color: #E8E8E8;
+          border:0;
         
           button {
               background-color: #000;
               border:0;
-            color: #E8E8E8;
+              color: #E8E8E8;
 
         }
           button:hover{
               background-color: #1D0AFF;
               border:0;
-            color: #E8E8E8;
+              color: #E8E8E8;
+            
 
         }
 
         a{
             border-top: 1px solid #E8E8E8;
+            margin:auto;
         }
 
         

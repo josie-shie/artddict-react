@@ -134,7 +134,14 @@ const Map = () => {
                   e.preventDefault()
                 }}
               >
-                <button className="px-2 pt-3">
+                <button
+                  className="px-2 pt-3"
+                  onClick={async (e) => {
+                    e.preventDefault()
+                    console.log(mus.id)
+                    await getMusEventServer(mus.id)
+                  }}
+                >
                   更多活動
                   <RiArrowRightUpLine />
                 </button>
@@ -157,7 +164,7 @@ const Map = () => {
               <div>
                 <img
                   className="w-100"
-                  src={`http://localhost:6005/museumpics/musEvent/${musEve.musImg}`}
+                  src={`http://localhost:6005/museumpics/musEvent/${musEve.eventImg}`}
                   alt=""
                 />
               </div>
@@ -201,7 +208,7 @@ const Map = () => {
               <div className="map-select-box px-4 pt-1">
                 地區
               </div>
-              <from
+              <form
                 className="d-flex justify-content-between"
                 return="false"
               >
@@ -257,13 +264,14 @@ const Map = () => {
                 </select>
                 <button
                   className="map-select-box px-4 pt-1"
-                  onClick={() => {
+                  onClick={(e) => {
+                    e.preventDefault()
                     getMusByQuerySQL()
                   }}
                 >
                   搜尋
                 </button>
-              </from>
+              </form>
               <div className="pl-5 ml-5 mr-4">
                 <MdMyLocation size={30} color={'#81FC4D'} />
               </div>
@@ -272,13 +280,17 @@ const Map = () => {
               </div>
             </div>
             {/* //TODO */}
-            <LeafLet2 museums={museums} />
+            <LeafLet2
+              museums={museums}
+              musEvent={musEvent}
+              setMusEvent={setmusEvent}
+            />
           </div>
           <div className="map-card-area col-4 pl-0">
             {musEvent.length ? (
-              <MusEventTitle />
+              <MusEventTitle musEvent={musEvent} />
             ) : (
-              <MapMusTitale musEvent={musEvent} />
+              <MapMusTitale />
             )}
             <div className="px-4">
               {musEvent.length

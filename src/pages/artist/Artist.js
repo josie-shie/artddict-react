@@ -141,6 +141,15 @@ const Artist = () => {
           <div className="art-hl2"></div>
         </div>
         <div
+          class="fb-like"
+          data-href="http://localhost:3000/artist"
+          data-width=""
+          data-layout="standard"
+          data-action="like"
+          data-size="small"
+          data-share="true"
+        ></div>
+        <div
           className="fb-comments mb-5"
           data-href="http://localhost:3000/artist"
           data-width="100%"
