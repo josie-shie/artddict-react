@@ -15,8 +15,8 @@ function AuctionProductCard(props) {
 
     return (
         <>
-            {/* {console.log('card的render')}
-            {console.log('-------------------------------')} */}
+            {/* {console.log('card的render',aucInfo) */}
+            {/*console.log('-------------------------------')} */}
             <div className="auctionProductCard">
                 <div className="auctionProduct_Picture_time">
                     <div className="auctionProduct_Picture">
