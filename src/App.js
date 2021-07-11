@@ -175,7 +175,7 @@ function App() {
             <Route exact path="/cart-form">
               <CartForm />
             </Route>
-            <Route exact path="/event">
+            <Route exact path="/event/:id?">
               <Event />
             </Route>
             <Route exact path="/artist">
