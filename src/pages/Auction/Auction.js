@@ -49,6 +49,9 @@ function Auction(props) {
     const [showPages, setShowPages] = useState([1, 2, 3, 4, 5])
 
 
+    const [priceRange, setPriceRange] = useState(6000)
+    const [priceRange2, setPriceRange2] = useState(8000)
+
 
     //選擇排列順序
     const handleChangeSelect = (e) => {
@@ -109,7 +112,7 @@ function Auction(props) {
     //撈資料
     async function getAucProArrFromServer() {
         // 連接的伺服器資料網址
-        const url = 'http://localhost:6005/auctoin/aucSeaArr' + `?search=${search}` + `&arrangement=${arrangement}` + `&category=${category}` + `&pages=${pages}`
+        const url = 'http://localhost:6005/auctoin/aucSeaArr' + `?search=${search}` + `&arrangement=${arrangement}` + `&category=${category}` + `&pages=${pages}` +  `&priceRange=${priceRange}`
         // 注意header資料格式要設定，伺服器才知道是json格式
         const request = new Request(url, {
             method: 'GET',
@@ -157,7 +160,7 @@ function Auction(props) {
 
     useEffect(() => {
         getAucProArrFromServer()
-    }, [search, arrangement, category, pages])
+    }, [search, arrangement, category, pages,priceRange])
 
     //計算剩餘時間
     const TimeRemaining = (deadline) => {
@@ -289,8 +292,12 @@ function Auction(props) {
                                 </div>
                             </div>
                             <div className="auctionMainFilterRight">
-                                <div>price range</div>
-                                <AuctionSlider />
+                                <AuctionSlider 
+                                    priceRange={priceRange} 
+                                    setPriceRange={setPriceRange}
+                                    priceRange2={priceRange2} 
+                                    setPriceRange2={setPriceRange2}
+                                />
                             </div>
                         </div>
                         <div className="auctionMainContent cn-font">
