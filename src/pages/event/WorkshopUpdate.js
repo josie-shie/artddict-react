@@ -73,6 +73,10 @@ function WorkshopUpload(props) {
   const [preview3, setPreview3] = useState()
   const [preview4, setPreview4] = useState()
 
+  // 避免觸發刪除function狀態
+  const [isPreparetoDel, setIsPreparetoDel] =
+    useState(false)
+
   const [userId, setUserId] = useState('')
   const [shareComment, setShareComment] = useState('')
 
@@ -195,9 +199,7 @@ function WorkshopUpload(props) {
     //   })
     // }
     setTimeout(() => {
-      props.history.push(
-        `/event/event-list/detail/${id}`
-      )
+      props.history.push(`/event/event-list/detail/${id}`)
     }, 500)
   }
 
@@ -487,15 +489,27 @@ function WorkshopUpload(props) {
                 />
 
                 <div className="col-11 d-flex flex-wrap justify-content-between my-4">
-                  <button
-                    className="eu-send-del e-btn-m col-l2 my-3"
-                    type="button"
-                    onClick={() => {
-                      handleShow()
-                    }}
-                  >
-                    刪除作品
-                  </button>
+                  {!isPreparetoDel ? (
+                    <button
+                      className="eu-send-del e-btn-m col-l2 my-3"
+                      type="button"
+                      onClick={() => {
+                        handleShow()
+                      }}
+                    >
+                      刪除作品
+                    </button>
+                  ) : (
+                    <button
+                      className="eu-send-del2 e-btn-m col-l2 my-3"
+                      type="button"
+                      onClick={() => {
+                        deleteShareFromServer(id)
+                      }}
+                    >
+                      刪除作品
+                    </button>
+                  )}
                   <button
                     className="eu-send-cmt e-btn-m col-l2 my-3"
                     type="button"
@@ -607,20 +621,23 @@ function WorkshopUpload(props) {
                 我們認為每個作品都是藝術家嘔心瀝血之作，透過分享創意能夠為藝術帶來更多的美感傳播，不論作品如何我們都以最珍視的方式將他保存在ARTDDICT。
               </Modal.Body>
               <Modal.Footer>
-                <button
+                {/* <Button
                   type="button"
                   className="e-btn-s e-modal-close"
-                  //   onClick={handleClose}
+                  onClick={handleClose}
                 >
                   關閉
-                </button>
-                <button
+                </Button> */}
+                <Button
                   type="button"
                   className="e-btn-s e-modal-del"
-                  onClick={deleteShareFromServer(id)}
+                  onClick={() => {
+                    handleClose()
+                    setIsPreparetoDel(true)
+                  }}
                 >
-                  確定刪除
-                </button>
+                  我瞭解了
+                </Button>
               </Modal.Footer>
             </Modal>
           </Row>

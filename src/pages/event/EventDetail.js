@@ -11,7 +11,6 @@ import EventMore from './components/EventMore'
 
 // react icons
 import {
-  IoIosArrowBack,
   IoIosArrowForward,
   IoIosArrowRoundDown,
   IoIosSearch,
@@ -239,7 +238,7 @@ function EventDetail(props) {
                 </Collapse> */}
 
                 {/* 留言按鈕 */}
-                <div className="col-12 p-0 d-flex justify-content-center flex-wrap">
+                <div className="col-12 p-0 d-flex justify-content-center flex-wrap e-fb-area py-5">
                   <button
                     onClick={() => setOpen4(!open4)}
                     aria-controls="example-collapse-text"
@@ -252,7 +251,7 @@ function EventDetail(props) {
                     in={open4}
                     className="col-12 p-0 mt-3 mb-5 "
                   >
-                    <div className="col-12 p-0">
+                    <div className="col-12 p-0 e-fb-cmt">
                       <div
                         className="fb-comments mb-5"
                         data-href="http://localhost:3000/event/event-list/detail"
