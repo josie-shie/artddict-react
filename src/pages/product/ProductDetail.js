@@ -8,7 +8,7 @@ import ReactDOM from 'react-dom'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel } from 'react-responsive-carousel'
 
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import '../../bootstrap/css/bootstrap.css'
 import { Button, Collapse } from 'react-bootstrap'
 import './style/ProductDetail.css'
@@ -34,7 +34,7 @@ import try1 from './img/productDetail/try1.jpeg'
 import try2 from './img/productDetail/try2.jpeg'
 
 function ProductDetail(props) {
-  // const id = props.match.params.id
+  const id = props.match.params.id
   console.log(props)
 
   const [open, setOpen] = useState(true)
@@ -47,6 +47,12 @@ function ProductDetail(props) {
   const [proPrice, setProPrice] = useState('')
   const [proDes, setProDes] = useState('')
   const [proMultiImg, setProMultiImg] = useState('')
+  const [proImg, setProImg] = useState('')
+  const [proMutImg, setProMutImg] = useState('')
+  const [proMutImg2, setProMutImg2] = useState('')
+  const [proMutImg3, setProMutImg3] = useState('')
+  const [proMutImg4, setProMutImg4] = useState('')
+  const [proMutImg5, setProMutImg5] = useState('')
 
   const fadeAnimationHandler: AnimationHandler = (
     props,
@@ -86,7 +92,7 @@ function ProductDetail(props) {
     }
   }
 
-  async function getProductIdServer(id) {
+  async function getProductIdServer() {
     const url = `http://localhost:6005/product/product-list/${id}`
 
     // 注意header資料格式要設定，伺服器才知道是json格式
@@ -100,30 +106,102 @@ function ProductDetail(props) {
 
     const response = await fetch(request)
     const data = await response.json()
+    const imgData = data.proMutImg
+    const imgArr = JSON.parse(imgData)
+    console.log(data)
+    console.log(imgData)
+    console.log(imgArr)
+    setProMutImg(imgArr[0])
+    setProMutImg2(imgArr[1])
+    setProMutImg3(imgArr[2])
+    setProMutImg4(imgArr[3])
+    setProMutImg5(imgArr[4])
+    // if (imgArr.length >= 5) {
+    //   setProMutImg(imgArr[0])
+    //   setProMutImg2(imgArr[1])
+    //   setProMutImg3(imgArr[2])
+    //   setProMutImg4(imgArr[3])
+    //   setProMutImg5(imgArr[4])
+    // } else if (imgArr.length >= 4) {
+    //   setProMutImg(imgArr[0])
+    //   setProMutImg2(imgArr[1])
+    //   setProMutImg3(imgArr[2])
+    //   setProMutImg4(imgArr[3])
+    // } else if (imgArr.length >= 3) {
+    //   setProMutImg(imgArr[0])
+    //   setProMutImg2(imgArr[1])
+    //   setProMutImg3(imgArr[2])
+    // } else if (imgArr.length >= 2) {
+    //   setProMutImg(imgArr[0])
+    //   setProMutImg(imgArr[1])
+    // } else if (imgArr.length >= 1) {
+    //   setProMutImg(imgArr[0])
+    // }
+
     // 設定資料
     setProId(data.proId)
     setProName(data.proName)
     setProPrice(data.proPrice)
     setProDes(data.proDes)
-    setProMultiImg(data.proMultiImg)
   }
   useEffect(() => {
     getProductIdServer()
   }, [])
+
+  // const productListCard = products.map((pro) => {
+  //   let trybb = JSON.parse(`${pro.proImg}`)
+  //   return (
+  //     <>
+  //       <div>
+  //         <img
+  //           className="col-12 p-0 mb-5"
+  //           src={`http://localhost:6005/productpics/${trybb}`}
+  //           alt=""
+  //         />
+  //       </div>
+  //     </>
+  //   )
+  // })
+
   return (
     <>
       <div className="proDe-full">
         <div className="d-flex proDe-move">
           <div className="proDe-leftSide">
             <Carousel className="proDe-wall">
+              {/* {productListCard} */}
               <div>
-                <img src={product1} />
+                <img
+                  src={`http://localhost:6005/productpics/${proMutImg}`}
+                  alt=""
+                />
               </div>
               <div>
-                <img src={try1} />
+                <img
+                  src={`http://localhost:6005/productpics/${proMutImg2}`}
+                  alt=""
+                />
               </div>
               <div>
-                <img src={product3} />
+                <img
+                  src={`http://localhost:6005/productpics/${proMutImg3}`}
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                  src={`http://localhost:6005/productpics/${proMutImg4}`}
+                  alt=""
+                />
+              </div>
+              <div>
+                <img
+                  src={`http://localhost:6005/productpics/${proMutImg5}`}
+                  alt=""
+                />
+              </div>
+              <div>
+                <img src="" alt="" />
               </div>
             </Carousel>
           </div>
@@ -194,7 +272,7 @@ function ProductDetail(props) {
 
                 <div className="proDe-productPrice">
                   <div className="proDe-productPricee">
-                    <p>{proPrice}</p>
+                    <p>售價：NT${proPrice}</p>
                   </div>
                 </div>
 
@@ -514,4 +592,4 @@ function ProductDetail(props) {
   )
 }
 
-export default ProductDetail
+export default withRouter(ProductDetail)

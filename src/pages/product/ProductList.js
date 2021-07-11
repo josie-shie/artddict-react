@@ -79,7 +79,7 @@ function ProductList() {
               <Link
                 to={`/product/product-list/product-detail/${pro.id}`}
                 className="prolist-imgLink"
-                key={pro.proId}
+                key={pro.id}
               >
                 <img
                   className="prolist-inImg"
