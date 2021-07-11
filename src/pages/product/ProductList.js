@@ -5,6 +5,11 @@ import { Row } from 'react-bootstrap'
 import {} from 'react-icons/cg'
 import './style/ProductList.css'
 import $ from 'jquery'
+//-----slider bar----------
+import 'rc-tooltip/assets/bootstrap.css'
+import Slider, { SliderTooltip } from 'rc-slider'
+import 'rc-slider/assets/index.css'
+
 // -----------svg---------
 import logobk from './svg/logobk.svg'
 import { GoSearch } from 'react-icons/go'
@@ -20,12 +25,15 @@ function ProductList() {
   const [search, setSearch] = useState('')
   const [arrangement, setArrangement] = useState('')
   const [category, setCategory] = useState('allproduct')
+  const [priceRange, setPriceRange] = useState(6000)
+  const [priceRange2, setPriceRange2] = useState(8000)
 
   async function getClassPriceSearchByQuerySQL() {
     const url =
       'http://localhost:6005/product/productArr' +
       `?category=${category}` +
       `&search=${search}` +
+      `&priceRange=${priceRange}` +
       `&arrangement=${arrangement}`
 
     const request = new Request(url, {
@@ -44,11 +52,11 @@ function ProductList() {
   }
   useEffect(() => {
     getClassPriceSearchByQuerySQL()
-  }, [category, search, arrangement])
+  }, [category, search, arrangement, priceRange])
 
   useEffect(() => {
-    console.log(category, search, arrangement)
-  }, [category, search, arrangement])
+    console.log(category, search, arrangement, priceRange)
+  }, [category, search, arrangement, priceRange])
 
   $('.siblings').click(function () {
     $(this)
@@ -91,6 +99,37 @@ function ProductList() {
     )
   })
 
+  // ------------------sliderbar--setting--
+  const { Range } = Slider
+  const style = { width: 700 }
+
+  // const { createSliderWithTooltip } = Slider
+  // const Range = createSliderWithTooltip(Slider.Range)
+  // const { Handle } = Slider
+
+  // const handle = (props) => {
+  //   const { value, dragging, index, ...restProps } = props
+
+  //   return (
+  //     <SliderTooltip
+  //       prefixCls="rc-slider-tooltip"
+  //       overlay={`${value} %`}
+  //       visible={dragging}
+  //       placement="top"
+  //       key={index}
+  //       value={priceRange}
+  //     >
+  //       <Handle value={priceRange} {...restProps} />
+  //     </SliderTooltip>
+  //   )
+  // }
+
+  // useEffect(() => {
+  //   console.log(`${value}`)
+  // }, [])
+
+  // ------------------sliderbar-setting---
+
   return (
     <>
       <div className="prolist-full">
@@ -117,6 +156,29 @@ function ProductList() {
           </div>
         </div>
         <div className="prolist-wordBox">
+          <div>
+            {/* <div style={wrapperStyle}>
+              <p>PRICE RANGE</p>
+              <Range
+                min={0}
+                max={8000}
+                step={2000}
+                marks={{
+                  0: 0,
+                  2000: 2000,
+                  4000: 4000,
+                  6000: 6000,
+                  8000: 8000,
+                }}
+                value={[priceRange, priceRange2]}
+                // defaultValue={[4000, 8000]}
+                tipFormatter={(value) => `${value}`}
+                onAfterChange={(value) =>
+                  setPriceRange(value)
+                }
+              />
+            </div> */}
+          </div>
           <div className="prolist-quote">
             <p>ART GIVES US WINGS AND TAKE US FAR</p>
           </div>
@@ -206,23 +268,29 @@ function ProductList() {
                 </div>
 
                 <div className="priceRangeBox d-flex">
-                  <div className="pro-priceRange">
-                    <p className="pro-filterWord ">
-                      PRICERANGE
-                    </p>
-                  </div>
                   {/* 要用Jq做 */}
+
                   <div className="prolist-sliderbox d-flex pro-filterWord">
-                    0
-                    <input
-                      type="range"
-                      min="0"
-                      max="3000"
-                      step="500"
-                      className="prolist-slider"
-                      id="myRange"
-                    />
-                    3000
+                    <div style={style}>
+                      <p>PRICE RANGE</p>
+                      <Range
+                        min={0}
+                        max={8000}
+                        step={2000}
+                        marks={{
+                          0: 0,
+                          2000: 2000,
+                          4000: 4000,
+                          6000: 6000,
+                          8000: 8000,
+                        }}
+                        allowCross={false}
+                        defaultValue={[0, 6000]}
+                        onAfterChange={(e) => {
+                          setPriceRange(JSON.stringify(e))
+                        }}
+                      />
+                    </div>
                   </div>
                 </div>
                 {/* 要用Jq做 */}
