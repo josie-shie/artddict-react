@@ -30,9 +30,10 @@ function AuctionSlider(props) {
                           8000: 8000,
                         }}
                         allowCross={false}
-                        defaultValue={[0, 6000]}
+                        defaultValue={[0, 8000]}
                         onAfterChange={(e) => {
-                        //   setPriceRange(JSON.stringify(e))
+                          console.log("多少",e)
+                          // setPriceRange(JSON.stringify(e))
                           setPriceRange(e)
                         }}
                       />
