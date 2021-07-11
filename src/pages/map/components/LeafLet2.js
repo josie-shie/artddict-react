@@ -13,7 +13,8 @@ class LeafLet2 extends React.Component {
       zoom: 8,
       id: '',
     }
-    this.setmusEvent = this.setmusEvent.bind(this)
+    //TODO:this.setmusEvent拿不到
+    // this.setmusEvent = this.setmusEvent.bind(this)
   }
 
   componentDidMount(props) {
