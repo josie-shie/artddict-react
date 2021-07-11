@@ -15,6 +15,7 @@ function PwdEdit(props) {
   const [password, setPassword] = useState('')
   const [newPwd1, setNewPwd1] = useState('')
   const [newPwd2, setNewPwd2] = useState('')
+  const [id, setId] = useState('')
   console.log('before get request')
   async function getUserFromServer(userid) {
     // 開啟載入指示
@@ -37,6 +38,7 @@ function PwdEdit(props) {
     console.log(`[GET] response = ${data}`)
 
     setPassword(data.password)
+    setId(data.id)
   }
 
   async function checkedPassword(pwd1, pwd2) {
@@ -107,7 +109,7 @@ function PwdEdit(props) {
       // 抓出了空字串或者兩行不同 警訊以下內容
       setDataLoading(false)
       swal({
-        text: '密碼檢查有誤, 請重新檢查',
+        text: '密碼有誤, 請重新檢查',
         icon: 'error',
         button: false,
         timer: 3000,
@@ -153,7 +155,9 @@ function PwdEdit(props) {
         <Container fluid>
           <div className="d-flex u-row justify-content-around">
             <div className="u-usertitleLeft">
-              <Link to="/user-msgedit">會員資料</Link>
+              <Link to={`/user-msgedit/${id}`}>
+                會員資料
+              </Link>
             </div>
             <div className="u-usertitleRight">
               <Link to="/user-pwdEdit">修改密碼</Link>

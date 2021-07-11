@@ -7,8 +7,9 @@ import {
 import ReactDOM from 'react-dom'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel } from 'react-responsive-carousel'
+import $ from 'jquery'
 
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
 import '../../bootstrap/css/bootstrap.css'
 import { Button, Collapse } from 'react-bootstrap'
 import './style/ProductDetail.css'
@@ -33,11 +34,28 @@ import product3 from './img/productDetail/product3.jpeg'
 import try1 from './img/productDetail/try1.jpeg'
 import try2 from './img/productDetail/try2.jpeg'
 
-function ProductDetail() {
+function ProductDetail(props) {
+  const id = props.match.params.id
+  console.log(props)
+
   const [open, setOpen] = useState(true)
   const [open2, setOpen2] = useState(false)
   const [open3, setOpen3] = useState(false)
   const [open4, setOpen4] = useState(false)
+  const [products, setProducts] = useState([])
+  const [proId, setProId] = useState('')
+  const [proName, setProName] = useState('')
+  const [proPrice, setProPrice] = useState('')
+  const [proDes, setProDes] = useState('')
+  const [proMultiImg, setProMultiImg] = useState('')
+  const [proImg, setProImg] = useState('')
+  const [proMutImg, setProMutImg] = useState('')
+  const [proMutImg2, setProMutImg2] = useState('')
+  const [proMutImg3, setProMutImg3] = useState('')
+  const [proMutImg4, setProMutImg4] = useState('')
+  const [proMutImg5, setProMutImg5] = useState('')
+  const [proMutImgTry, setProMutImgTry] = useState([])
+
   const fadeAnimationHandler: AnimationHandler = (
     props,
     state
@@ -75,21 +93,114 @@ function ProductDetail() {
       prevStyle: { ...slideStyle },
     }
   }
+
+  async function getProductIdServer() {
+    const url = `http://localhost:6005/product/product-list/${id}`
+
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    const imgData = data.proMutImg
+    const imgArr = JSON.parse(imgData)
+    // console.log(data)
+    // console.log(imgData)
+    // console.log(imgArr)
+    setProMutImg(imgArr[0])
+    setProMutImg2(imgArr[1])
+    setProMutImg3(imgArr[2])
+    setProMutImg4(imgArr[3])
+    setProMutImg5(imgArr[4])
+    setProMutImgTry(imgArr)
+    // console.log(proMutImgTry)
+    // let takePicOut = proMutImgTry.map(() => {
+    //   return (
+    //     <img
+    //       src={`http://localhost:6005/productpics/${proMutImg}`}
+    //       alt=""
+    //     />
+    //   )
+    // })
+    // console.log(takePicOut)
+    // if (imgArr.length >= 5) {
+    //   setProMutImg(imgArr[0])
+    //   setProMutImg2(imgArr[1])
+    //   setProMutImg3(imgArr[2])
+    //   setProMutImg4(imgArr[3])
+    //   setProMutImg5(imgArr[4])
+    // } else if (imgArr.length >= 4) {
+    //   setProMutImg(imgArr[0])
+    //   setProMutImg2(imgArr[1])
+    //   setProMutImg3(imgArr[2])
+    //   setProMutImg4(imgArr[3])
+    // } else if (imgArr.length >= 3) {
+    //   setProMutImg(imgArr[0])
+    //   setProMutImg2(imgArr[1])
+    //   setProMutImg3(imgArr[2])
+    // } else if (imgArr.length >= 2) {
+    //   setProMutImg(imgArr[0])
+    //   setProMutImg(imgArr[1])
+    // } else if (imgArr.length >= 1) {
+    //   setProMutImg(imgArr[0])
+    // }
+
+    // 設定資料
+    setProId(data.proId)
+    setProName(data.proName)
+    setProPrice(data.proPrice)
+    setProDes(data.proDes)
+  }
+  useEffect(() => {
+    getProductIdServer()
+  }, [])
+  // console.log(proMutImgTry)
+  let takePicOut = proMutImgTry.map((e) => {
+    return (
+      <img
+        src={`http://localhost:6005/productpics/${e}`}
+        alt=""
+      />
+    )
+  })
+  // console.log(takePicOut)
+  // let tryme = proMutImgTry.map((e) => <li>{e}</li>)
+  // console.log(tryme)
+  // const comeOnPic = proMutImgTry.map()
   return (
     <>
       <div className="proDe-full">
         <div className="d-flex proDe-move">
           <div className="proDe-leftSide">
             <Carousel className="proDe-wall">
-              <div>
-                <img src={product1} />
-              </div>
-              <div>
-                <img src={try1} />
-              </div>
-              <div>
-                <img src={product3} />
-              </div>
+              {/* {productListCard} */}
+              {takePicOut}
+              {/* <img
+                src={`http://localhost:6005/productpics/${proMutImg}`}
+                alt=""
+              />
+              <img
+                src={`http://localhost:6005/productpics/${proMutImg2}`}
+                alt=""
+              />
+              <img
+                src={`http://localhost:6005/productpics/${proMutImg3}`}
+                alt=""
+              />
+              <img
+                src={`http://localhost:6005/productpics/${proMutImg4}`}
+                alt=""
+              />
+              <img
+                src={`http://localhost:6005/productpics/${proMutImg5}`}
+                alt=""
+              /> */}
             </Carousel>
           </div>
           <div className="proDe-rightSide">
@@ -108,7 +219,7 @@ function ProductDetail() {
               <div className="proDe-chooseBox">
                 <div className="proDe-nameAndHeart d-flex">
                   <div className="proDe-name">
-                    <p>威廉 玫瑰粉 披肩</p>
+                    <p>{proName}</p>
                   </div>
                   <div className="proDe-heartlogo">
                     <Link style={{ decoration: 'none' }}>
@@ -159,7 +270,7 @@ function ProductDetail() {
 
                 <div className="proDe-productPrice">
                   <div className="proDe-productPricee">
-                    <p>售價：NT$ 780</p>
+                    <p>售價：NT${proPrice}</p>
                   </div>
                 </div>
 
@@ -179,7 +290,7 @@ function ProductDetail() {
                     </div>
                   </div>
                   <div className="proDe-proId">
-                    <p> 產品編號#886886</p>
+                    <p> 產品編號#{proId}</p>
                   </div>
                   <div className="proDe-countAndAdd d-flex">
                     <div className="proDe-numberAndBox d-flex">
@@ -234,9 +345,7 @@ function ProductDetail() {
                     id="example-collapse-text"
                     className="proDe-invisibleWord"
                   >
-                    1889年9月，荷蘭後印象派畫家文森特·梵谷（Vincent
-                    van
-                    Gogh）在畫布上用油畫了自畫像。這幅作品可能是梵谷的最後一幅自畫像，是在他離開法國南部聖雷米的普羅旺斯之前不久畫的。這幅畫現在在巴黎的奧賽博物館（Muséed'Orsay）展出。
+                    {proDes}
                   </p>
                 </Collapse>
               </div>
@@ -481,4 +590,4 @@ function ProductDetail() {
   )
 }
 
-export default ProductDetail
+export default withRouter(ProductDetail)

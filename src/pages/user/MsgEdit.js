@@ -32,6 +32,7 @@ function UserEdit(props) {
   const [mobile, setMobile] = useState('')
   const [birthday, setBirthday] = useState('')
   const [address, setAddress] = useState('')
+  const [id, setId] = useState('')
 
   async function getUserFromServer(userid) {
     // 開啟載入指示
@@ -57,6 +58,7 @@ function UserEdit(props) {
     setName(data.name)
     setGender(data.gender)
     setMobile(data.mobile)
+    setId(data.id)
     // setBirthday(data.birthday)
     const myDate = new Date(data.birthday)
     const js_date = `${myDate.getFullYear()}-${
@@ -64,15 +66,22 @@ function UserEdit(props) {
     }-${myDate.getDate()}`
     console.log(`js_date=${js_date}`)
     setBirthday(js_date)
+
     // 拆解得到的addres => country, township, addresses
     const raw_address = data.address
-    const split_address = raw_address.split('_')
-    console.log(
-      `country = ${split_address[0]}, township = ${split_address[1]}`
-    )
-    setCountry(split_address[0])
-    setTownship(split_address[1])
-    setAddress(split_address[2])
+    // const split_address = raw_address.split('_')
+    console.log(`raw_address = ${raw_address}`)
+    if (data.address != null) {
+      const split_address = raw_address.split('_')
+
+      console.log(
+        `country = ${split_address[0]}, township = ${split_address[1]}`
+      )
+
+      setCountry(split_address[0])
+      setTownship(split_address[1])
+      setAddress(split_address[2])
+    }
   }
 
   async function updateUserToSever() {
@@ -173,7 +182,9 @@ function UserEdit(props) {
               <Link to="/user-msgedit">會員資料</Link>
             </div>
             <div className="u-usertitleRight1">
-              <Link to="/user-pwdedit">修改密碼</Link>
+              <Link to={`/user-pwdedit/${id}`}>
+                修改密碼
+              </Link>
             </div>
           </div>
           <Container className="u-userData">

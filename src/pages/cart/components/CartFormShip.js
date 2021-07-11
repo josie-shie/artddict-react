@@ -14,7 +14,7 @@ function CartFormShip() {
     <>
       <section className="c-shippinginfo1 px-0">
         <div className="c-shipleft d-flex">
-          <p className="mr-auto">收件資訊</p>
+          <p className="mr-auto">收件資訊*</p>
           <p className="c-f12">*必填項目</p>
         </div>
         <div className="c-ship1 py-4">
@@ -47,6 +47,7 @@ function CartFormShip() {
               type="text"
               id="username"
               name="username"
+              required
             />
             <div className="d-flex">
               <div className="col-6 pl-0">
@@ -95,7 +96,6 @@ function CartFormShip() {
             <input type="text" />
             <p className="pt-3">聯絡電話*</p>
             <input type="text" />
-            <pre>{JSON.stringify(watch(), null, 2)}</pre>
           </div>
         )}
         <div className="c-shipmethod pt-4">

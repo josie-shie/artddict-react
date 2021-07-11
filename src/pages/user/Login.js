@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import './styles/Login.scss'
 import { Link } from 'react-router-dom'
 import Logoheader from './components/Logoheader'
+import swal from 'sweetalert'
 // images
 import pic1 from './img/1.png'
 import pic2 from './img/2.png'
@@ -44,12 +45,33 @@ function Login() {
 
     console.log('伺服器回傳的json資料', data)
     // 要等驗証過，再設定資料(簡單的直接設定)
-    if (data.id) alert('登入成功')
-    else alert('登入失敗')
+    if (data.id) {
+      swal({
+        text: '登入成功！',
+        icon: 'success',
+        button: false,
+        timer: 3000,
+      })
+    } else {
+      swal({
+        text: '帳號或密碼有誤，請重新登入',
+        icon: 'error',
+        button: false,
+        timer: 3000,
+      })
+    }
 
     //直接在一段x秒關掉指示器
     setTimeout(() => {
       setDataLoading(false)
+      if (data.id != undefined) {
+        window.location.replace(
+          `../user-msgedit/ + '${data.id}'`
+        )
+      } else {
+        setUsername('')
+        setPassword('')
+      }
     }, 500)
   }
 
@@ -185,7 +207,6 @@ function Login() {
                 </div>
                 <div className="u-AddBtn">
                   <Link
-                    to="/user-msgedit"
                     onClick={() => {
                       loginToSever()
                     }}
@@ -194,6 +215,7 @@ function Login() {
                   >
                     登入
                   </Link>
+                  {/* <button onClick={loginToSever}> </button> */}
                 </div>
               </form>
             </div>
