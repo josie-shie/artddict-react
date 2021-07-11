@@ -33,11 +33,21 @@ import product3 from './img/productDetail/product3.jpeg'
 import try1 from './img/productDetail/try1.jpeg'
 import try2 from './img/productDetail/try2.jpeg'
 
-function ProductDetail() {
+function ProductDetail(props) {
+  // const id = props.match.params.id
+  console.log(props)
+
   const [open, setOpen] = useState(true)
   const [open2, setOpen2] = useState(false)
   const [open3, setOpen3] = useState(false)
   const [open4, setOpen4] = useState(false)
+  const [products, setProducts] = useState([])
+  const [proId, setProId] = useState('')
+  const [proName, setProName] = useState('')
+  const [proPrice, setProPrice] = useState('')
+  const [proDes, setProDes] = useState('')
+  const [proMultiImg, setProMultiImg] = useState('')
+
   const fadeAnimationHandler: AnimationHandler = (
     props,
     state
@@ -75,6 +85,31 @@ function ProductDetail() {
       prevStyle: { ...slideStyle },
     }
   }
+
+  async function getProductIdServer(id) {
+    const url = `http://localhost:6005/product/product-list/${id}`
+
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    // 設定資料
+    setProId(data.proId)
+    setProName(data.proName)
+    setProPrice(data.proPrice)
+    setProDes(data.proDes)
+    setProMultiImg(data.proMultiImg)
+  }
+  useEffect(() => {
+    getProductIdServer()
+  }, [])
   return (
     <>
       <div className="proDe-full">
@@ -108,7 +143,7 @@ function ProductDetail() {
               <div className="proDe-chooseBox">
                 <div className="proDe-nameAndHeart d-flex">
                   <div className="proDe-name">
-                    <p>威廉 玫瑰粉 披肩</p>
+                    <p>{proName}</p>
                   </div>
                   <div className="proDe-heartlogo">
                     <Link style={{ decoration: 'none' }}>
@@ -159,7 +194,7 @@ function ProductDetail() {
 
                 <div className="proDe-productPrice">
                   <div className="proDe-productPricee">
-                    <p>售價：NT$ 780</p>
+                    <p>{proPrice}</p>
                   </div>
                 </div>
 
@@ -179,7 +214,7 @@ function ProductDetail() {
                     </div>
                   </div>
                   <div className="proDe-proId">
-                    <p> 產品編號#886886</p>
+                    <p> 產品編號#{proId}</p>
                   </div>
                   <div className="proDe-countAndAdd d-flex">
                     <div className="proDe-numberAndBox d-flex">
@@ -234,9 +269,7 @@ function ProductDetail() {
                     id="example-collapse-text"
                     className="proDe-invisibleWord"
                   >
-                    1889年9月，荷蘭後印象派畫家文森特·梵谷（Vincent
-                    van
-                    Gogh）在畫布上用油畫了自畫像。這幅作品可能是梵谷的最後一幅自畫像，是在他離開法國南部聖雷米的普羅旺斯之前不久畫的。這幅畫現在在巴黎的奧賽博物館（Muséed'Orsay）展出。
+                    {proDes}
                   </p>
                 </Collapse>
               </div>

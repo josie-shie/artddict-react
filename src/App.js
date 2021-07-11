@@ -94,7 +94,7 @@ function App() {
             </Route>
             <Route
               exact
-              path="/product/product-list/product-detail/"
+              path="/product/product-list/product-detail/:id"
             >
               <ProductDetail />
             </Route>
