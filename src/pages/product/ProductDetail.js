@@ -170,7 +170,7 @@ function ProductDetail(props) {
           <div className="proDe-leftSide">
             <Carousel className="proDe-wall">
               {/* {productListCard} */}
-              <div>
+              <div className="detailTry">
                 <img
                   src={`http://localhost:6005/productpics/${proMutImg}`}
                   alt=""
@@ -199,9 +199,6 @@ function ProductDetail(props) {
                   src={`http://localhost:6005/productpics/${proMutImg5}`}
                   alt=""
                 />
-              </div>
-              <div>
-                <img src="" alt="" />
               </div>
             </Carousel>
           </div>
