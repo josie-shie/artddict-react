@@ -33,6 +33,7 @@ function EventList(props) {
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
   const [city, setCity] = useState('')
+  const [eventClass, setEventClass] = useState('')
   // const [museum, setMuseum] = useState('')
   // const [date, setDate] = useState('')
   // const [isFilter, setIsfFilter] = useState(false)
@@ -70,8 +71,8 @@ function EventList(props) {
   }
 
   async function getEventQueryServer() {
-    const url = `http://localhost:6005/event?city=${city}&order=${orderBy}`
-
+    const url = `http://localhost:6005/event?city=${city}&class=${eventClass}&order=${orderBy}`
+    //city=臺北市&class=C&order=latest
     const request = new Request(url, {
       method: 'GET',
       headers: new Headers({

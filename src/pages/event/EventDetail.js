@@ -95,6 +95,15 @@ function EventDetail(props) {
     
   }, [])
 
+  $('.e-ticket-type').click(function () {
+    $(this)
+      .css('background', 'black')
+      .css('color', 'white')
+      .siblings()
+      .css('background', 'transparent')
+      .css('color', 'black')
+  })
+
   useEffect(()=>{
     if(ticketNum < 1){
       setTicketNum(1)
@@ -325,28 +334,24 @@ function EventDetail(props) {
                   action=""
                 >
                   <button
-                    ref={ticketRef}
                     type="button"
                     className="col-5 e-ticket-type "
                   >
                     成人票
                   </button>
                   <button
-                    ref={ticketRef2}
                     type="button"
                     className="col-5 e-ticket-type"
                   >
                     孩童票
                   </button>
                   <button
-                    ref={ticketRef3}
                     type="button"
                     className="col-5 e-ticket-type"
                   >
                     敬老票
                   </button>
                   <button
-                    ref={ticketRef4}
                     type="button"
                     className="col-5 e-ticket-type"
                   >
@@ -380,16 +385,18 @@ function EventDetail(props) {
                     </button>
                   </div>
                   <p className="col-12 mb-1 ed-total p-0">
-                    小計：NT${' '}
+                    小計：NT$
                     <span>{eventPrice * ticketNum}</span>
                   </p>
 
-                  <button
-                    className="col-12 p-0 ed-submit-btn mb-5"
-                    type="submit"
-                  >
-                    加入購物車
-                  </button>
+                  <div className="col-12 p-0 mb-5 border-0">
+                    <button
+                      className="col-12 p-0 ed-submit-btn"
+                      type="submit"
+                    >
+                      加入購物車
+                    </button>
+                  </div>
                 </form>
               </div>
             </div>
