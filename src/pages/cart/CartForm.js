@@ -22,7 +22,6 @@ import { FaLock } from 'react-icons/fa'
 import { RiArrowRightSLine } from 'react-icons/ri'
 
 function Cart() {
-  const { watch, register } = useForm()
   // formstep
   const [formStep, setFormStep] = useState(0)
   const completeFormStep = () => {
@@ -36,8 +35,8 @@ function Cart() {
       return (
         <div className="my-4">
           <button
-            onClick={completeFormStep}
             type="button"
+            onClick={completeFormStep}
             className="c-checkoutbtn2"
           >
             確認付款
@@ -75,31 +74,52 @@ function Cart() {
           </a>
           <p>結帳</p>
         </div>
-        <div className="c-step d-flex align-items-center justify-content-center">
-          <div className="c-shipment">收件資訊</div>
-          <RiArrowRightSLine
-            size={30}
-            className="c-grayarrow"
-          />
-          <div className="c-payment">付款資訊</div>
-          <RiArrowRightSLine
-            size={30}
-            className="c-grayarrow"
-          />
-          <div className="c-complete">完成訂單</div>
-        </div>
+        {formStep === 0 && (
+          <div className="c-step d-flex align-items-center justify-content-center">
+            <div className="c-shipment">收件資訊</div>
+            <RiArrowRightSLine
+              size={30}
+              className="c-grayarrow"
+            />
+            <div className="c-payment">付款資訊</div>
+            <RiArrowRightSLine
+              size={30}
+              className="c-grayarrow"
+            />
+            <div className="c-complete">完成訂單</div>
+          </div>
+        )}
+        {formStep === 1 && (
+          <div className="c-step d-flex align-items-center justify-content-center">
+            <div className="c-shipment2">收件資訊</div>
+            <RiArrowRightSLine size={30} />
+            <div className="c-payment2">付款資訊</div>
+            <RiArrowRightSLine
+              size={30}
+              className="c-grayarrow"
+            />
+            <div className="c-complete">完成訂單</div>
+          </div>
+        )}
+        {formStep === 2 && (
+          <div className="c-step d-flex align-items-center justify-content-center">
+            <div className="c-shipment2">收件資訊</div>
+            <RiArrowRightSLine size={30} />
+            <div className="c-payment3">付款資訊</div>
+            <RiArrowRightSLine size={30} />
+            <div className="c-complete3">完成訂單</div>
+          </div>
+        )}
 
         <div className="d-flex">
           {formStep < 2 && (
-            <div className="col-6 mr-auto">
-              <form action="">
+            <div className="col-6 mr-auto px-0">
+              <form>
                 <div>
                   {/* shipping */}
                   {formStep === 0 && <CartFormShip />}
-                  {/* shipping end */}
                   {/* payment */}
                   {formStep === 1 && <CartFormPay />}
-                  {/* payment end */}
                   {formStep < 2 && (
                     <div>
                       <p className="c-f12 mt-3">
