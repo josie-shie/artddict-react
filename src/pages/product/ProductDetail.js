@@ -7,6 +7,7 @@ import {
 import ReactDOM from 'react-dom'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel } from 'react-responsive-carousel'
+import $ from 'jquery'
 
 import { Link, withRouter } from 'react-router-dom'
 import '../../bootstrap/css/bootstrap.css'
@@ -53,6 +54,7 @@ function ProductDetail(props) {
   const [proMutImg3, setProMutImg3] = useState('')
   const [proMutImg4, setProMutImg4] = useState('')
   const [proMutImg5, setProMutImg5] = useState('')
+  const [proMutImgTry, setProMutImgTry] = useState([])
 
   const fadeAnimationHandler: AnimationHandler = (
     props,
@@ -108,14 +110,25 @@ function ProductDetail(props) {
     const data = await response.json()
     const imgData = data.proMutImg
     const imgArr = JSON.parse(imgData)
-    console.log(data)
-    console.log(imgData)
-    console.log(imgArr)
+    // console.log(data)
+    // console.log(imgData)
+    // console.log(imgArr)
     setProMutImg(imgArr[0])
     setProMutImg2(imgArr[1])
     setProMutImg3(imgArr[2])
     setProMutImg4(imgArr[3])
     setProMutImg5(imgArr[4])
+    setProMutImgTry(imgArr)
+    // console.log(proMutImgTry)
+    // let takePicOut = proMutImgTry.map(() => {
+    //   return (
+    //     <img
+    //       src={`http://localhost:6005/productpics/${proMutImg}`}
+    //       alt=""
+    //     />
+    //   )
+    // })
+    // console.log(takePicOut)
     // if (imgArr.length >= 5) {
     //   setProMutImg(imgArr[0])
     //   setProMutImg2(imgArr[1])
@@ -147,22 +160,19 @@ function ProductDetail(props) {
   useEffect(() => {
     getProductIdServer()
   }, [])
-
-  // const productListCard = products.map((pro) => {
-  //   let trybb = JSON.parse(`${pro.proImg}`)
-  //   return (
-  //     <>
-  //       <div>
-  //         <img
-  //           className="col-12 p-0 mb-5"
-  //           src={`http://localhost:6005/productpics/${trybb}`}
-  //           alt=""
-  //         />
-  //       </div>
-  //     </>
-  //   )
-  // })
-
+  // console.log(proMutImgTry)
+  let takePicOut = proMutImgTry.map((e) => {
+    return (
+      <img
+        src={`http://localhost:6005/productpics/${e}`}
+        alt=""
+      />
+    )
+  })
+  // console.log(takePicOut)
+  // let tryme = proMutImgTry.map((e) => <li>{e}</li>)
+  // console.log(tryme)
+  // const comeOnPic = proMutImgTry.map()
   return (
     <>
       <div className="proDe-full">
@@ -170,36 +180,27 @@ function ProductDetail(props) {
           <div className="proDe-leftSide">
             <Carousel className="proDe-wall">
               {/* {productListCard} */}
-              <div className="detailTry">
-                <img
-                  src={`http://localhost:6005/productpics/${proMutImg}`}
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  src={`http://localhost:6005/productpics/${proMutImg2}`}
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  src={`http://localhost:6005/productpics/${proMutImg3}`}
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  src={`http://localhost:6005/productpics/${proMutImg4}`}
-                  alt=""
-                />
-              </div>
-              <div>
-                <img
-                  src={`http://localhost:6005/productpics/${proMutImg5}`}
-                  alt=""
-                />
-              </div>
+              {takePicOut}
+              {/* <img
+                src={`http://localhost:6005/productpics/${proMutImg}`}
+                alt=""
+              />
+              <img
+                src={`http://localhost:6005/productpics/${proMutImg2}`}
+                alt=""
+              />
+              <img
+                src={`http://localhost:6005/productpics/${proMutImg3}`}
+                alt=""
+              />
+              <img
+                src={`http://localhost:6005/productpics/${proMutImg4}`}
+                alt=""
+              />
+              <img
+                src={`http://localhost:6005/productpics/${proMutImg5}`}
+                alt=""
+              /> */}
             </Carousel>
           </div>
           <div className="proDe-rightSide">
