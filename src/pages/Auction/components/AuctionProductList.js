@@ -28,7 +28,6 @@ function AuctionProductList(props) {
                             search={search}
                             arrangement={arrangement}
                             aucInfo={aucInfo}
-                            
                         />
                         </span>
                     ))}

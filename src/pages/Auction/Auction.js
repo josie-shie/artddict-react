@@ -1,17 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import './style/auction.scss'
 import { withRouter, Link } from 'react-router-dom'
+import { Container, Row, Button, Collapse, } from 'react-bootstrap'
 
 import { data } from './data/data.js'
 
 import AuctionProductList from './components/AuctionProductList'
 import AuctionSlider from './components/AuctionSlider'
 import AucBreadcrumb from './components/AucBreadcrumb'
+import PageNumber from './components/pageNumber'
 // import Breadcrumb from './components/UserBreadcrumb'
 
 import auctionLogo from './images/auctionLogo.svg'
 import auctionarrow from './images/arrow.svg'
 import selectArrow from './images/selectArrow.svg'
+import $ from 'jquery'
 
 
 // react icons
@@ -29,9 +32,21 @@ function Auction(props) {
 
     const [search, setSearch] = useState('')
     const [arrangement, setArrangement] = useState('')
-    const [count, setCount] = useState(0)
+    const [category, setCategory] = useState([])
     const [aucInfo, setAucInfo] = useState([])
+
+    const [count, setCount] = useState(0)
     const [aucRemainT, setAucRemainT] = useState([])
+
+    const [colorChange, setColorChange] = useState('')
+
+    //頁碼
+    //該頁頁碼
+    const [pages, setPages] = useState([])
+    //頁碼資料
+    const [pagesinfo, setPagesInfo] = useState('')
+    //顯示的頁碼
+    const [showPages, setShowPages] = useState([1, 2, 3, 4, 5])
 
 
 
@@ -39,6 +54,36 @@ function Auction(props) {
     const handleChangeSelect = (e) => {
         // console.log("選擇的順序",e.target.value)
         setArrangement(e.target.value)
+    }
+
+
+    const changecolor = () => {
+        // $('.colorChange').onclick(function () {
+        //     const bgColor = $(this).css('black');
+        //     $('.colorChange').css('background-color', 'black').css('fontSize', '2rem');
+        // });
+    }
+
+    //下一頁
+    const nextpage = () => {
+        if (pages < pagesinfo.totalPages) {
+            let nowcurrentPage = pages + 1
+            setPages(pages + 1)
+            if (nowcurrentPage > 2 && nowcurrentPage < (pagesinfo.totalPages - 1) && pagesinfo.totalPages > 5) {
+                setShowPages([nowcurrentPage - 2, nowcurrentPage - 1, nowcurrentPage, nowcurrentPage + 1, nowcurrentPage + 2])
+            }
+        }
+    }
+
+    //上一頁
+    const previouspage = () => {
+        if (pages > 1) {
+            let nowcurrentPage = pages - 1
+            setPages(pages - 1)
+            if (nowcurrentPage > 2 && nowcurrentPage < (pagesinfo.totalPages - 1) && pagesinfo.totalPages > 5) {
+                setShowPages([nowcurrentPage - 2, nowcurrentPage - 1, nowcurrentPage, nowcurrentPage + 1, nowcurrentPage + 2])
+            }
+        }
     }
 
     //初始化資料
@@ -57,16 +102,14 @@ function Auction(props) {
         })
         const response = await fetch(request)
         const data = await response.json()
-
         // 設定資料
         setAucInfo(data)
     }
 
-    //排列查詢
+    //撈資料
     async function getAucProArrFromServer() {
-
         // 連接的伺服器資料網址
-        const url = 'http://localhost:6005/auctoin/aucSeaArr' + `?search=${search}` + `&arrangement=${arrangement}`
+        const url = 'http://localhost:6005/auctoin/aucSeaArr' + `?search=${search}` + `&arrangement=${arrangement}` + `&category=${category}` + `&pages=${pages}`
         // 注意header資料格式要設定，伺服器才知道是json格式
         const request = new Request(url, {
             method: 'GET',
@@ -76,22 +119,47 @@ function Auction(props) {
             }),
         })
 
+        // console.log(pages)
         const response = await fetch(request)
         const data = await response.json()
-        console.log(data)
+
+        //設定page的資料
+        setPagesInfo(data[0])
+
+        //設定顯示幾個頁碼
+        // console.log(data[0].totalPages)
+        if (data[0].totalPages < 6) {
+            let pagelength = []
+            for (let i = 0; i < data[0].totalPages; i++) {
+                pagelength.push(i+1)
+            }
+            console.log(pagelength)
+            setShowPages(pagelength)
+        }
+
+        //拿掉page資料
+        data.shift()
+
         // 設定資料
         setAucInfo(data)
     }
 
+    //執行查詢排列頁碼更換
     useEffect(() => {
         getAucProFromServer()
     }, [])
 
+    //如果選到頁數以外的 重置頁數
+    useEffect(() => {
+        setPages(1)
+        setShowPages([1, 2, 3, 4, 5])
+    }, [search, arrangement, category])
+
     useEffect(() => {
         getAucProArrFromServer()
-    }, [search, arrangement])
+    }, [search, arrangement, category, pages])
 
-
+    //計算剩餘時間
     const TimeRemaining = (deadline) => {
         //截止時間(毫秒)
         // 將資料拿到資料庫截止日期 從字串轉換成數字
@@ -121,12 +189,13 @@ function Auction(props) {
         if (days < 1)
             if (String(hours).length < 2) {
                 return `截標倒數0${hours}小時${minutes}分鐘${seconds}`
-            }else {
+            } else {
                 return `截標倒數${hours}小時${minutes}分鐘${seconds}`
             }
 
     }
 
+    //倒數計時器
     useEffect(() => {
         let remainTime = []
         //把所有deadline取出來計算剩餘時間
@@ -148,7 +217,7 @@ function Auction(props) {
     // 一開始就會開始載入資料
 
     return (
-        <>  
+        <>
             <div className="auctionPage">
                 <div className="auctionHeroSection">
                     <div className="auctionHeroSectionLogo">
@@ -226,28 +295,56 @@ function Auction(props) {
                         </div>
                         <div className="auctionMainContent cn-font">
                             <div className="auctionsidebar cn_font">
-                                <div className="auctionsidebarTitle ">美術館商品</div>
-                                <ul>
-                                    <li>畫作</li>
-                                    <li>服飾</li>
-                                    <li>家飾</li>
-                                    <li>文具</li>
-                                    <li>書籍</li>
-                                    <li>配件</li>
+                                <div className="auctionsidebarTitle "
+                                >美術館商品</div>
+                                <ul className="auc-controlCatCol">
+                                    <li onClick={
+                                        (event) => { setCategory('') }
+                                    } classname="colorChange">全部商品</li>
+                                    <li onClick={(event) => { setCategory('Paintings') }} classname="colorChange">畫作</li>
+                                    <li onClick={(event) => { setCategory('clothes') }} classname="colorChange">服飾</li>
+                                    <li onClick={(event) => { setCategory('furniture') }} classname="colorChange">家飾</li>
+                                    <li onClick={(event) => { setCategory('stationery') }} classname="colorChange">文具</li>
+                                    <li onClick={(event) => { setCategory('books') }} classname="colorChange">書籍</li>
+                                    <li onClick={(event) => { setCategory('accessories') }} classname="colorChange">配件</li>
+                                    {/* {console.log(category)} */}
                                 </ul>
                             </div>
-                            <AuctionProductList
-                                // data={data}
-                                search={search}
-                                setSearch={setSearch}
-                                arrangement={arrangement}
-                                getAucProFromServer={getAucProFromServer}
-                                getAucProArrFromServer={getAucProArrFromServer}
-                                aucInfo={aucInfo}
-                                setAucInfo={setAucInfo}
-                                TimeRemaining={TimeRemaining}
-                                aucRemainT={aucRemainT}
-                            />
+                            <div>
+                                <AuctionProductList
+                                    // data={data}
+                                    search={search}
+                                    setSearch={setSearch}
+                                    arrangement={arrangement}
+                                    getAucProFromServer={getAucProFromServer}
+                                    getAucProArrFromServer={getAucProArrFromServer}
+                                    aucInfo={aucInfo}
+                                    setAucInfo={setAucInfo}
+                                    TimeRemaining={TimeRemaining}
+                                    aucRemainT={aucRemainT}
+                                    category={category}
+                                />
+                                <div>
+                                    <Row className="justify-content-center eng-font-regular mt-5 py-5">
+                                        <Link className="ed-pagenum mx-3" onClick={previouspage}>
+                                            <IoIosArrowBack />
+                                        </Link>
+                                        {showPages.map((pageNumber, i) => (
+                                            <PageNumber key={i}
+                                                pages={pages}
+                                                setPages={setPages}
+                                                pagesinfo={pagesinfo}
+                                                currentPage={showPages[i]}
+                                                showPages={showPages}
+                                                setShowPages={setShowPages}
+                                            />
+                                        ))}
+                                        <Link className="ed-pagenum mx-3" onClick={nextpage}>
+                                            <IoIosArrowForward />
+                                        </Link>
+                                    </Row>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
