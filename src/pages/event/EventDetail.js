@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from 'react'
+import { React, useState, useEffect, useRef } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import $ from 'jquery'
 import { Container, Row, Collapse } from 'react-bootstrap'
@@ -46,6 +46,16 @@ function EventDetail(props) {
   const [eventCity, setEventCity] = useState('')
   const [isShared, setIsShared] = useState(true)
 
+  // 票價數量
+  const [ticketNum, setTicketNum] = useState(1)
+  // 票種 Ref
+  const ticketRef = useRef()
+  const ticketRef2 = useRef()
+  const ticketRef3 = useRef()
+  const ticketRef4 = useRef()
+
+  
+
   async function getEventIdServer() {
     const url = `http://localhost:6005/event/event-list/${id}`
     const request = new Request(url, {
@@ -79,7 +89,20 @@ function EventDetail(props) {
 
   useEffect(() => {
     getEventIdServer()
+    $(ticketRef.current).on('click', ()=>{
+      $(ticketRef.current).css('background', 'black').css('color','white') 
+    })
+    
   }, [])
+
+  useEffect(()=>{
+    if(ticketNum < 1){
+      setTicketNum(1)
+    }
+    if(ticketNum > 50){
+      setTicketNum(50)
+    }
+  },[ticketNum])
 
   return (
     <>
@@ -301,36 +324,64 @@ function EventDetail(props) {
                   className="col-12 d-block d-flex flex-wrap justify-content-between"
                   action=""
                 >
-                  <button className="col-5 e-ticket-type ">
+                  <button
+                    ref={ticketRef}
+                    type="button"
+                    className="col-5 e-ticket-type "
+                  >
                     成人票
                   </button>
-                  <button className="col-5 e-ticket-type">
+                  <button
+                    ref={ticketRef2}
+                    type="button"
+                    className="col-5 e-ticket-type"
+                  >
                     孩童票
                   </button>
-                  <button className="col-5 e-ticket-type">
+                  <button
+                    ref={ticketRef3}
+                    type="button"
+                    className="col-5 e-ticket-type"
+                  >
                     敬老票
                   </button>
-                  <button className="col-5 e-ticket-type">
+                  <button
+                    ref={ticketRef4}
+                    type="button"
+                    className="col-5 e-ticket-type"
+                  >
                     愛心票
                   </button>
                   <p className="col-12 pb-2 ticket-num mt-4 p-0">
                     數量：
                   </p>
                   <div className="col-12 p-0 mb-4">
-                    <button className="ticket-count">
-                      <IoMdAdd className="ed-count-icon" />
-                    </button>
-                    <input
-                      type="text"
-                      placeholder="1"
-                      value="1"
-                    />
-                    <button className="ticket-count">
+                    <button
+                      className="ticket-count"
+                      type="button"
+                      onClick={() => {
+                        setTicketNum(ticketNum - 1)
+                      }}
+                    >
                       <IoMdRemove className="ed-count-icon" />
+                    </button>
+                    <div className="ticket-amount">
+                      <p>{ticketNum}</p>
+                    </div>
+
+                    <button
+                      className="ticket-count"
+                      type="button"
+                      onClick={() => {
+                        setTicketNum(ticketNum + 1)
+                      }}
+                    >
+                      <IoMdAdd className="ed-count-icon" />
                     </button>
                   </div>
                   <p className="col-12 mb-1 ed-total p-0">
-                    小計：NT$ <span>1500</span>
+                    小計：NT${' '}
+                    <span>{eventPrice * ticketNum}</span>
                   </p>
 
                   <button

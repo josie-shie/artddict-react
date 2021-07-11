@@ -192,14 +192,20 @@ $egreylt: #E8E8E8;
                 }
                 
             }
-            input{
+            .ticket-amount{
+                display: inline-block;
+                line-height: 24px;
                 width: 34%;
                 height: 100%;
                 text-align: center;
-                background-color: transparent;
                 border: 0px;
                 font-size: 1.5rem;
                 font-weight: 500;
+                padding-bottom: 3px;
+                p{
+                    border: 0px;
+                    padding-bottom: 15px;
+                }
             }
             
             

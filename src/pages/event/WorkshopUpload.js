@@ -64,6 +64,8 @@ function WorkshopUpload(props) {
   const [preview3, setPreview3] = useState()
   const [preview4, setPreview4] = useState()
 
+  const [eventName, setEventName] = useState('')
+
   const [shareImg, setShareImg] = useState('[]')
   const [userId, setUserId] = useState('')
   const [shareComment, setShareComment] = useState('')
@@ -76,22 +78,25 @@ function WorkshopUpload(props) {
 
   // useEffect( handleShow, [inputData])
 
-  // async function getEventIdServer() {
-  //   const url = `http://localhost:6005/event/event-list/${id}`
-  //   const request = new Request(url, {
-  //     method: 'GET',
-  //     headers: new Headers({
-  //       Accept: 'application/json',
-  //       'Content-Type': 'appliaction/json',
-  //     }),
-  //   })
+  async function getEventIdServer() {
+    const url = `http://localhost:6005/event/event-list/${id}`
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
 
-  //   const response = await fetch(request)
-  //   const data = await response.json()
+    const response = await fetch(request)
+    const data = await response.json()
 
-  //   setEventId(data.eventId)
+    setEventName(data.eventName)
+  }
 
-  // }
+  useEffect(() => {
+    getEventIdServer()
+  }, [])
 
   const uploadFile = async (e) => {
     const formData = new FormData()
@@ -212,7 +217,7 @@ function WorkshopUpload(props) {
           <Row className="both-padding">
             <div className="eu-pic-up col-12 p-0 mb-4">
               <h5 className="cn-font">主題工作坊</h5>
-              <h2>我是活動名稱</h2>
+              <h2>{eventName}</h2>
             </div>
             {/* 資料form表單 */}
             <div className="col-12 pl-0 justify-content-between d-flex flex-wrap">
