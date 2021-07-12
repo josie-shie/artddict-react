@@ -54,7 +54,7 @@ function EventMore(props) {
           <div className="d-flex">
             <div className="col-8 p-0">
               <p>地點：臺中市</p>
-              <p>時間：2021年06月</p>
+              <p>時間：2021年09月</p>
             </div>
             <div className="col-4 p-0">
               <button className="border-right py-2 col-4">
@@ -108,7 +108,7 @@ function EventMore(props) {
           <div className="d-flex">
             <div className="col-8 p-0">
               <p>地點：臺中市</p>
-              <p>時間：2021年05月</p>
+              <p>時間：2021年07月</p>
             </div>
             <div className="col-4 p-0">
               <button className="col-4 border-right  py-2">
