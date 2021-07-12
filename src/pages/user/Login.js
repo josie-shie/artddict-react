@@ -72,7 +72,7 @@ function Login() {
         setUsername('')
         setPassword('')
       }
-    }, 500)
+    }, 1000)
   }
 
   const loading = (
