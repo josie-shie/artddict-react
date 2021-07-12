@@ -1,4 +1,3 @@
-//TODO:最後藝術家名字簡介
 
 import React from 'react'
 import { Link } from 'react-router-dom'

@@ -1,7 +1,6 @@
-//TODO:rolling icon
-//TODO:flying event img
-//TODO:hero sectionu 應該要flex
-//TODO:Ending door
+//TODO:Auction time
+//TODO:Auction carol
+
 import React, { useRef, useEffect, useState } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../pics/logo.svg'

@@ -73,8 +73,8 @@ const Index = () => {
         <div className="video-area index-web-padding">
           <video
             className="index-video"
-            playsinline="playsinline"
-            autoplay="autoplay"
+            playsInline="playsinline"
+            autoPlay="autoplay"
             muted="muted"
             loop="loop"
           >

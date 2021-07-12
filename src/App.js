@@ -13,6 +13,7 @@ import MapEvent from './pages/map/MapEvent'
 import Event from './pages/event/Event'
 import ScrollToTop from './components/ScrollToTop'
 import Artist from './pages/artist/Artist'
+import News from './pages/news/News'
 
 //Product
 import Product from './pages/product/Product'
@@ -183,6 +184,9 @@ function App() {
             </Route>
             <Route exact path="/auction">
               <Auction />
+            </Route>
+            <Route exact path="/news">
+              <News />
             </Route>
             <Route exact path="/map">
               <Map />
