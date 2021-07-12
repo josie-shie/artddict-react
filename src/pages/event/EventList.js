@@ -6,8 +6,12 @@ import $ from 'jquery'
 // Component
 import EHeader from './components/Darkheader'
 import EDetailCaro from './components/EDetailCaro'
-import {parts, cities } from './config/location'
-import { data, countries, townships } from './config/townships'
+import { parts, cities } from './config/location'
+import {
+  data,
+  countries,
+  townships,
+} from './config/townships'
 
 // react icons
 import {
@@ -28,31 +32,27 @@ import './style/fontAndBtn.scss'
 import './style/eventList.scss'
 
 function EventList(props) {
-
   const [events, setEvents] = useState([])
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
   const [city, setCity] = useState('')
   const [eventClass, setEventClass] = useState('')
-  const [page,setPage] = useState(1)  
+  const [page, setPage] = useState(1)
+  const [totalCount, setTotalCount] = useState('')
+  const [totalPages, setTotalPages] = useState('')
   // const [museum, setMuseum] = useState('')
   // const [date, setDate] = useState('')
   // const [isFilter, setIsfFilter] = useState(false)
   const [order, setOrder] = useState(true)
 
-
   // setCity(props.match.params.city)
 
-
-
   let orderBy = ''
-  if (order){
+  if (order) {
     orderBy = 'latest'
-  }else{
+  } else {
     orderBy = 'oldest'
   }
-
-
 
   async function getEventServer() {
     const url = 'http://localhost:6005/event'
@@ -72,7 +72,7 @@ function EventList(props) {
   }
 
   async function getEventQueryServer() {
-    const url = `http://localhost:6005/event/test?city=${city}&class=${eventClass}&order=${orderBy}&page=${page}`
+    const url = `http://localhost:6005/event?city=${city}&class=${eventClass}&order=${orderBy}&page=${page}`
 
     const request = new Request(url, {
       method: 'GET',
@@ -84,13 +84,24 @@ function EventList(props) {
 
     const response = await fetch(request)
     const row = await response.json()
-    const data = row["eventData"]
-  
+    const data = row['eventData']
+    const totalCount = row['totalCount'].num
+    const totalPages = row['totalPages']
     // 設定資料
+    setTotalCount(totalCount)
+    setTotalPages(totalPages)
     setEvents(data)
   }
 
-  
+  $('.e-detail-class').click(function () {
+    $(this)
+      .css('background', 'white')
+      .css('color', 'black')
+      .siblings()
+      .css('background', 'black')
+      .css('color', 'white')
+  })
+
   useEffect(() => {
     getEventQueryServer()
   }, [])
@@ -305,8 +316,8 @@ function EventList(props) {
                   name=""
                   id=""
                 >
-                  <option value="latest">最近</option>
-                  <option value="oldest">最遠</option>
+                  <option value="latest">由舊至新</option>
+                  <option value="oldest">由新至舊</option>
                 </select>
               </div>
 
@@ -356,6 +367,13 @@ function EventList(props) {
             {eventDisplay}
             {/* test node area */}
           </Row>
+          {/* <Row>
+            <ReactPaginate
+              pageCount={pageCount}
+              pageRangeDisplayed={9}
+              marginPagesDisplayed={2}
+            />
+          </Row> */}
           <Row className="justify-content-center eng-font-regular mt-5 py-5">
             <Link className="ed-pagenum mx-3">
               <IoIosArrowBack />
