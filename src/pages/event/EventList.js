@@ -34,7 +34,7 @@ function EventList(props) {
   const [township, setTownship] = useState(-1)
   const [city, setCity] = useState('')
   const [eventClass, setEventClass] = useState('')
-  const [page,setPage] = useState()  
+  const [page,setPage] = useState(1)  
   // const [museum, setMuseum] = useState('')
   // const [date, setDate] = useState('')
   // const [isFilter, setIsfFilter] = useState(false)
@@ -72,8 +72,8 @@ function EventList(props) {
   }
 
   async function getEventQueryServer() {
-    const url = `http://localhost:6005/event?city=${city}&class=${eventClass}&order=${orderBy}&page=${page}`
-    //city=臺北市&class=C&order=latest
+    const url = `http://localhost:6005/event/test?city=${city}&class=${eventClass}&order=${orderBy}&page=${page}`
+
     const request = new Request(url, {
       method: 'GET',
       headers: new Headers({
@@ -83,7 +83,9 @@ function EventList(props) {
     })
 
     const response = await fetch(request)
-    const data = await response.json()
+    const row = await response.json()
+    const data = row["eventData"]
+  
     // 設定資料
     setEvents(data)
   }
@@ -92,6 +94,10 @@ function EventList(props) {
   useEffect(() => {
     getEventQueryServer()
   }, [])
+
+  useEffect(() => {
+    getEventQueryServer()
+  }, [eventClass])
 
   //測試城市選單
   useEffect(() => {
@@ -160,11 +166,19 @@ function EventList(props) {
 
           <EDetailCaro />
           <Row className="mt-2 pb-5 ed-type">
-            <button className="col-6 e-detail-class cn-font border-left-0 py-4 shadow-none">
+            <button
+              className="col-6 e-detail-class cn-font border-left-0 py-4 shadow-none"
+              type="button"
+              onClick={() => setEventClass('C')}
+            >
               藝文活動展
               <IoIosArrowRoundDown />
             </button>
-            <button className="col-6 e-detail-class cn-font py-4 border-right-0">
+            <button
+              className="col-6 e-detail-class cn-font py-4 border-right-0"
+              type="button"
+              onClick={() => setEventClass('D')}
+            >
               活動工作坊
               <IoIosArrowRoundDown />
             </button>
