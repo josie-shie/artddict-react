@@ -19,7 +19,7 @@ const MusEventTitle = (props) => {
         </h1>
       </div>
       <div className="d-flex align-items-center justify-content-center py-2 mb-2">
-        <div className="map-select-box-dk px-4">排序</div>
+        <div className="map-select-box-dk px-4 pt-1">排序</div>
         <select
           className="map-select-box-dk map-select pl-3 border-left-0 "
           name=""

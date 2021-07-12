@@ -9,15 +9,10 @@ class LeafLet2 extends React.Component {
     super(props)
     this.state = {
       osmMap: '',
-      center: [25.072615859459205, 121.52481019741808],
-      zoom: 8,
+      center: [25.03510864415966, 121.54265681361893],
+      zoom: 5,
       id: '',
     }
-    //FIXME:this.setmusEvent拿不到
-    // this.setmusEvent = this.setmusEvent.bind(this)
-    // let setmusEvent = () => {
-    //   this.props.setmusEvent()
-    // }
   }
 
   componentDidMount() {
@@ -75,16 +70,33 @@ class LeafLet2 extends React.Component {
             }
           ),
         ],
-        id: '',
       }),
     })
+    //TODO:定位初始值
+    // const redIcon = new L.Icon({
+    //   iconUrl:
+    //     'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+    //   shadowUrl:
+    //     'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+    //   iconSize: [25, 41],
+    //   iconAnchor: [12, 41],
+    //   popupAnchor: [1, -34],
+    //   shadowSize: [41, 41],
+    // })
+
+    // L.marker([25.03510864415966, 121.54265681361893], {
+    //   icon: redIcon,
+    // })
+    //   .addTo(this.state.osmMap)
+    //   .bindPopup(
+    //     `<div class="popup-card"><b>｜美學無所不在，探索從此刻開始｜</b><br><strong>您的所在位置</strong></div>`
+    //   )
+    //   .openPopup()
 
     // 使用 leaflet-color-markers ( https://github.com/pointhi/leaflet-color-markers ) 當作 marker
     // //?套件 L.MarkerCluster當資料很多的時候只顯示區域總數(TODO)
     // //let markers = new L.MarkerClusterGroup().addTO(osmMap)
   }
-
-  componentDidUpdate() {}
 
   //componentDidUpdate是無法拿到更改過的父層屬性的
   //要用componentWillReceiveProps偵查是否有新的富曾屬性傳入
@@ -98,9 +110,8 @@ class LeafLet2 extends React.Component {
     //flyto
     this.state.osmMap.flyTo(
       [nextProps.museums[0].Px, nextProps.museums[0].Py],
-      17
+      13
     )
-
     const greenIcon = new L.Icon({
       iconUrl:
         'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png',
@@ -127,7 +138,7 @@ class LeafLet2 extends React.Component {
       )
         .addTo(this.state.osmMap)
         .bindPopup(
-          `<b>${nextProps.museums[i].musName}</b><br><b>營業時間：09:00-17:00</b><br><b>休館時間：每週一 休管</b><br><button data-id=${nextProps.museums[i].musId}  class="mt-2 map-card-btn loca-btn" >查看活動`
+          `<b>${nextProps.museums[i].musName}</b><br><b>營業時間：09:00-17:00</b><br><b>休館時間：每週一 休館</b><br><button data-id=${nextProps.museums[i].musId}  class="mt-2 map-card-btn loca-btn" >查看活動`
         )
     }
   }
