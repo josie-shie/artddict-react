@@ -2,6 +2,7 @@ import { React, useEffect, useState, useRef } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { Container, Row } from 'react-bootstrap'
 import $ from 'jquery'
+import ReactPaginate from 'react-paginate'
 
 // Component
 import EHeader from './components/Darkheader'
@@ -93,6 +94,11 @@ function EventList(props) {
     setEvents(data)
   }
 
+   function handlePageClick(paginate) {
+     let selected = paginate.selected
+     setPage(selected + 1)   
+   }
+
   $('.e-detail-class').click(function () {
     $(this)
       .css('background', 'white')
@@ -108,7 +114,12 @@ function EventList(props) {
 
   useEffect(() => {
     getEventQueryServer()
+    setPage(1)
   }, [eventClass])
+  
+  useEffect(() => {
+    getEventQueryServer()
+  }, [page])
 
   //測試城市選單
   useEffect(() => {
@@ -367,36 +378,22 @@ function EventList(props) {
             {eventDisplay}
             {/* test node area */}
           </Row>
-          {/* <Row>
-            <ReactPaginate
-              pageCount={pageCount}
-              pageRangeDisplayed={9}
-              marginPagesDisplayed={2}
-            />
-          </Row> */}
-          <Row className="justify-content-center eng-font-regular mt-5 py-5">
-            <Link className="ed-pagenum mx-3">
-              <IoIosArrowBack />
-            </Link>
-            <Link className="ed-pagenum mx-3">
-              <p>1</p>
-            </Link>
-            <Link className="ed-pagenum mx-3">
-              <p>2</p>
-            </Link>
-            <Link className="ed-pagenum mx-3">
-              <p>3</p>
-            </Link>
-            <Link className="ed-pagenum mx-3">
-              <p>4</p>
-            </Link>
-            <Link className="ed-pagenum mx-3">
-              <p>5</p>
-            </Link>
-            <Link className="ed-pagenum mx-3">
-              <IoIosArrowForward />
-            </Link>
-          </Row>
+
+          <ReactPaginate
+            pageCount={totalPages}
+            pageRangeDisplayed={4}
+            marginPagesDisplayed={0}
+            previousLabel={<IoIosArrowBack />}
+            nextLabel={<IoIosArrowForward />}
+            breakLabel={''}
+            containerClassName={
+              'justify-content-center eng-font-regular mt-5 py-5 row'
+            }
+            pageLinkClassName={'ed-pagenum mx-3'}
+            previousClassName={'ed-pagenum mx-3'}
+            nextClassName={'ed-pagenum mx-3'}
+            onPageChange={handlePageClick}
+          />
         </Container>
       </div>
     </>

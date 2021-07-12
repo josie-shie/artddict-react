@@ -33,7 +33,7 @@ function EDetailCaro() {
           slide={true}
         >
           <Carousel.Item>
-            <Link to="/event/event-list/detail">
+            <Link to="/event/event-list/detail/23">
               <img
                 className="d-block w-100"
                 src={CaroPic1}
@@ -42,7 +42,7 @@ function EDetailCaro() {
             </Link>
           </Carousel.Item>
           <Carousel.Item>
-            <Link to="/event/event-list/detail">
+            <Link to="/event/event-list/detail/3">
               <img
                 className="d-block w-100"
                 src={CaroPic2}
@@ -51,7 +51,7 @@ function EDetailCaro() {
             </Link>
           </Carousel.Item>
           <Carousel.Item>
-            <Link to="/event/event-list/detail">
+            <Link to="/event/event-list/detail/26">
               <img
                 className="d-block w-100"
                 src={CaroPic3}
@@ -60,7 +60,7 @@ function EDetailCaro() {
             </Link>
           </Carousel.Item>
           <Carousel.Item>
-            <Link to="/event/event-list/detail">
+            <Link to="/event/event-list/detail/6">
               <img
                 className="d-block w-100"
                 src={CaroPic4}
@@ -69,7 +69,7 @@ function EDetailCaro() {
             </Link>
           </Carousel.Item>
           <Carousel.Item>
-            <Link to="/event/event-list/detail">
+            <Link to="/event/event-list/detail/27">
               <img
                 className="d-block w-100"
                 src={CaroPic5}
