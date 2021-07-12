@@ -60,12 +60,16 @@ function UserEdit(props) {
     setMobile(data.mobile)
     setId(data.id)
     // setBirthday(data.birthday)
-    const myDate = new Date(data.birthday)
-    const js_date = `${myDate.getFullYear()}-${
-      myDate.getMonth() + 1
-    }-${myDate.getDate()}`
-    console.log(`js_date=${js_date}`)
-    setBirthday(js_date)
+    if (data.birthday != null) {
+      const myDate = new Date(data.birthday)
+      // 顯示時會扣一天所以硬加回來（後面寫入資料庫時則不會被影響）
+      const nextDay = new Date(myDate)
+      nextDay.setDate(myDate.getDate() + 1)
+      const js_date = nextDay.toISOString().substring(0, 10)
+      console.log(`js_date=${js_date}`)
+      setBirthday(js_date)
+    }
+    // setBirthday(data.birthday)
 
     // 拆解得到的addres => country, township, addresses
     const raw_address = data.address
