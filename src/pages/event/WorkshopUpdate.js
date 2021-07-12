@@ -550,7 +550,7 @@ function WorkshopUpload(props) {
                     <div className="d-flex">
                       <div className="col-8 p-0">
                         <p>地點：彰化縣</p>
-                        <p>時間：2021年05月</p>
+                        <p>時間：2021年10月</p>
                       </div>
                     </div>
                   </div>

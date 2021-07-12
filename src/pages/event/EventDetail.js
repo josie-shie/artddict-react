@@ -93,6 +93,12 @@ function EventDetail(props) {
     
   }, [])
 
+  useEffect(() => {
+    getEventIdServer()
+  }, [id])
+
+
+
   $('.e-ticket-type').click(function () {
     $(this)
       .css('background', 'black')
@@ -158,8 +164,9 @@ function EventDetail(props) {
                   className="col-6"
                 >
                   <button
+                    type="button"
                     className="cn-font px-0"
-                    onClick={(e) => e.preventDefault()}
+                    // onClick={(e) => e.preventDefault()}
                   >
                     修改作品
                   </button>
@@ -170,8 +177,9 @@ function EventDetail(props) {
                   className="col-6"
                 >
                   <button
+                    type="button"
                     className="cn-font px-0"
-                    onClick={(e) => e.preventDefault()}
+                    // onClick={(e) => e.preventDefault()}
                   >
                     上傳作品
                   </button>
@@ -183,8 +191,9 @@ function EventDetail(props) {
                 style={{ textDecoration: 'none' }}
               >
                 <button
+                  type="button"
                   className="cn-font px-0"
-                  onClick={(e) => e.preventDefault()}
+                  // onClick={(e) => e.preventDefault()}
                   style={{
                     display: `${shareBtn}`,
                   }}
@@ -200,8 +209,10 @@ function EventDetail(props) {
                 {/* 第一個按鈕 */}
                 <button
                   type="button"
-                  onClick={(e) => {e.preventDefault()
-                  setOpen(!open)}}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    setOpen(!open)
+                  }}
                   aria-controls="example-collapse-text"
                   aria-expanded={open}
                   className="ed-detail-btn col-12 d-flex justify-content-center
@@ -224,8 +235,10 @@ function EventDetail(props) {
                 {/* 第二個按鈕 */}
                 <button
                   type="button"
-                  onClick={(e) =>{e.preventDefault()
-                   setOpen2(!open2)}}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    setOpen2(!open2)
+                  }}
                   aria-controls="example-collapse-text"
                   aria-expanded={open2}
                   className="ed-detail-btn col-12 d-flex justify-content-center
@@ -282,9 +295,10 @@ function EventDetail(props) {
                 <div className="col-12 p-0 d-flex justify-content-center flex-wrap e-fb-area py-5">
                   <button
                     type="button"
-                    onClick={(e) =>{
-                      e.preventDefault() 
-                    setOpen4(!open4)}}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setOpen4(!open4)
+                    }}
                     aria-controls="example-collapse-text"
                     aria-expanded={open4}
                     className="ed-comment e-btn-m mb-5"

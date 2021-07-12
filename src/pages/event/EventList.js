@@ -152,10 +152,20 @@ function EventList(props) {
             </p>
           </div>
           <div className="col-4 p-0">
-            <button className="border-right col-4 text-center">
+            <button
+              onClick={(e) => {
+                e.preventDefault()
+              }}
+              className="border-right col-4 text-center"
+            >
               <IoIosHeart />
             </button>
-            <button className="col-8 text-center">
+            <button
+              onClick={(e) => {
+                e.preventDefault()
+              }}
+              className="col-8 text-center"
+            >
               MORE+
             </button>
           </div>
@@ -335,16 +345,15 @@ function EventList(props) {
                 </select>
               </div>
 
-              <button
-                className="ed-list-btn col-1 p-0"
-                type="button"
+              <div
+                className="ed-list-btn col-1"
                 onClick={(e) => {
                   e.preventDefault()
                   getEventQueryServer()
                 }}
               >
                 <FaFilter />
-              </button>
+              </div>
             </form>
             <div className="my-5"></div>
 
