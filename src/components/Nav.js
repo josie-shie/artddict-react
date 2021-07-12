@@ -1,16 +1,17 @@
-//TODO:Nav:一鍵置頂/背景要變灰階
+//TODO:判斷是否登入
 
 import React, { useRef, useEffect, useState } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { ReactComponent as Logo } from '../pics/logo.svg'
 import { BiCartAlt } from 'react-icons/bi'
+import { FiLogOut } from 'react-icons/fi'
 import {
   FaUserAstronaut,
   FaMapMarkedAlt,
 } from 'react-icons/fa'
 import ScrollBtn from '../components/ScrollBtn'
 import $ from 'jquery'
-import '../style/Nav.css'
+import '../style/Nav.scss'
 import '../bootstrap/css/bootstrap.css'
 
 const Nav = () => {
@@ -83,7 +84,9 @@ const Nav = () => {
       .addClass('rotate150')
     $(circleRef.current).removeClass('expand')
     $('.menu li').removeClass('animate')
-    $(logoRef.current).removeClass('animate')
+    $(logoRef.current)
+      .removeClass('animate')
+      .addClass('nav-none')
 
     setTimeout(function () {
       $(xRef.current).removeClass('rotate30')
@@ -126,6 +129,8 @@ const Nav = () => {
                 <Link to="/user-login">
                   <i>
                     <FaUserAstronaut />
+                    {/* //TODO:判斷是否登入 */}
+                    {/* {?<FiLogOut/>:<FaUserAstronaut />} */}
                   </i>
                 </Link>
               </div>
