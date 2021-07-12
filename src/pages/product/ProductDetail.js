@@ -275,6 +275,7 @@ function ProductDetail(props) {
                 </div>
 
                 <div className="proDe-sizeBtnBox">
+                  {/* ----------SIZE---- */}
                   <div className="proDe-sizeBtnBox2 d-flex">
                     <div className="proDe-sizeBtn d-flex">
                       <button>S</button>
@@ -289,6 +290,8 @@ function ProductDetail(props) {
                       </Link>
                     </div>
                   </div>
+                  {/* ----------SIZE---- */}
+
                   <div className="proDe-proId">
                     <p> 產品編號#{proId}</p>
                   </div>
