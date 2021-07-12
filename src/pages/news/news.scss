@@ -33,6 +33,21 @@
         font-size:3rem;
         color: #1D0AFF;
     }
+
+    h4{
+        font-family: Engravers;
+        font-size:3rem;
+        color: #e8e8e8;
+    }
+
+    p{
+        color: #e8e8e8;
+        font-size:1rem;
+    }
+
+    img{
+        width: 100%;
+    }
 }
 
 
@@ -64,3 +79,17 @@
     border:2px solid #81FC4D;
     color: #e8e8e8;
 }
+
+.news-user-img{
+    overflow: hidden;
+
+    div{
+        height: 100px;
+        margin-left:auto;
+        background: rgb(242, 134, 134);
+    }
+
+}
+
+.news-user-text{}
+

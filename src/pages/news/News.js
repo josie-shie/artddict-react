@@ -126,7 +126,7 @@ const News = () => {
               創造出令人震撼的的視覺效果。
             </h3>
             <img className="art-push" src={news9} alt="" />
-            <div className="d-flex justify-content-center mt-5 pb-5 art-push border-bottom">
+            <div className="d-flex justify-content-center mt-5 pb-5  mb-5">
               <div className="col-6">
                 <img
                   className="w-100"
@@ -139,11 +139,13 @@ const News = () => {
                 <h1>leave Your Mail Now!</h1>
                 <h5>
                   留下你的郵件，預約下個月的 | 藝術TALK TO
-                  TALK |
+                  TALK |<br />
+                  也歡留留言告訴我們想與大師有什麼互動！
                 </h5>
                 <form className="mt-5" action="">
                   <input className="news-inp" type="text" />
-                  <button className="news-btn ml-3"
+                  <button
+                    className="news-btn ml-3"
                     type="submit"
                     onClick={(e) => {
                       e.preventDefault()
@@ -152,6 +154,31 @@ const News = () => {
                     send
                   </button>
                 </form>
+              </div>
+            </div>
+            <div>
+              <h4 className="art-push border-bottom border-top py-5 px-5 mb-5">
+                Leave Comments Here
+              </h4>
+            </div>
+            <div className="d-flex">
+              <div className="news-user-img  col-4 mr-3 px-0">
+                <div className="w-50">
+                  <img src="" alt="" />
+                </div>
+              </div>
+              <div className="news-user-text col-8 border-left pr-3">
+                <div>
+                  <p className="pr-3">
+                    J****0033:
+                    <br />
+                    瑰麗的色彩、簡潔的構圖，
+                    營造出大膽又超寫實的效果。
+                    以女性為主題，利用錯位
+                    或加入迥然不同的元素，
+                    創造出令人震撼的的視覺效果。
+                  </p>
+                </div>
               </div>
             </div>
           </div>
