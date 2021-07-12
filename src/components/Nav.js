@@ -61,7 +61,7 @@ const Nav = () => {
     $(xRef.current).css('top', '20px')
     $(zRef.current).css('top', '20px')
     $('.menu li').addClass('animate')
-    $(logoRef.current).addClass('animate')
+    $(logoRef.current).addClass('animate').removeClass('nav-none')
 
     setTimeout(function () {
       $(yRef.current).hide()
