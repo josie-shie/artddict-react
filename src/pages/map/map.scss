@@ -14,6 +14,10 @@
     font-family: NotoSansTC-md;
     src:url(../../style/font/NotoSansTC-Medium.otf);
     }
+    @font-face {
+    font-family: NotoSansTC-bd;
+    src:url(../../style/font/NotoSansTC-Bold.otf);
+    }
 
     .notoSansTC-md{
         font-family: NotoSansTC-md;
@@ -94,6 +98,12 @@
         background-position-y: 50%;
         padding-right: 2rem;
     }
+
+    .loca-btn{
+        background: #000;
+          color: #E8E8E8;
+          border:0;
+    }
     
       
 
@@ -119,10 +129,35 @@
           }
       }
 
-      .map-card-btn {
+      .mus-card-btn {
           background: #000;
           color: #E8E8E8;
           border:0;
+        
+          button {
+              background-color: #000;
+              border:0;
+              color: #E8E8E8;
+
+        }
+          button:hover{
+              background-color: #1D0AFF;
+              border:0;
+              color: #E8E8E8;
+        }
+
+        a{
+            border-top: 1px solid #E8E8E8;
+            margin:auto;
+        }
+      }
+
+      .musEve-card-btn {
+          background: #000;
+          color: #E8E8E8;
+          border:0;
+          height: 100px;
+          margin:0 auto;
         
           button {
               background-color: #000;
@@ -152,6 +187,15 @@
         color: #000;
         font-weight: normal;
         border: 2px solid #000000;
+    }
+
+    .popup-card{
+        text-align: center;
+        font-family: notoSansTC-md;
+
+        strong{
+            font-family:NotoSansTC-bd;
+        }
     }
       
     

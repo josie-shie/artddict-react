@@ -107,7 +107,7 @@ const Map = () => {
   const museumDisplay = museums.map((mus) => {
     return (
       <React.Fragment key={mus.id}>
-        <div className="map-card pb-3 mb-3">
+        <div className="map-card pb-3 mb-3 mt-2">
           <Link
             onClick={async (e) => {
               e.preventDefault()
@@ -127,7 +127,7 @@ const Map = () => {
               <p>地點：{mus.cityName}</p>
               <p>時間：09:00-17:00</p>
             </div>
-            <div className="map-card-btn text-center">
+            <div className="mus-card-btn text-center">
               <Link
                 key={mus.id}
                 onClick={(e) => {
@@ -174,7 +174,7 @@ const Map = () => {
                   <p>地點：{musEve.cityName}</p>
                   <p>票價：{musEve.eventPrice}</p>
                 </div>
-                <div className="map-card-btn d-flex flex-column text-center">
+                <div className="musEve-card-btn d-flex flex-column text-center mt-2">
                   <IoIosHeartEmpty
                     size={'50%'}
                     color={'#E8E8E8'}
