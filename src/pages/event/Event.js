@@ -409,7 +409,7 @@ function event() {
           </Row>
           <Row className="left-padding position-relative my-5">
             <Link
-              to="/event/event-list "
+              to="/event/event-list/"
               style={{ textDecoration: 'none' }}
             >
               <div className="e-work-title ml-4">

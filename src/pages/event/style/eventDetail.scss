@@ -127,12 +127,14 @@ $egreylt: #E8E8E8;
 }
 
 .ed-comment{
+    cursor: pointer; 
+    text-align: center;
     background-color: transparent;
     border: 2px solid white;
     color: white;
     font-size: 1rem;
     font-weight: 500;
-
+    padding-top: 11px;
 }
 
 .ed-comment:hover{

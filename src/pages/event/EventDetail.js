@@ -293,18 +293,17 @@ function EventDetail(props) {
 
                 {/* 留言按鈕 */}
                 <div className="col-12 p-0 d-flex justify-content-center flex-wrap e-fb-area py-5">
-                  <button
-                    type="button"
+                  <div
                     onClick={(e) => {
                       e.preventDefault()
                       setOpen4(!open4)
                     }}
                     aria-controls="example-collapse-text"
                     aria-expanded={open4}
-                    className="ed-comment e-btn-m mb-5"
+                    className="ed-comment e-btn-l mb-5 px-2"
                   >
                     Facebook 留言
-                  </button>
+                  </div>
                   <Collapse
                     in={open4}
                     className="col-12 p-0 mt-3 mb-5 "

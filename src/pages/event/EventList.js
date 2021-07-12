@@ -55,22 +55,22 @@ function EventList(props) {
     orderBy = 'oldest'
   }
 
-  async function getEventServer() {
-    const url = 'http://localhost:6005/event'
+  // async function getEventServer() {
+  //   const url = 'http://localhost:6005/event'
 
-    const request = new Request(url, {
-      method: 'GET',
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
-      }),
-    })
+  //   const request = new Request(url, {
+  //     method: 'GET',
+  //     headers: new Headers({
+  //       Accept: 'application/json',
+  //       'Content-Type': 'appliaction/json',
+  //     }),
+  //   })
 
-    const response = await fetch(request)
-    const data = await response.json()
-    // 設定資料
-    setEvents(data)
-  }
+  //   const response = await fetch(request)
+  //   const data = await response.json()
+  //   // 設定資料
+  //   setEvents(data)
+  // }
 
   async function getEventQueryServer() {
 
@@ -86,13 +86,25 @@ function EventList(props) {
 
     const response = await fetch(request)
     const row = await response.json()
-    const data = row['eventData']
+    const eData = row['eventData']
     const totalCount = row['totalCount'].num
     const totalPages = row['totalPages']
+
     // 設定資料
-    setTotalCount(totalCount)
-    setTotalPages(totalPages)
-    setEvents(data)
+    if (totalCount) {
+      setTotalCount(totalCount)
+    }
+    if (totalPages) {
+      setTotalPages(totalPages)
+    }
+    if (eData) {
+      setEvents(eData)
+    }
+  }
+
+  // 檢查跳首頁資料
+  function jumpJumpJump(){
+    console.log(totalCount, totalPages, events)
   }
 
    function handlePageClick(paginate) {
@@ -108,6 +120,7 @@ function EventList(props) {
       .css('background', 'black')
       .css('color', 'white')
   })
+
 
   useEffect(() => {
     getEventQueryServer()
@@ -221,7 +234,7 @@ function EventList(props) {
         </Container>
         <Container className="ed-list both-padding" fluid>
           <Row className="mb-4">
-            <form
+            <div
               className="ed-filter col-12 px-0 d-flex justify-content-between my-5 pb-5"
               action=" "
             >
@@ -288,42 +301,6 @@ function EventList(props) {
                 </select>
               </div>
 
-              {/* 美術館選單 */}
-              {/* <div
-                className="ed-select-box cn-font col-3 p-0 d-flex
-              "
-              >
-                <h6 className="col-5 px-0 text-center">
-                  美術館
-                </h6>
-                <select
-                  className="ed-select col-7"
-                  name=""
-                  id=""
-                >
-                  <option value="">請選擇</option>
-                  <option value="">123</option>
-                  <option value="">123</option>
-                </select>
-              </div> */}
-
-              {/* 時間選單 */}
-              {/* <div
-                className="ed-select-box cn-font col-2 p-0 d-flex
-              "
-              >
-                <h6 className="col-5 px-0 text-center">
-                  時間
-                </h6>
-                <input
-                  className="ed-select-date col-7"
-                  type="date"
-                  name=""
-                  id=""
-                  placeholder="日期"
-                ></input>
-              </div> */}
-
               <div
                 className="ed-select-box cn-font col-3 p-0 d-flex
               "
@@ -347,44 +324,16 @@ function EventList(props) {
 
               <div
                 className="ed-list-btn col-1"
-                onClick={(e) => {
-                  e.preventDefault()
+                onClick={() => {
                   getEventQueryServer()
+                  jumpJumpJump()
                 }}
               >
                 <FaFilter />
               </div>
-            </form>
+            </div>
             <div className="my-5"></div>
 
-            {/* 第二行表單 */}
-            <form className="col-12 d-flex p-0" action="">
-              {/* 排序選單 */}
-              {/* <div
-                className="ed-select-box cn-font col-2 p-0 d-flex
-              "
-              >
-                <h6 className="col-5 px-0 text-center">
-                  排序
-                </h6>
-                <select
-                  className="ed-select col-7"
-                  name=""
-                  id=""
-                >
-                  <option value="">最近</option>
-                  <option value="">123</option>
-                  <option value="">123</option>
-                </select>
-              </div> */}
-
-              {/* <button
-                className="ed-list-btn2 col-1"
-                type="submit"
-              >
-                <IoIosSearch />
-              </button> */}
-            </form>
           </Row>
           <Row className="ed-list-card justify-content-start flex-wrap cn-font">
             {/* test node area */}
