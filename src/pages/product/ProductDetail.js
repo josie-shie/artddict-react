@@ -46,6 +46,7 @@ function ProductDetail(props) {
   const [proId, setProId] = useState('')
   const [proName, setProName] = useState('')
   const [proPrice, setProPrice] = useState('')
+  const [proClass, setProClass] = useState('')
   const [proDes, setProDes] = useState('')
   const [proMultiImg, setProMultiImg] = useState('')
   const [proImg, setProImg] = useState('')
@@ -113,49 +114,16 @@ function ProductDetail(props) {
     // console.log(data)
     // console.log(imgData)
     // console.log(imgArr)
-    setProMutImg(imgArr[0])
-    setProMutImg2(imgArr[1])
-    setProMutImg3(imgArr[2])
-    setProMutImg4(imgArr[3])
-    setProMutImg5(imgArr[4])
+
     setProMutImgTry(imgArr)
-    // console.log(proMutImgTry)
-    // let takePicOut = proMutImgTry.map(() => {
-    //   return (
-    //     <img
-    //       src={`http://localhost:6005/productpics/${proMutImg}`}
-    //       alt=""
-    //     />
-    //   )
-    // })
-    // console.log(takePicOut)
-    // if (imgArr.length >= 5) {
-    //   setProMutImg(imgArr[0])
-    //   setProMutImg2(imgArr[1])
-    //   setProMutImg3(imgArr[2])
-    //   setProMutImg4(imgArr[3])
-    //   setProMutImg5(imgArr[4])
-    // } else if (imgArr.length >= 4) {
-    //   setProMutImg(imgArr[0])
-    //   setProMutImg2(imgArr[1])
-    //   setProMutImg3(imgArr[2])
-    //   setProMutImg4(imgArr[3])
-    // } else if (imgArr.length >= 3) {
-    //   setProMutImg(imgArr[0])
-    //   setProMutImg2(imgArr[1])
-    //   setProMutImg3(imgArr[2])
-    // } else if (imgArr.length >= 2) {
-    //   setProMutImg(imgArr[0])
-    //   setProMutImg(imgArr[1])
-    // } else if (imgArr.length >= 1) {
-    //   setProMutImg(imgArr[0])
-    // }
 
     // 設定資料
     setProId(data.proId)
     setProName(data.proName)
     setProPrice(data.proPrice)
     setProDes(data.proDes)
+    setProClass(data.proClass)
+    console.log(proClass)
   }
   useEffect(() => {
     getProductIdServer()
@@ -179,28 +147,7 @@ function ProductDetail(props) {
         <div className="d-flex proDe-move">
           <div className="proDe-leftSide">
             <Carousel className="proDe-wall">
-              {/* {productListCard} */}
               {takePicOut}
-              {/* <img
-                src={`http://localhost:6005/productpics/${proMutImg}`}
-                alt=""
-              />
-              <img
-                src={`http://localhost:6005/productpics/${proMutImg2}`}
-                alt=""
-              />
-              <img
-                src={`http://localhost:6005/productpics/${proMutImg3}`}
-                alt=""
-              />
-              <img
-                src={`http://localhost:6005/productpics/${proMutImg4}`}
-                alt=""
-              />
-              <img
-                src={`http://localhost:6005/productpics/${proMutImg5}`}
-                alt=""
-              /> */}
             </Carousel>
           </div>
           <div className="proDe-rightSide">
@@ -209,8 +156,7 @@ function ProductDetail(props) {
                 <div className="proDe-logoBox">
                   <img src={lightLogo} alt="" />
                   <p>
-                    商店 / 服飾 /
-                    <span>威廉 玫瑰粉 披肩</span>
+                    商店 / 服飾 /<span>{proName}</span>
                   </p>
                 </div>
               </div>
@@ -276,20 +222,25 @@ function ProductDetail(props) {
 
                 <div className="proDe-sizeBtnBox">
                   {/* ----------SIZE---- */}
-                  <div className="proDe-sizeBtnBox2 d-flex">
-                    <div className="proDe-sizeBtn d-flex">
-                      <button>S</button>
-                      <button>M</button>
-                      <button>L</button>
+                  {proClass === 'C03' ? (
+                    <div className="proDe-sizeBtnBox2 d-flex">
+                      <div className="proDe-sizeBtn d-flex">
+                        <button>S</button>
+                        <button>M</button>
+                        <button>L</button>
+                      </div>
+                      <div className="proDe-sizeCheck">
+                        <Link
+                          style={{ textDecoration: 'none' }}
+                        >
+                          <p>尺寸對照表</p>
+                        </Link>
+                      </div>
                     </div>
-                    <div className="proDe-sizeCheck">
-                      <Link
-                        style={{ textDecoration: 'none' }}
-                      >
-                        <p>尺寸對照表</p>
-                      </Link>
-                    </div>
-                  </div>
+                  ) : (
+                    ''
+                  )}
+
                   {/* ----------SIZE---- */}
 
                   <div className="proDe-proId">
