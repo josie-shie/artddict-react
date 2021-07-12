@@ -12,8 +12,6 @@ import EventMore from './components/EventMore'
 // react icons
 import {
   IoIosArrowForward,
-  IoIosArrowRoundDown,
-  IoIosSearch,
   IoIosHeart,
   IoMdAdd,
   IoMdRemove,
