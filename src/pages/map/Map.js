@@ -283,7 +283,7 @@ const Map = () => {
             <LeafLet2
               museums={museums}
               musEvent={musEvent}
-              setMusEvent={setmusEvent}
+              setmusEvent={setmusEvent}
             />
           </div>
           <div className="map-card-area col-4 pl-0">

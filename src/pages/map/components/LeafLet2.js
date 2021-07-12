@@ -21,18 +21,14 @@ class LeafLet2 extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this.props)
+    console.log('didMount', this.props)
 
-    $('#osm-map').on('click', 'button', function () {
-      let id = $('#osm-map button').data('id')
-      // let id = 1
-      getMusEventServer(id)
-    })
+    const setmusEvent = this.props.setmusEvent
 
     //FIXME:getMusEventServer箭頭函示有紅蚯蚓
     // async getMusEventServer = (id) => {
-    async function getMusEventServer(id) {
-      console.log('SQL', this)
+    const getMusEventServer = async (id, setmusEvent) => {
+      //console.log('SQL', this)
       const url = `http://localhost:6005/map/musEvent?idMuseum=${id}`
 
       // 注意header資料格式要設定，伺服器才知道是json格式
@@ -48,9 +44,17 @@ class LeafLet2 extends React.Component {
       const data = await response.json()
       // 設定資料
       //FIXME::無法拿到props
-      this.props.setmusEvent(data)
-      // console.log(data)
+      // this.props.setmusEvent(data)
+      setmusEvent(data)
+      //console.log("sql",this.props)
     }
+
+    $('#osm-map').on('click', 'button', () => {
+      let id = $('#osm-map button').data('id')
+      // let id = 1
+      console.log(setmusEvent)
+      getMusEventServer(id, setmusEvent)
+    })
 
     // create map
     this.setState({
