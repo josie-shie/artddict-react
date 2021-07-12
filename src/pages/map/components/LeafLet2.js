@@ -5,21 +5,23 @@ import { MdLocationCity } from 'react-icons/md'
 import $ from 'jquery'
 
 class LeafLet2 extends React.Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       osmMap: '',
       center: [25.072615859459205, 121.52481019741808],
       zoom: 8,
       id: '',
     }
-    //TODO:this.setmusEvent拿不到
+    //FIXME:this.setmusEvent拿不到
     // this.setmusEvent = this.setmusEvent.bind(this)
+    // let setmusEvent = () => {
+    //   this.props.setmusEvent()
+    // }
   }
 
-  componentDidMount(props) {
-
-    //console.log(this)
+  componentDidMount() {
+    console.log(this.props)
 
     $('#osm-map').on('click', 'button', function () {
       let id = $('#osm-map button').data('id')
@@ -27,8 +29,10 @@ class LeafLet2 extends React.Component {
       getMusEventServer(id)
     })
 
+    //FIXME:getMusEventServer箭頭函示有紅蚯蚓
+    // async getMusEventServer = (id) => {
     async function getMusEventServer(id) {
-
+      console.log('SQL', this)
       const url = `http://localhost:6005/map/musEvent?idMuseum=${id}`
 
       // 注意header資料格式要設定，伺服器才知道是json格式
@@ -43,7 +47,7 @@ class LeafLet2 extends React.Component {
       const response = await fetch(request)
       const data = await response.json()
       // 設定資料
-      //TODO:無法拿到props
+      //FIXME::無法拿到props
       this.props.setmusEvent(data)
       // console.log(data)
     }
@@ -75,6 +79,8 @@ class LeafLet2 extends React.Component {
     // //?套件 L.MarkerCluster當資料很多的時候只顯示區域總數(TODO)
     // //let markers = new L.MarkerClusterGroup().addTO(osmMap)
   }
+
+  componentDidUpdate() {}
 
   //componentDidUpdate是無法拿到更改過的父層屬性的
   //要用componentWillReceiveProps偵查是否有新的富曾屬性傳入
