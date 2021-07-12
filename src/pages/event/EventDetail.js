@@ -157,7 +157,10 @@ function EventDetail(props) {
                   to={`/event/event-list/detail/update/${id}`}
                   className="col-6"
                 >
-                  <button className="cn-font px-0">
+                  <button
+                    className="cn-font px-0"
+                    onClick={(e) => e.preventDefault()}
+                  >
                     修改作品
                   </button>
                 </Link>
@@ -166,7 +169,10 @@ function EventDetail(props) {
                   to={`/event/event-list/detail/upload/${id}`}
                   className="col-6"
                 >
-                  <button className="cn-font px-0">
+                  <button
+                    className="cn-font px-0"
+                    onClick={(e) => e.preventDefault()}
+                  >
                     上傳作品
                   </button>
                 </Link>
@@ -178,6 +184,7 @@ function EventDetail(props) {
               >
                 <button
                   className="cn-font px-0"
+                  onClick={(e) => e.preventDefault()}
                   style={{
                     display: `${shareBtn}`,
                   }}
@@ -192,7 +199,9 @@ function EventDetail(props) {
               <div className="col-12 p-0 ">
                 {/* 第一個按鈕 */}
                 <button
-                  onClick={() => setOpen(!open)}
+                  type="button"
+                  onClick={(e) => {e.preventDefault()
+                  setOpen(!open)}}
                   aria-controls="example-collapse-text"
                   aria-expanded={open}
                   className="ed-detail-btn col-12 d-flex justify-content-center
@@ -214,7 +223,9 @@ function EventDetail(props) {
 
                 {/* 第二個按鈕 */}
                 <button
-                  onClick={() => setOpen2(!open2)}
+                  type="button"
+                  onClick={(e) =>{e.preventDefault()
+                   setOpen2(!open2)}}
                   aria-controls="example-collapse-text"
                   aria-expanded={open2}
                   className="ed-detail-btn col-12 d-flex justify-content-center
@@ -270,7 +281,10 @@ function EventDetail(props) {
                 {/* 留言按鈕 */}
                 <div className="col-12 p-0 d-flex justify-content-center flex-wrap e-fb-area py-5">
                   <button
-                    onClick={() => setOpen4(!open4)}
+                    type="button"
+                    onClick={(e) =>{
+                      e.preventDefault() 
+                    setOpen4(!open4)}}
                     aria-controls="example-collapse-text"
                     aria-expanded={open4}
                     className="ed-comment e-btn-m mb-5"
@@ -332,24 +346,36 @@ function EventDetail(props) {
                   action=""
                 >
                   <button
+                    onClick={(e) => {
+                      e.preventDefault()
+                    }}
                     type="button"
                     className="col-5 e-ticket-type "
                   >
                     成人票
                   </button>
                   <button
+                    onClick={(e) => {
+                      e.preventDefault()
+                    }}
                     type="button"
                     className="col-5 e-ticket-type"
                   >
                     孩童票
                   </button>
                   <button
+                    onClick={(e) => {
+                      e.preventDefault()
+                    }}
                     type="button"
                     className="col-5 e-ticket-type"
                   >
                     敬老票
                   </button>
                   <button
+                    onClick={(e) => {
+                      e.preventDefault()
+                    }}
                     type="button"
                     className="col-5 e-ticket-type"
                   >
@@ -362,7 +388,8 @@ function EventDetail(props) {
                     <button
                       className="ticket-count"
                       type="button"
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.preventDefault()
                         setTicketNum(ticketNum - 1)
                       }}
                     >
@@ -375,7 +402,8 @@ function EventDetail(props) {
                     <button
                       className="ticket-count"
                       type="button"
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.preventDefault()
                         setTicketNum(ticketNum + 1)
                       }}
                     >
@@ -389,6 +417,9 @@ function EventDetail(props) {
 
                   <div className="col-12 p-0 mb-5 border-0">
                     <button
+                      onClick={(e) => {
+                        e.preventDefault()
+                      }}
                       className="col-12 p-0 ed-submit-btn"
                       type="submit"
                     >

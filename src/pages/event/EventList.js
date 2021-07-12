@@ -73,6 +73,7 @@ function EventList(props) {
   }
 
   async function getEventQueryServer() {
+
     const url = `http://localhost:6005/event?city=${city}&class=${eventClass}&order=${orderBy}&page=${page}`
 
     const request = new Request(url, {
@@ -116,7 +117,7 @@ function EventList(props) {
     getEventQueryServer()
     setPage(1)
   }, [eventClass])
-  
+
   useEffect(() => {
     getEventQueryServer()
   }, [page])
@@ -191,7 +192,8 @@ function EventList(props) {
             <button
               className="col-6 e-detail-class cn-font border-left-0 py-4 shadow-none"
               type="button"
-              onClick={() => setEventClass('C')}
+              onClick={(e) => {e.preventDefault()
+              setEventClass('C')}}
             >
               藝文活動展
               <IoIosArrowRoundDown />
@@ -199,7 +201,8 @@ function EventList(props) {
             <button
               className="col-6 e-detail-class cn-font py-4 border-right-0"
               type="button"
-              onClick={() => setEventClass('D')}
+              onClick={(e) => {e.preventDefault()
+              setEventClass('D')}}
             >
               活動工作坊
               <IoIosArrowRoundDown />
@@ -335,7 +338,8 @@ function EventList(props) {
               <button
                 className="ed-list-btn col-1 p-0"
                 type="button"
-                onClick={() => {
+                onClick={(e) => {
+                  e.preventDefault()
                   getEventQueryServer()
                 }}
               >
