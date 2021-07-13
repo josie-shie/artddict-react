@@ -1,10 +1,11 @@
-import React from 'react'
+import { React, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import '../styles/classes.css'
 // SweetAlert
 import swal from 'sweetalert'
 
 function Menu2() {
+  const [id, setId] = useState('')
   async function logoutToSever() {
     // 連接的伺服器資料網址
     const url = 'http://localhost:6005/users/logout'
@@ -12,7 +13,6 @@ function Menu2() {
     // 注意資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
       method: 'GET',
-      // body: '',
       headers: new Headers({
         Accept: 'application/json',
         'Content-Type': 'application/json',
@@ -30,6 +30,7 @@ function Menu2() {
 
     const response = await fetch(request)
     const data = await response.json()
+    setId(data.id)
   }
 
   return (
@@ -38,7 +39,7 @@ function Menu2() {
         <NavLink
           activeClassName="activenav"
           className={'tab'}
-          to="/user-pwdedit"
+          to={`/user-pwdedit/${id}`}
           style={{ textDecoration: 'none' }}
         >
           修改資料
@@ -47,7 +48,7 @@ function Menu2() {
         <NavLink
           activeClassName="activenav"
           className={'tab'}
-          to="/user-ordertic"
+          to={`/user-ordertic/${id}`}
           style={{ textDecoration: 'none' }}
         >
           訂單查詢
@@ -55,7 +56,7 @@ function Menu2() {
         <NavLink
           activeClassName="activenav"
           className={'tab'}
-          to="/user-coupon"
+          to={`/user-coupon/${id}`}
           style={{ textDecoration: 'none' }}
         >
           我的優惠券
@@ -63,7 +64,7 @@ function Menu2() {
         <NavLink
           activeClassName="activenav"
           className={'tab'}
-          to="/user-workshop"
+          to={`/user-workshop/${id}`}
           style={{ textDecoration: 'none' }}
         >
           我的票券
