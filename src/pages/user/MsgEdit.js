@@ -183,7 +183,9 @@ function UserEdit(props) {
         <Container fluid>
           <div className="u-row d-flex justify-content-around">
             <div className="u-usertitleLeft1">
-              <Link to="/user-msgedit">會員資料</Link>
+              <Link to={`/user-msgedit/${id}`}>
+                會員資料
+              </Link>
             </div>
             <div className="u-usertitleRight1">
               <Link to={`/user-pwdedit/${id}`}>

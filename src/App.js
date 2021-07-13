@@ -137,7 +137,7 @@ function App() {
             <Route exact path="/user-pwdedit/:userid?">
               <PwdEdit />
             </Route>
-            <Route exact path="/user-orderpro">
+            <Route exact path="/user-orderpro/:userid?">
               <OrderPro />
             </Route>
             <Route exact path="/user-ordertic">
@@ -146,13 +146,13 @@ function App() {
             <Route exact path="/user-coupon">
               <Coupon />
             </Route>
-            <Route exact path="/user-ticket">
+            <Route exact path="/user-ticket/:userid?">
               <Ticket />
             </Route>
             <Route exact path="/user-workshop">
               <WorkShop />
             </Route>
-            <Route exact path="/user-myfav">
+            <Route exact path="/user-myfav/:userid?">
               <UserMyFav />
             </Route>
             <Route exact path="/user-Auction">

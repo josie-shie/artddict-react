@@ -160,7 +160,9 @@ function PwdEdit(props) {
               </Link>
             </div>
             <div className="u-usertitleRight">
-              <Link to="/user-pwdEdit">修改密碼</Link>
+              <Link to={`/user-pwdedit/${id}`}>
+                修改密碼
+              </Link>
             </div>
           </div>
         </Container>
