@@ -11,19 +11,41 @@ class LeafLet2 extends React.Component {
       osmMap: '',
       center: [25.03510864415966, 121.54265681361893],
       zoom: 5,
-      id: '',
     }
   }
 
   componentDidMount() {
     console.log('didMount', this.props)
+    console.log('didMount', this.state)
+
+    if ('geolocation' in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          console.log(
+            position.coords.latitude,
+            position.coords.longitude
+          )
+          this.setState({
+            ...this.state,
+            center: [
+              position.coords.latitude,
+              position.coords.longitude,
+            ],
+          })
+          console.log(this.state)
+        }
+      )
+    } else {
+      return '無法取用您的位置'
+    }
 
     const setmusEvent = this.props.setmusEvent
 
-    //FIXME:getMusEventServer箭頭函示有紅蚯蚓
-    // async getMusEventServer = (id) => {
+    //!!將韓式傳進去綁定作用域 (傳入一個函式的函式稱為高階函式)
+
     const getMusEventServer = async (id, setmusEvent) => {
       //console.log('SQL', this)
+
       const url = `http://localhost:6005/map/musEvent?idMuseum=${id}`
 
       // 注意header資料格式要設定，伺服器才知道是json格式
@@ -43,6 +65,29 @@ class LeafLet2 extends React.Component {
       setmusEvent(data)
       //console.log("sql",this.props)
     }
+
+    const redIcon = new L.Icon({
+      iconUrl:
+        'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
+      shadowUrl:
+        'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
+      iconSize: [25, 41],
+      iconAnchor: [12, 41],
+      popupAnchor: [1, -34],
+      shadowSize: [41, 41],
+    })
+
+    // let marker = L.marker(
+    //   [25.03510864415966, 121.54265681361893],
+    //   {
+    //     icon: redIcon,
+    //   }
+    // )
+    //   .addTo(this.state.osmMap)
+    //   .bindPopup(
+    //     `<div class="popup-card"><b>｜美學無所不在，探索從此刻開始｜</b><br><strong>您的所在位置</strong></div>`
+    //   )
+    //   .openPopup()
 
     $('#osm-map').on('click', 'button', () => {
       let id = $('#osm-map button').data('id')
@@ -69,29 +114,17 @@ class LeafLet2 extends React.Component {
               ext: 'png',
             }
           ),
+          // L.marker([this.state.center], {
+          //   icon: redIcon,
+          // })
+          //   .addTo(this.state.osmMap)
+          //   .bindPopup(
+          //     `<div class="popup-card"><b>｜美學無所不在，探索從此刻開始｜</b><br><strong>您的所在位置</strong></div>`
+          //   )
+          //   .openPopup(),
         ],
       }),
     })
-    //TODO:定位初始值
-    // const redIcon = new L.Icon({
-    //   iconUrl:
-    //     'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png',
-    //   shadowUrl:
-    //     'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-    //   iconSize: [25, 41],
-    //   iconAnchor: [12, 41],
-    //   popupAnchor: [1, -34],
-    //   shadowSize: [41, 41],
-    // })
-
-    // L.marker([25.03510864415966, 121.54265681361893], {
-    //   icon: redIcon,
-    // })
-    //   .addTo(this.state.osmMap)
-    //   .bindPopup(
-    //     `<div class="popup-card"><b>｜美學無所不在，探索從此刻開始｜</b><br><strong>您的所在位置</strong></div>`
-    //   )
-    //   .openPopup()
 
     // 使用 leaflet-color-markers ( https://github.com/pointhi/leaflet-color-markers ) 當作 marker
     // //?套件 L.MarkerCluster當資料很多的時候只顯示區域總數(TODO)

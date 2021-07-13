@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { Collapse } from 'react-bootstrap'
+import swal from 'sweetalert'
 import { ReactComponent as Logo } from '../../pics/logo.svg'
 import { GiLipstick } from 'react-icons/gi'
 import './news.scss'
@@ -17,9 +19,93 @@ import news9 from './newspic/lower.jpeg'
 import news10 from './newspic/she.jpg'
 
 const News = () => {
+  const [open, setOpen] = useState(false)
+  //   const [share, setShare] = useState('')
+  const [comment, setComment] = useState([])
+  const [userId, setUserId] = useState([])
+  const [NewsCom, setNewsCom] = useState([])
+
+  const [dataLoading, setDataLoading] = useState(false)
+
+  //取得所有資料
+  async function getAllComServer() {
+    const url = `http://localhost:6005/news`
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+
+    setComment(data)
+  }
+
+  async function addNewComToSever(props) {
+    // 開啟載入指示
+    setDataLoading(true)
+
+    const newData = { userId, NewsCom }
+
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:6005/news/'
+
+    // 注意資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify(newData),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+
+    console.log(JSON.stringify(newData))
+
+    const response = await fetch(request)
+    const data = await response.json()
+
+    console.log('伺服器回傳的json資料', data)
+    // 要等驗証過，再設定資料(簡單的直接設定)
+
+    //直接在一段x秒關掉指示器
+    setTimeout(() => {
+      setDataLoading(false)
+      swal({
+        text: '留言成功',
+        icon: 'success',
+        button: false,
+        timer: 3000,
+      })
+    }, 500)
+  }
+
+  useEffect(() => {
+    getAllComServer()
+  }, [])
+
+  const allComment = comment.map((com) => {
+    return (
+      <React.Fragment key={com.newsComId}>
+        <div className="d-flex justify-content-center mb-5">
+          <div className="news-user-text col-8 border-left pr-3">
+            <strong className="pr-3">
+              {com.userId}
+              <span>123</span>
+            </strong>
+            <p className="pr-3">{com.NewsCom}</p>
+          </div>
+        </div>
+      </React.Fragment>
+    )
+  })
+
   return (
     <>
-      <div className="news-area index-web-padding d-flex flex-column">
+      <div className="news-content-area index-web-padding d-flex flex-column">
         <Logo className="news-logo " />
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb mb-4">
@@ -161,26 +247,67 @@ const News = () => {
                 Leave Comments Here
               </h4>
             </div>
-            <div className="d-flex">
-              <div className="news-user-img  col-4 mr-3 px-0">
-                <div className="w-50">
-                  <img src="" alt="" />
+            <div className="col-12 p-0 d-flex justify-content-center flex-wrap">
+              <button
+                onClick={() => setOpen(!open)}
+                aria-controls="example-collapse-text"
+                aria-expanded={open}
+                className="news-btn mb-5 mt-5"
+              >
+                撰寫評論
+              </button>
+              <Collapse
+                in={open}
+                className="col-12 p-0 mt-3 mb-5 "
+              >
+                <div className="col-12 p-0">
+                  <form
+                    className="border-0 d-flex flex-wrap justify-content-center"
+                    action=""
+                  >
+                    <label
+                      className="mb-5 pt-1"
+                      htmlFor="userId"
+                      style={{ color: '#81FC4D' }}
+                    >
+                      <p>名稱：</p>
+                    </label>
+                    <input
+                      className="news-inp mb-5"
+                      type="text"
+                      name="userId"
+                      value={userId}
+                      onChange={(e) => {
+                        setUserId(e.target.value)
+                      }}
+                    />
+                    <textarea
+                      className="news-text-com col-12 p-0"
+                      cols="30"
+                      rows="10"
+                      onChange={(e) => {
+                        //console.log('text', e.target.value)
+                        setNewsCom(e.target.value)
+                      }}
+                    ></textarea>
+                    <button
+                      className="news-btn mb-5 mt-5"
+                      type="submit"
+                      style={{ background: '#81FC4D' }}
+                      onClick={(e) => {
+                        e.preventDefault()
+                        addNewComToSever()
+                      }}
+                    >
+                      <p style={{ color: '#000' }}>
+                        送出評論
+                      </p>
+                    </button>
+                  </form>
                 </div>
-              </div>
-              <div className="news-user-text col-8 border-left pr-3">
-                <div>
-                  <p className="pr-3">
-                    J****0033:
-                    <br />
-                    瑰麗的色彩、簡潔的構圖，
-                    營造出大膽又超寫實的效果。
-                    以女性為主題，利用錯位
-                    或加入迥然不同的元素，
-                    創造出令人震撼的的視覺效果。
-                  </p>
-                </div>
-              </div>
+              </Collapse>
             </div>
+            {allComment}
           </div>
         </div>
       </div>

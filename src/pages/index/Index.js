@@ -115,7 +115,9 @@ const Index = () => {
         </StickyBox>
         <div className="news-cards col-6 px-0 row">
           <div className="news col-6 px-0">
-            <img src={imgFlimward} alt="" />
+            <Link to="/news">
+              <img src={imgFlimward} alt="" />
+            </Link>
             <div className="index-img-title">
               <h1>
                 放視徵件中，高手們齊聚，就等你海放對手！
