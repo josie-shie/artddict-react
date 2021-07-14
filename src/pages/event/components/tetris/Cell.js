@@ -1,10 +1,11 @@
 import React from 'react'
-
+import { StyledCell } from './StyleforTetris/StyledCell'
+import { TETROMINOS } from './tetrominos'
 //const Cell = ({ type }) => (<div>cell</div>)
 function Cell({ type }) {
   return (
     <>
-      <div>cell</div>
+      <StyledCell type={"L"} color={TETROMINOS["L"].color}/>
     </>
   )
 }
