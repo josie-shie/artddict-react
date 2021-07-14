@@ -11,6 +11,7 @@ import {
 // Costom Hooks
 import { usePlayer } from './hooks/usePlayer'
 import { useStage } from './hooks/useStage'
+import { useInterval } from './hooks/useInterval'
 
 // Component
 import Stage from './Stage'
@@ -22,57 +23,83 @@ function Tetris({ type }) {
   const [dropTime, setDropTime] = useState(null)
   const [gameOver, setGameOver] = useState(false)
 
-  const [player, updatePlayerPos, resetPlayer, playerRotate ] = usePlayer()
-  const [stage, setStage] = useStage(player)
+  const [
+    player,
+    updatePlayerPos,
+    resetPlayer,
+    playerRotate,
+  ] = usePlayer()
+  const [stage, setStage] = useStage(player, resetPlayer)
 
-  const movePlayer = dir => {
-    if(!checkCollision(player, stage, {x: dir, y: 0})){
-      updatePlayerPos({x: dir, y:0})
+  const movePlayer = (dir) => {
+    if (!checkCollision(player, stage, { x: dir, y: 0 })) {
+      updatePlayerPos({ x: dir, y: 0 })
     }
   }
 
   const startGame = () => {
     // Rest Everything
     setStage(createStage())
+    setDropTime(1000)
     resetPlayer()
     setGameOver(false)
   }
 
-  const drop = () =>{
-    if (!checkCollision(player, stage,{x: 0, y:1 })){
+  const drop = () => {
+    if (!checkCollision(player, stage, { x: 0, y: 1 })) {
       updatePlayerPos({ x: 0, y: 1, collided: false })
-    }else{
+    } else {
       // game over
-      if(player.pos.y <1){
+      if (player.pos.y < 1) {
         setGameOver(true)
         setDropTime(null)
       }
-      updatePlayerPos({x:0, y:0, collided:true})
+      updatePlayerPos({ x: 0, y: 0, collided: true })
     }
   }
 
-  const dropPlayer = () =>{
+  const keyUp = ({ keyCode }) => {
+    if (!gameOver) {
+      // Activate the interval again when user releases down arrow.
+      if (keyCode === 87) {
+        setDropTime(1000)
+      }
+    }
+  }
+
+  const dropPlayer = () => {
+    setDropTime(null)
     drop()
   }
 
-  const move = ({keyCode}) => {{
-    if(!gameOver){
-      if(keyCode === 65){
-        movePlayer(-1)
-      }else if(keyCode === 68){
-        movePlayer(1)
-      }else if(keyCode === 83){
-        dropPlayer()
-      }else if(keyCode === 87){
-        playerRotate(stage, 1)
+  const move = ({ keyCode }) => {
+    {
+      if (!gameOver) {
+        if (keyCode === 65) {
+          movePlayer(-1)
+        } else if (keyCode === 68) {
+          movePlayer(1)
+        } else if (keyCode === 83) {
+          dropPlayer()
+        } else if (keyCode === 87) {
+          playerRotate(stage, 1)
+        }
       }
     }
-  }}
+  }
 
+  useInterval(() => {
+    drop()
+  }, dropTime)
 
   return (
     <>
-      <StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)}>
+      <StyledTetrisWrapper
+        role="button"
+        tabIndex="0"
+        onKeyDown={(e) => move(e)}
+        onKeyUp={keyUp}
+      >
         <StyledTetris>
           <Stage stage={stage} />
           <aside>
@@ -88,7 +115,7 @@ function Tetris({ type }) {
                 <Display text="Level" />
               </div>
             )}
-            <StartButton callback={startGame}/>
+            <StartButton callback={startGame} />
           </aside>
         </StyledTetris>
       </StyledTetrisWrapper>
