@@ -37,6 +37,7 @@ function OrderPro(props) {
   // }
 
   async function getUserOrder(userid) {
+    //抓得到 id/userid 寫成這樣 const url = `http://localhost:6005/users/getOrder/${id}`
     const url = `http://localhost:6005/users/getOrder/1`
     const request = new Request(url, {
       method: 'GET',
