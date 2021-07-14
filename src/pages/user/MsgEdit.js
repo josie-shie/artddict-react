@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { withRouter, Link, NavLink } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import { countries, townships } from './data/address'
-import $ from 'jquery'
 // styles
 import './styles/MsgEdit.scss'
 import './styles/classes.css'
@@ -80,7 +79,7 @@ function UserEdit(props) {
     */
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:6005/users/' + userid
+    const url = `http://localhost:6005/users/${userid}`
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -129,15 +128,6 @@ function UserEdit(props) {
     }
   }
 
-  $('.tab').click(function () {
-    $(this)
-      .css('background', 'white')
-      .css('color', 'black')
-      .siblings()
-      .css('background', 'black')
-      .css('color', 'white')
-  })
-
   async function updateUserToSever() {
     // 開啟載入指示
     setDataLoading(true)
@@ -158,7 +148,7 @@ function UserEdit(props) {
     }
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:6005/users/' + userid
+    const url = `http://localhost:6005/users/${userid}`
 
     // 注意資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {

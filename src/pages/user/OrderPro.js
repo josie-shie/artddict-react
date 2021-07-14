@@ -1,6 +1,5 @@
 import { React, useState, useEffect } from 'react'
 import './styles/OrderPro.scss'
-// import Menu from './components/Menu'
 import { withRouter, NavLink, Link } from 'react-router-dom'
 import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
@@ -15,28 +14,7 @@ function OrderPro(props) {
   const [orders, setOrders] = useState([])
   const userid = props.match.params.userid
 
-  // async function getUserFromServer(userid) {
-  //   // 連接的伺服器資料網址
-  //   const url = 'http://localhost:6005/users/' + userid
-
-  //   // 注意header資料格式要設定，伺服器才知道是json格式
-  //   const request = new Request(url, {
-  //     method: 'GET',
-  //     headers: new Headers({
-  //       Accept: 'application/json',
-  //       'Content-Type': 'appliaction/json',
-  //     }),
-  //   })
-
-  //   const response = await fetch(request)
-  //   const data = await response.json()
-  //   console.log(`[GET] response = ${data}`)
-
-  //   setId(data.id)
-  // setOrders([])
-  // }
-
-  async function getUserOrder(id) {
+  async function getUserOrder() {
     const url = `http://localhost:6005/users/getOrder/${userid}`
     const request = new Request(url, {
       method: 'GET',
@@ -50,12 +28,7 @@ function OrderPro(props) {
     const data = await response.json()
 
     setOrders(data)
-    // console.log(`setOrderData = ${setOrderData}`)
   }
-
-  // useEffect(() => {
-  //   getUserFromServer(userid)
-  // }, [])
 
   useEffect(() => {
     getUserOrder()
@@ -118,9 +91,6 @@ function OrderPro(props) {
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
-        {/* <div className="u-userMenu d-none d-lg-block d-xl-block">
-          <Menu />
-        </div> */}
 
         <div className="tab-bar">
           <NavLink
