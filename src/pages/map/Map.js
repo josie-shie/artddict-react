@@ -171,7 +171,7 @@ const Map = () => {
               <div className="d-flex justify-content-between">
                 <div className="col-9 pl-0">
                   <strong>{musEve.eventName}</strong>
-                  <p>地點：{musEve.cityName}</p>
+                  <p>地點：{musEve.musName}</p>
                   <p>票價：{musEve.eventPrice}</p>
                 </div>
                 <div className="musEve-card-btn d-flex flex-column text-center mt-2">

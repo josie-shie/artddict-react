@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Collapse } from 'react-bootstrap'
 import swal from 'sweetalert'
+import axios from 'axios'
+
 import { ReactComponent as Logo } from '../../pics/logo.svg'
 import { GiLipstick } from 'react-icons/gi'
 import './news.scss'
@@ -22,8 +24,10 @@ const News = () => {
   const [open, setOpen] = useState(false)
   //   const [share, setShare] = useState('')
   const [comment, setComment] = useState([])
-  const [userId, setUserId] = useState([])
-  const [NewsCom, setNewsCom] = useState([])
+  const [userId, setUserId] = useState('')
+  const [NewsCom, setNewsCom] = useState('')
+  const [share, setShare] = useState(false)
+  const [email, setEmail] = useState('')
 
   const [dataLoading, setDataLoading] = useState(false)
 
@@ -44,7 +48,7 @@ const News = () => {
     setComment(data)
   }
 
-  async function addNewComToSever(props) {
+  async function addNewComToSever() {
     // 開啟載入指示
     setDataLoading(true)
 
@@ -81,22 +85,78 @@ const News = () => {
         timer: 3000,
       })
     }, 500)
+    console.log('success')
+  }
+
+  async function sentMail() {
+    if (email !== '') {
+      const newData = { email }
+
+      // 連接的伺服器資料網址
+      const url = 'http://localhost:6005/mail'
+
+      // 注意資料格式要設定，伺服器才知道是json格式
+      const request = new Request(url, {
+        method: 'POST',
+        body: JSON.stringify(newData),
+        headers: new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }),
+      })
+
+      console.log(JSON.stringify(newData))
+
+      const response = await fetch(request)
+      const data = await response.json()
+
+      console.log('伺服器回傳的json資料', data)
+
+      //   axios
+      //     .post('http://localhost:6005/mail/', {
+      //       email: email,
+      //     })
+      //     .then((response) => {
+      //       console.log(email)
+      //       console.log(response.data)
+      //     })
+    } else {
+      swal({
+        text: '請輸入Email',
+        icon: 'warning',
+        confirmButtonColor: '#1D0AFF',
+        confirmButtonText: '確定',
+        timer: 3000,
+      })
+    }
   }
 
   useEffect(() => {
     getAllComServer()
   }, [])
 
+  //送出劉怡才會重新撈資料
+  useEffect(() => {
+    setShare(false)
+    getAllComServer()
+    //console.log('update');
+  }, [share])
+
+  //   useEffect(() => {
+  //     getAllComServer()
+  //     setShare(!share)
+  //   }, [share])
+
   const allComment = comment.map((com) => {
     return (
       <React.Fragment key={com.newsComId}>
-        <div className="d-flex justify-content-center mb-5">
+        <div className="d-flex justify-content-center w-100 mb-5">
           <div className="news-user-text col-8 border-left pr-3">
-            <strong className="pr-3">
+            <strong className="">
               {com.userId}
               <span>123</span>
             </strong>
-            <p className="pr-3">{com.NewsCom}</p>
+            <p className="">{com.NewsCom}</p>
           </div>
         </div>
       </React.Fragment>
@@ -226,15 +286,26 @@ const News = () => {
                 <h5>
                   留下你的郵件，預約下個月的 | 藝術TALK TO
                   TALK |<br />
-                  也歡留留言告訴我們想與大師有什麼互動！
+                  也歡迎留言告訴我們想與大師有什麼互動！
                 </h5>
                 <form className="mt-5" action="">
-                  <input className="news-inp" type="text" />
+                  <input
+                    className="news-inp"
+                    type="email"
+                    value={email}
+                    placeholder="請輸入電子郵件"
+                    onChange={(e) => {
+                      setEmail(e.target.value)
+                    }}
+                  />
                   <button
                     className="news-btn ml-3"
                     type="submit"
                     onClick={(e) => {
                       e.preventDefault()
+                      sentMail()
+                      //   console.log(e.target.value)
+                      setEmail('')
                     }}
                   >
                     send
@@ -285,6 +356,7 @@ const News = () => {
                       className="news-text-com col-12 p-0"
                       cols="30"
                       rows="10"
+                      value={NewsCom}
                       onChange={(e) => {
                         //console.log('text', e.target.value)
                         setNewsCom(e.target.value)
@@ -297,6 +369,10 @@ const News = () => {
                       onClick={(e) => {
                         e.preventDefault()
                         addNewComToSever()
+                        setNewsCom('')
+                        setUserId('')
+                        setShare(true)
+                        // setShare(!share)
                       }}
                     >
                       <p style={{ color: '#000' }}>
