@@ -1,15 +1,32 @@
 import { React, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { countries, townships } from '../data/townships'
+import {
+  countries,
+  townships,
+  data,
+} from '../data/townships'
 
-function CartFormShip() {
-  const { watch, register } = useForm()
+function CartFormShip(props) {
+  // react hook form
+  const {
+    watch,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
+  const onSubmit = (data) => console.log(data)
+
   const [status, setStatus] = useState(0)
   const radioHandler = (status) => {
     setStatus(status)
   }
   const [country, setCountry] = useState(-1)
+
+  // const city = Object.keys(data)[country]
+  // props.updateOrderInfo('city', city)
   const [township, setTownship] = useState(-1)
+  // const town = Object.keys(data)[('town', town)]
+  // props.updateOrderInfo('citytown', 123)
   return (
     <>
       <section className="c-shippinginfo1 px-0">
@@ -46,8 +63,9 @@ function CartFormShip() {
             <input
               type="text"
               id="username"
-              name="username"
-              required
+              {...register('test', {
+                required: true,
+              })}
             />
             <div className="d-flex">
               <div className="col-6 pl-0">
