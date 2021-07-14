@@ -1,13 +1,14 @@
 import React from 'react'
 import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
-import Menu2 from './components/Menu2'
+// import Menu2 from './components/Menu2'
 import { Button, Container } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { withRouter, Link, NavLink } from 'react-router-dom'
 import './styles/WorkShop.scss'
 import TicketDetail from './TicketDetail'
 
-function WorkShop() {
+function WorkShop(props) {
+  const id = props.match.params.userid
   const [modalShow, setModalShow] = React.useState(false)
   return (
     <>
@@ -16,16 +17,86 @@ function WorkShop() {
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
-        <div className="u-userMenu d-none d-lg-block d-xl-block">
+        {/* <div className="u-userMenu d-none d-lg-block d-xl-block">
           <Menu2 />
+        </div> */}
+
+        <div className="tab-bar">
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-msgedit/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            修改資料
+          </NavLink>
+
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-orderpro/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            訂單查詢
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-coupon/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            我的優惠券
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-ticket/${id}`}
+            style={{
+              textDecoration: 'none',
+              background: 'black',
+              color: 'white',
+            }}
+          >
+            我的票券
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-myfav/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            我的收藏
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to="/user-auction"
+            style={{ textDecoration: 'none' }}
+          >
+            競標查詢
+          </NavLink>
+          {/* <NavLink
+          activeClassName="activenav"
+          className={'tab'}
+          to="/user-login"
+          onClick={() => {
+            logoutToSever()
+          }} */}
+          {/* style={{ textDecoration: 'none' }}
+        >
+          登出
+        </NavLink> */}
         </div>
+
         <Container fluid>
           <div className="d-flex u-row justify-content-around">
             <div className="u-userEve1">
-              <Link to="/user-ticket">活動展</Link>
+              <Link to={`/user-ticket/${id}`}>活動展</Link>
             </div>
             <div className="u-userWshop1">
-              <Link to="/user-workshop">工作坊</Link>
+              <Link to={`/user-workshop/${id}`}>
+                工作坊
+              </Link>
             </div>
           </div>
           <div className="u-ticbox  d-flex">
@@ -134,4 +205,4 @@ function WorkShop() {
   )
 }
 
-export default WorkShop
+export default withRouter(WorkShop)

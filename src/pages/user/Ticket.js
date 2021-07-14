@@ -1,13 +1,14 @@
 import React from 'react'
 import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
-import Menu from './components/Menu'
-import { Link } from 'react-router-dom'
+// import Menu from './components/Menu'
+import { withRouter, Link, NavLink } from 'react-router-dom'
 import { Button, Container } from 'react-bootstrap'
 import './styles/Ticket.scss'
 import TicketDetail from './TicketDetail'
 
-function Ticket() {
+function Ticket(props) {
+  const id = props.match.params.userid
   const [modalShow, setModalShow] = React.useState(false)
   return (
     <>
@@ -16,16 +17,81 @@ function Ticket() {
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
-        <div className="u-userMenu d-none d-lg-block d-xl-block">
+        {/* <div className="u-userMenu d-none d-lg-block d-xl-block">
           <Menu />
+        </div> */}
+
+        <div className="tab-bar">
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-msgedit/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            修改資料
+          </NavLink>
+
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-orderpro/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            訂單查詢
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-coupon/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            我的優惠券
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-ticket/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            我的票券
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-myfav/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            我的收藏
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to="/user-auction"
+            style={{ textDecoration: 'none' }}
+          >
+            競標查詢
+          </NavLink>
+          {/* <NavLink
+          activeClassName="activenav"
+          className={'tab'}
+          to="/user-login"
+          onClick={() => {
+            logoutToSever()
+          }} */}
+          {/* style={{ textDecoration: 'none' }}
+        >
+          登出
+        </NavLink> */}
         </div>
         <Container fluid>
           <div className="d-flex u-row justify-content-around">
             <div className="u-userEve">
-              <Link to="/user-ticket">活動展</Link>
+              <Link to={`/user-ticket/${id}`}>活動展</Link>
             </div>
             <div className="u-userWshop">
-              <Link to="/user-workshop">工作坊</Link>
+              <Link to={`/user-workshop/${id}`}>
+                工作坊
+              </Link>
             </div>
           </div>
           <div className="u-ticbox d-flex">
@@ -90,4 +156,4 @@ function Ticket() {
     </>
   )
 }
-export default Ticket
+export default withRouter(Ticket)

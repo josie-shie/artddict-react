@@ -140,16 +140,16 @@ function App() {
             <Route exact path="/user-orderpro/:userid?">
               <OrderPro />
             </Route>
-            <Route exact path="/user-ordertic">
+            <Route exact path="/user-ordertic/:userid?">
               <OrderTic />
             </Route>
-            <Route exact path="/user-coupon">
+            <Route exact path="/user-coupon/:userid?">
               <Coupon />
             </Route>
             <Route exact path="/user-ticket/:userid?">
               <Ticket />
             </Route>
-            <Route exact path="/user-workshop">
+            <Route exact path="/user-workshop/:userid?">
               <WorkShop />
             </Route>
             <Route exact path="/user-myfav/:userid?">

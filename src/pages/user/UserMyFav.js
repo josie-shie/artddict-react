@@ -1,15 +1,16 @@
 import React from 'react'
 import './styles/UserMyFav.scss'
 import Logoheader from './components/Logoheader'
-import Menu from './components/Menu'
+// import Menu from './components/Menu'
 import Breadcrumb from './components/UserBreadcrumb'
 import { Container, Row, Card } from 'react-bootstrap'
 import { IoIosHeart } from 'react-icons/io'
 import { CgShoppingCart } from 'react-icons/cg'
-import { Link } from 'react-router-dom'
+import { withRouter, Link, NavLink } from 'react-router-dom'
 import EventPic from './img/EventPic.png'
 
-function UserMyFav() {
+function UserMyFav(props) {
+  const id = props.match.params.userid
   return (
     <>
       <div className="u-body">
@@ -17,9 +18,72 @@ function UserMyFav() {
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
-        <div className="u-userMenu d-none d-lg-block d-xl-block">
+        {/* <div className="u-userMenu d-none d-lg-block d-xl-block">
           <Menu />
+        </div> */}
+        <div className="tab-bar">
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-msgedit/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            修改資料
+          </NavLink>
+
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-orderpro/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            訂單查詢
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-coupon/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            我的優惠券
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-ticket/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            我的票券
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-myfav/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            我的收藏
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to="/user-auction"
+            style={{ textDecoration: 'none' }}
+          >
+            競標查詢
+          </NavLink>
+          {/* <NavLink
+          activeClassName="activenav"
+          className={'tab'}
+          to="/user-login"
+          onClick={() => {
+            logoutToSever()
+          }} */}
+          {/* style={{ textDecoration: 'none' }}
+        >
+          登出
+        </NavLink> */}
         </div>
+
         <Container fluid>
           <div className="u-row d-flex justify-content-around">
             <div className="u-Myfavtitle1">
@@ -174,4 +238,4 @@ function UserMyFav() {
   )
 }
 
-export default UserMyFav
+export default withRouter(UserMyFav)

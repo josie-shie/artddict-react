@@ -13,13 +13,14 @@ import pic5 from './img/5.png'
 import pic6 from './img/6.png'
 // icons
 import { FaFacebook } from 'react-icons/fa'
+import axios from 'axios'
 
 function Login() {
   const [dataLoading, setDataLoading] = useState(false)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
 
-  async function loginToSever() {
+  async function loginToServer() {
     // 開啟載入指示
     setDataLoading(true)
 
@@ -29,21 +30,33 @@ function Login() {
     const url = 'http://localhost:6005/users/login'
 
     // 注意資料格式要設定，伺服器才知道是json格式
-    const request = new Request(url, {
-      method: 'POST',
-      body: JSON.stringify(newData),
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      }),
-    })
-
+    // const request = new Request(url, {
+    //   method: 'POST',
+    //   body: JSON.stringify(newData),
+    //   headers: new Headers({
+    //     // Accept: 'application/json',
+    //     'Content-Type': 'application/json',
+    //   }),
+    // })
     console.log(JSON.stringify(newData))
+    // const response = await fetch(request)
+    // const data = await response.json()
 
-    const response = await fetch(request)
-    const data = await response.json()
-
-    console.log('伺服器回傳的json資料', data)
+    // 用axios登入
+    // const data = {}
+    const data = await axios
+      .post(url, newData)
+      .then(function (response) {
+        console.log(response.data)
+        // const data = response.data
+        return response.data
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+    console.log(data)
+    // console.log('伺服器回傳的json資料', data)
+    // console.log('data = ', data)
     // 要等驗証過，再設定資料(簡單的直接設定)
     if (data.id) {
       swal({
@@ -66,7 +79,7 @@ function Login() {
       setDataLoading(false)
       if (data.id != undefined) {
         window.location.replace(
-          `../user-msgedit/ + '${data.id}'`
+          `../user-msgedit/${data.id}`
         )
       } else {
         setUsername('')
@@ -208,7 +221,7 @@ function Login() {
                 <div className="u-AddBtn">
                   <Link
                     onClick={() => {
-                      loginToSever()
+                      loginToServer()
                     }}
                     className="u-link1"
                     style={{ textDecoration: 'none' }}
