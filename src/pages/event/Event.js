@@ -622,7 +622,7 @@ function event() {
             </div>
           </Row>
           <Row className="tetris-area">
-            <Tetris/>
+            <Tetris />
           </Row>
         </Container>
       </div>
