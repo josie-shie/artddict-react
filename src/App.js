@@ -57,7 +57,19 @@ import CartAuction from './pages/cart/CartAuction'
 import CartForm from './pages/cart/CartForm'
 
 function App() {
-  const [auth, setAuth] = useState(false)
+  /*
+  ================================================
+  用戶登入狀態變數 current_user:
+    0為未登入, 
+    登入後以current_user = userId紀錄
+    欲知現在登入用戶資訊, 可透過[GET]+userId呼叫
+    !注意: setCurrentUser僅供Login使用
+  ================================================
+  */
+  const [current_user, setCurrentUser] = useState(0)
+  console.log('--- APP ---')
+  console.log('current user = ', current_user)
+  console.log('--- --- ---')
   return (
     <Router>
       <>
@@ -130,10 +142,16 @@ function App() {
               <Add />
             </Route>
             <Route exact path="/user-login">
-              <Login auth={auth} setAuth={setAuth} />
+              <Login
+                current_user={current_user}
+                setCurrentUser={setCurrentUser}
+              />
             </Route>
             <Route exact path="/user-msgedit/:userid?">
-              <MsgEdit />
+              <MsgEdit
+                current_user={current_user}
+                setCurrentUser={setCurrentUser}
+              />
             </Route>
             <Route exact path="/user-pwdedit/:userid?">
               <PwdEdit />
@@ -156,7 +174,7 @@ function App() {
             <Route exact path="/user-myfav/:userid?">
               <UserMyFav />
             </Route>
-            <Route exact path="/user-Auction">
+            <Route exact path="/user-Auction/:userid?">
               <UserAuction />
             </Route>
             <Route exact path="/user-AuctionOver">
