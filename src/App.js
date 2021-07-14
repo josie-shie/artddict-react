@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
   Route,
@@ -57,6 +57,7 @@ import CartAuction from './pages/cart/CartAuction'
 import CartForm from './pages/cart/CartForm'
 
 function App() {
+  const [auth, setAuth] = useState(false)
   return (
     <Router>
       <>
@@ -129,7 +130,7 @@ function App() {
               <Add />
             </Route>
             <Route exact path="/user-login">
-              <Login />
+              <Login auth={auth} setAuth={setAuth} />
             </Route>
             <Route exact path="/user-msgedit/:userid?">
               <MsgEdit />
@@ -140,16 +141,16 @@ function App() {
             <Route exact path="/user-orderpro/:userid?">
               <OrderPro />
             </Route>
-            <Route exact path="/user-ordertic">
+            <Route exact path="/user-ordertic/:userid?">
               <OrderTic />
             </Route>
-            <Route exact path="/user-coupon">
+            <Route exact path="/user-coupon/:userid?">
               <Coupon />
             </Route>
             <Route exact path="/user-ticket/:userid?">
               <Ticket />
             </Route>
-            <Route exact path="/user-workshop">
+            <Route exact path="/user-workshop/:userid?">
               <WorkShop />
             </Route>
             <Route exact path="/user-myfav/:userid?">

@@ -71,6 +71,9 @@
   letter-spacing: 0.3rem;
   text-align: center;
   line-height: 50px;
+  &:disabled {
+    opacity: 50%;
+  }
 }
 .c-checkout1 {
   border-top: 2px solid black;

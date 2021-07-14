@@ -1,12 +1,13 @@
 import React from 'react'
-import Menu2 from './components/Menu2'
+// import Menu2 from './components/Menu2'
 import { Container } from 'react-bootstrap'
 import Logoheader from './components/Logoheader'
 import './styles/OrderTic.scss'
-import { Link } from 'react-router-dom'
+import { withRouter, Link } from 'react-router-dom'
 import Breadcrumb from './components/UserBreadcrumb'
 
-function OrderTic() {
+function OrderTic(props) {
+  const id = props.match.params.userid
   return (
     <>
       <div className="u-body">
@@ -14,16 +15,82 @@ function OrderTic() {
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
-        <div className="u-userMenu d-none d-lg-block d-xl-block">
+        {/* <div className="u-userMenu d-none d-lg-block d-xl-block">
           <Menu2 />
+        </div> */}
+        <div className="tab-bar">
+          <Link
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-msgedit/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            修改資料
+          </Link>
+
+          <Link
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-orderpro/${id}`}
+            style={{
+              textDecoration: 'none',
+              background: 'black',
+              color: 'white',
+            }}
+          >
+            訂單查詢
+          </Link>
+          <Link
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-coupon/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            我的優惠券
+          </Link>
+          <Link
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-ticket/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            我的票券
+          </Link>
+          <Link
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-myfav/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            我的收藏
+          </Link>
+          <Link
+            activeClassName="activenav"
+            className={'tab'}
+            to="/user-auction"
+            style={{ textDecoration: 'none' }}
+          >
+            競標查詢
+          </Link>
+          {/* <NavLink
+          activeClassName="activenav"
+          className={'tab'}
+          to="/user-login"
+          onClick={() => {
+            logoutToSever()
+          }} */}
+          {/* style={{ textDecoration: 'none' }}
+        >
+          登出
+        </NavLink> */}
         </div>
         <Container fluid>
           <div className="u-row d-flex justify-content-around">
             <div className="u-userPro1">
-              <Link to="/user-orderpro">商品</Link>
+              <Link to={`/user-orderpro/${id}`}>商品</Link>
             </div>
             <div className="u-userTic1">
-              <Link to="/user-ordertic">票券</Link>
+              <Link to={`/user-ordertic/${id}`}>票券</Link>
             </div>
           </div>
           <div className="u-progress d-flex">
@@ -85,4 +152,4 @@ function OrderTic() {
   )
 }
 
-export default OrderTic
+export default withRouter(OrderTic)

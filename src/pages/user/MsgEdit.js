@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter, Link, NavLink } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 import { countries, townships } from './data/address'
 // styles
 import './styles/MsgEdit.scss'
-import Menu from './components/Menu'
+import './styles/classes.css'
+// import Menu from './components/Menu'
 import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
 // @material-ui
@@ -14,6 +15,7 @@ import FormControl from '@material-ui/core/FormControl'
 import StyledRadio from './StyledRadio'
 // SweetAlert
 import swal from 'sweetalert'
+import axios from 'axios'
 
 function UserEdit(props) {
   // 縣市
@@ -38,8 +40,46 @@ function UserEdit(props) {
     // 開啟載入指示
     setDataLoading(true)
 
+    /* 
+    !!!!!!!!!!!
+    test session
+    !!!!!!!!!!!
+    */
+    const test_url =
+      'http://localhost:6005/users/checklogin'
+    const test_request = new Request(test_url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+    const test_response = await fetch(test_request, {
+      credentials: 'same-origin',
+    })
+    const test_data = await test_response.json()
+    console.log('req obj = ', test_request)
+    console.log('res obj = ', test_data)
+
+    // 用axios send get request
+    const adata = await axios.get(test_url, {
+      withCredentials: true,
+      headers: {
+        'Access-Control-Allow-Origin':
+          'http://localhost:6005',
+      },
+    })
+    console.log('new res:', adata)
+
+    // console.log(`${cookie.load('connect.sid')}`)
+    /*
+    !!!!!!!!!!!
+    end test
+    !!!!!!!!!!!
+    */
+
     // 連接的伺服器資料網址
-    const url = 'http://localhost:6005/users/' + userid
+    const url = `http://localhost:6005/users/${userid}`
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -52,7 +92,7 @@ function UserEdit(props) {
 
     const response = await fetch(request)
     const data = await response.json()
-    console.log(`[GET] response = ${data}`)
+    console.log(`[GET] response = ${data.session}`)
 
     setUsername(data.username)
     setName(data.name)
@@ -108,7 +148,7 @@ function UserEdit(props) {
     }
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:6005/users/' + userid
+    const url = `http://localhost:6005/users/${userid}`
 
     // 注意資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -177,8 +217,70 @@ function UserEdit(props) {
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
-        <div className="u-userMenu d-none d-lg-block d-xl-block">
-          <Menu />
+        {/* <div className="u-userMenu d-none d-lg-block d-xl-block">
+          <Menu userId={id} />
+        </div> */}
+        <div className="tab-bar">
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-msgedit/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            修改資料
+          </NavLink>
+
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-orderpro/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            訂單查詢
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-coupon/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            我的優惠券
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-ticket/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            我的票券
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-myfav/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            我的收藏
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to="/user-auction"
+            style={{ textDecoration: 'none' }}
+          >
+            競標查詢
+          </NavLink>
+          {/* <NavLink
+          activeClassName="activenav"
+          className={'tab'}
+          to="/user-login"
+          onClick={() => {
+            logoutToSever()
+          }} */}
+          {/* style={{ textDecoration: 'none' }}
+        >
+          登出
+        </NavLink> */}
         </div>
         <Container fluid>
           <div className="u-row d-flex justify-content-around">

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
-import { withRouter, Link } from 'react-router-dom'
+import { withRouter, Link, NavLink } from 'react-router-dom'
 import { Container } from 'react-bootstrap'
 // style
 import './styles/PwdEdit.scss'
-import Menu2 from './components/Menu2'
+// import Menu2 from './components/Menu2'
 import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
 // SweetAlert
@@ -149,8 +149,75 @@ function PwdEdit(props) {
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
-        <div className="u-userMenu d-none d-lg-block d-xl-block">
+        {/* <div className="u-userMenu d-none d-lg-block d-xl-block">
           <Menu2 />
+        </div> */}
+
+        <div className="tab-bar">
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-msgedit/${id}`}
+            style={{
+              textDecoration: 'none',
+              background: 'black',
+              color: 'white',
+            }}
+          >
+            修改資料
+          </NavLink>
+
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-orderpro/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            訂單查詢
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-coupon/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            我的優惠券
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-ticket/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            我的票券
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to={`/user-myfav/${id}`}
+            style={{ textDecoration: 'none' }}
+          >
+            我的收藏
+          </NavLink>
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to="/user-auction"
+            style={{ textDecoration: 'none' }}
+          >
+            競標查詢
+          </NavLink>
+          {/* <NavLink
+          activeClassName="activenav"
+          className={'tab'}
+          to="/user-login"
+          onClick={() => {
+            logoutToSever()
+          }} */}
+          {/* style={{ textDecoration: 'none' }}
+        >
+          登出
+        </NavLink> */}
         </div>
         <Container fluid>
           <div className="d-flex u-row justify-content-around">

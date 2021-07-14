@@ -13,12 +13,32 @@ import img2 from '../img/2.png'
 import { FaLock } from 'react-icons/fa'
 import { RiArrowRightSLine } from 'react-icons/ri'
 
-function CartFormFinish() {
-  const [orders, setOrders] = useState([])
+function CartFormFinish(props) {
+  const orderId = props.sentorder
+  console.log(props)
 
-  async function getOrdersServer() {
-    const url = 'http://localhost:6005/orders'
+  // 定義要列出的資料
+  // orders內容
+  const [orderbyid, setOrderById] = useState('')
+  const [username, setUsername] = useState('')
+  const [address, setAddress] = useState('')
+  const [mobile, setMobile] = useState('')
+  const [shipmethod, setShipMethod] = useState('')
+  const [credittype, setCreditType] = useState('')
+  const [date, setDate] = useState('')
+  const [total, setTotal] = useState('')
+  // order_details內容
+  const [proid, setProId] = useState('')
+  const [proqty, setProQty] = useState('')
 
+  const [orderitems, setOrderItems] = useState([])
+
+  async function getOrdersServer(orderId) {
+    // 取得剛剛父層寫入的訂單 orders
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:6005/orders/' + orderId
+
+    // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
       method: 'GET',
       headers: new Headers({
@@ -27,20 +47,96 @@ function CartFormFinish() {
       }),
     })
 
+    // fetch是呼叫後台api, response=得到的資料
     const response = await fetch(request)
     console.log(response)
     const data = await response.json()
+    console.log(data)
+
     // 設定資料
-    setOrders(data)
+    setOrderById(data.orderId)
+    setUsername(data.name)
+    setAddress(data.userAddress)
+    setMobile(data.userPhone)
+    setShipMethod(data.shipMethod)
+    setCreditType(data.creditType)
+    let tempdate = new Date(data.created_at)
+    let newdate =
+      tempdate.getFullYear() +
+      '-' +
+      parseInt(tempdate.getMonth() + 1) +
+      '-' +
+      tempdate.getDate()
+    setDate(newdate)
+    setTotal(data.totalPrice)
+
+    // 取得order_details
+    // 連接的伺服器資料網址
+    const url2 =
+      'http://localhost:6005/order_details/' + orderId
+
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request2 = new Request(url2, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    // fetch是呼叫後台api, response=得到的資料
+    const response2 = await fetch(request2)
+    console.log(response2)
+    const data2 = await response2.json()
+    console.log(data2)
+
+    // 設定資料
+    setProId(data2.proId)
+    setProQty(data2.orderQty)
+
+    let tempitems = []
+    for (let i = 0; i < data2.length; i++) {
+      let proId = data2[i].orderId
+      let orderQty = data2[i].orderQty
+      tempitems.push({
+        id: proId,
+        sid: '20056',
+        name: '梵谷自畫像T-Shirt',
+        price: 780,
+        size: 'S',
+        image: '/img/1.png',
+        orderQty: orderQty,
+      })
+    }
+    setOrderItems(tempitems)
   }
 
+  // 呼叫剛剛的assync func
   useEffect(() => {
-    getOrdersServer()
+    getOrdersServer(orderId)
   }, [])
 
-  const ordersDisplay = orders.map((orders) => {
-    orders.created_at = orders.created_at.split('T')[0]
+  const orderItemsDisplay = orderitems.map((orderitems) => {
     return (
+      <td>
+        <div class="c-td-p1 d-flex align-items-center">
+          <img src={orderitems.image} />
+          <div className="col ml-4">
+            <p className="pb-2">{orderitems.name}</p>
+            <p className="c-fgray">
+              商品編號 # {orderitems.sid}
+            </p>
+          </div>
+          <p className="col">尺寸：{orderitems.size}</p>
+          <p className="col">數量：{orderitems.orderQty}</p>
+          <p className="col">NT$ {orderitems.price}</p>
+        </div>
+      </td>
+    )
+  })
+
+  const orderDisplay = (
+    <>
       <div>
         <table className="c-order">
           <thead>
@@ -48,12 +144,12 @@ function CartFormFinish() {
           </thead>
           <tbody>
             <tr>
-              <td>訂單編號：{orders.orderId}</td>
+              <td>訂單編號：{orderbyid}</td>
             </tr>
 
             <tr>
               <td className="c-td-dark">
-                訂單日期：{orders.created_at}
+                訂單日期：{date}
               </td>
             </tr>
             {/* <tr>
@@ -68,38 +164,11 @@ function CartFormFinish() {
                 <td>折扣碼：- NT$ 50</td>
               </tr> */}
             <tr>
-              <td>總價：NT$ 1,590</td>
+              <td>總價：NT$ {total}</td>
             </tr>
             <tr>
-              <td>
-                <div class="c-td-p1 d-flex align-items-center">
-                  <img src={img1} />
-                  <div className="col ml-4">
-                    <p className="pb-2">
-                      梵谷自畫像T-Shirt
-                    </p>
-                    <p className="c-fgray">
-                      商品編號 # 200123
-                    </p>
-                  </div>
-                  <p className="col">尺寸：S</p>
-                  <p className="col">數量：1</p>
-                  <p className="col">NT$ 780</p>
-                </div>
-                <div class="c-td-p1 d-flex align-items-center mt-2">
-                  <img src={img2} />
-                  <div className="col ml-4">
-                    <p className="pb-2">
-                      梵谷自畫像T-Shirt
-                    </p>
-                    <p className="c-fgray">
-                      商品編號 # 200123
-                    </p>
-                  </div>
-                  <p className="col">尺寸：S</p>
-                  <p className="col">數量：1</p>
-                  <p className="col">NT$ 780</p>
-                </div>
+              <td className="d-flex flex-column">
+                {orderItemsDisplay}
               </td>
             </tr>
           </tbody>
@@ -110,7 +179,7 @@ function CartFormFinish() {
           </thead>
           <tbody>
             <tr>
-              <td>信用卡別：VISA</td>
+              <td>信用卡別：{credittype}</td>
             </tr>
             {/* <tr>
                 <td className="c-td-dark">
@@ -122,7 +191,7 @@ function CartFormFinish() {
               </tr> */}
             <tr>
               <td className="c-td-dark">
-                刷卡金額：NT$ 1,590
+                刷卡金額：NT$ {total}
               </td>
             </tr>
           </tbody>
@@ -133,26 +202,26 @@ function CartFormFinish() {
           </thead>
           <tbody>
             <tr>
-              <td>收件人：謝喬心</td>
+              <td>收件人：{username}</td>
             </tr>
             <tr>
               <td className="c-td-dark">
-                收件地址：台北市大安區大馬路123號5樓
+                收件地址：{address}
               </td>
             </tr>
             <tr>
-              <td>聯絡電話：0911-222333</td>
+              <td>聯絡電話：{mobile}</td>
             </tr>
             <tr>
               <td className="c-td-dark">
-                寄送方式：宅配到府 - 運費：NT$ 80
+                寄送方式：{shipmethod}
               </td>
             </tr>
           </tbody>
         </table>
       </div>
-    )
-  })
+    </>
+  )
 
   return (
     <>
@@ -165,7 +234,7 @@ function CartFormFinish() {
         </div>
 
         {/* 訂單資訊 */}
-        {ordersDisplay}
+        {orderDisplay}
 
         <div className="c-finish-bottom">
           <a href="#" className="">

@@ -6,7 +6,14 @@ import FormControlLabel from '@material-ui/core/FormControlLabel'
 import Checkbox from '@material-ui/core/Checkbox'
 
 function CartFormPay() {
-  const { watch, register } = useForm()
+  // react hook form
+  const {
+    watch,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm()
+  const onSubmit = (data) => console.log(data)
   // checkbox
   const [state, setState] = useState({
     checkedA: true,
@@ -36,8 +43,7 @@ function CartFormPay() {
             <input
               type="text"
               id="credit"
-              name="credit"
-              ref={register()}
+              {...register('credit', { required: true })}
             />
             <div className="d-flex">
               <div className="col-3 pl-0">
