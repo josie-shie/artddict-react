@@ -1,6 +1,6 @@
 import { React, useState, useEffect, useRef } from 'react'
 
-import { createStage } from './gameHelper'
+import { createStage, checkCollision } from './gameHelper'
 
 // Styled Component
 import {
@@ -22,21 +22,33 @@ function Tetris({ type }) {
   const [dropTime, setDropTime] = useState(null)
   const [gameOver, setGameOver] = useState(false)
 
-  const [player, updatePlayerPos, resetPlayer ] = usePlayer()
+  const [player, updatePlayerPos, resetPlayer, playerRotate ] = usePlayer()
   const [stage, setStage] = useStage(player)
 
   const movePlayer = dir => {
-    updatePlayerPos({x: dir, y:0})
+    if(!checkCollision(player, stage, {x: dir, y: 0})){
+      updatePlayerPos({x: dir, y:0})
+    }
   }
 
   const startGame = () => {
     // Rest Everything
     setStage(createStage())
     resetPlayer()
+    setGameOver(false)
   }
 
   const drop = () =>{
-    updatePlayerPos({ x: 0, y: 1, collided: false })
+    if (!checkCollision(player, stage,{x: 0, y:1 })){
+      updatePlayerPos({ x: 0, y: 1, collided: false })
+    }else{
+      // game over
+      if(player.pos.y <1){
+        setGameOver(true)
+        setDropTime(null)
+      }
+      updatePlayerPos({x:0, y:0, collided:true})
+    }
   }
 
   const dropPlayer = () =>{
@@ -45,12 +57,14 @@ function Tetris({ type }) {
 
   const move = ({keyCode}) => {{
     if(!gameOver){
-      if(keyCode === 37){
+      if(keyCode === 65){
         movePlayer(-1)
-      }else if(keyCode === 39){
+      }else if(keyCode === 68){
         movePlayer(1)
-      }else if(keyCode === 40){
+      }else if(keyCode === 83){
         dropPlayer()
+      }else if(keyCode === 87){
+        playerRotate(stage, 1)
       }
     }
   }}
@@ -74,7 +88,7 @@ function Tetris({ type }) {
                 <Display text="Level" />
               </div>
             )}
-            <StartButton onClick={startGame}/>
+            <StartButton callback={startGame}/>
           </aside>
         </StyledTetris>
       </StyledTetrisWrapper>
