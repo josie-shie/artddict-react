@@ -7,6 +7,9 @@ import AuctionDetailcountDown from './components/AuctionDetailcountDown'
 import useInterval from './components/useInterval'
 import { Container, Row, Button, Collapse, } from 'react-bootstrap'
 import minusButton from './images/minusButton.svg'
+
+import webSocket from 'socket.io-client'
+
 // react icons
 import {
   IoIosArrowBack,
@@ -21,11 +24,12 @@ import {
 
 //模擬伺服器端的資料
 import { data } from './data/data.js'
+import { array } from 'prop-types';
 
 function AuctionDetail(props) {
   // console.log(props.match.params.id)
   //倒數計時器間隔
-  const [delay, setDelay] = useState(500);
+  const [delay, setDelay] = useState(2000);
   //倒數計時器停止與否  
   const [isRunning, setIsRunning] = useState(true);
 
@@ -38,8 +42,22 @@ function AuctionDetail(props) {
   const [openOne, setOpenOne] = useState(false);
   const [openTwo, setOpenTwo] = useState(false);
   const [openThree, setOpenThree] = useState(false);
-
+  //產品資料 id,aucClass,aucName,aucId,aucDes,aucDeadline,aucPriceNow,aucPriceStart
   const [aucDetailinfo, setAucDetailInfo] = useState([])
+
+  //輸入的價錢
+  const [inputbidPrice, setInputbidPrice] = useState([])
+
+  //目前的出價(實時更新)
+  const [immediatePrice, setImmediatePrice] = useState('')
+
+  //出價資訊
+  const [bidersInfo, setBidersInfo] = useState([])
+
+  //假設會員id
+  const [memberid, setMemberId] = useState(2)
+  //現在的頁面
+  const auc_Id = props.match.params.id
 
   //千分位逗號分隔的api
   const internationalNumberFormat = new Intl.NumberFormat('en-US')
@@ -55,13 +73,64 @@ function AuctionDetail(props) {
       deadline: 0,
     }
   )
+
+
+  //socket
+  const [socket, setSocket] = useState(null)
+  const io = require("socket.io-client");
+
+  useEffect(() => {
+    setSocket(webSocket('http://localhost:3012'))
+  }, [])
+  
+  useEffect(() => {
+    if (socket) {
+      //連線成功在 console 中打印訊息
+      console.log('success connect!')
+    }
+  }, [socket])
+
+
+  useEffect(()=>{
+    if (socket) {
+    socket.on('Message', message => {
+      console.log(message.inputbidPrice)
+      if (message.inputbidPrice) {
+        // console.log("設定即時價格", message)
+        setImmediatePrice(message.inputbidPrice)
+        // console.log("出價資料", message.b)
+        setBidersInfo(message.auc_info)
+      }
+    })
+  }
+  },[socket,bidersInfo])
+
+  //發送出價消息
+  const bidPrice = () => {
+    console.log("inputbidPrice", inputbidPrice)
+    console.log("immediatePrice", immediatePrice)
+    if (inputbidPrice > immediatePrice) {
+      socket.emit('bidPrice', { inputbidPrice, auc_Id, memberid })
+    } else {
+      console.log("輸入價錢過低")
+    }
+  }
+  const sendMessage = () => {
+    //以 emit 送訊息，並以 getMessage 為名稱送給 server 捕捉
+    console.log("for server message")
+    socket.emit('test', { inputbidPrice, auc_Id, memberid })
+  }
+
+
+  /**************************************************** */
+
   let newAucProduct = [];
   async function getAucProDetailFromServer(aucId) {
     // 開啟載入指示
     // setDataLoading(true)
 
     // 連接的伺服器資料網址
-    const url = 'http://localhost:6005/auctoin/' + aucId
+    const url = 'http://localhost:6005/auctoin' + `?aucId=${aucId}`
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -74,9 +143,14 @@ function AuctionDetail(props) {
 
     const response = await fetch(request)
     const data = await response.json()
-    // 設定資料
-    setAucDetailInfo(data)
-    newAucProduct = data
+    //輸入現在價位
+    // console.log(data)
+    setImmediatePrice(data[0].aucPriceNow)
+    setAucDetailInfo(data[0])
+    newAucProduct = data[0]
+    data.shift()
+    console.log(data)
+    setBidersInfo(data)
   }
 
   // console.log(props)
@@ -154,6 +228,8 @@ function AuctionDetail(props) {
   // console.log('--------------------')
   return (
     <>
+      {console.log('a')}
+      {console.log('b')}
       <div className="auctionDetailContent cn-font">
         <div className="auctionDetailleftContent">
           <div className="leftContent_firstpart">
@@ -169,7 +245,7 @@ function AuctionDetail(props) {
               {aucDetailinfo.aucName}
             </div>
             <div className="currentPrice">
-              目前出價:NT${internationalNumberFormat.format(aucProduct.aucPriceNow)}
+              目前出價:NT${internationalNumberFormat.format(immediatePrice)}
             </div>
             <div>
               最高出價者:謝*心
@@ -239,7 +315,21 @@ function AuctionDetail(props) {
             <Collapse in={openThree}>
               <div id="example-collapse-text">
                 <div className="auctionDetailProductDesContent">
-                  aaaa
+                  <div className="aucD-PriceTitle">
+                    <div>出價者</div>
+                    <div>出價金額</div>
+                  </div>
+                  <div>
+                  {/* {console.log(bidersInfo)} */}
+                  {bidersInfo.map((biderInfoshow, i) => {
+                    return (
+                    <div className="aucD-PriceContent">
+                      <div className="aucD-bidder">{bidersInfo[i].name}</div>
+                      <div className="aucD-bidAmount">{bidersInfo[i].Price}</div>
+                    </div>
+                    )
+                  })}
+                  </div>
                 </div>
               </div>
             </Collapse>
@@ -264,13 +354,15 @@ function AuctionDetail(props) {
             </div>
             <div className="auctionDetailcurrentPriceInput">
               <div className="auctionDetailcurrentPriceAboveInput">
-                目前出價:NT${internationalNumberFormat.format(aucProduct.aucPriceNow)}
+                目前出價:NT${internationalNumberFormat.format(immediatePrice)}
               </div>
               <div className="priceInput" >
-                <input placeholder="請輸入下標價格" />
+                <input placeholder="請輸入下標價格"
+                  value={inputbidPrice}
+                  onChange={(event) => { setInputbidPrice(event.target.value) }} />
               </div>
             </div>
-            <button className="auctionDetailButton">
+            <button className="auctionDetailButton" onClick={bidPrice}>
               下標
             </button>
           </div>
