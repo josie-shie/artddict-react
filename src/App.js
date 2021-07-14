@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   BrowserRouter as Router,
   Route,
@@ -57,6 +57,7 @@ import CartAuction from './pages/cart/CartAuction'
 import CartForm from './pages/cart/CartForm'
 
 function App() {
+  const [auth, setAuth] = useState(false)
   return (
     <Router>
       <>
@@ -129,7 +130,7 @@ function App() {
               <Add />
             </Route>
             <Route exact path="/user-login">
-              <Login />
+              <Login auth={auth} setAuth={setAuth} />
             </Route>
             <Route exact path="/user-msgedit/:userid?">
               <MsgEdit />

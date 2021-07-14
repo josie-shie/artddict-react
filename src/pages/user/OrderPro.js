@@ -1,19 +1,19 @@
 import { React, useState, useEffect } from 'react'
 import './styles/OrderPro.scss'
 // import Menu from './components/Menu'
-import { withRouter, NavLink , Link } from 'react-router-dom'
+import { withRouter, NavLink, Link } from 'react-router-dom'
 import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
 import { Container } from 'react-bootstrap'
 
 function OrderPro(props) {
-  const [orderId, setOrderId] = useState('')
-  const [orderDate, setOrderDate] = useState('')
-  const [orderPrice, setOrderPrice] = useState('')
-  const [orderStatus, setOrderStatus] = useState('')
-  // const [id, setId] = useState('')
+  // const [orderId, setOrderId] = useState('')
+  // const [orderDate, setOrderDate] = useState('')
+  // const [orderPrice, setOrderPrice] = useState('')
+  // const [orderStatus, setOrderStatus] = useState('')
+  const [id, setId] = useState('')
   const [orders, setOrders] = useState([])
-  const id = props.match.params.userid
+  const userid = props.match.params.userid
 
   // async function getUserFromServer(userid) {
   //   // 連接的伺服器資料網址
@@ -36,9 +36,8 @@ function OrderPro(props) {
   // setOrders([])
   // }
 
-  async function getUserOrder(userid) {
-    //抓得到 id/userid 寫成這樣 const url = `http://localhost:6005/users/getOrder/${id}`
-    const url = `http://localhost:6005/users/getOrder/1`
+  async function getUserOrder(id) {
+    const url = `http://localhost:6005/users/getOrder/${userid}`
     const request = new Request(url, {
       method: 'GET',
       headers: new Headers({
