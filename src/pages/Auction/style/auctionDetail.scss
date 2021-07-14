@@ -223,6 +223,21 @@ body::-webkit-scrollbar {
     font-size: 32px;
 }
 
+.aucD-PriceTitle{
+    display: flex;
+    color: #fff;
+    justify-content: space-between;
+    border-bottom: #fff 1px solid;
+    padding: 0 0 2% 0;
+    margin: 0 20px 0 0;
+}
+
+.aucD-PriceContent{
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px 0 0;
+}
+
 
 @media screen and (max-width: 900px){
     .auctionDetailcountdown{
@@ -238,7 +253,6 @@ body::-webkit-scrollbar {
         margin-top: 5%;
     }
 }
-
 
 @media screen and (max-width:650px){
     .auctionDetailcurrentPriceAboveInput{
