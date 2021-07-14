@@ -36,26 +36,25 @@ import try2 from './img/productDetail/try2.jpeg'
 
 function ProductDetail(props) {
   const id = props.match.params.id
-  console.log(props)
+  // console.log(id)
 
   const [open, setOpen] = useState(true)
   const [open2, setOpen2] = useState(false)
   const [open3, setOpen3] = useState(false)
   const [open4, setOpen4] = useState(false)
   const [products, setProducts] = useState([])
-  const [proId, setProId] = useState('')
+  const [proId, setProId] = useState('1')
   const [proName, setProName] = useState('')
   const [proPrice, setProPrice] = useState('')
   const [proClass, setProClass] = useState('')
   const [proDes, setProDes] = useState('')
-  const [proMultiImg, setProMultiImg] = useState('')
-  const [proImg, setProImg] = useState('')
-  const [proMutImg, setProMutImg] = useState('')
-  const [proMutImg2, setProMutImg2] = useState('')
-  const [proMutImg3, setProMutImg3] = useState('')
-  const [proMutImg4, setProMutImg4] = useState('')
-  const [proMutImg5, setProMutImg5] = useState('')
   const [proMutImgTry, setProMutImgTry] = useState([])
+  const [comments, setComments] = useState('')
+  const [product, setProduct] = useState([])
+  const [proNum, setProNum] = useState('')
+  const [starValue, setStarValue] = useState('')
+  const [userId, setUserId] = useState('')
+  const [commentsBlock, setCommentsBlock] = useState([])
 
   const fadeAnimationHandler: AnimationHandler = (
     props,
@@ -118,17 +117,50 @@ function ProductDetail(props) {
     setProMutImgTry(imgArr)
 
     // 設定資料
+    console.log('data', data)
+    setProduct(data)
     setProId(data.proId)
     setProName(data.proName)
     setProPrice(data.proPrice)
     setProDes(data.proDes)
     setProClass(data.proClass)
-    console.log(proClass)
+    // setStarValue(data.starValue)
+    // setUserId(data.userId)
+    // setComments(data.comments)
+    console.log('proNum', proNum)
   }
   useEffect(() => {
     getProductIdServer()
   }, [])
   // console.log(proMutImgTry)
+
+  async function getCommentsServer() {
+    const url = `http://localhost:6005/product/commentsTry?id=${id}`
+
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+
+    // 設定資料
+    console.log('comments data', data)
+    setStarValue(data.starValue)
+    setUserId(data.userId)
+    setComments(data.comments)
+    console.log('proNum', proNum)
+    setCommentsBlock(data)
+  }
+  useEffect(() => {
+    getCommentsServer()
+  }, [])
+
   let takePicOut = proMutImgTry.map((e) => {
     return (
       <img
@@ -137,10 +169,100 @@ function ProductDetail(props) {
       />
     )
   })
-  // console.log(takePicOut)
-  // let tryme = proMutImgTry.map((e) => <li>{e}</li>)
-  // console.log(tryme)
-  // const comeOnPic = proMutImgTry.map()
+
+  async function addcommentsSever() {
+    const newData = {
+      proNum,
+      userId,
+      comments,
+      starValue,
+    }
+
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:6005/product/upload'
+
+    // 注意資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify(newData),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    const id = props.match.params.id
+    console.log('伺服器回傳的json資料', data)
+    // 要等驗証過，再設定資料(簡單的直接設定)
+
+    //直接在一段x秒關掉指示器
+    setTimeout(() => {
+      props.history.push(
+        `/product/product-list/product-detail/${id}`
+      )
+    }, 500)
+
+    setProNum(id)
+  }
+  // useEffect(() => {
+  //   console.log('proIDDDD', { proId })
+  // }, [proId])
+
+  // useEffect(() => {
+  //   addcommentsSever()
+  // }, [])
+
+  const commentsCard = commentsBlock.map((pro) => {
+    return (
+      <>
+        <div className="proDe-commentsCard d-flex">
+          <div className="proDe-commentsCardLeft">
+            <div className="proDe-starsSSSSS">
+              <IoIosStar size={20} color={'#1D0AFF'} />
+              <IoIosStar size={20} color={'#1D0AFF'} />
+              <IoIosStar size={20} color={'#1D0AFF'} />
+              <IoIosStar size={20} color={'#1D0AFF'} />
+              <IoIosStar size={20} color={'#1D0AFF'} />
+            </div>
+            <p className="proDe-userName">暢哥</p>
+            <p className="proDe-userDate">05-22-2021</p>
+          </div>
+          <div className="proDe-commentsCardRight d-flex">
+            <div className="proDe-commentsContent d-flex">
+              <p>{pro.comments}</p>
+            </div>
+          </div>
+        </div>
+      </>
+    )
+  })
+  // const commentsCard = commentsBlock.map((e) => {
+  // return (
+  //   <>
+  //     <div className="proDe-commentsCard d-flex">
+  //       <div className="proDe-commentsCardLeft">
+  //         <div className="proDe-starsSSSSS">
+  //           <IoIosStar size={20} color={'#1D0AFF'} />
+  //           <IoIosStar size={20} color={'#1D0AFF'} />
+  //           <IoIosStar size={20} color={'#1D0AFF'} />
+  //           <IoIosStar size={20} color={'#1D0AFF'} />
+  //           <IoIosStar size={20} color={'#1D0AFF'} />
+  //         </div>
+  //         <p className="proDe-userName">暢哥</p>
+  //         <p className="proDe-userDate">05-22-2021</p>
+  //       </div>
+  //       <div className="proDe-commentsCardRight d-flex">
+  //         <div className="proDe-commentsContent d-flex">
+  //           <p>{e.comments}</p>
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </>
+  //   )
+  // })
+
   return (
     <>
       <div className="proDe-full">
@@ -454,7 +576,8 @@ function ProductDetail(props) {
                   </div>
                 </div>
               </div>
-              <div className="proDe-commentsCard d-flex">
+              {commentsCard}
+              {/* <div className="proDe-commentsCard d-flex">
                 <div className="proDe-commentsCardLeft">
                   <div className="proDe-starsSSSSS">
                     <IoIosStar
@@ -485,12 +608,10 @@ function ProductDetail(props) {
                 </div>
                 <div className="proDe-commentsCardRight d-flex">
                   <div className="proDe-commentsContent d-flex">
-                    <p>
-                      穿上後我考試都100分，也交了女友，股票怎麼買怎麼賺，還找到了年薪千萬的工作，直接變成人生勝利組，謝謝刻這個版面的人看到這個資訊，謝謝老師半夜五點還回我訊息，謝謝爸媽把我養成一個人，謝謝煮飯的人讓我有飯吃，我回本了所以我不用改姓，姓劉很爽，我要唱我愛世界，讚
-                    </p>
+                    <p>{comments}</p>
                   </div>
                 </div>
-              </div>
+              </div> */}
               {/* ------------寫評論---------- */}
               <div className="col-12 p-0 d-flex justify-content-center flex-wrap">
                 <button
@@ -516,10 +637,16 @@ function ProductDetail(props) {
                         id=""
                         cols="30"
                         rows="10"
+                        onChange={(e) => {
+                          setComments(e.target.value)
+                        }}
                       ></textarea>
                       <button
                         className="ed-leave-msg e-btn-m col-l2 mt-3"
-                        type="submit"
+                        type="button"
+                        onClick={() => {
+                          addcommentsSever()
+                        }}
                       >
                         <p className="proDe-lastWord">
                           送出評論

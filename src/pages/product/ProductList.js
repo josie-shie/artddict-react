@@ -47,8 +47,10 @@ function ProductList() {
     const response = await fetch(request)
     const data = await response.json()
     console.log(data)
+    console.log('products', products)
     // 設定資料
     setProducts(data)
+    console.log('products', products)
   }
   useEffect(() => {
     getClassPriceSearchByQuerySQL()
