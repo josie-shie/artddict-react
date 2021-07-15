@@ -8,6 +8,7 @@ import UserBreadcrumb from './components/UserBreadcrumb'
 import { Link } from 'react-router-dom'
 
 function userAuction(props) {
+  const userid = props.match.params.userid
   return (
     <>
       {' '}
@@ -51,6 +52,13 @@ function userAuction(props) {
                 拍賣品細節
               </button>
             </div>
+          </div>
+          <div className="uAuc-redirect">
+            <button>
+              <Link to={`auction/${userid}`}>
+                前往競標！
+              </Link>
+            </button>
           </div>
         </div>
       </div>
