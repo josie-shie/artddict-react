@@ -200,7 +200,9 @@ const Map = () => {
   return (
     <>
       <div className="map-area index-web-padding">
-        <Logo className="map-logo" />
+        <Link to="/">
+          <Logo className="map-logo" />
+        </Link>
         <MarqueeMap />
         <div className="map-content d-flex mb-5">
           <div className=" col-8 d-flex flex-column px-0 ml-3">
