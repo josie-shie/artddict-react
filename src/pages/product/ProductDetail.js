@@ -4,7 +4,7 @@ import {
   useEffect,
   Component,
 } from 'react'
-import ReactDOM from 'react-dom'
+import ReactDOM, { render } from 'react-dom'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel } from 'react-responsive-carousel'
 import $ from 'jquery'
@@ -16,6 +16,7 @@ import './style/ProductDetail.css'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import Slider from 'react-slick'
+import ReactStars from 'react-rating-stars-component'
 
 // -----------svg---------
 import {
@@ -55,7 +56,11 @@ function ProductDetail(props) {
   const [starValue, setStarValue] = useState('')
   const [userId, setUserId] = useState('')
   const [commentsBlock, setCommentsBlock] = useState([])
-
+  const [qty, setQty] = useState(1)
+  const [rating, setRating] = useState('')
+  const [starNum, setStarNum] = useState('')
+  const [commentsNum, setCommentsNum] = useState('')
+  const [starsAverage, setStarsAverage] = useState(4)
   const fadeAnimationHandler: AnimationHandler = (
     props,
     state
@@ -124,6 +129,7 @@ function ProductDetail(props) {
     setProPrice(data.proPrice)
     setProDes(data.proDes)
     setProClass(data.proClass)
+    setProNum(id)
     // setStarValue(data.starValue)
     // setUserId(data.userId)
     // setComments(data.comments)
@@ -151,6 +157,10 @@ function ProductDetail(props) {
 
     // 設定資料
     console.log('comments data', data)
+    const commentsLength = data.length
+    console.log('commentsLength', commentsLength)
+    setCommentsNum(data.length)
+    console.log('commentsNum', commentsNum)
     setStarValue(data.starValue)
     setUserId(data.userId)
     setComments(data.comments)
@@ -177,11 +187,7 @@ function ProductDetail(props) {
       comments,
       starValue,
     }
-
-    // 連接的伺服器資料網址
     const url = 'http://localhost:6005/product/upload'
-
-    // 注意資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
       method: 'POST',
       body: JSON.stringify(newData),
@@ -190,14 +196,10 @@ function ProductDetail(props) {
         'Content-Type': 'application/json',
       }),
     })
-
     const response = await fetch(request)
     const data = await response.json()
     const id = props.match.params.id
     console.log('伺服器回傳的json資料', data)
-    // 要等驗証過，再設定資料(簡單的直接設定)
-
-    //直接在一段x秒關掉指示器
     setTimeout(() => {
       props.history.push(
         `/product/product-list/product-detail/${id}`
@@ -213,6 +215,14 @@ function ProductDetail(props) {
   // useEffect(() => {
   //   addcommentsSever()
   // }, [])
+  useEffect(() => {
+    if (qty < 1) {
+      setQty(1)
+    }
+    if (qty > 50) {
+      setQty(50)
+    }
+  }, [qty])
 
   const commentsCard = commentsBlock.map((pro) => {
     return (
@@ -220,11 +230,19 @@ function ProductDetail(props) {
         <div className="proDe-commentsCard d-flex">
           <div className="proDe-commentsCardLeft">
             <div className="proDe-starsSSSSS">
-              <IoIosStar size={20} color={'#1D0AFF'} />
-              <IoIosStar size={20} color={'#1D0AFF'} />
-              <IoIosStar size={20} color={'#1D0AFF'} />
-              <IoIosStar size={20} color={'#1D0AFF'} />
-              <IoIosStar size={20} color={'#1D0AFF'} />
+              <ReactStars
+                count={5}
+                edit={false}
+                value={pro.starValue}
+                activeColor="#1D0AFF"
+                size={18}
+                isHalf={true}
+                emptyIcon={<i className="far fa-star"></i>}
+                halfIcon={
+                  <i className="fa fa-star-half-alt"></i>
+                }
+                fullIcon={<i className="fa fa-star"></i>}
+              />
             </div>
             <p className="proDe-userName">暢哥</p>
             <p className="proDe-userDate">05-22-2021</p>
@@ -238,30 +256,75 @@ function ProductDetail(props) {
       </>
     )
   })
-  // const commentsCard = commentsBlock.map((e) => {
-  // return (
-  //   <>
-  //     <div className="proDe-commentsCard d-flex">
-  //       <div className="proDe-commentsCardLeft">
-  //         <div className="proDe-starsSSSSS">
-  //           <IoIosStar size={20} color={'#1D0AFF'} />
-  //           <IoIosStar size={20} color={'#1D0AFF'} />
-  //           <IoIosStar size={20} color={'#1D0AFF'} />
-  //           <IoIosStar size={20} color={'#1D0AFF'} />
-  //           <IoIosStar size={20} color={'#1D0AFF'} />
-  //         </div>
-  //         <p className="proDe-userName">暢哥</p>
-  //         <p className="proDe-userDate">05-22-2021</p>
-  //       </div>
-  //       <div className="proDe-commentsCardRight d-flex">
-  //         <div className="proDe-commentsContent d-flex">
-  //           <p>{e.comments}</p>
-  //         </div>
-  //       </div>
-  //     </div>
-  //   </>
-  //   )
-  // })
+  async function getstarSumServer() {
+    const url = `http://localhost:6005/product/commentsValue?id=${id}`
+
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+
+    // 設定資料
+    console.log('setStarNum', data)
+    const starValueSum = data[0].starTotal
+    setStarNum(starValueSum)
+    console.log('starValueSum', starValueSum)
+    console.log('starNum', starNum)
+    console.log(
+      'starNum / commentsNum',
+      starNum / commentsNum
+    )
+    setStarsAverage(starNum / commentsNum)
+    console.log('StarsAverage', starsAverage)
+  }
+
+  useEffect(() => {
+    getstarSumServer()
+  }, [starsAverage])
+
+  function reactStars() {
+    return (
+      <>
+        <ReactStars
+          count={5}
+          edit={false}
+          value={starsAverage}
+          // onChange={(e) => {
+          //   setRating(trymeme)
+          // }}
+          activeColor="#1D0AFF"
+          size={24}
+          isHalf={true}
+          emptyIcon={<i className="far fa-star"></i>}
+          halfIcon={<i className="fa fa-star-half-alt"></i>}
+          fullIcon={<i className="fa fa-star"></i>}
+        />
+      </>
+    )
+  }
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      reactStars()
+    }, 3000)
+  }, [])
+
+  // let starsStars = setTimeout(() => {
+  //   console.log('Hello, World!')
+  // }, 3000)
+  // useEffect(() => {
+  //   reactStars()
+  //   console.log('didmount', starsAverage)
+  // }, [starsAverage])
+
+  let trymeme = starNum / commentsNum
 
   return (
     <>
@@ -368,33 +431,50 @@ function ProductDetail(props) {
                   <div className="proDe-proId">
                     <p> 產品編號#{proId}</p>
                   </div>
-                  <div className="proDe-countAndAdd d-flex">
-                    <div className="proDe-numberAndBox d-flex">
-                      <div className="proDe-numberName">
-                        <p>數量</p>
-                      </div>
-                      <div className="proDe-numberCount ">
-                        <form action="">
+                  <form action="">
+                    <div className="proDe-countAndAdd d-flex">
+                      <div className="proDe-numberAndBox d-flex">
+                        <div className="proDe-numberName">
+                          <p>數量</p>
+                        </div>
+                        <div className="proDe-numberCount ">
                           <div className="d-flex proDe-CountBtn">
-                            <button>
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                e.preventDefault()
+                                setQty(qty - 1)
+                              }}
+                            >
                               <RiSubtractLine size={30} />
                             </button>
-                            <div className="proDe-spaceMid">
+                            <input
+                              className="proDe-spaceMid"
+                              type="button"
+                              value={qty}
+                            />
+
+                            {/* <div className="proDe-spaceMid">
                               <p> 1</p>
-                            </div>
-                            <button>
+                            </div> */}
+                            <button
+                              type="button"
+                              onClick={(e) => {
+                                setQty(qty + 1)
+                              }}
+                            >
                               <BiPlus size={30} />
                             </button>
                           </div>
-                        </form>
+                        </div>
+                      </div>
+                      <div className="proDe-addToCart">
+                        <button>
+                          <p>加入購物車</p>
+                        </button>
                       </div>
                     </div>
-                    <div className="proDe-addToCart">
-                      <button>
-                        <p>加入購物車</p>
-                      </button>
-                    </div>
-                  </div>
+                  </form>
                 </div>
               </div>
               {/* ------第一個+-------- */}
@@ -489,30 +569,35 @@ function ProductDetail(props) {
                     <p>商品評價</p>
                   </div>
                   <div className="proDe-commentsNumAndStar d-flex ">
-                    <p>5</p>
+                    <p>
+                      {isNaN(starsAverage) === true
+                        ? '0'
+                        : starsAverage}
+                    </p>
                     <div className="proDe-pushLeft">
-                      <IoIosStar
-                        size={30}
-                        color={'#1D0AFF'}
-                      />
-                      <IoIosStar
-                        size={30}
-                        color={'#1D0AFF'}
-                      />
-                      <IoIosStar
-                        size={30}
-                        color={'#1D0AFF'}
-                      />
-                      <IoIosStar
-                        size={30}
-                        color={'#1D0AFF'}
-                      />
-                      <IoIosStar
-                        size={30}
-                        color={'#1D0AFF'}
-                      />
+                      {reactStars()}
+                      {/* <ReactStars
+                        count={5}
+                        edit={false}
+                        value={starsAverage}
+                        // onChange={(e) => {
+                        //   setRating(trymeme)
+                        // }}
+                        activeColor="#1D0AFF"
+                        size={24}
+                        isHalf={true}
+                        emptyIcon={
+                          <i className="far fa-star"></i>
+                        }
+                        halfIcon={
+                          <i className="fa fa-star-half-alt"></i>
+                        }
+                        fullIcon={
+                          <i className="fa fa-star"></i>
+                        }
+                      /> */}
                       <p className="proDe-underStarWord">
-                        12則評論
+                        {commentsNum}則評論
                       </p>
                     </div>
                   </div>
@@ -631,6 +716,27 @@ function ProductDetail(props) {
                       className="border-0 d-flex flex-wrap justify-content-center"
                       action=""
                     >
+                      <ReactStars
+                        count={5}
+                        onChange={(e) => {
+                          setStarValue(e)
+                          console.log(e)
+                        }}
+                        value={5}
+                        activeColor="#1D0AFF"
+                        size={24}
+                        isHalf={true}
+                        emptyIcon={
+                          <i className="far fa-star"></i>
+                        }
+                        halfIcon={
+                          <i className="fa fa-star-half-alt"></i>
+                        }
+                        fullIcon={
+                          <i className="fa fa-star"></i>
+                        }
+                      />
+
                       <textarea
                         className="ed-textarea col-12 p-0"
                         name=""
