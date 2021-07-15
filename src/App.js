@@ -119,7 +119,7 @@ function App() {
             <Route exact path="/user-orderpro/detail/:id?">
               <OrderProDetail />
             </Route>
-            <Route exact path="/user-ordertic/detail">
+            <Route exact path="/user-ordertic/detail/:id?">
               <OrderTicDetail />
             </Route>
             <Route exact path="/product/product-list">

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 // import { Accordion } from 'react-bootstrap'
 import './styles/OrderProDetail.scss'
 import Accordion from 'react-bootstrap/Accordion'
@@ -6,7 +6,60 @@ import { Card, Button, Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Logoheader from './components/Logoheader'
 
-function OrderProDetail() {
+function OrderTicDetail(props) {
+  const id = props.match.params.id
+
+  // 付款資訊
+  const [orderPay, setOrdrPay] = useState('')
+  const [cardNumber, setCardNumber] = useState('')
+  const [cardExpdate, setCardExpdate] = useState('')
+  const [orderPrice, setOrderPrice] = useState('')
+
+  // 收件人資訊
+  const [username, setUsername] = useState('')
+  const [userAddress, setUserAddress] = useState('')
+  const [userPhone, setUserPhone] = useState('')
+  const [orderShip, setOrderShip] = useState('')
+
+  // 商品細節
+  const [eventImg, setEventImg] = useState('')
+  const [eventName, setEventName] = useState('')
+  const [eventId, setEventId] = useState('')
+  const [orderSpec, setOrderSpec] = useState('')
+  const [orderQty, setOrderQty] = useState('')
+
+  async function getUserOrderTicDetail() {
+    const url = `http://localhost:6005/users/getOrderTicDetail/${id}`
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+
+    setOrdrPay(data[0].orderPay)
+    setCardNumber(data[0].cardNumber)
+    setCardExpdate(data[0].cardExpdate)
+    setOrderPrice(data[0].orderPrice)
+    setUsername(data[0].username)
+    setUserAddress(data[0].userAddress)
+    setUserPhone(data[0].userPhone)
+    setOrderShip(data[0].orderShip)
+    setEventImg(data[0].eventImg)
+    setEventName(data[0].eventName)
+    setEventId(data[0].eventId)
+    setOrderSpec(data[0].orderSpec)
+    setOrderQty(data[0].orderQty)
+  }
+
+  useEffect(() => {
+    getUserOrderTicDetail()
+  }, [])
+
   return (
     <>
       <div className="u-body">
@@ -18,25 +71,33 @@ function OrderProDetail() {
               <div className="col-lg-2 col-sm-1">
                 信用卡別：
               </div>
-              <div className="col-lg-10 col-sm-11">1</div>
+              <div className="col-lg-10 col-sm-11">
+                {orderPay}
+              </div>
             </div>
             <div className="u-creditNum d-flex">
               <div className="col-lg-2 col-sm-1">
                 信用卡號：
               </div>
-              <div className="col-lg-10 col-sm-11">2</div>
+              <div className="col-lg-10 col-sm-11">
+                {cardNumber}
+              </div>
             </div>
             <div className="u-creditDate d-flex">
               <div className="col-lg-2 col-sm-1">
                 有效期限：
               </div>
-              <div className="col-lg-10 col-sm-11">3</div>
+              <div className="col-lg-10 col-sm-11">
+                {cardExpdate}
+              </div>
             </div>
             <div className="u-creditNT d-flex">
               <div className="col-lg-2 col-sm-1">
                 刷卡金額：
               </div>
-              <div className="col-lg-10 col-sm-11">3</div>
+              <div className="col-lg-10 col-sm-11">
+                {orderPrice}
+              </div>
             </div>
           </div>
           <div className="u-box">
@@ -45,47 +106,60 @@ function OrderProDetail() {
               <div className="col-lg-2 col-sm-1">
                 收件人：
               </div>
-              <div className="col-lg-10 col-sm-11">1</div>
+              <div className="col-lg-10 col-sm-11">
+                {username}
+              </div>
             </div>
             <div className="u-creditNum d-flex">
               <div className="col-lg-2 col-sm-1">
                 收件地址：
               </div>
-              <div className="col-lg-10 col-sm-11">2</div>
+              <div className="col-lg-10 col-sm-11">
+                {userAddress}
+              </div>
             </div>
             <div className="u-creditDate d-flex">
               <div className="col-lg-2 col-sm-1">
                 聯絡電話：
               </div>
-              <div className="col-lg-10 col-sm-11">3</div>
+              <div className="col-lg-10 col-sm-11">
+                {userPhone}
+              </div>
             </div>
             <div className="u-creditNT d-flex">
               <div className="col-lg-2 col-sm-1">
                 寄送方式：
               </div>
-              <div className="col-lg-10 col-sm-11">4</div>
+              <div className="col-lg-10 col-sm-11">
+                {orderShip}
+              </div>
             </div>
           </div>
 
           <div className="u-boxPro d-flex justify-content-between">
             {/* <div className="proBtn col-1 "></div> */}
-            <div className="u-proImg"></div>
+            <div className="u-proImg">
+              <img
+                src={`http://localhost:6005/eventpic/event/${eventImg}`}
+                alt="活動圖"
+              />
+            </div>
             <div className="u-proText col-2">
-              <div className="u-proName ">1</div>
-              <div className="u-proId">2</div>
+              <div className="u-proName ">{eventName}</div>
+              <div className="u-proId">{eventId}</div>
             </div>
             <div className="u-proSize d-flex col-2">
               <div className="">尺寸：</div>
-              <div className="">4</div>
+              <div className="">{orderSpec}</div>
             </div>
             <div className="u-proQty d-flex col-2">
               <div className="">數量：</div>
-              <div className=""></div>
+              <div className="">{orderQty}</div>
             </div>
-            <div className="u-proTotalPrice d-flex col-2">
+            {/* <div className="u-proTotalPrice d-flex col-2">
               <div className="">NT $</div>
               <div className="col"></div>
-            </div>
+            </div> */}
           </div>
           <div>
             <Accordion>
@@ -135,9 +209,12 @@ function OrderProDetail() {
 
           <div className="u-back">
             <Link
-               style={{ textDecoration: 'none' }}
+              style={{ textDecoration: 'none' }}
               className="u-link"
-              to="/user-ordertic"
+              // to="/user-ordertic"
+              onClick={() => {
+                props.history.push('/user-orderpro/2')
+              }}
             >
               回訂單查詢
             </Link>
@@ -148,4 +225,4 @@ function OrderProDetail() {
   )
 }
 
-export default OrderProDetail
+export default OrderTicDetail

@@ -28,7 +28,7 @@ function OrderProDetail(props) {
   const [orderSpec, setOrderSpec] = useState('')
   const [orderQty, setOrderQty] = useState('')
 
-  async function getUserOrderDetail() {
+  async function getUserOrderProDetail() {
     const url = `http://localhost:6005/users/getOrderProDetail/${id}`
     const request = new Request(url, {
       method: 'GET',
@@ -57,7 +57,7 @@ function OrderProDetail(props) {
   }
 
   useEffect(() => {
-    getUserOrderDetail()
+    getUserOrderProDetail()
   }, [])
 
   return (

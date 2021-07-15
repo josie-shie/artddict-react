@@ -1,4 +1,4 @@
-import React from 'react'
+import { React, useState, useEffect } from 'react'
 // import Menu2 from './components/Menu2'
 import { Container } from 'react-bootstrap'
 import Logoheader from './components/Logoheader'
@@ -9,7 +9,28 @@ import Breadcrumb from './components/UserBreadcrumb'
 import swal from 'sweetalert'
 
 function OrderTic(props) {
-  const id = props.match.params.userid
+  const [tickets, setTickets] = useState([])
+  const userid = props.match.params.userid
+
+  async function getUserOrder() {
+    const url = `http://localhost:6005/users/getOrder/${userid}`
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    // use orders => map div classes
+    setTickets(data)
+  }
+
+  useEffect(() => {
+    getUserOrder()
+  }, [])
 
   async function logoutToSever() {
     // 連接的伺服器資料網址
@@ -34,8 +55,84 @@ function OrderTic(props) {
     })
 
     const response = await fetch(request)
-    const data = await response.json()
+    // const data = await response.json()
   }
+
+  // 轉換日期格式
+  function convert_date(date_text) {
+    // date_text
+    const myDate = new Date(date_text)
+    const date_text_new = myDate
+      .toISOString()
+      .substring(0, 10)
+    return `${date_text_new}`
+  }
+  function convert_status(order_status) {
+    var status_text = ''
+    if (order_status == 0) {
+      status_text = '待出貨'
+    } else if (order_status == 1) {
+      status_text = '已完成'
+    } else if (order_status == 2) {
+      status_text = '已取消'
+    } else if (order_status == 3) {
+      status_text = '已退貨'
+    }
+    return status_text
+  }
+
+  const TicketDisplay =
+    tickets.length === 0
+      ? 'noneData'
+      : tickets.map((ticket) => {
+          return (
+            <div class="u-table">
+              <div class="u-th d-flex justify-content-around">
+                <div class="u-orderId">訂單編號</div>
+                <div class="u-orderDate">訂單日期</div>
+                <div class="u-payType">付款狀態</div>
+                <div class="u-price">總價</div>
+                <div class="u-orderType">訂單狀態</div>
+                <div class="u-bt col-2"></div>
+              </div>
+              <div class="u-tb d-flex justify-content-around">
+                <div class="u-ordrtInput1">
+                  {ticket.orderId}
+                </div>
+                <div class="u-ordrtInput2">
+                  {convert_date(ticket.created_at)}
+                </div>
+                <div class="u-ordrtInput3">已付款</div>
+                <div class="u-ordrtInput4">
+                  {ticket.orderPrice}
+                </div>
+                <div class="u-ordrtInput5 ">
+                  {convert_status(ticket.orderStatus)}
+                </div>
+                <div class="u-bt col-2">
+                  <div className="u-Bbtn">
+                    <button class="btn btn btn-dark">
+                      <Link
+                        className="u-link"
+                        to={`/user-ordertic/detail/${ticket.orderId}`}
+                        style={{ textDecoration: 'none' }}
+                        key={ticket.orderId}
+                      >
+                        詳細資料
+                      </Link>
+                    </button>
+                  </div>
+                  <div className="u-Lbtn">
+                    <button class="btn btn btn-light">
+                      取消
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )
+        })
+
   return (
     <>
       <div className="u-body">
@@ -43,14 +140,11 @@ function OrderTic(props) {
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
-        {/* <div className="u-userMenu d-none d-lg-block d-xl-block">
-          <Menu2 />
-        </div> */}
         <div className="tab-bar">
           <NavLink
             activeClassName="activenav"
             className={'tab'}
-            to={`/user-msgedit/${id}`}
+            to={`/user-msgedit/${userid}`}
             style={{ textDecoration: 'none' }}
           >
             修改資料
@@ -59,7 +153,7 @@ function OrderTic(props) {
           <NavLink
             activeClassName="activenav"
             className={'tab'}
-            to={`/user-orderpro/${id}`}
+            to={`/user-orderpro/${userid}`}
             style={{
               textDecoration: 'none',
               background: 'black',
@@ -71,7 +165,7 @@ function OrderTic(props) {
           <NavLink
             activeClassName="activenav"
             className={'tab'}
-            to={`/user-coupon/${id}`}
+            to={`/user-coupon/${userid}`}
             style={{ textDecoration: 'none' }}
           >
             我的優惠券
@@ -79,7 +173,7 @@ function OrderTic(props) {
           <NavLink
             activeClassName="activenav"
             className={'tab'}
-            to={`/user-ticket/${id}`}
+            to={`/user-ticket/${userid}`}
             style={{ textDecoration: 'none' }}
           >
             我的票券
@@ -87,7 +181,7 @@ function OrderTic(props) {
           <NavLink
             activeClassName="activenav"
             className={'tab'}
-            to={`/user-myfav/${id}`}
+            to={`/user-myfav/${userid}`}
             style={{ textDecoration: 'none' }}
           >
             我的收藏
@@ -95,7 +189,7 @@ function OrderTic(props) {
           <NavLink
             activeClassName="activenav"
             className={'tab'}
-            to={`/user-auction/${id}`}
+            to={`/user-auction/${userid}`}
             style={{ textDecoration: 'none' }}
           >
             競標查詢
@@ -115,10 +209,14 @@ function OrderTic(props) {
         <Container fluid>
           <div className="u-row d-flex justify-content-around">
             <div className="u-userPro1">
-              <Link to={`/user-orderpro/${id}`}>商品</Link>
+              <Link to={`/user-orderpro/${userid}`}>
+                商品
+              </Link>
             </div>
             <div className="u-userTic1">
-              <Link to={`/user-ordertic/${id}`}>票券</Link>
+              <Link to={`/user-ordertic/${userid}`}>
+                票券
+              </Link>
             </div>
           </div>
           <div className="u-progress d-flex">
@@ -128,10 +226,9 @@ function OrderTic(props) {
               name=""
               id=""
             >
-              <option style={{ color: '#707070' }} value="">
-                請選擇
+              <option value="" style={{ color: '#707070' }}>
+                全部
               </option>
-              <option value="">全部</option>
               <option value="">待出貨</option>
               <option value="">已完成</option>
               <option value="">取消紀錄</option>
@@ -139,41 +236,7 @@ function OrderTic(props) {
             </select>
           </div>
 
-          <div className="u-table">
-            <div className="u-th d-flex justify-content-around">
-              <div className="u-orderId">訂單編號</div>
-              <div className="u-orderDate">訂單日期</div>
-              <div className="u-payType">付款狀態</div>
-              <div className="u-price">總價</div>
-              <div className="u-orderType">訂單狀態</div>
-              <div className="u-bt col-2"></div>
-            </div>
-            <div className="u-tb d-flex justify-content-around">
-              <div className="u-ordrtInput1">訂單編號</div>
-              <div className="u-ordrtInput1">訂單日期</div>
-              <div className="u-ordrtInput2">付款狀態</div>
-              <div className="u-ordrtInput3">總價</div>
-              <div className="u-ordrtInput4">訂單狀態</div>
-              <div className="u-bt col-2">
-                <div className="u-Bbtn">
-                  <button class="btn btn btn-dark">
-                    <Link
-                      style={{ textDecoration: 'none' }}
-                      className="u-link"
-                      to="/user-ordertic/detail"
-                    >
-                      詳細資料
-                    </Link>
-                  </button>
-                </div>
-                <div className="u-Lbtn">
-                  <button class="btn btn btn-light">
-                    取消
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          {TicketDisplay}
         </Container>
       </div>
     </>
