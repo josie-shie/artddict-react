@@ -10,7 +10,7 @@ export const StyledStage = styled.div`
     ${(props) => props.width},
     1fr
   );
-  grid-gap: 0px;
+  grid-gap: 1px;
   border: 2px solid white;
   width: 100%;
   max-width: 25vw;
