@@ -198,7 +198,7 @@ function AuctionDetail(props) {
     let newAucProductTimeRemaining = TimeRemaining(deadlineA)
     // 第一次計算剩餘時間(react資料流)
     // TimeRemaining(aucProduct.deadline)
-    console.log("迅速")
+    // console.log("迅速")
     const cc = newAucProductTimeRemaining.reduce((a, b) => a + b)
     if (cc < 0) {
       console.log('競標結束')
@@ -253,7 +253,7 @@ function AuctionDetail(props) {
               目前出價:NT${internationalNumberFormat.format(immediatePrice)}
             </div>
             <div>
-              最高出價者:{bidersInfo.name}
+              最高出價者:{bidersInfo[0].name}
             </div>
           </div>
           <div className="leftContent_thirdpart">
@@ -322,7 +322,7 @@ function AuctionDetail(props) {
                     <div>出價金額</div>
                   </div>
                   <div>
-                    {console.log(bidersInfo)}
+                    {/* {console.log(bidersInfo)} */}
                     {bidersInfo.map((biderInfoshow, i) => {
                       return (
                         <div className="aucD-PriceContent" key={i}>

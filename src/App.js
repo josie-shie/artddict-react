@@ -24,7 +24,7 @@ import MatchGame from './pages/product/MatchGame'
 //auction
 import AuctionDetail from './pages/Auction/AuctionDetail'
 import Auction from './pages/Auction/Auction'
-import UserAuction from './pages/Auction/userAuction'
+import UserAuction from './pages/Auction/UserAuction'
 import UserAuctionOver from './pages/Auction/userAuctionOver'
 
 // User
