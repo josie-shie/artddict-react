@@ -15,7 +15,7 @@ import '../style/Nav.scss'
 import '../bootstrap/css/bootstrap.css'
 
 const Nav = (props) => {
-  console.log( 'nav',props)
+  console.log('nav current_user', props.current_user)
   const burgerRef = useRef()
   const circleRef = useRef()
   const xRef = useRef()
@@ -133,7 +133,7 @@ const Nav = (props) => {
                   <i>
                     {/* <FaUserAstronaut /> */}
                     {/* //TODO:判斷是否登入 */}
-                    {props.auth ? (
+                    {props.current_user !== 0 ? (
                       <FiLogOut />
                     ) : (
                       <FaUserAstronaut />

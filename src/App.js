@@ -73,7 +73,7 @@ function App() {
   return (
     <Router>
       <>
-        <Nav auth={auth} />
+        <Nav current_user={current_user} />
         <ScrollToTop>
           <Switch>
             <Route exact path="/auctionDetail/:id?">
