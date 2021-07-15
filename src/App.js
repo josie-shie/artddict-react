@@ -49,6 +49,7 @@ import EventDetail from './pages/event/EventDetail'
 import WorkshopShare from './pages/event/WorkshopShare'
 import WorkshopUpload from './pages/event/WorkshopUpload'
 import WorkshopUpdate from './pages/event/WorkshopUpdate'
+import Tetris from './pages/event/components/tetris/Tetris'
 
 // Cart
 import CartProduct from './pages/cart/CartProduct'
@@ -194,6 +195,9 @@ function App() {
             </Route>
             <Route exact path="/cart-form">
               <CartForm />
+            </Route>
+            <Route exact path="/tetris">
+              <Tetris />
             </Route>
             <Route exact path="/event/:id?">
               <Event />
