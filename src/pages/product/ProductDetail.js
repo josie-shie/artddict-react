@@ -60,7 +60,7 @@ function ProductDetail(props) {
   const [rating, setRating] = useState('')
   const [starNum, setStarNum] = useState('')
   const [commentsNum, setCommentsNum] = useState('')
-  const [starsAverage, setStarsAverage] = useState('')
+  const [starsAverage, setStarsAverage] = useState(4)
   const fadeAnimationHandler: AnimationHandler = (
     props,
     state
@@ -288,6 +288,41 @@ function ProductDetail(props) {
   useEffect(() => {
     getstarSumServer()
   }, [starsAverage])
+
+  function reactStars() {
+    return (
+      <>
+        <ReactStars
+          count={5}
+          edit={false}
+          value={starsAverage}
+          // onChange={(e) => {
+          //   setRating(trymeme)
+          // }}
+          activeColor="#1D0AFF"
+          size={24}
+          isHalf={true}
+          emptyIcon={<i className="far fa-star"></i>}
+          halfIcon={<i className="fa fa-star-half-alt"></i>}
+          fullIcon={<i className="fa fa-star"></i>}
+        />
+      </>
+    )
+  }
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      reactStars()
+    }, 3000)
+  }, [])
+
+  // let starsStars = setTimeout(() => {
+  //   console.log('Hello, World!')
+  // }, 3000)
+  // useEffect(() => {
+  //   reactStars()
+  //   console.log('didmount', starsAverage)
+  // }, [starsAverage])
 
   let trymeme = starNum / commentsNum
 
@@ -540,7 +575,8 @@ function ProductDetail(props) {
                         : starsAverage}
                     </p>
                     <div className="proDe-pushLeft">
-                      <ReactStars
+                      {reactStars()}
+                      {/* <ReactStars
                         count={5}
                         edit={false}
                         value={starsAverage}
@@ -559,7 +595,7 @@ function ProductDetail(props) {
                         fullIcon={
                           <i className="fa fa-star"></i>
                         }
-                      />
+                      /> */}
                       <p className="proDe-underStarWord">
                         {commentsNum}則評論
                       </p>

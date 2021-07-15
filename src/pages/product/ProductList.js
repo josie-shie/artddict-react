@@ -10,6 +10,9 @@ import 'rc-tooltip/assets/bootstrap.css'
 import Slider, { SliderTooltip } from 'rc-slider'
 import 'rc-slider/assets/index.css'
 
+//--------change pages----------
+import ReactPaginate from 'react-paginate'
+
 // -----------svg---------
 import logobk from './svg/logobk.svg'
 import { GoSearch } from 'react-icons/go'
