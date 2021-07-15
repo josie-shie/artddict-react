@@ -15,7 +15,12 @@ import pic6 from './img/6.png'
 import { FaFacebook } from 'react-icons/fa'
 import axios from 'axios'
 
-function Login() {
+function Login(props) {
+  /* 
+    透過props傳遞APP current_user的設定函數setCurrentUser()
+    current_user定義詳見 App.js
+  */
+  const { current_user, setCurrentUser } = props
   const [dataLoading, setDataLoading] = useState(false)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -28,19 +33,7 @@ function Login() {
 
     // 連接的伺服器資料網址
     const url = 'http://localhost:6005/users/login'
-
-    // 注意資料格式要設定，伺服器才知道是json格式
-    // const request = new Request(url, {
-    //   method: 'POST',
-    //   body: JSON.stringify(newData),
-    //   headers: new Headers({
-    //     // Accept: 'application/json',
-    //     'Content-Type': 'application/json',
-    //   }),
-    // })
     console.log(JSON.stringify(newData))
-    // const response = await fetch(request)
-    // const data = await response.json()
 
     // 用axios登入
     // const data = {}
@@ -55,6 +48,7 @@ function Login() {
         console.log(error)
       })
     console.log(data)
+
     // console.log('伺服器回傳的json資料', data)
     // console.log('data = ', data)
     // 要等驗証過，再設定資料(簡單的直接設定)
@@ -65,6 +59,10 @@ function Login() {
         button: false,
         timer: 3000,
       })
+
+      // 如果登入成功
+      // 改動react App母層變數以紀錄現在的用戶登入狀態
+      setCurrentUser(data.id)
     } else {
       swal({
         text: '帳號或密碼有誤，請重新登入',
@@ -77,13 +75,16 @@ function Login() {
     //直接在一段x秒關掉指示器
     setTimeout(() => {
       setDataLoading(false)
+      // data.id = undefined
       if (data.id != undefined) {
         window.location.replace(
           `../user-msgedit/${data.id}`
         )
+        return data.id
       } else {
         setUsername('')
         setPassword('')
+        return 0
       }
     }, 1000)
   }

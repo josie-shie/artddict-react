@@ -4,13 +4,15 @@ import { withRouter, NavLink, Link } from 'react-router-dom'
 import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
 import { Container } from 'react-bootstrap'
+// SweetAlert
+import swal from 'sweetalert'
 
 function OrderPro(props) {
   // const [orderId, setOrderId] = useState('')
   // const [orderDate, setOrderDate] = useState('')
   // const [orderPrice, setOrderPrice] = useState('')
   // const [orderStatus, setOrderStatus] = useState('')
-  const [id, setId] = useState('')
+  // const [id, setId] = useState('')
   const [orders, setOrders] = useState([])
   const userid = props.match.params.userid
 
@@ -33,6 +35,31 @@ function OrderPro(props) {
   useEffect(() => {
     getUserOrder()
   }, [])
+  async function logoutToSever() {
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:6005/users/logout'
+
+    // 注意資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+
+    // 要等驗証過，再設定資料(簡單的直接設定)
+
+    swal({
+      text: '登出成功！',
+      icon: 'success',
+      button: false,
+      timer: 3000,
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+  }
 
   const OrderDisplay =
     orders.length === 0
@@ -67,8 +94,9 @@ function OrderPro(props) {
                     <button class="btn btn btn-dark">
                       <Link
                         className="u-link"
-                        to="/user-orderpro/detail"
+                        to={`user-orderpro/detail/${order.orderId}`}
                         style={{ textDecoration: 'none' }}
+                        key={order.orderId}
                       >
                         詳細資料
                       </Link>
@@ -96,7 +124,7 @@ function OrderPro(props) {
           <NavLink
             activeClassName="activenav"
             className={'tab'}
-            to={`/user-msgedit/${id}`}
+            to={`/user-msgedit/${userid}`}
             style={{ textDecoration: 'none' }}
           >
             修改資料
@@ -105,7 +133,7 @@ function OrderPro(props) {
           <NavLink
             activeClassName="activenav"
             className={'tab'}
-            to={`/user-orderpro/${id}`}
+            to={`/user-orderpro/${userid}`}
             style={{ textDecoration: 'none' }}
           >
             訂單查詢
@@ -113,7 +141,7 @@ function OrderPro(props) {
           <NavLink
             activeClassName="activenav"
             className={'tab'}
-            to={`/user-coupon/${id}`}
+            to={`/user-coupon/${userid}`}
             style={{ textDecoration: 'none' }}
           >
             我的優惠券
@@ -121,7 +149,7 @@ function OrderPro(props) {
           <NavLink
             activeClassName="activenav"
             className={'tab'}
-            to={`/user-ticket/${id}`}
+            to={`/user-ticket/${userid}`}
             style={{ textDecoration: 'none' }}
           >
             我的票券
@@ -129,7 +157,7 @@ function OrderPro(props) {
           <NavLink
             activeClassName="activenav"
             className={'tab'}
-            to={`/user-myfav/${id}`}
+            to={`/user-myfav/${userid}`}
             style={{ textDecoration: 'none' }}
           >
             我的收藏
@@ -137,30 +165,34 @@ function OrderPro(props) {
           <NavLink
             activeClassName="activenav"
             className={'tab'}
-            to="/user-auction"
+            to={`/user-auction/${userid}`}
             style={{ textDecoration: 'none' }}
           >
             競標查詢
           </NavLink>
-          {/* <NavLink
-          activeClassName="activenav"
-          className={'tab'}
-          to="/user-login"
-          onClick={() => {
-            logoutToSever()
-          }} */}
-          {/* style={{ textDecoration: 'none' }}
-        >
-          登出
-        </NavLink> */}
+          <NavLink
+            activeClassName="activenav"
+            className={'tab'}
+            to="/user-login"
+            onClick={() => {
+              logoutToSever()
+            }}
+            style={{ textDecoration: 'none' }}
+          >
+            登出
+          </NavLink>
         </div>
         <Container fluid>
           <div className="u-row d-flex justify-content-around">
             <div className="u-userPro">
-              <Link to={`/user-orderpro/${id}`}>商品</Link>
+              <Link to={`/user-orderpro/${userid}`}>
+                商品
+              </Link>
             </div>
             <div className="u-userTic">
-              <Link to={`/user-ordertic/${id}`}>票券</Link>
+              <Link to={`/user-ordertic/${userid}`}>
+                票券
+              </Link>
             </div>
           </div>
           <div className="u-progress d-flex">

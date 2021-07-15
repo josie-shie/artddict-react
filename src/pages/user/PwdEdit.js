@@ -202,7 +202,7 @@ function PwdEdit(props) {
           <NavLink
             activeClassName="activenav"
             className={'tab'}
-            to="/user-auction"
+            to={`/user-auction/${userid}`}
             style={{ textDecoration: 'none' }}
           >
             競標查詢
