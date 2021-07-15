@@ -23,8 +23,8 @@ function UserEdit(props) {
     current_user定義詳見 App.js
     ！此處檢查無法成功
   */
-  const { current_user, setCurrentUser } = props
-  console.log('current_user = ', current_user)
+  // const { current_user, setCurrentUser } = props
+  // console.log('current_user = ', current_user)
 
   // 載入縣市
   const [country, setCountry] = useState(-1)
@@ -53,31 +53,31 @@ function UserEdit(props) {
     test session
     !!!!!!!!!!!
     */
-    const test_url =
-      'http://localhost:6005/users/checklogin'
-    const test_request = new Request(test_url, {
-      method: 'GET',
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'appliaction/json',
-      }),
-    })
-    const test_response = await fetch(test_request, {
-      credentials: 'same-origin',
-    })
-    const test_data = await test_response.json()
-    console.log('req obj = ', test_request)
-    console.log('res obj = ', test_data)
+    // const test_url =
+    //   'http://localhost:6005/users/checklogin'
+    // const test_request = new Request(test_url, {
+    //   method: 'GET',
+    //   headers: new Headers({
+    //     Accept: 'application/json',
+    //     'Content-Type': 'appliaction/json',
+    //   }),
+    // })
+    // const test_response = await fetch(test_request, {
+    //   credentials: 'same-origin',
+    // })
+    // const test_data = await test_response.json()
+    // console.log('req obj = ', test_request)
+    // console.log('res obj = ', test_data)
 
-    // 用axios send get request
-    const adata = await axios.get(test_url, {
-      withCredentials: true,
-      headers: {
-        'Access-Control-Allow-Origin':
-          'http://localhost:6005',
-      },
-    })
-    console.log('new res:', adata)
+    // // 用axios send get request
+    // const adata = await axios.get(test_url, {
+    //   withCredentials: true,
+    //   headers: {
+    //     'Access-Control-Allow-Origin':
+    //       'http://localhost:6005',
+    //   },
+    // })
+    // console.log('new res:', adata)
 
     // console.log(`${cookie.load('connect.sid')}`)
     /*
@@ -251,9 +251,6 @@ function UserEdit(props) {
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
-        {/* <div className="u-userMenu d-none d-lg-block d-xl-block">
-          <Menu userId={id} />
-        </div> */}
         <div className="tab-bar">
           <NavLink
             activeClassName="activenav"

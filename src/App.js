@@ -115,7 +115,7 @@ function App() {
             <Route path="/event/event-list/">
               <EventList />
             </Route>
-            <Route exact path="/user-orderpro/detail">
+            <Route exact path="/user-orderpro/detail/:id?">
               <OrderProDetail />
             </Route>
             <Route exact path="/user-ordertic/detail">

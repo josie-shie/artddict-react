@@ -11,7 +11,7 @@ function OrderProDetail(props) {
 
   // 付款資訊
   const [orderPay, setOrdrPay] = useState('')
-  const [cardNum, setCardNum] = useState('')
+  const [cardNumber, setCardNumber] = useState('')
   const [cardExpdate, setCardExpdate] = useState('')
   const [orderPrice, setOrderPrice] = useState('')
 
@@ -27,10 +27,9 @@ function OrderProDetail(props) {
   const [proId, setProId] = useState('')
   const [orderSpec, setOrderSpec] = useState('')
   const [orderQty, setOrderQty] = useState('')
-  const [proPrice, setProPrice] = useState('')
 
   async function getUserOrderDetail() {
-    const url = `http://localhost:6005/users/getOrderdetail/${id}`
+    const url = `http://localhost:6005/users/getOrderProDetail/${id}`
     const request = new Request(url, {
       method: 'GET',
       headers: new Headers({
@@ -42,27 +41,24 @@ function OrderProDetail(props) {
     const response = await fetch(request)
     const data = await response.json()
 
-    setOrdrPay(data.orderPay)
-    setCardNum(data.cardNum)
-    setCardExpdate(data.cardExpdate)
-    setOrderPrice(data.orderPrice)
-    setUsername(data.username)
-    setUserAddress(data.userAddress)
-    setUserPhone(data.userPhone)
-    setOrderShip(data.orderShip)
-    setProImg(data.proImg)
-    setProName(data.proName)
-    setProId(data.proId)
-    setOrderSpec(data.orderSpec)
-    setOrderQty(data.orderQty)
-    setProPrice(data.proPrice)
+    setOrdrPay(data[0].orderPay)
+    setCardNumber(data[0].cardNumber)
+    setCardExpdate(data[0].cardExpdate)
+    setOrderPrice(data[0].orderPrice)
+    setUsername(data[0].username)
+    setUserAddress(data[0].userAddress)
+    setUserPhone(data[0].userPhone)
+    setOrderShip(data[0].orderShip)
+    setProImg(JSON.parse(data[0].proImg))
+    setProName(data[0].proName)
+    setProId(data[0].proId)
+    setOrderSpec(data[0].orderSpec)
+    setOrderQty(data[0].orderQty)
   }
 
   useEffect(() => {
     getUserOrderDetail()
   }, [])
-
-  // const OrderProDetail =
 
   return (
     <>
@@ -84,7 +80,7 @@ function OrderProDetail(props) {
                 信用卡號：
               </div>
               <div className="col-lg-10 col-sm-11">
-                {cardNum}
+                {cardNumber}
               </div>
             </div>
             <div className="u-creditDate d-flex">
@@ -142,7 +138,12 @@ function OrderProDetail(props) {
 
           <div className="u-boxPro d-flex justify-content-between">
             {/* <div className="proBtn col-1 "></div> */}
-            <div className="u-proImg"></div>
+            <div className="u-proImg">
+              <img
+                src={`http://localhost:6005/productpics/${proImg}`}
+                alt="商品圖"
+              />
+            </div>
             <div className="u-proText col-2">
               <div className="u-proName ">{proName}</div>
               <div className="u-proId">{proId}</div>
@@ -155,10 +156,10 @@ function OrderProDetail(props) {
               <div className="">數量：</div>
               <div className="">{orderQty}</div>
             </div>
-            <div className="u-proTotalPrice d-flex col-2">
+            {/* <div className="u-proTotalPrice d-flex col-2">
               <div className="">NT $</div>
               <div className="col">{proPrice}</div>
-            </div>
+            </div> */}
           </div>
           <div>
             <Accordion>
@@ -209,7 +210,10 @@ function OrderProDetail(props) {
           <div className="u-back">
             <Link
               className="u-link"
-              to="/user-orderpro"
+              // to={`/user-orderpro/}`}
+              onClick={() => {
+                props.history.push('/user-orderpro/1')
+              }}
               style={{ textDecoration: 'none' }}
             >
               回訂單查詢

@@ -28,13 +28,14 @@ function OrderPro(props) {
 
     const response = await fetch(request)
     const data = await response.json()
-
+    // use orders => map div classes
     setOrders(data)
   }
 
   useEffect(() => {
     getUserOrder()
   }, [])
+
   async function logoutToSever() {
     // 連接的伺服器資料網址
     const url = 'http://localhost:6005/users/logout'
@@ -58,7 +59,29 @@ function OrderPro(props) {
     })
 
     const response = await fetch(request)
-    const data = await response.json()
+    // const data = await response.json()
+  }
+  // 轉換日期格式
+  function convert_date(date_text) {
+    // date_text
+    const myDate = new Date(date_text)
+    const date_text_new = myDate
+      .toISOString()
+      .substring(0, 10)
+    return `${date_text_new}`
+  }
+  function convert_status(order_status) {
+    var status_text = ''
+    if (order_status == 0) {
+      status_text = '待出貨'
+    } else if (order_status == 1) {
+      status_text = '已完成'
+    } else if (order_status == 2) {
+      status_text = '已取消'
+    } else if (order_status == 3) {
+      status_text = '已退貨'
+    }
+    return status_text
   }
 
   const OrderDisplay =
@@ -80,21 +103,21 @@ function OrderPro(props) {
                   {order.orderId}
                 </div>
                 <div class="u-ordrtInput2">
-                  {order.orderDate}
+                  {convert_date(order.created_at)}
                 </div>
                 <div class="u-ordrtInput3">已付款</div>
                 <div class="u-ordrtInput4">
                   {order.orderPrice}
                 </div>
                 <div class="u-ordrtInput5 ">
-                  {order.orderStatus}
+                  {convert_status(order.orderStatus)}
                 </div>
                 <div class="u-bt col-2">
                   <div className="u-Bbtn">
                     <button class="btn btn btn-dark">
                       <Link
                         className="u-link"
-                        to={`user-orderpro/detail/${order.orderId}`}
+                        to={`/user-orderpro/detail/${order.orderId}`}
                         style={{ textDecoration: 'none' }}
                         key={order.orderId}
                       >
