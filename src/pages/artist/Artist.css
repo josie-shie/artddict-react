@@ -1,0 +1,161 @@
+@charset "UTF-8";
+@font-face {
+  font-family: Engravers;
+  src: url(../../style/font/ENGR.ttf);
+}
+
+@font-face {
+  font-family: EngraversBlod;
+  src: url(../../style/font/EngraversMTBold.ttf);
+}
+
+@font-face {
+  font-family: NotoSansTC-md;
+  src: url(../../style/font/NotoSansTC-Medium.otf);
+}
+
+@font-face {
+  font-family: NotoSansTC-bd;
+  src: url(../../style/font/EngraversMTBold.ttf);
+}
+
+@font-face {
+  font-family: NotoSansTC-bk;
+  src: url(../../style/font/NotoSansTC-Black.otf);
+}
+
+.notoSansTC-md {
+  font-family: NotoSansTC-md;
+}
+
+.notoSansTC-bd {
+  font-family: NotoSansTC-bd;
+}
+
+.notoSansTC-bk {
+  font-family: NotoSansTC-bk;
+}
+
+.engravers {
+  font-family: Engravers;
+}
+
+.engraversbd {
+  font-family: EngraversBlod;
+}
+
+.index-web-padding {
+  padding-right: 70px;
+}
+
+.art-area, .art-main {
+  padding-left: 70px;
+  padding-right: 140px;
+  background-color: #e8e8e8;
+}
+
+.art-area h5 {
+  line-height: 30px;
+  letter-spacing: 1px;
+  font-size: 1rem;
+  color: #000;
+}
+
+.art-date {
+  font-family: NotoSansTC-bd;
+  color: #1D0AFF;
+  margin: 0 auto;
+}
+
+.art-push {
+  margin-bottom: 200px;
+}
+
+.art-relative {
+  position: relative;
+  z-index: 0;
+}
+
+.art-logo {
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/* 麵包屑 粗體直接跑英文襯線粗體超怪*/
+.breadcrumb-dk {
+  font-weight: 900;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  padding: 0;
+  margin-bottom: 30px;
+  margin-bottom: 1rem;
+  list-style: none;
+  background-color: none;
+  border-radius: 0.25rem;
+}
+
+.art-area a {
+  color: #707070;
+}
+
+.art-area h2 {
+  font-size: 5rem;
+}
+
+.breadcrumb-item.active {
+  color: #000;
+}
+
+/* 麵包屑 */
+.art-area marquee {
+  letter-spacing: 5px;
+}
+
+.art-slogan {
+  padding-left: 20px;
+  font-size: 4rem;
+  line-height: 80px;
+  letter-spacing: 5px;
+}
+
+.art-1 {
+  position: absolute;
+  z-index: 2;
+}
+
+.art-area span {
+  font-family: notoSansTC-bk;
+  font-size: 1.5rem;
+}
+
+.art-name h2 {
+  font-size: 5rem;
+  position: absolute;
+  top: 10%;
+  right: 5%;
+  z-index: 2;
+}
+
+.art-hl {
+  width: 55%;
+  height: 50px;
+  background: #81FC4D;
+  position: absolute;
+  top: 20%;
+  right: 5%;
+  z-index: 1;
+}
+
+.art-hl2 {
+  width: 45%;
+  height: 50px;
+  background: #81FC4D;
+  position: absolute;
+  top: 35%;
+  right: 5%;
+  z-index: 1;
+}
+/*# sourceMappingURL=Artist.css.map */

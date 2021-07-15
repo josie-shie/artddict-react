@@ -1,0 +1,146 @@
+@charset "UTF-8";
+.u-breadcrumb {
+  margin-top: 10px;
+}
+
+.u-userMenu {
+  margin-top: 10px;
+}
+
+.u-row {
+  padding: 10px 0 10px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.u-usertitleLeft1,
+.u-usertitleRight1 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 22vw;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+}
+
+.u-usertitleLeft1 {
+  background-color: #000;
+}
+
+.u-usertitleRight1 > a {
+  font-size: 2rem;
+  color: #000;
+  letter-spacing: 0.3rem;
+  text-decoration: none;
+}
+
+.u-usertitleLeft1 {
+  background-color: #000;
+}
+
+.u-usertitleLeft1 > a {
+  font-size: 2rem;
+  color: white;
+  letter-spacing: 0.3rem;
+  text-decoration: none;
+}
+
+/* =====btn 自訂顏色===== */
+.u-editBtn > .btn-outline-dark {
+  margin-left: 13.5vw;
+  margin-bottom: 30px;
+  width: 130px;
+  height: 50px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 18px;
+  color: #000;
+  background-color: #e8e8e8;
+  border: 2px solid #000;
+  border-radius: 0px;
+}
+
+.u-editBtn > .btn-outline-dark:hover .u-link1 {
+  color: #fff;
+}
+
+.u-editBtn > .btn-outline-dark:hover,
+.u-editBtn > .btn-outline-dark:focus,
+.u-editBtn > .btn-outline-dark:active:hover {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+
+.u-editBtn {
+  margin-top: 50px;
+}
+
+.u-userData {
+  margin-left: 20vw;
+}
+
+.u-form1 > input {
+  width: 35vw;
+  height: 50px;
+  background-color: #e8e8e8;
+  border: 2px solid #000;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 16px;
+  margin-top: 5px;
+  border-radius: 0px;
+}
+
+.u-form1 > input:focus {
+  outline: none !important;
+  border: 2px solid #1d0aff;
+  background-color: #e8e8e8;
+}
+
+.u-form1 > label {
+  font-family: 'Noto Sans TC';
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.u-Select > select {
+  width: 35vw;
+  height: 50px;
+  background-color: #e8e8e8;
+  border: 2px solid #000;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 16px;
+  margin-top: 5px;
+  border-radius: 0px;
+}
+
+.u-Select > select:focus {
+  outline: none !important;
+  border: 2px solid #1d0aff;
+  background-color: #e8e8e8;
+}
+
+.u-sel1,
+.u-sel2 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("../img/select-arrow.svg");
+  background-repeat: no-repeat;
+  background-position-x: 98%;
+  background-position-y: 50%;
+  border: 0px;
+  padding-left: 10px;
+}
+
+.u-gender-ckb > label {
+  font-family: 'Noto Sans TC';
+  font-size: 16px;
+  margin-top: 10px;
+}
+/*# sourceMappingURL=MsgEdit.css.map */

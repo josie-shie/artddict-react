@@ -1,0 +1,110 @@
+.uAucO-main {
+  margin: 50px 0 0 0;
+  border: 2px solid #000;
+  border-top: 25px solid #000;
+  height: 260px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.uAucO-picture {
+  width: 175px;
+  height: 175px;
+  margin: 25px 0 0 25px;
+  border: 1px solid #000;
+}
+
+.uAucO-productState {
+  margin: 0 0 0 25px;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.uAucO-productState li {
+  margin: 10px 0 0 0;
+}
+
+.uAucO-btnf {
+  font-family: 'NotoSansTC-Medium';
+  margin: 0 50px 0 0;
+  line-height: 45px;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.uAucO-btnA {
+  width: 150px;
+  height: 50px;
+  background-color: #000;
+  color: #fff;
+  border: 0px;
+  border-color: #000;
+}
+
+.uAucO-btnB {
+  margin: 5px 0 0 0;
+  width: 150px;
+  height: 50px;
+  background-color: rgba(0, 0, 0, 0);
+  color: #000;
+  border: 2px solid #000;
+}
+
+.uAucO-detail {
+  margin: 30px 0 0 30%;
+  border: 2px solid #707070;
+  height: 260px;
+  width: 70%;
+}
+
+.uAucO-detail-Title {
+  width: 100%;
+  height: 2.5rem;
+  background-color: #707070;
+  line-height: 2.5rem;
+  padding: 0 0 0 1.5rem;
+  color: white;
+}
+
+.uAuc-detail-contentA {
+  width: calc(100%-2.5rem);
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 0 0 1rem;
+}
+
+.uAuc-detail-contentA > ul {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+
+.uAuc-detail-contentA li {
+  margin: 10px 0 0 0;
+}
+/*# sourceMappingURL=userAuctionOver.css.map */

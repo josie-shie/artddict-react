@@ -1,0 +1,183 @@
+@charset "UTF-8";
+@font-face {
+  font-family: Engravers;
+  src: url(../../style/font/ENGR.ttf);
+}
+
+@font-face {
+  font-family: EngraversBlod;
+  src: url(../../style/font/EngraversMTBold.ttf);
+}
+
+@font-face {
+  font-family: NotoSansTC-md;
+  src: url(../../style/font/NotoSansTC-Medium.otf);
+}
+
+@font-face {
+  font-family: NotoSansTC-bd;
+  src: url(../../style/font/NotoSansTC-Bold.otf);
+}
+
+.notoSansTC-md {
+  font-family: NotoSansTC-md;
+}
+
+.engravers {
+  font-family: Engravers;
+}
+
+.index-web-padding {
+  padding-right: 70px;
+}
+
+.map-area {
+  overflow: auto;
+}
+
+.map-area a {
+  direction: none;
+  color: #000;
+}
+
+.map-area a:hover {
+  direction: none;
+  color: #000;
+}
+
+.map-area a:hover .map-card button {
+  opacity: 0.8;
+}
+
+.map-content {
+  height: 100vh;
+}
+
+.map-logo {
+  margin-left: 70px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+/*開源地圖*/
+#osm-map {
+  height: 100vh;
+  width: 100%;
+}
+
+.map-search-bar {
+  height: 15vh;
+  background-color: #000;
+}
+
+.map-select-box {
+  height: 5vh;
+  font-size: 1rem;
+  color: #E8E8E8;
+  font-weight: normal;
+  border: 2px solid #E8E8E8;
+  background-color: #000;
+}
+
+.map-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("./img/select-arrow.svg");
+  background-repeat: no-repeat;
+  background-position-x: 90%;
+  background-position-y: 50%;
+  padding-right: 2rem;
+}
+
+.loca-btn {
+  background: #000;
+  color: #E8E8E8;
+  border: 0;
+}
+
+.map-card-area {
+  height: 100%;
+  overflow: scroll;
+}
+
+.map-card {
+  font-family: notoSansTC;
+  border-bottom: 2px solid #000;
+  overflow: scroll;
+}
+
+.map-card strong {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.map-card p {
+  font-size: 1rem;
+}
+
+.mus-card-btn {
+  background: #000;
+  color: #E8E8E8;
+  border: 0;
+}
+
+.mus-card-btn button {
+  background-color: #000;
+  border: 0;
+  color: #E8E8E8;
+}
+
+.mus-card-btn button:hover {
+  background-color: #1D0AFF;
+  border: 0;
+  color: #E8E8E8;
+}
+
+.mus-card-btn a {
+  border-top: 1px solid #E8E8E8;
+  margin: auto;
+}
+
+.musEve-card-btn {
+  background: #000;
+  color: #E8E8E8;
+  border: 0;
+  height: 100px;
+  margin: 0 auto;
+}
+
+.musEve-card-btn button {
+  background-color: #000;
+  border: 0;
+  color: #E8E8E8;
+}
+
+.musEve-card-btn button:hover {
+  background-color: #1D0AFF;
+  border: 0;
+  color: #E8E8E8;
+}
+
+.musEve-card-btn a {
+  border-top: 1px solid #E8E8E8;
+  margin: auto;
+}
+
+.map-select-box-dk {
+  height: 5vh;
+  font-size: 1rem;
+  color: #000;
+  font-weight: normal;
+  border: 2px solid #000000;
+}
+
+.popup-card {
+  text-align: center;
+  font-family: notoSansTC-md;
+}
+
+.popup-card strong {
+  font-family: NotoSansTC-bd;
+}
+/*# sourceMappingURL=map.css.map */

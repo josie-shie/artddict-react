@@ -1,0 +1,139 @@
+@charset "UTF-8";
+/* ----- 表單 ----- */
+.u-box {
+  margin-top: 40px;
+  width: 100%;
+  height: 254px;
+  border: 2px solid #707070;
+  font-size: 16px;
+  font-family: NotoSansTC-Medium;
+}
+
+@media screen and (max-width: 576px) {
+  .u-box {
+    width: 100%;
+    margin-left: 20px;
+  }
+}
+
+.u-creditNews {
+  background-color: #707070;
+  color: #fff;
+  height: 50px;
+  line-height: 50px;
+}
+
+.u-creditType, .u-creditDate {
+  height: 50px;
+  line-height: 50px;
+}
+
+.u-creditNum, .u-creditNT {
+  height: 50px;
+  line-height: 50px;
+  background-color: #c7c7c7;
+}
+
+/* ----- 商品細節 ----- */
+.u-boxPro {
+  font-family: NotoSansTC-Medium;
+}
+
+.u-boxPro {
+  margin-top: 40px;
+  width: 100%;
+  height: 125px;
+  border: 2px solid #707070;
+}
+
+@media screen and (max-width: 576px) {
+  .u-boxPro {
+    width: 100%;
+    margin-left: 20px;
+  }
+}
+
+.u-proImg {
+  width: 100px;
+  height: 100px;
+  background-color: #c7c7c7;
+  margin-top: 12px;
+  margin-left: 12px;
+}
+
+.u-proText, .u-proSize, .u-proQty, .u-proTotalPrice {
+  margin-top: 30px;
+  font-size: 16px;
+}
+
+.u-myEVAL {
+  width: 150px;
+  height: 43px;
+  background-color: #1D0AFF;
+  text-align: center;
+  line-height: 30px;
+  margin-top: 5px;
+  margin-left: -15px;
+  font-family: NotoSansTC-Medium;
+  font-size: 18px;
+  border-radius: 0px;
+}
+
+.btn-link, .btn-link:hover {
+  color: #fff;
+}
+
+/* ===== 折疊 ===== */
+.u-Card {
+  width: 100%;
+  background-color: #e8e8e8;
+  border: #e8e8e8;
+}
+
+.u-CardHeader {
+  background-color: #e8e8e8;
+}
+
+.u-collapse {
+  height: 100px;
+  border: 2px solid #707070;
+}
+
+.u-goEVAL {
+  width: 150px;
+  height: 45px;
+  border: 2px solid #000;
+  line-height: 40px;
+  text-align: center;
+  margin-top: -43px;
+  margin-left: 150px;
+  font-family: NotoSansTC-Medium;
+  font-size: 18px;
+}
+
+.u-goEVAL > a {
+  color: #000;
+}
+
+.u-back {
+  width: 180px;
+  height: 55px;
+  background-color: #000;
+  text-align: center;
+  line-height: 55px;
+  font-size: 16px;
+  padding-bottom: 30px;
+  margin-top: 40px;
+  margin-left: 30vw;
+  font-family: NotoSansTC-Medium;
+  font-size: 18px;
+}
+
+.u-link {
+  color: #fff;
+}
+
+.u-link:hover {
+  color: #fff;
+}
+/*# sourceMappingURL=OrderProDetail.css.map */

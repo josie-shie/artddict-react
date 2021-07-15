@@ -1,0 +1,134 @@
+@charset "UTF-8";
+.u-userPro,
+.u-userTic {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 22vw;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+}
+
+.u-userTic > a {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 2rem;
+  color: #000;
+  text-decoration: none;
+  letter-spacing: 0.3rem;
+}
+
+.u-userPro {
+  background-color: #000;
+}
+
+.u-userPro > a {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.3rem;
+}
+
+.u-progress {
+  margin-top: 20px;
+  width: 16vw;
+  height: 50px;
+  font-size: 1rem;
+  font-weight: normal;
+  border: 2px solid black;
+  line-height: 48px;
+}
+
+.u-progress > div {
+  border-right: 2px solid black;
+  display: inline-block;
+}
+
+.user-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("../img/select-arrow.svg");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 50%;
+  border: 0px;
+  padding-right: 7.5rem;
+}
+
+/* ----- 訂單 ----- */
+.u-table {
+  margin-top: 20px;
+  width: 100%;
+  border: 2px solid #707070;
+  font-size: 16px;
+  font-family: NotoSansTC-Medium;
+}
+
+.u-th {
+  background-color: #707070;
+  color: #fff;
+  height: 50px;
+  line-height: 50px;
+}
+
+.u-ordrtInput1,
+.u-ordrtInput2,
+.u-ordrtInput3,
+.u-ordrtInput4,
+.u-ordrtInput5 {
+  padding-top: 4%;
+}
+
+/* ----- 取消 btn ----- */
+.u-Lbtn > .btn-light {
+  margin-bottom: 20px;
+  width: 150px;
+  height: 50px;
+  font-size: 18px;
+  font-family: 'Noto Sans TC', sans-serif;
+  color: #000;
+  background-color: #e8e8e8;
+  border-color: #000;
+  border-radius: 0px;
+  margin-top: 10px;
+}
+
+.u-Lbtn > .btn-light:hover,
+.u-Lbtn > .btn-light:focus,
+.u-Lbtn > .btn-light:active:hover {
+  color: #000;
+  background-color: #e8e8e8;
+  border-color: #000;
+}
+
+/* ----- 詳細資料 btn ----- */
+.u-Bbtn > .btn-dark {
+  width: 150px;
+  height: 50px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 18px;
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+  border-radius: 0px;
+  margin-bottom: 10px;
+  margin-top: 20px;
+}
+
+.u-Bbtn > .btn-dark:hover,
+.u-Bbtn > .btn-dark:focus,
+.u-Bbtn > .btn-dark:active:hover {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+
+.u-link {
+  color: #fff;
+}
+
+.u-link:hover {
+  color: #fff;
+}
+/*# sourceMappingURL=OrderPro.css.map */

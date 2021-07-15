@@ -1,0 +1,49 @@
+.u-Line {
+  border-top: 2px solid #000;
+}
+
+.u-couponbox {
+  margin-top: 30px;
+  margin-bottom: 50%;
+  width: 475px;
+  height: 170px;
+  border: 2px solid #000;
+  border-left: 25px solid #000;
+}
+
+.u-couponTitle > p {
+  font-family: NotoSansTC-Medium;
+  font-size: 24px;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+.u-couponDate, .u-couponText {
+  margin-left: 20px;
+  margin-top: 10px;
+  font-family: NotoSansTC-Medium;
+  font-size: 16px;
+}
+
+.u-SNnumbox > p[type="copy"] {
+  width: 150px;
+  height: 50px;
+  border: 2px solid #000;
+  margin-top: 30px;
+  background-color: #e8e8e8;
+  text-align: center;
+  line-height: 45px;
+  font-size: 20px;
+}
+
+.u-cobyBtn > button {
+  width: 150px;
+  height: 50px;
+  border: 2px solid #000;
+  margin-top: 10px;
+  background-color: #000;
+  color: #fff;
+  font-family: NotoSansTC-Medium;
+  font-size: 16px;
+}
+/*# sourceMappingURL=Coupon.css.map */

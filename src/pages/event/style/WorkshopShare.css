@@ -1,0 +1,96 @@
+.reduce-width {
+  width: calc(100% - 70px);
+}
+
+.left-padding {
+  padding-left: 70px;
+}
+
+.both-padding {
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+.e-share {
+  background-color: #E8E8E8;
+}
+
+.es-bread {
+  border-top: 2px solid black;
+}
+
+.es-pic-up h5 {
+  font-weight: normal;
+  font-size: 1.3rem;
+}
+
+.es-pic-up h2 {
+  font-weight: 500;
+  font-size: 1.9rem;
+}
+
+.es-work-title {
+  font-size: 1.3rem;
+}
+
+.es-pic-left div {
+  background-color: white;
+  border: 2px solid #707070;
+}
+
+.es-pic-left div img {
+  width: 100%;
+}
+
+.es-pic-right div div {
+  background-color: white;
+  border: 2px solid #707070;
+}
+
+.es-pic-right div div img {
+  width: 100%;
+}
+
+.es-more-event {
+  background-color: white;
+}
+
+.es-more-event h2 {
+  font-weight: bold;
+  font-size: 1.9rem;
+  letter-spacing: 4px;
+}
+
+.es-more-event h2 span {
+  font-size: 2.2rem;
+  color: #1D0AFF;
+  letter-spacing: 0px;
+}
+
+.es-text {
+  font-size: 1rem;
+  color: #707070;
+}
+
+.es-list-card {
+  border-top: 1px solid black;
+}
+
+.es-list-card img {
+  border: 2px solid #707070;
+}
+
+.es-list-card h6 {
+  color: black;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.es-list-card p {
+  font-size: 1rem;
+  font-weight: normal;
+  color: #535353;
+  line-height: 1.2rem;
+  letter-spacing: 2px;
+}
+/*# sourceMappingURL=WorkshopShare.css.map */

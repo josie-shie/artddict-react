@@ -1,0 +1,65 @@
+.uAuc-main {
+  margin: 50px 0 0 0;
+  border: 2px solid #000;
+  border-top: 25px solid #000;
+  height: 260px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.uAuc-picture {
+  width: 175px;
+  height: 175px;
+  margin: 25px 0 0 25px;
+  border: 1px solid #000;
+}
+
+.uAuc-productState {
+  margin: 0 0 0 25px;
+  -webkit-box-flex: 2;
+      -ms-flex-positive: 2;
+          flex-grow: 2;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.uAuc-productState li {
+  margin: 10px 0 0 0;
+}
+
+.uAuc-btnf {
+  font-family: 'NotoSansTC-Medium';
+  margin: 0 50px 0 0;
+  line-height: 45px;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.uAuc-btn {
+  width: 150px;
+  height: 50px;
+  background-color: #000;
+  color: #fff;
+  border: 0px;
+}
+/*# sourceMappingURL=userAuction.css.map */

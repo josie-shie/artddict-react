@@ -1,0 +1,154 @@
+.reduce-width {
+  width: calc(100% - 70px);
+}
+
+.left-padding {
+  padding-left: 70px;
+}
+
+.both-padding {
+  padding-left: 70px;
+  padding-right: 70px;
+}
+
+.ed-hero {
+  background-color: black;
+}
+
+.e-detail-title {
+  font-size: 2.5rem;
+  color: #81FC4D;
+  border: 2px solid white;
+  border-left: 0px;
+  border-right: 0px;
+}
+
+.e-detail-class {
+  background: black;
+  color: white;
+  font-size: 1.5rem;
+  letter-spacing: 1rem;
+  text-align: center;
+  border-right: 2px solid white;
+  border-top: 2px solid white;
+  border-bottom: 2px solid white;
+}
+
+.ed-type > button:hover {
+  background-color: white;
+  color: black;
+}
+
+.ed-list {
+  background-color: #E8E8E8;
+}
+
+.ed-filter {
+  border-bottom: 2px solid black;
+}
+
+.ed-select-box {
+  height: 52px;
+  font-size: 1rem;
+  font-weight: normal;
+  border: 2px solid black;
+}
+
+.ed-select-box h6 {
+  padding-top: 11px;
+  border-right: 2px solid black;
+}
+
+.ed-select-box select {
+  padding-bottom: 2px;
+}
+
+.ed-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("../images/select-arrow.svg");
+  background-repeat: no-repeat;
+  background-position-x: 90%;
+  background-position-y: 50%;
+  border: 0px;
+}
+
+.ed-select-date {
+  background: transparent;
+  border: 0px;
+}
+
+.ed-list-btn {
+  cursor: pointer;
+  text-align: center;
+  height: 52px;
+  border: 2px solid black;
+  background-color: black;
+  color: white;
+  font-size: 1.5rem;
+  padding-top: 6px;
+}
+
+.ed-list-btn2 {
+  background-color: transparent;
+  border: 0px;
+  color: black;
+  font-size: 2rem;
+}
+
+.ed-list-card > img {
+  border: 2px solid #707070;
+}
+
+.ed-list-card h6 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: black;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.ed-list-card p {
+  font-size: 1rem;
+  font-weight: normal;
+  color: #535353;
+  line-height: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.ed-list-card span {
+  font-size: 1rem;
+  font-weight: normal;
+  color: #535353;
+  line-height: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.ed-list-card button {
+  font-size: .8rem;
+  height: 100%;
+  border: 0px;
+  background-color: #A7A7A7;
+  color: white;
+}
+
+.ed-list-card button:hover {
+  background-color: #1D0AFF;
+  color: #81FC4D;
+}
+
+.ed-list-card button[className="col-8"]:hover {
+  background-color: #1D0AFF;
+  color: white;
+}
+
+.ed-pagenum {
+  color: #8F9CA2;
+}
+
+.ed-pagenum:hover {
+  color: #8F9CA2;
+}
+/*# sourceMappingURL=eventList.css.map */

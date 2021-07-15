@@ -1,0 +1,719 @@
+@charset "UTF-8";
+@font-face {
+  font-family: Engravers;
+  src: url(../../style/font/ENGR.ttf);
+}
+
+@font-face {
+  font-family: EngraversBlod;
+  src: url(../../style/font/EngraversMTBold.ttf);
+}
+
+@font-face {
+  font-family: notoSansTC-md;
+  src: url(../../style/font/NotoSansTC-Medium.otf);
+}
+
+.notoSansTC-md {
+  font-family: notoSansTC-md;
+}
+
+.engravers {
+  font-family: Engravers;
+}
+
+/* body {
+        width: 100%;
+    } */
+.index-web-padding {
+  padding-right: 70px;
+}
+
+.video-area {
+  position: relative;
+}
+
+.index-video {
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 70px);
+  /* height: calc(100% - 130px); */
+  -o-object-fit: cover;
+  object-fit: cover;
+  -o-object-position: center;
+  object-position: center;
+}
+
+div.slogan {
+  padding-top: 70px;
+  font-family: Engravers;
+  height: 100vh;
+  letter-spacing: 2px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #81FC4D;
+}
+
+.slogan h1 {
+  font-size: 3vw;
+}
+
+.slogan h5 {
+  font-size: 1.5vw;
+}
+
+.start-scroll {
+  color: #81FC4D;
+}
+
+.vertical-line {
+  text-align: center;
+  font-size: 3vw;
+}
+
+.start-scroll p {
+  font-family: Engravers;
+}
+
+.rect {
+  width: 100%;
+  height: 70px;
+  background: #000;
+}
+
+.rect-first {
+  position: absolute;
+  top: 0;
+}
+
+.rect-last {
+  position: absolute;
+  bottom: 0;
+}
+
+/*FIXME:*/
+.index-logo {
+  width: 40%;
+  position: absolute;
+  top: 6vh;
+  left: 2vh;
+}
+
+/* ----------news區域 -----------*/
+.news-area {
+  width: calc(100% - 55px);
+  /*TODO:為何不能用70?*/
+}
+
+.news-slogen {
+  height: 100vh;
+  position: relative;
+  background-color: #E8E8E8;
+  z-index: 0;
+}
+
+.news-slogen h1 {
+  font-family: Engravers;
+  font-size: 3vw;
+}
+
+.news-hl {
+  position: absolute;
+  z-index: -1;
+  /*TODO: Zindex not working*/
+  top: 43%;
+  left: 35%;
+  width: 30%;
+  height: 5%;
+  -webkit-transform: rotate(1deg);
+          transform: rotate(1deg);
+  -webkit-transform-origin: 0 -10;
+          transform-origin: 0 -10;
+  background-color: #81FC4D;
+}
+
+.news-slogen-TC {
+  font-size: 3vw;
+  font-weight: bolder;
+  color: transparent;
+  -webkit-text-stroke: 1px black;
+}
+
+.news-cards {
+  height: 100%;
+  /* how to get window hight */
+  overflow: scroll;
+}
+
+/*FIXME:*/
+.news {
+  position: relative;
+}
+
+div.news img {
+  width: 100%;
+  height: 100%;
+}
+
+.index-img-title {
+  display: none;
+  text-align: center;
+  background-color: #000;
+  color: #81FC4D;
+  font-size: 1.7vw;
+  font-weight: bold;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+div.news:hover img {
+  -webkit-filter: brightness(0.5);
+}
+
+div.news:hover div {
+  display: block;
+}
+
+/* ----------waterfall區域 -----------*/
+.artist-area {
+  background-color: #000;
+}
+
+.artist-slogan {
+  font-family: Engravers;
+  color: #81FC4D;
+  font-size: 4vw;
+  padding-top: 50px;
+  margin-left: 35px;
+}
+
+.artist-slogan strong {
+  line-height: 100px;
+}
+
+.artist-title-tc {
+  margin-top: 30px;
+  font-size: 1.5vw;
+}
+
+.artist-title-tc span {
+  font-size: 1.5vw;
+  padding-left: 9em;
+  font-family: notoSansTC-md;
+  color: #81FC4D;
+  position: relative;
+}
+
+.artist-title-tc span:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  background: #81FC4D;
+  width: calc(100% - 7.5em);
+  height: 2px;
+  right: calc(100% - 8.5em);
+}
+
+.waterfall {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -webkit-column-gap: 20px;
+          column-gap: 20px;
+}
+
+.item {
+  width: 100%;
+  /* height:280px; */
+  -webkit-column-break-inside: avoid;
+          break-inside: avoid;
+  overflow: hidden;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.item {
+  position: relative;
+}
+
+.item img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.item h1 {
+  display: none;
+  font-family: EngraversBold;
+  text-align: center;
+  background-color: #1D0AFF;
+  color: #E8E8E8;
+  line-height: 25px;
+  font-size: 1.5vw;
+  font-weight: bold;
+  position: absolute;
+  top: 0%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.item:hover img:hover {
+  -webkit-filter: brightness(0.5);
+}
+
+.item:hover h1 {
+  display: block;
+  top: 50%;
+  -webkit-transition: easing;
+  transition: easing;
+}
+
+/* ----------event區域 -----------*/
+.event-area {
+  position: relative;
+  background-color: #E8E8E8;
+  z-index: 0;
+}
+
+.event-img {
+  width: 100%;
+  height: 50vh;
+  position: relative;
+  z-index: 0;
+}
+
+.event-img .marquee1 {
+  position: absolute;
+  top: 20%;
+  z-index: -1;
+}
+
+.event-img .marquee1 img {
+  width: 35%;
+}
+
+.event-img .marquee2 {
+  position: absolute;
+  top: 60%;
+  z-index: 0;
+}
+
+.event-img .marquee2 img {
+  width: 35%;
+}
+
+.event-img .marquee3 {
+  position: absolute;
+  top: 100%;
+  z-index: -1;
+}
+
+.event-img .marquee3 img {
+  width: 35%;
+}
+
+.event-img img {
+  margin-right: 50vh;
+}
+
+.event-slogan {
+  padding-top: 40vh;
+}
+
+.event-slogan button {
+  background: #000;
+  color: #E8E8E8;
+  border: none;
+}
+
+.event-slogan button:hover {
+  background: #1D0AFF;
+  color: #E8E8E8;
+  border: none;
+}
+
+.event-slogan h1 {
+  font-family: Engravers;
+  font-size: 6vw;
+  line-height: 100px;
+}
+
+.eventicon {
+  width: 100%;
+  height: 100%;
+}
+
+.eventicon .event-eye {
+  width: 70%;
+  position: relative;
+}
+
+.eventicon .event-eye2 {
+  width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.eventicon h1 {
+  font-family: Engravers;
+  color: #1D0AFF;
+  text-align: center;
+  font-size: 4vw;
+  line-height: 40px;
+  display: none;
+  width: 40%;
+  position: absolute;
+  top: 50%;
+  left: 45%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.eventicon:hover .event-eye2 {
+  display: none;
+}
+
+.eventicon:hover h1 {
+  display: block;
+}
+
+.event-title-tc {
+  font-size: 1.5vw;
+}
+
+.event-title-tc span {
+  font-size: 1.5vw;
+  padding-left: 9em;
+  font-family: notoSansTC-md;
+  color: #000;
+  position: relative;
+}
+
+.event-title-tc span:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  background: #000;
+  width: calc(100% - 4em);
+  height: 2px;
+  right: calc(100% - 8.5em);
+}
+
+.event-marquee {
+  border-top: 4px solid #000;
+  border-bottom: 4px solid #000;
+}
+
+.event-marquee h1 {
+  letter-spacing: 4px;
+  font-size: 3vw;
+  font-family: notoSansTC-md;
+}
+
+/* ----------product區域 -----------*/
+.product-area {
+  background-color: #E8E8E8;
+  padding-top: 100px;
+}
+
+.product-area a {
+  color: #000;
+}
+
+.product-cute {
+  margin: 0 auto;
+  width: 1174px;
+  position: relative;
+}
+
+.index-cirbl {
+  position: absolute;
+  top: -10%;
+  right: 28%;
+}
+
+.index-box {
+  padding-left: 50px;
+}
+
+.index-tage {
+  position: absolute;
+  top: 30%;
+  right: 16%;
+}
+
+.index-eye {
+  position: absolute;
+  top: -3%;
+  right: 30%;
+}
+
+.index-eye2 {
+  position: absolute;
+  top: -3%;
+  right: 33.5%;
+}
+
+.cute-slogan {
+  position: absolute;
+  z-index: 1000;
+  top: -5%;
+  left: 25%;
+  font-family: Engravers;
+  font-size: 2.5vw;
+}
+
+.cute-slogan span {
+  font-family: Engravers;
+  font-size: 3vw;
+}
+
+.product-hl {
+  position: absolute;
+  top: 12%;
+  left: 24%;
+  width: 28%;
+  height: 15%;
+  -webkit-transform: rotate(1deg);
+          transform: rotate(1deg);
+  -webkit-transform-origin: 0 -10;
+          transform-origin: 0 -10;
+  background-color: #81FC4D;
+}
+
+.product-slogan {
+  position: relative;
+}
+
+.product-title-tc {
+  position: absolute;
+  top: 20%;
+  left: 30%;
+  font-size: 1.5vw;
+}
+
+.product-title-tc span {
+  font-size: 1.5vw;
+  padding-left: 9em;
+  font-family: notoSansTC-md;
+  color: #000;
+  position: relative;
+}
+
+.product-title-tc span:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  background: #000;
+  width: calc(100% - 5em);
+  height: 2px;
+  right: calc(100% - 8.5em);
+}
+
+.product-slogan h1 {
+  font-family: Engravers;
+  font-size: 5vw;
+}
+
+.product-marquee {
+  width: 10vh;
+  color: #000;
+}
+
+/* ----------product 卡片區 -----------*/
+.index-card-rect {
+  width: 100%;
+  height: 50px;
+  background: #000;
+  -webkit-transform: translateY(-0.5em);
+  transform: translateY(-0.5em);
+}
+
+.index-card-rect div {
+  color: #81FC4D;
+  margin: auto;
+  font-family: notoSansTC-md;
+  letter-spacing: 3px;
+}
+
+.product-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card img {
+  width: 100%;
+}
+
+.product-card-wrap {
+  margin-bottom: 100px;
+}
+
+.indexACC {
+  font-family: Engravers;
+  font-size: 4vw;
+  text-align: center;
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+}
+
+.product-card-wrap img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.index-card-btn {
+  text-align: center;
+  border: 1px solid #000;
+  margin: auto;
+}
+
+.index-card-btn:hover {
+  background-color: #000;
+  color: #E8E8E8;
+}
+
+/* .product-rect{
+        width: calc(100% - 30px);
+        height: 3vh;
+        position:absolute;
+        left: 0;
+        bottom: 0;
+        background: #000;
+    } */
+/* ----------競標區 -----------*/
+.auction-area {
+  position: relative;
+}
+
+.aucline {
+  border-top: 3px solid #000;
+}
+
+.aucline1 {
+  border-left: 3px solid #000;
+}
+
+.aucline2 {
+  border-right: 3px solid #000;
+}
+
+.auctime {
+  width: 15%;
+  position: absolute;
+  top: 5%;
+  left: 35%;
+}
+
+.auction-slogan {
+  font-family: Engravers;
+  font-size: 5vw;
+}
+
+.auction-area button {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-family: notoSansTC-md;
+  font-weight: 900;
+  background: #000;
+  color: #81FC4D;
+  border: 1px solid #E8E8E8;
+  font-size: 1rem;
+}
+
+.auction-title-tc {
+  font-size: 1.5rem;
+}
+
+.auction-title-tc span {
+  font-size: 1.5rem;
+  padding-left: 9em;
+  font-family: notoSansTC-md;
+  color: #000;
+  position: relative;
+}
+
+.auction-title-tc span:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  background: #000;
+  width: calc(100% - 5em);
+  height: 2px;
+  right: calc(100% - 8.5em);
+}
+
+.auction-card-wrap {
+  margin-top: 50px;
+}
+
+.auction-card {
+  overflow: hidden;
+}
+
+.auction-card img {
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* ----------Ending -----------*/
+.index-ending {
+  padding-top: 200px;
+  background-color: #E8E8E8;
+}
+
+.index-ending div {
+  position: relative;
+  margin: auto;
+}
+
+.index-ending h1 {
+  font-family: Engravers;
+  line-height: 60px;
+  text-align: center;
+  color: #fff;
+  font-size: 3vw;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.index-ending span {
+  -webkit-text-decoration: underline 2px;
+          text-decoration: underline 2px;
+}
+
+@media screen and (max-width: 576px) {
+  .index-web-padding {
+    padding-right: 0px;
+  }
+}
+/*# sourceMappingURL=index.css.map */

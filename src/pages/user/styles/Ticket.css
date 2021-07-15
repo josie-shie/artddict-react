@@ -1,0 +1,99 @@
+.u-ticbox {
+  width: 100%;
+  height: 260px;
+  border: 2px solid #000;
+  border-top: 25px solid #000;
+  margin-top: 50px;
+  padding-bottom: 30px;
+  position: relative;
+}
+
+.u-userEve, .u-userWshop {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 22vw;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+}
+
+.u-userEve {
+  background-color: #000;
+}
+
+.u-userWshop > a {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 2rem;
+  color: #000;
+  text-decoration: none;
+  letter-spacing: 0.3rem;
+}
+
+.u-userEve {
+  background-color: #000;
+}
+
+.u-userEve > a {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.3rem;
+}
+
+.u-ticImg {
+  width: 360px;
+  height: 175px;
+  border: 1px solid #000;
+  margin-top: 25px;
+  margin-left: 25px;
+}
+
+.u-ticMsg {
+  margin-top: 25px;
+  margin-left: 25px;
+  font-family: NotoSansTC-Medium;
+  font-size: 16px;
+}
+
+.u-Eve2, .u-Eve3, .u-Eve4, .u-Eve5 {
+  margin-top: 12px;
+}
+
+.u-ticBtn {
+  font-family: NotoSansTC-Medium;
+  font-size: 18px;
+  margin-top: 25px;
+  line-height: 45px;
+  text-align: center;
+}
+
+.u-BtnLight {
+  width: 150px;
+  height: 50px;
+  border: 2px solid #000;
+  position: absolute;
+  top: 55px;
+  right: 50px;
+}
+
+.u-BtnBlack > .u-ticdetail {
+  width: 150px;
+  height: 50px;
+  background-color: #000;
+  color: #fff;
+  position: absolute;
+  top: 135px;
+  right: 50px;
+  font-size: 18px;
+  border-radius: 0px;
+}
+
+.u-link2 {
+  color: #000;
+}
+
+.u-link2:hover {
+  color: #000;
+}
+/*# sourceMappingURL=Ticket.css.map */

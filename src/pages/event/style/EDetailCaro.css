@@ -1,0 +1,21 @@
+.e-detail-caro {
+  border: 4px solid white;
+}
+
+.e-caro-ctr-l {
+  cursor: pointer;
+  padding: 5px;
+  top: 50%;
+  left: 12%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.e-caro-ctr-r {
+  cursor: pointer;
+  top: 50%;
+  left: 88%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+/*# sourceMappingURL=EDetailCaro.css.map */

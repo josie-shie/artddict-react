@@ -1,0 +1,41 @@
+.cn-font {
+  font-family: 'Noto Sans TC', sans-serif;
+  letter-spacing: 1px;
+}
+
+@font-face {
+  font-family: Engravers-Normal;
+  src: url(./font/Engravers_MT/EngraversMT.ttf);
+}
+
+@font-face {
+  font-family: Engravers-Bold;
+  src: url(./font/Engravers_MT/EngraversMTBold.ttf);
+}
+
+.eng-font-regular {
+  font-family: Engravers-Normal;
+}
+
+.eng-font-bold {
+  font-family: Engravers-Bold;
+}
+
+.e-btn-s {
+  background-color: transparent;
+  width: 93px;
+  height: 38px;
+}
+
+.e-btn-m {
+  background-color: transparent;
+  width: 150px;
+  height: 50px;
+}
+
+.e-btn-l {
+  background-color: transparent;
+  width: 200px;
+  height: 52px;
+}
+/*# sourceMappingURL=fontAndBtn.css.map */

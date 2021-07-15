@@ -1,0 +1,101 @@
+.c-bg2 {
+  font-family: 'Noto Sans TC Medium', sans-serif;
+  width: 100%;
+  height: 100%;
+  background-color: #e8e8e8;
+}
+
+.c-thank {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.c-shipment3 {
+  padding-bottom: 3px;
+  border-bottom: 2px solid black;
+}
+
+.c-payment3 {
+  padding-bottom: 3px;
+  border-bottom: 2px solid black;
+}
+
+.c-complete3 {
+  padding-bottom: 3px;
+  border-bottom: 3px solid #81fc4d;
+}
+
+.c-order {
+  width: 100%;
+  border: 2px solid #707070;
+}
+
+.c-order th {
+  background-color: #707070;
+  color: white;
+}
+
+.c-order th,
+.c-order td {
+  padding: 16px 30px;
+}
+
+.c-td-dark {
+  background-color: #c7c7c7;
+}
+
+.c-td-p1 {
+  border: 2px solid #b9b9b9;
+  padding: 16px 20px;
+}
+
+.c-td-p1 img {
+  width: 50px;
+  height: 50px;
+}
+
+.c-fgray {
+  color: #707070;
+}
+
+.c-finish-bottom {
+  padding: 60px 0;
+  text-align: center;
+}
+
+.c-finbtn {
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  background-color: black;
+}
+
+.c-finbtn p {
+  color: white;
+  letter-spacing: 0.3rem;
+  text-align: center;
+  line-height: 50px;
+}
+
+.c-finbtn1 {
+  display: inline-block;
+  width: 150px;
+  height: 50px;
+  border: 2px solid black;
+}
+
+.c-finbtn1 p {
+  color: black;
+  letter-spacing: 0.3rem;
+  text-align: center;
+  line-height: 46px;
+}
+
+.c-finbtn1:hover {
+  background-color: black;
+}
+
+.c-finbtn1:hover p {
+  color: white;
+}
+/*# sourceMappingURL=cart-finish.css.map */

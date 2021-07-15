@@ -1,0 +1,50 @@
+@charset "UTF-8";
+/* =====btn 自訂顏色===== */
+.u-btn-outline-dark {
+  margin-left: 190px;
+  width: 130px;
+  height: 50px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 20px;
+  color: #000;
+  background-color: #e8e8e8;
+  border-color: #000;
+}
+
+.u-btn-outline-dark:hover,
+.u-btn-outline-dark:focus,
+.u-btn-outline-dark:active:hover {
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
+}
+
+.u-usertitleLeft, .u-usertitleRight {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 22vw;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+}
+
+.u-usertitleRight {
+  background-color: #000;
+}
+
+.u-usertitleRight > a {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 2rem;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 0.3rem;
+}
+
+.u-usertitleLeft > a {
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 2rem;
+  color: #000;
+  text-decoration: none;
+  letter-spacing: 0.3rem;
+}
+/*# sourceMappingURL=PwdEdit.css.map */
