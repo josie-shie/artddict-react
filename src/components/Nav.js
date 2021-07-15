@@ -14,7 +14,8 @@ import $ from 'jquery'
 import '../style/Nav.scss'
 import '../bootstrap/css/bootstrap.css'
 
-const Nav = () => {
+const Nav = (props) => {
+  console.log( 'nav',props)
   const burgerRef = useRef()
   const circleRef = useRef()
   const xRef = useRef()
@@ -61,7 +62,9 @@ const Nav = () => {
     $(xRef.current).css('top', '20px')
     $(zRef.current).css('top', '20px')
     $('.menu li').addClass('animate')
-    $(logoRef.current).addClass('animate').removeClass('nav-none')
+    $(logoRef.current)
+      .addClass('animate')
+      .removeClass('nav-none')
 
     setTimeout(function () {
       $(yRef.current).hide()
@@ -128,9 +131,13 @@ const Nav = () => {
               <div className="mb-4">
                 <Link to="/user-login">
                   <i>
-                    <FaUserAstronaut />
+                    {/* <FaUserAstronaut /> */}
                     {/* //TODO:判斷是否登入 */}
-                    {/* {?<FiLogOut/>:<FaUserAstronaut />} */}
+                    {props.auth ? (
+                      <FiLogOut />
+                    ) : (
+                      <FaUserAstronaut />
+                    )}
                   </i>
                 </Link>
               </div>
