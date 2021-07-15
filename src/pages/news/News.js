@@ -166,7 +166,9 @@ const News = () => {
   return (
     <>
       <div className="news-content-area index-web-padding d-flex flex-column">
-        <Logo className="news-logo " />
+        <Link to="/">
+          <Logo className="news-logo " />
+        </Link>
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb mb-4">
             <li className="breadcrumb-item">
@@ -284,9 +286,9 @@ const News = () => {
                 <h2>Can't wait?</h2>
                 <h1>leave Your Mail Now!</h1>
                 <h5>
-                  留下你的郵件，預約下個月的 | 藝術TALK TO
-                  TALK |<br />
-                  也歡迎留言告訴我們想與大師有什麼互動！
+                  留下你的郵件，展覽日期確認後立刻通知您！
+                  <br />
+                  對於展覽有更好的靈感？也歡迎留言告訴我們！
                 </h5>
                 <form className="mt-5" action="">
                   <input

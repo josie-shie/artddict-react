@@ -1,7 +1,3 @@
-//TODO:rolling icon
-//TODO:flying event img
-//TODO:hero sectionu 應該要flex
-//TODO:Ending door
 import React, { useRef, useEffect } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../pics/logo.svg'
@@ -125,7 +121,9 @@ const Index = () => {
             </div>
           </div>
           <div className="news col-6 px-0">
-            <img src={imgDance} alt="" />
+            <Link to="/news">
+              <img src={imgDance} alt="" />
+            </Link>
             <div className="index-img-title">
               <h1>
                 在她的歌裡，誰都 能跳舞，來自邊緣 的連結者。
@@ -133,7 +131,9 @@ const Index = () => {
             </div>
           </div>
           <div className="news col-6 px-0">
-            <img src={imgGoldpin} alt="" />
+            <Link to="/news">
+              <img src={imgGoldpin} alt="" />
+            </Link>
             <div className="index-img-title">
               <h1>
                 金點設計
@@ -147,7 +147,9 @@ const Index = () => {
             </div>
           </div>
           <div className="news col-6 px-0">
-            <img src={imgHeart} alt="" />
+            <Link to="/news">
+              <img src={imgHeart} alt="" />
+            </Link>
             <div className="index-img-title">
               <h1>
                 新視覺藝術！
@@ -159,7 +161,9 @@ const Index = () => {
             </div>
           </div>
           <div className="news col-6 px-0">
-            <img src={imgHk} alt="" />
+            <Link to="/news">
+              <img src={imgHk} alt="" />
+            </Link>
             <div className="index-img-title">
               <h1>
                 《理大圍城》： <br />
@@ -169,7 +173,9 @@ const Index = () => {
             </div>
           </div>
           <div className="news col-6 px-0">
-            <img src={imglipstick} alt="" />
+            <Link to="/news">
+              <img src={imglipstick} alt="" />
+            </Link>
             <div className="index-img-title">
               <h1>
                 渡邊直美再造！ 另人食慾變好的 化妝品行銷
@@ -193,27 +199,27 @@ const Index = () => {
         </StickyBox>
         <div className="waterfall ml-auto col-7 pl-0 pb-5">
           <Link to="/artist" className="item">
-            <img src={artist1} />
+            <img src={artist1} alt="" />
             <h1>kATZU DORA</h1>
           </Link>
           <Link to="/artist" className="item">
-            <img src={artist2} />
+            <img src={artist2} alt="" />
             <h1>TAKASHI</h1>
           </Link>
           <Link to="/artist" className="item">
-            <img src={artist3} />
+            <img src={artist3} valt="" />
             <h1>MARIMEKKO</h1>
           </Link>
           <Link to="/artist" className="item">
-            <img src={artist4} />
+            <img src={artist4} alt="" />
             <h1>MERRIDO</h1>
           </Link>
           <Link to="/artist" className="item">
-            <img src={artist5} />
+            <img src={artist5} alt="" />
             <h1>LUES COOPER</h1>
           </Link>
           <Link to="/artist" className="item">
-            <img src={artist6} />
+            <img src={artist6} alt="" />
             <h1>MR DOODEL</h1>
           </Link>
         </div>
