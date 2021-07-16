@@ -17,6 +17,8 @@ import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import Slider from 'react-slick'
 import ReactStars from 'react-rating-stars-component'
+import swal from 'sweetalert'
+import DelayLink from 'react-delay-link'
 
 // -----------svg---------
 import {
@@ -43,7 +45,6 @@ function ProductDetail(props) {
   const [open2, setOpen2] = useState(false)
   const [open3, setOpen3] = useState(false)
   const [open4, setOpen4] = useState(false)
-  const [products, setProducts] = useState([])
   const [proId, setProId] = useState('1')
   const [proName, setProName] = useState('')
   const [proPrice, setProPrice] = useState('')
@@ -62,6 +63,9 @@ function ProductDetail(props) {
   const [commentsNum, setCommentsNum] = useState('')
   const [starsAverage, setStarsAverage] = useState('')
   const [tryyy, setTryyy] = useState(false)
+  const [sendBox, setSendBox] = useState(false)
+  const [recomments, setRecomments] = useState(false)
+
   const fadeAnimationHandler: AnimationHandler = (
     props,
     state
@@ -201,6 +205,16 @@ function ProductDetail(props) {
     const data = await response.json()
     const id = props.match.params.id
     console.log('伺服器回傳的json資料', data)
+
+    setTimeout(() => {
+      setSendBox(false)
+      swal({
+        text: '留言成功',
+        icon: 'success',
+        button: false,
+        timer: 3000,
+      })
+    }, 500)
     setTimeout(() => {
       props.history.push(
         `/product/product-list/product-detail/${id}`
@@ -209,13 +223,14 @@ function ProductDetail(props) {
 
     setProNum(id)
   }
-  // useEffect(() => {
-  //   console.log('proIDDDD', { proId })
-  // }, [proId])
 
-  // useEffect(() => {
-  //   addcommentsSever()
-  // }, [])
+  //----------送出留言重新撈資料
+  useEffect(() => {
+    setRecomments(false)
+    getCommentsServer()
+  }, [recomments])
+
+  //--------------數量限制
   useEffect(() => {
     if (qty < 1) {
       setQty(1)
@@ -289,6 +304,10 @@ function ProductDetail(props) {
   useEffect(() => {
     getstarSumServer()
   }, [starsAverage])
+
+  // useEffect(() => {
+  //   getstarSumServer()
+  // }, [recomments])
 
   function reactStars() {
     return (
@@ -816,17 +835,25 @@ function ProductDetail(props) {
                           setComments(e.target.value)
                         }}
                       ></textarea>
+                      {/* <DelayLink
+                        delay={1000}
+                        to="/"
+                        replace={false}
+                      > */}
                       <button
                         className="ed-leave-msg e-btn-m col-l2 mt-3"
                         type="button"
-                        onClick={() => {
+                        onClick={(e) => {
+                          e.preventDefault()
                           addcommentsSever()
+                          setRecomments(true)
                         }}
                       >
                         <p className="proDe-lastWord2">
                           送出評論
                         </p>
                       </button>
+                      {/* </DelayLink> */}
                     </form>
                   </div>
                 </Collapse>
