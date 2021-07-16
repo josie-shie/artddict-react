@@ -5,6 +5,8 @@ import { withRouter, Link, NavLink } from 'react-router-dom'
 import { Button, Container } from 'react-bootstrap'
 import './styles/Ticket.scss'
 import TicketDetail from './TicketDetail'
+import { Modal } from 'react-bootstrap'
+import QRcode from './img/QRcode.png'
 // SweetAlert
 import swal from 'sweetalert'
 
@@ -12,6 +14,10 @@ function Ticket(props) {
   const [modalShow, setModalShow] = React.useState(false)
   const userid = props.match.params.userid
   const [tickets, setTickets] = useState([])
+
+  const id = props.match.params.id
+  const [eventName, setEventName] = useState('')
+  const [orderSpec, setOrderSpec] = useState('')
 
   async function getUserTicket() {
     const url = `http://localhost:6005/users/getTicket/${userid}`
@@ -31,6 +37,27 @@ function Ticket(props) {
 
   useEffect(() => {
     getUserTicket()
+  }, [])
+
+  async function getUserTicketDetail() {
+    const url = `http://localhost:6005/users/getTicketDetail/${id}`
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+    console.log('url = ', url)
+    console.log('id = ', id)
+    const response = await fetch(request)
+    const data = await response.json()
+    setEventName(data.eventName)
+    setOrderSpec(data.orderSpec)
+  }
+
+  useEffect(() => {
+    getUserTicketDetail()
   }, [])
 
   async function logoutToSever() {
@@ -137,6 +164,46 @@ function Ticket(props) {
                   />
                 </div>
               </div>
+
+              <Modal
+                {...props}
+                size="md"
+                aria-labelledby="contained-modal-title-vcenter"
+                centered
+                id="userModal"
+              >
+                <Modal.Header closeButton>
+                  <Modal.Title>票卷細節</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                  <div className="u-tic1 d-flex">
+                    <div className="u-modal-body">
+                      活動名稱：
+                    </div>
+                    <div>{eventName}</div>
+                  </div>
+                  <div className="u-tic2 d-flex">
+                    <div className="col-4">
+                      <div className="ml-5">
+                        {orderSpec}
+                      </div>
+                    </div>
+                    <div className="col">
+                      <div className="u-QRcode">
+                        <img src={QRcode} alt="QRcode" />
+                      </div>
+                    </div>
+                  </div>
+                </Modal.Body>
+                <Modal.Footer>
+                  {/* <Button
+          onClick={props.onHide}
+          variant="outline-dark"
+        >
+          Close
+        </Button> */}
+                </Modal.Footer>
+              </Modal>
             </div>
           )
         })
