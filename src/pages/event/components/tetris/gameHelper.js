@@ -5,7 +5,7 @@ export const createStage = () =>
   Array.from(Array(STAGE_HEIGHT), () =>
     Array(STAGE_WIDTH).fill([0, 'clear'])
   )
-  
+
 export const checkCollision = (
   player,
   stage,
