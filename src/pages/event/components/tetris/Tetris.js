@@ -1,4 +1,4 @@
-import { React, useState, useEffect, useRef } from 'react'
+import { React, useState } from 'react'
 
 import { createStage, checkCollision } from './gameHelper'
 
@@ -77,6 +77,7 @@ const Tetris = () => {
     } else {
       // Game over!
       if (player.pos.y < 1) {
+        console.log('GAME OVER!!!')
         setGameOver(true)
         setDropTime(null)
       }
@@ -99,7 +100,7 @@ const Tetris = () => {
 
   const move = ({ keyCode }) => {
     if (!gameOver) {
-      if (keyCode ===   65) {
+      if (keyCode === 65) {
         movePlayer(-1)
       } else if (keyCode === 68) {
         movePlayer(1)
@@ -122,11 +123,11 @@ const Tetris = () => {
         <Stage stage={stage} />
         <aside>
           {gameOver ? (
-            <Display gameOver={gameOver} text="領取優惠券" />
+            <Display gameOver={gameOver} text="Game Over" />
           ) : (
             <div>
               <Display text={`Score: ${score}`} />
-              <Display text={`Rows: ${rows}`} />
+              <Display text={`rows: ${rows}`} />
               <Display text={`Level: ${level}`} />
             </div>
           )}
