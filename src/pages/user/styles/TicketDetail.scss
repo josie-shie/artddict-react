@@ -19,3 +19,24 @@
 .u-QRcode > img {
     width: 100%;
 }
+
+
+#useModal {
+    .modal-content{
+        border-radius: 0px;
+        padding: 1.2rem 1.8rem;
+        box-shadow: -10px -10px 0px black ;
+    }
+    .modal-title {
+        font-size: 1.3rem;
+    }
+    .modal-content {
+        padding: 1.2rem 1.8rem;
+    }
+    .modal-header {
+        border-bottom: 2px solid black;
+    }
+    .modal-footer {
+        border: 0px;
+    }
+}

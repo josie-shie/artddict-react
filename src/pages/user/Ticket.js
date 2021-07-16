@@ -1,7 +1,6 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
-// import Menu from './components/Menu'
 import { withRouter, Link, NavLink } from 'react-router-dom'
 import { Button, Container } from 'react-bootstrap'
 import './styles/Ticket.scss'
@@ -10,8 +9,29 @@ import TicketDetail from './TicketDetail'
 import swal from 'sweetalert'
 
 function Ticket(props) {
-  const userid = props.match.params.userid
   const [modalShow, setModalShow] = React.useState(false)
+  const userid = props.match.params.userid
+  const [tickets, setTickets] = useState([])
+
+  async function getUserTicket() {
+    const url = `http://localhost:6005/users/getTicket/${userid}`
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+
+    setTickets(data)
+  }
+
+  useEffect(() => {
+    getUserTicket()
+  }, [])
 
   async function logoutToSever() {
     // 連接的伺服器資料網址
@@ -36,8 +56,97 @@ function Ticket(props) {
     })
 
     const response = await fetch(request)
-    const data = await response.json()
+    // const data = await response.json()
   }
+
+  // 轉換日期格式
+  function convert_date(date_text) {
+    // date_text
+    const myDate = new Date(date_text)
+    const date_text_new = myDate
+      .toISOString()
+      .substring(0, 10)
+    return `${date_text_new}`
+  }
+
+  const TicketDisplay =
+    tickets.length === 0
+      ? 'noneData'
+      : tickets.map((ticket) => {
+          return (
+            <div className="u-ticbox d-flex">
+              <div className="u-ticImg">
+                <img
+                  src={`http://localhost:6005/eventpic/event/${ticket.eventImg}`}
+                  alt="活動圖"
+                />
+              </div>
+              <div className="u-ticMsg">
+                <div className="u-Eve1 d-flex">
+                  <div className="u-EveId">活動編號：</div>
+                  <div className="">{ticket.eventId}</div>
+                </div>
+                <div className="u-Eve2 d-flex">
+                  <div className="u-EveName">
+                    活動名稱：
+                  </div>
+                  <div className="">{ticket.eventName}</div>
+                </div>
+                <div className="u-Eve3 d-flex">
+                  <div className="u-EveNum">票券張數：</div>
+                  <div className="">{ticket.orderQty}</div>
+                </div>
+                <div className="u-Eve4 d-flex">
+                  <div className="u-EveStart">
+                    開始日期：
+                  </div>
+                  <div className="">
+                    {convert_date(ticket.eventDateStart)}
+                  </div>
+                </div>
+                <div className="u-Eve5 d-flex">
+                  <div className="u-EveEnd">結束日期：</div>
+                  <div className="">
+                    {convert_date(ticket.eventDateEnd)}
+                  </div>
+                </div>
+              </div>
+              <div className="u-ticBtn">
+                <div className="u-BtnLight">
+                  {' '}
+                  <Link
+                    to={`/event/event-list/detail/${ticket.id}`}
+                    className="u-link2"
+                    style={{ textDecoration: 'none' }}
+                  >
+                    活動細節
+                  </Link>
+                </div>
+                <div className="u-BtnBlack">
+                  {/* <Link
+                  to="/user-ticket/detail"
+                  className="u-link3"
+                  style={{ textDecoration: 'none' }}
+                >
+                  票券細節
+                </Link> */}
+                  <Button
+                    className="u-ticdetail"
+                    variant="dark"
+                    onClick={() => setModalShow(true)}
+                  >
+                    票券細節
+                  </Button>
+                  <TicketDetail
+                    show={modalShow}
+                    onHide={() => setModalShow(false)}
+                  />
+                </div>
+              </div>
+            </div>
+          )
+        })
+
   return (
     <>
       <div className="u-body">
@@ -45,10 +154,6 @@ function Ticket(props) {
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
-        {/* <div className="u-userMenu d-none d-lg-block d-xl-block">
-          <Menu />
-        </div> */}
-
         <div className="tab-bar">
           <NavLink
             activeClassName="activenav"
@@ -124,63 +229,8 @@ function Ticket(props) {
               </Link>
             </div>
           </div>
-          <div className="u-ticbox d-flex">
-            <div className="u-ticImg"></div>
-            <div className="u-ticMsg">
-              <div className="u-Eve1 d-flex">
-                <div className="u-EveId">活動編號：</div>
-                <div className="">123456</div>
-              </div>
-              <div className="u-Eve2 d-flex">
-                <div className="u-EveName">活動名稱：</div>
-                <div className=""></div>
-              </div>
-              <div className="u-Eve3 d-flex">
-                <div className="u-EveNum">票券張數：</div>
-                <div className="">2</div>
-              </div>
-              <div className="u-Eve4 d-flex">
-                <div className="u-EveStart">開始日期：</div>
-                <div className="">2021-05-12</div>
-              </div>
-              <div className="u-Eve5 d-flex">
-                <div className="u-EveEnd">結束日期：</div>
-                <div className="">2021-05-12</div>
-              </div>
-            </div>
-            <div className="u-ticBtn">
-              <div className="u-BtnLight">
-                {' '}
-                <Link
-                  to="/event"
-                  className="u-link2"
-                  style={{ textDecoration: 'none' }}
-                >
-                  活動細節
-                </Link>
-              </div>
-              <div className="u-BtnBlack">
-                {/* <Link
-                  to="/user-ticket/detail"
-                  className="u-link3"
-                  style={{ textDecoration: 'none' }}
-                >
-                  票券細節
-                </Link> */}
-                <Button
-                  className="u-ticdetail"
-                  variant="dark"
-                  onClick={() => setModalShow(true)}
-                >
-                  票券細節
-                </Button>
-                <TicketDetail
-                  show={modalShow}
-                  onHide={() => setModalShow(false)}
-                />
-              </div>
-            </div>
-          </div>
+
+          {TicketDisplay}
         </Container>
       </div>
     </>

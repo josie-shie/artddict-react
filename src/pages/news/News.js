@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { Collapse } from 'react-bootstrap'
 import swal from 'sweetalert'
-import axios from 'axios'
 
 import { ReactComponent as Logo } from '../../pics/logo.svg'
 import { GiLipstick } from 'react-icons/gi'
@@ -22,7 +21,6 @@ import news10 from './newspic/she.jpg'
 
 const News = () => {
   const [open, setOpen] = useState(false)
-  //   const [share, setShare] = useState('')
   const [comment, setComment] = useState([])
   const [userId, setUserId] = useState('')
   const [NewsCom, setNewsCom] = useState('')
@@ -112,14 +110,16 @@ const News = () => {
 
       console.log('伺服器回傳的json資料', data)
 
-      //   axios
-      //     .post('http://localhost:6005/mail/', {
-      //       email: email,
-      //     })
-      //     .then((response) => {
-      //       console.log(email)
-      //       console.log(response.data)
-      //     })
+      setTimeout(() => {
+        setDataLoading(false)
+        swal({
+          text: '郵件已傳送',
+          icon: 'success',
+          button: false,
+          timer: 3000,
+        })
+      }, 200)
+      console.log('success')
     } else {
       swal({
         text: '請輸入Email',
@@ -154,7 +154,7 @@ const News = () => {
           <div className="news-user-text col-8 border-left pr-3">
             <strong className="">
               {com.userId}
-              <span>123</span>
+              <span>{com.creates_at}</span>
             </strong>
             <p className="">{com.NewsCom}</p>
           </div>
@@ -165,8 +165,10 @@ const News = () => {
 
   return (
     <>
-      <div className="news-content-area index-web-padding d-flex flex-column">
-        <Logo className="news-logo " />
+      <div className="news-content-area d-flex flex-column">
+        <Link to="/">
+          <Logo className="news-logo " />
+        </Link>
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb mb-4">
             <li className="breadcrumb-item">
@@ -284,9 +286,9 @@ const News = () => {
                 <h2>Can't wait?</h2>
                 <h1>leave Your Mail Now!</h1>
                 <h5>
-                  留下你的郵件，預約下個月的 | 藝術TALK TO
-                  TALK |<br />
-                  也歡迎留言告訴我們想與大師有什麼互動！
+                  留下你的郵件，展覽日期確認後立刻通知您！
+                  <br />
+                  對於展覽有更好的靈感？也歡迎留言告訴我們！
                 </h5>
                 <form className="mt-5" action="">
                   <input
@@ -309,6 +311,20 @@ const News = () => {
                     }}
                   >
                     send
+                  </button>
+                  <button
+                    className="news-btn ml-3"
+                    style={{
+                      backgroundColor: '#000',
+                      color: '#000',
+                    }}
+                    type="submit"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      setEmail('josieeeshie@gmail.com')
+                    }}
+                  >
+                    自動填寫
                   </button>
                 </form>
               </div>
@@ -362,23 +378,42 @@ const News = () => {
                         setNewsCom(e.target.value)
                       }}
                     ></textarea>
-                    <button
-                      className="news-btn mb-5 mt-5"
-                      type="submit"
-                      style={{ background: '#81FC4D' }}
-                      onClick={(e) => {
-                        e.preventDefault()
-                        addNewComToSever()
-                        setNewsCom('')
-                        setUserId('')
-                        setShare(true)
-                        // setShare(!share)
-                      }}
-                    >
-                      <p style={{ color: '#000' }}>
-                        送出評論
-                      </p>
-                    </button>
+                    <div className="d-flex flex-column">
+                      <button
+                        className="news-btn mb-2 mt-5"
+                        type="submit"
+                        style={{ background: '#81FC4D' }}
+                        onClick={(e) => {
+                          e.preventDefault()
+                          addNewComToSever()
+                          setNewsCom('')
+                          setUserId('')
+                          setShare(true)
+                          // setShare(!share)
+                        }}
+                      >
+                        <p style={{ color: '#000' }}>
+                          送出評論
+                        </p>
+                      </button>
+                      <button
+                        className="news-btn ml-3"
+                        style={{
+                          backgroundColor: '#000',
+                          color: '#000',
+                        }}
+                        type="submit"
+                        onClick={(e) => {
+                          e.preventDefault()
+                          setNewsCom(
+                            '我們都很清楚，這是個嚴謹的議題。我認為，瓊森曾經認為，有些人生來只會吸收書中的毒素。這影響了我的價值觀。可是，即使是這樣，對藝術的執著的出現仍然代表了一定的意義。'
+                          )
+                          setUserId('我創作故我在')
+                        }}
+                      >
+                        自動填寫
+                      </button>
+                    </div>
                   </form>
                 </div>
               </Collapse>

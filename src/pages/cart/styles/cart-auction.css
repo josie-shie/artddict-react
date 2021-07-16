@@ -1,0 +1,131 @@
+.c-header {
+  padding-top: 6vh;
+  padding-bottom: 20px;
+  border-bottom: 3px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.c-header p {
+  font-size: 2rem;
+}
+
+.c-crumbs {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  padding: 25px 0;
+}
+
+.c-tabs {
+  padding: 20px 0 20px;
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.c-tab-auction3 {
+  width: 22vw;
+  height: 60px;
+  background-color: black;
+  padding-top: 10px;
+  text-align: center;
+  line-height: 1.5rem;
+}
+
+.c-tab-auction3 a {
+  font-size: 1.5rem;
+  color: white;
+  letter-spacing: 0.3rem;
+}
+
+.c-tab-event3 {
+  width: 22vw;
+  height: 60px;
+  padding-top: 10px;
+  text-align: center;
+  line-height: 1.5rem;
+}
+
+.c-tab-event3 a {
+  font-size: 1.5rem;
+  letter-spacing: 0.3rem;
+  text-decoration: none;
+  color: black;
+}
+
+.c-tab-product3 {
+  width: 22vw;
+  height: 60px;
+  padding-top: 10px;
+  text-align: center;
+  line-height: 1.5rem;
+}
+
+.c-tab-product3 a {
+  font-size: 1.5rem;
+  letter-spacing: 0.3rem;
+  text-decoration: none;
+  color: black;
+}
+
+.c-pid {
+  font-size: 12px;
+  color: #707070;
+}
+
+.c-time {
+  color: #1d0aff;
+}
+
+.c-qbox {
+  width: 50px;
+  height: 50px;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 50px;
+}
+
+.c-checkout {
+  border-top: 2px solid black;
+  padding-bottom: 50px;
+}
+
+.c-lock {
+  font-size: 12px;
+}
+
+.c-checkoutbtn {
+  width: 150px;
+  height: 50px;
+  background-color: #1d0aff;
+}
+
+.c-checkoutbtn p {
+  color: white;
+  letter-spacing: 0.3rem;
+  text-align: center;
+  line-height: 50px;
+}
+/*# sourceMappingURL=cart-auction.css.map */

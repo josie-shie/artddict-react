@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAOA,AAAA,WAAW,CAAA;EACP,gBAAgB,EAAE,OAAO;CAE5B;;AAED,AAAA,cAAc,CAAA;EACV,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,kBAAkB;CAC7B;;AAED,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,KAAK;EAC/B,AAAA,SAAS,CAAA;IACT,OAAO,EAAE,IAAI;GAChB",
+    "sources": [
+        "Lightheader.scss"
+    ],
+    "names": [],
+    "file": "Lightheader.css"
+}

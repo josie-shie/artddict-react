@@ -8,11 +8,6 @@ import { Container } from 'react-bootstrap'
 import swal from 'sweetalert'
 
 function OrderPro(props) {
-  // const [orderId, setOrderId] = useState('')
-  // const [orderDate, setOrderDate] = useState('')
-  // const [orderPrice, setOrderPrice] = useState('')
-  // const [orderStatus, setOrderStatus] = useState('')
-  // const [id, setId] = useState('')
   const [orders, setOrders] = useState([])
   const userid = props.match.params.userid
 
@@ -28,13 +23,14 @@ function OrderPro(props) {
 
     const response = await fetch(request)
     const data = await response.json()
-
+    // use orders => map div classes
     setOrders(data)
   }
 
   useEffect(() => {
     getUserOrder()
   }, [])
+
   async function logoutToSever() {
     // 連接的伺服器資料網址
     const url = 'http://localhost:6005/users/logout'
@@ -58,7 +54,29 @@ function OrderPro(props) {
     })
 
     const response = await fetch(request)
-    const data = await response.json()
+    // const data = await response.json()
+  }
+  // 轉換日期格式
+  function convert_date(date_text) {
+    // date_text
+    const myDate = new Date(date_text)
+    const date_text_new = myDate
+      .toISOString()
+      .substring(0, 10)
+    return `${date_text_new}`
+  }
+  function convert_status(order_status) {
+    var status_text = ''
+    if (order_status == 0) {
+      status_text = '待出貨'
+    } else if (order_status == 1) {
+      status_text = '已完成'
+    } else if (order_status == 2) {
+      status_text = '已取消'
+    } else if (order_status == 3) {
+      status_text = '已退貨'
+    }
+    return status_text
   }
 
   const OrderDisplay =
@@ -80,21 +98,21 @@ function OrderPro(props) {
                   {order.orderId}
                 </div>
                 <div class="u-ordrtInput2">
-                  {order.orderDate}
+                  {convert_date(order.created_at)}
                 </div>
                 <div class="u-ordrtInput3">已付款</div>
                 <div class="u-ordrtInput4">
                   {order.orderPrice}
                 </div>
                 <div class="u-ordrtInput5 ">
-                  {order.orderStatus}
+                  {convert_status(order.orderStatus)}
                 </div>
                 <div class="u-bt col-2">
                   <div className="u-Bbtn">
                     <button class="btn btn btn-dark">
                       <Link
                         className="u-link"
-                        to={`user-orderpro/detail/${order.orderId}`}
+                        to={`/user-orderpro/detail/${order.orderId}`}
                         style={{ textDecoration: 'none' }}
                         key={order.orderId}
                       >
@@ -202,10 +220,9 @@ function OrderPro(props) {
               name=""
               id=""
             >
-              <option style={{ color: '#707070' }} value="">
-                請選擇
+              <option value="" style={{ color: '#707070' }}>
+                全部
               </option>
-              <option value="">全部</option>
               <option value="">待出貨</option>
               <option value="">已完成</option>
               <option value="">取消紀錄</option>
@@ -214,42 +231,6 @@ function OrderPro(props) {
           </div>
 
           {OrderDisplay}
-
-          {/* <div class="u-table">
-            <div class="u-th d-flex justify-content-around">
-              <div class="u-orderId">訂單編號</div>
-              <div class="u-orderDate">訂單日期</div>
-              <div class="u-payType">付款狀態</div>
-              <div class="u-price">總價</div>
-              <div class="u-orderType">訂單狀態</div>
-              <div class="u-bt col-2"></div>
-            </div>
-            <div class="u-tb d-flex justify-content-around">
-              <div class="u-ordrtInput1">orderId</div>
-              <div class="u-ordrtInput2">orderDate</div>
-              <div class="u-ordrtInput3">已付款</div>
-              <div class="u-ordrtInput4">orderPrice</div>
-              <div class="u-ordrtInput5 ">orderStatus</div>
-              <div class="u-bt col-2">
-                <div className="u-Bbtn">
-                  <button class="btn btn btn-dark">
-                    <Link
-                      className="u-link"
-                      to="/user-orderpro/detail"
-                      style={{ textDecoration: 'none' }}
-                    >
-                      詳細資料
-                    </Link>
-                  </button>
-                </div>
-                <div className="u-Lbtn">
-                  <button class="btn btn btn-light">
-                    取消
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div> */}
         </Container>
       </div>
     </>

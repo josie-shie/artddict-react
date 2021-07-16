@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './styles/UserMyFav.scss'
 import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
@@ -6,12 +6,32 @@ import { Container, Row, Card } from 'react-bootstrap'
 import { IoIosHeart } from 'react-icons/io'
 import { CgShoppingCart } from 'react-icons/cg'
 import { withRouter, Link, NavLink } from 'react-router-dom'
-import EventPic from './img/EventPic.png'
 // SweetAlert
 import swal from 'sweetalert'
 
 function UserMyFav(props) {
   const userid = props.match.params.userid
+  const [userFavs, setUserFavs] = useState([])
+
+  async function getUserFav() {
+    const url = `http://localhost:6005/users/userFav/${userid}`
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    setUserFavs(data)
+  }
+
+  useEffect(() => {
+    getUserFav()
+  }, [])
+
   async function logoutToSever() {
     // 連接的伺服器資料網址
     const url = 'http://localhost:6005/users/logout'
@@ -35,8 +55,52 @@ function UserMyFav(props) {
     })
 
     const response = await fetch(request)
-    const data = await response.json()
+    // const data = await response.json()
   }
+
+  const UserFavDisplay =
+    userFavs.length === 0
+      ? 'noneData'
+      : userFavs.map((userFav) => {
+          return (
+            <Card
+              style={{
+                width: '28rem',
+                backgroundColor: '#e8e8e8',
+                border: 'none',
+              }}
+            >
+              <Link to="/">
+                {' '}
+                <Card.Img
+                  variant="top"
+                  src={`http://localhost:6005/eventpic/event/${userFav.eventImg}`}
+                  alt="活動圖"
+                />
+              </Link>
+              <Card.Body>
+                <h6 className="col-12 p-0 my-2">
+                  {userFav.eventName}
+                </h6>
+                <div className="d-flex">
+                  <div className="col-9 p-0">
+                    <p>地點：{userFav.eventCity}</p>
+                    <p>時間：{userFav.eventDateStart}</p>
+                  </div>
+                  <div className="col-6 pr-2">
+                    <Link to="/">
+                      <IoIosHeart className="u-heart" />
+                    </Link>
+                    <Link to="/cart-product">
+                      <CgShoppingCart className="u-shopingcart" />
+                    </Link>
+                  </div>
+                </div>
+              </Card.Body>
+            </Card>
+          )
+        })
+
   return (
     <>
       <div className="u-body">
@@ -145,7 +209,9 @@ function UserMyFav(props) {
           </div>
 
           <Row className="ed-list-card justify-content-between flex-wrap mt-5">
-            <Card
+            {UserFavDisplay}
+
+            {/* <Card
               style={{
                 width: '28rem',
                 backgroundColor: '#e8e8e8',
@@ -254,7 +320,7 @@ function UserMyFav(props) {
                   </div>
                 </div>
               </Card.Body>
-            </Card>
+            </Card> */}
           </Row>
         </Container>
       </div>

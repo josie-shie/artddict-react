@@ -9,6 +9,7 @@ import product6 from '../image/product/GN.jpg'
 import {
   IoIosArrowRoundBack,
   IoIosArrowRoundForward,
+  IoIosHeart,
 } from 'react-icons/io'
 
 const ProCard2 = () => {
@@ -28,52 +29,81 @@ const ProCard2 = () => {
           slide={true}
         >
           <Carousel.Item>
-            <Link to="/event/event-list/detail">
+            <Link to="/product/product-list/product-detail/5">
               <img
                 className=" w-100"
                 src={product4}
                 alt="First slide"
               />
-              <div className="index-card-rect"></div>
+            </Link>
+            <div className="index-card-rect d-flex text-center">
+              <div className="col-8 border-right">
+                <Link>Add to cart</Link>
+              </div>
+              <div className="index-heart col-4">
+                <IoIosHeart size={'20'} />
+              </div>
+            </div>
+            <Link to="/product/product-list/product-detail/5">
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  西西里蘭卡唱歌
+                  五百棵檸檬樹
                 </h5>
                 <h5 className="notoSansTC-md font-weight-bold">
-                  690元
+                  300元
                 </h5>
               </div>
             </Link>
           </Carousel.Item>
           <Carousel.Item>
-            <Link to="/event/event-list/detail">
+            <Link to="/product/product-list/product-detail/2">
               <img
                 className=" w-100"
                 src={product5}
                 alt="Second slide"
               />
-              <div className="index-card-rect"></div>
+            </Link>
+            <div className="index-card-rect d-flex text-center">
+              <div className="col-8 border-right">
+                <Link>Add to cart</Link>
+              </div>
+              <div className="index-heart col-4">
+                <IoIosHeart size={'20'} />
+              </div>
+            </div>
+            <Link to="/product/product-list/product-detail/2">
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  一頁台北 專刊
+                  一分鐘台北 專刊
                 </h5>
-                <h5 className="font-weight-bold">2180元</h5>
+                <h5 className="notoSansTC-md font-weight-bold">
+                  450元
+                </h5>
               </div>
             </Link>
           </Carousel.Item>
           <Carousel.Item>
-            <Link to="/event/event-list/detail">
+            <Link to="/product/product-list/product-detail/14">
               <img
                 className=" w-100"
                 src={product6}
                 alt="Third slide"
               />
-              <div className="index-card-rect"></div>
+            </Link>
+            <div className="index-card-rect d-flex text-center">
+              <div className="col-8 border-right">
+                <Link>Add to cart</Link>
+              </div>
+              <div className="index-heart col-4">
+                <IoIosHeart size={'20'} />
+              </div>
+            </div>
+            <Link to="/product/product-list/product-detail/14">
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  濃綠色的情緒
+                  黨若洪個展
                 </h5>
-                <h5 className="font-weight-bold">1180元</h5>
+                <h5 className="font-weight-bold">600元</h5>
               </div>
             </Link>
           </Carousel.Item>
@@ -86,53 +116,82 @@ const ProCard2 = () => {
           slide={true}
         >
           <Carousel.Item>
-            <Link to="/event/event-list/detail">
+            <Link to="/product/product-list/product-detail/2">
               <img
                 className=" w-100"
                 src={product5}
                 alt="First slide"
               />
-              <div className="index-card-rect"></div>
+            </Link>
+            <div className="index-card-rect d-flex text-center">
+              <div className="col-8 border-right">
+                <Link>Add to cart</Link>
+              </div>
+              <div className="index-heart col-4">
+                <IoIosHeart size={'20'} />
+              </div>
+            </div>
+            <Link to="/product/product-list/product-detail/2">
               <div className="d-flex justify-content-between mt-2">
-                <h5 className="notoSansTC-md font-weight-bold">
-                  一頁台北 專刊
+                <h5 className="notoSansTC-md  font-weight-bold">
+                  一分鐘台北 專刊
                 </h5>
-                <h5 className="font-weight-bold">2180元</h5>
+                <h5 className="notoSansTC-md font-weight-bold">
+                  450元
+                </h5>
               </div>
             </Link>
           </Carousel.Item>
           <Carousel.Item>
-            <Link to="/event/event-list/detail">
+            <Link to="/product/product-list/product-detail/14">
               <img
                 className=" w-100"
                 src={product6}
                 alt="Second slide"
               />
-              <div className="index-card-rect"></div>
+            </Link>
+            <div className="index-card-rect d-flex text-center">
+              <div className="col-8 border-right">
+                <Link>Add to cart</Link>
+              </div>
+              <div className="index-heart col-4">
+                <IoIosHeart size={'20'} />
+              </div>
+            </div>
+            <Link to="/product/product-list/product-detail/14">
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  濃綠色的情緒
+                  黨若洪個展
                 </h5>
                 <h5 className="notoSansTC-md font-weight-bold">
-                  1180元
+                  600元
                 </h5>
               </div>
             </Link>
           </Carousel.Item>
           <Carousel.Item>
-            <Link to="/event/event-list/detail">
+            <Link to="/product/product-list/product-detail/5">
               <img
                 className=" w-100"
                 src={product4}
                 alt="Third slide"
               />
-              <div className="index-card-rect"></div>
+            </Link>
+            <div className="index-card-rect d-flex text-center">
+              <div className="col-8 border-right">
+                <Link>Add to cart</Link>
+              </div>
+              <div className="index-heart col-4">
+                <IoIosHeart size={'20'} />
+              </div>
+            </div>
+            <Link to="/product/product-list/product-detail/5">
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  西西里蘭卡唱歌
+                  五百棵檸檬樹
                 </h5>
                 <h5 className="notoSansTC-md font-weight-bold">
-                  690元
+                  300元
                 </h5>
               </div>
             </Link>
@@ -148,11 +207,10 @@ const ProCard2 = () => {
             </Link>
             <div className="d-flex w-100">
               <div
-                className="index-card-btn col-6" 
+                className="index-card-btn col-6"
                 onClick={() =>
                   index >= 2 ? 2 : setIndex(index + 1)
                 }
-                
               >
                 <IoIosArrowRoundBack size={30} />
               </div>
@@ -176,37 +234,55 @@ const ProCard2 = () => {
           slide={true}
         >
           <Carousel.Item>
-            <Link to="/event/event-list/detail">
+            <Link to="/product/product-list/product-detail/14">
               <img
                 className=" w-100"
                 src={product6}
                 alt="First slide"
               />
-              <div className="index-card-rect"></div>
+            </Link>
+            <div className="index-card-rect d-flex text-center">
+              <div className="col-8 border-right">
+                <Link>Add to cart</Link>
+              </div>
+              <div className="index-heart col-4">
+                <IoIosHeart size={'20'} />
+              </div>
+            </div>
+            <Link to="/product/product-list/product-detail/14">
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  濃綠色的情緒
+                  黨若洪個展
                 </h5>
                 <h5 className="notoSansTC-md font-weight-bold">
-                  1180元
+                  600元
                 </h5>
               </div>
             </Link>
           </Carousel.Item>
           <Carousel.Item>
-            <Link to="/event/event-list/detail">
+            <Link to="/product/product-list/product-detail/5">
               <img
                 className=" w-100"
                 src={product4}
                 alt="Second slide"
               />
-              <div className="index-card-rect"></div>
+            </Link>
+            <div className="index-card-rect d-flex text-center">
+              <div className="col-8 border-right">
+                <Link>Add to cart</Link>
+              </div>
+              <div className="index-heart col-4">
+                <IoIosHeart size={'20'} />
+              </div>
+            </div>
+            <Link to="/product/product-list/product-detail/5">
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  西西里蘭卡唱歌
+                  五百棵檸檬樹
                 </h5>
                 <h5 className="notoSansTC-md font-weight-bold">
-                  690元
+                  300元
                 </h5>
               </div>
             </Link>
@@ -218,12 +294,23 @@ const ProCard2 = () => {
                 src={product5}
                 alt="Third slide"
               />
-              <div className="index-card-rect"></div>
+            </Link>
+            <div className="index-card-rect d-flex text-center">
+              <div className="col-8 border-right">
+                <Link>Add to cart</Link>
+              </div>
+              <div className="index-heart col-4">
+                <IoIosHeart size={'20'} />
+              </div>
+            </div>
+            <Link to="/product/product-list/product-detail/2">
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  一頁台北 專刊 專刊
+                  一分鐘台北 專刊
                 </h5>
-                <h5 className="font-weight-bold">1180元</h5>
+                <h5 className="notoSansTC-md font-weight-bold">
+                  450元
+                </h5>
               </div>
             </Link>
           </Carousel.Item>

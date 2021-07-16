@@ -1,0 +1,54 @@
+.ed-more {
+  background-color: #E8E8E8;
+}
+
+.e-look-more {
+  font-size: 2.5rem;
+  font-weight: 500;
+  border-bottom: 4px solid black;
+}
+
+.e-more-card img {
+  border: 2px solid #707070;
+}
+
+.e-more-card h6 {
+  color: black;
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.e-more-card p {
+  font-size: 1rem;
+  font-weight: normal;
+  color: #535353;
+  line-height: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.e-more-card span {
+  font-size: 1rem;
+  font-weight: normal;
+  color: #535353;
+  line-height: 1.2rem;
+  letter-spacing: 2px;
+}
+
+.e-more-card button {
+  font-size: .8rem;
+  height: 100%;
+  border: 0px;
+  background-color: #A7A7A7;
+  color: white;
+}
+
+.e-more-card button:hover {
+  background-color: #1D0AFF;
+  color: #81FC4D;
+}
+
+.e-more-card button[className="col-8"]:hover {
+  background-color: #1D0AFF;
+  color: white;
+}
+/*# sourceMappingURL=EventMore.css.map */

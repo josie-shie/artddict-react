@@ -1,0 +1,31 @@
+.cn-font {
+  font-family: 'Noto Sans TC', sans-serif;
+  letter-spacing: 3px;
+}
+
+@font-face {
+  font-family: Engravers-Normal;
+  src: url(./font/Engravers_MT/EngraversMT.ttf);
+}
+
+@font-face {
+  font-family: Engravers-Bold;
+  src: url(./font/Engravers_MT/EngraversMTBold.ttf);
+}
+
+.breadcrumb a {
+  color: #A7A7A7 !important;
+}
+
+.breadcrumb {
+  font-size: 1rem;
+  background-color: transparent;
+  padding: 0px;
+  margin: 0px;
+  color: #707070 !important;
+}
+
+.active {
+  color: #707070 !important;
+}
+/*# sourceMappingURL=EventBreadCrumb.css.map */

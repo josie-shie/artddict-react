@@ -1,0 +1,45 @@
+.u-Myfavtitle1,
+.u-Myfavtitle2,
+.u-Myfavtitle3,
+.u-Myfavtitle4 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  width: 14vw;
+  height: 60px;
+  text-align: center;
+  line-height: 60px;
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 2rem;
+}
+
+.u-Myfavtitle1 {
+  background-color: #000;
+}
+
+.u-Myfavtitle1 > a {
+  color: #fff;
+  letter-spacing: 0.3rem;
+}
+
+.u-Myfavtitle2 > a,
+.u-Myfavtitle3 > a,
+.u-Myfavtitle4 > a {
+  color: #000;
+  letter-spacing: 0.3rem;
+}
+
+.u-heart {
+  width: 30px;
+  height: 30px;
+  background-color: #A7A7A7;
+  color: #81FC4D;
+  border-right: 1px solid #fff;
+}
+
+.u-shopingcart {
+  width: 30px;
+  height: 30px;
+  background-color: #A7A7A7;
+  color: #fff;
+}
+/*# sourceMappingURL=UserMyFav.css.map */

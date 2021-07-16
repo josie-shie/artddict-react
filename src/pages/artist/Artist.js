@@ -1,5 +1,4 @@
-
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import { ReactComponent as Logo } from '../../pics/logo-bk.svg'
 import './Artist.scss'
@@ -14,6 +13,37 @@ import artistImg6 from './img/23-Pop-Art-Mr.-Doodle_img_1040_780.jpg'
 import { Image } from 'react-bootstrap'
 
 const Artist = () => {
+  
+  
+  //didMount就load FB套件
+  useEffect(() => {
+
+    if (window.FB) {
+      console.log('window.FB',window.FB);
+      window.FB.XFBML.parse()
+    }
+    window.fbAsyncInit = function () {
+      window.FB.init({
+        appId: '{4372278766148991}',
+        cookie: true,
+        xfbml: true,
+        version: '{api-version}',
+      })
+      window.FB.AppEvents.logPageView()
+    }
+    ;(function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0]
+      if (d.getElementById(id)) {
+        return
+      }
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://connect.facebook.net/en_US/sdk.js'
+      fjs.parentNode.insertBefore(js, fjs)
+    })(document, 'script', 'facebook-jssdk')
+  }, [])
+
   return (
     <>
       <div className="art-area index-web-padding d-flex flex-column">

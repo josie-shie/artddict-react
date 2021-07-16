@@ -20,7 +20,7 @@ function Login(props) {
     透過props傳遞APP current_user的設定函數setCurrentUser()
     current_user定義詳見 App.js
   */
-  const { current_user, setCurrentUser } = props
+  // const { current_user, setCurrentUser } = props
   const [dataLoading, setDataLoading] = useState(false)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -62,7 +62,7 @@ function Login(props) {
 
       // 如果登入成功
       // 改動react App母層變數以紀錄現在的用戶登入狀態
-      setCurrentUser(data.id)
+      // setCurrentUser(data.id)
     } else {
       swal({
         text: '帳號或密碼有誤，請重新登入',
