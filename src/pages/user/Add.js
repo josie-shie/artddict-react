@@ -19,7 +19,7 @@ import pic4 from './img/4.png'
 import pic5 from './img/5.png'
 import pic6 from './img/6.png'
 // icons
-import { FaFacebook } from 'react-icons/fa'
+// import { FaFacebook } from 'react-icons/fa'
 
 function Add(props) {
   const [dataLoading, setDataLoading] = useState(false)
@@ -173,9 +173,9 @@ function Add(props) {
                   <Link to="/user-add">註冊</Link>
                 </div>
               </div>
-              <div className="u-FB d-flex justify-content-around">
+              {/* <div className="u-FB d-flex justify-content-around">
                 <FaFacebook />
-              </div>
+              </div> */}
               <form action="">
                 <div className="form-group u-form">
                   <input

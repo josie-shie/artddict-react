@@ -12019,6 +12019,11 @@ react-datepicker@^3.3.0:
     react-onclickoutside "^6.10.0"
     react-popper "^1.3.8"
 
+react-delay-link@^1.1.6:
+  version "1.1.6"
+  resolved "https://registry.yarnpkg.com/react-delay-link/-/react-delay-link-1.1.6.tgz#ee840443a70dc31dbf8f6a9cc175507c7b380ed4"
+  integrity sha512-tMqJtSeSW6FgImsa1fteJCer2MHDEQP+r5egDH0kNMYScy5EYpYtnW8gZ867hniVeYdEfWKCt7hnYsJG4NUL/Q==
+
 react-dev-utils@^11.0.3:
   version "11.0.4"
   resolved "https://registry.yarnpkg.com/react-dev-utils/-/react-dev-utils-11.0.4.tgz"

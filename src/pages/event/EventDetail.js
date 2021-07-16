@@ -48,6 +48,7 @@ function EventDetail(props) {
   const [eventPrice, setEventPrice] = useState('')
   const [eventImg, setEventImg] = useState('')
   const [eventCity, setEventCity] = useState('')
+  const [userId, setUserId] = useState(1)
   const [eventClass, setEventClass] = useState('C')
   const [cityId, setCityid] = useState('Taipei')
   const [temp, setTemp] = useState()
@@ -96,6 +97,29 @@ function EventDetail(props) {
     setCityid(data.cityFullName)
     // 加入購物車
     setSqlEventId(data.id)
+  }
+
+  async function addEventFavSever() {
+   
+    const newData = { eventId, userId }
+
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:6005/event/eventFav'
+
+    // 注意資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify(newData),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+
+    
   }
 
   async function getWeather() {
@@ -266,8 +290,7 @@ function EventDetail(props) {
               <h4 className="col-10 cn-font p-0">
                 {eventName}
               </h4>
-              <div className="ed-like-icon col-2">
-                {' '}
+              <div className="ed-like-icon col-2" onClick={()=>{addEventFavSever()}}>
                 <IoIosHeart />
               </div>
               <p className="col-12 cn-font p-0 mt-3">

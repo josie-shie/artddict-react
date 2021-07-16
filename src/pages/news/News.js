@@ -126,7 +126,7 @@ const News = () => {
         icon: 'warning',
         confirmButtonColor: '#1D0AFF',
         confirmButtonText: '確定',
-        timer: 3000,
+        timer: 1000,
       })
     }
   }
@@ -135,7 +135,7 @@ const News = () => {
     getAllComServer()
   }, [])
 
-  //送出劉怡才會重新撈資料
+  //送出留言才會重新撈資料
   useEffect(() => {
     setShare(false)
     getAllComServer()
@@ -154,7 +154,7 @@ const News = () => {
           <div className="news-user-text col-8 border-left pr-3">
             <strong className="">
               {com.userId}
-              <span>{com.creates_at}</span>
+              <span>{com.creates_at.split('T')[0]}</span>
             </strong>
             <p className="">{com.NewsCom}</p>
           </div>
@@ -229,8 +229,7 @@ const News = () => {
             </h3>
             <img src={news2} alt="" />
             <h5 className="art-push">
-              {' '}
-              2021/06/30 Tokiyo{' '}
+              2021/06/30 Tokiyo
             </h5>
             <img src={news5} alt="" />
             <div className="d-flex justify-content-center mt-5">
