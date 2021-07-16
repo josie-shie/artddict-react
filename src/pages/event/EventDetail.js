@@ -2,6 +2,7 @@ import { React, useState, useEffect, useRef } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import $ from 'jquery'
 import { Container, Row, Collapse } from 'react-bootstrap'
+import Cookies from 'universal-cookie'
 
 // Component
 import EHeader from './components/Darkheader'
@@ -52,18 +53,22 @@ function EventDetail(props) {
   const [temp, setTemp] = useState()
   const [tempIcon, setTempIcon] = useState('')
   const [weather, setWeather] = useState('')
+  // 加入購物車
   const [isShared, setIsShared] = useState(true)
 
+  const [sqleventid, setSqlEventId] = useState('')
 
   // 票價數量
   const [ticketNum, setTicketNum] = useState(1)
   // 票種 Ref
   const ticketRef = useRef()
-  const ticketRef2 = useRef()
-  const ticketRef3 = useRef()
-  const ticketRef4 = useRef()
 
-  
+  // 購物車
+  const [cartItems, setCartItems] = useState([])
+  const cookies = new Cookies()
+
+  // 票種useState
+  const [tickettype, setTicketType] = useState('成人票')
 
   async function getEventIdServer() {
     const url = `http://localhost:6005/event/event-list/${id}`
@@ -89,7 +94,8 @@ function EventDetail(props) {
     setEventCity(data.cityName)
     setIsShared(data.shareId)
     setCityid(data.cityFullName)
-
+    // 加入購物車
+    setSqlEventId(data.id)
   }
 
   async function getWeather() {
@@ -105,7 +111,6 @@ function EventDetail(props) {
   }
 
   console.log(temp, weather, tempIcon)
-  
 
   let shareBtn = ''
   if (isShared) {
@@ -117,10 +122,11 @@ function EventDetail(props) {
   useEffect(() => {
     getEventIdServer()
     getWeather()
-    $(ticketRef.current).on('click', ()=>{
-      $(ticketRef.current).css('background', 'black').css('color','white') 
+    $(ticketRef.current).on('click', () => {
+      $(ticketRef.current)
+        .css('background', 'black')
+        .css('color', 'white')
     })
-    
   }, [])
 
   useEffect(() => {
@@ -131,8 +137,6 @@ function EventDetail(props) {
     getEventIdServer()
   }, [id])
 
-
-
   $('.e-ticket-type').click(function () {
     $(this)
       .css('background', 'black')
@@ -142,14 +146,75 @@ function EventDetail(props) {
       .css('color', 'black')
   })
 
-  useEffect(()=>{
-    if(ticketNum < 1){
+  useEffect(() => {
+    if (ticketNum < 1) {
       setTicketNum(1)
     }
-    if(ticketNum > 50){
+    if (ticketNum > 50) {
       setTicketNum(50)
     }
-  },[ticketNum])
+  }, [ticketNum])
+
+  /**
+   * 更新 event Cookie
+   *
+   * @param {Object} event 欲改變的目標 event.
+   * @param {number} quantityNum 欲更新event.qty到的數字.
+   * @param {string} type 根據不同type，event.qty 更新方法不同
+   *
+   *
+   */
+
+  // 加入購物車
+  const onCookie = (eventid, quantityNum, type) => {
+    console.log(type)
+    console.log(eventid)
+    let cookieEventId =
+      eventid.sqleventid + '-' + type.tickettype
+    let updateCookie = []
+    let cookieEvent = cookies.get('event') // 取得 event cookie
+
+    if (cookieEvent) {
+      // 如果有已存在的 event cookie
+      // 查看cookie裡面的 event id
+      const idSet = new Set()
+      for (let i in cookieEvent) {
+        idSet.add(cookieEvent[i].id)
+      }
+      // event 在 event cookie 中
+      if (idSet.has(cookieEventId)) {
+        for (let i in cookieEvent) {
+          if (cookieEvent[i].id == cookieEventId) {
+            // 如果event是從Input,數量直接到指定數字
+            cookieEvent[i].qty += quantityNum.ticketNum
+          }
+        }
+      } else {
+        // 如果被改變的event 不在 event cookie 中
+        // 初始數量為1
+        let eventjson = {}
+        eventjson.id = cookieEventId
+        eventjson.qty = quantityNum.ticketNum
+        cookieEvent.push(eventjson)
+      }
+      // 如果被改變後的event數量>0，加入在cookie 中
+      for (let i in cookieEvent) {
+        if (cookieEvent[i].qty > 0) {
+          updateCookie.push(cookieEvent[i])
+        }
+      }
+    } else {
+      // 如果沒有已存在的 event cookie
+      // 初始數量為1
+      let eventjson = {}
+      eventjson.id = cookieEventId
+      eventjson.qty = quantityNum.ticketNum
+      updateCookie.push(eventjson)
+    }
+    cookies.set('event', updateCookie, { path: '/' }) //更新Cookie
+    console.log(updateCookie)
+  }
+
 
   return (
     <>
@@ -395,6 +460,7 @@ function EventDetail(props) {
                   <button
                     onClick={(e) => {
                       e.preventDefault()
+                      setTicketType('成人票')
                     }}
                     type="button"
                     className="col-5 e-ticket-type "
@@ -404,6 +470,7 @@ function EventDetail(props) {
                   <button
                     onClick={(e) => {
                       e.preventDefault()
+                      setTicketType('孩童票')
                     }}
                     type="button"
                     className="col-5 e-ticket-type"
@@ -413,6 +480,7 @@ function EventDetail(props) {
                   <button
                     onClick={(e) => {
                       e.preventDefault()
+                      setTicketType('敬老票')
                     }}
                     type="button"
                     className="col-5 e-ticket-type"
@@ -422,6 +490,7 @@ function EventDetail(props) {
                   <button
                     onClick={(e) => {
                       e.preventDefault()
+                      setTicketType('愛心票')
                     }}
                     type="button"
                     className="col-5 e-ticket-type"
@@ -466,6 +535,11 @@ function EventDetail(props) {
                     <button
                       onClick={(e) => {
                         e.preventDefault()
+                        onCookie(
+                          { sqleventid },
+                          { ticketNum },
+                          { tickettype }
+                        )
                       }}
                       className="col-12 p-0 ed-submit-btn"
                       type="submit"
