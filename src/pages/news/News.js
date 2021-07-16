@@ -135,7 +135,7 @@ const News = () => {
     getAllComServer()
   }, [])
 
-  //送出劉怡才會重新撈資料
+  //送出留言才會重新撈資料
   useEffect(() => {
     setShare(false)
     getAllComServer()
@@ -154,7 +154,7 @@ const News = () => {
           <div className="news-user-text col-8 border-left pr-3">
             <strong className="">
               {com.userId}
-              <span>{com.creates_at}</span>
+              <span>{com.creates_at.split('T')[0]}</span>
             </strong>
             <p className="">{com.NewsCom}</p>
           </div>
