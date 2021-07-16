@@ -1,42 +1,44 @@
-.u-tic1 > div, .u-tic2 > div {
-    font-size: 18px;
-    font-family: NotoSansTC-Medium;
+.u-tic1 > div,
+.u-tic2 > div {
+  font-size: 18px;
+  font-family: NotoSansTC-Medium;
 }
 
-.u-tic2 {
-    width: 100%;
-    height: 150px;
-    border: 2px solid rgb(168, 165, 165);
-    line-height: 50px;
-}
+// .u-tic2 {
+//   width: 100%;
+//   height: 150px;
+//   line-height: 50px;
+// }
 
 .u-QRcode {
-    margin-top: 10px;
-    width: 120px;
-    height: 120px;
+  margin-top: 10px;
+  width: 120px;
+  height: 120px;
 }
 
 .u-QRcode > img {
-    width: 100%;
+  width: 100%;
 }
 
-
-#useModal {
-    .modal-content{
-        border-radius: 0px;
-        padding: 1.2rem 1.8rem;
-        box-shadow: -10px -10px 0px black ;
-    }
-    .modal-title {
-        font-size: 1.3rem;
-    }
-    .modal-content {
-        padding: 1.2rem 1.8rem;
-    }
-    .modal-header {
-        border-bottom: 2px solid black;
-    }
-    .modal-footer {
-        border: 0px;
-    }
+#userModal {
+  .modal-content {
+    border-radius: 0px;
+    padding: 1.2rem 1.8rem;
+    box-shadow: -10px -10px 0px black;
+  }
+  .modal-title {
+    font-size: 1.3rem;
+  }
+  .modal-content {
+    padding: 1.2rem 1.8rem;
+  }
+  .u-modal-body {
+    font-size: 1.3rem;
+  }
+  .modal-header {
+    border-bottom: 2px solid black;
+  }
+  .modal-footer {
+    border: 0px;
+  }
 }
