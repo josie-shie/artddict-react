@@ -52,6 +52,10 @@ function UserMyFav(props) {
     console.log(`url = ${id}`)
     const response = await fetch(request)
     const data = await response.json()
+
+    setTimeout(() => {
+      window.location.replace(`/user-myfav/${userid}`)
+    }, 500)
   }
 
   async function logoutToSever() {
