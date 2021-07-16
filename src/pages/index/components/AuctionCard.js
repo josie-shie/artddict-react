@@ -69,42 +69,48 @@ const AuctionCard = () => {
     <>
       <div className="auction-card-wrap d-flex">
         <div className="auction-card col-3">
-          <Link to="/">
-            <img src={auc1} alt="" />
+          <Link to="/AuctionDetail/70005">
+            <img src={auc4} alt="" />
             <div className="index-card-rect notoSansTC-md">
               {aucRemainT[0]}
             </div>
           </Link>
           <h5 className="notoSansTC-md font-weight-bold">
-            奈旭美雪 [拾起稻穗] 原作
+            奈旭美雪 [何時結婚]
           </h5>
         </div>
         <div className="auction-card col-3">
-          <img src={auc2} alt="" />
-          <div className="notoSansTC-md index-card-rect">
-            {aucRemainT[1]}
-          </div>
-          <h5 className="notoSansTC-md font-weight-bold">
-            鹽田千春 [捕夢網]
-          </h5>
+          <Link to="/AuctionDetail/70010">
+            <img src={auc2} alt="" />
+            <div className="notoSansTC-md index-card-rect">
+              {aucRemainT[1]}
+            </div>
+            <h5 className="notoSansTC-md font-weight-bold">
+              鹽田千春 [捕夢網]
+            </h5>
+          </Link>
         </div>
         <div className="auction-card col-3">
-          <img src={auc3} alt="" />
-          <div className="notoSansTC-md index-card-rect">
-            {aucRemainT[2]}
-          </div>
-          <h5 className="notoSansTC-md font-weight-bold">
-            松本龍介 [無題]
-          </h5>
+          <Link to="/AuctionDetail/70001">
+            <img src={auc3} alt="" />
+            <div className="notoSansTC-md index-card-rect">
+              {aucRemainT[2]}
+            </div>
+            <h5 className="notoSansTC-md font-weight-bold">
+              松本龍介 [無題]
+            </h5>
+          </Link>
         </div>
         <div className="auction-card col-3">
-          <img src={auc4} alt="" />
-          <div className="notoSansTC-md index-card-rect">
-            {aucRemainT[3]}
-          </div>
-          <h5 className="notoSansTC-md font-weight-bold">
-            松本龍介 [無題]
-          </h5>
+          <Link to="/AuctionDetail/70008">
+            <img src={auc1} alt="" />
+            <div className="notoSansTC-md index-card-rect">
+              {aucRemainT[3]}
+            </div>
+            <h5 className="notoSansTC-md font-weight-bold">
+              山琦 潤 [無題]
+            </h5>
+          </Link>
         </div>
       </div>
     </>

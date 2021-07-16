@@ -356,7 +356,7 @@ const Index = () => {
           <div className="auction-slogan d-flex mb-3">
             <div className="col-6">
               <h1>AUCTION</h1>
-              <h4 className="notoSansTC-md auction-title-tc pl-3 mb-5">
+              <h4 className="notoSansTC-md auction-title-tc mb-5">
                 藝術 <span>頂尖對決</span>
               </h4>
             </div>
@@ -364,7 +364,7 @@ const Index = () => {
               <img src={aucline} alt="" />
               <Link to="/auction">
                 <div className="d-flex px-5">
-                  <button className="notoSansTC-md col-12">
+                  <button className="engravers col-12">
                     WATCH ALL
                   </button>
                 </div>
