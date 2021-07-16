@@ -2,21 +2,21 @@ import React from 'react'
 import { withRouter, Link } from 'react-router-dom'
 
 function Breadcrumb(props) {
-  console.log(props)
+  const userid = props.match.params.userid
 
   // 可從 props.location.pathname 得到目前的路由名稱
   // 查表功能，為了要轉網址路由為中文
   const pathnameList = [
-    '/user-msgedit',
-    '/user-pwdedit',
-    '/user-orderpro',
-    '/user-ordertic',
-    '/user-coupon',
-    '/user-ticket',
-    '/user-workshop',
-    '/user-myfav',
-    '/user-auction',
-    '/user-auctionOver',
+    `/user-msgedit/${userid}`,
+    `/user-pwdedit/${userid}`,
+    `/user-orderpro/${userid}`,
+    `/user-ordertic/${userid}`,
+    `/user-coupon/${userid}`,
+    `/user-ticket/${userid}`,
+    `/user-workshop/${userid}`,
+    `/user-myfav/${userid}`,
+    `/user-auction/${userid}`,
+    `/user-auctionOver/${userid}`,
   ]
 
   const pathnameTextList = [

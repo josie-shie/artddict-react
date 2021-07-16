@@ -18,9 +18,11 @@ function TicketDetail(props) {
         'Content-Type': 'appliaction/json',
       }),
     })
-
+    console.log('url = ', url)
+    console.log('id = ', id)
     const response = await fetch(request)
     const data = await response.json()
+    console.log('data = ', data)
     setEventName(data.eventName)
     setOrderSpec(data.orderSpec)
   }

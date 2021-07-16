@@ -1,20 +1,187 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { ReactComponent as Logo } from '../../pics/logo-bk.svg'
-
 import { Link } from 'react-router-dom'
 import { Nav } from 'react-bootstrap'
 import '../../bootstrap/css/bootstrap.css'
 import './styles/cart-event.scss'
+import Cookies from 'universal-cookie'
 
-//img
-import img3 from './img/3.png'
+// demo
+import BasketEvent from './demo/BasketEvent'
 
-// icon
-import { FaRegEdit } from 'react-icons/fa'
-import { FaLock } from 'react-icons/fa'
-import { RiDeleteBinLine } from 'react-icons/ri'
+// // imgae
+// import img1 from './img/1.png'
+// import img2 from './img/2.png'
 
-function CartProduct() {
+// // icon
+// import { FaRegEdit } from 'react-icons/fa'
+// import { FaLock } from 'react-icons/fa'
+// import { RiDeleteBinLine } from 'react-icons/ri'
+
+function CartEvent() {
+  // const { products } = fakedata
+  const [cartItems, setCartItems] = useState([])
+  const cookies = new Cookies()
+
+  async function getEventServer() {
+    const url = 'http://localhost:6005/event/'
+
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+    // fetch是呼叫後台api, response=得到的資料
+    const response = await fetch(request)
+    console.log(response)
+    const data = await response.json()
+    console.log(data)
+  }
+
+  // 呼叫剛剛的assync func
+  useEffect(() => {
+    getEventServer()
+  }, [])
+
+  /**
+   * 當頁面Load時，讀取Cookie值並更新至cartItems
+   */
+  useEffect(() => {
+    let tempArr = []
+    let cookieProductArr = cookies.get('event') // get Cookies
+    if (cookieProductArr) {
+      for (let i = 0; i < cookieProductArr.length; i++) {
+        let product = cookieProductArr[i]
+        tempArr.push(product)
+      }
+      setCartItems(tempArr)
+    }
+  }, [])
+
+  /**
+   * 更新 event Cookie
+   *
+   * @param {Object} event 欲改變的目標 event.
+   * @param {number} quantityNum 欲更新event.qty到的數字.
+   * @param {string} type 根據不同type，event.qty 更新方法不同
+   *
+   *
+   */
+  const onCookie = (event, quantityNum, type) => {
+    let updateCookie = []
+    let cookieEvent = cookies.get('event') // 取得 event cookie
+    if (cookieEvent) {
+      // 如果有已存在的 event cookie
+      // 查看cookie裡面的 event id
+      const idSet = new Set()
+      for (let i in cookieEvent) {
+        idSet.add(cookieEvent[i].id)
+      }
+      // 如果被改變的 event 在 event cookie 中
+      if (idSet.has(event.id)) {
+        for (let i in cookieEvent) {
+          if (cookieEvent[i].id == event.id) {
+            if (type == 'add')
+              // 如果event是從AddToCart,數量+1
+              cookieEvent[i].qty += 1
+            else {
+              // 如果event是從Input,數量直接到指定數字
+              cookieEvent[i].qty = Number(quantityNum)
+            }
+          }
+        }
+      } else {
+        // 如果被改變的product 不在 product cookie 中
+        // 初始數量為1
+        event.qty = 1
+        cookieEvent.push(event)
+      }
+      // 如果被改變後的product數量>0，加入在cookie 中
+      for (let i in cookieEvent) {
+        if (cookieEvent[i].qty > 0) {
+          updateCookie.push(cookieEvent[i])
+        }
+      }
+    } else {
+      // 如果沒有已存在的 product cookie
+      // 初始數量為1
+      event.qty = 1
+      updateCookie.push(event)
+    }
+    cookies.set('event', updateCookie) //更新Cookie
+  }
+
+  /**
+   * 加進購物車
+   *
+   * @param {Object} product 欲改變的目標 product.
+   * @param {number} quantityNum 欲更新product.qty到的數字.
+   *
+   */
+  const onAddToCart = (event, quantityNum) => {
+    onCookie(event, quantityNum, 'add')
+    const exist = cartItems.find((x) => x.id === event.id)
+    if (exist) {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === event.id
+            ? { ...exist, qty: exist.qty + 1 }
+            : x
+        )
+      )
+    } else {
+      setCartItems([...cartItems, { ...event, qty: 1 }])
+    }
+  }
+
+  /**
+   * 更新購物車數量
+   *
+   * @param {Object} event 欲改變的目標 event
+   * @param {number} quantityNum event.qty到的數字.
+   *
+   */
+  const onCartNumChange = (event, quantityNum) => {
+    console.log(event)
+    console.log(quantityNum)
+    const exist = cartItems.find((x) => x.id === event.id)
+    onCookie(event, quantityNum, 'set')
+    if (quantityNum <= 0) {
+      setCartItems(
+        cartItems.filter((x) => x.id !== event.id)
+      )
+    } else {
+      setCartItems(
+        cartItems.map((x) =>
+          x.id === event.id
+            ? { ...exist, qty: Number(quantityNum) }
+            : x
+        )
+      )
+    }
+  }
+
+  /**
+   * 移出購物車
+   *
+   * @param {Object} event 欲改變的目標 event.
+   *
+   */
+  const onDelete = (event) => {
+    onCookie(event, 0, 'set')
+    const exist = cartItems.find((x) => x.id === event.id)
+    if (exist.qty >= 1) {
+      setCartItems(
+        cartItems.filter((x) => x.id !== event.id)
+      )
+    }
+  }
+
+  const [cartItems2, setCartItems2] = useState([])
+
   return (
     <>
       <div className="c-bg">
@@ -43,81 +210,15 @@ function CartProduct() {
             </Nav.Link>
           </div>
         </div>
-        <div className="c-productlist">
-          <div className="c-product-r1 d-flex py-5 pl-4">
-            <div className="c-img150">
-              <img src={img3} />
-            </div>
-            <div className="c-product1 d-flex col-4 pl-4">
-              <div className="c-product1detail d-flex flex-column justify-content-between">
-                <div>
-                  <p className="h4">
-                    巷弄之間 【尋找隱藏達人計畫】
-                  </p>
-                  <p className="c-pid">活動編號 # 200123</p>
-                  <p className="mt-2">
-                    票卷日期：2021-04-24
-                  </p>
-                  <p className="mt-0">票卷種類：成人票</p>
-                </div>
-                <div className="d-flex flex-row">
-                  <div className="d-flex">
-                    <FaRegEdit size={20} />
-                    <p className="c-bline ml-1 mr-4">
-                      活動細節
-                    </p>
-                  </div>
-                  <div className="d-flex">
-                    <RiDeleteBinLine size={20} />
-                    <p className="c-bline ml-1">移除票卷</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="c-price d-flex flex-column align-items-center col-2">
-              <p className="mb-5">價格</p>
-              <p>NT$ 550</p>
-            </div>
-            <div className="c-quantity d-flex flex-column align-items-center col-2">
-              <p className="mb-3 pb-3">數量</p>
-              <div className="c-qbox">2</div>
-            </div>
-            <div className="c-total d-flex flex-column align-items-center col-2">
-              <p className="mb-5">小計</p>
-              <p>NT$ 1,100</p>
-            </div>
-          </div>
-
-          {/* 總金額＆折價卷 */}
-          <div className="d-flex justify-content-between mt-3 pt-3 pb-5">
-            <div className="c-left">
-              <p className="c-bline mr-5">聯絡客服</p>
-              <p className="c-bline mt-3">運費＆退貨條款</p>
-            </div>
-            <div>
-              <p>
-                總計：<sapn className="h4">NT$ 1,100</sapn>
-              </p>
-              <p className="c-bline ml-5 mt-3">
-                運費＆退貨條款
-              </p>
-            </div>
-          </div>
-          <div className="c-checkout pt-4 d-flex justify-content-between">
-            <div className="d-flex align-items-center">
-              <FaLock size={20} />
-              <p className="c-lock ml-1">
-                本賣場使用綠界科技安全結帳系統，保障您的資安
-              </p>
-            </div>
-            <div className="c-checkoutbtn">
-              <p>結帳</p>
-            </div>
-          </div>
-        </div>
+        <BasketEvent
+          cartItems={cartItems}
+          onAddToCart={onAddToCart}
+          onCartNumChange={onCartNumChange}
+          onDelete={onDelete}
+        ></BasketEvent>
       </div>
     </>
   )
 }
 
-export default CartProduct
+export default CartEvent
