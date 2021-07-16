@@ -253,7 +253,7 @@ function AuctionDetail(props) {
               目前出價:NT${internationalNumberFormat.format(immediatePrice)}
             </div>
             <div>
-              最高出價者:{bidersInfo[0].name}
+              {/* 最高出價者:{bidersInfo[0].name} */}
             </div>
           </div>
           <div className="leftContent_thirdpart">
