@@ -103,7 +103,7 @@ function EventDetail(props) {
     let weather = await fetch(weatherUrl)
     let weatherData = await weather.json()
     let tempNum = (weatherData.main.temp - 273.15).toFixed(
-      2
+      1
     )
     setTemp(tempNum)
     setWeather(weatherData.weather[0].main)
@@ -253,54 +253,77 @@ function EventDetail(props) {
                 地點：{eventCity}
               </p>
             </div>
-            <div
-              className="ed-commu-btn  col-6 d-flex justify-content-center
-            align-items-center"
-            >
-              {isShared ? (
-                <Link
-                  to={`/event/event-list/detail/update/${id}`}
-                  className="col-6"
-                >
-                  <button
-                    type="button"
-                    className="cn-font px-0"
-                    // onClick={(e) => e.preventDefault()}
-                  >
-                    修改作品
-                  </button>
-                </Link>
-              ) : (
-                <Link
-                  to={`/event/event-list/detail/upload/${id}`}
-                  className="col-6"
-                >
-                  <button
-                    type="button"
-                    className="cn-font px-0"
-                    // onClick={(e) => e.preventDefault()}
-                  >
-                    上傳作品
-                  </button>
-                </Link>
-              )}
-              <Link
-                to={`/event/event-list/detail/share/${id}`}
-                className="col-6"
-                style={{ textDecoration: 'none' }}
+            {eventClass === 'C' ? (
+              <div
+                className="col-6 d-flex justify-content-center
+            align-items-center flex-wrap ed-weather"
               >
-                <button
-                  type="button"
-                  className="cn-font px-0"
-                  // onClick={(e) => e.preventDefault()}
-                  style={{
-                    display: `${shareBtn}`,
-                  }}
+                <div className="col-6">
+                  <h6 className="cn-font">城市天候</h6>
+                  <p>
+                    <img
+                      src={`http://openweathermap.org/img/wn/${tempIcon}@2x.png`}
+                      alt=""
+                    />
+                    {weather}
+                  </p>
+                </div>
+                <div className="col-6">
+                  <h6 className="cn-font">城市氣溫</h6>
+                  <p>{temp}°C</p>
+                </div>
+                <div className="col-6"></div>
+              </div>
+            ) : (
+              <div
+                className="ed-commu-btn  col-6 d-flex justify-content-center
+            align-items-center"
+              >
+                {isShared ? (
+                  <Link
+                    to={`/event/event-list/detail/update/${id}`}
+                    className="col-6"
+                  >
+                    <button
+                      type="button"
+                      className="cn-font px-0"
+                      // onClick={(e) => e.preventDefault()}
+                    >
+                      修改作品
+                    </button>
+                  </Link>
+                ) : (
+                  <Link
+                    to={`/event/event-list/detail/upload/${id}`}
+                    className="col-6"
+                  >
+                    <button
+                      type="button"
+                      className="cn-font px-0"
+                      // onClick={(e) => e.preventDefault()}
+                    >
+                      上傳作品
+                    </button>
+                  </Link>
+                )}
+                <Link
+                  to={`/event/event-list/detail/share/${id}`}
+                  className="col-6"
+                  style={{ textDecoration: 'none' }}
                 >
-                  觀賞作品
-                </button>
-              </Link>
-            </div>
+                  <button
+                    type="button"
+                    className="cn-font px-0"
+                    // onClick={(e) => e.preventDefault()}
+                    style={{
+                      display: `${shareBtn}`,
+                    }}
+                  >
+                    觀賞作品
+                  </button>
+                </Link>
+              </div>
+            )}
           </Row>
           <Row className="left-padding cn-font ">
             <div className="col-8 pl-0 ed-detail-content">
