@@ -126,7 +126,9 @@ function UserMyFav(props) {
                   </div>
                   <div className="col-6  ">
                     <Button
-                      onClick={() => deleteUserFav()}
+                      onClick={() =>
+                        deleteUserFav(userFav.eventId)
+                      }
                       className="mr-1"
                     >
                       <IoIosHeart className="u-heart" />
