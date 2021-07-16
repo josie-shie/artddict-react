@@ -90,6 +90,20 @@ $egreylt: #E8E8E8;
     background-color: white;
 }
 
+.ed-weather{
+    color: white;
+    div{
+        h6{
+            display: inline;
+            font-size: 1.4rem;
+            font-weight: 500;
+        }
+        p{
+            display: inline;
+        }
+    }
+}
+
 .ed-detail-btn{
     background-color: transparent;
     border: 0px;

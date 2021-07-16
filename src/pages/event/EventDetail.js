@@ -103,7 +103,7 @@ function EventDetail(props) {
     let weather = await fetch(weatherUrl)
     let weatherData = await weather.json()
     let tempNum = (weatherData.main.temp - 273.15).toFixed(
-      2
+      1
     )
     setTemp(tempNum)
     setWeather(weatherData.weather[0].main)
@@ -154,6 +154,34 @@ function EventDetail(props) {
       setTicketNum(50)
     }
   }, [ticketNum])
+
+  //didMount就load FB套件
+  useEffect(() => {
+    if (window.FB) {
+      console.log('window.FB', window.FB)
+      window.FB.XFBML.parse()
+    }
+    window.fbAsyncInit = function () {
+      window.FB.init({
+        appId: '{4372278766148991}',
+        cookie: true,
+        xfbml: true,
+        version: '{api-version}',
+      })
+      window.FB.AppEvents.logPageView()
+    }
+    ;(function (d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0]
+      if (d.getElementById(id)) {
+        return
+      }
+      js = d.createElement(s)
+      js.id = id
+      js.src = 'https://connect.facebook.net/en_US/sdk.js'
+      fjs.parentNode.insertBefore(js, fjs)
+    })(document, 'script', 'facebook-jssdk')
+  }, [])
 
   /**
    * 更新 event Cookie
@@ -215,7 +243,6 @@ function EventDetail(props) {
     console.log(updateCookie)
   }
 
-
   return (
     <>
       <div className="reduce-width">
@@ -253,54 +280,83 @@ function EventDetail(props) {
                 地點：{eventCity}
               </p>
             </div>
-            <div
-              className="ed-commu-btn  col-6 d-flex justify-content-center
-            align-items-center"
-            >
-              {isShared ? (
-                <Link
-                  to={`/event/event-list/detail/update/${id}`}
-                  className="col-6"
-                >
-                  <button
-                    type="button"
-                    className="cn-font px-0"
-                    // onClick={(e) => e.preventDefault()}
-                  >
-                    修改作品
-                  </button>
-                </Link>
-              ) : (
-                <Link
-                  to={`/event/event-list/detail/upload/${id}`}
-                  className="col-6"
-                >
-                  <button
-                    type="button"
-                    className="cn-font px-0"
-                    // onClick={(e) => e.preventDefault()}
-                  >
-                    上傳作品
-                  </button>
-                </Link>
-              )}
-              <Link
-                to={`/event/event-list/detail/share/${id}`}
-                className="col-6"
-                style={{ textDecoration: 'none' }}
+            {eventClass === 'C' ? (
+              <div
+                className="col-6 d-flex justify-content-between
+            align-items-center flex-wrap ed-weather pl-5 pt-4"
               >
-                <button
-                  type="button"
-                  className="cn-font px-0"
-                  // onClick={(e) => e.preventDefault()}
-                  style={{
-                    display: `${shareBtn}`,
-                  }}
+                <div className="col-5 d-flex flex-wrap">
+                  <h6 className="cn-font col-12 p-0">
+                    {eventCity}天候：
+                  </h6>
+                  <p className="eng-font-regular col-12 p-0">
+                    {weather}
+                  </p>
+                  {/* <img
+                    src={`http://openweathermap.org/img/wn/${tempIcon}@2x.png`}
+                    alt=""
+                  /> */}
+                </div>
+                <div className="col-5 d-flex flex-wrap">
+                  <h6 className="cn-font col-12 p-0">
+                    氣溫：
+                  </h6>
+                  <p className="eng-font-regular col-12 p-0">
+                    {temp}°C
+                  </p>
+                </div>
+                <div className="col-6"></div>
+              </div>
+            ) : (
+              <div
+                className="ed-commu-btn  col-6 d-flex justify-content-center
+            align-items-center"
+              >
+                {isShared ? (
+                  <Link
+                    to={`/event/event-list/detail/update/${id}`}
+                    className="col-6"
+                  >
+                    <button
+                      type="button"
+                      className="cn-font px-0"
+                      // onClick={(e) => e.preventDefault()}
+                    >
+                      修改作品
+                    </button>
+                  </Link>
+                ) : (
+                  <Link
+                    to={`/event/event-list/detail/upload/${id}`}
+                    className="col-6"
+                  >
+                    <button
+                      type="button"
+                      className="cn-font px-0"
+                      // onClick={(e) => e.preventDefault()}
+                    >
+                      上傳作品
+                    </button>
+                  </Link>
+                )}
+                <Link
+                  to={`/event/event-list/detail/share/${id}`}
+                  className="col-6"
+                  style={{ textDecoration: 'none' }}
                 >
-                  觀賞作品
-                </button>
-              </Link>
-            </div>
+                  <button
+                    type="button"
+                    className="cn-font px-0"
+                    // onClick={(e) => e.preventDefault()}
+                    style={{
+                      display: `${shareBtn}`,
+                    }}
+                  >
+                    觀賞作品
+                  </button>
+                </Link>
+              </div>
+            )}
           </Row>
           <Row className="left-padding cn-font ">
             <div className="col-8 pl-0 ed-detail-content">

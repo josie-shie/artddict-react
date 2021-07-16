@@ -123,17 +123,11 @@ function Ticket(props) {
                   </Link>
                 </div>
                 <div className="u-BtnBlack">
-                  {/* <Link
-                  to="/user-ticket/detail"
-                  className="u-link3"
-                  style={{ textDecoration: 'none' }}
-                >
-                  票券細節
-                </Link> */}
                   <Button
                     className="u-ticdetail"
                     variant="dark"
                     onClick={() => setModalShow(true)}
+                    key={ticket.eventId}
                   >
                     票券細節
                   </Button>

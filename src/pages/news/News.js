@@ -292,7 +292,7 @@ const News = () => {
                 </h5>
                 <form className="mt-5" action="">
                   <input
-                    className="news-inp"
+                    className="news-inp pl-2"
                     type="email"
                     value={email}
                     placeholder="請輸入電子郵件"
