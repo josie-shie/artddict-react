@@ -491,7 +491,7 @@ function WorkshopUpload(props) {
                 <div className="col-11 d-flex flex-wrap justify-content-between my-4">
                   {!isPreparetoDel ? (
                     <button
-                      className="eu-send-del e-btn-m col-l2 my-3"
+                      className="eu-send-del e-btn-m col-l2 my-3 cn-font"
                       type="button"
                       onClick={() => {
                         handleShow()
@@ -501,7 +501,7 @@ function WorkshopUpload(props) {
                     </button>
                   ) : (
                     <button
-                      className="eu-send-del2 e-btn-m col-l2 my-3"
+                      className="eu-send-del2 e-btn-m col-l2 my-3 cn-font"
                       type="button"
                       onClick={() => {
                         deleteShareFromServer(id)
@@ -511,7 +511,7 @@ function WorkshopUpload(props) {
                     </button>
                   )}
                   <button
-                    className="eu-send-cmt e-btn-m col-l2 my-3"
+                    className="eu-send-cmt e-btn-m col-l2 my-3 cn-font"
                     type="button"
                     onClick={() => {
                       updateEventShareSever()
@@ -630,7 +630,7 @@ function WorkshopUpload(props) {
                 </Button> */}
                 <Button
                   type="button"
-                  className="e-btn-s e-modal-del"
+                  className="e-btn-s e-modal-del "
                   onClick={() => {
                     handleClose()
                     setIsPreparetoDel(true)
