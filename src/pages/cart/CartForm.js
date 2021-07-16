@@ -1,5 +1,4 @@
 import { React, useState, useEffect } from 'react'
-import { useForm } from 'react-hook-form'
 import {
   countries,
   townships,
@@ -13,8 +12,6 @@ import Basket2 from './demo/Basket2'
 import { ReactComponent as Logo } from '../../pics/logo-bk.svg'
 
 // components
-import CartFormShip from './components/CartFormShip'
-import CartFormPay from './components/CartFormPay'
 import CartFormFinish from './components/CartFormFinish'
 
 // @material-ui
@@ -35,19 +32,7 @@ import { FaLock } from 'react-icons/fa'
 import { RiArrowRightSLine } from 'react-icons/ri'
 
 function CartForm() {
-  // react hook form
-  const {
-    register,
-    handleSubmit,
-    formState: { errors, isValid },
-  } = useForm({ mode: 'all' })
-  const onSubmit = (data) => console.log(data)
 
-  // shipping info
-  //   const [status, setStatus] = useState(0)
-  //   const radioHandler = (status) => {
-  //     setStatus(status)
-  //   }
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
 
@@ -63,13 +48,6 @@ function CartForm() {
     })
   }
 
-  //   const [orderInfo, setOrderInfo] = useState({})
-  //   const updateOrderInfo = (key, value) => {
-  //     orderInfo[key] = value
-  //     setOrderInfo(orderInfo)
-  //     console.log(orderInfo)
-  //   }
-  // formstep
   const [formStep, setFormStep] = useState(0)
   const completeFormStep = () => {
     console.log(setFormStep)
@@ -158,7 +136,7 @@ function CartForm() {
   const [credittype, setCreditType] = useState('VISA')
   const [credit, setCredit] = useState('')
   const [whole_address, setWholeAddress] = useState('')
-  const [totalprice, setTotalPrice] = useState('')
+
   // 訂單細節
 
   // 定義此筆訂單產生的訂單編號
@@ -266,12 +244,6 @@ function CartForm() {
   )
 
   const [shipfee, setShipFee] = useState(80)
-  // const [totalprice, setTotalPrice] = useState(
-  //   itemsPrice + shipfee
-  // )
-
-  // setTotalPrice(itemsPrice + shipfee)
-
   return (
     <>
       <div className="c-bg">
@@ -353,11 +325,6 @@ function CartForm() {
                             setUsername(event.target.value)
                           }}
                         />
-                        {/* {errors.name && (
-                          <p className="c-error">
-                            *請輸入收件人姓名
-                          </p>
-                        )} */}
                         <div className="d-flex">
                           <div className="col-6 pl-0">
                             <p className="pt-3">縣市*</p>
@@ -387,11 +354,6 @@ function CartForm() {
                                 )
                               )}
                             </select>
-                            {errors.city && (
-                              <p className="c-error">
-                                *請選擇縣市
-                              </p>
-                            )}
                           </div>
                           <div className="col-6 pr-0">
                             <p className="pt-3">地區*</p>
@@ -429,11 +391,6 @@ function CartForm() {
                             setAddress(event.target.value)
                           }}
                         />
-                        {errors.address && (
-                          <p className="c-error">
-                            *請輸入收件地址
-                          </p>
-                        )}
                         <p className="pt-3" type="text">
                           聯絡電話*
                         </p>
@@ -443,11 +400,6 @@ function CartForm() {
                             setMobile(event.target.value)
                           }}
                         />
-                        {errors.address && (
-                          <p className="c-error">
-                            *請輸入聯絡電話
-                          </p>
-                        )}
                       </div>
                       {/* )} */}
                       <div className="c-shipmethod pt-4">

@@ -130,7 +130,7 @@ font-face {
     margin-top: 1.5%;
 }
 .proDe-scoresAndWrite {
-    margin-top: 7px;
+    margin-top: 27px;
     margin-left: 20px;  
     font-family:notoSansTC-Medium;
     color: #6e6e6e;
@@ -144,6 +144,7 @@ font-face {
     width: 100%;
     height: 50px;
     background-color: black;
+    margin-top: 10px;
 }
 .proDe-productPricee p{
 font-family: notoSansTC-Medium;
@@ -161,18 +162,32 @@ color: white;
     height: 50px;
     background-color:black;
 }
-.proDe-sizeBtn{
+.proDe-sizeBtnA{
     width: 200px;
     justify-content: space-between;
 
 }
-.proDe-sizeBtn button{
+
+
+
+
+
+.proDe-sizeBtn {
     border: 1px solid #6e6e6e;
     background-color: transparent;
     color: #6e6e6e;
     width: 50px;
     height: 50px;
 }
+.sizeSelect{
+    color: white;
+    border: 1px solid white;
+    background-color:black;
+    transition: .5s;
+    
+}
+
+
 .proDe-sizeCheck{
     color: #6e6e6e;
     border-bottom: 1px solid #6e6e6e;
@@ -275,13 +290,11 @@ color: white;
 .proDe-commentsAndBar{
     justify-content:space-between;
     border-bottom: 2px solid #6e6e6e;
-    padding-bottom: 20px;
-
 }
 .proDe-commentsLeft{
     width: 40%;
-    height: 130px;
-    margin-top: 28px;
+    height: 100px;
+    margin-top: 40px;
 }
 .proDe-commentsWord1{
     color: white;
@@ -293,19 +306,23 @@ color: white;
     font-family: notoSansTC-Medium;
     font-size: 2rem;
     align-items: center;
-    margin-top: 5%;
+  
 }
 .proDe-pushLeft{
     margin-left: 30px;
+    margin-top: -7px;
 }
 .proDe-underStarWord{
     font-size: 1rem;
     color: #6e6e6e;
+    justify-content: flex-end;
+    margin-right: 15px;
+
 }
 .proDe-commentsRight{
     width: 52%;
-    height: 130px;
-    margin-top:28px;
+    height: 100px;
+    margin-top:40px;
 }
 @media (min-width: 1440px){
     .proDe-commentsRight{
@@ -339,7 +356,7 @@ font-family: notoSansTC-Medium;
 }
 .proDe-commentsCardLeft{
     width: 30%;
-    margin-top: 28px;
+    margin-top: 20px;
 }
 
 .proDe-userName, .proDe-userDate{
@@ -356,6 +373,7 @@ font-family: notoSansTC-Medium;
     margin-top: 28px;
 }
 .proDe-commentsContent{
+    margin-top: 10px;
     
 }
 .proDe-commentsContent p{
@@ -369,4 +387,11 @@ font-family: notoSansTC-Medium;
 .proDe-lastWord{
     font-family: notoSansTC-Medium;
     font-size: 1.1rem;
+    margin-top: -12px;
+}
+
+.proDe-lastWord2{
+    font-family: notoSansTC-Medium;
+    font-size: 1.1rem;
+    margin-top: -3px;
 }

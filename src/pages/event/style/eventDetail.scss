@@ -68,8 +68,13 @@ $egreylt: #E8E8E8;
         color: #A7A7A7;
     }
     .ed-like-icon{
+        cursor: pointer;
         font-size: 2.2rem;
         color: white;
+    }
+
+    .ed-like-icon:hover{
+        color: #81FC4D;
     }
 }
 
