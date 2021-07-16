@@ -330,6 +330,13 @@ function ProductDetail(props) {
   //   console.log('didmount', starsAverage)
   // }, [starsAverage])
 
+  $('.sizeChoose').click(function () {
+    $(this)
+      .addClass('sizeSelect')
+      .siblings()
+      .removeClass('sizeSelect')
+  })
+
   let trymeme = starNum / commentsNum
 
   return (
@@ -369,30 +376,39 @@ function ProductDetail(props) {
                 </div>
                 <div className="proDe-starsComment d-flex">
                   <div className="proDe-stars">
-                    <IoIosStar
-                      size={30}
-                      color={'#1D0AFF'}
-                    />
-                    <IoIosStar
-                      size={30}
-                      color={'#1D0AFF'}
-                    />
-                    <IoIosStar
-                      size={30}
-                      color={'#1D0AFF'}
-                    />
-                    <IoIosStar
-                      size={30}
-                      color={'#1D0AFF'}
-                    />
-                    <IoIosStar
-                      size={30}
-                      color={'#1D0AFF'}
-                    />
+                    {tryyy === true ? (
+                      <ReactStars
+                        count={5}
+                        edit={false}
+                        value={starsAverage}
+                        // onChange={(e) => {
+                        //   setRating(trymeme)
+                        // }}
+                        activeColor="#1D0AFF"
+                        size={24}
+                        isHalf={true}
+                        emptyIcon={
+                          <i className="far fa-star"></i>
+                        }
+                        halfIcon={
+                          <i className="fa fa-star-half-alt"></i>
+                        }
+                        fullIcon={
+                          <i className="fa fa-star"></i>
+                        }
+                      />
+                    ) : (
+                      ''
+                    )}
                   </div>
                   <div className="proDe-scoresAndWrite">
                     <p>
-                      5(12)
+                      {isNaN(starsAverage) === true
+                        ? '0'
+                        : tryyy === true
+                        ? starsAverage.toFixed(1)
+                        : ''}
+                      ({commentsNum})
                       <Link
                         style={{ textDecoration: 'none' }}
                       >
@@ -415,10 +431,16 @@ function ProductDetail(props) {
                   {/* ----------SIZE---- */}
                   {proClass === 'C03' ? (
                     <div className="proDe-sizeBtnBox2 d-flex">
-                      <div className="proDe-sizeBtn d-flex">
-                        <button>S</button>
-                        <button>M</button>
-                        <button>L</button>
+                      <div className="proDe-sizeBtnA d-flex">
+                        <button className="proDe-sizeBtn sizeChoose">
+                          S
+                        </button>
+                        <button className="proDe-sizeBtn sizeChoose">
+                          M
+                        </button>
+                        <button className="proDe-sizeBtn sizeChoose">
+                          L
+                        </button>
                       </div>
                       <div className="proDe-sizeCheck">
                         <Link
@@ -575,10 +597,12 @@ function ProductDetail(props) {
                     <p>商品評價</p>
                   </div>
                   <div className="proDe-commentsNumAndStar d-flex ">
-                    <p>
+                    {/* <p>
                       {isNaN(starsAverage) === true
                         ? '0'
-                        : starsAverage}
+                        : tryyy === true
+                        ? starsAverage.toFixed(1)
+                        : ''}
                     </p>
                     <div className="proDe-pushLeft">
                       {tryyy === true ? (
@@ -605,7 +629,24 @@ function ProductDetail(props) {
                       ) : (
                         ''
                       )}
-                      {/* <ReactStars
+                      <p className="proDe-underStarWord">
+                        {commentsNum}則評論
+                      </p>
+                    </div> */}
+                  </div>
+                </div>
+
+                <div className="proDe-commentsRight d-flex">
+                  <p className="proDe-commentsNumAndStar">
+                    {isNaN(starsAverage) === true
+                      ? '0'
+                      : tryyy === true
+                      ? starsAverage.toFixed(1)
+                      : ''}
+                  </p>
+                  <div className="proDe-pushLeft">
+                    {tryyy === true ? (
+                      <ReactStars
                         count={5}
                         edit={false}
                         value={starsAverage}
@@ -624,16 +665,15 @@ function ProductDetail(props) {
                         fullIcon={
                           <i className="fa fa-star"></i>
                         }
-                      /> */}
-                      <p className="proDe-underStarWord">
-                        {commentsNum}則評論
-                      </p>
-                    </div>
+                      />
+                    ) : (
+                      ''
+                    )}
+                    <p className="proDe-underStarWord">
+                      {commentsNum}則評論
+                    </p>
                   </div>
-                </div>
-
-                <div className="proDe-commentsRight ">
-                  <div className="proDe-commentsBar1 d-flex">
+                  {/* <div className="proDe-commentsBar1 d-flex">
                     <p className="proDe-1">5星</p>
                     <input
                       type="range"
@@ -687,7 +727,7 @@ function ProductDetail(props) {
                       value="0"
                     />
                     <p className="proDe-2">0(0%)</p>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               {commentsCard}
@@ -783,7 +823,7 @@ function ProductDetail(props) {
                           addcommentsSever()
                         }}
                       >
-                        <p className="proDe-lastWord">
+                        <p className="proDe-lastWord2">
                           送出評論
                         </p>
                       </button>
@@ -793,12 +833,6 @@ function ProductDetail(props) {
               </div>
               {/* ----------------留言結束--------- */}
             </div>
-            <div
-              class="fb-comments"
-              data-href="http://localhost:3000/product/product-list/product-detail"
-              data-width="100%"
-              data-numposts="5"
-            ></div>
           </div>
         </div>
       </div>
