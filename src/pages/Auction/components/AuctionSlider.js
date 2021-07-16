@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import $ from 'jquery'
 import 'rc-tooltip/assets/bootstrap.css'
 import Slider, { SliderTooltip } from 'rc-slider'
@@ -9,6 +9,8 @@ function AuctionSlider(props) {
     const {priceRange,setPriceRange,priceRange2,setPriceRange2} = props
     const { Range } = Slider
     const style = { width: 700 }
+    const [minvalue,setMinValue] = useState(0)
+    const [maxvalue,setMaxValue] = useState(38000)
     
     return (
         <>
@@ -17,23 +19,24 @@ function AuctionSlider(props) {
 
                   <div className="prolist-sliderbox d-flex pro-filterWord">
                     <div style={style}>
-                      <p>PRICE RANGE</p>
+                      <p>PRICE RANGE ({minvalue} ~ {maxvalue})</p>
                       <Range
                         min={0}
-                        max={8000}
-                        step={2000}
+                        max={38000}
+                        step={500}
                         marks={{
-                          0: 0,
-                          2000: 2000,
-                          4000: 4000,
-                          6000: 6000,
-                          8000: 8000,
+                          // 0: 0,
+                          // 2000: 2000,
+                          // 4000: 4000,
+                          // 6000: 15000,
+                          // 20000: 40000,
                         }}
                         allowCross={false}
-                        defaultValue={[0, 8000]}
+                        defaultValue={[0, 40000]}
                         onAfterChange={(e) => {
-                          console.log("多少",e)
                           // setPriceRange(JSON.stringify(e))
+                          setMinValue(e[0])
+                          setMaxValue(e[1])
                           setPriceRange(e)
                         }}
                       />
