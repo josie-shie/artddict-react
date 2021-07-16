@@ -141,10 +141,13 @@ const Nav = (props) => {
                   </i>
                 </Link>
               </div>
-              <div className="mb-4">
+              <div className="mb-4 nav-cart">
                 <Link to="/cart-product">
                   <i>
                     <BiCartAlt />
+                    {/* {購物車數量 > 1 ? (
+                      <span>5</span>
+                    )：""*/}
                   </i>
                 </Link>
               </div>

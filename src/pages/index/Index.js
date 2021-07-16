@@ -10,10 +10,6 @@ import {
   BsArrowRight,
   BsArrowLeft,
 } from 'react-icons/bs'
-import {
-  IoIosArrowRoundBack,
-  IoIosArrowRoundForward,
-} from 'react-icons/io'
 
 //? index img
 import video from './video/Graffiti street art.mp4'
