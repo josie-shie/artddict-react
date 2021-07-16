@@ -221,7 +221,7 @@ function Auction(props) {
     // 一開始就會開始載入資料
 
     return (
-        <>
+        <>  
             <div className="auctionPage">
                 <div className="auctionHeroSection">
                     <div className="auctionHeroSectionLogo">
@@ -289,7 +289,7 @@ function Auction(props) {
                                     onChange={(event) => { setSearch(event.target.value) }}
                                 />
                                 <div className="auctionNumberOfProduct cn-font">
-                                    Showing 1-9 of 27
+                                    Showing 1-9 of {pagesinfo.totalRows}
                                 </div>
                             </div>
                             <div className="auctionMainFilterRight">
