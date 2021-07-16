@@ -25,6 +25,11 @@ import './style/reset.css'
 import './style/fontAndBtn.scss'
 import './style/eventDetail.scss'
 
+
+
+// open weather
+const myKey = "24eb2177b3c656250ca2c17ba3389113"
+
 function EventDetail(props) {
   const id = props.match.params.id
 
@@ -42,7 +47,13 @@ function EventDetail(props) {
   const [eventPrice, setEventPrice] = useState('')
   const [eventImg, setEventImg] = useState('')
   const [eventCity, setEventCity] = useState('')
+  const [eventClass, setEventClass] = useState('C')
+  const [cityId, setCityid] = useState('Taipei')
+  const [temp, setTemp] = useState()
+  const [tempIcon, setTempIcon] = useState('')
+  const [weather, setWeather] = useState('')
   const [isShared, setIsShared] = useState(true)
+
 
   // 票價數量
   const [ticketNum, setTicketNum] = useState(1)
@@ -73,10 +84,28 @@ function EventDetail(props) {
     setEventDateEnd(data.eventDateEnd)
     setEventDesc(data.eventDescription)
     setEventPrice(data.eventPrice)
+    setEventClass(data.eventClass)
     setEventImg(data.eventImg)
     setEventCity(data.cityName)
     setIsShared(data.shareId)
+    setCityid(data.cityFullName)
+
   }
+
+  async function getWeather() {
+    let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityId}&appid=${myKey}`
+    let weather = await fetch(weatherUrl)
+    let weatherData = await weather.json()
+    let tempNum = (weatherData.main.temp - 273.15).toFixed(
+      2
+    )
+    setTemp(tempNum)
+    setWeather(weatherData.weather[0].main)
+    setTempIcon(weatherData.weather[0].icon)
+  }
+
+  console.log(temp, weather, tempIcon)
+  
 
   let shareBtn = ''
   if (isShared) {
@@ -87,11 +116,16 @@ function EventDetail(props) {
 
   useEffect(() => {
     getEventIdServer()
+    getWeather()
     $(ticketRef.current).on('click', ()=>{
       $(ticketRef.current).css('background', 'black').css('color','white') 
     })
     
   }, [])
+
+  useEffect(() => {
+    getWeather()
+  }, [cityId])
 
   useEffect(() => {
     getEventIdServer()
