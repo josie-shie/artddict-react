@@ -3,10 +3,6 @@
     src:url(./font/ENGR.ttf);
     }
 
-    .nav-area li{
-        font-family: Engravers, serif;
-    }
-
 
     body {
         width: 100%;
@@ -15,6 +11,28 @@
     .nav-area {
         position: relative;
         z-index: 1000;
+
+        li{
+            font-family: Engravers, serif;
+        }
+
+    }
+
+    .nav-cart{
+        position: relative;
+
+        span{
+            position: absolute;
+            text-align: center;
+            line-height: 15px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            font-family: NotoSansTC-Bold;
+            font-size:0.7rem;
+            color:#000;
+            background-color: #81FC4D;
+        }
     }
 
     .index-nav {
@@ -27,12 +45,13 @@
         bottom: 0;
         right: 0;
         width: 70px;
+
+        i {
+            font-size: 1.5rem;
+            color: #81FC4D;
+        }
     }
 
-    .index-nav i {
-        font-size: 1.5rem;
-        color: #81FC4D;
-    }
 
     .nav-icon {
         position: absolute;

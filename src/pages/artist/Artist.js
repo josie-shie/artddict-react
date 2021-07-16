@@ -47,7 +47,9 @@ const Artist = () => {
   return (
     <>
       <div className="art-area index-web-padding d-flex flex-column">
-        <Logo className="art-logo " />
+        <Link to="/">
+          <Logo className="art-logo " />
+        </Link>
         <nav aria-label="breadcrumb-dk">
           <ol className="breadcrumb-dk">
             <li className="breadcrumb-item">
