@@ -25,6 +25,30 @@ function CartProduct() {
   const [cartItems, setCartItems] = useState([])
   const cookies = new Cookies()
 
+  async function getEventServer() {
+
+    const url = 'http://localhost:6005/event/'
+
+    // 注意header資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+    // fetch是呼叫後台api, response=得到的資料
+    const response = await fetch(request)
+    console.log(response)
+    const data = await response.json()
+    console.log(data)
+  }
+
+  // 呼叫剛剛的assync func
+  useEffect(() => {
+    getEventServer()
+  }, [])
+
   /**
    * 當頁面Load時，讀取Cookie值並更新至cartItems
    */
