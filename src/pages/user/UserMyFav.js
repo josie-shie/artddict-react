@@ -17,7 +17,8 @@ import swal from 'sweetalert'
 function UserMyFav(props) {
   const userid = props.match.params.userid
   const [userFavs, setUserFavs] = useState([])
-  const [id, setid] = useState('')
+
+  const id = props.match.params.id
 
   async function getUserFav() {
     const url = `http://localhost:6005/users/userFav/${userid}`
@@ -38,8 +39,8 @@ function UserMyFav(props) {
     getUserFav()
   }, [])
 
-  async function deleteUserFav() {
-    const url = `http://localhost:6005/users/userFav/${id}`
+  async function deleteUserFav(id) {
+    const url = `http://localhost:6005/users/userFavDelete/${id}`
     const request = new Request(url, {
       method: 'DELETE',
       headers: new Headers({
@@ -48,9 +49,9 @@ function UserMyFav(props) {
       }),
     })
 
+    console.log(`url = ${id}`)
     const response = await fetch(request)
     const data = await response.json()
-    console.log(data)
   }
 
   async function logoutToSever() {
@@ -101,7 +102,9 @@ function UserMyFav(props) {
                 border: 'none',
               }}
             >
-              <Link to="/">
+              <Link
+                to={`/event/event-list/detail/${userFav.eventId}`}
+              >
                 {' '}
                 <Card.Img
                   variant="top"
@@ -123,7 +126,7 @@ function UserMyFav(props) {
                   </div>
                   <div className="col-6  ">
                     <Button
-                      onClick={() => deleteUserFav(id)}
+                      onClick={() => deleteUserFav()}
                       className="mr-1"
                     >
                       <IoIosHeart className="u-heart" />

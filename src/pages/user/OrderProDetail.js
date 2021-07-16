@@ -38,6 +38,8 @@ function OrderProDetail(props) {
       }),
     })
 
+    console.log(`id = ${id}`);
+
     const response = await fetch(request)
     const data = await response.json()
 
