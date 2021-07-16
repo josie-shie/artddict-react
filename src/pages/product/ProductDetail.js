@@ -236,7 +236,7 @@ function ProductDetail(props) {
                 edit={false}
                 value={pro.starValue}
                 activeColor="#1D0AFF"
-                size={18}
+                size={30}
                 isHalf={true}
                 emptyIcon={<i className="far fa-star"></i>}
                 halfIcon={
@@ -301,7 +301,7 @@ function ProductDetail(props) {
           //   setRating(trymeme)
           // }}
           activeColor="#1D0AFF"
-          size={24}
+          size={40}
           isHalf={true}
           emptyIcon={<i className="far fa-star"></i>}
           halfIcon={<i className="fa fa-star-half-alt"></i>}
@@ -319,7 +319,7 @@ function ProductDetail(props) {
     setTimeout(() => {
       console.log('executing timeout')
       setTryyy(true)
-    }, 5000)
+    }, 6000)
   }
 
   // let starsStars = setTimeout(() => {
@@ -385,7 +385,7 @@ function ProductDetail(props) {
                         //   setRating(trymeme)
                         // }}
                         activeColor="#1D0AFF"
-                        size={24}
+                        size={40}
                         isHalf={true}
                         emptyIcon={
                           <i className="far fa-star"></i>
@@ -654,7 +654,7 @@ function ProductDetail(props) {
                         //   setRating(trymeme)
                         // }}
                         activeColor="#1D0AFF"
-                        size={24}
+                        size={40}
                         isHalf={true}
                         emptyIcon={
                           <i className="far fa-star"></i>
@@ -669,7 +669,7 @@ function ProductDetail(props) {
                     ) : (
                       ''
                     )}
-                    <p className="proDe-underStarWord">
+                    <p className="proDe-underStarWord d-flex">
                       {commentsNum}則評論
                     </p>
                   </div>
@@ -793,7 +793,7 @@ function ProductDetail(props) {
                         }}
                         value={5}
                         activeColor="#1D0AFF"
-                        size={24}
+                        size={40}
                         isHalf={true}
                         emptyIcon={
                           <i className="far fa-star"></i>
