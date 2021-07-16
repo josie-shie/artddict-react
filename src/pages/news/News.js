@@ -126,7 +126,7 @@ const News = () => {
         icon: 'warning',
         confirmButtonColor: '#1D0AFF',
         confirmButtonText: '確定',
-        timer: 3000,
+        timer: 1000,
       })
     }
   }
@@ -229,8 +229,7 @@ const News = () => {
             </h3>
             <img src={news2} alt="" />
             <h5 className="art-push">
-              {' '}
-              2021/06/30 Tokiyo{' '}
+              2021/06/30 Tokiyo
             </h5>
             <img src={news5} alt="" />
             <div className="d-flex justify-content-center mt-5">
