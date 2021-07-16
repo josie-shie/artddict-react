@@ -161,18 +161,32 @@ color: white;
     height: 50px;
     background-color:black;
 }
-.proDe-sizeBtn{
+.proDe-sizeBtnA{
     width: 200px;
     justify-content: space-between;
 
 }
-.proDe-sizeBtn button{
+
+
+
+
+
+.proDe-sizeBtn {
     border: 1px solid #6e6e6e;
     background-color: transparent;
     color: #6e6e6e;
     width: 50px;
     height: 50px;
 }
+.sizeSelect{
+    color: white;
+    border: 1px solid white;
+    background-color:black;
+    transition: .5s;
+    
+}
+
+
 .proDe-sizeCheck{
     color: #6e6e6e;
     border-bottom: 1px solid #6e6e6e;
@@ -275,8 +289,6 @@ color: white;
 .proDe-commentsAndBar{
     justify-content:space-between;
     border-bottom: 2px solid #6e6e6e;
-    padding-bottom: 20px;
-
 }
 .proDe-commentsLeft{
     width: 40%;
@@ -293,7 +305,7 @@ color: white;
     font-family: notoSansTC-Medium;
     font-size: 2rem;
     align-items: center;
-    margin-top: 5%;
+  
 }
 .proDe-pushLeft{
     margin-left: 30px;
@@ -369,4 +381,11 @@ font-family: notoSansTC-Medium;
 .proDe-lastWord{
     font-family: notoSansTC-Medium;
     font-size: 1.1rem;
+    margin-top: -12px;
+}
+
+.proDe-lastWord2{
+    font-family: notoSansTC-Medium;
+    font-size: 1.1rem;
+    margin-top: -3px;
 }
