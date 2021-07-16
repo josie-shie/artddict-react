@@ -2,7 +2,12 @@ import React, { useState, useEffect } from 'react'
 import './styles/UserMyFav.scss'
 import Logoheader from './components/Logoheader'
 import Breadcrumb from './components/UserBreadcrumb'
-import { Container, Row, Card } from 'react-bootstrap'
+import {
+  Container,
+  Row,
+  Card,
+  Button,
+} from 'react-bootstrap'
 import { IoIosHeart } from 'react-icons/io'
 import { CgShoppingCart } from 'react-icons/cg'
 import { withRouter, Link, NavLink } from 'react-router-dom'
@@ -12,6 +17,7 @@ import swal from 'sweetalert'
 function UserMyFav(props) {
   const userid = props.match.params.userid
   const [userFavs, setUserFavs] = useState([])
+  const [id, setid] = useState('')
 
   async function getUserFav() {
     const url = `http://localhost:6005/users/userFav/${userid}`
@@ -31,6 +37,21 @@ function UserMyFav(props) {
   useEffect(() => {
     getUserFav()
   }, [])
+
+  async function deleteUserFav() {
+    const url = `http://localhost:6005/users/userFav/${id}`
+    const request = new Request(url, {
+      method: 'DELETE',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    console.log(data)
+  }
 
   async function logoutToSever() {
     // 連接的伺服器資料網址
@@ -58,6 +79,16 @@ function UserMyFav(props) {
     // const data = await response.json()
   }
 
+  // 轉換日期格式
+  function convert_date(date_text) {
+    // date_text
+    const myDate = new Date(date_text)
+    const date_text_new = myDate
+      .toISOString()
+      .substring(0, 10)
+    return `${date_text_new}`
+  }
+
   const UserFavDisplay =
     userFavs.length === 0
       ? 'noneData'
@@ -83,17 +114,23 @@ function UserMyFav(props) {
                   {userFav.eventName}
                 </h6>
                 <div className="d-flex">
-                  <div className="col-9 p-0">
+                  <div className="col-8 p-0">
                     <p>地點：{userFav.eventCity}</p>
-                    <p>時間：{userFav.eventDateStart}</p>
+                    <p>
+                      時間：
+                      {convert_date(userFav.eventDateStart)}
+                    </p>
                   </div>
-                  <div className="col-6 pr-2">
-                    <Link to="/">
+                  <div className="col-6  ">
+                    <Button
+                      onClick={() => deleteUserFav(id)}
+                      className="mr-1"
+                    >
                       <IoIosHeart className="u-heart" />
-                    </Link>
-                    <Link to="/cart-product">
+                    </Button>
+                    <Button>
                       <CgShoppingCart className="u-shopingcart" />
-                    </Link>
+                    </Button>
                   </div>
                 </div>
               </Card.Body>
