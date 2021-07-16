@@ -118,7 +118,7 @@ const News = () => {
           button: false,
           timer: 3000,
         })
-      }, 500)
+      }, 200)
       console.log('success')
     } else {
       swal({
@@ -165,7 +165,7 @@ const News = () => {
 
   return (
     <>
-      <div className="news-content-area index-web-padding d-flex flex-column">
+      <div className="news-content-area d-flex flex-column">
         <Link to="/">
           <Logo className="news-logo " />
         </Link>

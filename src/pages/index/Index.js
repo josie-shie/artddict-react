@@ -14,7 +14,6 @@ import {
   IoIosArrowRoundBack,
   IoIosArrowRoundForward,
 } from 'react-icons/io'
-import ProCrard from './components/ProCard'
 
 //? index img
 import video from './video/Graffiti street art.mp4'
@@ -49,15 +48,13 @@ import cirbl from './image/cute/cirbl.svg'
 import tage from './image/cute/tage.svg'
 import eye from './image/cute/eye.svg'
 
-import product1 from './image/product/24.植物園 獨角獸 圍巾03.jpeg'
-import product2 from './image/product/33.司宗譜紋章 圍巾03.jpeg'
-import product3 from './image/product/19.威廉 綠啄花 披肩03.jpeg'
 import ProCard from './components/ProCard'
 import ProCard2 from './components/ProCard2'
 
 //? product img
 import auctime from './image/acution/auction.svg'
 import aucline from './image/acution/aucline.svg'
+import AuctionCard from './components/AuctionCard'
 
 import gif from './video/gif-marble.gif'
 
@@ -365,17 +362,13 @@ const Index = () => {
             </div>
             <div className="col-6 d-flex flex-column pt-4">
               <img src={aucline} alt="" />
-              <div className="d-flex px-5">
-                <button className="notoSansTC-md col-6">
-                  WATCH ALL
-                </button>
-                <button className="col-3">
-                  <IoIosArrowRoundBack size={30} />
-                </button>
-                <button className="col-3 ">
-                  <IoIosArrowRoundForward size={30} />
-                </button>
-              </div>
+              <Link to="/auction">
+                <div className="d-flex px-5">
+                  <button className="notoSansTC-md col-12">
+                    WATCH ALL
+                  </button>
+                </div>
+              </Link>
             </div>
           </div>
           <div className="auctime">
@@ -385,56 +378,7 @@ const Index = () => {
               alt=""
             />
           </div>
-          <div className="auction-card-wrap d-flex">
-            <div className="auction-card col-3">
-              <img src={product2} alt="" />
-              <div className="index-card-rect"></div>
-              <div className="d-flex justify-content-between mt-2">
-                <h5 className="notoSansTC-md font-weight-bold">
-                  奈良美智 [少女] 原作
-                </h5>
-                <h5 className="notoSansTC-md font-weight-bold">
-                  49,20,00元
-                </h5>
-              </div>
-            </div>
-            <div className="auction-card col-3">
-              <img src={product2} alt="" />
-              <div className="index-card-rect"></div>
-              <div className="d-flex justify-content-between mt-2">
-                <h5 className="notoSansTC-md font-weight-bold">
-                  鹽田千春 [捕夢網]
-                </h5>
-                <h5 className="notoSansTC-md font-weight-bold">
-                  62,70,00元
-                </h5>
-              </div>
-            </div>
-            <div className="auction-card col-3">
-              <img src={product1} alt="" />
-              <div className="index-card-rect"></div>
-              <div className="d-flex justify-content-between mt-2">
-                <h5 className="notoSansTC-md font-weight-bold">
-                  松本龍介 [無題]
-                </h5>
-                <h5 className="notoSansTC-md font-weight-bold">
-                  42,60,00元
-                </h5>
-              </div>
-            </div>
-            <div className="auction-card col-3">
-              <img src={product3} alt="" />
-              <div className="index-card-rect"></div>
-              <div className="d-flex justify-content-between mt-2">
-                <h5 className="notoSansTC-md font-weight-bold">
-                  楊英風 [英風年華]
-                </h5>
-                <h5 className="notoSansTC-md font-weight-bold">
-                  12,60,00元
-                </h5>
-              </div>
-            </div>
-          </div>
+          <AuctionCard />
         </div>
       </div>
       {/* 過場區 */}
