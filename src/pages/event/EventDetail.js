@@ -2,6 +2,7 @@ import { React, useState, useEffect, useRef } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import $ from 'jquery'
 import { Container, Row, Collapse } from 'react-bootstrap'
+import Cookies from 'universal-cookie'
 
 // Component
 import EHeader from './components/Darkheader'
@@ -25,6 +26,11 @@ import './style/reset.css'
 import './style/fontAndBtn.scss'
 import './style/eventDetail.scss'
 
+
+
+// open weather
+const myKey = "24eb2177b3c656250ca2c17ba3389113"
+
 function EventDetail(props) {
   const id = props.match.params.id
 
@@ -42,17 +48,27 @@ function EventDetail(props) {
   const [eventPrice, setEventPrice] = useState('')
   const [eventImg, setEventImg] = useState('')
   const [eventCity, setEventCity] = useState('')
+  const [eventClass, setEventClass] = useState('C')
+  const [cityId, setCityid] = useState('Taipei')
+  const [temp, setTemp] = useState()
+  const [tempIcon, setTempIcon] = useState('')
+  const [weather, setWeather] = useState('')
+  // 加入購物車
   const [isShared, setIsShared] = useState(true)
+
+  const [sqleventid, setSqlEventId] = useState('')
 
   // 票價數量
   const [ticketNum, setTicketNum] = useState(1)
   // 票種 Ref
   const ticketRef = useRef()
-  const ticketRef2 = useRef()
-  const ticketRef3 = useRef()
-  const ticketRef4 = useRef()
 
-  
+  // 購物車
+  const [cartItems, setCartItems] = useState([])
+  const cookies = new Cookies()
+
+  // 票種useState
+  const [tickettype, setTicketType] = useState('成人票')
 
   async function getEventIdServer() {
     const url = `http://localhost:6005/event/event-list/${id}`
@@ -73,10 +89,28 @@ function EventDetail(props) {
     setEventDateEnd(data.eventDateEnd)
     setEventDesc(data.eventDescription)
     setEventPrice(data.eventPrice)
+    setEventClass(data.eventClass)
     setEventImg(data.eventImg)
     setEventCity(data.cityName)
     setIsShared(data.shareId)
+    setCityid(data.cityFullName)
+    // 加入購物車
+    setSqlEventId(data.id)
   }
+
+  async function getWeather() {
+    let weatherUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityId}&appid=${myKey}`
+    let weather = await fetch(weatherUrl)
+    let weatherData = await weather.json()
+    let tempNum = (weatherData.main.temp - 273.15).toFixed(
+      1
+    )
+    setTemp(tempNum)
+    setWeather(weatherData.weather[0].main)
+    setTempIcon(weatherData.weather[0].icon)
+  }
+
+  console.log(temp, weather, tempIcon)
 
   let shareBtn = ''
   if (isShared) {
@@ -87,17 +121,21 @@ function EventDetail(props) {
 
   useEffect(() => {
     getEventIdServer()
-    $(ticketRef.current).on('click', ()=>{
-      $(ticketRef.current).css('background', 'black').css('color','white') 
+    getWeather()
+    $(ticketRef.current).on('click', () => {
+      $(ticketRef.current)
+        .css('background', 'black')
+        .css('color', 'white')
     })
-    
   }, [])
+
+  useEffect(() => {
+    getWeather()
+  }, [cityId])
 
   useEffect(() => {
     getEventIdServer()
   }, [id])
-
-
 
   $('.e-ticket-type').click(function () {
     $(this)
@@ -108,14 +146,75 @@ function EventDetail(props) {
       .css('color', 'black')
   })
 
-  useEffect(()=>{
-    if(ticketNum < 1){
+  useEffect(() => {
+    if (ticketNum < 1) {
       setTicketNum(1)
     }
-    if(ticketNum > 50){
+    if (ticketNum > 50) {
       setTicketNum(50)
     }
-  },[ticketNum])
+  }, [ticketNum])
+
+  /**
+   * 更新 event Cookie
+   *
+   * @param {Object} event 欲改變的目標 event.
+   * @param {number} quantityNum 欲更新event.qty到的數字.
+   * @param {string} type 根據不同type，event.qty 更新方法不同
+   *
+   *
+   */
+
+  // 加入購物車
+  const onCookie = (eventid, quantityNum, type) => {
+    console.log(type)
+    console.log(eventid)
+    let cookieEventId =
+      eventid.sqleventid + '-' + type.tickettype
+    let updateCookie = []
+    let cookieEvent = cookies.get('event') // 取得 event cookie
+
+    if (cookieEvent) {
+      // 如果有已存在的 event cookie
+      // 查看cookie裡面的 event id
+      const idSet = new Set()
+      for (let i in cookieEvent) {
+        idSet.add(cookieEvent[i].id)
+      }
+      // event 在 event cookie 中
+      if (idSet.has(cookieEventId)) {
+        for (let i in cookieEvent) {
+          if (cookieEvent[i].id == cookieEventId) {
+            // 如果event是從Input,數量直接到指定數字
+            cookieEvent[i].qty += quantityNum.ticketNum
+          }
+        }
+      } else {
+        // 如果被改變的event 不在 event cookie 中
+        // 初始數量為1
+        let eventjson = {}
+        eventjson.id = cookieEventId
+        eventjson.qty = quantityNum.ticketNum
+        cookieEvent.push(eventjson)
+      }
+      // 如果被改變後的event數量>0，加入在cookie 中
+      for (let i in cookieEvent) {
+        if (cookieEvent[i].qty > 0) {
+          updateCookie.push(cookieEvent[i])
+        }
+      }
+    } else {
+      // 如果沒有已存在的 event cookie
+      // 初始數量為1
+      let eventjson = {}
+      eventjson.id = cookieEventId
+      eventjson.qty = quantityNum.ticketNum
+      updateCookie.push(eventjson)
+    }
+    cookies.set('event', updateCookie, { path: '/' }) //更新Cookie
+    console.log(updateCookie)
+  }
+
 
   return (
     <>
@@ -154,54 +253,77 @@ function EventDetail(props) {
                 地點：{eventCity}
               </p>
             </div>
-            <div
-              className="ed-commu-btn  col-6 d-flex justify-content-center
-            align-items-center"
-            >
-              {isShared ? (
-                <Link
-                  to={`/event/event-list/detail/update/${id}`}
-                  className="col-6"
-                >
-                  <button
-                    type="button"
-                    className="cn-font px-0"
-                    // onClick={(e) => e.preventDefault()}
-                  >
-                    修改作品
-                  </button>
-                </Link>
-              ) : (
-                <Link
-                  to={`/event/event-list/detail/upload/${id}`}
-                  className="col-6"
-                >
-                  <button
-                    type="button"
-                    className="cn-font px-0"
-                    // onClick={(e) => e.preventDefault()}
-                  >
-                    上傳作品
-                  </button>
-                </Link>
-              )}
-              <Link
-                to={`/event/event-list/detail/share/${id}`}
-                className="col-6"
-                style={{ textDecoration: 'none' }}
+            {eventClass === 'C' ? (
+              <div
+                className="col-6 d-flex justify-content-center
+            align-items-center flex-wrap ed-weather"
               >
-                <button
-                  type="button"
-                  className="cn-font px-0"
-                  // onClick={(e) => e.preventDefault()}
-                  style={{
-                    display: `${shareBtn}`,
-                  }}
+                <div className="col-6">
+                  <h6 className="cn-font">城市天候</h6>
+                  <p>
+                    <img
+                      src={`http://openweathermap.org/img/wn/${tempIcon}@2x.png`}
+                      alt=""
+                    />
+                    {weather}
+                  </p>
+                </div>
+                <div className="col-6">
+                  <h6 className="cn-font">城市氣溫</h6>
+                  <p>{temp}°C</p>
+                </div>
+                <div className="col-6"></div>
+              </div>
+            ) : (
+              <div
+                className="ed-commu-btn  col-6 d-flex justify-content-center
+            align-items-center"
+              >
+                {isShared ? (
+                  <Link
+                    to={`/event/event-list/detail/update/${id}`}
+                    className="col-6"
+                  >
+                    <button
+                      type="button"
+                      className="cn-font px-0"
+                      // onClick={(e) => e.preventDefault()}
+                    >
+                      修改作品
+                    </button>
+                  </Link>
+                ) : (
+                  <Link
+                    to={`/event/event-list/detail/upload/${id}`}
+                    className="col-6"
+                  >
+                    <button
+                      type="button"
+                      className="cn-font px-0"
+                      // onClick={(e) => e.preventDefault()}
+                    >
+                      上傳作品
+                    </button>
+                  </Link>
+                )}
+                <Link
+                  to={`/event/event-list/detail/share/${id}`}
+                  className="col-6"
+                  style={{ textDecoration: 'none' }}
                 >
-                  觀賞作品
-                </button>
-              </Link>
-            </div>
+                  <button
+                    type="button"
+                    className="cn-font px-0"
+                    // onClick={(e) => e.preventDefault()}
+                    style={{
+                      display: `${shareBtn}`,
+                    }}
+                  >
+                    觀賞作品
+                  </button>
+                </Link>
+              </div>
+            )}
           </Row>
           <Row className="left-padding cn-font ">
             <div className="col-8 pl-0 ed-detail-content">
@@ -361,6 +483,7 @@ function EventDetail(props) {
                   <button
                     onClick={(e) => {
                       e.preventDefault()
+                      setTicketType('成人票')
                     }}
                     type="button"
                     className="col-5 e-ticket-type "
@@ -370,6 +493,7 @@ function EventDetail(props) {
                   <button
                     onClick={(e) => {
                       e.preventDefault()
+                      setTicketType('孩童票')
                     }}
                     type="button"
                     className="col-5 e-ticket-type"
@@ -379,6 +503,7 @@ function EventDetail(props) {
                   <button
                     onClick={(e) => {
                       e.preventDefault()
+                      setTicketType('敬老票')
                     }}
                     type="button"
                     className="col-5 e-ticket-type"
@@ -388,6 +513,7 @@ function EventDetail(props) {
                   <button
                     onClick={(e) => {
                       e.preventDefault()
+                      setTicketType('愛心票')
                     }}
                     type="button"
                     className="col-5 e-ticket-type"
@@ -432,6 +558,11 @@ function EventDetail(props) {
                     <button
                       onClick={(e) => {
                         e.preventDefault()
+                        onCookie(
+                          { sqleventid },
+                          { ticketNum },
+                          { tickettype }
+                        )
                       }}
                       className="col-12 p-0 ed-submit-btn"
                       type="submit"

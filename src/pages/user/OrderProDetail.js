@@ -176,7 +176,7 @@ function OrderProDetail(props) {
                   </Accordion.Toggle>
                   <div className="u-goEVAL">
                     <Link
-                      to="/user-add"
+                      to={`/product/product-list/product-detail/${id}`}
                       style={{ textDecoration: 'none' }}
                     >
                       前往評價
