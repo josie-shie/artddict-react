@@ -60,7 +60,8 @@ function ProductDetail(props) {
   const [rating, setRating] = useState('')
   const [starNum, setStarNum] = useState('')
   const [commentsNum, setCommentsNum] = useState('')
-  const [starsAverage, setStarsAverage] = useState(4)
+  const [starsAverage, setStarsAverage] = useState('')
+  const [tryyy, setTryyy] = useState(false)
   const fadeAnimationHandler: AnimationHandler = (
     props,
     state
@@ -311,10 +312,15 @@ function ProductDetail(props) {
   }
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      reactStars()
-    }, 3000)
+    reactStars()
   }, [])
+
+  if (!tryyy) {
+    setTimeout(() => {
+      console.log('executing timeout')
+      setTryyy(true)
+    }, 5000)
+  }
 
   // let starsStars = setTimeout(() => {
   //   console.log('Hello, World!')
@@ -575,7 +581,30 @@ function ProductDetail(props) {
                         : starsAverage}
                     </p>
                     <div className="proDe-pushLeft">
-                      {reactStars()}
+                      {tryyy === true ? (
+                        <ReactStars
+                          count={5}
+                          edit={false}
+                          value={starsAverage}
+                          // onChange={(e) => {
+                          //   setRating(trymeme)
+                          // }}
+                          activeColor="#1D0AFF"
+                          size={24}
+                          isHalf={true}
+                          emptyIcon={
+                            <i className="far fa-star"></i>
+                          }
+                          halfIcon={
+                            <i className="fa fa-star-half-alt"></i>
+                          }
+                          fullIcon={
+                            <i className="fa fa-star"></i>
+                          }
+                        />
+                      ) : (
+                        ''
+                      )}
                       {/* <ReactStars
                         count={5}
                         edit={false}
