@@ -8,6 +8,7 @@ import ReactDOM, { render } from 'react-dom'
 import 'react-responsive-carousel/lib/styles/carousel.min.css'
 import { Carousel } from 'react-responsive-carousel'
 import $ from 'jquery'
+import Cookies from 'universal-cookie'
 
 import { Link, withRouter } from 'react-router-dom'
 import '../../bootstrap/css/bootstrap.css'
@@ -57,13 +58,19 @@ function ProductDetail(props) {
   const [starValue, setStarValue] = useState('')
   const [userId, setUserId] = useState('')
   const [commentsBlock, setCommentsBlock] = useState([])
-  const [qty, setQty] = useState(1)
   const [starNum, setStarNum] = useState('')
   const [commentsNum, setCommentsNum] = useState('')
   const [starsAverage, setStarsAverage] = useState('')
   const [tryyy, setTryyy] = useState(false)
   const [sendBox, setSendBox] = useState(false)
   const [recomments, setRecomments] = useState(false)
+  const [sizeSelect, setSizeSelect] = useState('')
+
+  // ------------- for Gary---------
+  const cookies = new Cookies()
+  const [sizeGary, setSizeGary] = useState('')
+  const [qtyNum, setQtyNum] = useState(1)
+  const [sqlProductId, setSqlProductId] = useState('')
 
   const fadeAnimationHandler: AnimationHandler = (
     props,
@@ -134,6 +141,8 @@ function ProductDetail(props) {
     setProDes(data.proDes)
     setProClass(data.proClass)
     setProNum(id)
+    setSqlProductId(data.id)
+
     // setStarValue(data.starValue)
     // setUserId(data.userId)
     // setComments(data.comments)
@@ -231,13 +240,13 @@ function ProductDetail(props) {
 
   //--------------數量限制
   useEffect(() => {
-    if (qty < 1) {
-      setQty(1)
+    if (qtyNum < 1) {
+      setQtyNum(1)
     }
-    if (qty > 50) {
-      setQty(50)
+    if (qtyNum > 50) {
+      setQtyNum(50)
     }
-  }, [qty])
+  }, [qtyNum])
 
   const commentsCard = commentsBlock.map((pro) => {
     return (
@@ -363,7 +372,64 @@ function ProductDetail(props) {
       .removeClass('sizeSelect')
   })
 
-  let trymeme = starNum / commentsNum
+  // ----------------加入購物車---------------
+  /**
+   * 更新 event Cookie
+   *
+   * @param {Object} product 欲改變的目標 event.
+   * @param {number} quantityNum 欲更新event.qty到的數字.
+   * @param {string} type 根據不同type，event.qty 更新方法不同
+   *
+   *
+   */
+
+  const onCookie = (productid, quantityNum, type) => {
+    console.log(type)
+    let cookieProductId =
+      productid.sqlProductId + '-' + type.sizeGary
+    let updateCookie = []
+    let cookieProduct = cookies.get('product') // 取得 event cookie
+
+    if (cookieProduct) {
+      // 如果有已存在的 event cookie
+      // 查看cookie裡面的 event id
+      const idSet = new Set()
+      for (let i in cookieProduct) {
+        idSet.add(cookieProduct[i].id)
+      }
+      // event 在 event cookie 中
+      if (idSet.has(cookieProductId)) {
+        for (let i in cookieProduct) {
+          if (cookieProduct[i].id == cookieProductId) {
+            // 如果event是從Input,數量直接到指定數字
+            cookieProduct[i].qty += quantityNum.qtyNum
+          }
+        }
+      } else {
+        // 如果被改變的event 不在 event cookie 中
+        // 初始數量為1
+        let productjson = {}
+        productjson.id = cookieProductId
+        productjson.qty = quantityNum.qtyNum
+        cookieProduct.push(productjson)
+      }
+      // 如果被改變後的event數量>0，加入在cookie 中
+      for (let i in cookieProduct) {
+        if (cookieProduct[i].qty > 0) {
+          updateCookie.push(cookieProduct[i])
+        }
+      }
+    } else {
+      // 如果沒有已存在的 event cookie
+      // 初始數量為1
+      let productjson = {}
+      productjson.id = cookieProductId
+      productjson.qty = quantityNum.qtyNum
+      updateCookie.push(productjson)
+    }
+    cookies.set('product', updateCookie, { path: '/' }) //更新Cookie
+    console.log(updateCookie)
+  }
 
   return (
     <>
@@ -480,15 +546,38 @@ function ProductDetail(props) {
                   {proClass === 'C03' ? (
                     <div className="proDe-sizeBtnBox2 d-flex">
                       <div className="proDe-sizeBtnA d-flex">
-                        <button className="proDe-sizeBtn sizeChoose">
-                          S
-                        </button>
-                        <button className="proDe-sizeBtn sizeChoose">
-                          M
-                        </button>
-                        <button className="proDe-sizeBtn sizeChoose">
-                          L
-                        </button>
+                        <form
+                          className="proDe-sizeBtnA d-flex"
+                          action=""
+                        >
+                          <button
+                            className="proDe-sizeBtn sizeChoose"
+                            onClick={(e) => {
+                              e.preventDefault()
+                              setSizeGary('S')
+                            }}
+                          >
+                            S
+                          </button>
+                          <button
+                            className="proDe-sizeBtn sizeChoose"
+                            onClick={(e) => {
+                              e.preventDefault()
+                              setSizeGary('M')
+                            }}
+                          >
+                            M
+                          </button>
+                          <button
+                            className="proDe-sizeBtn sizeChoose"
+                            onClick={(e) => {
+                              e.preventDefault()
+                              setSizeGary('L')
+                            }}
+                          >
+                            L
+                          </button>
+                        </form>
                       </div>
                       <div className="proDe-sizeCheck">
                         <Link
@@ -519,7 +608,7 @@ function ProductDetail(props) {
                               type="button"
                               onClick={(e) => {
                                 e.preventDefault()
-                                setQty(qty - 1)
+                                setQtyNum(qtyNum - 1)
                               }}
                             >
                               <RiSubtractLine size={30} />
@@ -527,7 +616,7 @@ function ProductDetail(props) {
                             <input
                               className="proDe-spaceMid"
                               type="button"
-                              value={qty}
+                              value={qtyNum}
                             />
 
                             {/* <div className="proDe-spaceMid">
@@ -536,7 +625,7 @@ function ProductDetail(props) {
                             <button
                               type="button"
                               onClick={(e) => {
-                                setQty(qty + 1)
+                                setQtyNum(qtyNum + 1)
                               }}
                             >
                               <BiPlus size={30} />
@@ -545,7 +634,16 @@ function ProductDetail(props) {
                         </div>
                       </div>
                       <div className="proDe-addToCart">
-                        <button>
+                        <button
+                          onClick={(e) => {
+                            e.preventDefault()
+                            onCookie(
+                              { sqlProductId },
+                              { qtyNum },
+                              { sizeGary }
+                            )
+                          }}
+                        >
                           <p>加入購物車</p>
                         </button>
                       </div>

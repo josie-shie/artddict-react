@@ -90,6 +90,15 @@ function Auction(props) {
         }
     }
 
+    $('.auc_siblings').click(function () {
+        $(this)
+            .addClass('changeColors')
+            .parent()
+            .siblings()
+            .children()
+            .removeClass('changeColors')
+    })
+
     //初始化資料
     async function getAucProFromServer() {
 
@@ -113,7 +122,7 @@ function Auction(props) {
     //撈資料
     async function getAucProArrFromServer() {
         // 連接的伺服器資料網址
-        const url = 'http://localhost:6005/auctoin/aucSeaArr' + `?search=${search}` + `&arrangement=${arrangement}` + `&category=${category}` + `&pages=${pages}` +  `&priceRange=${priceRange}`
+        const url = 'http://localhost:6005/auctoin/aucSeaArr' + `?search=${search}` + `&arrangement=${arrangement}` + `&category=${category}` + `&pages=${pages}` + `&priceRange=${priceRange}`
         // 注意header資料格式要設定，伺服器才知道是json格式
         const request = new Request(url, {
             method: 'GET',
@@ -135,7 +144,7 @@ function Auction(props) {
         if (data[0].totalPages < 6) {
             let pagelength = []
             for (let i = 0; i < data[0].totalPages; i++) {
-                pagelength.push(i+1)
+                pagelength.push(i + 1)
             }
             console.log(pagelength)
             setShowPages(pagelength)
@@ -161,7 +170,7 @@ function Auction(props) {
 
     useEffect(() => {
         getAucProArrFromServer()
-    }, [search, arrangement, category, pages,priceRange])
+    }, [search, arrangement, category, pages, priceRange])
 
     //計算剩餘時間
     const TimeRemaining = (deadline) => {
@@ -289,14 +298,14 @@ function Auction(props) {
                                     onChange={(event) => { setSearch(event.target.value) }}
                                 />
                                 <div className="auctionNumberOfProduct cn-font">
-                                    Showing 1-9 of 27
+                                    Showing 1-9 of {pagesinfo.totalRows}
                                 </div>
                             </div>
                             <div className="auctionMainFilterRight">
-                                <AuctionSlider 
-                                    priceRange={priceRange} 
+                                <AuctionSlider
+                                    priceRange={priceRange}
                                     setPriceRange={setPriceRange}
-                                    priceRange2={priceRange2} 
+                                    priceRange2={priceRange2}
                                     setPriceRange2={setPriceRange2}
                                 />
                             </div>
@@ -305,18 +314,53 @@ function Auction(props) {
                             <div className="auctionsidebar cn_font">
                                 <div className="auctionsidebarTitle "
                                 >美術館商品</div>
-                                <ul className="auc-controlCatCol">
-                                    <li onClick={
+                                <div className="auc-controlCatCol">
+                                    <Link style={{ textDecoration: 'none', color:'black' }}
+                                        onClick={(e) => {
+                                            e.preventDefault()
+                                        }}
+                                    ><li onClick={
                                         (event) => { setCategory('') }
-                                    } classname="colorChange">全部商品</li>
-                                    <li onClick={(event) => { setCategory('Paintings') }} classname="colorChange">畫作</li>
-                                    <li onClick={(event) => { setCategory('clothes') }} classname="colorChange">服飾</li>
-                                    <li onClick={(event) => { setCategory('furniture') }} classname="colorChange">家飾</li>
-                                    <li onClick={(event) => { setCategory('stationery') }} classname="colorChange">文具</li>
-                                    <li onClick={(event) => { setCategory('books') }} classname="colorChange">書籍</li>
-                                    <li onClick={(event) => { setCategory('accessories') }} classname="colorChange">配件</li>
+                                    } className="changeColors auc_li auc_siblings">全部商品</li></Link>
+
+                                    <Link style={{ textDecoration: 'none', color:'black' }}
+                                        onClick={(e) => {
+                                            e.preventDefault()
+                                        }}
+                                    ><li onClick={(event) => { setCategory('Paintings') }} className=" auc_siblings auc_li">畫作</li></Link>
+
+                                    <Link style={{ textDecoration: 'none', color:'black' }}
+                                        onClick={(e) => {
+                                            e.preventDefault()
+                                        }}
+                                    ><li onClick={(event) => { setCategory('clothes') }} className="auc_siblings auc_li">服飾</li></Link>
+
+                                    <Link style={{ textDecoration: 'none', color:'black' }}
+                                        onClick={(e) => {
+                                            e.preventDefault()
+                                        }}
+                                    ><li onClick={(event) => { setCategory('furniture') }} className="auc_siblings auc_li">家飾</li></Link>
+
+                                    <Link style={{ textDecoration: 'none', color:'black' }}
+                                        onClick={(e) => {
+                                            e.preventDefault()
+                                        }}
+                                    ><li onClick={(event) => { setCategory('stationery') }} className="auc_siblings auc_li">文具</li></Link>
+
+                                    <Link style={{ textDecoration: 'none', color:'black' }}
+                                        onClick={(e) => {
+                                            e.preventDefault()
+                                        }}
+                                    ><li onClick={(event) => { setCategory('books') }} className="auc_siblings auc_li">書籍</li></Link>
+
+                                    <Link style={{ textDecoration: 'none', color:'black' }}
+                                        onClick={(e) => {
+                                            e.preventDefault()
+                                        }}
+                                    ><li onClick={(event) => { setCategory('accessories') }} className="auc_siblings auc_li">配件</li></Link>
+                                    
                                     {/* {console.log(category)} */}
-                                </ul>
+                                </div>
                             </div>
                             <div>
                                 <AuctionProductList

@@ -51,10 +51,14 @@ function AuctionDetail(props) {
   const [immediatePrice, setImmediatePrice] = useState('')
 
   //出價資訊
-  const [bidersInfo, setBidersInfo] = useState([])
+  const [bidersInfo, setBidersInfo] = useState([
+    {
+      name: "目前無人出價",
+      price: ""
+    }])
 
   //假設會員id
-  const [memberid, setMemberId] = useState(1)
+  const [memberid, setMemberId] = useState("")
   //現在的頁面
   const auc_Id = props.match.params.id
 
@@ -67,6 +71,7 @@ function AuctionDetail(props) {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
+  const [currentBiderPrice, setBurrentBiderPrice] = useState()
   //剩餘時間
   const [auctionDetailcountdown, setAuctionDetailcountdown] = useState([0, 0, 0, -1])
   //預設資料物件
@@ -78,8 +83,27 @@ function AuctionDetail(props) {
       deadline: 0,
     }
   )
+  //驗證身分
+    async function getjwtvertifyFromServer() {
 
-
+      const token = localStorage.getItem('token');
+  
+      const response = await fetch('http://localhost:6005/users/checklogin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          token
+        })
+      });
+  
+      const data = await response.json()
+      console.log(data)
+      setMemberId(data.id)
+    }
+  
+  /**************************************************** */
   //socket
   const [socket, setSocket] = useState(null)
   const io = require("socket.io-client");
@@ -102,18 +126,23 @@ function AuctionDetail(props) {
         if (message.inputbidPrice) {
           // console.log("設定即時價格", message)
           setImmediatePrice(message.inputbidPrice)
-          // console.log("出價資料", message.b)
           setBidersInfo(message.auc_info)
         }
       })
     }
   }, [socket, bidersInfo])
 
+  useEffect(() => {
+
+  }, [bidersInfo])
+
   //發送出價消息
   const bidPrice = () => {
-    console.log("inputbidPrice", inputbidPrice)
-    console.log("immediatePrice", immediatePrice)
-    if (inputbidPrice > immediatePrice) {
+    // console.log("inputbidPrice", inputbidPrice)
+    // console.log("immediatePrice", immediatePrice)
+    if(!memberid){
+      console.log('請先登入會員')
+    }else if (inputbidPrice > immediatePrice) {
       socket.emit('bidPrice', { inputbidPrice, auc_Id, memberid })
     } else {
       console.log("輸入價錢過低")
@@ -149,13 +178,16 @@ function AuctionDetail(props) {
     const response = await fetch(request)
     const data = await response.json()
     //輸入現在價位
-    // console.log(data)
+    console.log(data)
     setImmediatePrice(data[0].aucPriceNow)
     setAucDetailInfo(data[0])
     newAucProduct = data[0]
-    console.log("新",newAucProduct)
+    console.log("新", newAucProduct)
     data.shift()
+    console.log(data)
+    if(data.length){
     setBidersInfo(data)
+    }
   }
 
   // console.log(props)
@@ -165,6 +197,8 @@ function AuctionDetail(props) {
   useEffect(() => {
     //從資料庫抓取資料
     getAucProDetailFromServer(props.match.params.id)
+    //驗證身分
+    getjwtvertifyFromServer()
   }, [])
 
   //計算剩餘時間 
@@ -231,6 +265,23 @@ function AuctionDetail(props) {
     }
   }, isRunning ? delay : null)
 
+  // async function getjwtvertifyFromServer() {
+
+  //   const token = localStorage.getItem('token');
+
+  //   const response = await fetch('http://localhost:6005/users/checklogin', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       token
+  //     })
+  //   });
+
+  //   const data = await response.json()
+  //   console.log(data)
+  // }
 
   // console.log('--------------------')
   return (
@@ -253,7 +304,7 @@ function AuctionDetail(props) {
               目前出價:NT${internationalNumberFormat.format(immediatePrice)}
             </div>
             <div>
-              {/* 最高出價者:{bidersInfo[0].name} */}
+              最高出價者:{bidersInfo[0].name}
             </div>
           </div>
           <div className="leftContent_thirdpart">
@@ -355,20 +406,20 @@ function AuctionDetail(props) {
               <img src={`http://localhost:6005/aucpics/auc/${aucDetailinfo.aucImg}`} alt="Background" />
             </div>
             {isRunning ? (
-            <>
-            <div className="auctionDetailcurrentPriceInput">
-              <div className="auctionDetailcurrentPriceAboveInput">
-                目前出價:NT${internationalNumberFormat.format(immediatePrice)}
-              </div>
-              <div className="priceInput" >
-                <input placeholder="請輸入下標價格"
-                  value={inputbidPrice}
-                  onChange={(event) => { setInputbidPrice(event.target.value) }} />
-              </div>
-            </div>
-            <button className="auctionDetailButton " onClick={bidPrice}>
-              下標
-            </button></>):(<div/>)}
+              <>
+                <div className="auctionDetailcurrentPriceInput">
+                  <div className="auctionDetailcurrentPriceAboveInput">
+                    目前出價:NT${internationalNumberFormat.format(immediatePrice)}
+                  </div>
+                  <div className="priceInput" >
+                    <input placeholder="請輸入下標價格"
+                      value={inputbidPrice}
+                      onChange={(event) => { setInputbidPrice(event.target.value) }} />
+                  </div>
+                </div>
+                <button className="auctionDetailButton " onClick={bidPrice}>
+                  下標
+                </button></>) : (<div>感謝您的參與</div>)}
             {/* /***************************************** */}
             {/* 彈出視窗 */}
             <Modal
@@ -383,8 +434,8 @@ function AuctionDetail(props) {
                 </Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                  <div>狀況1.您出的價錢並沒有高於目前最高價唷</div>
-                  <div>狀況2.您已經是目前最高價囉~</div>
+                <div>狀況1.您出的價錢並沒有高於目前最高價唷</div>
+                <div>狀況2.您已經是目前最高價囉~</div>
               </Modal.Body>
               <Modal.Footer>
                 {/* <Button

@@ -231,7 +231,10 @@ function ProductList() {
             <div className="prolist-breadbox">
               <div className="prolist-bread">
                 <p className="prolist-breadwordall">
-                  <Link to="/product">
+                  <Link
+                    to="/product"
+                    style={{ textDecoration: 'none' }}
+                  >
                     <span className="prolist-breadwordA">
                       商品首頁
                     </span>
@@ -329,7 +332,6 @@ function ProductList() {
                     </div>
                   </div>
                 </div>
-                {/* 要用Jq做 */}
               </div>
             </div>
             <div className="pro-showing">

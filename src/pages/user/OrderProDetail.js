@@ -38,7 +38,7 @@ function OrderProDetail(props) {
       }),
     })
 
-    console.log(`id = ${id}`);
+    console.log(`id = ${id}`)
 
     const response = await fetch(request)
     const data = await response.json()
@@ -151,7 +151,7 @@ function OrderProDetail(props) {
               <div className="u-proId">{proId}</div>
             </div>
             <div className="u-proSize d-flex col-2">
-              <div className="">尺寸：</div>
+              <div className="">規格：</div>
               <div className="">{orderSpec}</div>
             </div>
             <div className="u-proQty d-flex col-2">
@@ -162,8 +162,16 @@ function OrderProDetail(props) {
               <div className="">NT $</div>
               <div className="col">{proPrice}</div>
             </div> */}
+            <div className="u-goEVAL">
+              <Link
+                to={`/product/product-list/product-detail/${id}`}
+                style={{ textDecoration: 'none' }}
+              >
+                前往評價
+              </Link>
+            </div>
           </div>
-          <div>
+          {/* <div>
             <Accordion>
               <Card className="u-Card">
                 <Card.Header className="u-CardHeader">
@@ -176,14 +184,7 @@ function OrderProDetail(props) {
                   >
                     我的評價
                   </Accordion.Toggle>
-                  <div className="u-goEVAL">
-                    <Link
-                      to={`/product/product-list/product-detail/${id}`}
-                      style={{ textDecoration: 'none' }}
-                    >
-                      前往評價
-                    </Link>
-                  </div>
+                 
                 </Card.Header>
 
                 <Accordion.Collapse
@@ -207,7 +208,15 @@ function OrderProDetail(props) {
                 </Accordion.Collapse>
               </Card>
             </Accordion>
-          </div>
+          </div> */}
+          {/* <div className="u-goEVAL">
+            <Link
+              to={`/product/product-list/product-detail/${id}`}
+              style={{ textDecoration: 'none' }}
+            >
+              前往評價
+            </Link>
+          </div> */}
 
           <div className="u-back">
             <Link
