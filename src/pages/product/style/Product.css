@@ -686,6 +686,15 @@ width:100%;
     z-index: 9999;
 }
 
+@media (min-width: 1440px){
+    .imABlock{
+        left: -10%;
+    }
+    .homepageA-wordB{
+        line-height: 3.5rem;
+    }
+}
+
 .slickPicB-box{
     width:20vw;
     height:50vh;
