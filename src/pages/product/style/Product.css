@@ -676,6 +676,25 @@ width:100%;
 
 }
 
+.imABlock{
+    position: absolute;
+    top: 70%;
+    left: -15%;
+    width: 100px;
+    height: 100px;
+    background-color:#e6e6e6;
+    z-index: 9999;
+}
+
+@media (min-width: 1440px){
+    .imABlock{
+        left: -10%;
+    }
+    .homepageA-wordB{
+        line-height: 3.5rem;
+    }
+}
+
 .slickPicB-box{
     width:20vw;
     height:50vh;

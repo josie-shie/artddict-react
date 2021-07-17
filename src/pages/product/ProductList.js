@@ -28,8 +28,12 @@ function ProductList() {
   const [search, setSearch] = useState('')
   const [arrangement, setArrangement] = useState('')
   const [category, setCategory] = useState('allproduct')
-  const [priceRange, setPriceRange] = useState(6000)
-  const [priceRange2, setPriceRange2] = useState(8000)
+  const [priceRange, setPriceRange] = useState(8000)
+  const [page, setPage] = useState(1)
+  const [totalCount, setTotalCount] = useState('')
+  const [totalPages, setTotalPages] = useState('')
+  const [showing1, setShowing1] = useState('')
+  const [showing2, setShowing2] = useState('')
 
   async function getClassPriceSearchByQuerySQL() {
     const url =
@@ -37,7 +41,8 @@ function ProductList() {
       `?category=${category}` +
       `&search=${search}` +
       `&priceRange=${priceRange}` +
-      `&arrangement=${arrangement}`
+      `&arrangement=${arrangement}` +
+      `&page=${page}`
 
     const request = new Request(url, {
       method: 'GET',
@@ -49,15 +54,34 @@ function ProductList() {
 
     const response = await fetch(request)
     const data = await response.json()
+    const totalCount = data['totalCount'].num
+    const totalPages = data['totalPages']
     console.log(data)
     console.log('products', products)
     // 設定資料
-    setProducts(data)
+    setProducts(data.productData)
+    setShowing1(1 + 9 * (page - 1))
+    setShowing2(data.productData.length + 9 * (page - 1))
     console.log('products', products)
+    if (totalCount) {
+      setTotalCount(totalCount)
+    }
+    if (totalPages) {
+      setTotalPages(totalPages)
+    }
   }
+  function handlePageClick(paginate) {
+    let selected = paginate.selected
+    setPage(selected + 1)
+  }
+
   useEffect(() => {
     getClassPriceSearchByQuerySQL()
   }, [category, search, arrangement, priceRange])
+
+  useEffect(() => {
+    getClassPriceSearchByQuerySQL()
+  }, [page])
 
   useEffect(() => {
     console.log(category, search, arrangement, priceRange)
@@ -107,6 +131,9 @@ function ProductList() {
       </>
     )
   })
+
+  // let showing1 = 1 + 9 * ({ page } - 1)
+  // let showing2 = { products } + 9 * ({ page } - 1)
 
   // ------------------sliderbar--setting--
   const { Range } = Slider
@@ -294,7 +321,7 @@ function ProductList() {
                           8000: 8000,
                         }}
                         allowCross={false}
-                        defaultValue={[0, 6000]}
+                        defaultValue={[0, 8000]}
                         onAfterChange={(e) => {
                           setPriceRange(JSON.stringify(e))
                         }}
@@ -307,7 +334,8 @@ function ProductList() {
             </div>
             <div className="pro-showing">
               <p className="pro-filterWord">
-                showing 1-9 of 27
+                showing {showing1}-{showing2} of{' '}
+                {totalCount}
               </p>
             </div>
           </div>
@@ -424,27 +452,21 @@ function ProductList() {
               {/* --------------商品卡片截止線----- */}
               <div className="prolist-switchPage">
                 <Row className="justify-content-center eng-font-regular mt-1 py-5">
-                  <Link className="ed-pagenum mx-3">
-                    <IoIosArrowBack />
-                  </Link>
-                  <Link className="ed-pagenum mx-3">
-                    <p>1</p>
-                  </Link>
-                  <Link className="ed-pagenum mx-3">
-                    <p>2</p>
-                  </Link>
-                  <Link className="ed-pagenum mx-3">
-                    <p>3</p>
-                  </Link>
-                  <Link className="ed-pagenum mx-3">
-                    <p>4</p>
-                  </Link>
-                  <Link className="ed-pagenum mx-3">
-                    <p>5</p>
-                  </Link>
-                  <Link className="ed-pagenum mx-3">
-                    <IoIosArrowForward />
-                  </Link>
+                  <ReactPaginate
+                    pageCount={totalPages}
+                    pageRangeDisplayed={4}
+                    marginPagesDisplayed={0}
+                    previousLabel={<IoIosArrowBack />}
+                    nextLabel={<IoIosArrowForward />}
+                    breakLabel={''}
+                    containerClassName={
+                      'justify-content-center eng-font-regular mt-5 py-5 row'
+                    }
+                    pageLinkClassName={'ed-pagenum mx-3'}
+                    previousClassName={'ed-pagenum mx-3'}
+                    nextClassName={'ed-pagenum mx-3'}
+                    onPageChange={handlePageClick}
+                  />
                 </Row>
               </div>
             </div>

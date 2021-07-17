@@ -348,7 +348,7 @@ const Index = () => {
         <ProCard />
         <ProCard2 />
         {/* auction */}
-        <div className="auction-area px-4">
+        <div className="auction-area pl-4">
           <div className="auction-slogan d-flex mb-3">
             <div className="col-6">
               <h1>AUCTION</h1>
@@ -361,18 +361,11 @@ const Index = () => {
               <Link to="/auction">
                 <div className="d-flex px-5">
                   <button className="engravers col-12">
-                    WATCH ALL
+                    WATCH All
                   </button>
                 </div>
               </Link>
             </div>
-          </div>
-          <div className="auctime">
-            <img
-              className="w-100 spin-img"
-              src={auctime}
-              alt=""
-            />
           </div>
           <AuctionCard />
         </div>

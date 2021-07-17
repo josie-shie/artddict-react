@@ -406,6 +406,7 @@ function Product() {
           <div className="pro-green2"></div>
 
           <div className="slickWidth2">
+            <div className="imABlock"></div>
             {/* <div className="switchLeftBtn">
                 <IoIosArrowRoundBack size={70} />
               </div>

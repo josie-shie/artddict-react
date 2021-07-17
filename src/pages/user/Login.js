@@ -12,7 +12,7 @@ import pic4 from './img/4.png'
 import pic5 from './img/5.png'
 import pic6 from './img/6.png'
 // icons
-import { FaFacebook } from 'react-icons/fa'
+// import { FaFacebook } from 'react-icons/fa'
 import axios from 'axios'
 
 function Login(props) {
@@ -42,12 +42,13 @@ function Login(props) {
       .then(function (response) {
         console.log(response.data)
         // const data = response.data
+        localStorage.setItem('token', response.data.token)
         return response.data
       })
       .catch(function (error) {
         console.log(error)
       })
-    console.log(data)
+    console.log('response = ', data)
 
     // console.log('伺服器回傳的json資料', data)
     // console.log('data = ', data)
@@ -59,7 +60,7 @@ function Login(props) {
         button: false,
         timer: 3000,
       })
-
+      test()
       // 如果登入成功
       // 改動react App母層變數以紀錄現在的用戶登入狀態
       // setCurrentUser(data.id)
@@ -87,6 +88,30 @@ function Login(props) {
         return 0
       }
     }, 1000)
+  }
+
+  async function getjwtvertifyFromServer() {
+    const token = localStorage.getItem('token')
+
+    const response = await fetch(
+      'http://localhost:6005/users/checklogin',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          token,
+        }),
+      }
+    )
+
+    const data = await response.json()
+    console.log('check login response = ', data)
+  }
+
+  const test = () => {
+    getjwtvertifyFromServer()
   }
 
   const loading = (
@@ -182,9 +207,9 @@ function Login(props) {
                   <Link to="/user-add">註冊</Link>
                 </div>
               </div>
-              <div className="u-FB d-flex justify-content-around">
+              {/* <div className="u-FB d-flex justify-content-around">
                 <FaFacebook />
-              </div>
+              </div> */}
               <form action="">
                 <div class="form-group u-form">
                   <input
