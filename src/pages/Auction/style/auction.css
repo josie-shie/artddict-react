@@ -199,13 +199,20 @@ time, mark, audio, video {
   line-height: 50px;
 }
 
-.auctionsidebar li {
-  margin: 30px 0 0 0;
-  list-style: none;
-  padding: 0 0 0 10%;
-}
-
 .categoryblack {
   color: #000;
 }
 /*# sourceMappingURL=auction.css.map */
+
+/* --------------左邊category JQ CSS------- */
+.changeColors{
+  background-color: black;
+  color: white;
+  transition:.8s
+}
+.changeColors2{
+
+  background-color: white;;
+  color:black;
+
+}

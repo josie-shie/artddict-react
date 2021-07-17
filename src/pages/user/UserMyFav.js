@@ -106,16 +106,15 @@ function UserMyFav(props) {
                 border: 'none',
               }}
             >
-              <Link
+              {/* <Link
                 to={`/event/event-list/detail/${userFav.eventId}`}
-              >
-                {' '}
-                <Card.Img
-                  variant="top"
-                  src={`http://localhost:6005/eventpic/event/${userFav.eventImg}`}
-                  alt="活動圖"
-                />
-              </Link>
+              > */}{' '}
+              <Card.Img
+                variant="top"
+                src={`http://localhost:6005/eventpic/event/${userFav.eventImg}`}
+                alt="活動圖"
+              />
+              {/* </Link> */}
               <Card.Body>
                 <h6 className="col-12 p-0 my-2">
                   {userFav.eventName}
@@ -128,7 +127,7 @@ function UserMyFav(props) {
                       {convert_date(userFav.eventDateStart)}
                     </p>
                   </div>
-                  <div className="col-6  ">
+                  <div className="col-6 pb-2">
                     <Button
                       onClick={() =>
                         deleteUserFav(userFav.eventId)
@@ -138,7 +137,11 @@ function UserMyFav(props) {
                       <IoIosHeart className="u-heart" />
                     </Button>
                     <Button>
-                      <CgShoppingCart className="u-shopingcart" />
+                      <Link
+                        to={`/event/event-list/detail/${userFav.eventId}`}
+                      >
+                        <CgShoppingCart className="u-shopingcart" />
+                      </Link>
                     </Button>
                   </div>
                 </div>
