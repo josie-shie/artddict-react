@@ -7,27 +7,15 @@ import './styles/cart-product.scss'
 import Cookies from 'universal-cookie'
 
 // demo
-import fakedata from './data/fakedata'
-import Main from './demo/Main'
-import Basket from './demo/Basket'
+import BasketProduct from './demo/BasketProduct'
 
-// // imgae
-// import img1 from './img/1.png'
-// import img2 from './img/2.png'
-
-// // icon
-// import { FaRegEdit } from 'react-icons/fa'
-// import { FaLock } from 'react-icons/fa'
-// import { RiDeleteBinLine } from 'react-icons/ri'
-
-function CartProduct() {
-  const { products } = fakedata
+function CartEvent() {
+  // const { products } = fakedata
   const [cartItems, setCartItems] = useState([])
   const cookies = new Cookies()
 
   async function getEventServer() {
-
-    const url = 'http://localhost:6005/event/'
+    const url = 'http://localhost:6005/product/'
 
     // 注意header資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -65,54 +53,54 @@ function CartProduct() {
   }, [])
 
   /**
-   * 更新 Product Cookie
+   * 更新 event Cookie
    *
-   * @param {Object} product 欲改變的目標 product.
-   * @param {number} quantityNum 欲更新product.qty到的數字.
-   * @param {string} type 根據不同type，product.qty 更新方法不同
+   * @param {Object} event 欲改變的目標 event.
+   * @param {number} quantityNum 欲更新event.qty到的數字.
+   * @param {string} type 根據不同type，event.qty 更新方法不同
    *
    *
    */
-  const onCookie = (product, quantityNum, type) => {
+  const onCookie = (event, quantityNum, type) => {
     let updateCookie = []
-    let cookieProduct = cookies.get('product') // 取得 product cookie
-    if (cookieProduct) {
-      // 如果有已存在的 product cookie
-      // 查看cookie裡面的 product id
+    let cookieEvent = cookies.get('product') // 取得 event cookie
+    if (cookieEvent) {
+      // 如果有已存在的 event cookie
+      // 查看cookie裡面的 event id
       const idSet = new Set()
-      for (let i in cookieProduct) {
-        idSet.add(cookieProduct[i].id)
+      for (let i in cookieEvent) {
+        idSet.add(cookieEvent[i].id)
       }
-      // 如果被改變的product 在 product cookie 中
-      if (idSet.has(product.id)) {
-        for (let i in cookieProduct) {
-          if (cookieProduct[i].id == product.id) {
+      // 如果被改變的 event 在 event cookie 中
+      if (idSet.has(event.id)) {
+        for (let i in cookieEvent) {
+          if (cookieEvent[i].id == event.id) {
             if (type == 'add')
               // 如果event是從AddToCart,數量+1
-              cookieProduct[i].qty += 1
+              cookieEvent[i].qty += 1
             else {
               // 如果event是從Input,數量直接到指定數字
-              cookieProduct[i].qty = Number(quantityNum)
+              cookieEvent[i].qty = Number(quantityNum)
             }
           }
         }
       } else {
         // 如果被改變的product 不在 product cookie 中
         // 初始數量為1
-        product.qty = 1
-        cookieProduct.push(product)
+        event.qty = 1
+        cookieEvent.push(event)
       }
       // 如果被改變後的product數量>0，加入在cookie 中
-      for (let i in cookieProduct) {
-        if (cookieProduct[i].qty > 0) {
-          updateCookie.push(cookieProduct[i])
+      for (let i in cookieEvent) {
+        if (cookieEvent[i].qty > 0) {
+          updateCookie.push(cookieEvent[i])
         }
       }
     } else {
       // 如果沒有已存在的 product cookie
       // 初始數量為1
-      product.qty = 1
-      updateCookie.push(product)
+      event.qty = 1
+      updateCookie.push(event)
     }
     cookies.set('product', updateCookie) //更新Cookie
   }
@@ -124,40 +112,42 @@ function CartProduct() {
    * @param {number} quantityNum 欲更新product.qty到的數字.
    *
    */
-  const onAddToCart = (product, quantityNum) => {
-    onCookie(product, quantityNum, 'add')
-    const exist = cartItems.find((x) => x.id === product.id)
+  const onAddToCart = (event, quantityNum) => {
+    onCookie(event, quantityNum, 'add')
+    const exist = cartItems.find((x) => x.id === event.id)
     if (exist) {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id
+          x.id === event.id
             ? { ...exist, qty: exist.qty + 1 }
             : x
         )
       )
     } else {
-      setCartItems([...cartItems, { ...product, qty: 1 }])
+      setCartItems([...cartItems, { ...event, qty: 1 }])
     }
   }
 
   /**
    * 更新購物車數量
    *
-   * @param {Object} product 欲改變的目標 product.
-   * @param {number} quantityNum 欲更新product.qty到的數字.
+   * @param {Object} event 欲改變的目標 event
+   * @param {number} quantityNum event.qty到的數字.
    *
    */
-  const onCartNumChange = (product, quantityNum) => {
-    const exist = cartItems.find((x) => x.id === product.id)
-    onCookie(product, quantityNum, 'set')
+  const onCartNumChange = (event, quantityNum) => {
+    console.log(event)
+    console.log(quantityNum)
+    const exist = cartItems.find((x) => x.id === event.id)
+    onCookie(event, quantityNum, 'set')
     if (quantityNum <= 0) {
       setCartItems(
-        cartItems.filter((x) => x.id !== product.id)
+        cartItems.filter((x) => x.id !== event.id)
       )
     } else {
       setCartItems(
         cartItems.map((x) =>
-          x.id === product.id
+          x.id === event.id
             ? { ...exist, qty: Number(quantityNum) }
             : x
         )
@@ -168,18 +158,20 @@ function CartProduct() {
   /**
    * 移出購物車
    *
-   * @param {Object} product 欲改變的目標 product.
+   * @param {Object} event 欲改變的目標 event.
    *
    */
-  const onDelete = (product) => {
-    onCookie(product, 0, 'set')
-    const exist = cartItems.find((x) => x.id === product.id)
+  const onDelete = (event) => {
+    onCookie(event, 0, 'set')
+    const exist = cartItems.find((x) => x.id === event.id)
     if (exist.qty >= 1) {
       setCartItems(
-        cartItems.filter((x) => x.id !== product.id)
+        cartItems.filter((x) => x.id !== event.id)
       )
     }
   }
+
+  const [cartItems2, setCartItems2] = useState([])
 
   return (
     <>
@@ -209,20 +201,15 @@ function CartProduct() {
             </Nav.Link>
           </div>
         </div>
-
-        <Main
-          products={products}
-          onAddToCart={onAddToCart}
-        ></Main>
-        <Basket
+        <BasketProduct
           cartItems={cartItems}
           onAddToCart={onAddToCart}
           onCartNumChange={onCartNumChange}
           onDelete={onDelete}
-        ></Basket>
+        ></BasketProduct>
       </div>
     </>
   )
 }
 
-export default CartProduct
+export default CartEvent
