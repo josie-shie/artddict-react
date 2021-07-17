@@ -7,7 +7,6 @@ import ReactPaginate from 'react-paginate'
 // Component
 import EHeader from './components/Darkheader'
 import EDetailCaro from './components/EDetailCaro'
-import { parts, cities } from './config/location'
 import {
   data,
   countries,
@@ -42,6 +41,7 @@ function EventList(props) {
   const [totalCount, setTotalCount] = useState('')
   const [totalPages, setTotalPages] = useState('')
   const [userId, setUserId] = useState(1)
+  const [favArray, setFavArray] = useState([])
   // const [museum, setMuseum] = useState('')
   // const [date, setDate] = useState('')
   // const [isFilter, setIsfFilter] = useState(false)
@@ -102,6 +102,8 @@ function EventList(props) {
       setEvents(eData)
     }
   }
+
+ 
 
   async function addEventFavSever(eventId) {
     const newData = { eventId, userId }

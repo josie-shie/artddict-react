@@ -57,6 +57,9 @@ function EventDetail(props) {
   // 加入購物車
   const [isShared, setIsShared] = useState(true)
 
+  // 確認是否已儲存
+  const [isFav, setIsFav] = useState(false)
+
   const [sqleventid, setSqlEventId] = useState('')
 
   // 票價數量
@@ -134,6 +137,41 @@ function EventDetail(props) {
     setTempIcon(weatherData.weather[0].icon)
   }
 
+
+  async function getEventFavServer() {
+    const url = `http://localhost:6005/event/isEventFav/${userId}`
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+
+    const favArray = data.map((fav)=>{
+      return fav.eventId
+    })
+
+
+    // 確認是否有該eventId
+    if (!(favArray.indexOf(eventId) == -1)){
+      console.log(favArray.indexOf(eventId))
+      console.log(eventId)
+      setIsFav(true)
+    }else{
+      console.log(
+        'No match' + favArray.indexOf(eventId)
+      )
+      console.log(eventId)
+      setIsFav(false)
+    }
+
+    
+  }
+
   console.log(temp, weather, tempIcon)
 
   let shareBtn = ''
@@ -146,6 +184,7 @@ function EventDetail(props) {
   useEffect(() => {
     getEventIdServer()
     getWeather()
+    getEventFavServer()
     $(ticketRef.current).on('click', () => {
       $(ticketRef.current)
         .css('background', 'black')
@@ -155,7 +194,12 @@ function EventDetail(props) {
 
   useEffect(() => {
     getWeather()
+    getEventFavServer()
   }, [cityId])
+
+  useEffect(() => {
+    getEventFavServer()
+  }, [eventId])
 
   useEffect(() => {
     getEventIdServer()
@@ -168,6 +212,15 @@ function EventDetail(props) {
       .siblings()
       .css('background', 'transparent')
       .css('color', 'black')
+  })
+
+  $('.ed-like-icon2').click(function () {
+    $(this)
+      .css('color', 'white')
+  })
+
+  $('.ed-like-icon').click(function () {
+    $(this).css('color', '#81FC4D')
   })
 
   useEffect(() => {
@@ -290,9 +343,26 @@ function EventDetail(props) {
               <h4 className="col-10 cn-font p-0">
                 {eventName}
               </h4>
-              <div className="ed-like-icon col-2" onClick={()=>{addEventFavSever()}}>
-                <IoIosHeart />
-              </div>
+              {isFav ? (
+                <div
+                  className="ed-like-icon2 col-2"
+                  onClick={() => {
+                    // addEventFavSever()
+                  }}
+                >
+                  <IoIosHeart />
+                </div>
+              ) : (
+                <div
+                  className="ed-like-icon col-2"
+                  onClick={() => {
+                    addEventFavSever()
+                  }}
+                >
+                  <IoIosHeart />
+                </div>
+              )}
+      
               <p className="col-12 cn-font p-0 mt-3">
                 時間：{eventDateStart.split('-')[0]}年
                 {eventDateStart.split('-')[1]}月～
