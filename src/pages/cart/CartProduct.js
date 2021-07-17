@@ -7,11 +7,7 @@ import './styles/cart-product.scss'
 import Cookies from 'universal-cookie'
 
 // demo
-<<<<<<< Updated upstream
-import BasketProduct from './demo/BasketProduct'
-=======
 import BasketProduct from './components/BasketProduct'
->>>>>>> Stashed changes
 
 function CartEvent() {
   // const { products } = fakedata

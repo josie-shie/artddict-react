@@ -7,7 +7,7 @@ import './styles/cart-event.scss'
 import Cookies from 'universal-cookie'
 
 // demo
-import BasketEvent from './demo/BasketEvent'
+import BasketEvent from './components/BasketEvent'
 
 // // imgae
 // import img1 from './img/1.png'
