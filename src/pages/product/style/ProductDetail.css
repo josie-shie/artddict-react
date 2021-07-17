@@ -47,6 +47,13 @@ font-face {
 
 /* ------------slick-------- */
 
+.proBread{
+    color: #707070 !important;
+}
+.proBread1{
+    color: #A7A7A7 !important;
+}
+
 .proDe-wall img{
     height: 85vh;
 }
@@ -179,11 +186,13 @@ color: white;
     width: 50px;
     height: 50px;
 }
+
+
 .sizeSelect{
     color: white;
-    border: 1px solid white;
+    border: 3px solid white;
     background-color:black;
-    transition: .5s;
+    transition: .2s;
     
 }
 

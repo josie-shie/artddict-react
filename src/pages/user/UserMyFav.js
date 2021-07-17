@@ -52,6 +52,10 @@ function UserMyFav(props) {
     console.log(`url = ${id}`)
     const response = await fetch(request)
     const data = await response.json()
+
+    setTimeout(() => {
+      window.location.replace(`/user-myfav/${userid}`)
+    }, 500)
   }
 
   async function logoutToSever() {
@@ -126,7 +130,9 @@ function UserMyFav(props) {
                   </div>
                   <div className="col-6  ">
                     <Button
-                      onClick={() => deleteUserFav()}
+                      onClick={() =>
+                        deleteUserFav(userFav.eventId)
+                      }
                       className="mr-1"
                     >
                       <IoIosHeart className="u-heart" />

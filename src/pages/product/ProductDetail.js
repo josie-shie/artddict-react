@@ -58,7 +58,6 @@ function ProductDetail(props) {
   const [userId, setUserId] = useState('')
   const [commentsBlock, setCommentsBlock] = useState([])
   const [qty, setQty] = useState(1)
-  const [rating, setRating] = useState('')
   const [starNum, setStarNum] = useState('')
   const [commentsNum, setCommentsNum] = useState('')
   const [starsAverage, setStarsAverage] = useState('')
@@ -261,7 +260,9 @@ function ProductDetail(props) {
               />
             </div>
             <p className="proDe-userName">暢哥</p>
-            <p className="proDe-userDate">05-22-2021</p>
+            <p className="proDe-userDate">
+              {pro.created_at.split('T')[0]}
+            </p>
           </div>
           <div className="proDe-commentsCardRight d-flex">
             <div className="proDe-commentsContent d-flex">
@@ -341,6 +342,12 @@ function ProductDetail(props) {
     }, 6000)
   }
 
+  function refreshPage() {
+    window.setTimeout(function () {
+      window.location.reload()
+    }, 3000)
+  }
+
   // let starsStars = setTimeout(() => {
   //   console.log('Hello, World!')
   // }, 3000)
@@ -372,8 +379,28 @@ function ProductDetail(props) {
               <div className="proDe-logoTopBox d-flex">
                 <div className="proDe-logoBox">
                   <img src={lightLogo} alt="" />
-                  <p>
-                    商店 / 服飾 /<span>{proName}</span>
+                  <p className="proBread">
+                    <Link
+                      to="/product/"
+                      style={{ textDecoration: 'none' }}
+                    >
+                      <span className="proBread1">
+                        商品首頁
+                      </span>{' '}
+                    </Link>{' '}
+                    /{' '}
+                    <Link
+                      to="/product/product-list"
+                      style={{ textDecoration: 'none' }}
+                    >
+                      <span className="proBread1">
+                        商店
+                      </span>{' '}
+                    </Link>{' '}
+                    /{' '}
+                    <span className="proBread2">
+                      {proName}
+                    </span>
                   </p>
                 </div>
               </div>
@@ -576,7 +603,12 @@ function ProductDetail(props) {
                     id="example-collapse-text"
                     className="proDe-invisibleWord"
                   >
-                    123喵321
+                    142.5 x 142.5 厘米<br></br> (長度 x
+                    高度) L56 x H56英寸<br></br> 淺藍色
+                    60%絲 40%羊毛
+                    <br></br>
+                    全面裝飾Monogram印花 <br></br>流蘇邊
+                    Louis Vuitton字樣 只可乾洗
                   </p>
                 </Collapse>
               </div>
@@ -604,7 +636,16 @@ function ProductDetail(props) {
                     id="example-collapse-text"
                     className="proDe-invisibleWord"
                   >
-                    123喵321777777 777 777 777 77 77
+                    我們提供到貨後 7
+                    天商品鑑賞期（含例假日）內免費退換貨服務及
+                    30
+                    天商品換貨期（含例假日）內免費兌換服務，詳情請致電
+                    0080 149 1188
+                    客戶服務中心聯絡，由專員為您協助安排。
+                    <br></br>
+                    請於收到訂購商品時依表核對包裝箱內的商品內容，若有不符或短少，為確保您的權益請於
+                    24
+                    小時內致電客戶服務中心由專員協助處理。
                   </p>
                 </Collapse>
               </div>
@@ -615,44 +656,7 @@ function ProductDetail(props) {
                   <div className="proDe-commentsWord1">
                     <p>商品評價</p>
                   </div>
-                  <div className="proDe-commentsNumAndStar d-flex ">
-                    {/* <p>
-                      {isNaN(starsAverage) === true
-                        ? '0'
-                        : tryyy === true
-                        ? starsAverage.toFixed(1)
-                        : ''}
-                    </p>
-                    <div className="proDe-pushLeft">
-                      {tryyy === true ? (
-                        <ReactStars
-                          count={5}
-                          edit={false}
-                          value={starsAverage}
-                          // onChange={(e) => {
-                          //   setRating(trymeme)
-                          // }}
-                          activeColor="#1D0AFF"
-                          size={24}
-                          isHalf={true}
-                          emptyIcon={
-                            <i className="far fa-star"></i>
-                          }
-                          halfIcon={
-                            <i className="fa fa-star-half-alt"></i>
-                          }
-                          fullIcon={
-                            <i className="fa fa-star"></i>
-                          }
-                        />
-                      ) : (
-                        ''
-                      )}
-                      <p className="proDe-underStarWord">
-                        {commentsNum}則評論
-                      </p>
-                    </div> */}
-                  </div>
+                  <div className="proDe-commentsNumAndStar d-flex "></div>
                 </div>
 
                 <div className="proDe-commentsRight d-flex">
@@ -669,9 +673,6 @@ function ProductDetail(props) {
                         count={5}
                         edit={false}
                         value={starsAverage}
-                        // onChange={(e) => {
-                        //   setRating(trymeme)
-                        // }}
                         activeColor="#1D0AFF"
                         size={40}
                         isHalf={true}
@@ -692,99 +693,10 @@ function ProductDetail(props) {
                       {commentsNum}則評論
                     </p>
                   </div>
-                  {/* <div className="proDe-commentsBar1 d-flex">
-                    <p className="proDe-1">5星</p>
-                    <input
-                      type="range"
-                      min="0"
-                      className="pro-slider"
-                      id="myRange"
-                      value="100"
-                    />
-                    <p className="proDe-2">12(100%)</p>
-                  </div>
-                  <div className="proDe-commentsBar1 d-flex">
-                    <p className="proDe-1">4星</p>
-                    <input
-                      type="range"
-                      min="0"
-                      className="pro-slider"
-                      id="myRange"
-                      value="50"
-                    />
-                    <p className="proDe-2">6(50%)</p>
-                  </div>
-                  <div className="proDe-commentsBar1 d-flex">
-                    <p className="proDe-1">3星</p>
-                    <input
-                      type="range"
-                      min="0"
-                      className="pro-slider"
-                      id="myRange"
-                      value="0"
-                    />
-                    <p className="proDe-2">0(0%)</p>
-                  </div>
-                  <div className="proDe-commentsBar1 d-flex">
-                    <p className="proDe-1">2星</p>
-                    <input
-                      type="range"
-                      min="0"
-                      className="pro-slider"
-                      id="myRange"
-                      value="0"
-                    />
-                    <p className="proDe-2">0(0%)</p>
-                  </div>
-                  <div className="proDe-commentsBar1 d-flex">
-                    <p className="proDe-1">1星</p>
-                    <input
-                      type="range"
-                      min="0"
-                      className="pro-slider"
-                      id="myRange"
-                      value="0"
-                    />
-                    <p className="proDe-2">0(0%)</p>
-                  </div> */}
                 </div>
               </div>
               {commentsCard}
-              {/* <div className="proDe-commentsCard d-flex">
-                <div className="proDe-commentsCardLeft">
-                  <div className="proDe-starsSSSSS">
-                    <IoIosStar
-                      size={20}
-                      color={'#1D0AFF'}
-                    />
-                    <IoIosStar
-                      size={20}
-                      color={'#1D0AFF'}
-                    />
-                    <IoIosStar
-                      size={20}
-                      color={'#1D0AFF'}
-                    />
-                    <IoIosStar
-                      size={20}
-                      color={'#1D0AFF'}
-                    />
-                    <IoIosStar
-                      size={20}
-                      color={'#1D0AFF'}
-                    />
-                  </div>
-                  <p className="proDe-userName">暢哥</p>
-                  <p className="proDe-userDate">
-                    05-22-2021
-                  </p>
-                </div>
-                <div className="proDe-commentsCardRight d-flex">
-                  <div className="proDe-commentsContent d-flex">
-                    <p>{comments}</p>
-                  </div>
-                </div>
-              </div> */}
+
               {/* ------------寫評論---------- */}
               <div className="col-12 p-0 d-flex justify-content-center flex-wrap">
                 <button
@@ -835,11 +747,6 @@ function ProductDetail(props) {
                           setComments(e.target.value)
                         }}
                       ></textarea>
-                      {/* <DelayLink
-                        delay={1000}
-                        to="/"
-                        replace={false}
-                      > */}
                       <button
                         className="ed-leave-msg e-btn-m col-l2 mt-3"
                         type="button"
@@ -847,13 +754,13 @@ function ProductDetail(props) {
                           e.preventDefault()
                           addcommentsSever()
                           setRecomments(true)
+                          refreshPage()
                         }}
                       >
                         <p className="proDe-lastWord2">
                           送出評論
                         </p>
                       </button>
-                      {/* </DelayLink> */}
                     </form>
                   </div>
                 </Collapse>
