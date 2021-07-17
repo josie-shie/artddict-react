@@ -103,7 +103,6 @@ function CartForm() {
   }
 
   const [cartItems, setCartItems] = useState([])
-  console.log(cartItems)
 
   const cookies = new Cookies()
 
@@ -707,6 +706,7 @@ function CartForm() {
             <CartFormFinish
               cartItems={cartItems}
               sentorder={sentorder}
+              displaycartitems={displaycartitems}
             ></CartFormFinish>
           )}
         </div>
