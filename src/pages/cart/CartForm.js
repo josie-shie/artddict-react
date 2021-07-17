@@ -103,6 +103,8 @@ function CartForm() {
   }
 
   const [cartItems, setCartItems] = useState([])
+  console.log(cartItems)
+
   const cookies = new Cookies()
 
   useEffect(() => {
@@ -183,16 +185,18 @@ function CartForm() {
 
     // post到order_details
     // 用for loop把訂購商品跟數量寫進order_details
-    console.log(cartItems)
+
     for (let i = 0; i < cartItems.length; i++) {
       let item = cartItems[i]
       let orderqty = item.qty
-      let proid = item.id
+      let proid = item.id.split('-')[0]
+      let orderspec = item.id.split('-')[1]
 
       const newData2 = {
         orderid,
         orderqty,
         proid,
+        orderspec,
       }
       // 連接的伺服器資料網址
       const url2 =
@@ -284,7 +288,6 @@ function CartForm() {
     getEventIdServer('', '', '')
   }, [])
 
-  
   return (
     <>
       <div className="c-bg">
