@@ -6,8 +6,7 @@ import {
 } from './data/townships'
 import Cookies from 'universal-cookie'
 
-import fakedata from './data/fakedata'
-import Basket2 from './demo/Basket2'
+import Basket2Product from './components/Basket2Product'
 
 import { ReactComponent as Logo } from '../../pics/logo-bk.svg'
 
@@ -23,16 +22,11 @@ import '../../bootstrap/css/bootstrap.css'
 import './styles/cart-shipping.scss'
 import './styles/cart-payment.scss'
 
-// imgae
-import img1 from './img/1.png'
-import img2 from './img/2.png'
-
 // icon
 import { FaLock } from 'react-icons/fa'
 import { RiArrowRightSLine } from 'react-icons/ri'
 
 function CartForm() {
-
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
 
@@ -108,7 +102,6 @@ function CartForm() {
     setFormStep((cur) => cur - 1)
   }
 
-  const { products } = fakedata
   const [cartItems, setCartItems] = useState([])
   const cookies = new Cookies()
 
@@ -222,28 +215,76 @@ function CartForm() {
       console.log(response2)
     }
 
-    // let orderqty = 0
-    // let proid = 0
-
-    //直接在一段x秒關掉指示器
-    // setTimeout(() => {
-    //   setDataLoading(false)
-    //   swal({
-    //     text: '修改成功！！！',
-    //     icon: 'success',
-    //     button: false,
-    //     timer: 3000,
-    //   })
-    // }, 1000)
-    // 到下一頁
     setFormStep((cur) => cur + 1)
   }
-  const itemsPrice = cartItems.reduce(
-    (a, c) => a + c.qty * c.price,
-    0
-  )
 
   const [shipfee, setShipFee] = useState(80)
+
+  // Basket2Product
+
+  const [displaycartitems, setDisplayCartItems] = useState(
+    []
+  )
+  const itemsPrice = displaycartitems.reduce(
+    (a, c) => a + c.qty * c.eventPrice,
+    0
+  )
+  const [sqleventid, setSqlEventId] = useState('')
+
+  // 去後台SQL撈資料
+  async function getEventIdServer() {
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:6005/product/product-list'
+
+    // 注意資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+    const response = await fetch(request)
+    // 再把response變成json
+    const data = await response.json()
+
+    let cookieProductArr = cookies.get('product')
+    var temp = []
+    if (cookieProductArr) {
+      for (let i = 0; i < data.length; i++) {
+        for (let j = 0; j < cookieProductArr.length; j++) {
+          let product = cookieProductArr[j]
+          setSqlEventId(product.id)
+
+          if (data[i].id == product.id.split('-')[0]) {
+            let eventtype = product.id.split('-')[1]
+            let eventqty = product.qty
+            let proImg = data[i].proImg.replace(
+              /[\[\]"]+/g,
+              ''
+            )
+            let newDisplay = {
+              id: data[i].id,
+              eventId: data[i].proId,
+              eventName: data[i].proName,
+              eventPrice: data[i].proPrice,
+              eventImg: proImg,
+              eventType: eventtype,
+              qty: eventqty,
+            }
+            temp.push(newDisplay)
+          }
+        }
+      }
+    }
+    setDisplayCartItems(temp)
+  }
+
+  useEffect(() => {
+    getEventIdServer('', '', '')
+  }, [])
+
+  
   return (
     <>
       <div className="c-bg">
@@ -424,22 +465,24 @@ function CartForm() {
                           <input
                             type="radio"
                             name="radio"
-                            value="超商取貨 - 運費：NT$ 50"
+                            value="宅配到府(隔日) - 運費：NT$ 200"
                             onClick={(event) => {
                               setShipMethod(
                                 event.target.value
                               )
-                              setShipFee(50)
+                              setShipFee(200)
                             }}
                           />
                           <span className="c-label"></span>
-                          <p>超商取貨 - 運費：NT$ 50</p>
-                          <a
+                          <p>
+                            宅配到府(隔日) - 運費：NT$ 200
+                          </p>
+                          {/* <a
                             href="##"
                             className="c-store ml-3 pb-0"
                           >
                             選擇門市
-                          </a>
+                          </a> */}
                         </label>
                       </div>
                     </section>
@@ -599,7 +642,9 @@ function CartForm() {
 
           {formStep < 2 && (
             <div className="col-5 px-0">
-              <Basket2 cartItems={cartItems}></Basket2>
+              <Basket2Product
+                displaycartitems={displaycartitems}
+              ></Basket2Product>
               <div className="c-bb d-flex pb-4 px-3 mb-4">
                 <p className="mr-auto">商品小計</p>
                 <p>NT$ {itemsPrice}</p>

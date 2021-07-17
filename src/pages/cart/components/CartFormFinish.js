@@ -5,10 +5,6 @@ import { withRouter } from 'react-router-dom'
 import '../../../bootstrap/css/bootstrap.css'
 import '../styles/cart-finish.scss'
 
-// imgae
-import img1 from '../img/1.png'
-import img2 from '../img/2.png'
-
 // icon
 import { FaLock } from 'react-icons/fa'
 import { RiArrowRightSLine } from 'react-icons/ri'
