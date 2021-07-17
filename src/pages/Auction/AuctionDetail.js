@@ -58,7 +58,7 @@ function AuctionDetail(props) {
     }])
 
   //假設會員id
-  const [memberid, setMemberId] = useState(2)
+  const [memberid, setMemberId] = useState("")
   //現在的頁面
   const auc_Id = props.match.params.id
 
@@ -83,9 +83,27 @@ function AuctionDetail(props) {
       deadline: 0,
     }
   )
+  //驗證身分
+    async function getjwtvertifyFromServer() {
 
-
-
+      const token = localStorage.getItem('token');
+  
+      const response = await fetch('http://localhost:6005/users/checklogin', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          token
+        })
+      });
+  
+      const data = await response.json()
+      console.log(data)
+      setMemberId(data.id)
+    }
+  
+  /**************************************************** */
   //socket
   const [socket, setSocket] = useState(null)
   const io = require("socket.io-client");
@@ -108,7 +126,6 @@ function AuctionDetail(props) {
         if (message.inputbidPrice) {
           // console.log("設定即時價格", message)
           setImmediatePrice(message.inputbidPrice)
-          console.log("出價資料", message.auc_info)
           setBidersInfo(message.auc_info)
         }
       })
@@ -121,9 +138,11 @@ function AuctionDetail(props) {
 
   //發送出價消息
   const bidPrice = () => {
-    console.log("inputbidPrice", inputbidPrice)
-    console.log("immediatePrice", immediatePrice)
-    if (inputbidPrice > immediatePrice) {
+    // console.log("inputbidPrice", inputbidPrice)
+    // console.log("immediatePrice", immediatePrice)
+    if(!memberid){
+      console.log('請先登入會員')
+    }else if (inputbidPrice > immediatePrice) {
       socket.emit('bidPrice', { inputbidPrice, auc_Id, memberid })
     } else {
       console.log("輸入價錢過低")
@@ -178,6 +197,8 @@ function AuctionDetail(props) {
   useEffect(() => {
     //從資料庫抓取資料
     getAucProDetailFromServer(props.match.params.id)
+    //驗證身分
+    getjwtvertifyFromServer()
   }, [])
 
   //計算剩餘時間 
@@ -244,34 +265,27 @@ function AuctionDetail(props) {
     }
   }, isRunning ? delay : null)
 
-  async function getjwtvertifyFromServer() {
+  // async function getjwtvertifyFromServer() {
 
-    const token = localStorage.getItem('token');
+  //   const token = localStorage.getItem('token');
 
-    const response = await fetch('http://localhost:6005/users/checklogin', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        token
-      })
-    });
+  //   const response = await fetch('http://localhost:6005/users/checklogin', {
+  //     method: 'POST',
+  //     headers: {
+  //       'Content-Type': 'application/json'
+  //     },
+  //     body: JSON.stringify({
+  //       token
+  //     })
+  //   });
 
-    const data = await response.json()
-    console.log(data)
-  }
-
-  const test = () => {
-    getjwtvertifyFromServer()
-  }
+  //   const data = await response.json()
+  //   console.log(data)
+  // }
 
   // console.log('--------------------')
   return (
     <>
-    <button onClick={test}>
-        aa
-      </button>
       <div className="auctionDetailContent cn-font">
         <div className="auctionDetailleftContent">
           <div className="leftContent_firstpart">
