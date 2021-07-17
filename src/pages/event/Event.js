@@ -4,7 +4,7 @@ import { Container, Row } from 'react-bootstrap'
 import Marquee from './components/Marquee'
 import MarqueeWork from './components/MarqueeWork'
 import MarqueeLocation from './components/MarqueeLocation'
-// import Tetris from './components/tetris/Tetris'
+import Tetris from './components/tetris/Tetris'
 import './style/reset.css'
 import './style/fontAndBtn.scss'
 import './style/event.scss'
@@ -621,9 +621,9 @@ function event() {
               </Link>
             </div>
           </Row>
-          {/* <Row className="tetris-area">
+          <Row className="tetris-area">
             <Tetris />
-          </Row> */}
+          </Row>
         </Container>
       </div>
     </>
