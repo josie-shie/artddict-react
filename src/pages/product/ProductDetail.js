@@ -376,9 +376,11 @@ function ProductDetail(props) {
           </div>
           <div className="proDe-rightSide">
             <div className="proDe-rightSideBox">
-              <div className="proDe-logoTopBox d-flex">
+              <div className="proDe-logoTopBox ">
                 <div className="proDe-logoBox">
                   <img src={lightLogo} alt="" />
+                </div>
+                <div>
                   <p className="proBread">
                     <Link
                       to="/product/"
@@ -722,7 +724,7 @@ function ProductDetail(props) {
                           setStarValue(e)
                           console.log(e)
                         }}
-                        value={5}
+                        value={0.5}
                         activeColor="#1D0AFF"
                         size={40}
                         isHalf={true}
