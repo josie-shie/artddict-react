@@ -199,7 +199,7 @@ function UserEdit(props) {
   useEffect(() => {
     setTimeout(() => {
       setDataLoading(false)
-    }, 1000)
+    }, 500)
   }, [userid])
 
   async function logoutToSever() {

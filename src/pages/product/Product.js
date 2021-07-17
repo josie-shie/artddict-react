@@ -138,9 +138,11 @@ function Product() {
                 </span>
               </p>
             </div>
-            <button className="homepageA-box btn-lg pro-EnglishB ">
-              Go Shop
-            </button>
+            <Link to="/product/product-list">
+              <button className="homepageA-box btn-lg pro-EnglishB ">
+                Go Shop
+              </button>
+            </Link>
           </div>
           <div className="homepageA-right">
             <div className="homepageA-right-box d-flex">
@@ -261,9 +263,11 @@ function Product() {
               </div>
 
               <div>
-                <button className="homepageA-boxScroll btn-lg pro-EnglishB ">
-                  Go Shop
-                </button>
+                <Link to="product/product-list">
+                  <button className="homepageA-boxScroll btn-lg pro-EnglishB ">
+                    Go Shop
+                  </button>
+                </Link>
               </div>
               <div className="pro-arrowC d-flex">
                 <marquee
@@ -298,7 +302,7 @@ function Product() {
               藝術——————新品上架
               <br />
               <Link
-                to="/"
+                to="/product/product-list"
                 style={{
                   color: 'black',
                   textDecoration: 'none',
@@ -333,42 +337,42 @@ function Product() {
               <Slider {...settings}>
                 <div className="slickPic1">
                   <div className="slickPic-box">
-                    <Link to="/">
+                    <Link to="/product/product-list/product-detail/107">
                       <img src={slickA6} alt="" />
                     </Link>
                   </div>
                 </div>
                 <div className="slickPic2">
                   <div className="slickPic-box">
-                    <Link to="/">
+                    <Link to="/product/product-list/product-detail/98">
                       <img src={slickA3} alt="" />
                     </Link>
                   </div>
                 </div>
                 <div className="slickPic3">
                   <div className="slickPic-box">
-                    <Link to="/">
+                    <Link to="/product/product-list/product-detail/97">
                       <img src={slickA2} alt="" />
                     </Link>
                   </div>
                 </div>
                 <div className="slickPic4">
                   <div className="slickPic-box">
-                    <Link to="/">
+                    <Link to="/product/product-list/product-detail/102">
                       <img src={slickA4} alt="" />
                     </Link>
                   </div>
                 </div>
                 <div className="slickPic5">
                   <div className="slickPic-box">
-                    <Link to="/">
+                    <Link to="/product/product-list/product-detail/103">
                       <img src={slickA5} alt="" />
                     </Link>
                   </div>
                 </div>
                 <div className="slickPic6">
                   <div className="slickPic-box">
-                    <Link to="/">
+                    <Link to="/product/product-list/product-detail/92">
                       <img src={slickA1} alt="" />
                     </Link>
                   </div>
@@ -406,6 +410,7 @@ function Product() {
           <div className="pro-green2"></div>
 
           <div className="slickWidth2">
+            <div className="imABlock"></div>
             {/* <div className="switchLeftBtn">
                 <IoIosArrowRoundBack size={70} />
               </div>
@@ -415,7 +420,7 @@ function Product() {
             <Slider {...settings2}>
               <div className="slickB1">
                 <div className="slickPicB-box ">
-                  <Link to="/">
+                  <Link to="/product/product-list/product-detail/109">
                     <div className="slickPicB-black"></div>
                     <img src={slickB1} alt="" />
                   </Link>
@@ -431,7 +436,7 @@ function Product() {
               </div>
               <div className="slickB2">
                 <div className="slickPicB-box">
-                  <Link to="/">
+                  <Link to="/product/product-list/product-detail/111">
                     <div className="slickPicB-black"></div>
                     <img src={slickB2} alt="" />
                   </Link>
@@ -447,7 +452,7 @@ function Product() {
               </div>
               <div className="slickB3">
                 <div className="slickPicB-box">
-                  <Link to="/">
+                  <Link to="/product/product-list/product-detail/115">
                     <div className="slickPicB-black"></div>
                     <img src={slickB3} alt="" />
                   </Link>
@@ -463,7 +468,7 @@ function Product() {
               </div>
               <div className="slickB4">
                 <div className="slickPicB-box">
-                  <Link to="/">
+                  <Link to="/product/product-list/product-detail/116">
                     <div className="slickPicB-black"></div>
                     <img src={slickB4} alt="" />
                   </Link>
@@ -479,7 +484,7 @@ function Product() {
               </div>
               <div className="slickB5">
                 <div className="slickPicB-box">
-                  <Link to="/">
+                  <Link to="/product/product-list/product-detail/117">
                     <div className="slickPicB-black"></div>
                     <img src={slickB5} alt="" />
                   </Link>
@@ -495,7 +500,7 @@ function Product() {
               </div>
               <div className="slickB6">
                 <div className="slickPicB-box">
-                  <Link to="/">
+                  <Link to="/product/product-list/product-detail/120">
                     <div className="slickPicB-black"></div>
                     <img src={slickB6} alt="" />
                   </Link>
@@ -512,7 +517,7 @@ function Product() {
             </Slider>
           </div>
         </div>
-        <Link to="/">
+        <Link to="/product/product-list/">
           <div className="pro-watchAll">
             <p className="pro-watchAllWord">WATCH ALL</p>
           </div>
@@ -533,7 +538,7 @@ function Product() {
           <div className="homepage5-boxboss">
             <div className="homepage5-box d-flex">
               <div className="homepage5-boxA">
-                <Link>
+                <Link to="/product/product-list/">
                   <img src={homepic7} alt="" />
                   <p className="homepage5-boxA-word">
                     服飾類
@@ -541,7 +546,7 @@ function Product() {
                 </Link>
               </div>
               <div className="homepage5-boxB">
-                <Link>
+                <Link to="/product/product-list/">
                   <img src={homepic8} alt="" />
                   <p className="homepage5-boxB-word">
                     文具類
@@ -549,7 +554,7 @@ function Product() {
                 </Link>
               </div>
               <div className="homepage5-boxC">
-                <Link>
+                <Link to="/product/product-list/">
                   <img src={homepic9} alt="" />
                   <p className="homepage5-boxC-word">
                     家飾類
@@ -559,7 +564,7 @@ function Product() {
             </div>
             <div className="homepage5-box2 d-flex">
               <div className="homepage5-boxD">
-                <Link>
+                <Link to="/product/product-list/">
                   <img src={homepic10} alt="" />
                   <p className="homepage5-boxD-word">
                     書籍類
@@ -567,7 +572,7 @@ function Product() {
                 </Link>
               </div>
               <div className="homepage5-boxE">
-                <Link>
+                <Link to="/product/product-list/">
                   <img src={homepic11} alt="" />
                   <p className="homepage5-boxE-word">
                     配件類
@@ -575,7 +580,7 @@ function Product() {
                 </Link>
               </div>
               <div className="homepage5-boxF">
-                <Link>
+                <Link to="/product/product-list/">
                   <img src={homepic12} alt="" />
                 </Link>
 

@@ -32,6 +32,8 @@ function ProductList() {
   const [page, setPage] = useState(1)
   const [totalCount, setTotalCount] = useState('')
   const [totalPages, setTotalPages] = useState('')
+  const [showing1, setShowing1] = useState('')
+  const [showing2, setShowing2] = useState('')
 
   async function getClassPriceSearchByQuerySQL() {
     const url =
@@ -52,13 +54,14 @@ function ProductList() {
 
     const response = await fetch(request)
     const data = await response.json()
-
     const totalCount = data['totalCount'].num
     const totalPages = data['totalPages']
     console.log(data)
     console.log('products', products)
     // 設定資料
     setProducts(data.productData)
+    setShowing1(1 + 9 * (page - 1))
+    setShowing2(data.productData.length + 9 * (page - 1))
     console.log('products', products)
     if (totalCount) {
       setTotalCount(totalCount)
@@ -128,6 +131,9 @@ function ProductList() {
       </>
     )
   })
+
+  // let showing1 = 1 + 9 * ({ page } - 1)
+  // let showing2 = { products } + 9 * ({ page } - 1)
 
   // ------------------sliderbar--setting--
   const { Range } = Slider
@@ -328,7 +334,8 @@ function ProductList() {
             </div>
             <div className="pro-showing">
               <p className="pro-filterWord">
-                showing 1-9 of 27
+                showing {showing1}-{showing2} of{' '}
+                {totalCount}
               </p>
             </div>
           </div>

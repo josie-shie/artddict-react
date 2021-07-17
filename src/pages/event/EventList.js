@@ -41,6 +41,7 @@ function EventList(props) {
   const [page, setPage] = useState(1)
   const [totalCount, setTotalCount] = useState('')
   const [totalPages, setTotalPages] = useState('')
+  const [userId, setUserId] = useState(1)
   // const [museum, setMuseum] = useState('')
   // const [date, setDate] = useState('')
   // const [isFilter, setIsfFilter] = useState(false)
@@ -100,6 +101,26 @@ function EventList(props) {
     if (eData) {
       setEvents(eData)
     }
+  }
+
+  async function addEventFavSever(eventId) {
+    const newData = { eventId, userId }
+
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:6005/event/eventFav'
+
+    // 注意資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'POST',
+      body: JSON.stringify(newData),
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
   }
 
   // 檢查跳首頁資料
@@ -168,6 +189,7 @@ function EventList(props) {
             <button
               onClick={(e) => {
                 e.preventDefault()
+                addEventFavSever(event.eventId)
               }}
               className="border-right col-4 text-center"
             >
