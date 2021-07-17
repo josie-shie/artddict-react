@@ -148,6 +148,34 @@
     margin-top: 10px;
     margin-left: 5%;
 }
+.aucd-Searchbox{
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px;
+    border-bottom: 1px solid #000; 
+}
+.abc-Search{
+    display: inline-block;
+    margin: 0 0 0 1.5rem;
+    font-size: 2rem;
+    background-color: rgba(0, 0, 0, 0);
+    border:0rem;
+    padding: 0;
+}
+
+.proMove{
+    transform: translate(210px, 0);
+    transition: 1s;
+}
+.proClickMe{
+    /* visibility:hidden; */
+    opacity:0;
+    transition: .5s;
+}
+.helloSearch{
+    /* visibility: visible 1s; */
+    opacity:1;
+    transition: 1s;
+}
 .prolist-sliderbox{
     width: 300px;
     height: 50px;

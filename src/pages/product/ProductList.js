@@ -97,6 +97,17 @@ function ProductList() {
       .removeClass('museumProduct')
   })
 
+  $('.abc-Search').click(function () {
+    setTimeout(function () {
+      $('.aucd-Searchbox').addClass('helloSearch')
+    }, 500)
+    $('.abc-Search').addClass('proMove')
+  })
+
+  $('.prolist-imgBox').mouseenter(function () {
+    console.log('123')
+  })
+
   const productListCard = products.map((pro) => {
     let trydd = JSON.parse(`${pro.proImg}`)
     return (
@@ -240,11 +251,9 @@ function ProductList() {
                     </span>
                   </Link>
                   /
-                  <Link>
-                    <span className="prolist-breadwordB">
-                      美術館商品
-                    </span>
-                  </Link>
+                  <span className="prolist-breadwordB">
+                    美術館商品
+                  </span>
                 </p>
               </div>
             </div>
@@ -291,12 +300,16 @@ function ProductList() {
                   </div> */}
                   <form action="">
                     <div className="prolist-searchIcon d-flex">
-                      <button className="auc-Search">
+                      <button
+                        className="abc-Search"
+                        onClick={(e) => {
+                          e.preventDefault()
+                        }}
+                      >
                         <GoSearch size={30} />
                       </button>
                       <input
-                        name="tryme"
-                        className="auc-Searchbox"
+                        className="aucd-Searchbox proClickMe"
                         value={search}
                         onChange={(event) => {
                           setSearch(event.target.value)
