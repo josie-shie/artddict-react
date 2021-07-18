@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { withRouter } from 'react-router-dom'
 import './styles/TicketDetail.scss'
-import { Modal, Button } from 'react-bootstrap'
+import { Modal } from 'react-bootstrap'
 import QRcode from './img/QRcode.png'
 
 function TicketDetail(props) {
@@ -58,14 +58,7 @@ function TicketDetail(props) {
           </div>
         </div>
       </Modal.Body>
-      <Modal.Footer>
-        {/* <Button
-          onClick={props.onHide}
-          variant="outline-dark"
-        >
-          Close
-        </Button> */}
-      </Modal.Footer>
+      <Modal.Footer></Modal.Footer>
     </Modal>
   )
 }
