@@ -78,11 +78,35 @@ function UserAuction(props) {
     }
   }
 
+  useEffect(async () => {
+    await getjwtvertifyFromServer()
+  }, [])
+
   useEffect(() => {
     //從資料庫抓取資料
     getMemAucDetailFromServer(userid)
-  }, [pages])
+  }, [pages, userid])
+  
+  //驗證身分
+  async function getjwtvertifyFromServer() {
 
+    const token = localStorage.getItem('token');
+
+    const response = await fetch('http://localhost:6005/users/checklogin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        token
+      })
+    });
+
+    const data = await response.json()
+    console.log(data)
+    setUserId(data.id)
+  }
+  
   //下一頁
   const nextpage = () => {
     if (pages < pagesinfo.totalPages) {
