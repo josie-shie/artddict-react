@@ -213,6 +213,7 @@ function Coupon(props) {
   }
   async function logoutToSever() {
     // 連接的伺服器資料網址
+    localStorage.removeItem('token')
     const url = 'http://localhost:6005/users/logout'
 
     // 注意資料格式要設定，伺服器才知道是json格式

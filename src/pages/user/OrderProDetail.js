@@ -3,11 +3,16 @@ import React, { useState, useEffect } from 'react'
 import './styles/OrderProDetail.scss'
 import Accordion from 'react-bootstrap/Accordion'
 import { Card, Button, Container } from 'react-bootstrap'
-import { withRouter, Link } from 'react-router-dom'
+import {
+  withRouter,
+  Link,
+  useHistory,
+} from 'react-router-dom'
 import Logoheader from './components/Logoheader'
 
 function OrderProDetail(props) {
   const id = props.match.params.id
+  let history = useHistory()
 
   // 付款資訊
   const [orderPay, setOrdrPay] = useState('')
@@ -16,7 +21,7 @@ function OrderProDetail(props) {
   const [orderPrice, setOrderPrice] = useState('')
 
   // 收件人資訊
-  const [username, setUsername] = useState('')
+  const [name, setName] = useState('')
   const [userAddress, setUserAddress] = useState('')
   const [userPhone, setUserPhone] = useState('')
   const [orderShip, setOrderShip] = useState('')
@@ -50,7 +55,7 @@ function OrderProDetail(props) {
     setCardNumber(data[0].cardNumber)
     setCardExpdate(data[0].cardExpdate)
     setOrderPrice(data[0].orderPrice)
-    setUsername(data[0].username)
+    setName(data[0].name)
     setUserAddress(data[0].userAddress)
     setUserPhone(data[0].userPhone)
     setOrderShip(data[0].orderShip)
@@ -100,7 +105,7 @@ function OrderProDetail(props) {
           <div className="u-box">
             <div className="u-creditNews col">收件資訊</div>
             <div className="u-creditType">
-              <div className="col">收件人：{username}</div>
+              <div className="col">收件人：{name}</div>
             </div>
             <div className="u-creditNum">
               <div className="col">
@@ -201,10 +206,14 @@ function OrderProDetail(props) {
 
           <div className="u-back">
             <Link
-              className="u-link"
-              // to={`/user-orderpro/}`}
+              className="u-goback"
+              // onClick={() => {
+              //   props.history.push(
+              //     `/user-orderpro/${props.userid}`
+              //   )
+              // }}
               onClick={() => {
-                props.history.push('/user-orderpro/1')
+                history.goBack()
               }}
               style={{ textDecoration: 'none' }}
             >
