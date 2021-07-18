@@ -133,114 +133,169 @@ function OrderTic(props) {
           )
         })
 
-  return (
-    <>
-      <div className="u-body">
-        <Logoheader />
-        <div className="u-breadcrumb">
-          <Breadcrumb />
-        </div>
-        <div className="tab-bar">
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to={`/user-msgedit/${userid}`}
-            style={{ textDecoration: 'none' }}
-          >
-            修改資料
-          </NavLink>
+  async function getjwtvertifyFromServer() {
+    const token = localStorage.getItem('token')
 
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to={`/user-orderpro/${userid}`}
-            style={{
-              textDecoration: 'none',
-              background: 'black',
-              color: 'white',
-            }}
-          >
-            訂單查詢
-          </NavLink>
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to={`/user-coupon/${userid}`}
-            style={{ textDecoration: 'none' }}
-          >
-            我的優惠券
-          </NavLink>
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to={`/user-ticket/${userid}`}
-            style={{ textDecoration: 'none' }}
-          >
-            我的票券
-          </NavLink>
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to={`/user-myfav/${userid}`}
-            style={{ textDecoration: 'none' }}
-          >
-            我的收藏
-          </NavLink>
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to={`/user-auction/${userid}`}
-            style={{ textDecoration: 'none' }}
-          >
-            競標查詢
-          </NavLink>
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to="/user-login"
-            onClick={() => {
-              logoutToSever()
-            }}
-            style={{ textDecoration: 'none' }}
-          >
-            登出
-          </NavLink>
-        </div>
-        <Container fluid>
-          <div className="u-row d-flex justify-content-around">
-            <div className="u-userPro1">
-              <Link to={`/user-orderpro/${userid}`}>
-                商品
-              </Link>
-            </div>
-            <div className="u-userTic1">
-              <Link to={`/user-ordertic/${userid}`}>
-                票券
-              </Link>
-            </div>
+    const response = await fetch(
+      'http://localhost:6005/users/checklogin',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          token,
+        }),
+      }
+    )
+
+    const data = await response.json()
+    console.log('check login response = ', data)
+    console.log('data.id = ', data.id)
+    console.log('userid = ', userid)
+    if (data.id == userid) {
+      var stat = true
+    } else {
+      var stat = false
+    }
+    console.log('stat = ', stat)
+    return stat
+  }
+
+  // async needs to be waited in another funciton
+  const waitAsync = async () => {
+    const isLoggedin = await getjwtvertifyFromServer()
+
+    if (!isLoggedin) {
+      console.log('no display!')
+      swal({
+        title: '登入驗證失敗',
+        text: '您的登入驗證已過期或者尚未登入, 請重新登入\n正在將您導向登入頁面 ...',
+        button: false,
+        timer: 2000,
+      })
+      setTimeout(() => {
+        window.location.replace(`../user-login/`)
+      }, 500)
+      // throw new Error('Oopsie woopsie')
+    }
+  }
+
+  if (waitAsync()) {
+    // setDataLoading(true)
+    console.log('display!')
+
+    return (
+      <>
+        <div className="u-body">
+          <Logoheader />
+          <div className="u-breadcrumb">
+            <Breadcrumb />
           </div>
-          <div className="u-progress d-flex">
-            <div className="pr-3 pl-3">進度查詢</div>
-            <select
-              className="user-select pl-3"
-              name=""
-              id=""
+          <div className="tab-bar">
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to={`/user-msgedit/${userid}`}
+              style={{ textDecoration: 'none' }}
             >
-              <option value="" style={{ color: '#707070' }}>
-                全部
-              </option>
-              <option value="">待出貨</option>
-              <option value="">已完成</option>
-              <option value="">取消紀錄</option>
-              <option value="">退貨紀錄</option>
-            </select>
+              修改資料
+            </NavLink>
+
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to={`/user-orderpro/${userid}`}
+              style={{
+                textDecoration: 'none',
+                background: 'black',
+                color: 'white',
+              }}
+            >
+              訂單查詢
+            </NavLink>
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to={`/user-coupon/${userid}`}
+              style={{ textDecoration: 'none' }}
+            >
+              我的優惠券
+            </NavLink>
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to={`/user-ticket/${userid}`}
+              style={{ textDecoration: 'none' }}
+            >
+              我的票券
+            </NavLink>
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to={`/user-myfav/${userid}`}
+              style={{ textDecoration: 'none' }}
+            >
+              我的收藏
+            </NavLink>
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to={`/user-auction/${userid}`}
+              style={{ textDecoration: 'none' }}
+            >
+              競標查詢
+            </NavLink>
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to="/user-login"
+              onClick={() => {
+                logoutToSever()
+              }}
+              style={{ textDecoration: 'none' }}
+            >
+              登出
+            </NavLink>
           </div>
+          <Container fluid>
+            <div className="u-row d-flex justify-content-around">
+              <div className="u-userPro1">
+                <Link to={`/user-orderpro/${userid}`}>
+                  商品
+                </Link>
+              </div>
+              <div className="u-userTic1">
+                <Link to={`/user-ordertic/${userid}`}>
+                  票券
+                </Link>
+              </div>
+            </div>
+            <div className="u-progress d-flex">
+              <div className="pr-3 pl-3">進度查詢</div>
+              <select
+                className="user-select pl-3"
+                name=""
+                id=""
+              >
+                <option
+                  value=""
+                  style={{ color: '#707070' }}
+                >
+                  全部
+                </option>
+                <option value="">待出貨</option>
+                <option value="">已完成</option>
+                <option value="">取消紀錄</option>
+                <option value="">退貨紀錄</option>
+              </select>
+            </div>
 
-          {TicketDisplay}
-        </Container>
-      </div>
-    </>
-  )
+            {TicketDisplay}
+          </Container>
+        </div>
+      </>
+    )
+  }
 }
-
 export default withRouter(OrderTic)

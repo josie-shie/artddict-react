@@ -15,7 +15,9 @@ function Ticket(props) {
   const userid = props.match.params.userid
   const [tickets, setTickets] = useState([])
 
-  const id = props.match.params.id
+  //const id = props.match.params.id
+  const [id, setId] = useState('')
+  const [eventId, setEventId] = useState('')
   const [eventName, setEventName] = useState('')
   const [orderSpec, setOrderSpec] = useState('')
 
@@ -32,14 +34,17 @@ function Ticket(props) {
     const response = await fetch(request)
     const data = await response.json()
 
+    console.log('ll=', data)
+    console.log(props.match.params)
     setTickets(data)
+    setId(data[0].eventId)
   }
 
   useEffect(() => {
     getUserTicket()
   }, [])
 
-  async function getUserTicketDetail() {
+  async function getUserTicketDetail(id) {
     const url = `http://localhost:6005/users/getTicketDetail/${id}`
     const request = new Request(url, {
       method: 'GET',
@@ -52,13 +57,17 @@ function Ticket(props) {
     console.log('id = ', id)
     const response = await fetch(request)
     const data = await response.json()
-    setEventName(data.eventName)
-    setOrderSpec(data.orderSpec)
+    console.log(data)
+    setEventName(data[0].eventName)
+    setOrderSpec(data[0].orderSpec)
+    setTimeout(() => {
+      setModalShow(true)
+    }, 300)
   }
 
-  useEffect(() => {
-    getUserTicketDetail()
-  }, [])
+  // useEffect(() => {
+  //   getUserTicketDetail()
+  // }, [])
 
   async function logoutToSever() {
     // 連接的伺服器資料網址
@@ -95,6 +104,9 @@ function Ticket(props) {
       .substring(0, 10)
     return `${date_text_new}`
   }
+  // function showDetail(){
+  //   return <TicketDetail/>
+  // }
 
   const TicketDisplay =
     tickets.length === 0
@@ -153,144 +165,172 @@ function Ticket(props) {
                   <Button
                     className="u-ticdetail"
                     variant="dark"
-                    onClick={() => setModalShow(true)}
+                    onClick={() => {
+                      console.log(ticket)
+                      console.log(id)
+                      getUserTicketDetail(
+                        ticket.eventId
+                      ).then(console.log('oo=', id))
+                    }}
                   >
-                    <Link
-                      to={`/user-ordertic/detail/${ticket.eventId}`}
-                      key={ticket.eventId}
-                    ></Link>
                     票券細節
                   </Button>
                   <TicketDetail
+                    eventId={id}
+                    eventName={eventName}
+                    orderSpec={orderSpec}
                     show={modalShow}
-                    onHide={() => setModalShow(false)}
+                    onHide={() => {
+                      setModalShow(false)
+                      console.log(ticket)
+                    }}
                   />
                 </div>
               </div>
-
-              {/* <Modal
-                {...props}
-                size="md"
-                aria-labelledby="contained-modal-title-vcenter"
-                centered
-                id="userModal"
-              >
-                <Modal.Header closeButton>
-                  <Modal.Title>票卷細節</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                  <div className="u-tic1 d-flex">
-                    <div className="u-modal-body">
-                      活動名稱：
-                    </div>
-                    <div>{eventName}</div>
-                  </div>
-                  <div className="u-tic2 d-flex">
-                    <div className="col-4">
-                      <div className="ml-5">
-                        {orderSpec}
-                      </div>
-                    </div>
-                    <div className="col">
-                      <div className="u-QRcode">
-                        <img src={QRcode} alt="QRcode" />
-                      </div>
-                    </div>
-                  </div>
-                </Modal.Body>
-                <Modal.Footer></Modal.Footer>
-              </Modal> */}
             </div>
           )
         })
 
-  return (
-    <>
-      <div className="u-body">
-        <Logoheader />
-        <div className="u-breadcrumb">
-          <Breadcrumb />
-        </div>
-        <div className="tab-bar">
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to={`/user-msgedit/${userid}`}
-            style={{ textDecoration: 'none' }}
-          >
-            修改資料
-          </NavLink>
+  async function getjwtvertifyFromServer() {
+    const token = localStorage.getItem('token')
 
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to={`/user-orderpro/${userid}`}
-            style={{ textDecoration: 'none' }}
-          >
-            訂單查詢
-          </NavLink>
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to={`/user-coupon/${userid}`}
-            style={{ textDecoration: 'none' }}
-          >
-            我的優惠券
-          </NavLink>
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to={`/user-ticket/${userid}`}
-            style={{ textDecoration: 'none' }}
-          >
-            我的票券
-          </NavLink>
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to={`/user-myfav/${userid}`}
-            style={{ textDecoration: 'none' }}
-          >
-            我的收藏
-          </NavLink>
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to={`/user-auction/${userid}`}
-            style={{ textDecoration: 'none' }}
-          >
-            競標查詢
-          </NavLink>
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to="/user-login"
-            onClick={() => {
-              logoutToSever()
-            }}
-            style={{ textDecoration: 'none' }}
-          >
-            登出
-          </NavLink>
-        </div>
-        <Container fluid>
-          <div className="d-flex u-row justify-content-around">
-            <div className="u-userEve">
-              <Link to={`/user-ticket/${userid}`}>
-                活動展
-              </Link>
-            </div>
-            <div className="u-userWshop">
-              <Link to={`/user-workshop/${userid}`}>
-                工作坊
-              </Link>
-            </div>
+    const response = await fetch(
+      'http://localhost:6005/users/checklogin',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          token,
+        }),
+      }
+    )
+
+    const data = await response.json()
+    console.log('check login response = ', data)
+    console.log('data.id = ', data.id)
+    console.log('userid = ', userid)
+    if (data.id == userid) {
+      var stat = true
+    } else {
+      var stat = false
+    }
+    console.log('stat = ', stat)
+    return stat
+  }
+
+  // async needs to be waited in another funciton
+  const waitAsync = async () => {
+    const isLoggedin = await getjwtvertifyFromServer()
+
+    if (!isLoggedin) {
+      console.log('no display!')
+      swal({
+        title: '登入驗證失敗',
+        text: '您的登入驗證已過期或者尚未登入, 請重新登入\n正在將您導向登入頁面 ...',
+        button: false,
+        timer: 2000,
+      })
+      setTimeout(() => {
+        window.location.replace(`../user-login/`)
+      }, 500)
+      // throw new Error('Oopsie woopsie')
+    }
+  }
+
+  if (waitAsync()) {
+    // setDataLoading(true)
+    console.log('display!')
+
+    return (
+      <>
+        <div className="u-body">
+          <Logoheader />
+          <div className="u-breadcrumb">
+            <Breadcrumb />
           </div>
+          <div className="tab-bar">
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to={`/user-msgedit/${userid}`}
+              style={{ textDecoration: 'none' }}
+            >
+              修改資料
+            </NavLink>
 
-          {TicketDisplay}
-        </Container>
-      </div>
-    </>
-  )
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to={`/user-orderpro/${userid}`}
+              style={{ textDecoration: 'none' }}
+            >
+              訂單查詢
+            </NavLink>
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to={`/user-coupon/${userid}`}
+              style={{ textDecoration: 'none' }}
+            >
+              我的優惠券
+            </NavLink>
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to={`/user-ticket/${userid}`}
+              style={{ textDecoration: 'none' }}
+            >
+              我的票券
+            </NavLink>
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to={`/user-myfav/${userid}`}
+              style={{ textDecoration: 'none' }}
+            >
+              我的收藏
+            </NavLink>
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to={`/user-auction/${userid}`}
+              style={{ textDecoration: 'none' }}
+            >
+              競標查詢
+            </NavLink>
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to="/user-login"
+              onClick={() => {
+                logoutToSever()
+              }}
+              style={{ textDecoration: 'none' }}
+            >
+              登出
+            </NavLink>
+          </div>
+          <Container fluid>
+            <div className="d-flex u-row justify-content-around">
+              <div className="u-userEve">
+                <Link to={`/user-ticket/${userid}`}>
+                  活動展
+                </Link>
+              </div>
+              <div className="u-userWshop">
+                <Link to={`/user-workshop/${userid}`}>
+                  工作坊
+                </Link>
+              </div>
+            </div>
+
+            {TicketDisplay}
+          </Container>
+        </div>
+      </>
+    )
+  }
 }
 export default withRouter(Ticket)

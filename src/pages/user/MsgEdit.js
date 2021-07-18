@@ -18,24 +18,9 @@ import swal from 'sweetalert'
 import axios from 'axios'
 
 function UserEdit(props) {
-  /* 
-    透過props傳遞APP所記錄的current_user
-    current_user定義詳見 App.js
-    ！此處檢查無法成功
-  */
-  // const { current_user, setCurrentUser } = props
-  // console.log('current_user = ', current_user)
-
-  // 載入縣市
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
-
-  const userid = props.match.params.userid
-  // console.log(userid)
-
-  //const [user, setUser] = useState({})
   const [dataLoading, setDataLoading] = useState(false)
-
   const [username, setUsername] = useState('')
   const [name, setName] = useState('')
   const [gender, setGender] = useState('')
@@ -44,47 +29,12 @@ function UserEdit(props) {
   const [address, setAddress] = useState('')
   const [id, setId] = useState('')
 
+  //
+  const userid = props.match.params.userid
+
   async function getUserFromServer(userid) {
     // 開啟載入指示
     setDataLoading(true)
-
-    /* 
-    !!!!!!!!!!!
-    test session
-    !!!!!!!!!!!
-    */
-    // const test_url =
-    //   'http://localhost:6005/users/checklogin'
-    // const test_request = new Request(test_url, {
-    //   method: 'GET',
-    //   headers: new Headers({
-    //     Accept: 'application/json',
-    //     'Content-Type': 'appliaction/json',
-    //   }),
-    // })
-    // const test_response = await fetch(test_request, {
-    //   credentials: 'same-origin',
-    // })
-    // const test_data = await test_response.json()
-    // console.log('req obj = ', test_request)
-    // console.log('res obj = ', test_data)
-
-    // // 用axios send get request
-    // const adata = await axios.get(test_url, {
-    //   withCredentials: true,
-    //   headers: {
-    //     'Access-Control-Allow-Origin':
-    //       'http://localhost:6005',
-    //   },
-    // })
-    // console.log('new res:', adata)
-
-    // console.log(`${cookie.load('connect.sid')}`)
-    /*
-    !!!!!!!!!!!
-    end test
-    !!!!!!!!!!!
-    */
 
     // 連接的伺服器資料網址
     const url = `http://localhost:6005/users/${userid}`
@@ -100,7 +50,7 @@ function UserEdit(props) {
 
     const response = await fetch(request)
     const data = await response.json()
-    console.log(`[GET] response = ${data.session}`)
+    console.log(`[GET] response = ${data.gender}`)
 
     setUsername(data.username)
     setName(data.name)
@@ -199,7 +149,7 @@ function UserEdit(props) {
   useEffect(() => {
     setTimeout(() => {
       setDataLoading(false)
-    }, 500)
+    }, 1000)
   }, [userid])
 
   async function logoutToSever() {
@@ -240,9 +190,6 @@ function UserEdit(props) {
       </div>
     </>
   )
-
-  // const userDataNo = <h2>此會員不存在</h2>
-  // const useridNo = <h2>需要會員id</h2>
 
   const display = (
     <>
@@ -489,13 +436,67 @@ function UserEdit(props) {
     </>
   )
 
-  return (
-    <>
-      {/* {!userDataIsExist ? userDataNo : ''}
-      {!userid ? useridNo : ''} */}
-      {dataLoading ? loading : display}
-    </>
-  )
-}
+  /*
+  檢查登入狀態以確認router不回傳頁面內容
+   - getjwtvertifyFromServer 呼叫JWT檢查登入狀態之API
+   - 若檢查登入
+      成功, 顯示頁面內容
+      失敗, 重新導向登入頁面
+   - 使用waitAsync包覆檢查函式
+   - 判斷waitAsync決定render
+  */
+  async function getjwtvertifyFromServer() {
+    const token = localStorage.getItem('token')
 
+    const response = await fetch(
+      'http://localhost:6005/users/checklogin',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          token,
+        }),
+      }
+    )
+
+    const data = await response.json()
+    console.log('check login response = ', data)
+    console.log('data.id = ', data.id)
+    console.log('userid = ', userid)
+    if (data.id == userid) {
+      var stat = true
+    } else {
+      var stat = false
+    }
+    console.log('stat = ', stat)
+    return stat
+  }
+
+  // async needs to be waited in another funciton
+  const waitAsync = async () => {
+    const isLoggedin = await getjwtvertifyFromServer()
+
+    if (!isLoggedin) {
+      console.log('no display!')
+      swal({
+        title: '登入驗證失敗',
+        text: '您的登入驗證已過期或者尚未登入, 請重新登入\n正在將您導向登入頁面 ...',
+        button: false,
+        timer: 2000,
+      })
+      setTimeout(() => {
+        window.location.replace(`../user-login/`)
+      }, 500)
+      // throw new Error('Oopsie woopsie')
+    }
+  }
+
+  if (waitAsync()) {
+    // setDataLoading(true)
+    console.log('display!')
+    return <>{dataLoading ? loading : display}</>
+  }
+}
 export default withRouter(UserEdit)

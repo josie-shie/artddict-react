@@ -43,6 +43,9 @@ function OrderProDetail(props) {
     const response = await fetch(request)
     const data = await response.json()
 
+    console.log(`data[0] = ${data[0]}`)
+    console.log(`data[1] = ${data[1]}`)
+
     setOrdrPay(data[0].orderPay)
     setCardNumber(data[0].cardNumber)
     setCardExpdate(data[0].cardExpdate)
@@ -69,71 +72,49 @@ function OrderProDetail(props) {
         <Container fluid>
           <div className="u-box">
             <div className="u-creditNews col">付款資訊</div>
-            <div className="u-creditType d-flex">
-              <div className="col-lg-2 col-sm-1">
-                信用卡別：
-              </div>
-              <div className="col-lg-10 col-sm-11">
-                {orderPay}
+            <div className="u-creditType">
+              <div className="col">
+                信用卡別：{orderPay}
               </div>
             </div>
-            <div className="u-creditNum d-flex">
-              <div className="col-lg-2 col-sm-1">
-                信用卡號：
-              </div>
-              <div className="col-lg-10 col-sm-11">
-                {cardNumber}
+
+            <div className="u-creditNum">
+              <div className="col">
+                信用卡號：{cardNumber}
               </div>
             </div>
-            <div className="u-creditDate d-flex">
-              <div className="col-lg-2 col-sm-1">
-                有效期限：
-              </div>
-              <div className="col-lg-10 col-sm-11">
-                {cardExpdate}
+
+            <div className="u-creditDate">
+              <div className="col">
+                有效期限： {cardExpdate}
               </div>
             </div>
-            <div className="u-creditNT d-flex">
-              <div className="col-lg-2 col-sm-1">
-                刷卡金額：
-              </div>
-              <div className="col-lg-10 col-sm-11">
-                {orderPrice}
+
+            <div className="u-creditNT">
+              <div className="col">
+                刷卡金額： {orderPrice}
               </div>
             </div>
           </div>
+
           <div className="u-box">
             <div className="u-creditNews col">收件資訊</div>
-            <div className="u-creditType d-flex">
-              <div className="col-lg-2 col-sm-1">
-                收件人：
-              </div>
-              <div className="col-lg-10 col-sm-11">
-                {username}
+            <div className="u-creditType">
+              <div className="col">收件人：{username}</div>
+            </div>
+            <div className="u-creditNum">
+              <div className="col">
+                收件地址： {userAddress}
               </div>
             </div>
-            <div className="u-creditNum d-flex">
-              <div className="col-lg-2 col-sm-1">
-                收件地址：
-              </div>
-              <div className="col-lg-10 col-sm-11">
-                {userAddress}
-              </div>
-            </div>
-            <div className="u-creditDate d-flex">
-              <div className="col-lg-2 col-sm-1">
-                聯絡電話：
-              </div>
-              <div className="col-lg-10 col-sm-11">
-                {userPhone}
+            <div className="u-creditDate">
+              <div className="col">
+                聯絡電話：{userPhone}
               </div>
             </div>
             <div className="u-creditNT d-flex">
-              <div className="col-lg-2 col-sm-1">
-                寄送方式：
-              </div>
-              <div className="col-lg-10 col-sm-11">
-                {orderShip}
+              <div className="col">
+                寄送方式：{orderShip}
               </div>
             </div>
           </div>

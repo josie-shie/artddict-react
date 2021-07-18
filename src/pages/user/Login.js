@@ -58,9 +58,8 @@ function Login(props) {
         text: '登入成功！',
         icon: 'success',
         button: false,
-        timer: 3000,
+        timer: 1500,
       })
-      test()
       // 如果登入成功
       // 改動react App母層變數以紀錄現在的用戶登入狀態
       // setCurrentUser(data.id)
@@ -69,15 +68,15 @@ function Login(props) {
         text: '帳號或密碼有誤，請重新登入',
         icon: 'error',
         button: false,
-        timer: 3000,
+        timer: 1500,
       })
     }
 
     //直接在一段x秒關掉指示器
     setTimeout(() => {
       setDataLoading(false)
-      // data.id = undefined
-      if (data.id != undefined) {
+      // if (data.id != undefined) {
+      if (data.success == true) {
         window.location.replace(
           `../user-msgedit/${data.id}`
         )
@@ -91,6 +90,7 @@ function Login(props) {
   }
 
   async function getjwtvertifyFromServer() {
+    // 檢查瀏覽器 token
     const token = localStorage.getItem('token')
 
     const response = await fetch(
@@ -108,10 +108,12 @@ function Login(props) {
 
     const data = await response.json()
     console.log('check login response = ', data)
-  }
-
-  const test = () => {
-    getjwtvertifyFromServer()
+    console.log('data.id = ', data.id)
+    if (data.success == true) {
+      return true
+    } else {
+      return false
+    }
   }
 
   const loading = (
@@ -254,7 +256,6 @@ function Login(props) {
                   >
                     登入
                   </Link>
-                  {/* <button onClick={loginToSever}> </button> */}
                 </div>
               </form>
             </div>
