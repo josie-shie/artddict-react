@@ -55,7 +55,8 @@ import Tetris from './pages/event/components/tetris/Tetris'
 import CartProduct from './pages/cart/CartProduct'
 import CartEvent from './pages/cart/CartEvent'
 import CartAuction from './pages/cart/CartAuction'
-import CartForm from './pages/cart/CartForm'
+import CartFormProduct from './pages/cart/CartFormProduct'
+import CartFormEvent from './pages/cart/CartFormEvent'
 
 function App() {
   return (
@@ -174,8 +175,11 @@ function App() {
             <Route exact path="/cart-auction">
               <CartAuction />
             </Route>
-            <Route exact path="/cart-form">
-              <CartForm />
+            <Route exact path="/cart-form-product">
+              <CartFormProduct />
+            </Route>
+            <Route exact path="/cart-form-event">
+              <CartFormEvent />
             </Route>
             <Route exact path="/tetris">
               <Tetris />

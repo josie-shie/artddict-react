@@ -12,6 +12,8 @@ function BasketEvent() {
     []
   )
   const [sqleventid, setSqlEventId] = useState('')
+  const cookiesLength = cookies.get('product')
+
 
   /**
    * 當頁面Load時，讀取Cookie值並更新至cartItems
@@ -211,7 +213,7 @@ function BasketEvent() {
                 <p className="c-pid">
                   活動編號 # {item.eventId}
                 </p>
-                <p className="mt-3">
+                <p className="mt-2">
                   票種：{item.eventType}
                 </p>
               </div>
@@ -298,11 +300,14 @@ function BasketEvent() {
             本賣場使用綠界科技安全結帳系統，保障您的資安
           </p>
         </div>
-        <a href="./cart-form">
-          <div className="c-checkoutbtn">
+        <button
+          disabled={cookiesLength.length == 0}
+          className="c-checkoutbtn2"
+        >
+          <a href="./cart-form-event">
             <p>結帳</p>
-          </div>
-        </a>
+          </a>
+        </button>
       </div>
     </div>
   )

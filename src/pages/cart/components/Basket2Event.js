@@ -14,22 +14,16 @@ export default function Basket2Product(props) {
             <div className="c-item1 d-flex mb-4">
               <img
                 className="mr-4"
-                src={`http://localhost:6005/productpics/${item.eventImg}`}
+                src={`http://localhost:6005/eventpic/event/${item.eventImg}`}
                 alt=""
               />
               <div className="mr-auto">
                 <p>{item.eventName}</p>
                 <p className="c-pid pt-2">
-                  商品編號 # {item.eventId}
+                  活動編號 # {item.eventId}
                 </p>
-                <p
-                  className={
-                    item.eventType === ''
-                      ? 'd-none'
-                      : 'c-f12 pt-2'
-                  }
-                >
-                  尺寸：{item.eventType}
+                <p className="c-f12 pt-2">
+                  票種：{item.eventType}
                 </p>
                 <p className="c-f12 pt-1">
                   數量：{item.qty}

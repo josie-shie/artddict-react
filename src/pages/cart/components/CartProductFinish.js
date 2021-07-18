@@ -9,7 +9,7 @@ import '../styles/cart-finish.scss'
 import { FaLock } from 'react-icons/fa'
 import { RiArrowRightSLine } from 'react-icons/ri'
 
-function CartFormFinish(props) {
+function CartProductFinish(props) {
   const orderId = props.sentorder
   const orderItems = props.displaycartitems
 
@@ -26,6 +26,8 @@ function CartFormFinish(props) {
   // order_details內容
   const [proid, setProId] = useState('')
   const [proqty, setProQty] = useState('')
+
+  // const [orderitems, setOrderItems] = useState([])
 
   async function getOrdersServer(orderId) {
     // 取得剛剛父層寫入的訂單 orders
@@ -87,6 +89,22 @@ function CartFormFinish(props) {
     // 設定資料
     setProId(data2.proId)
     setProQty(data2.orderQty)
+
+    // let tempitems = []
+    // for (let i = 0; i < data2.length; i++) {
+    //   let proId = data2[i].orderId
+    //   let orderQty = data2[i].orderQty
+    //   tempitems.push({
+    //     id: proId,
+    //     sid: data2[i].proId,
+    //     name: '梵谷自畫像T-Shirt',
+    //     price: 780,
+    //     size: 'S',
+    //     image: '/img/1.png',
+    //     orderQty: orderQty,
+    //   })
+    // }
+    // setOrderItems(tempitems)
   }
 
   // 呼叫剛剛的assync func
@@ -108,7 +126,16 @@ function CartFormFinish(props) {
               商品編號 # {orderItems.id}
             </p>
           </div>
-          <p className="col">
+          <p
+            className={
+              orderItems.eventType !== '' ? 'd-none' : 'col'
+            }
+          ></p>
+          <p
+            className={
+              orderItems.eventType === '' ? 'd-none' : 'col'
+            }
+          >
             尺寸：{orderItems.eventType}
           </p>
           <p className="col">數量：{orderItems.qty}</p>
@@ -222,12 +249,12 @@ function CartFormFinish(props) {
         {orderDisplay}
 
         <div className="c-finish-bottom">
-          <a href="#" className="">
+          <a href="##" className="">
             <div className="c-finbtn1">
               <p>查詢訂單</p>
             </div>
           </a>
-          <a href="#" className="ml-5">
+          <a href="##" className="ml-5">
             <div className="c-finbtn">
               <p>回到賣場</p>
             </div>
@@ -237,7 +264,7 @@ function CartFormFinish(props) {
           <FaLock size={20} />
           <p className="c-lock ml-3">
             更多資訊請參考
-            <a href="#" className="c-store pb-0">
+            <a href="##" className="c-store pb-0">
               隱私權條款
             </a>
           </p>
@@ -247,4 +274,4 @@ function CartFormFinish(props) {
   )
 }
 
-export default withRouter(CartFormFinish)
+export default withRouter(CartProductFinish)

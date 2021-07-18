@@ -11,7 +11,7 @@ import Basket2Product from './components/Basket2Product'
 import { ReactComponent as Logo } from '../../pics/logo-bk.svg'
 
 // components
-import CartFormFinish from './components/CartFormFinish'
+import CartProductFinish from './components/CartProductFinish'
 
 // @material-ui
 import FormControlLabel from '@material-ui/core/FormControlLabel'
@@ -26,7 +26,7 @@ import './styles/cart-payment.scss'
 import { FaLock } from 'react-icons/fa'
 import { RiArrowRightSLine } from 'react-icons/ri'
 
-function CartForm() {
+function CartFormProduct() {
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
 
@@ -190,12 +190,14 @@ function CartForm() {
       let orderqty = item.qty
       let proid = item.id.split('-')[0]
       let orderspec = item.id.split('-')[1]
+      let eventid = ''
 
       const newData2 = {
         orderid,
         orderqty,
         proid,
         orderspec,
+        eventid,
       }
       // 連接的伺服器資料網址
       const url2 =
@@ -467,7 +469,7 @@ function CartForm() {
                           <input
                             type="radio"
                             name="radio"
-                            value="宅配到府(隔日) - 運費：NT$ 200"
+                            value="宅配到府（隔日）- 運費：NT$ 200"
                             onClick={(event) => {
                               setShipMethod(
                                 event.target.value
@@ -477,7 +479,7 @@ function CartForm() {
                           />
                           <span className="c-label"></span>
                           <p>
-                            宅配到府(隔日) - 運費：NT$ 200
+                            宅配到府（隔日）- 運費：NT$ 200
                           </p>
                           {/* <a
                             href="##"
@@ -703,11 +705,11 @@ function CartForm() {
             </div>
           )}
           {formStep === 2 && (
-            <CartFormFinish
+            <CartProductFinish
               cartItems={cartItems}
               sentorder={sentorder}
               displaycartitems={displaycartitems}
-            ></CartFormFinish>
+            ></CartProductFinish>
           )}
         </div>
       </div>
@@ -715,4 +717,4 @@ function CartForm() {
   )
 }
 
-export default CartForm
+export default CartFormProduct

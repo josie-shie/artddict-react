@@ -71,6 +71,9 @@
   letter-spacing: 0.3rem;
   text-align: center;
   line-height: 50px;
+  p {
+    color: white;
+  }
   &:disabled {
     opacity: 50%;
   }
