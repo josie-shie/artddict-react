@@ -154,8 +154,11 @@ function Ticket(props) {
                     className="u-ticdetail"
                     variant="dark"
                     onClick={() => setModalShow(true)}
-                    key={ticket.eventId}
                   >
+                    <Link
+                      to={`/user-ordertic/detail/${ticket.eventId}`}
+                      key={ticket.eventId}
+                    ></Link>
                     票券細節
                   </Button>
                   <TicketDetail
@@ -165,7 +168,7 @@ function Ticket(props) {
                 </div>
               </div>
 
-              <Modal
+              {/* <Modal
                 {...props}
                 size="md"
                 aria-labelledby="contained-modal-title-vcenter"
@@ -195,15 +198,8 @@ function Ticket(props) {
                     </div>
                   </div>
                 </Modal.Body>
-                <Modal.Footer>
-                  {/* <Button
-          onClick={props.onHide}
-          variant="outline-dark"
-        >
-          Close
-        </Button> */}
-                </Modal.Footer>
-              </Modal>
+                <Modal.Footer></Modal.Footer>
+              </Modal> */}
             </div>
           )
         })

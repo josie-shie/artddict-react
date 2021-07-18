@@ -81,7 +81,7 @@ function OrderPro(props) {
 
   const OrderDisplay =
     orders.length === 0
-      ? 'noneData'
+      ? '目前無訂單，趕快去購買！'
       : orders.map((order) => {
           return (
             <div class="u-table">
