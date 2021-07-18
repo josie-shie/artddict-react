@@ -50,7 +50,7 @@ function Auction(props) {
     const [showPages, setShowPages] = useState([1, 2, 3, 4, 5])
 
 
-    const [priceRange, setPriceRange] = useState('0,8000')
+    const [priceRange, setPriceRange] = useState('0,38000')
     const [priceRange2, setPriceRange2] = useState(8000)
 
 
