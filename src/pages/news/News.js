@@ -48,45 +48,56 @@ const News = () => {
 
   async function addNewComToSever() {
     // 開啟載入指示
-    setDataLoading(true)
+    if (NewsCom !== '' && userId !== '') {
+      setDataLoading(true)
 
-    const newData = { userId, NewsCom }
+      const newData = { userId, NewsCom }
 
-    // 連接的伺服器資料網址
-    const url = 'http://localhost:6005/news/'
+      // 連接的伺服器資料網址
+      const url = 'http://localhost:6005/news/'
 
-    // 注意資料格式要設定，伺服器才知道是json格式
-    const request = new Request(url, {
-      method: 'POST',
-      body: JSON.stringify(newData),
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      }),
-    })
+      // 注意資料格式要設定，伺服器才知道是json格式
+      const request = new Request(url, {
+        method: 'POST',
+        body: JSON.stringify(newData),
+        headers: new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }),
+      })
 
-    console.log(JSON.stringify(newData))
+      console.log(JSON.stringify(newData))
 
-    const response = await fetch(request)
-    const data = await response.json()
+      const response = await fetch(request)
+      const data = await response.json()
 
-    console.log('伺服器回傳的json資料', data)
-    // 要等驗証過，再設定資料(簡單的直接設定)
+      console.log('伺服器回傳的json資料', data)
+      // 要等驗証過，再設定資料(簡單的直接設定)
 
-    //直接在一段x秒關掉指示器
-    setTimeout(() => {
-      setDataLoading(false)
+      //直接在一段x秒關掉指示器
+      setTimeout(() => {
+        setDataLoading(false)
+        swal({
+          text: '留言成功',
+          icon: 'success',
+          button: false,
+          timer: 2000,
+        })
+      }, 500)
+      console.log('success')
+    } else {
       swal({
-        text: '留言成功',
-        icon: 'success',
-        button: false,
+        text: '請填寫所有欄位',
+        icon: 'warning',
+        confirmButtonColor: '#1D0AFF',
+        confirmButtonText: '確定',
         timer: 3000,
       })
-    }, 500)
-    console.log('success')
+    }
   }
 
   async function sentMail() {
+    //TODO:判斷mail是否正確 [a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*
     if (email !== '') {
       const newData = { email }
 
@@ -126,7 +137,7 @@ const News = () => {
         icon: 'warning',
         confirmButtonColor: '#1D0AFF',
         confirmButtonText: '確定',
-        timer: 1000,
+        timer: 3000,
       })
     }
   }
@@ -162,7 +173,6 @@ const News = () => {
       </React.Fragment>
     )
   })
-
   return (
     <>
       <div className="news-content-area d-flex flex-column">
@@ -228,9 +238,7 @@ const News = () => {
               ，讓大家有機會一次欣賞到她過往與大小品牌、明星的作品。
             </h3>
             <img src={news2} alt="" />
-            <h5 className="art-push">
-              2021/06/30 Tokiyo
-            </h5>
+            <h5 className="art-push">2021/06/30 Tokiyo</h5>
             <img src={news5} alt="" />
             <div className="d-flex justify-content-center mt-5">
               <img src={news3} alt="" />
@@ -292,7 +300,10 @@ const News = () => {
                 <form className="mt-5" action="">
                   <input
                     className="news-inp pl-2"
-                    type="email"
+                    name="email"
+                    type="text"
+                    pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
+                    required
                     value={email}
                     placeholder="請輸入電子郵件"
                     onChange={(e) => {
@@ -306,7 +317,7 @@ const News = () => {
                       e.preventDefault()
                       sentMail()
                       //   console.log(e.target.value)
-                      setEmail('')
+                      //setEmail('')
                     }}
                   >
                     send

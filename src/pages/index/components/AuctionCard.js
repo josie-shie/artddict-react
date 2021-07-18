@@ -55,8 +55,8 @@ const AuctionCard = () => {
       }
 
       setAucRemainT(remainTime)
-      console.log(remainTime) //value exist
-      console.log(aucRemainT) //value exist
+      //console.log(remainTime) //value exist
+      //console.log(aucRemainT) //value exist
     }
     let test = setInterval(() => {
       setCount((count) => count + 1)
