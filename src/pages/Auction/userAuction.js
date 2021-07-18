@@ -26,7 +26,8 @@ import {
 } from 'react-icons/io'
 
 function UserAuction(props) {
-  const userid = props.match.params.userid
+  // const userid = props.match.params.userid
+  const [userid,setUserId] = useState('')
   const [memAucData, setMemAucData] = useState([])
   const [count, setCount] = useState(0)
   const [aucRemainT, setAucRemainT] = useState([])
@@ -106,7 +107,7 @@ function UserAuction(props) {
     console.log(data)
     setUserId(data.id)
   }
-  
+
   //下一頁
   const nextpage = () => {
     if (pages < pagesinfo.totalPages) {
