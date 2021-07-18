@@ -64,8 +64,7 @@ function EventDetail(props) {
 
   // 票價數量
   const [ticketNum, setTicketNum] = useState(1)
-  // 票種 Ref
-  const ticketRef = useRef()
+
 
   // 購物車
   const [cartItems, setCartItems] = useState([])
@@ -123,6 +122,20 @@ function EventDetail(props) {
     const data = await response.json()
 
     
+  }
+
+  async function deleteUserFav(eventId) {
+    const url = `http://localhost:6005/users/userFavDelete/${eventId}`
+    const request = new Request(url, {
+      method: 'DELETE',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'appliaction/json',
+      }),
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
   }
 
   async function getWeather() {
@@ -185,11 +198,7 @@ function EventDetail(props) {
     getEventIdServer()
     getWeather()
     getEventFavServer()
-    $(ticketRef.current).on('click', () => {
-      $(ticketRef.current)
-        .css('background', 'black')
-        .css('color', 'white')
-    })
+   
   }, [])
 
   useEffect(() => {
@@ -347,7 +356,7 @@ function EventDetail(props) {
                 <div
                   className="ed-like-icon2 col-2"
                   onClick={() => {
-                    // addEventFavSever()
+                    deleteUserFav(eventId)
                   }}
                 >
                   <IoIosHeart />

@@ -63,6 +63,7 @@ function ProductDetail(props) {
   const [starsAverage, setStarsAverage] = useState('')
   const [tryyy, setTryyy] = useState(false)
   const [sendBox, setSendBox] = useState(false)
+  const [sendBox2, setSendBox2] = useState(false)
   const [recomments, setRecomments] = useState(false)
   const [sizeSelect, setSizeSelect] = useState('')
 
@@ -230,6 +231,19 @@ function ProductDetail(props) {
     }, 500)
 
     setProNum(id)
+  }
+
+  // --------swal------------確認加入購物車
+  function checkCheck() {
+    setTimeout(() => {
+      setSendBox2(false)
+      swal({
+        text: '成功加入購物車！',
+        icon: 'success',
+        button: false,
+        timer: 3000,
+      })
+    }, 200)
   }
 
   //----------送出留言重新撈資料
@@ -642,6 +656,7 @@ function ProductDetail(props) {
                               { qtyNum },
                               { sizeGary }
                             )
+                            checkCheck()
                           }}
                         >
                           <p>加入購物車</p>

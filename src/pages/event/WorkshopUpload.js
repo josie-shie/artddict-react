@@ -65,18 +65,12 @@ function WorkshopUpload(props) {
   const [preview4, setPreview4] = useState()
 
   const [eventName, setEventName] = useState('')
+  const [eventDes, setEventDes] = useState('')
+  const [content, setContent] = useState(false)
 
   const [shareImg, setShareImg] = useState('[]')
   const [userId, setUserId] = useState('')
   const [shareComment, setShareComment] = useState('')
-
-  // const [show, setShow] = useState(false)
-  // const [inputData, setInputData] = useState('')
-
-  // const handleClose = () => setShow(false)
-  // const handleShow = () => setShow(true)
-
-  // useEffect( handleShow, [inputData])
 
   async function getEventIdServer() {
     const url = `http://localhost:6005/event/event-list/${id}`
@@ -92,10 +86,18 @@ function WorkshopUpload(props) {
     const data = await response.json()
 
     setEventName(data.eventName)
+    setEventDes(data.eventDescription)
   }
+
+
+  // 給 textarea 裝上文字
+  // function fillContent(){
+  //   setContent(true)
+  // }
 
   useEffect(() => {
     getEventIdServer()
+    
   }, [])
 
   const uploadFile = async (e) => {
@@ -202,9 +204,9 @@ function WorkshopUpload(props) {
     }
   }, [isImg4])
 
-  useEffect(() => {
-    console.log(shareComment)
-  }, [shareComment])
+  // useEffect(() => {
+  //   console.log(shareComment)
+  // }, [shareComment])
 
   return (
     <>
@@ -402,7 +404,12 @@ function WorkshopUpload(props) {
                     </div>
                   </div>
                 </div>
-                <h5 className="eu-upload-title col-12 p-0 cn-font mt-5 mb-3">
+                <h5
+                  className="eu-upload-title col-12 p-0 cn-font mt-5 mb-3"
+                  // onClick={() => {
+                  //   setContent(true)
+                  // }}
+                >
                   作品說明:
                 </h5>
                 <textarea
@@ -412,7 +419,8 @@ function WorkshopUpload(props) {
                   onChange={(e) => {
                     setShareComment(e.target.value)
                   }}
-                ></textarea>
+                >
+                </textarea>
 
                 <div className="col-11 d-flex flex-wrap justify-content-center my-4">
                   <button
