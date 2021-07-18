@@ -9,6 +9,7 @@ import $ from 'jquery'
 import 'rc-tooltip/assets/bootstrap.css'
 import Slider, { SliderTooltip } from 'rc-slider'
 import 'rc-slider/assets/index.css'
+import swal from 'sweetalert'
 
 //--------change pages----------
 import ReactPaginate from 'react-paginate'
@@ -37,6 +38,8 @@ function ProductList() {
   const [totalPages, setTotalPages] = useState('')
   const [showing1, setShowing1] = useState('')
   const [showing2, setShowing2] = useState('')
+  const [sendBox, setSendBox] = useState(false)
+
   // ------------- for Gary---------
   const cookies = new Cookies()
   const [sizeGary, setSizeGary] = useState('')
@@ -186,7 +189,20 @@ function ProductList() {
     cookies.set('product', updateCookie, { path: '/' }) //更新Cookie
     console.log(updateCookie)
   }
+  // --------swal------------
+  function checkCheck() {
+    setTimeout(() => {
+      setSendBox(false)
+      swal({
+        text: '成功加入購物車！',
+        icon: 'success',
+        button: false,
+        timer: 3000,
+      })
+    }, 200)
+  }
 
+  // -----------productId callback-----
   useEffect(() => {
     onCookie({ sqlProductId }, { qtyNum }, { sizeGary })
   }, [sqlProductId])
@@ -226,14 +242,8 @@ function ProductList() {
                   onClick={(e) => {
                     e.preventDefault()
                     console.log('123123123123')
-                    // setSqlProductId(pro.id)
                     updateSpeed()
-
-                    // onCookie(
-                    //   { sqlProductId },
-                    //   { qtyNum },
-                    //   { sizeGary }
-                    // )
+                    checkCheck()
                   }}
                 >
                   Add to cart
