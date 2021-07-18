@@ -298,9 +298,9 @@
 .prolist-imgBorderBox{
     position: relative;
 
+
 }
 .prolist-imgBox{
-
     border:2px solid gray;
     border-bottom: 0 ;
     height: 250px;
@@ -315,10 +315,46 @@
 .prolist-blackBar{
     background-color:black;
     width: 100%;
-    height: 10px;
+    height: 70px;
+    z-index: 999;
+    opacity: 0.5;
     position: absolute;
     bottom: 0%;
 }
+
+.pro-index-card-rect {
+    width: 100%;
+    height: 50px;
+    background: #000;
+    overflow:hidden;
+    /* bottom:0%;
+    position: absolute; */
+  }
+
+
+  .pro-index-card-rect2 {
+    width: 100%;
+    height: 50px;
+    background: #000;
+    position: absolute;
+    overflow:hidden;
+    bottom:0%;
+    transition: .5s;
+  }
+
+.pro-index-card-rect div {
+    color: white;
+    margin: auto;
+    font-family: notoSansTC-md;
+    letter-spacing: 3px;
+  }
+  .pro-index-card-rect div:hover{
+    color: #81FC4D;
+  }
+.pro-border{
+    border-right: 1px solid white;
+}
+
 .prolist-cardWordBox {
     padding-top: 5px;
     justify-content:space-between;

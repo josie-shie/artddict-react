@@ -12,6 +12,7 @@ import 'rc-slider/assets/index.css'
 
 //--------change pages----------
 import ReactPaginate from 'react-paginate'
+import Cookies from 'universal-cookie'
 
 // -----------svg---------
 import logobk from './svg/logobk.svg'
@@ -20,6 +21,8 @@ import {
   IoIosArrowBack,
   IoIosArrowForward,
 } from 'react-icons/io'
+import { IoIosHeart } from 'react-icons/io'
+
 // ---------picture------------
 import listtitle from './img/productList/listtitle.jpeg'
 import productPic1 from './img/productList/productPic1.jpeg'
@@ -34,6 +37,12 @@ function ProductList() {
   const [totalPages, setTotalPages] = useState('')
   const [showing1, setShowing1] = useState('')
   const [showing2, setShowing2] = useState('')
+  // ------------- for Gary---------
+  const cookies = new Cookies()
+  const [sizeGary, setSizeGary] = useState('')
+  const [qtyNum, setQtyNum] = useState(1)
+  const [sqlProductId, setSqlProductId] = useState('')
+  const [toCart, setToCart] = useState('false')
 
   async function getClassPriceSearchByQuerySQL() {
     const url =
@@ -62,6 +71,10 @@ function ProductList() {
     setProducts(data.productData)
     setShowing1(1 + 9 * (page - 1))
     setShowing2(data.productData.length + 9 * (page - 1))
+    console.log(
+      'data.productData[id]',
+      data.productData['id']
+    )
     console.log('products', products)
     if (totalCount) {
       setTotalCount(totalCount)
@@ -105,11 +118,85 @@ function ProductList() {
   })
 
   $('.prolist-imgBox').mouseenter(function () {
-    console.log('123')
+    $('.proAddAndHeart')
   })
+
+  // ----------------加入購物車---------------
+  /**
+   * 更新 event Cookie
+   *
+   * @param {Object} product 欲改變的目標 event.
+   * @param {number} quantityNum 欲更新event.qty到的數字.
+   * @param {string} type 根據不同type，event.qty 更新方法不同
+   *
+   *
+   */
+
+  if (!toCart) {
+    setTimeout(() => {
+      console.log('executing timeout')
+      setToCart(true)
+    }, 1000)
+  }
+
+  const onCookie = (productid, quantityNum, type) => {
+    console.log(type)
+    let cookieProductId =
+      productid.sqlProductId + '-' + type.sizeGary
+    let updateCookie = []
+    let cookieProduct = cookies.get('product') // 取得 event cookie
+
+    if (cookieProduct) {
+      // 如果有已存在的 event cookie
+      // 查看cookie裡面的 event id
+      const idSet = new Set()
+      for (let i in cookieProduct) {
+        idSet.add(cookieProduct[i].id)
+      }
+      // event 在 event cookie 中
+      if (idSet.has(cookieProductId)) {
+        for (let i in cookieProduct) {
+          if (cookieProduct[i].id == cookieProductId) {
+            // 如果event是從Input,數量直接到指定數字
+            cookieProduct[i].qty += quantityNum.qtyNum
+          }
+        }
+      } else {
+        // 如果被改變的event 不在 event cookie 中
+        // 初始數量為1
+        let productjson = {}
+        productjson.id = cookieProductId
+        productjson.qty = quantityNum.qtyNum
+        cookieProduct.push(productjson)
+      }
+      // 如果被改變後的event數量>0，加入在cookie 中
+      for (let i in cookieProduct) {
+        if (cookieProduct[i].qty > 0) {
+          updateCookie.push(cookieProduct[i])
+        }
+      }
+    } else {
+      // 如果沒有已存在的 event cookie
+      // 初始數量為1
+      let productjson = {}
+      productjson.id = cookieProductId
+      productjson.qty = quantityNum.qtyNum
+      updateCookie.push(productjson)
+    }
+    cookies.set('product', updateCookie, { path: '/' }) //更新Cookie
+    console.log(updateCookie)
+  }
+
+  useEffect(() => {
+    onCookie({ sqlProductId }, { qtyNum }, { sizeGary })
+  }, [sqlProductId])
 
   const productListCard = products.map((pro) => {
     let trydd = JSON.parse(`${pro.proImg}`)
+    const updateSpeed = (id) => {
+      setSqlProductId(pro.id)
+    }
+
     return (
       <>
         <div className="prolist-card ">
@@ -128,7 +215,34 @@ function ProductList() {
                 />
               </Link>
             </div>
-            <div className="prolist-blackBar"></div>
+            {/* <div className="prolist-blackBar"></div> */}
+            <div className="pro-index-card-rect d-flex text-center proAddAndHeart">
+              <div className="col-8 pro-border">
+                <Link
+                  style={{
+                    textDecoration: 'none',
+                    color: 'white',
+                  }}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    console.log('123123123123')
+                    // setSqlProductId(pro.id)
+                    updateSpeed()
+
+                    // onCookie(
+                    //   { sqlProductId },
+                    //   { qtyNum },
+                    //   { sizeGary }
+                    // )
+                  }}
+                >
+                  Add to cart
+                </Link>
+              </div>
+              <div className="pro-index-heart col-4">
+                <IoIosHeart size={'20'} />
+              </div>
+            </div>
           </div>
           <div className="prolist-cardWordBox d-flex">
             <div className="prolist-cardProName">
