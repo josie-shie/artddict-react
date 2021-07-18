@@ -125,6 +125,7 @@ function EventList(props) {
     const data = await response.json()
   }
 
+
   // 檢查跳首頁資料
   function jumpJumpJump(){
     console.log(totalCount, totalPages, events)
@@ -239,8 +240,10 @@ function EventList(props) {
             <button
               className="col-6 e-detail-class cn-font border-left-0 py-4 shadow-none"
               type="button"
-              onClick={(e) => {e.preventDefault()
-              setEventClass('C')}}
+              onClick={(e) => {
+                e.preventDefault()
+                setEventClass('C')
+              }}
             >
               藝文活動展
               <IoIosArrowRoundDown />
@@ -248,8 +251,10 @@ function EventList(props) {
             <button
               className="col-6 e-detail-class cn-font py-4 border-right-0"
               type="button"
-              onClick={(e) => {e.preventDefault()
-              setEventClass('D')}}
+              onClick={(e) => {
+                e.preventDefault()
+                setEventClass('D')
+              }}
             >
               活動工作坊
               <IoIosArrowRoundDown />
@@ -350,14 +355,13 @@ function EventList(props) {
                 className="ed-list-btn col-1"
                 onClick={() => {
                   getEventQueryServer()
-                  jumpJumpJump()
+                  // jumpJumpJump()
                 }}
               >
                 <FaFilter />
               </div>
             </div>
             <div className="my-5"></div>
-
           </Row>
           <Row className="ed-list-card justify-content-start flex-wrap cn-font">
             {/* test node area */}
@@ -379,6 +383,7 @@ function EventList(props) {
             previousClassName={'ed-pagenum mx-3'}
             nextClassName={'ed-pagenum mx-3'}
             onPageChange={handlePageClick}
+            activeLinkClassName={'ed-pagenum-active'}
           />
         </Container>
       </div>
