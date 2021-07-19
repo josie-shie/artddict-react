@@ -7,6 +7,7 @@ import {
   Modal,
   Button,
 } from 'react-bootstrap'
+import swal from 'sweetalert'
 
 import $ from 'jquery'
 
@@ -89,7 +90,6 @@ function WorkshopUpload(props) {
     setEventDes(data.eventDescription)
   }
 
-
   // 給 textarea 裝上文字
   // function fillContent(){
   //   setContent(true)
@@ -97,7 +97,6 @@ function WorkshopUpload(props) {
 
   useEffect(() => {
     getEventIdServer()
-    
   }, [])
 
   const uploadFile = async (e) => {
@@ -156,6 +155,40 @@ function WorkshopUpload(props) {
     }, 500)
   }
 
+  //驗證身分
+  async function getjwtvertifyFromServer() {
+    const token = localStorage.getItem('token')
+
+    const response = await fetch(
+      'http://localhost:6005/users/checklogin',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          token,
+        }),
+      }
+    )
+
+    const data = await response.json()
+    console.log(data)
+    setUserId(data.id)
+
+    if (!data.id){
+      swal({
+        title: '請先登入',
+        text: '您的登入驗證已過期或者尚未登入, 請重新登入\n正在將您導向登入頁面 ...',
+        button: false,
+        timer: 9000,
+      })
+      setTimeout(() => {
+        window.location.replace(`../../../../user-login/`)
+      }, 2000)
+    }
+  }
+
   useEffect(() => {
     if (isImg) {
       const reader = new FileReader()
@@ -204,9 +237,9 @@ function WorkshopUpload(props) {
     }
   }, [isImg4])
 
-  // useEffect(() => {
-  //   console.log(shareComment)
-  // }, [shareComment])
+  useEffect(() => {
+   getjwtvertifyFromServer()
+  }, [])
 
   return (
     <>
@@ -419,8 +452,7 @@ function WorkshopUpload(props) {
                   onChange={(e) => {
                     setShareComment(e.target.value)
                   }}
-                >
-                </textarea>
+                ></textarea>
 
                 <div className="col-11 d-flex flex-wrap justify-content-center my-4">
                   <button
