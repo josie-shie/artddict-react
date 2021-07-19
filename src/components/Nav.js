@@ -33,30 +33,37 @@ const Nav = (props) => {
   const cookies = new Cookies()
   let cookieProduct = cookies.get('product')
   let cookieEvent = cookies.get('event')
-  // const [cookieEvenQty, setCookieEvenQty] = useState(
-  //   cookieEvent.length
-  // )
-  // const [cookieProQty, setCookieProQty] = useState(
-  //   cookieProduct.length
-  // )
-
-  // console.log(
-  //   'cookieEvenQty',
-  //   cookieEvenQty,
-  //   'cookieProQty',
-  //   cookieProQty
-  // )
+  const [cookieEvenQty, setCookieEvenQty] = useState()
+  const [cookieProQty, setCookieProQty] = useState()
+  const [cookieTotal, setCookieTotal] = useState(0)
 
   //驗證身份
   const [id, setId] = useState('')
-  //const [login, setLogin] = useState(false)
+
+  const updateSpeed = () => {
+    if (cookieProduct) {
+      let cookieProQty1 = cookieProduct.length
+      setCookieProQty(cookieProQty1)
+      console.log(cookieProQty1)
+    }
+    if (cookieEvent) {
+      setCookieEvenQty(cookieEvent.length)
+      console.log('cookieEvenQty', cookieEvenQty)
+    }
+  }
 
   useEffect(() => {
-    // if ('ontouchstart' in window) {
-    //   var click = 'touchstart'
-    // } else {
-    //   var click = 'click'
-    // }
+    //!!判斷購物車陣列是否存在 如果存在用長度當數量
+    //console.log('cookieProduct', cookieProduct.length)
+
+     //updateSpeed()
+    //console.log(cookieProQty)
+
+    if (cookieProduct || cookieEvent) {
+      let cookieProQty = cookieProduct.length || 0
+      let cookieEvenQty = cookieEvent.length || 0
+      setCookieTotal(cookieProQty + cookieEvenQty)
+    }
 
     //!測試使用burger狀態去判斷
     //!Nav動態
@@ -85,9 +92,18 @@ const Nav = (props) => {
     console.log('didMount', id)
   }, [])
 
+  //立即更新購物車數量
+
   // useEffect(() => {
-  //   getjwtvertifyFromServer()
-  // }, [login])
+  //   if (cookieProduct || cookieEvent) {
+  //     let cookieProQty = cookieProduct.length
+  //     let cookieEvenQty = cookieEvent.length
+  //     //console.log('cookieProQty', cookieProQty)
+  //     //console.log('cookieEvenQty', cookieEvenQty)
+  //     setCookieTotal(cookieProQty + cookieEvenQty)
+  //   }
+  //   console.log('cookieTotal', cookieTotal)
+  // }, [cookieEvenQty, cookieProQty])
 
   const openMenu = () => {
     $(circleRef.current).addClass('expand')
@@ -192,12 +208,6 @@ const Nav = (props) => {
     //setLogin(false)
   }
 
-  //立即更新購物車數量
-
-  // useEffect(() => {
-  //   console.log(setCookieEvenQty())
-  // }, [cookieEvenQty, cookieProQty])
-
   return (
     <>
       <div className="nav-area">
@@ -237,11 +247,11 @@ const Nav = (props) => {
                 <Link to="/cart-product">
                   <i>
                     <BiCartAlt />
-                    {/* {cookieEvent.length > 0 ? (
-                      <span>{cookieEvent.length}</span>
+                    {cookieTotal !== 0 ? (
+                      <span>{cookieTotal}</span>
                     ) : (
                       ''
-                    )} */}
+                    )}
                   </i>
                 </Link>
               </div>
