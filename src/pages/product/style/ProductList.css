@@ -297,8 +297,8 @@
 }
 .prolist-imgBorderBox{
     position: relative;
-
-
+    height: 255px;
+    overflow: hidden;
 }
 .prolist-imgBox{
     border:2px solid gray;
@@ -327,8 +327,7 @@
     height: 50px;
     background: #000;
     overflow:hidden;
-    /* bottom:0%;
-    position: absolute; */
+    transform:translateY(0px)
   }
 
 
