@@ -48,8 +48,8 @@ const Nav = (props) => {
   // )
 
   //驗證身份
-  const [memberId, setMemberId] = useState('')
-   const [login, setLogin] = useState(false)
+  const [id, setId] = useState('')
+  //const [login, setLogin] = useState(false)
 
   useEffect(() => {
     // if ('ontouchstart' in window) {
@@ -82,7 +82,7 @@ const Nav = (props) => {
 
     //驗證身份
     getjwtvertifyFromServer()
-    console.log('didMount', memberId)
+    console.log('didMount', id)
   }, [])
 
   // useEffect(() => {
@@ -155,15 +155,16 @@ const Nav = (props) => {
 
     const data = await response.json()
     console.log(data)
-    setMemberId(data.id)
-    setLogin(true)
-    console.log('data done', memberId)
+    setId(data.id)
+    //setLogin(true)
+    console.log('data done', id)
   }
 
   //使用者登出
 
   async function logoutToSever() {
     // 連接的伺服器資料網址
+    localStorage.removeItem('token')
     const url = 'http://localhost:6005/users/logout'
 
     // 注意資料格式要設定，伺服器才知道是json格式
@@ -186,7 +187,9 @@ const Nav = (props) => {
 
     const response = await fetch(request)
     const data = await response.json()
-    setLogin(false)
+    setId(data.id)
+    console.log(123)
+    //setLogin(false)
   }
 
   //立即更新購物車數量
@@ -212,7 +215,7 @@ const Nav = (props) => {
               <div className="mb-4">
                 {/* <FaUserAstronaut /> */}
                 {/* //TODO:判斷是否登入 */}
-                {login ? (
+                {id ? (
                   <Link to="/">
                     <i>
                       <FiLogOut
@@ -282,8 +285,8 @@ const Nav = (props) => {
                   <Link
                     ref={liRef}
                     to={
-                      login
-                        ? `/user-msgedit/${memberId}`
+                      id
+                        ? `/user-msgedit/${id}`
                         : `/user-login`
                     }
                   >
