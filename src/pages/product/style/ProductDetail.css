@@ -405,3 +405,25 @@ font-family: notoSansTC-Medium;
     font-size: 1.1rem;
     margin-top: -3px;
 }
+
+.flex-wrap5{
+    position: relative;
+}
+
+.pro-quickbtn{
+    width: 80px;
+    height: 40px;
+    font-family: NotoSansTC-md;
+    border:0;
+    position: absolute;
+    bottom: 0%;
+}
+.pro-quickbtn2{
+    width: 80px;
+    height: 40px;
+    font-family: NotoSansTC-md;
+    border:0;
+    position: absolute;
+    bottom: 0%;
+    left: -100px;
+}
