@@ -29,57 +29,60 @@ const ProCard = () => {
   const [toCart, setToCart] = useState('false')
 
   const onCookie = (productid, quantityNum, type) => {
-    //console.log('productid', productid)
-    //console.log('type', type)
-    let cookieProductId =
-      productid.sqlProductId + '-' + type.sizeGary
-    let updateCookie = []
-    let cookieProduct = cookies.get('product') // 取得 event cookie
+    if (sqlProductId !== '') {
+      console.log(type)
+      console.log('productid', productid)
+      let cookieProductId =
+        productid.sqlProductId + '-' + type.sizeGary
+      let updateCookie = []
+      let cookieProduct = cookies.get('product') // 取得 event cookie
+      console.log('cookieProduct',cookieProduct);
 
-    if (cookieProduct) {
-      // 如果有已存在的 event cookie
-      // 查看cookie裡面的 event id
-      const idSet = new Set()
-      for (let i in cookieProduct) {
-        idSet.add(cookieProduct[i].id)
-      }
-      // event 在 event cookie 中
-      if (idSet.has(cookieProductId)) {
+      if (cookieProduct) {
+        // 如果有已存在的 event cookie
+        // 查看cookie裡面的 event id
+        const idSet = new Set()
         for (let i in cookieProduct) {
-          if (cookieProduct[i].id == cookieProductId) {
-            // 如果event是從Input,數量直接到指定數字
-            cookieProduct[i].qty += quantityNum.qtyNum
+          idSet.add(cookieProduct[i].id)
+        }
+        // event 在 event cookie 中
+        if (idSet.has(cookieProductId)) {
+          for (let i in cookieProduct) {
+            if (cookieProduct[i].id == cookieProductId) {
+              // 如果event是從Input,數量直接到指定數字
+              cookieProduct[i].qty += quantityNum.qtyNum
+            }
+          }
+        } else {
+          // 如果被改變的event 不在 event cookie 中
+          // 初始數量為1
+          let productjson = {}
+          productjson.id = cookieProductId
+          productjson.qty = quantityNum.qtyNum
+          cookieProduct.push(productjson)
+        }
+        // 如果被改變後的event數量>0，加入在cookie 中
+        for (let i in cookieProduct) {
+          if (cookieProduct[i].qty > 0) {
+            updateCookie.push(cookieProduct[i])
           }
         }
       } else {
-        // 如果被改變的event 不在 event cookie 中
+        // 如果沒有已存在的 event cookie
         // 初始數量為1
         let productjson = {}
         productjson.id = cookieProductId
         productjson.qty = quantityNum.qtyNum
-        cookieProduct.push(productjson)
+        updateCookie.push(productjson)
       }
-      // 如果被改變後的event數量>0，加入在cookie 中
-      for (let i in cookieProduct) {
-        if (cookieProduct[i].qty > 0) {
-          updateCookie.push(cookieProduct[i])
-        }
-      }
-    } else {
-      // 如果沒有已存在的 event cookie
-      // 初始數量為1
-      let productjson = {}
-      productjson.id = cookieProductId
-      productjson.qty = quantityNum.qtyNum
-      updateCookie.push(productjson)
+      cookies.set('product', updateCookie, { path: '/' }) //更新Cookie
+      console.log(updateCookie)
     }
-    cookies.set('product', updateCookie, { path: '/' }) //更新Cookie
-
   }
 
   useEffect(() => {
     onCookie({ sqlProductId }, { qtyNum }, { sizeGary })
-    //console.log('sqlProductId', sqlProductId)
+    console.log('sqlProductId', sqlProductId)
   }, [sqlProductId])
 
   const callSwal = () => {
@@ -122,7 +125,7 @@ const ProCard = () => {
                 <Link
                   onClick={(e) => {
                     e.preventDefault()
-                    setSqlProductId('106')
+                    setSqlProductId('65106')
                     callSwal()
                   }}
                 >
@@ -136,10 +139,10 @@ const ProCard = () => {
             <Link to="/product/product-list/product-detail/106">
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  達利的畫布
+                  獨角獸 披肩
                 </h5>
                 <h5 className="notoSansTC-md font-weight-bold">
-                  490元
+                  1100元
                 </h5>
               </div>
             </Link>
@@ -157,7 +160,7 @@ const ProCard = () => {
                 <Link
                   onClick={(e) => {
                     e.preventDefault()
-                    setSqlProductId('115')
+                    setSqlProductId('65115')
                     callSwal()
                   }}
                 >
@@ -171,9 +174,9 @@ const ProCard = () => {
             <Link to="/product/product-list/product-detail/115">
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  馬蒂斯的花園
+                  司宗譜紋章 圍巾
                 </h5>
-                <h5 className="font-weight-bold">1180元</h5>
+                <h5 className="font-weight-bold">1100元</h5>
               </div>
             </Link>
           </Carousel.Item>
@@ -190,7 +193,7 @@ const ProCard = () => {
                 <Link
                   onClick={(e) => {
                     e.preventDefault()
-                    setSqlProductId('101')
+                    setSqlProductId('65101')
                     callSwal()
                   }}
                 >
@@ -204,9 +207,9 @@ const ProCard = () => {
             <Link to="/product/product-list/product-detail/101">
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  慕夏的後院
+                綠啄花 披肩
                 </h5>
-                <h5 className="font-weight-bold">980元</h5>
+                <h5 className="font-weight-bold">1200元</h5>
               </div>
             </Link>
           </Carousel.Item>
@@ -260,7 +263,7 @@ const ProCard = () => {
                 <Link
                   onClick={(e) => {
                     e.preventDefault()
-                    setSqlProductId('115')
+                    setSqlProductId('65115')
                     callSwal()
                   }}
                 >
@@ -274,9 +277,9 @@ const ProCard = () => {
             <Link to="/product/product-list/product-detail/115">
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  馬蒂斯的花園
+                  司宗譜紋章 圍巾
                 </h5>
-                <h5 className="font-weight-bold">1180元</h5>
+                <h5 className="font-weight-bold">1100元</h5>
               </div>
             </Link>
           </Carousel.Item>
@@ -293,7 +296,7 @@ const ProCard = () => {
                 <Link
                   onClick={(e) => {
                     e.preventDefault()
-                    setSqlProductId('101')
+                    setSqlProductId('65101')
                     callSwal()
                   }}
                 >
@@ -307,10 +310,10 @@ const ProCard = () => {
             <Link to="/product/product-list/product-detail/101">
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  慕夏的後院
+                綠啄花 披肩
                 </h5>
                 <h5 className="notoSansTC-md font-weight-bold">
-                  980元
+                1200元
                 </h5>
               </div>
             </Link>
@@ -328,7 +331,7 @@ const ProCard = () => {
                 <Link
                   onClick={(e) => {
                     e.preventDefault()
-                    setSqlProductId('106')
+                    setSqlProductId('65106')
                     callSwal()
                   }}
                 >
@@ -342,10 +345,10 @@ const ProCard = () => {
             <Link to="/product/product-list/product-detail/106">
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  達利的畫布
+                  獨角獸 披肩
                 </h5>
                 <h5 className="notoSansTC-md font-weight-bold">
-                  490元
+                  1100元
                 </h5>
               </div>
             </Link>
@@ -371,7 +374,7 @@ const ProCard = () => {
                 <Link
                   onClick={(e) => {
                     e.preventDefault()
-                    setSqlProductId('101')
+                    setSqlProductId('65101')
                     callSwal()
                   }}
                 >
@@ -385,10 +388,10 @@ const ProCard = () => {
             <Link to="/product/product-list/product-detail/101">
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  慕夏的後院
+                綠啄花 披肩
                 </h5>
                 <h5 className="notoSansTC-md font-weight-bold">
-                  980元
+                1200元
                 </h5>
               </div>
             </Link>
@@ -406,7 +409,7 @@ const ProCard = () => {
                 <Link
                   onClick={(e) => {
                     e.preventDefault()
-                    setSqlProductId('106')
+                    setSqlProductId('65106')
                     callSwal()
                   }}
                 >
@@ -420,10 +423,10 @@ const ProCard = () => {
             <Link to="/product/product-list/product-detail/106">
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  達利的畫布
+                  獨角獸 披肩
                 </h5>
                 <h5 className="notoSansTC-md font-weight-bold">
-                  490元
+                  1100元
                 </h5>
               </div>
             </Link>
@@ -441,7 +444,7 @@ const ProCard = () => {
                 <Link
                   onClick={(e) => {
                     e.preventDefault()
-                    setSqlProductId('115')
+                    setSqlProductId('65115')
                     callSwal()
                   }}
                 >
@@ -455,9 +458,9 @@ const ProCard = () => {
             <Link to="/product/product-list/product-detail/115">
               <div className="d-flex justify-content-between mt-2">
                 <h5 className="notoSansTC-md font-weight-bold">
-                  馬蒂斯的花園
+                  司宗譜紋章 圍巾
                 </h5>
-                <h5 className="font-weight-bold">1180元</h5>
+                <h5 className="font-weight-bold">1100元</h5>
               </div>
             </Link>
           </Carousel.Item>
