@@ -188,16 +188,18 @@ function CartFormProduct() {
     for (let i = 0; i < cartItems.length; i++) {
       let item = cartItems[i]
       let orderqty = item.qty
-      let proid = item.id.split('-')[0]
+      let aucid = item.id.split('-')[0]
       let orderspec = item.id.split('-')[1]
       let eventid = ''
+      let proid = ''
 
       const newData2 = {
         orderid,
-        orderqty,
-        proid,
         orderspec,
+        orderqty,
         eventid,
+        proid,
+        aucid,
       }
       // 連接的伺服器資料網址
       const url2 =

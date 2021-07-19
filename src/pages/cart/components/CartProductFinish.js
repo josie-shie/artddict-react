@@ -51,11 +51,11 @@ function CartProductFinish(props) {
 
     // 設定資料
     setOrderById(data.orderId)
-    setUsername(data.name)
+    setUsername(data.username)
     setAddress(data.userAddress)
     setMobile(data.userPhone)
-    setShipMethod(data.shipMethod)
-    setCreditType(data.creditType)
+    setShipMethod(data.orderShip)
+    setCreditType(data.orderPay)
     let tempdate = new Date(data.created_at)
     let newdate =
       tempdate.getFullYear() +
@@ -64,7 +64,7 @@ function CartProductFinish(props) {
       '-' +
       tempdate.getDate()
     setDate(newdate)
-    setTotal(data.totalPrice)
+    setTotal(data.orderPrice)
 
     // 取得order_details
     // 連接的伺服器資料網址
@@ -90,21 +90,6 @@ function CartProductFinish(props) {
     setProId(data2.proId)
     setProQty(data2.orderQty)
 
-    // let tempitems = []
-    // for (let i = 0; i < data2.length; i++) {
-    //   let proId = data2[i].orderId
-    //   let orderQty = data2[i].orderQty
-    //   tempitems.push({
-    //     id: proId,
-    //     sid: data2[i].proId,
-    //     name: '梵谷自畫像T-Shirt',
-    //     price: 780,
-    //     size: 'S',
-    //     image: '/img/1.png',
-    //     orderQty: orderQty,
-    //   })
-    // }
-    // setOrderItems(tempitems)
   }
 
   // 呼叫剛剛的assync func
