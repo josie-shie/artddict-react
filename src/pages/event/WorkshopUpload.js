@@ -65,9 +65,11 @@ function WorkshopUpload(props) {
   const [preview3, setPreview3] = useState()
   const [preview4, setPreview4] = useState()
 
+
+  const [event, setEvent] = useState()
   const [eventName, setEventName] = useState('')
   const [eventDes, setEventDes] = useState('')
-  const [content, setContent] = useState(false)
+
 
   const [shareImg, setShareImg] = useState('[]')
   const [userId, setUserId] = useState('')
@@ -87,13 +89,9 @@ function WorkshopUpload(props) {
     const data = await response.json()
 
     setEventName(data.eventName)
-    setEventDes(data.eventDescription)
+    setEvent(data)
   }
 
-  // 給 textarea 裝上文字
-  // function fillContent(){
-  //   setContent(true)
-  // }
 
   useEffect(() => {
     getEventIdServer()
@@ -439,9 +437,9 @@ function WorkshopUpload(props) {
                 </div>
                 <h5
                   className="eu-upload-title col-12 p-0 cn-font mt-5 mb-3"
-                  // onClick={() => {
-                  //   setContent(true)
-                  // }}
+                  onClick={() => {
+                    setEventDes(event.eventDescription)
+                  }}
                 >
                   作品說明:
                 </h5>
@@ -449,6 +447,7 @@ function WorkshopUpload(props) {
                   className="eu-text col-11 pr-2"
                   cols="30"
                   rows="10"
+                  value={eventDes}
                   onChange={(e) => {
                     setShareComment(e.target.value)
                   }}
