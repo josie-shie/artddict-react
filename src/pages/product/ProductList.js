@@ -120,8 +120,18 @@ function ProductList() {
     $('.abc-Search').addClass('proMove')
   })
 
-  $('.prolist-imgBox').mouseenter(function () {
-    $('.proAddAndHeart')
+  $('.prolist-imgBorderBox').mouseenter(function () {
+    $(this).children().next().css({
+      transform: 'translateY(-50px)',
+      'transition-duration': '300ms',
+    })
+  })
+
+  $('.prolist-imgBorderBox').mouseleave(function () {
+    $('.pro-index-card-rect').css({
+      transform: 'translateY(0px)',
+      'transition-duration': '300ms',
+    })
   })
 
   // ----------------加入購物車---------------
@@ -605,6 +615,9 @@ function ProductList() {
                     previousClassName={'ed-pagenum mx-3'}
                     nextClassName={'ed-pagenum mx-3'}
                     onPageChange={handlePageClick}
+                    activeLinkClassName={
+                      'ed-pagenum-active'
+                    }
                   />
                 </Row>
               </div>
