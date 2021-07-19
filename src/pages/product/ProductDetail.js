@@ -66,6 +66,7 @@ function ProductDetail(props) {
   const [sendBox2, setSendBox2] = useState(false)
   const [recomments, setRecomments] = useState(false)
   const [sizeSelect, setSizeSelect] = useState('')
+  const [newCom, setNemCom] = useState('')
 
   // ------------- for Gary---------
   const cookies = new Cookies()
@@ -858,24 +859,59 @@ function ProductDetail(props) {
                         id=""
                         cols="30"
                         rows="10"
+                        value={comments}
                         onChange={(e) => {
                           setComments(e.target.value)
                         }}
                       ></textarea>
-                      <button
-                        className="ed-leave-msg e-btn-m col-l2 mt-3"
-                        type="button"
-                        onClick={(e) => {
-                          e.preventDefault()
-                          addcommentsSever()
-                          setRecomments(true)
-                          refreshPage()
-                        }}
-                      >
-                        <p className="proDe-lastWord2">
-                          送出評論
-                        </p>
-                      </button>
+                      <div className="flex-wrap5">
+                        <button
+                          className="ed-leave-msg e-btn-m col-l2 mt-3"
+                          type="button"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            addcommentsSever()
+                            setRecomments(true)
+                            refreshPage()
+                          }}
+                        >
+                          <p className="proDe-lastWord2">
+                            送出評論
+                          </p>
+                        </button>
+                        <button
+                          className="pro-quickbtn"
+                          style={{
+                            backgroundColor: '#000',
+                            color: '#000',
+                          }}
+                          type="submit"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            setComments(
+                              '我們不得不相信，德謨克利特講過一句值得人反覆尋思的話，凡事都有規矩。這句話令我不禁感慨問題的迫切性。無對我來說有著舉足輕重的地位，必須要嚴肅認真的看待。陀思妥耶夫斯基曾經認為，無論是人類還是民族，如果沒有崇高的理想，就不能生存。他會這麼說是有理由的。'
+                            )
+                          }}
+                        >
+                          自動填寫
+                        </button>
+                        <button
+                          className="pro-quickbtn2"
+                          style={{
+                            backgroundColor: '#000',
+                            color: '#000',
+                          }}
+                          type="submit"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            setComments(
+                              '所謂無，關鍵是無需要如何解讀。米南德曾說過，俗知憂能老，為視鏡中絲。這句話反映了問題的急切性。若到今天結束時我們都還無法釐清無的意義，那想必我們昨天也無法釐清。若能夠欣賞到無的美，相信我們一定會對無改觀。動機，可以說是最單純的力量。'
+                            )
+                          }}
+                        >
+                          自動填寫
+                        </button>
+                      </div>
                     </form>
                   </div>
                 </Collapse>
