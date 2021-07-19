@@ -259,7 +259,7 @@ function AuctionDetail(props) {
       setIsRunning(false)
       setLoading('競標結束')
       console.log('bye')
-      document.cookie = `auc=[{"aucId"="${aucDetailinfo.aucId}"}]` 
+      document.cookie = `auc=[{"id":"${aucDetailinfo.aucId}-","qty":"1"}];path=/` 
     } else {
       // console.log("有進來嗎")
       setAuctionrunning(true)

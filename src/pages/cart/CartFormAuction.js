@@ -6,12 +6,12 @@ import {
 } from './data/townships'
 import Cookies from 'universal-cookie'
 
-import Basket2Product from './components/Basket2Product'
+import Basket2Auction from './components/Basket2Auction'
 
 import { ReactComponent as Logo } from '../../pics/logo-bk.svg'
 
 // components
-import CartProductFinish from './components/CartProductFinish'
+import CartAuctionFinish from './components/CartAuctionFinish'
 
 // @material-ui
 import FormControlLabel from '@material-ui/core/FormControlLabel'
@@ -108,7 +108,7 @@ function CartFormProduct() {
 
   useEffect(() => {
     let tempArr = []
-    let cookieProductArr = cookies.get('product') // get Cookies
+    let cookieProductArr = cookies.get('auc') // get Cookies
     if (cookieProductArr) {
       for (let i = 0; i < cookieProductArr.length; i++) {
         let product = cookieProductArr[i]
@@ -239,7 +239,7 @@ function CartFormProduct() {
   // 去後台SQL撈資料
   async function getEventIdServer() {
     // 連接的伺服器資料網址
-    const url = 'http://localhost:6005/product/product-list'
+    const url = 'http://localhost:6005/auctoin/auction-list'
 
     // 注意資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -253,7 +253,7 @@ function CartFormProduct() {
     // 再把response變成json
     const data = await response.json()
 
-    let cookieProductArr = cookies.get('product')
+    let cookieProductArr = cookies.get('auc')
     var temp = []
     if (cookieProductArr) {
       for (let i = 0; i < data.length; i++) {
@@ -261,19 +261,15 @@ function CartFormProduct() {
           let product = cookieProductArr[j]
           setSqlEventId(product.id)
 
-          if (data[i].proId == product.id.split('-')[0]) {
+          if (data[i].aucId == product.id.split('-')[0]) {
             let eventtype = product.id.split('-')[1]
             let eventqty = product.qty
-            let proImg = data[i].proImg.replace(
-              /[\[\]"]+/g,
-              ''
-            )
             let newDisplay = {
               id: data[i].id,
-              eventId: data[i].proId,
-              eventName: data[i].proName,
-              eventPrice: data[i].proPrice,
-              eventImg: proImg,
+              eventId: data[i].aucId,
+              eventName: data[i].aucName,
+              eventPrice: data[i].aucPriceNow,
+              eventImg: data[i].aucImg,
               eventType: eventtype,
               qty: eventqty,
             }
@@ -662,9 +658,9 @@ function CartFormProduct() {
 
           {formStep < 2 && (
             <div className="col-5 px-0">
-              <Basket2Product
+              <Basket2Auction
                 displaycartitems={displaycartitems}
-              ></Basket2Product>
+              ></Basket2Auction>
               <div className="c-bb d-flex pb-4 px-3 mb-4">
                 <p className="mr-auto">商品小計</p>
                 <p>NT$ {itemsPrice}</p>
@@ -721,11 +717,11 @@ function CartFormProduct() {
             </div>
           )}
           {formStep === 2 && (
-            <CartProductFinish
+            <CartAuctionFinish
               cartItems={cartItems}
               sentorder={sentorder}
               displaycartitems={displaycartitems}
-            ></CartProductFinish>
+            ></CartAuctionFinish>
           )}
         </div>
       </div>

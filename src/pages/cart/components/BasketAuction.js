@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Cookies from 'universal-cookie'
+import AuctionCountDown from './AuctionCountDown'
 
 // icon
 import { FaRegEdit } from 'react-icons/fa'
@@ -12,7 +13,7 @@ function BasketEvent() {
     []
   )
   const [sqleventid, setSqlEventId] = useState('')
-  const cookiesLength = cookies.get('product')
+  const cookiesLength = cookies.get('auc')
 
   /**
    * 當頁面Load時，讀取Cookie值並更新至cartItems
@@ -20,7 +21,8 @@ function BasketEvent() {
   useEffect(() => {
     let tempArr = []
     let tempArrId = []
-    let cookieProductArr = cookies.get('product') // get Cookies
+    let cookieProductArr = cookies.get('auc') // get Cookies
+    console.log(cookieProductArr)
 
     if (cookieProductArr) {
       for (let i = 0; i < cookieProductArr.length; i++) {
@@ -40,7 +42,7 @@ function BasketEvent() {
   // 去後台SQL撈資料
   async function getEventIdServer() {
     // 連接的伺服器資料網址
-    const url = 'http://localhost:6005/product/product-list'
+    const url = 'http://localhost:6005/auctoin/auction-list'
 
     // 注意資料格式要設定，伺服器才知道是json格式
     const request = new Request(url, {
@@ -54,7 +56,8 @@ function BasketEvent() {
     // 再把response變成json
     const data = await response.json()
 
-    let cookieProductArr = cookies.get('product')
+    let cookieProductArr = cookies.get('auc')
+    console.log(cookieProductArr)
     var temp = []
     if (cookieProductArr) {
       for (let i = 0; i < data.length; i++) {
@@ -62,19 +65,15 @@ function BasketEvent() {
           let product = cookieProductArr[j]
           setSqlEventId(product.id)
 
-          if (data[i].proId == product.id.split('-')[0]) {
+          if (data[i].aucId == product.id.split('-')[0]) {
             let eventtype = product.id.split('-')[1]
             let eventqty = product.qty
-            let proImg = data[i].proImg.replace(
-              /[\[\]"]+/g,
-              ''
-            )
             let newDisplay = {
               id: data[i].id,
-              eventId: data[i].proId,
-              eventName: data[i].proName,
-              eventPrice: data[i].proPrice,
-              eventImg: proImg,
+              eventId: data[i].aucId,
+              eventName: data[i].aucName,
+              eventPrice: data[i].aucPriceNow,
+              eventImg: data[i].aucImg,
               eventType: eventtype,
               qty: eventqty,
             }
@@ -84,120 +83,12 @@ function BasketEvent() {
       }
     }
     setDisplayCartItems(temp)
+    console.log(displaycartitems)
   }
 
   useEffect(() => {
     getEventIdServer('', '', '')
   }, [])
-
-  /**
-   * 更新 event Cookie
-   *
-   * @param {Object} event 欲改變的目標 event.
-   * @param {number} quantityNum 欲更新event.qty到的數字.
-   * @param {string} type 根據不同type，event.qty 更新方法不同
-   *
-   *
-   */
-  const onCookie = (eventid, quantityNum, type) => {
-    console.log(eventid)
-    let cookieEventId = eventid + '-' + type
-    let updateCookie = []
-    let cookieEvent = cookies.get('product') // 取得 product cookie
-
-    if (cookieEvent) {
-      // 如果有已存在的 event cookie
-      // 查看cookie裡面的 event id
-      const idSet = new Set()
-      for (let i in cookieEvent) {
-        idSet.add(cookieEvent[i].id)
-      }
-      // event 在 event cookie 中
-      if (idSet.has(cookieEventId)) {
-        for (let i in cookieEvent) {
-          if (cookieEvent[i].id == cookieEventId) {
-            // 如果event是從Input,數量直接變成新數字
-            cookieEvent[i].qty = quantityNum
-          }
-        }
-      } else {
-        // 如果被改變的event 不在 event cookie 中
-        // 初始數量為1
-        let eventjson = {}
-        eventjson.id = cookieEventId
-        eventjson.qty = quantityNum
-        cookieEvent.push(eventjson)
-      }
-      // 如果被改變後的event數量>0，加入在cookie 中
-      for (let i in cookieEvent) {
-        if (cookieEvent[i].qty > 0) {
-          updateCookie.push(cookieEvent[i])
-        }
-      }
-    } else {
-      // 如果沒有已存在的 event cookie
-      // 初始數量為1
-      let eventjson = {}
-      eventjson.id = cookieEventId
-      eventjson.qty = quantityNum
-      updateCookie.push(eventjson)
-    }
-
-    cookies.set('product', updateCookie, { path: '/' }) //更新Cookie
-  }
-
-  /**
-   * 更新購物車數量
-   *
-   * @param {Object} event 欲改變的目標 event
-   * @param {number} quantityNum event.qty到的數字.
-   *
-   */
-  const onCartNumChange = (eventid, quantityNum, type) => {
-    const exist = displaycartitems.find(
-      (x) => x.eventId === eventid
-    )
-    console.log(displaycartitems)
-    onCookie(eventid, quantityNum, type)
-    if (quantityNum <= 0) {
-      setDisplayCartItems(
-        displaycartitems.filter(
-          (x) => x.eventId !== eventid
-        )
-      )
-    } else {
-      setDisplayCartItems(
-        displaycartitems.map((x) =>
-          x.eventId === eventid
-            ? { ...exist, qty: Number(quantityNum) }
-            : x
-        )
-      )
-    }
-  }
-
-  /**
-   * 移出購物車
-   *
-   * @param {Object} event 欲改變的目標 event.
-   *
-   */
-  const onDelete = (eventid, quantityNum, type) => {
-    onCookie(eventid, 0, type)
-    const exist = displaycartitems.find(
-      (x) =>
-        x.eventId + '-' + x.eventType === eventid + '-' + type
-    )
-    if (exist.qty >= 1) {
-      setDisplayCartItems(
-        displaycartitems.filter(
-          (x) =>
-            x.eventId + '-' + x.eventType !==
-            eventid + '-' + type
-        )
-      )
-    }
-  }
 
   return (
     <div>
@@ -209,7 +100,7 @@ function BasketEvent() {
           <div className="c-product-r1 d-block d-flex py-5 pl-4">
             <div className="c-img150">
               <img
-                src={`http://localhost:6005/productpics/${item.eventImg}`}
+                src={`http://localhost:6005/Aucpics/auc/${item.eventImg}`}
                 alt=""
               />
             </div>
@@ -217,9 +108,11 @@ function BasketEvent() {
               <div>
                 <p className="h4">{item.eventName}</p>
                 <p className="c-pid">
-                  商品編號 # {item.eventId}
+                  拍賣編號 # {item.eventId}
                 </p>
-
+                <p className="mt-2 c-countdown">
+                  <AuctionCountDown />
+                </p>
                 <p
                   className={
                     item.eventType === ''
@@ -227,7 +120,7 @@ function BasketEvent() {
                       : 'mt-2'
                   }
                 >
-                  尺寸：{item.eventType}
+                  票種：{item.eventType}
                 </p>
               </div>
               <div className="d-lg-flex">
@@ -237,25 +130,7 @@ function BasketEvent() {
                 >
                   <FaRegEdit size={20} />
                   <p className="c-store2 ml-1 mr-4">
-                    商品細節
-                  </p>
-                </a>
-                <a
-                  href="##"
-                  className="c-product-a d-flex align-items-center"
-                >
-                  <RiDeleteBinLine size={20} />
-                  <p
-                    onClick={() =>
-                      onDelete(
-                        item.eventId,
-                        0,
-                        item.eventType
-                      )
-                    }
-                    className="c-store2 ml-1 mr-4"
-                  >
-                    移除商品
+                    拍賣細節
                   </p>
                 </a>
               </div>
@@ -265,20 +140,8 @@ function BasketEvent() {
               <p>NT$ {item.eventPrice}</p>
             </div>
             <div className="c-quantity d-flex flex-column align-items-center col-2">
-              <p className="mb-3 pb-3">數量</p>
-              <div className="c-qbox">
-                <input
-                  type="number"
-                  value={item.qty}
-                  onChange={(evt) => {
-                    onCartNumChange(
-                      item.eventId,
-                      evt.target.value,
-                      item.eventType
-                    )
-                  }}
-                />
-              </div>
+              <p className="mb-5">數量</p>
+              <p>{item.qty}</p>
             </div>
             <div className="c-total d-flex flex-column align-items-center col-2">
               <p className="mb-5">小計</p>
@@ -321,7 +184,7 @@ function BasketEvent() {
           disabled={cookiesLength.length == 0}
           className="c-checkoutbtn2"
         >
-          <a href="./cart-form-product">
+          <a href="./cart-form-auction">
             <p>結帳</p>
           </a>
         </button>

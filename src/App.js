@@ -57,6 +57,7 @@ import CartEvent from './pages/cart/CartEvent'
 import CartAuction from './pages/cart/CartAuction'
 import CartFormProduct from './pages/cart/CartFormProduct'
 import CartFormEvent from './pages/cart/CartFormEvent'
+import CartFormAuction from './pages/cart/CartFormAuction'
 
 function App() {
   return (
@@ -180,6 +181,9 @@ function App() {
             </Route>
             <Route exact path="/cart-form-event">
               <CartFormEvent />
+            </Route>
+            <Route exact path="/cart-form-auction">
+              <CartFormAuction />
             </Route>
             <Route exact path="/tetris">
               <Tetris />

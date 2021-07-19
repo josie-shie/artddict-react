@@ -87,7 +87,7 @@ function CartEventFinish(props) {
     console.log(data2)
 
     // 設定資料
-    setProId(data2.proId)
+    setProId(data2.eventId)
     setProQty(data2.orderQty)
 
     // let tempitems = []
@@ -123,7 +123,7 @@ function CartEventFinish(props) {
           <div className="col ml-4">
             <p className="pb-2">{orderItems.eventName}</p>
             <p className="c-fgray">
-              活動編號 # {orderItems.id}
+              活動編號 # {orderItems.eventId}
             </p>
           </div>
           <p
