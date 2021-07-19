@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom'
 import $ from 'jquery'
 import { Container, Row, Collapse } from 'react-bootstrap'
 import Cookies from 'universal-cookie'
+import swal from 'sweetalert'
 
 // Component
 import EHeader from './components/Darkheader'
@@ -98,7 +99,7 @@ function EventDetail(props) {
     setIsShared(data.shareId)
     setCityid(data.cityFullName)
     // 加入購物車
-    setSqlEventId(data.id)
+    setSqlEventId(data.eventId)
   }
 
   async function addEventFavSever() {
@@ -192,6 +193,16 @@ function EventDetail(props) {
     shareBtn = 'block'
   } else {
     shareBtn = 'none'
+  }
+
+  // 加入購物車的 pop up
+  const callSwal = () => {
+    swal({
+      text: '新增成功',
+      icon: 'success',
+      button: false,
+      timer: 1000,
+    })
   }
 
   useEffect(() => {
@@ -366,6 +377,7 @@ function EventDetail(props) {
                   className="ed-like-icon col-2"
                   onClick={() => {
                     addEventFavSever()
+                    // callSwal()
                   }}
                 >
                   <IoIosHeart />
@@ -693,11 +705,13 @@ function EventDetail(props) {
                     <button
                       onClick={(e) => {
                         e.preventDefault()
+                        callSwal()
                         onCookie(
                           { sqleventid },
                           { ticketNum },
                           { tickettype }
                         )
+                        
                       }}
                       className="col-12 p-0 ed-submit-btn"
                       type="submit"
