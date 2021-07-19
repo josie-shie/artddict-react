@@ -12,7 +12,7 @@ function OrderPro(props) {
   const userid = props.match.params.userid
 
   async function getUserOrder() {
-    const url = `http://localhost:6005/users/getOrder/${userid}`
+    const url = `http://localhost:6005/users/getProOrder/${userid}`
     const request = new Request(url, {
       method: 'GET',
       headers: new Headers({

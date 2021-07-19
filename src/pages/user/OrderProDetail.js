@@ -14,6 +14,8 @@ function OrderProDetail(props) {
   const id = props.match.params.id
   let history = useHistory()
 
+  const [proDatas, setProDatas] = useState([])
+
   // 付款資訊
   const [orderPay, setOrdrPay] = useState('')
   const [cardNumber, setCardNumber] = useState('')
@@ -47,9 +49,7 @@ function OrderProDetail(props) {
 
     const response = await fetch(request)
     const data = await response.json()
-
-    console.log(`data[0] = ${data[0]}`)
-    console.log(`data[1] = ${data[1]}`)
+    console.log(' data = ', data)
 
     setOrdrPay(data[0].orderPay)
     setCardNumber(data[0].cardNumber)
@@ -60,15 +60,59 @@ function OrderProDetail(props) {
     setUserPhone(data[0].userPhone)
     setOrderShip(data[0].orderShip)
     setProImg(JSON.parse(data[0].proImg))
+    console.log()
     setProName(data[0].proName)
     setProId(data[0].proId)
     setOrderSpec(data[0].orderSpec)
     setOrderQty(data[0].orderQty)
+    setProDatas(data)
+    console.log('pro.id = ')
   }
 
   useEffect(() => {
     getUserOrderProDetail()
   }, [])
+
+  const ProDetail = proDatas.map((pro) => {
+    return (
+      <>
+        <div className="u-boxPro d-flex justify-content-between">
+          <div className="u-proImg">
+            <img
+              src={`http://localhost:6005/productpics/${
+                pro.proImg.split('"')[1]
+              }`}
+              alt={pro.proImg.split('"')[1]}
+            />
+          </div>
+          <div className="u-proText col-2">
+            <div className="u-proName ">{pro.proName}</div>
+            <div className="u-proId">#{pro.proId}</div>
+          </div>
+          <div className="u-proSize d-flex col-2">
+            <div className="">規格：</div>
+            <div className="">{pro.orderSpec}</div>
+          </div>
+          <div className="u-proQty d-flex col-2">
+            <div className="">數量：</div>
+            <div className="">{pro.orderQty}</div>
+          </div>
+          {/* <div className="u-proTotalPrice d-flex col-2">
+              <div className="">NT $</div>
+              <div className="col">{proPrice}</div>
+            </div> */}
+          <div className="u-goEVAL">
+            <Link
+              to={`/product/product-list/product-detail/${pro.id}`}
+              style={{ textDecoration: 'none' }}
+            >
+              前往評價
+            </Link>
+          </div>
+        </div>
+      </>
+    )
+  })
 
   return (
     <>
@@ -124,8 +168,7 @@ function OrderProDetail(props) {
             </div>
           </div>
 
-          <div className="u-boxPro d-flex justify-content-between">
-            {/* <div className="proBtn col-1 "></div> */}
+          {/* <div className="u-boxPro d-flex justify-content-between">
             <div className="u-proImg">
               <img
                 src={`http://localhost:6005/productpics/${proImg}`}
@@ -144,10 +187,6 @@ function OrderProDetail(props) {
               <div className="">數量：</div>
               <div className="">{orderQty}</div>
             </div>
-            {/* <div className="u-proTotalPrice d-flex col-2">
-              <div className="">NT $</div>
-              <div className="col">{proPrice}</div>
-            </div> */}
             <div className="u-goEVAL">
               <Link
                 to={`/product/product-list/product-detail/${id}`}
@@ -156,7 +195,10 @@ function OrderProDetail(props) {
                 前往評價
               </Link>
             </div>
-          </div>
+          </div> */}
+
+          {ProDetail}
+
           {/* <div>
             <Accordion>
               <Card className="u-Card">
@@ -195,23 +237,10 @@ function OrderProDetail(props) {
               </Card>
             </Accordion>
           </div> */}
-          {/* <div className="u-goEVAL">
-            <Link
-              to={`/product/product-list/product-detail/${id}`}
-              style={{ textDecoration: 'none' }}
-            >
-              前往評價
-            </Link>
-          </div> */}
 
           <div className="u-back">
             <Link
               className="u-goback"
-              // onClick={() => {
-              //   props.history.push(
-              //     `/user-orderpro/${props.userid}`
-              //   )
-              // }}
               onClick={() => {
                 history.goBack()
               }}

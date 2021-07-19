@@ -3,11 +3,18 @@ import React, { useState, useEffect } from 'react'
 import './styles/OrderProDetail.scss'
 import Accordion from 'react-bootstrap/Accordion'
 import { Card, Button, Container } from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import {
+  withRouter,
+  Link,
+  useHistory,
+} from 'react-router-dom'
 import Logoheader from './components/Logoheader'
 
 function OrderTicDetail(props) {
   const id = props.match.params.id
+  let history = useHistory()
+
+  const [ticDatas, setTicDatas] = useState([])
 
   // 付款資訊
   const [orderPay, setOrdrPay] = useState('')
@@ -16,7 +23,7 @@ function OrderTicDetail(props) {
   const [orderPrice, setOrderPrice] = useState('')
 
   // 收件人資訊
-  const [username, setUsername] = useState('')
+  const [name, setName] = useState('')
   const [userAddress, setUserAddress] = useState('')
   const [userPhone, setUserPhone] = useState('')
   const [orderShip, setOrderShip] = useState('')
@@ -45,7 +52,7 @@ function OrderTicDetail(props) {
     setCardNumber(data[0].cardNumber)
     setCardExpdate(data[0].cardExpdate)
     setOrderPrice(data[0].orderPrice)
-    setUsername(data[0].username)
+    setName(data[0].name)
     setUserAddress(data[0].userAddress)
     setUserPhone(data[0].userPhone)
     setOrderShip(data[0].orderShip)
@@ -54,11 +61,53 @@ function OrderTicDetail(props) {
     setEventId(data[0].eventId)
     setOrderSpec(data[0].orderSpec)
     setOrderQty(data[0].orderQty)
+    setTicDatas(data)
   }
 
   useEffect(() => {
     getUserOrderTicDetail()
   }, [])
+
+  const TicDetail = ticDatas.map((tic) => {
+    return (
+      <>
+        <div className="u-boxPro d-flex justify-content-between">
+          <div className="u-ticImg1">
+            <img
+              src={`http://localhost:6005/eventpic/event/${tic.eventImg}`}
+              alt="活動圖"
+            />
+          </div>
+          <div className="u-proText col-2">
+            <div className="u-proName ">
+              {tic.eventName}
+            </div>
+            <div className="u-proId">#{tic.eventId}</div>
+          </div>
+          <div className="u-proSize d-flex col-2">
+            <div className="">規格：</div>
+            <div className="">{tic.orderSpec}</div>
+          </div>
+          <div className="u-proQty d-flex col-2">
+            <div className="">數量：</div>
+            <div className="">{tic.orderQty}</div>
+          </div>
+          {/* <div className="u-proTotalPrice d-flex col-2">
+              <div className="">NT $</div>
+              <div className="col">{proPrice}</div>
+            </div> */}
+          <div className="u-goEVAL">
+            <Link
+              to={`/event/event-list/detail/${tic.id}`}
+              style={{ textDecoration: 'none' }}
+            >
+              前往評價
+            </Link>
+          </div>
+        </div>
+      </>
+    )
+  })
 
   return (
     <>
@@ -67,77 +116,54 @@ function OrderTicDetail(props) {
         <Container fluid>
           <div className="u-box">
             <div className="u-creditNews col">付款資訊</div>
-            <div className="u-creditType d-flex">
-              <div className="col-lg-2 col-sm-1">
-                信用卡別：
-              </div>
-              <div className="col-lg-10 col-sm-11">
-                {orderPay}
+            <div className="u-creditType">
+              <div className="col">
+                信用卡別：{orderPay}
               </div>
             </div>
-            <div className="u-creditNum d-flex">
-              <div className="col-lg-2 col-sm-1">
-                信用卡號：
-              </div>
-              <div className="col-lg-10 col-sm-11">
-                {cardNumber}
+
+            <div className="u-creditNum">
+              <div className="col">
+                信用卡號：{cardNumber}
               </div>
             </div>
-            <div className="u-creditDate d-flex">
-              <div className="col-lg-2 col-sm-1">
-                有效期限：
-              </div>
-              <div className="col-lg-10 col-sm-11">
-                {cardExpdate}
+
+            <div className="u-creditDate">
+              <div className="col">
+                有效期限： {cardExpdate}
               </div>
             </div>
-            <div className="u-creditNT d-flex">
-              <div className="col-lg-2 col-sm-1">
-                刷卡金額：
-              </div>
-              <div className="col-lg-10 col-sm-11">
-                {orderPrice}
-              </div>
-            </div>
-          </div>
-          <div className="u-box">
-            <div className="u-creditNews col">收件資訊</div>
-            <div className="u-creditType d-flex">
-              <div className="col-lg-2 col-sm-1">
-                收件人：
-              </div>
-              <div className="col-lg-10 col-sm-11">
-                {username}
-              </div>
-            </div>
-            <div className="u-creditNum d-flex">
-              <div className="col-lg-2 col-sm-1">
-                收件地址：
-              </div>
-              <div className="col-lg-10 col-sm-11">
-                {userAddress}
-              </div>
-            </div>
-            <div className="u-creditDate d-flex">
-              <div className="col-lg-2 col-sm-1">
-                聯絡電話：
-              </div>
-              <div className="col-lg-10 col-sm-11">
-                {userPhone}
-              </div>
-            </div>
-            <div className="u-creditNT d-flex">
-              <div className="col-lg-2 col-sm-1">
-                寄送方式：
-              </div>
-              <div className="col-lg-10 col-sm-11">
-                {orderShip}
+
+            <div className="u-creditNT">
+              <div className="col">
+                刷卡金額： {orderPrice}
               </div>
             </div>
           </div>
 
-          <div className="u-boxPro d-flex justify-content-between">
-            {/* <div className="proBtn col-1 "></div> */}
+          <div className="u-box">
+            <div className="u-creditNews col">收件資訊</div>
+            <div className="u-creditType">
+              <div className="col">收件人：{name}</div>
+            </div>
+            <div className="u-creditNum">
+              <div className="col">
+                收件地址： {userAddress}
+              </div>
+            </div>
+            <div className="u-creditDate">
+              <div className="col">
+                聯絡電話：{userPhone}
+              </div>
+            </div>
+            <div className="u-creditNT d-flex">
+              <div className="col">
+                寄送方式：{orderShip}
+              </div>
+            </div>
+          </div>
+
+          {/* <div className="u-boxPro d-flex justify-content-between">
             <div className="u-proImg">
               <img
                 src={`http://localhost:6005/eventpic/event/${eventImg}`}
@@ -156,13 +182,11 @@ function OrderTicDetail(props) {
               <div className="">數量：</div>
               <div className="">{orderQty}</div>
             </div>
-            {/* <div className="u-proTotalPrice d-flex col-2">
-              <div className="">NT $</div>
-              <div className="col"></div>
-            </div> */}
           </div>
-          <div>
-            <Accordion>
+          <div> */}
+
+          {TicDetail}
+          {/* <Accordion>
               <Card className="u-Card">
                 <Card.Header className="u-CardHeader">
                   <Accordion.Toggle
@@ -204,10 +228,10 @@ function OrderTicDetail(props) {
                   </Card.Body>
                 </Accordion.Collapse>
               </Card>
-            </Accordion>
-          </div>
+            </Accordion> 
+          </div>*/}
 
-          <div className="u-back">
+          {/* <div className="u-back">
             <Link
               style={{ textDecoration: 'none' }}
               className="u-link"
@@ -218,6 +242,17 @@ function OrderTicDetail(props) {
             >
               回訂單查詢
             </Link>
+          </div> */}
+          <div className="u-back">
+            <Link
+              className="u-goback"
+              onClick={() => {
+                history.goBack()
+              }}
+              style={{ textDecoration: 'none' }}
+            >
+              回訂單查詢
+            </Link>
           </div>
         </Container>
       </div>
@@ -225,4 +260,4 @@ function OrderTicDetail(props) {
   )
 }
 
-export default OrderTicDetail
+export default withRouter(OrderTicDetail)
