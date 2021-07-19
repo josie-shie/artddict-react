@@ -142,7 +142,7 @@ function ProductDetail(props) {
     setProDes(data.proDes)
     setProClass(data.proClass)
     setProNum(id)
-    setSqlProductId(data.id)
+    setSqlProductId(data.proId)
 
     // setStarValue(data.starValue)
     // setUserId(data.userId)

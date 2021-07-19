@@ -219,8 +219,8 @@ function ProductList() {
 
   const productListCard = products.map((pro) => {
     let trydd = JSON.parse(`${pro.proImg}`)
-    const updateSpeed = (id) => {
-      setSqlProductId(pro.id)
+    const updateSpeed = () => {
+      setSqlProductId(pro.proId)
     }
 
     return (
