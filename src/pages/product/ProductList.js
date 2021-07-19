@@ -609,7 +609,7 @@ function ProductList() {
                     nextLabel={<IoIosArrowForward />}
                     breakLabel={''}
                     containerClassName={
-                      'justify-content-center eng-font-regular mt-5 py-5 row'
+                      'justify-content-center eng-font-regular  py-5 row'
                     }
                     pageLinkClassName={'ed-pagenum mx-3'}
                     previousClassName={'ed-pagenum mx-3'}
