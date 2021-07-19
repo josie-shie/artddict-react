@@ -98,7 +98,7 @@
 .prolist-row{
     /* background-color: rgb(124, 252, 252); */
     width:75vw;
-    height: 2000px;
+    height: 1500px;
     margin: 0 auto;
 }
 
@@ -219,7 +219,6 @@
 }
 .prolist-rightSide{
     width: 55vw;
-    height: 1500px;
 }
 
 /* ---------------------Category-------------------- */
