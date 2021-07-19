@@ -234,11 +234,11 @@ const Nav = (props) => {
                 <Link to="/cart-product">
                   <i>
                     <BiCartAlt />
-                    {cookieEvent.length > 0 ? (
+                    {/* {cookieEvent.length > 0 ? (
                       <span>{cookieEvent.length}</span>
                     ) : (
                       ''
-                    )}
+                    )} */}
                   </i>
                 </Link>
               </div>
