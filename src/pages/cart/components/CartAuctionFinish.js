@@ -87,7 +87,7 @@ function CartProductFinish(props) {
     console.log(data2)
 
     // 設定資料
-    setProId(data2.proId)
+    setProId(data2.aucId)
     setProQty(data2.orderQty)
 
     // let tempitems = []
@@ -117,13 +117,13 @@ function CartProductFinish(props) {
       <td>
         <div class="c-td-p1 d-flex align-items-center">
           <img
-            src={`http://localhost:6005/productpics/${orderItems.eventImg}`}
+            src={`http://localhost:6005/Aucpics/auc/${orderItems.eventImg}`}
             alt=""
           />
           <div className="col ml-4">
             <p className="pb-2">{orderItems.eventName}</p>
             <p className="c-fgray">
-              商品編號 # {orderItems.eventId}
+              活動編號 # {orderItems.eventId}
             </p>
           </div>
           <p

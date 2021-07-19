@@ -14,7 +14,6 @@ function BasketEvent() {
   const [sqleventid, setSqlEventId] = useState('')
   const cookiesLength = cookies.get('product')
 
-
   /**
    * 當頁面Load時，讀取Cookie值並更新至cartItems
    */
@@ -63,7 +62,7 @@ function BasketEvent() {
           let product = cookieProductArr[j]
           setSqlEventId(product.id)
 
-          if (data[i].id == product.id.split('-')[0]) {
+          if (data[i].eventId == product.id.split('-')[0]) {
             let eventtype = product.id.split('-')[1]
             let eventqty = product.qty
             let newDisplay = {
@@ -151,18 +150,25 @@ function BasketEvent() {
    */
   const onCartNumChange = (eventid, quantityNum, type) => {
     const exist = displaycartitems.find(
-      (x) => x.id === eventid
+      (x) =>
+        x.eventId + '-' + x.eventType ===
+        eventid + '-' + type
     )
 
     onCookie(eventid, quantityNum, type)
     if (quantityNum <= 0) {
       setDisplayCartItems(
-        displaycartitems.filter((x) => x.id !== eventid)
+        displaycartitems.filter(
+          (x) =>
+            x.eventId + '-' + x.eventType !==
+            eventid + '-' + type
+        )
       )
     } else {
       setDisplayCartItems(
         displaycartitems.map((x) =>
-          x.id === eventid
+          x.eventId + '-' + x.eventType ===
+          eventid + '-' + type
             ? { ...exist, qty: Number(quantityNum) }
             : x
         )
@@ -180,18 +186,21 @@ function BasketEvent() {
     onCookie(eventid, 0, type)
     const exist = displaycartitems.find(
       (x) =>
-        x.id + '-' + x.eventType === eventid + '-' + type
+        x.eventId + '-' + x.eventType ===
+        eventid + '-' + type
     )
     if (exist.qty >= 1) {
       setDisplayCartItems(
         displaycartitems.filter(
           (x) =>
-            x.id + '-' + x.eventType !==
+            x.eventId + '-' + x.eventType !==
             eventid + '-' + type
         )
       )
     }
   }
+
+  console.log(displaycartitems)
 
   return (
     <div>
@@ -234,7 +243,11 @@ function BasketEvent() {
                   <RiDeleteBinLine size={20} />
                   <p
                     onClick={() =>
-                      onDelete(item.id, 0, item.eventType)
+                      onDelete(
+                        item.eventId,
+                        0,
+                        item.eventType
+                      )
                     }
                     className="c-store2 ml-1 mr-4"
                   >
@@ -255,7 +268,7 @@ function BasketEvent() {
                   value={item.qty}
                   onChange={(evt) => {
                     onCartNumChange(
-                      item.id,
+                      item.eventId,
                       evt.target.value,
                       item.eventType
                     )
