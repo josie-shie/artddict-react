@@ -46,7 +46,6 @@ const News = () => {
     setComment(data)
   }
 
-  
   //留言板錯誤處理
   async function addNewComToSever() {
     //判斷留言板跟名字是否有填寫
@@ -99,8 +98,11 @@ const News = () => {
   }
 
   async function sentMail() {
-    //TODO:判斷mail是否正確 [a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*
-    if (email !== '') {
+    //判斷mail是否正確 [a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*
+    let emailRule =
+      /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/
+    
+      if (email !== '' && email.search(emailRule) !== -1) {
       const newData = { email }
 
       // 連接的伺服器資料網址
@@ -135,7 +137,7 @@ const News = () => {
       console.log('success')
     } else {
       swal({
-        text: '請輸入Email',
+        text: '請輸入正確Email',
         icon: 'warning',
         confirmButtonColor: '#1D0AFF',
         confirmButtonText: '確定',
