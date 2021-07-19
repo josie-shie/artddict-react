@@ -46,8 +46,10 @@ const News = () => {
     setComment(data)
   }
 
+  
+  //留言板錯誤處理
   async function addNewComToSever() {
-    // 開啟載入指示
+    //判斷留言板跟名字是否有填寫
     if (NewsCom !== '' && userId !== '') {
       setDataLoading(true)
 

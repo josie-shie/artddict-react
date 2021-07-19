@@ -3,19 +3,24 @@
 import React, { useRef, useEffect, useState } from 'react'
 import { Link, withRouter } from 'react-router-dom'
 import { ReactComponent as Logo } from '../pics/logo.svg'
+import ScrollBtn from '../components/ScrollBtn'
+import $ from 'jquery'
+import Cookies from 'universal-cookie'
+import swal from 'sweetalert'
+
+// icon
 import { BiCartAlt } from 'react-icons/bi'
 import { FiLogOut } from 'react-icons/fi'
 import {
   FaUserAstronaut,
   FaMapMarkedAlt,
 } from 'react-icons/fa'
-import ScrollBtn from '../components/ScrollBtn'
-import $ from 'jquery'
+
+//style
 import '../style/Nav.scss'
 import '../bootstrap/css/bootstrap.css'
 
 const Nav = (props) => {
-  console.log('nav current_user', props.current_user)
   const burgerRef = useRef()
   const circleRef = useRef()
   const xRef = useRef()
@@ -24,8 +29,27 @@ const Nav = (props) => {
   const liRef = useRef()
   const logoRef = useRef()
 
-  // const [li, setli] = useState(true)) //!why not false
-  // const [burger, setburger] = useState(false) //!why not false
+  //cart
+  const cookies = new Cookies()
+  let cookieProduct = cookies.get('product')
+  let cookieEvent = cookies.get('event')
+  // const [cookieEvenQty, setCookieEvenQty] = useState(
+  //   cookieEvent.length
+  // )
+  // const [cookieProQty, setCookieProQty] = useState(
+  //   cookieProduct.length
+  // )
+
+  // console.log(
+  //   'cookieEvenQty',
+  //   cookieEvenQty,
+  //   'cookieProQty',
+  //   cookieProQty
+  // )
+
+  //驗證身份
+  const [memberId, setMemberId] = useState('')
+   const [login, setLogin] = useState(false)
 
   useEffect(() => {
     // if ('ontouchstart' in window) {
@@ -35,6 +59,7 @@ const Nav = (props) => {
     // }
 
     //!測試使用burger狀態去判斷
+    //!Nav動態
     // $(burgerRef.current).on('click', function () {
     //   burger ? openMenu() : closeMenu()
     //   console.log(burger)
@@ -53,7 +78,16 @@ const Nav = (props) => {
     $(logoRef.current).on('click', function () {
       closeMenu()
     })
+    //!Nav動態
+
+    //驗證身份
+    getjwtvertifyFromServer()
+    console.log('didMount', memberId)
   }, [])
+
+  // useEffect(() => {
+  //   getjwtvertifyFromServer()
+  // }, [login])
 
   const openMenu = () => {
     $(circleRef.current).addClass('expand')
@@ -102,17 +136,64 @@ const Nav = (props) => {
     }, 30)
   }
 
-  // useEffect(() => {}, [])
+  //驗證身分
+  async function getjwtvertifyFromServer() {
+    const token = localStorage.getItem('token')
 
-  // const handleGlobalClick = () => {
-  //   console.log('global click')
+    const response = await fetch(
+      'http://localhost:6005/users/checklogin',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          token,
+        }),
+      }
+    )
 
-  //   this.setState({ dropDownExpanded: false })
-  //   document.removeEventListener(
-  //     'click',
-  //     this.handleGlobalClick
-  //   )
-  // }
+    const data = await response.json()
+    console.log(data)
+    setMemberId(data.id)
+    setLogin(true)
+    console.log('data done', memberId)
+  }
+
+  //使用者登出
+
+  async function logoutToSever() {
+    // 連接的伺服器資料網址
+    const url = 'http://localhost:6005/users/logout'
+
+    // 注意資料格式要設定，伺服器才知道是json格式
+    const request = new Request(url, {
+      method: 'GET',
+      headers: new Headers({
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      }),
+    })
+
+    // 要等驗証過，再設定資料(簡單的直接設定)
+
+    swal({
+      text: '登出成功！',
+      icon: 'success',
+      button: false,
+      timer: 3000,
+    })
+
+    const response = await fetch(request)
+    const data = await response.json()
+    setLogin(false)
+  }
+
+  //立即更新購物車數量
+
+  // useEffect(() => {
+  //   console.log(setCookieEvenQty())
+  // }, [cookieEvenQty, cookieProQty])
 
   return (
     <>
@@ -129,25 +210,35 @@ const Nav = (props) => {
                 </Link>
               </div>
               <div className="mb-4">
-                <Link to="/user-login">
-                  <i>
-                    {/* <FaUserAstronaut /> */}
-                    {/* //TODO:判斷是否登入 */}
-                    {props.current_user !== 0 ? (
-                      <FiLogOut />
-                    ) : (
+                {/* <FaUserAstronaut /> */}
+                {/* //TODO:判斷是否登入 */}
+                {login ? (
+                  <Link to="/">
+                    <i>
+                      <FiLogOut
+                        onClick={() => {
+                          logoutToSever()
+                        }}
+                      />
+                    </i>
+                  </Link>
+                ) : (
+                  <Link to="/user-login">
+                    <i>
                       <FaUserAstronaut />
-                    )}
-                  </i>
-                </Link>
+                    </i>
+                  </Link>
+                )}
               </div>
               <div className="mb-4 nav-cart">
                 <Link to="/cart-product">
                   <i>
                     <BiCartAlt />
-                    {/* {購物車數量 > 1 ? (
-                      <span>5</span>
-                    )：""*/}
+                    {cookieEvent.length > 0 ? (
+                      <span>{cookieEvent.length}</span>
+                    ) : (
+                      ''
+                    )}
                   </i>
                 </Link>
               </div>
@@ -188,10 +279,18 @@ const Nav = (props) => {
                   </Link>
                 </li>
                 <li>
-                  <Link ref={liRef} to="/user-login">
+                  <Link
+                    ref={liRef}
+                    to={
+                      login
+                        ? `/user-msgedit/${memberId}`
+                        : `/user-login`
+                    }
+                  >
                     Member
                   </Link>
                 </li>
+
                 <li>
                   <Link ref={liRef} to="/contact">
                     our Team
