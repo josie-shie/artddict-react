@@ -37,6 +37,34 @@ function CartEvent() {
     getEventServer()
   }, [])
 
+  const [membername, setMemberName] = useState('')
+
+  //驗證身分
+  async function getjwtvertifyFromServer() {
+    const token = localStorage.getItem('token')
+
+    const response = await fetch(
+      'http://localhost:6005/users/checklogin',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          token,
+        }),
+      }
+    )
+    const data = await response.json()
+    console.log(data)
+    setMemberName(data.name)
+  }
+
+  useEffect(() => {
+    //驗證身分
+    getjwtvertifyFromServer()
+  }, [])
+
   /**
    * 當頁面Load時，讀取Cookie值並更新至cartItems
    */
@@ -59,7 +87,9 @@ function CartEvent() {
       <div className="c-bg">
         <div className="c-header">
           <Logo className="c-logo" />
-          <p>Hello JoJo</p>
+          <p className={!membername ? 'd-none' : 'd-block'}>
+            Hello {membername}
+          </p>
         </div>
         <div className="c-crumbs">
           <p>首頁&nbsp;/&nbsp;</p>

@@ -27,6 +27,42 @@ import { FaLock } from 'react-icons/fa'
 import { RiArrowRightSLine } from 'react-icons/ri'
 
 function CartFormProduct() {
+  // 假設會員id
+  const [memberid, setMemberId] = useState('')
+  const [membername, setMemberName] = useState('')
+
+  // 驗證身分
+  async function getjwtvertifyFromServer() {
+    const token = localStorage.getItem('token')
+
+    const response = await fetch(
+      'http://localhost:6005/users/checklogin',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          token,
+        }),
+      }
+    )
+
+    const data = await response.json()
+    console.log(data)
+    if (!data.id) {
+      window.location.href = './user-login'
+    }
+    setMemberId(data.id)
+    setMemberName(data.name)
+  }
+
+  useEffect(() => {
+    //驗證身分
+    getjwtvertifyFromServer()
+  }, [])
+
+  // 城市與地區
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
 
@@ -157,7 +193,7 @@ function CartFormProduct() {
 
     const newData = {
       orderid,
-      userid: 'userid',
+      userid: memberid,
       orderpay,
       cardnumber,
       cardexpdate: `${cardexpmon}/${cardexpyr}`,
@@ -304,7 +340,7 @@ function CartFormProduct() {
       <div className="c-bg">
         <div className="c-header">
           <Logo className="c-logo" />
-          <p>Hello JoJo</p>
+        <p>Hello {membername}</p>
         </div>
         <div className="c-crumbs1">
           <a href="./">

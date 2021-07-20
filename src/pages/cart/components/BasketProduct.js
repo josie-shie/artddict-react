@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Cookies from 'universal-cookie'
+import { Modal, Button } from 'react-bootstrap'
 
 // icon
 import { FaRegEdit } from 'react-icons/fa'
@@ -7,6 +8,52 @@ import { FaLock } from 'react-icons/fa'
 import { RiDeleteBinLine } from 'react-icons/ri'
 
 function BasketEvent() {
+  //假設會員id
+  const [memberid, setMemberId] = useState('')
+
+  //驗證身分
+  async function getjwtvertifyFromServer() {
+    const token = localStorage.getItem('token')
+
+    const response = await fetch(
+      'http://localhost:6005/users/checklogin',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          token,
+        }),
+      }
+    )
+
+    const data = await response.json()
+    console.log(data)
+    setMemberId(data.id)
+  }
+
+  useEffect(() => {
+    //驗證身分
+    getjwtvertifyFromServer()
+  }, [])
+
+  // Modal 顯示狀態
+  const [show, setShow] = useState(false)
+  // Modal 開關 function
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
+
+  // 確認有無登入
+  const checklogin = () => {
+    if (!memberid) {
+      console.log('請先登入會員')
+      handleShow()
+    } else {
+      window.location.href = './cart-form-product'
+    }
+  }
+
   const cookies = new Cookies()
   const [displaycartitems, setDisplayCartItems] = useState(
     []
@@ -319,13 +366,45 @@ function BasketEvent() {
         </div>
         <button
           disabled={displaycartitems.length == 0}
+          onClick={checklogin}
           className="c-checkoutbtn2"
         >
-          <a href="./cart-form-product">
+          <a href="javascript:void(0)">
             <p>結帳</p>
           </a>
         </button>
       </div>
+      <Modal
+        centered
+        show={show}
+        onHide={handleClose}
+        id="eventModal"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>請登入會員</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div>您目前還未登入會員，請登入會員進行結帳</div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            type="button"
+            className="e-btn-s e-modal-close"
+            onClick={handleClose}
+          >
+            關閉
+          </Button>
+          <Button
+            type="button"
+            className="e-btn-s e-modal-del"
+            onClick={() => {
+              window.location.href = './user-login'
+            }}
+          >
+            登入
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   )
 }
