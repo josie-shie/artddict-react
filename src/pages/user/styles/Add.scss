@@ -16,10 +16,12 @@
 .u-body {
   font-family: 'Noto Sans TC Medium', sans-serif;
   width: calc(100% - 70px);
-  height: 180vh;
+  height: 100%;
+  min-height: 100vh;
   background-color: #e8e8e8;
   padding: 0 10vw;
 }
+
 
 //----- carousel -----
 .u-img-carousel {
@@ -200,6 +202,7 @@
 
 @media screen and (max-width:580){
   .u-AddBtn {
+    width: 200px;
     margin-right: 10%;
   }
 }

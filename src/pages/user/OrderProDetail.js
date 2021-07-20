@@ -237,17 +237,18 @@ function OrderProDetail(props) {
               </Card>
             </Accordion>
           </div> */}
-
-          <div className="u-back">
-            <Link
-              className="u-goback"
-              onClick={() => {
-                history.goBack()
-              }}
-              style={{ textDecoration: 'none' }}
-            >
-              回訂單查詢
-            </Link>
+          <div className="u-gobackBox">
+            <div className="u-back">
+              <Link
+                className="u-goback"
+                onClick={() => {
+                  history.goBack()
+                }}
+                style={{ textDecoration: 'none' }}
+              >
+                回訂單查詢
+              </Link>
+            </div>
           </div>
         </Container>
       </div>

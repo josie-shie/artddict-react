@@ -133,8 +133,6 @@
   border: 2px solid #000;
   line-height: 40px;
   text-align: center;
-  // margin-top: -43px;
-  // margin-left: 150px;
   margin-top: 40px;
   margin-right: 40px;
   font-family: NotoSansTC-Medium;
@@ -172,4 +170,8 @@
 
 .u-goback:hover {
   color: #fff;
+}
+
+.u-gobackBox{
+  padding-bottom: 20px;
 }

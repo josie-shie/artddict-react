@@ -162,54 +162,56 @@ function OrderPro(props) {
       ? '目前無訂單，趕快去購買！'
       : orders.map((order) => {
           return (
-            <div class="u-table">
-              <div class="u-th d-flex justify-content-around">
-                <div class="u-orderId">訂單編號</div>
-                <div class="u-orderDate">訂單日期</div>
-                <div class="u-payType">付款狀態</div>
-                <div class="u-price">總價</div>
-                <div class="u-orderType">訂單狀態</div>
-                <div class="u-bt col-2"></div>
-              </div>
-              <div class="u-tb d-flex justify-content-around">
-                <div class="u-ordrtInput1">
-                  {order.orderId}
+            <div className="u-tableBox">
+              <div class="u-table">
+                <div class="u-th d-flex justify-content-around">
+                  <div class="u-orderId">訂單編號</div>
+                  <div class="u-orderDate">訂單日期</div>
+                  <div class="u-payType">付款狀態</div>
+                  <div class="u-price">總價</div>
+                  <div class="u-orderType">訂單狀態</div>
+                  <div class="u-bt col-2"></div>
                 </div>
-                <div class="u-ordrtInput2">
-                  {convert_date(order.created_at)}
-                </div>
-                <div class="u-ordrtInput3">已付款</div>
-                <div class="u-ordrtInput4">
-                  {order.orderPrice}
-                </div>
-                <div class="u-ordrtInput5 ">
-                  {convert_status(order.orderStatus)}
-                </div>
-                <div class="u-bt col-2">
-                  <div className="u-Bbtn">
-                    <button className="btn btn btn-dark">
-                      <Link
-                        className="u-link"
-                        to={`/user-orderpro/detail/${order.orderId}`}
-                        style={{ textDecoration: 'none' }}
-                        key={order.orderId}
-                      >
-                        詳細資料
-                      </Link>
-                    </button>
+                <div class="u-tb d-flex justify-content-around">
+                  <div class="u-ordrtInput1">
+                    {order.orderId}
                   </div>
-                  <div className="u-Lbtn">
-                    <button
-                      class="btn btn btn-light"
-                      onClick={() => {
-                        updateStatus(
-                          order.orderId,
-                          convert_new(order.orderStatus)
-                        )
-                      }}
-                    >
-                      {convert_btnText(order.orderStatus)}
-                    </button>
+                  <div class="u-ordrtInput2">
+                    {convert_date(order.created_at)}
+                  </div>
+                  <div class="u-ordrtInput3">已付款</div>
+                  <div class="u-ordrtInput4">
+                    {order.orderPrice}
+                  </div>
+                  <div class="u-ordrtInput5 ">
+                    {convert_status(order.orderStatus)}
+                  </div>
+                  <div class="u-bt col-2">
+                    <div className="u-Bbtn">
+                      <button className="btn btn btn-dark">
+                        <Link
+                          className="u-link"
+                          to={`/user-orderpro/detail/${order.orderId}`}
+                          style={{ textDecoration: 'none' }}
+                          key={order.orderId}
+                        >
+                          詳細資料
+                        </Link>
+                      </button>
+                    </div>
+                    <div className="u-Lbtn">
+                      <button
+                        class="btn btn btn-light"
+                        onClick={() => {
+                          updateStatus(
+                            order.orderId,
+                            convert_new(order.orderStatus)
+                          )
+                        }}
+                      >
+                        {convert_btnText(order.orderStatus)}
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

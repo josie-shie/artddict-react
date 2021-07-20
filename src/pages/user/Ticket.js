@@ -114,78 +114,90 @@ function Ticket(props) {
       ? 'noneData'
       : tickets.map((ticket) => {
           return (
-            <div className="u-ticbox d-flex">
-              <div className="u-ticImg">
-                <img
-                  src={`http://localhost:6005/eventpic/event/${ticket.eventImg}`}
-                  alt="活動圖"
-                />
-              </div>
-              <div className="u-ticMsg">
-                <div className="u-Eve1 d-flex">
-                  <div className="u-EveId">活動編號：</div>
-                  <div className="">{ticket.eventId}</div>
-                </div>
-                <div className="u-Eve2 d-flex">
-                  <div className="u-EveName">
-                    活動名稱：
-                  </div>
-                  <div className="">{ticket.eventName}</div>
-                </div>
-                <div className="u-Eve3 d-flex">
-                  <div className="u-EveNum">票券張數：</div>
-                  <div className="">{ticket.orderQty}</div>
-                </div>
-                <div className="u-Eve4 d-flex">
-                  <div className="u-EveStart">
-                    開始日期：
-                  </div>
-                  <div className="">
-                    {convert_date(ticket.eventDateStart)}
-                  </div>
-                </div>
-                <div className="u-Eve5 d-flex">
-                  <div className="u-EveEnd">結束日期：</div>
-                  <div className="">
-                    {convert_date(ticket.eventDateEnd)}
-                  </div>
-                </div>
-              </div>
-              <div className="u-ticBtn">
-                <div className="u-BtnLight">
-                  {' '}
-                  <Link
-                    to={`/event/event-list/detail/${ticket.id}`}
-                    className="u-link2"
-                    style={{ textDecoration: 'none' }}
-                  >
-                    活動細節
-                  </Link>
-                </div>
-                <div className="u-BtnBlack">
-                  <Button
-                    className="u-ticdetail"
-                    variant="dark"
-                    onClick={() => {
-                      console.log(ticket)
-                      console.log(id)
-                      getUserTicketDetail(
-                        ticket.eventId
-                      ).then(console.log('oo=', id))
-                    }}
-                  >
-                    票券細節
-                  </Button>
-                  <TicketDetail
-                    eventId={id}
-                    eventName={eventName}
-                    orderSpec={orderSpec}
-                    show={modalShow}
-                    onHide={() => {
-                      setModalShow(false)
-                      console.log(ticket)
-                    }}
+            <div className="u-tableBox">
+              <div className="u-ticbox d-flex mt-5">
+                <div className="u-ticImg">
+                  <img
+                    src={`http://localhost:6005/eventpic/event/${ticket.eventImg}`}
+                    alt="活動圖"
                   />
+                </div>
+                <div className="u-ticMsg">
+                  <div className="u-Eve1 d-flex">
+                    <div className="u-EveId">
+                      活動編號：
+                    </div>
+                    <div className="">{ticket.eventId}</div>
+                  </div>
+                  <div className="u-Eve2 d-flex">
+                    <div className="u-EveName">
+                      活動名稱：
+                    </div>
+                    <div className="">
+                      {ticket.eventName}
+                    </div>
+                  </div>
+                  <div className="u-Eve3 d-flex">
+                    <div className="u-EveNum">
+                      票券張數：
+                    </div>
+                    <div className="">
+                      {ticket.orderQty}
+                    </div>
+                  </div>
+                  <div className="u-Eve4 d-flex">
+                    <div className="u-EveStart">
+                      開始日期：
+                    </div>
+                    <div className="">
+                      {convert_date(ticket.eventDateStart)}
+                    </div>
+                  </div>
+                  <div className="u-Eve5 d-flex">
+                    <div className="u-EveEnd">
+                      結束日期：
+                    </div>
+                    <div className="">
+                      {convert_date(ticket.eventDateEnd)}
+                    </div>
+                  </div>
+                </div>
+                <div className="u-ticBtn">
+                  <div className="u-BtnLight">
+                    {' '}
+                    <Link
+                      to={`/event/event-list/detail/${ticket.id}`}
+                      className="u-link2"
+                      style={{ textDecoration: 'none' }}
+                    >
+                      活動細節
+                    </Link>
+                  </div>
+                  <div className="u-BtnBlack">
+                    <Button
+                      className="u-ticdetail"
+                      variant="dark"
+                      onClick={() => {
+                        console.log(ticket)
+                        console.log(id)
+                        getUserTicketDetail(
+                          ticket.eventId
+                        ).then(console.log('oo=', id))
+                      }}
+                    >
+                      票券細節
+                    </Button>
+                    <TicketDetail
+                      eventId={id}
+                      eventName={eventName}
+                      orderSpec={orderSpec}
+                      show={modalShow}
+                      onHide={() => {
+                        setModalShow(false)
+                        console.log(ticket)
+                      }}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
