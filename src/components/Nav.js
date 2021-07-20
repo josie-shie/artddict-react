@@ -71,12 +71,12 @@ const Nav = (props) => {
         newcookieEventQty += cookieEvent.length
       }
 
-      console.log('newcookieProQty', newcookieProQty)
-      console.log('newcookieEventQty', newcookieEventQty)
+      //console.log('newcookieProQty', newcookieProQty)
+      //console.log('newcookieEventQty', newcookieEventQty)
       setCookieProQty(newcookieProQty)
       setCookieEvenQty(newcookieEventQty)
       setCookieTotal(newcookieProQty + newcookieEventQty)
-      console.log('cookieTotal', cookieTotal)
+      //console.log('cookieTotal', cookieTotal)
     }, 1000)
 
     //updateSpeed()
