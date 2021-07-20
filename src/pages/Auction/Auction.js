@@ -9,6 +9,7 @@ import AuctionProductList from './components/AuctionProductList'
 import AuctionSlider from './components/AuctionSlider'
 import AucBreadcrumb from './components/AucBreadcrumb'
 import PageNumber from './components/pageNumber'
+import ThreeJs from './components/ThreeJs'
 
 // import Breadcrumb from './components/UserBreadcrumb'
 
@@ -251,6 +252,8 @@ function Auction(props) {
                     <div className="auctiondecorationR auctiondecoration eng-font-bold">
                         R
                     </div>
+                    {/* <ThreeJs/> */}
+                    <div id="root"></div>
                 </div>
                 <marquee>
                     <div className="auctionMarquee eng-font-bold">
