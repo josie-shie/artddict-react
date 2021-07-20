@@ -31,8 +31,8 @@ const Nav = (props) => {
 
   //cart
   const cookies = new Cookies()
-  let cookieProduct = cookies.get('product') ||[]
-  let cookieEvent = cookies.get('event') ||[]
+  let cookieProduct = cookies.get('product') || []
+  let cookieEvent = cookies.get('event') || []
   const [cookieEvenQty, setCookieEvenQty] = useState(0)
   const [cookieProQty, setCookieProQty] = useState(0)
   const [cookieTotal, setCookieTotal] = useState(0)
@@ -56,29 +56,31 @@ const Nav = (props) => {
     //!!判斷購物車陣列是否存在 如果存在用長度當數量
     //console.log('cookieProduct', cookieProduct.length)
 
-    updateSpeed()
+    setInterval(() => {
+      let cookieProduct = cookies.get('product') || []
+      let cookieEvent = cookies.get('event') || []
+      let newcookieProQty = 0
+      let newcookieEventQty = 0
+
+      if (cookieProduct) {
+        newcookieProQty += cookieProduct.length
+        // setCookieProQty(cookieProQty)
+      }
+
+      if (cookieEvent) {
+        newcookieEventQty += cookieEvent.length
+      }
+
+      console.log('newcookieProQty', newcookieProQty)
+      console.log('newcookieEventQty', newcookieEventQty)
+      setCookieProQty(newcookieProQty)
+      setCookieEvenQty(newcookieEventQty)
+      setCookieTotal(newcookieProQty + newcookieEventQty)
+      console.log('cookieTotal', cookieTotal)
+    }, 1000)
+
+    //updateSpeed()
     //console.log(cookieProQty)
-
-    let newcookieProQty = 0
-    let newcookieEventQty = 0
-
-    if (cookieProduct) {
-      newcookieProQty += cookieProduct.length
-      // setCookieProQty(cookieProQty)
-    }
-
-    if (cookieEvent) {
-      newcookieEventQty += cookieEvent.length
-    }
-
-    console.log('newcookieProQty', newcookieProQty)
-    console.log('newcookieEventQty', newcookieEventQty)
-    setCookieProQty(newcookieProQty)
-    setCookieEvenQty(newcookieEventQty)
-    setCookieTotal(newcookieProQty + newcookieEventQty)
-    console.log('cookieTotal',cookieTotal)
-
-
 
     // if (cookieProduct || cookieEvent) {
     //   let cookieProQty = cookieProduct.length
