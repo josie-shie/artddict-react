@@ -154,50 +154,52 @@ function ProductList() {
 
   const onCookie = (productid, quantityNum, type) => {
     console.log(type)
-    let cookieProductId =
-      productid.sqlProductId + '-' + type.sizeGary
-    let updateCookie = []
-    let cookieProduct = cookies.get('product') // 取得 event cookie
+    if (sqlProductId) {
+      let cookieProductId =
+        productid.sqlProductId + '-' + type.sizeGary
+      let updateCookie = []
+      let cookieProduct = cookies.get('product') // 取得 event cookie
 
-    if (cookieProduct) {
-      // 如果有已存在的 event cookie
-      // 查看cookie裡面的 event id
-      const idSet = new Set()
-      for (let i in cookieProduct) {
-        idSet.add(cookieProduct[i].id)
-      }
-      // event 在 event cookie 中
-      if (idSet.has(cookieProductId)) {
+      if (cookieProduct) {
+        // 如果有已存在的 event cookie
+        // 查看cookie裡面的 event id
+        const idSet = new Set()
         for (let i in cookieProduct) {
-          if (cookieProduct[i].id == cookieProductId) {
-            // 如果event是從Input,數量直接到指定數字
-            cookieProduct[i].qty += quantityNum.qtyNum
+          idSet.add(cookieProduct[i].id)
+        }
+        // event 在 event cookie 中
+        if (idSet.has(cookieProductId)) {
+          for (let i in cookieProduct) {
+            if (cookieProduct[i].id == cookieProductId) {
+              // 如果event是從Input,數量直接到指定數字
+              cookieProduct[i].qty += quantityNum.qtyNum
+            }
+          }
+        } else {
+          // 如果被改變的event 不在 event cookie 中
+          // 初始數量為1
+          let productjson = {}
+          productjson.id = cookieProductId
+          productjson.qty = quantityNum.qtyNum
+          cookieProduct.push(productjson)
+        }
+        // 如果被改變後的event數量>0，加入在cookie 中
+        for (let i in cookieProduct) {
+          if (cookieProduct[i].qty > 0) {
+            updateCookie.push(cookieProduct[i])
           }
         }
       } else {
-        // 如果被改變的event 不在 event cookie 中
+        // 如果沒有已存在的 event cookie
         // 初始數量為1
         let productjson = {}
         productjson.id = cookieProductId
         productjson.qty = quantityNum.qtyNum
-        cookieProduct.push(productjson)
+        updateCookie.push(productjson)
       }
-      // 如果被改變後的event數量>0，加入在cookie 中
-      for (let i in cookieProduct) {
-        if (cookieProduct[i].qty > 0) {
-          updateCookie.push(cookieProduct[i])
-        }
-      }
-    } else {
-      // 如果沒有已存在的 event cookie
-      // 初始數量為1
-      let productjson = {}
-      productjson.id = cookieProductId
-      productjson.qty = quantityNum.qtyNum
-      updateCookie.push(productjson)
+      cookies.set('product', updateCookie, { path: '/' }) //更新Cookie
+      console.log(updateCookie)
     }
-    cookies.set('product', updateCookie, { path: '/' }) //更新Cookie
-    console.log(updateCookie)
   }
   // --------swal------------
   function checkCheck() {
