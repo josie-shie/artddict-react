@@ -76,6 +76,9 @@
   }
   &:disabled {
     opacity: 50%;
+    a {
+      cursor: not-allowed;
+    }
   }
 }
 .c-checkout1 {

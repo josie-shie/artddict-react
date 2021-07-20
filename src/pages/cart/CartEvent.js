@@ -9,15 +9,6 @@ import Cookies from 'universal-cookie'
 // demo
 import BasketEvent from './components/BasketEvent'
 
-// // imgae
-// import img1 from './img/1.png'
-// import img2 from './img/2.png'
-
-// // icon
-// import { FaRegEdit } from 'react-icons/fa'
-// import { FaLock } from 'react-icons/fa'
-// import { RiDeleteBinLine } from 'react-icons/ri'
-
 function CartEvent() {
   // const { products } = fakedata
   const [cartItems, setCartItems] = useState([])

@@ -51,11 +51,11 @@ function CartEventFinish(props) {
 
     // 設定資料
     setOrderById(data.orderId)
-    setUsername(data.name)
+    setUsername(data.username)
     setAddress(data.userAddress)
     setMobile(data.userPhone)
-    setShipMethod(data.shipMethod)
-    setCreditType(data.creditType)
+    setShipMethod(data.orderShip)
+    setCreditType(data.orderPay)
     let tempdate = new Date(data.created_at)
     let newdate =
       tempdate.getFullYear() +
@@ -64,7 +64,7 @@ function CartEventFinish(props) {
       '-' +
       tempdate.getDate()
     setDate(newdate)
-    setTotal(data.totalPrice)
+    setTotal(data.orderPrice)
 
     // 取得order_details
     // 連接的伺服器資料網址

@@ -6,10 +6,13 @@ import Breadcrumb from './components/UserBreadcrumb'
 import { Container } from 'react-bootstrap'
 // SweetAlert
 import swal from 'sweetalert'
+import axios from 'axios'
 
 function OrderPro(props) {
   const [orders, setOrders] = useState([])
+  const [allorders, setAllorders] = useState([])
   const userid = props.match.params.userid
+  const id = props.match.params.id
 
   async function getUserOrder() {
     const url = `http://localhost:6005/users/getProOrder/${userid}`
@@ -25,11 +28,31 @@ function OrderPro(props) {
     const data = await response.json()
     // use orders => map div classes
     setOrders(data)
+    setAllorders(data)
   }
 
   useEffect(() => {
     getUserOrder()
   }, [])
+
+  async function updateStatus(order_id, order_status) {
+    const url = `http://localhost:6005/users/orderStatus/${id}`
+
+    const post_id_and_status = await axios
+      .post(url, { order_id, order_status })
+      .then(function (response) {
+        console.log(response.data)
+        // const data = response.data
+        return response.data
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+
+    setTimeout(() => {
+      window.location.replace(`/user-orderpro/${userid}`)
+    }, 500)
+  }
 
   async function logoutToSever() {
     // 連接的伺服器資料網址
@@ -66,6 +89,8 @@ function OrderPro(props) {
       .substring(0, 10)
     return `${date_text_new}`
   }
+
+  // 訂單狀態轉文字
   function convert_status(order_status) {
     var status_text = ''
     if (order_status == 0) {
@@ -78,6 +103,58 @@ function OrderPro(props) {
       status_text = '已退貨'
     }
     return status_text
+  }
+
+  // 按鈕文字根據狀態轉態
+  function convert_btnText(order_status) {
+    var status_btnText = ''
+    if (order_status == 0) {
+      status_btnText = '取消'
+    } else if (order_status == 1) {
+      status_btnText = '退貨'
+    } else if (order_status == 2) {
+      status_btnText = '已取消'
+    } else if (order_status == 3) {
+      status_btnText = '已退貨'
+    }
+    return status_btnText
+  }
+
+  // 訂單狀態改變
+  function convert_new(order_status) {
+    var status_new = ''
+    if (order_status == 0) {
+      status_new = '2'
+    } else if (order_status == 1) {
+      status_new = '3'
+    } else if (order_status == 2) {
+      status_new = '0'
+    } else if (order_status == 3) {
+      status_new = '1'
+    }
+    return status_new
+  }
+
+  function showByStatus(event) {
+    console.log('value = ', event.target.value)
+    // 暫時用的array 後續會用來決定要顯示哪些項目
+    var new_to_display = []
+    if (event.target.value !== 'all') {
+      // 單一選項
+      for (var i = 0; i < allorders.length; i++) {
+        // 逐項檢查是否符合選擇的status
+        if (
+          allorders[i].orderStatus == event.target.value
+        ) {
+          new_to_display.push(allorders[i])
+        }
+      }
+    } else {
+      // 全選
+      new_to_display = allorders
+    }
+    console.log('new to display', new_to_display)
+    setOrders(new_to_display)
   }
 
   const OrderDisplay =
@@ -122,8 +199,16 @@ function OrderPro(props) {
                     </button>
                   </div>
                   <div className="u-Lbtn">
-                    <button class="btn btn btn-light">
-                      取消
+                    <button
+                      class="btn btn btn-light"
+                      onClick={() => {
+                        updateStatus(
+                          order.orderId,
+                          convert_new(order.orderStatus)
+                        )
+                      }}
+                    >
+                      {convert_btnText(order.orderStatus)}
                     </button>
                   </div>
                 </div>
@@ -273,17 +358,20 @@ function OrderPro(props) {
                 className="user-select pl-3"
                 name=""
                 id=""
+                onChange={(event) => {
+                  showByStatus(event)
+                }}
               >
                 <option
-                  value=""
+                  value="all"
                   style={{ color: '#707070' }}
                 >
                   全部
                 </option>
-                <option value="">待出貨</option>
-                <option value="">已完成</option>
-                <option value="">取消紀錄</option>
-                <option value="">退貨紀錄</option>
+                <option value="0">待出貨</option>
+                <option value="1">已完成</option>
+                <option value="2">取消紀錄</option>
+                <option value="3">退貨紀錄</option>
               </select>
             </div>
 
