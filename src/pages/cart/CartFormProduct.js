@@ -27,8 +27,13 @@ import { FaLock } from 'react-icons/fa'
 import { RiArrowRightSLine } from 'react-icons/ri'
 
 function CartFormProduct() {
+  // 城市與地區
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
+
+  // 組合信用卡過期日用
+  const [cardexpmon, setCardExpMon] = useState('')
+  const [cardexpyr, setCardExpYr] = useState('')
 
   // checkbox
   const [state, setState] = useState({
@@ -44,10 +49,12 @@ function CartFormProduct() {
 
   const [formStep, setFormStep] = useState(0)
   const completeFormStep = () => {
-    console.log(setFormStep)
+    // 組合日期
     setWholeAddress(
       `${countries[country]}${townships[country][township]}${useraddress}`
     )
+
+    // 下一頁
     setFormStep((cur) => cur + 1)
   }
   // formbutton
@@ -164,7 +171,7 @@ function CartFormProduct() {
       userid: 'userid',
       orderpay,
       cardnumber,
-      cardexpdate,
+      cardexpdate: `${cardexpmon}/${cardexpyr}`,
       username,
       userphone,
       useraddress: whole_address,
@@ -563,9 +570,9 @@ function CartFormProduct() {
                               </p>
                               <select
                                 className="w-100"
-                                value={cardexpdate}
+                                value={cardexpmon}
                                 onChange={(event) => {
-                                  setCardExpDate(
+                                  setCardExpMon(
                                     event.target.value
                                   )
                                 }}
@@ -593,7 +600,15 @@ function CartFormProduct() {
                             </div>
                             <div className="col-3 pl-1">
                               <p className="pt-3"> </p>
-                              <select className="w-100">
+                              <select
+                                className="w-100"
+                                value={cardexpyr}
+                                onChange={(event) => {
+                                  setCardExpYr(
+                                    event.target.value
+                                  )
+                                }}
+                              >
                                 <option
                                   value=""
                                   disabled

@@ -30,6 +30,10 @@ function CartFormProduct() {
   const [country, setCountry] = useState(-1)
   const [township, setTownship] = useState(-1)
 
+  // 組合信用卡過期日用
+  const [cardexpmon, setCardExpMon] = useState('')
+  const [cardexpyr, setCardExpYr] = useState('')
+
   // checkbox
   const [state, setState] = useState({
     checkedA: true,
@@ -46,7 +50,7 @@ function CartFormProduct() {
   const completeFormStep = () => {
     console.log(setFormStep)
     setWholeAddress(
-      `${countries[country]}${townships[country][township]}${address}`
+      `${countries[country]}${townships[country][township]}${useraddress}`
     )
     setFormStep((cur) => cur + 1)
   }
@@ -63,8 +67,8 @@ function CartFormProduct() {
               !username ||
               country == -1 ||
               township == -1 ||
-              !address ||
-              !mobile
+              !useraddress ||
+              !userphone
             }
             onClick={postOrderToSever}
             key="1"
@@ -83,8 +87,8 @@ function CartFormProduct() {
               !username ||
               country == -1 ||
               township == -1 ||
-              !address ||
-              !mobile
+              !useraddress ||
+              !userphone
             }
             onClick={completeFormStep}
             type="button"
@@ -121,16 +125,21 @@ function CartFormProduct() {
   // 開始存入訂單
   // 定義要存入的資料
   // 訂單
-  const [username, setUsername] = useState('')
-  const [address, setAddress] = useState('')
-  const [mobile, setMobile] = useState('')
-  const [shipmethod, setShipMethod] = useState(
+  const [userid, setUserId] = useState('')
+  const [orderpay, setOrderPay] = useState('VISA')
+  const [cardnumber, setCardNumber] = useState('')
+  const [cardexpdate, setCardExpDate] = useState('')
+  const [username, setUserName] = useState('')
+  const [userphone, setUserPhone] = useState('')
+  const [useraddress, setUserAddress] = useState('')
+  const [ordership, setOrderShip] = useState(
     '宅配到府 - 運費：NT$ 80'
   )
-  const [credittype, setCreditType] = useState('VISA')
-  const [credit, setCredit] = useState('')
-  const [whole_address, setWholeAddress] = useState('')
+  const [orderstatus, setOrderStatus] = useState('0')
+  const [orderprice, setOrderPrice] = useState('')
+  const [ordertype, setOrdertype] = useState('')
 
+  const [whole_address, setWholeAddress] = useState('')
   // 訂單細節
 
   // 定義此筆訂單產生的訂單編號
@@ -148,14 +157,17 @@ function CartFormProduct() {
 
     const newData = {
       orderid,
+      userid: 'userid',
+      orderpay,
+      cardnumber,
+      cardexpdate: `${cardexpmon}/${cardexpyr}`,
       username,
-      address: whole_address,
-      mobile,
-      shipmethod,
-      credittype,
-      credit,
-      totalprice: itemsPrice + shipfee,
-      // address : _ + _ + _
+      userphone,
+      useraddress: whole_address,
+      ordership,
+      orderstatus: '0',
+      orderprice: itemsPrice + shipfee,
+      ordertype: 'c',
     }
 
     // 連接的伺服器資料網址
@@ -365,7 +377,7 @@ function CartFormProduct() {
                           id="username"
                           value={username}
                           onChange={(event) => {
-                            setUsername(event.target.value)
+                            setUserName(event.target.value)
                           }}
                         />
                         <div className="d-flex">
@@ -428,10 +440,12 @@ function CartFormProduct() {
                         <p className="pt-3">收件地址*</p>
                         <input
                           type="text"
-                          value={address}
-                          id="address"
+                          value={useraddress}
+                          id="useraddress"
                           onChange={(event) => {
-                            setAddress(event.target.value)
+                            setUserAddress(
+                              event.target.value
+                            )
                           }}
                         />
                         <p className="pt-3" type="text">
@@ -440,7 +454,7 @@ function CartFormProduct() {
                         <input
                           type="text"
                           onChange={(event) => {
-                            setMobile(event.target.value)
+                            setUserPhone(event.target.value)
                           }}
                         />
                       </div>
@@ -454,7 +468,7 @@ function CartFormProduct() {
                             value="宅配到府 - 運費：NT$ 80"
                             checked
                             onClick={(event) => {
-                              setShipMethod(
+                              setOrderShip(
                                 event.target.value
                               )
                               setShipFee(80)
@@ -469,7 +483,7 @@ function CartFormProduct() {
                             name="radio"
                             value="宅配到府（隔日）- 運費：NT$ 200"
                             onClick={(event) => {
-                              setShipMethod(
+                              setOrderShip(
                                 event.target.value
                               )
                               setShipFee(200)
@@ -500,9 +514,9 @@ function CartFormProduct() {
                         <div className="c-paymethod">
                           <p>信用卡*</p>
                           <select
-                            value={credittype}
+                            value={orderpay}
                             onChange={(event) => {
-                              setCreditType(
+                              setOrderPay(
                                 event.target.value
                               )
                             }}
@@ -519,10 +533,12 @@ function CartFormProduct() {
                           </p>
                           <input
                             type="text"
-                            id="credit"
-                            value={credit}
+                            id="cardnumber"
+                            value={cardnumber}
                             onChange={(event) => {
-                              setCredit(event.target.value)
+                              setCardNumber(
+                                event.target.value
+                              )
                             }}
                           />
                           <div className="d-flex">
@@ -530,7 +546,15 @@ function CartFormProduct() {
                               <p className="pt-3">
                                 有效期限*
                               </p>
-                              <select className="w-100">
+                              <select
+                                className="w-100"
+                                value={cardexpmon}
+                                onChange={(event) => {
+                                  setCardExpMon(
+                                    event.target.value
+                                  )
+                                }}
+                              >
                                 <option
                                   value=""
                                   disabled
@@ -554,7 +578,15 @@ function CartFormProduct() {
                             </div>
                             <div className="col-3 pl-1">
                               <p className="pt-3"> </p>
-                              <select className="w-100">
+                              <select
+                                className="w-100"
+                                value={cardexpyr}
+                                onChange={(event) => {
+                                  setCardExpYr(
+                                    event.target.value
+                                  )
+                                }}
+                              >
                                 <option
                                   value=""
                                   disabled
@@ -710,8 +742,8 @@ function CartFormProduct() {
                         {username}
                       </p>
                       <p>收件地址：{whole_address}</p>
-                      <p>聯絡電話：{mobile}</p>
-                      <p>寄送方式：{shipmethod}</p>
+                      <p>聯絡電話：{userphone}</p>
+                      <p>寄送方式：{ordership}</p>
                     </div>
                   </div>
                 </section>

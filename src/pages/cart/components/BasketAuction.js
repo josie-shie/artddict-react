@@ -13,7 +13,6 @@ function BasketEvent() {
     []
   )
   const [sqleventid, setSqlEventId] = useState('')
-  const cookiesLength = cookies.get('auc')
 
   /**
    * 當頁面Load時，讀取Cookie值並更新至cartItems
@@ -181,7 +180,7 @@ function BasketEvent() {
           </p>
         </div>
         <button
-          disabled={cookiesLength.length == 0}
+          disabled={displaycartitems.length == 0}
           className="c-checkoutbtn2"
         >
           <a href="./cart-form-auction">

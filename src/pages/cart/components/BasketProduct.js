@@ -12,7 +12,6 @@ function BasketEvent() {
     []
   )
   const [sqleventid, setSqlEventId] = useState('')
-  const cookiesLength = cookies.get('product')
 
   /**
    * 當頁面Load時，讀取Cookie值並更新至cartItems
@@ -186,7 +185,8 @@ function BasketEvent() {
     onCookie(eventid, 0, type)
     const exist = displaycartitems.find(
       (x) =>
-        x.eventId + '-' + x.eventType === eventid + '-' + type
+        x.eventId + '-' + x.eventType ===
+        eventid + '-' + type
     )
     if (exist.qty >= 1) {
       setDisplayCartItems(
@@ -318,7 +318,7 @@ function BasketEvent() {
           </p>
         </div>
         <button
-          disabled={cookiesLength.length == 0}
+          disabled={displaycartitems.length == 0}
           className="c-checkoutbtn2"
         >
           <a href="./cart-form-product">
