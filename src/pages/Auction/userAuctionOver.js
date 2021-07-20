@@ -24,6 +24,7 @@ import {
 import Display from '../event/components/tetris/Display'
 
 function UserAuctionOver(props) {
+
   // const userid = props.match.params.userid
   //頁碼
   //該頁頁碼
@@ -46,7 +47,9 @@ function UserAuctionOver(props) {
     // setDataLoading(true)
     // 連接的伺服器資料網址
     const url =
-      `http://localhost:6005/auctoin/auc-order` + `?userId=${userid}` + `&pages=${pages}`
+      `http://localhost:6005/auctoin/auc-order` +
+      `?userId=${userid}` +
+      `&pages=${pages}`
     // `&pages=${pages}`
 
     // 注意header資料格式要設定，伺服器才知道是json格式
@@ -89,11 +92,11 @@ function UserAuctionOver(props) {
     }
     setOrderStatus(a)
 
-    let b = [];
+    let b = []
     for (let i = 0; i < data.rows.length; i++) {
       b.push('none')
     }
-    
+
     console.log(b)
     setShowOrderList(b)
   }
@@ -126,18 +129,20 @@ function UserAuctionOver(props) {
 
   //驗證身分
   async function getjwtvertifyFromServer() {
+    const token = localStorage.getItem('token')
 
-    const token = localStorage.getItem('token');
-
-    const response = await fetch('http://localhost:6005/users/checklogin', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        token
-      })
-    });
+    const response = await fetch(
+      'http://localhost:6005/users/checklogin',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          token,
+        }),
+      }
+    )
 
     const data = await response.json()
     console.log(data)
@@ -188,12 +193,11 @@ function UserAuctionOver(props) {
 
   //顯示訂單
   const orderShowAAA = (i) => {
-
     if (showOrderList[i] == 'none') {
       let newshowOrderList = [...showOrderList]
       newshowOrderList[i] = 'block'
       setShowOrderList(newshowOrderList)
-    }else{
+    } else {
       let newshowOrderList = [...showOrderList]
       newshowOrderList[i] = 'none'
       setShowOrderList(newshowOrderList)
@@ -203,8 +207,8 @@ function UserAuctionOver(props) {
   // const uAucO_detail_buttonStyle = {
   //   display: showOrderList
   // }
-  
-  useEffect(async () => { 
+
+  useEffect(async () => {
     await getjwtvertifyFromServer()
   }, [])
 
@@ -215,173 +219,199 @@ function UserAuctionOver(props) {
 
   return (
     <>
-    {console.log(showOrderList)}
-    <div>
-      <div className="auc-body">
-        <Logoheader />
-        <div className="u-breadcrumb">
-          <Breadcrumb />
-        </div>
-        <div className="tab-bar">
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to={`/user-msgedit/${userid}`}
-            style={{ textDecoration: 'none' }}
-          >
-            修改資料
-          </NavLink>
+      {console.log(showOrderList)}
+      <div>
+        <div className="auc-body">
+          <Logoheader
+            user_id={userid}
+            show_user_name={true}
+          />
+          <div className="u-breadcrumb">
+            <Breadcrumb />
+          </div>
+          <div className="tab-bar">
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to={`/user-msgedit/${userid}`}
+              style={{ textDecoration: 'none' }}
+            >
+              修改資料
+            </NavLink>
 
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to={`/user-orderpro/${userid}`}
-            style={{ textDecoration: 'none' }}
-          >
-            訂單查詢
-          </NavLink>
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to={`/user-coupon/${userid}`}
-            style={{ textDecoration: 'none' }}
-          >
-            我的優惠券
-          </NavLink>
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to={`/user-ticket/${userid}`}
-            style={{ textDecoration: 'none' }}
-          >
-            我的票券
-          </NavLink>
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to={`/user-myfav/${userid}`}
-            style={{ textDecoration: 'none' }}
-          >
-            我的收藏
-          </NavLink>
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to={`/user-auction/${userid}`}
-            style={{ textDecoration: 'none' }}
-          >
-            競標查詢
-          </NavLink>
-          <NavLink
-            activeClassName="activenav"
-            className={'tab'}
-            to="/user-login"
-            onClick={() => {
-              logoutToSever()
-            }}
-            style={{ textDecoration: 'none' }}
-          >
-            登出
-          </NavLink>
-        </div>
-        <div className="u-container-fluid">
-          <div className="d-flex u-row justify-content-around">
-            <div className="u-usertitleLeft">
-              <Link to="/user-auction">競標中</Link>
-            </div>
-            <div className="u-usertitleRight">
-              <Link to="/user-auctionOver">已得標</Link>
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to={`/user-orderpro/${userid}`}
+              style={{ textDecoration: 'none' }}
+            >
+              訂單查詢
+            </NavLink>
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to={`/user-coupon/${userid}`}
+              style={{ textDecoration: 'none' }}
+            >
+              我的優惠券
+            </NavLink>
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to={`/user-ticket/${userid}`}
+              style={{ textDecoration: 'none' }}
+            >
+              我的票券
+            </NavLink>
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to={`/user-myfav/${userid}`}
+              style={{ textDecoration: 'none' }}
+            >
+              我的收藏
+            </NavLink>
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to={`/user-auction/${userid}`}
+              style={{ textDecoration: 'none' }}
+            >
+              競標查詢
+            </NavLink>
+            <NavLink
+              activeClassName="activenav"
+              className={'tab'}
+              to="/user-login"
+              onClick={() => {
+                logoutToSever()
+              }}
+              style={{ textDecoration: 'none' }}
+            >
+              登出
+            </NavLink>
+          </div>
+          <div className="u-container-fluid">
+            <div className="d-flex u-row justify-content-around">
+              <div className="u-usertitleLeft">
+                <Link to="/user-auction">競標中</Link>
+              </div>
+              <div className="u-usertitleRight">
+                <Link to="/user-auctionOver">已得標</Link>
+              </div>
             </div>
           </div>
-        </div>
-        {memAucOrderData.map((AucOrderData, i) => (
-          <>
-            <div className="uAucO-main">
-              <div className="uAucO-picture">
-                <img
-                  src={`http://localhost:6005/aucpics/auc/${memAucOrderData[i].aucImg}`}
-                  alt="Background"
+          {memAucOrderData.map((AucOrderData, i) => (
+            <>
+              <div className="uAucO-main">
+                <div className="uAucO-picture">
+                  <img
+                    src={`http://localhost:6005/aucpics/auc/${memAucOrderData[i].aucImg}`}
+                    alt="Background"
+                  />
+                </div>
+                <div className="uAucO-productState">
+                  <ul>
+                    <li>
+                      商品編號:{memAucOrderData[i].aucId}
+                    </li>
+                    <li>
+                      競標商品：{memAucOrderData[i].aucName}
+                    </li>
+                    <li>
+                      得標價格：NT${' '}
+                      {memAucOrderData[i].orderPrice}
+                    </li>
+                  </ul>
+                </div>
+                <div className="uAucO-btnf">
+                  <button className="uAucO-btnA">
+                    拍賣品細節
+                  </button>
+                  <button
+                    className="uAucO-btnB"
+                    onClick={(e) => {
+                      orderShowAAA(i)
+                    }}
+                  >
+                    訂單明細
+                  </button>
+                </div>
+              </div>
+              {console.log('下面細節', showOrderList[i])}
+              <div
+                className="uAucO-detail"
+                style={{ display: `${showOrderList[i]}` }}
+              >
+                <div className="uAucO-detail-Title">
+                  訂單明細
+                </div>
+                <div className="uAuc-detail-contentA">
+                  <ul>
+                    <li>訂單編號</li>
+                    <li>結標時間</li>
+                    <li>收件人</li>
+                    <li>手機號碼</li>
+                    <li>訂單狀態</li>
+                  </ul>
+                  <ul>
+                    {/* {const day = new Date(memAucOrderData[i].username)} */}
+                    <li>{memAucOrderData[i].orderId}</li>
+                    <li>
+                      {memAucOrderData[i].aucDeadline}
+                    </li>
+                    <li>{memAucOrderData[i].username}</li>
+                    <li>{memAucOrderData[i].userPhone}</li>
+                    <li>{orderStatus[i]}</li>
+                  </ul>
+                  <ul>
+                    <li>付款方式</li>
+                    <li>運送方式</li>
+                    <li>總金額</li>
+                  </ul>
+                  <ul>
+                    <li>信用卡</li>
+                    <li>{memAucOrderData[i].orderShip}</li>
+                    <li>
+                      {parseInt(
+                        memAucOrderData[i].orderPrice
+                      ) + 80}
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </>
+          ))}
+          <div>
+            <Row className="justify-content-center eng-font-regular mt-5 py-5">
+              <Link
+                className="ed-pagenum mx-3"
+                onClick={previouspage}
+              >
+                <IoIosArrowBack />
+              </Link>
+              {showPages.map((pageNumber, i) => (
+                <PageNumber
+                  key={i}
+                  pages={pages}
+                  setPages={setPages}
+                  pagesinfo={pagesinfo}
+                  currentPage={showPages[i]}
+                  showPages={showPages}
+                  setShowPages={setShowPages}
                 />
-              </div>
-              <div className="uAucO-productState">
-                <ul>
-                  <li>商品編號:{memAucOrderData[i].aucId}</li>
-                  <li>
-                    競標商品：{memAucOrderData[i].aucName}
-                  </li>
-                  <li>得標價格：NT$ {memAucOrderData[i].orderPrice}</li>
-                </ul>
-              </div>
-              <div className="uAucO-btnf">
-                <button className="uAucO-btnA">
-                  拍賣品細節
-                </button>
-                <button className="uAucO-btnB" onClick={(e) => {orderShowAAA(i)}}>訂單明細</button>
-              </div>
-            </div>
-            {console.log('下面細節',showOrderList[i])}
-            <div className="uAucO-detail" style={{display:`${showOrderList[i]}`}} >
-              <div className="uAucO-detail-Title">訂單明細</div>
-              <div className="uAuc-detail-contentA">
-                <ul>
-                  <li>訂單編號</li>
-                  <li>結標時間</li>
-                  <li>收件人</li>
-                  <li>手機號碼</li>
-                  <li>訂單狀態</li>
-                </ul>
-                <ul>
-                  {/* {const day = new Date(memAucOrderData[i].username)} */}
-                  <li>{memAucOrderData[i].orderId}</li>
-                  <li>{memAucOrderData[i].aucDeadline}</li>
-                  <li>{memAucOrderData[i].username}</li>
-                  <li>{memAucOrderData[i].userPhone}</li>
-                  <li>{orderStatus[i]}</li>
-                </ul>
-                <ul>
-                  <li>付款方式</li>
-                  <li>運送方式</li>
-                  <li>總金額</li>
-                </ul>
-                <ul>
-                  <li>信用卡</li>
-                  <li>{memAucOrderData[i].orderShip}</li>
-                  <li>{parseInt(memAucOrderData[i].orderPrice) + 80}</li>
-                </ul>
-              </div>
-            </div>
-          </>
-        ))}
-        <div>
-          <Row className="justify-content-center eng-font-regular mt-5 py-5">
-            <Link
-              className="ed-pagenum mx-3"
-              onClick={previouspage}
-            >
-              <IoIosArrowBack />
-            </Link>
-            {showPages.map((pageNumber, i) => (
-              <PageNumber
-                key={i}
-                pages={pages}
-                setPages={setPages}
-                pagesinfo={pagesinfo}
-                currentPage={showPages[i]}
-                showPages={showPages}
-                setShowPages={setShowPages}
-              />
-            ))}
-            <Link
-              className="ed-pagenum mx-3"
-              onClick={nextpage}
-            >
-              <IoIosArrowForward />
-            </Link>
-          </Row>
+              ))}
+              <Link
+                className="ed-pagenum mx-3"
+                onClick={nextpage}
+              >
+                <IoIosArrowForward />
+              </Link>
+            </Row>
+          </div>
         </div>
       </div>
-    </div>
-  </>
+    </>
   )
 }
 

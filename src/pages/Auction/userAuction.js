@@ -27,7 +27,7 @@ import {
 
 function UserAuction(props) {
   // const userid = props.match.params.userid
-  const [userid,setUserId] = useState('')
+  const [userid, setUserId] = useState('')
   const [memAucData, setMemAucData] = useState([])
   const [count, setCount] = useState(0)
   const [aucRemainT, setAucRemainT] = useState([])
@@ -87,21 +87,23 @@ function UserAuction(props) {
     //從資料庫抓取資料
     getMemAucDetailFromServer(userid)
   }, [pages, userid])
-  
+
   //驗證身分
   async function getjwtvertifyFromServer() {
+    const token = localStorage.getItem('token')
 
-    const token = localStorage.getItem('token');
-
-    const response = await fetch('http://localhost:6005/users/checklogin', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        token
-      })
-    });
+    const response = await fetch(
+      'http://localhost:6005/users/checklogin',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          token,
+        }),
+      }
+    )
 
     const data = await response.json()
     console.log(data)
@@ -231,7 +233,10 @@ function UserAuction(props) {
       {console.log(aucRemainT)}
       <div className="u-body-flex">
         <div className="u-body">
-          <Logoheader />
+          <Logoheader
+            user_id={userid}
+            show_user_name={true}
+          />
           <div className="u-breadcrumb">
             <Breadcrumb />
           </div>
