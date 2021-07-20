@@ -21,6 +21,7 @@ import {
   IoMdAdd,
   IoMdRemove,
 } from 'react-icons/io'
+import Display from '../event/components/tetris/Display'
 
 function UserAuctionOver(props) {
   // const userid = props.match.params.userid
@@ -38,12 +39,14 @@ function UserAuctionOver(props) {
   const [memAucOrderData, setMemAucOrderData] = useState([])
   const [orderStatus, setOrderStatus] = useState([])
 
+  const [showOrderList, setShowOrderList] = useState([])
+
   async function getMemAucDetailFromServer(userid) {
     // 開啟載入指示
     // setDataLoading(true)
     // 連接的伺服器資料網址
     const url =
-      `http://localhost:6005/auctoin/auc-order` + `?userId=${userid}`+ `&pages=${pages}`
+      `http://localhost:6005/auctoin/auc-order` + `?userId=${userid}` + `&pages=${pages}`
     // `&pages=${pages}`
 
     // 注意header資料格式要設定，伺服器才知道是json格式
@@ -71,23 +74,28 @@ function UserAuctionOver(props) {
       }
       setShowPages(pagelength)
     }
-    console.log(data.rows.length)
-    let a = [] 
+
+    let a = []
     for (let i = 0; i < data.rows.length; i++) {
       if (data.rows[i].orderStatus === 0) {
         a.push('待出貨')
-        console.log(orderStatus)
       }
       if (data.rows[i].orderStatus === 1) {
         a.push('已出貨')
-        console.log(orderStatus)
       }
       if (data.rows[i].orderStatus === 2) {
         a.push('已取消')
-        console.log(orderStatus)
       }
     }
     setOrderStatus(a)
+
+    let b = [];
+    for (let i = 0; i < data.rows.length; i++) {
+      b.push('none')
+    }
+    
+    console.log(b)
+    setShowOrderList(b)
   }
 
   async function logoutToSever() {
@@ -178,7 +186,25 @@ function UserAuctionOver(props) {
     }
   }
 
-  useEffect(async () => {
+  //顯示訂單
+  const orderShowAAA = (i) => {
+
+    if (showOrderList[i] == 'none') {
+      let newshowOrderList = [...showOrderList]
+      newshowOrderList[i] = 'block'
+      setShowOrderList(newshowOrderList)
+    }else{
+      let newshowOrderList = [...showOrderList]
+      newshowOrderList[i] = 'none'
+      setShowOrderList(newshowOrderList)
+    }
+  }
+
+  // const uAucO_detail_buttonStyle = {
+  //   display: showOrderList
+  // }
+  
+  useEffect(async () => { 
     await getjwtvertifyFromServer()
   }, [])
 
@@ -187,10 +213,11 @@ function UserAuctionOver(props) {
     getMemAucDetailFromServer(userid)
   }, [pages, userid])
 
-  console.log(orderStatus)
   return (
+    <>
+    {console.log(showOrderList)}
     <div>
-      <div className="u-body">
+      <div className="auc-body">
         <Logoheader />
         <div className="u-breadcrumb">
           <Breadcrumb />
@@ -267,11 +294,15 @@ function UserAuctionOver(props) {
             </div>
           </div>
         </div>
-        {console.log(orderStatus)}
         {memAucOrderData.map((AucOrderData, i) => (
           <>
             <div className="uAucO-main">
-              <div className="uAucO-picture"></div>
+              <div className="uAucO-picture">
+                <img
+                  src={`http://localhost:6005/aucpics/auc/${memAucOrderData[i].aucImg}`}
+                  alt="Background"
+                />
+              </div>
               <div className="uAucO-productState">
                 <ul>
                   <li>商品編號:{memAucOrderData[i].aucId}</li>
@@ -285,10 +316,11 @@ function UserAuctionOver(props) {
                 <button className="uAucO-btnA">
                   拍賣品細節
                 </button>
-                <button className="uAucO-btnB">訂單明細</button>
+                <button className="uAucO-btnB" onClick={(e) => {orderShowAAA(i)}}>訂單明細</button>
               </div>
             </div>
-            <div className="uAucO-detail">
+            {console.log('下面細節',showOrderList[i])}
+            <div className="uAucO-detail" style={{display:`${showOrderList[i]}`}} >
               <div className="uAucO-detail-Title">訂單明細</div>
               <div className="uAuc-detail-contentA">
                 <ul>
@@ -314,41 +346,42 @@ function UserAuctionOver(props) {
                 <ul>
                   <li>信用卡</li>
                   <li>{memAucOrderData[i].orderShip}</li>
-                  <li>{parseInt(memAucOrderData[i].orderPrice)+80}</li>
+                  <li>{parseInt(memAucOrderData[i].orderPrice) + 80}</li>
                 </ul>
               </div>
             </div>
           </>
         ))}
         <div>
-            <Row className="justify-content-center eng-font-regular mt-5 py-5">
-              <Link
-                className="ed-pagenum mx-3"
-                onClick={previouspage}
-              >
-                <IoIosArrowBack />
-              </Link>
-              {showPages.map((pageNumber, i) => (
-                <PageNumber
-                  key={i}
-                  pages={pages}
-                  setPages={setPages}
-                  pagesinfo={pagesinfo}
-                  currentPage={showPages[i]}
-                  showPages={showPages}
-                  setShowPages={setShowPages}
-                />
-              ))}
-              <Link
-                className="ed-pagenum mx-3"
-                onClick={nextpage}
-              >
-                <IoIosArrowForward />
-              </Link>
-            </Row>
-          </div>
+          <Row className="justify-content-center eng-font-regular mt-5 py-5">
+            <Link
+              className="ed-pagenum mx-3"
+              onClick={previouspage}
+            >
+              <IoIosArrowBack />
+            </Link>
+            {showPages.map((pageNumber, i) => (
+              <PageNumber
+                key={i}
+                pages={pages}
+                setPages={setPages}
+                pagesinfo={pagesinfo}
+                currentPage={showPages[i]}
+                showPages={showPages}
+                setShowPages={setShowPages}
+              />
+            ))}
+            <Link
+              className="ed-pagenum mx-3"
+              onClick={nextpage}
+            >
+              <IoIosArrowForward />
+            </Link>
+          </Row>
+        </div>
       </div>
     </div>
+  </>
   )
 }
 

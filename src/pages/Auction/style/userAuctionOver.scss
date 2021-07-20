@@ -1,3 +1,11 @@
+.auc-body {
+    font-family: 'Noto Sans TC Medium', sans-serif;
+    width: calc(100% - 70px);
+    height: 100%;
+    background-color: #e8e8e8;
+    padding: 0 10vw;
+  }
+
 .uAucO-main{
     margin:50px 0 0 0;
     border: 2px solid #000;
@@ -55,6 +63,7 @@
 }
 
 .uAucO-detail{
+    // display: none;
     margin:30px 0 0 30%;
     border: 2px solid #707070;
     // border-top: 50px solid #707070;
@@ -84,4 +93,15 @@
 
 .uAuc-detail-contentA li{
     margin: 10px 0 0 0;
+}
+
+.uAucO-picture{
+    width: 175px;
+    height: 175px;
+    margin: 25px 0 0 25px;
+    border:1px solid #000;
+    img{
+        width: 100%;
+        height: 100%;
+    }
 }

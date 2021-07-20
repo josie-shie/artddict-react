@@ -136,10 +136,6 @@ function AuctionDetail(props) {
     }
   }, [socket, bidersInfo])
 
-  useEffect(() => {
-
-  }, [bidersInfo])
-
   //發送出價消息
   const bidPrice = () => {
     // console.log("inputbidPrice", inputbidPrice)
