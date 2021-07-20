@@ -185,8 +185,35 @@ import { IoIosCopy } from 'react-icons/io'
 
 function Coupon(props) {
   const userid = props.match.params.userid
-  async function copy() {
+  async function copy_one() {
     const copyEle = document.querySelector('.contentText')
+    const range = document.createRange()
+    window.getSelection().removeAllRanges()
+    range.selectNode(copyEle)
+    window.getSelection().addRange(range) // 加上選取範圍
+
+    const copyStatus = document.execCommand('Copy')
+    // const copyStatus = 0;
+    if (copyStatus) {
+      var coupon_msg = '複製成功'
+      var msg_type = 'success'
+    } else {
+      var coupon_msg = '複製失敗'
+      var msg_type = 'error'
+    }
+
+    swal({
+      text: coupon_msg,
+      icon: msg_type,
+      button: false,
+      timer: 1500,
+    })
+
+    window.getSelection().removeAllRanges() // 取消選取範圍
+  }
+
+  async function copy_two() {
+    const copyEle = document.querySelector('.contentText1')
     const range = document.createRange()
     window.getSelection().removeAllRanges()
     range.selectNode(copyEle)
@@ -239,7 +266,7 @@ function Coupon(props) {
   }
   return (
     <div className="u-body">
-      <Logoheader />
+      <Logoheader user_id={userid} show_user_name={true} />
       <div className="u-breadcrumb">
         <Breadcrumb />
       </div>
@@ -338,7 +365,7 @@ function Coupon(props) {
                 {/* <button onClick={this.copy}> */}
                 <button
                   onClick={() => {
-                    copy()
+                    copy_one()
                   }}
                 >
                   <IoIosCopy /> 複製
@@ -348,7 +375,7 @@ function Coupon(props) {
           </div>
         </div>
 
-        <div className="col-6">
+        {/* <div className="col-6">
           <div className="u-couponbox d-flex">
             <div class="u-Text col-6">
               <div class="u-couponTitle">
@@ -368,15 +395,15 @@ function Coupon(props) {
             </div>
             <div class="u-couponBtn col">
               <div class="u-SNnumbox">
-                <p type="copy" className="contentText">
+                <p type="copy" className="contentText1">
                   DFg2FW
                 </p>
               </div>
               <div class="u-cobyBtn">
                 {/* <button onClick={this.copy}> */}
-                <button
+        {/* <button
                   onClick={() => {
-                    copy()
+                    copy_two()
                   }}
                 >
                   <IoIosCopy /> 複製
@@ -384,7 +411,7 @@ function Coupon(props) {
               </div>
             </div>
           </div>
-        </div>
+        </div>  */}
       </Row>
     </div>
   )

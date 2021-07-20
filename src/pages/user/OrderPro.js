@@ -9,6 +9,7 @@ import swal from 'sweetalert'
 import axios from 'axios'
 
 function OrderPro(props) {
+  const [membername, setMemberName] = useState('')
   const [orders, setOrders] = useState([])
   const [allorders, setAllorders] = useState([])
   const userid = props.match.params.userid
@@ -29,6 +30,8 @@ function OrderPro(props) {
     // use orders => map div classes
     setOrders(data)
     setAllorders(data)
+    setMemberName(data.name)
+    console.log('setmember=', data.name)
   }
 
   useEffect(() => {
@@ -274,7 +277,10 @@ function OrderPro(props) {
     return (
       <>
         <div className="u-body">
-          <Logoheader />
+          <Logoheader
+            user_id={userid}
+            show_user_name={true}
+          />
           <div className="u-breadcrumb">
             <Breadcrumb />
           </div>

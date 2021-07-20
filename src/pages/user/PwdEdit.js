@@ -11,6 +11,7 @@ import swal from 'sweetalert'
 
 function PwdEdit(props) {
   const userid = props.match.params.userid
+
   const [dataLoading, setDataLoading] = useState(false)
   const [password, setPassword] = useState('')
   const [newPwd1, setNewPwd1] = useState('')
@@ -172,7 +173,10 @@ function PwdEdit(props) {
   const display = (
     <>
       <div className="u-body">
-        <Logoheader />
+        <Logoheader
+          user_id={userid}
+          show_user_name={true}
+        />
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>

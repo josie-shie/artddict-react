@@ -8,12 +8,15 @@ import './styles/WorkShop.scss'
 import TicketDetail from './TicketDetail'
 
 function WorkShop(props) {
-  const id = props.match.params.userid
+  const userid = props.match.params.userid
   const [modalShow, setModalShow] = React.useState(false)
   return (
     <>
       <div className="u-body">
-        <Logoheader />
+        <Logoheader
+          user_id={userid}
+          show_user_name={true}
+        />
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
@@ -25,7 +28,7 @@ function WorkShop(props) {
           <NavLink
             activeClassName="activenav"
             className={'tab'}
-            to={`/user-msgedit/${id}`}
+            to={`/user-msgedit/${userid}`}
             style={{ textDecoration: 'none' }}
           >
             修改資料
@@ -34,7 +37,7 @@ function WorkShop(props) {
           <NavLink
             activeClassName="activenav"
             className={'tab'}
-            to={`/user-orderpro/${id}`}
+            to={`/user-orderpro/${userid}`}
             style={{ textDecoration: 'none' }}
           >
             訂單查詢
@@ -42,7 +45,7 @@ function WorkShop(props) {
           <NavLink
             activeClassName="activenav"
             className={'tab'}
-            to={`/user-coupon/${id}`}
+            to={`/user-coupon/${userid}`}
             style={{ textDecoration: 'none' }}
           >
             我的優惠券
@@ -50,7 +53,7 @@ function WorkShop(props) {
           <NavLink
             activeClassName="activenav"
             className={'tab'}
-            to={`/user-ticket/${id}`}
+            to={`/user-ticket/${userid}`}
             style={{
               textDecoration: 'none',
               background: 'black',
@@ -62,7 +65,7 @@ function WorkShop(props) {
           <NavLink
             activeClassName="activenav"
             className={'tab'}
-            to={`/user-myfav/${id}`}
+            to={`/user-myfav/${userid}`}
             style={{ textDecoration: 'none' }}
           >
             我的收藏
@@ -91,10 +94,12 @@ function WorkShop(props) {
         <Container fluid>
           <div className="d-flex u-row justify-content-around">
             <div className="u-userEve1">
-              <Link to={`/user-ticket/${id}`}>活動展</Link>
+              <Link to={`/user-ticket/${userid}`}>
+                活動展
+              </Link>
             </div>
             <div className="u-userWshop1">
-              <Link to={`/user-workshop/${id}`}>
+              <Link to={`/user-workshop/${userid}`}>
                 工作坊
               </Link>
             </div>

@@ -57,6 +57,7 @@ function UserEdit(props) {
     setGender(data.gender)
     setMobile(data.mobile)
     setId(data.id)
+
     // setBirthday(data.birthday)
     if (data.birthday != null) {
       const myDate = new Date(data.birthday)
@@ -183,6 +184,7 @@ function UserEdit(props) {
     <>
       <div className="u-body">
         <Logoheader />
+
         <div className="d-flex justify-content-center">
           <div className="spinner-border" role="status">
             <span className="sr-only">Loading...</span>
@@ -195,7 +197,15 @@ function UserEdit(props) {
   const display = (
     <>
       <div className="u-body">
-        <Logoheader />
+        <div className="">
+          <div>
+            <Logoheader
+              user_id={userid}
+              show_user_name={true}
+            />
+          </div>
+        </div>
+
         <div className="u-breadcrumb">
           <Breadcrumb />
         </div>
@@ -279,6 +289,7 @@ function UserEdit(props) {
               <div className="form-group u-form1 cn-font">
                 <label for="username">帳號</label>
                 <input
+                  readOnly
                   value={username}
                   type="email"
                   className="form-control"

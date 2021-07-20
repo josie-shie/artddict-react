@@ -132,7 +132,7 @@ function Login(props) {
   const display = (
     <>
       <div className="u-body">
-        <Logoheader />
+        <Logoheader show_user_name={false} />
         <Container className="d-flex">
           <div className="u-contanier1 col-lg-6 d-none d-lg-block d-xl-block">
             <div className="u-img-carousel">

@@ -259,7 +259,10 @@ function Ticket(props) {
     return (
       <>
         <div className="u-body">
-          <Logoheader />
+          <Logoheader
+            user_id={userid}
+            show_user_name={true}
+          />
           <div className="u-breadcrumb">
             <Breadcrumb />
           </div>
