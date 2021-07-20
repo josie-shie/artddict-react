@@ -1,20 +1,49 @@
-import React from 'react'
 import './style/userAuctionOver.scss'
 import Logoheader from './components/Logoheader'
 import Breadcrumb from '../user/components/UserBreadcrumb'
 import { withRouter, Link, NavLink } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import PageNumber from './components/pageNumber'
 // SweetAlert
 import swal from 'sweetalert'
+import {
+  Container,
+  Row,
+  Button,
+  Collapse,
+} from 'react-bootstrap'
+import {
+  IoIosArrowBack,
+  IoIosArrowForward,
+  IoIosArrowRoundDown,
+  IoIosSearch,
+  IoIosHeart,
+  IoMdAdd,
+  IoMdRemove,
+} from 'react-icons/io'
 
-function userAuctionOver(props) {
-  const userid = props.match.params.userid
-  async function getMemAucDetailFromServer(id) {
+function UserAuctionOver(props) {
+  // const userid = props.match.params.userid
+  //頁碼
+  //該頁頁碼
+  const [pages, setPages] = useState([])
+  //頁碼資料
+  const [pagesinfo, setPagesInfo] = useState('')
+  //顯示的頁碼
+  const [showPages, setShowPages] = useState([
+    1, 2, 3, 4, 5,
+  ])
+
+  const [userid, setUserId] = useState('')
+  const [memAucOrderData, setMemAucOrderData] = useState([])
+  const [orderStatus, setOrderStatus] = useState([])
+
+  async function getMemAucDetailFromServer(userid) {
     // 開啟載入指示
     // setDataLoading(true)
     // 連接的伺服器資料網址
     const url =
-      `http://localhost:6005/auctoin/auc_member` +
-      `?id=${id}`
+      `http://localhost:6005/auctoin/auc-order` + `?userId=${userid}`+ `&pages=${pages}`
     // `&pages=${pages}`
 
     // 注意header資料格式要設定，伺服器才知道是json格式
@@ -29,9 +58,9 @@ function userAuctionOver(props) {
     const response = await fetch(request)
     const data = await response.json()
     // //設定資料
-    // setMemAucData(data.rows)
+    setMemAucOrderData(data.rows)
     // //設定頁數資料
-    // setPagesInfo(data)
+    setPagesInfo(data)
 
     console.log(data)
     //設定頁碼
@@ -40,8 +69,25 @@ function userAuctionOver(props) {
       for (let i = 0; i < data.totalPages; i++) {
         pagelength.push(i + 1)
       }
-      // setShowPages(pagelength)
+      setShowPages(pagelength)
     }
+    console.log(data.rows.length)
+    let a = [] 
+    for (let i = 0; i < data.rows.length; i++) {
+      if (data.rows[i].orderStatus === 0) {
+        a.push('待出貨')
+        console.log(orderStatus)
+      }
+      if (data.rows[i].orderStatus === 1) {
+        a.push('已出貨')
+        console.log(orderStatus)
+      }
+      if (data.rows[i].orderStatus === 2) {
+        a.push('已取消')
+        console.log(orderStatus)
+      }
+    }
+    setOrderStatus(a)
   }
 
   async function logoutToSever() {
@@ -70,6 +116,78 @@ function userAuctionOver(props) {
     // const data = await response.json()
   }
 
+  //驗證身分
+  async function getjwtvertifyFromServer() {
+
+    const token = localStorage.getItem('token');
+
+    const response = await fetch('http://localhost:6005/users/checklogin', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        token
+      })
+    });
+
+    const data = await response.json()
+    console.log(data)
+    setUserId(data.id)
+  }
+
+  //下一頁
+  const nextpage = () => {
+    if (pages < pagesinfo.totalPages) {
+      let nowcurrentPage = pages + 1
+      setPages(pages + 1)
+      if (
+        nowcurrentPage > 2 &&
+        nowcurrentPage < pagesinfo.totalPages - 1 &&
+        pagesinfo.totalPages > 5
+      ) {
+        setShowPages([
+          nowcurrentPage - 2,
+          nowcurrentPage - 1,
+          nowcurrentPage,
+          nowcurrentPage + 1,
+          nowcurrentPage + 2,
+        ])
+      }
+    }
+  }
+
+  //上一頁
+  const previouspage = () => {
+    if (pages > 1) {
+      let nowcurrentPage = pages - 1
+      setPages(pages - 1)
+      if (
+        nowcurrentPage > 2 &&
+        nowcurrentPage < pagesinfo.totalPages - 1 &&
+        pagesinfo.totalPages > 5
+      ) {
+        setShowPages([
+          nowcurrentPage - 2,
+          nowcurrentPage - 1,
+          nowcurrentPage,
+          nowcurrentPage + 1,
+          nowcurrentPage + 2,
+        ])
+      }
+    }
+  }
+
+  useEffect(async () => {
+    await getjwtvertifyFromServer()
+  }, [])
+
+  useEffect(() => {
+    //從資料庫抓取資料
+    getMemAucDetailFromServer(userid)
+  }, [pages, userid])
+
+  console.log(orderStatus)
   return (
     <div>
       <div className="u-body">
@@ -149,59 +267,89 @@ function userAuctionOver(props) {
             </div>
           </div>
         </div>
-        <div className="uAucO-main">
-          <div className="uAucO-picture"></div>
-          <div className="uAucO-productState">
-            <ul>
-              <li>競標編號:A956722</li>
-              <li>
-                競標商品：BTS 麥當勞飲料杯 防彈少年團聯名
-                不防彈款
-              </li>
-              <li>您的出價：NT$ 340</li>
-            </ul>
+        {console.log(orderStatus)}
+        {memAucOrderData.map((AucOrderData, i) => (
+          <>
+            <div className="uAucO-main">
+              <div className="uAucO-picture"></div>
+              <div className="uAucO-productState">
+                <ul>
+                  <li>商品編號:{memAucOrderData[i].aucId}</li>
+                  <li>
+                    競標商品：{memAucOrderData[i].aucName}
+                  </li>
+                  <li>得標價格：NT$ {memAucOrderData[i].orderPrice}</li>
+                </ul>
+              </div>
+              <div className="uAucO-btnf">
+                <button className="uAucO-btnA">
+                  拍賣品細節
+                </button>
+                <button className="uAucO-btnB">訂單明細</button>
+              </div>
+            </div>
+            <div className="uAucO-detail">
+              <div className="uAucO-detail-Title">訂單明細</div>
+              <div className="uAuc-detail-contentA">
+                <ul>
+                  <li>訂單編號</li>
+                  <li>結標時間</li>
+                  <li>收件人</li>
+                  <li>手機號碼</li>
+                  <li>訂單狀態</li>
+                </ul>
+                <ul>
+                  {/* {const day = new Date(memAucOrderData[i].username)} */}
+                  <li>{memAucOrderData[i].orderId}</li>
+                  <li>{memAucOrderData[i].aucDeadline}</li>
+                  <li>{memAucOrderData[i].username}</li>
+                  <li>{memAucOrderData[i].userPhone}</li>
+                  <li>{orderStatus[i]}</li>
+                </ul>
+                <ul>
+                  <li>付款方式</li>
+                  <li>運送方式</li>
+                  <li>總金額</li>
+                </ul>
+                <ul>
+                  <li>信用卡</li>
+                  <li>{memAucOrderData[i].orderShip}</li>
+                  <li>{parseInt(memAucOrderData[i].orderPrice)+80}</li>
+                </ul>
+              </div>
+            </div>
+          </>
+        ))}
+        <div>
+            <Row className="justify-content-center eng-font-regular mt-5 py-5">
+              <Link
+                className="ed-pagenum mx-3"
+                onClick={previouspage}
+              >
+                <IoIosArrowBack />
+              </Link>
+              {showPages.map((pageNumber, i) => (
+                <PageNumber
+                  key={i}
+                  pages={pages}
+                  setPages={setPages}
+                  pagesinfo={pagesinfo}
+                  currentPage={showPages[i]}
+                  showPages={showPages}
+                  setShowPages={setShowPages}
+                />
+              ))}
+              <Link
+                className="ed-pagenum mx-3"
+                onClick={nextpage}
+              >
+                <IoIosArrowForward />
+              </Link>
+            </Row>
           </div>
-          <div className="uAucO-btnf">
-            <button className="uAucO-btnA">
-              拍賣品細節
-            </button>
-            <button className="uAucO-btnB">訂單明細</button>
-          </div>
-        </div>
-        <div className="uAucO-detail">
-          <div className="uAucO-detail-Title">訂單明細</div>
-          <div className="uAuc-detail-contentA">
-            <ul>
-              <li>競標編號</li>
-              <li>得標時間</li>
-              <li>收件人</li>
-              <li>手機編號</li>
-              <li>訂單狀態</li>
-            </ul>
-            <ul>
-              <li>A956722</li>
-              <li>2021-03-22</li>
-              <li>gy哥</li>
-              <li>09123456789</li>
-              <li>帶取貨</li>
-            </ul>
-            <ul>
-              <li>付款方式</li>
-              <li>付款狀態</li>
-              <li>運費</li>
-              <li>總金額</li>
-            </ul>
-            <ul>
-              <li>信用卡</li>
-              <li>已付款</li>
-              <li>NT$ 80</li>
-              <li>NT$ 860</li>
-            </ul>
-          </div>
-        </div>
       </div>
     </div>
   )
 }
 
-export default withRouter(userAuctionOver)
+export default withRouter(UserAuctionOver)
