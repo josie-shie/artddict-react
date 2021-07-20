@@ -134,6 +134,25 @@ function ProductList() {
     })
   })
 
+  $('.pro-index-heart1').click(function () {
+    let color = 0
+    if (!color) {
+      $(this).addClass('pro-index-heart2')
+    }
+    if (color) {
+      $(this).removeClass('pro-index-heart2')
+    }
+  })
+
+  // $('.pro-index-heart1').toggle(
+  //   function () {
+  //     $(this).css('color', '#81FC4D')
+  //   },
+  //   function () {
+  //     $(this).css('color', 'white')
+  //   }
+  // )
+
   // ----------------加入購物車---------------
   /**
    * 更新 event Cookie
@@ -214,6 +233,18 @@ function ProductList() {
     }, 200)
   }
 
+  function checkCheckheart() {
+    setTimeout(() => {
+      setSendBox(false)
+      swal({
+        text: '成功加入我的收藏！',
+        icon: 'success',
+        button: false,
+        timer: 3000,
+      })
+    }, 200)
+  }
+
   // -----------productId callback-----
   useEffect(() => {
     onCookie({ sqlProductId }, { qtyNum }, { sizeGary })
@@ -262,7 +293,21 @@ function ProductList() {
                 </Link>
               </div>
               <div className="pro-index-heart col-4">
-                <IoIosHeart size={'20'} />
+                <Link
+                  style={{
+                    decoration: 'none',
+                    color: 'white',
+                  }}
+                >
+                  <IoIosHeart
+                    size={'20'}
+                    className="pro-index-heart1"
+                    onClick={(e) => {
+                      e.preventDefault()
+                      checkCheckheart()
+                    }}
+                  />
+                </Link>
               </div>
             </div>
           </div>

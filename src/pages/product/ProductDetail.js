@@ -12,7 +12,7 @@ import Cookies from 'universal-cookie'
 
 import { Link, withRouter } from 'react-router-dom'
 import '../../bootstrap/css/bootstrap.css'
-import { Button, Collapse } from 'react-bootstrap'
+import { Button, Collapse, Modal } from 'react-bootstrap'
 import './style/ProductDetail.css'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
@@ -37,6 +37,8 @@ import product2 from './img/productDetail/product2.jpeg'
 import product3 from './img/productDetail/product3.jpeg'
 import try1 from './img/productDetail/try1.jpeg'
 import try2 from './img/productDetail/try2.jpeg'
+import SizePic from './img/productDetail/SizePic.png'
+import picsize from './img/productDetail/picsize.png'
 
 function ProductDetail(props) {
   const id = props.match.params.id
@@ -56,7 +58,7 @@ function ProductDetail(props) {
   const [product, setProduct] = useState([])
   const [proNum, setProNum] = useState('')
   const [starValue, setStarValue] = useState('')
-  const [userId, setUserId] = useState('')
+  const [userId, setUserId] = useState('tascup1')
   const [commentsBlock, setCommentsBlock] = useState([])
   const [starNum, setStarNum] = useState('')
   const [commentsNum, setCommentsNum] = useState('')
@@ -67,6 +69,11 @@ function ProductDetail(props) {
   const [recomments, setRecomments] = useState(false)
   const [sizeSelect, setSizeSelect] = useState('')
   const [newCom, setNemCom] = useState('')
+  //---------尺寸對照表
+  const [show, setShow] = useState(false)
+
+  const handleClose = () => setShow(false)
+  const handleShow = () => setShow(true)
 
   // ------------- for Gary---------
   const cookies = new Cookies()
@@ -215,6 +222,7 @@ function ProductDetail(props) {
     const data = await response.json()
     const id = props.match.params.id
     console.log('伺服器回傳的json資料', data)
+    setUserId('tascup1')
 
     setTimeout(() => {
       setSendBox(false)
@@ -232,6 +240,7 @@ function ProductDetail(props) {
     }, 500)
 
     setProNum(id)
+    setUserId('tascup1')
   }
 
   // --------swal------------確認加入購物車
@@ -283,7 +292,7 @@ function ProductDetail(props) {
                 fullIcon={<i className="fa fa-star"></i>}
               />
             </div>
-            <p className="proDe-userName">暢哥</p>
+            <p className="proDe-userName">{pro.userId}</p>
             <p className="proDe-userDate">
               {pro.created_at.split('T')[0]}
             </p>
@@ -386,6 +395,28 @@ function ProductDetail(props) {
       .siblings()
       .removeClass('sizeSelect')
   })
+
+  $('.pro-index-heart1').click(function () {
+    let color = 0
+    if (!color) {
+      $(this).addClass('pro-index-heart2')
+    }
+    if (color) {
+      $(this).removeClass('pro-index-heart2')
+    }
+  })
+
+  function checkCheckheart() {
+    setTimeout(() => {
+      setSendBox(false)
+      swal({
+        text: '成功加入我的收藏！',
+        icon: 'success',
+        button: false,
+        timer: 3000,
+      })
+    }, 200)
+  }
 
   // ----------------加入購物車---------------
   /**
@@ -495,10 +526,19 @@ function ProductDetail(props) {
                     <p>{proName}</p>
                   </div>
                   <div className="proDe-heartlogo">
-                    <Link style={{ decoration: 'none' }}>
+                    <Link
+                      style={{
+                        decoration: 'none',
+                        color: 'white',
+                      }}
+                    >
                       <IoMdHeart
+                        className="pro-index-heart1"
                         size={40}
-                        color={'#FFFFFF'}
+                        onClick={(e) => {
+                          e.preventDefault()
+                          checkCheckheart()
+                        }}
                       />
                     </Link>
                   </div>
@@ -597,9 +637,35 @@ function ProductDetail(props) {
                       <div className="proDe-sizeCheck">
                         <Link
                           style={{ textDecoration: 'none' }}
+                          onClick={handleShow}
                         >
                           <p>尺寸對照表</p>
                         </Link>
+
+                        <Modal
+                          show={show}
+                          onHide={handleClose}
+                        >
+                          <Modal.Header closeButton>
+                            <Modal.Title>
+                              尺寸對照表
+                            </Modal.Title>
+                          </Modal.Header>
+                          <Modal.Body>
+                            {' '}
+                            <div className="proDe-sizepic">
+                              <img src={picsize} alt="" />
+                            </div>
+                          </Modal.Body>
+                          <Modal.Footer>
+                            <Button
+                              variant="secondary"
+                              onClick={handleClose}
+                            >
+                              Close
+                            </Button>
+                          </Modal.Footer>
+                        </Modal>
                       </div>
                     </div>
                   ) : (
@@ -907,6 +973,27 @@ function ProductDetail(props) {
                             setComments(
                               '所謂無，關鍵是無需要如何解讀。米南德曾說過，俗知憂能老，為視鏡中絲。這句話反映了問題的急切性。若到今天結束時我們都還無法釐清無的意義，那想必我們昨天也無法釐清。若能夠欣賞到無的美，相信我們一定會對無改觀。動機，可以說是最單純的力量。'
                             )
+                          }}
+                        >
+                          自動填寫
+                        </button>
+                        <input
+                          className="pro-nametext"
+                          type="text"
+                          onChange={(e) => {
+                            setUserId(e.target.value)
+                          }}
+                        />
+                        <button
+                          className="pro-quickname2"
+                          style={{
+                            backgroundColor: '#000',
+                            color: '#000',
+                          }}
+                          type="submit"
+                          onClick={(e) => {
+                            e.preventDefault()
+                            setUserId('tascup1')
                           }}
                         >
                           自動填寫

@@ -339,16 +339,18 @@
     bottom:0%;
     transition: .5s;
   }
-
+ 
 .pro-index-card-rect div {
     color: white;
     margin: auto;
     font-family: notoSansTC-md;
     letter-spacing: 3px;
   }
-  .pro-index-card-rect div:hover{
+
+  .pro-index-heart2{
     color: #81FC4D;
   }
+
 .pro-border{
     border-right: 1px solid white;
 }
@@ -382,4 +384,8 @@
     background-color: white;;
     color:black;
  
+}
+
+.pro-index-heart{
+    
 }
