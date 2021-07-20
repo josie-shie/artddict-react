@@ -67,9 +67,13 @@ function AuctionDetail(props) {
 
   // Modal 顯示狀態
   const [show, setShow] = useState(false)
+  const [showB, setShowB] = useState(false)
   // Modal 開關 function
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
+
+  const handleCloseB = () => setShowB(false)
+  const handleShowB = () => setShowB(true)
 
   const [currentBiderPrice, setBurrentBiderPrice] = useState()
   //剩餘時間
@@ -142,7 +146,9 @@ function AuctionDetail(props) {
     // console.log("immediatePrice", immediatePrice)
     if(!memberid){
       console.log('請先登入會員')
+      handleShowB()
     }else if (inputbidPrice > immediatePrice) {
+      console.log("我出嫁了")
       socket.emit('bidPrice', { inputbidPrice, auc_Id, memberid })
     } else {
       console.log("輸入價錢過低")
@@ -458,6 +464,40 @@ function AuctionDetail(props) {
               </Modal.Footer>
             </Modal>
             {/* /***************************************** */}
+            {/* 彈出視窗 */}
+            <Modal
+              centered
+              show={showB}
+              onHide={handleCloseB}
+              id="eventModal"
+            >
+              <Modal.Header closeButton>
+                <Modal.Title>
+                  無法出價
+                </Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                <div>您目前還未登入會員,請登入會員再進行出價唷</div>
+              </Modal.Body>
+              <Modal.Footer>
+                {/* <Button
+                  type="button"
+                  className="e-btn-s e-modal-close"
+                  onClick={handleClose}
+                >
+                  關閉
+                </Button> */}
+                <Button
+                  type="button"
+                  className="e-btn-s e-modal-del"
+                  onClick={() => {
+                    handleCloseB()
+                  }}
+                >
+                  我瞭解了
+                </Button>
+              </Modal.Footer>
+            </Modal>
           </div>
         </div>
         {/* </div> */}
