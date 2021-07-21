@@ -332,12 +332,12 @@ function Ticket(props) {
             <div className="d-flex u-row justify-content-around">
               <div className="u-userEve">
                 <Link to={`/user-ticket/${userid}`}>
-                  活動展
+                  工作坊
                 </Link>
               </div>
               <div className="u-userWshop">
                 <Link to={`/user-workshop/${userid}`}>
-                  工作坊
+                  活動展
                 </Link>
               </div>
             </div>
