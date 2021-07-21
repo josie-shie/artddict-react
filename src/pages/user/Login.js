@@ -108,10 +108,15 @@ function Login(props) {
       return false
     }
   }
-const fastuserlogin = () =>{
-  setUsername('artddict123@gmail.com')
-  setPassword('556788123')
-}
+  const fastuserlogin = () => {
+    setUsername('artddict123@gmail.com')
+    setPassword('556788123')
+  }
+
+  const userData = () => {
+    setUsername('aa5433@gmail.com')
+    setPassword('556788123')
+  }
 
   const loading = (
     <>
@@ -184,7 +189,10 @@ const fastuserlogin = () =>{
             </div>
             <div className="u-title01">
               <span>加入會員</span>
-              <button className="fastuserlogin" onClick={fastuserlogin}></button>
+              <button
+                className="fastuserlogin"
+                onClick={fastuserlogin}
+              ></button>
             </div>
             <div className="u-title02">
               <span>精選好物盡在ArtDDICT</span>
@@ -254,6 +262,10 @@ const fastuserlogin = () =>{
                   </Link>
                 </div>
               </form>
+              <button
+                className="userData"
+                onClick={userData}
+              ></button>
             </div>
           </div>
         </Container>
