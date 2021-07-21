@@ -12,6 +12,7 @@ import { RiArrowRightSLine } from 'react-icons/ri'
 function CartProductFinish(props) {
   const orderId = props.sentorder
   const orderItems = props.displaycartitems
+  const discount = props.discount
 
   // 定義要列出的資料
   // orders內容
@@ -89,7 +90,6 @@ function CartProductFinish(props) {
     // 設定資料
     setProId(data2.proId)
     setProQty(data2.orderQty)
-
   }
 
   // 呼叫剛剛的assync func
@@ -161,7 +161,12 @@ function CartProductFinish(props) {
                 <td>折扣碼：- NT$ 50</td>
               </tr> */}
             <tr>
-              <td>總價：NT$ {total}</td>
+              <td>折扣碼：- NT$ {discount}</td>
+            </tr>
+            <tr>
+              <td className="c-td-dark">
+                總價：NT$ {total}
+              </td>
             </tr>
             <tr>
               <td className="d-flex flex-column">

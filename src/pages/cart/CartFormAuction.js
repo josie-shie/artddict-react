@@ -202,7 +202,7 @@ function CartFormProduct() {
       useraddress: whole_address,
       ordership,
       orderstatus: '0',
-      orderprice: itemsPrice + shipfee,
+      orderprice: itemsPrice + shipfee - discount,
       ordertype: 'c',
     }
 
@@ -331,9 +331,41 @@ function CartFormProduct() {
     setDisplayCartItems(temp)
   }
 
+  // 定義coupon
   useEffect(() => {
     getEventIdServer('', '', '')
+    const couponcode = getUrlParameter('coupon')
+    setCoupon(couponcode)
+    if (couponcode == 'tru4r8') {
+      setDiscount(300)
+    } else if (couponcode == 'DFg2FW') {
+      setDiscount(100)
+    } else {
+      setDiscount(0)
+    }
   }, [])
+  const [coupon, setCoupon] = useState('')
+  const [discount, setDiscount] = useState(0)
+
+  // 從url抓出折扣碼
+  function getUrlParameter(sParam) {
+    // sParam就是key
+    var sPageURL = window.location.search.substring(1),
+      sURLVariables = sPageURL.split('&'),
+      sParameterName,
+      i
+
+    for (i = 0; i < sURLVariables.length; i++) {
+      sParameterName = sURLVariables[i].split('=')
+
+      if (sParameterName[0] === sParam) {
+        return typeof sParameterName[1] === undefined
+          ? true
+          : decodeURIComponent(sParameterName[1])
+      }
+    }
+    return false
+  }
 
   return (
     <>
@@ -739,20 +771,51 @@ function CartFormProduct() {
                 <p className="mr-auto">運費小計</p>
                 <p>NT$ {shipfee}</p>
               </div>
-              <div className="c-bb d-flex align-items-baseline pb-4 px-3 mb-4">
-                <p className="mr-3">折扣碼 - 五月優惠</p>
-                <a
-                  href="##"
-                  className="mr-auto c-store pb-0"
-                >
-                  移除
-                </a>
-                <p>- NT$ 50</p>
+              <div
+                className={
+                  coupon == 'tru4r8' ? '' : 'd-none'
+                }
+              >
+                <div className="c-bb d-flex align-items-baseline pb-4 px-3 mb-4 ">
+                  <p className="mr-3">折扣碼 - 週年慶</p>
+                  <a
+                    href="javascript:void(0)"
+                    className="mr-auto c-store pb-0"
+                    onClick={() => {
+                      setCoupon()
+                      setDiscount(0)
+                    }}
+                  >
+                    移除
+                  </a>
+                  <p>- NT$ 300</p>
+                </div>
               </div>
+              <div
+                className={
+                  coupon == 'DFg2FW' ? '' : 'd-none'
+                }
+              >
+                <div className="c-bb d-flex align-items-baseline pb-4 px-3 mb-4 ">
+                  <p className="mr-3">折扣碼 - 特賣</p>
+                  <a
+                    href="javascript:void(0)"
+                    className="mr-auto c-store pb-0"
+                    onClick={() => {
+                      setCoupon()
+                      setDiscount(0)
+                    }}
+                  >
+                    移除
+                  </a>
+                  <p>- NT$ 100</p>
+                </div>
+              </div>
+
               <div className="c-bb1 d-flex pb-3 px-3 mb-4">
                 <p className="h5 mr-auto">總計</p>
                 <p className="h5">
-                  NT$ {itemsPrice + shipfee}
+                  NT$ {itemsPrice + shipfee - discount}
                 </p>
               </div>
               {formStep === 1 && (
@@ -791,6 +854,7 @@ function CartFormProduct() {
               cartItems={cartItems}
               sentorder={sentorder}
               displaycartitems={displaycartitems}
+              discount={discount}
             ></CartAuctionFinish>
           )}
         </div>

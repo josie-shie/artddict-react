@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Cookies from 'universal-cookie'
 import { Modal, Button } from 'react-bootstrap'
+import $ from 'jquery'
 
 // icon
 import { FaRegEdit } from 'react-icons/fa'
@@ -44,13 +45,27 @@ function BasketEvent() {
   const handleClose = () => setShow(false)
   const handleShow = () => setShow(true)
 
+  // Coupon Modal 開關
+  const [showcoupon, setShowCoupon] = useState(false)
+  const handleClose2 = () => {
+    setShowCoupon(false)
+    // 用這個func改變coupon的值
+    setCoupon($('#coupon').val())
+  }
+  const handleShow2 = () => setShowCoupon(true)
+
+  // 折扣碼
+  const [coupon, setCoupon] = useState('')
+
   // 確認有無登入
   const checklogin = () => {
     if (!memberid) {
       console.log('請先登入會員')
       handleShow()
     } else {
-      window.location.href = './cart-form-product'
+      window.location.href =
+        // 把折扣碼的key跟value傳到下一頁
+        './cart-form-product?coupon=' + coupon
     }
   }
 
@@ -336,25 +351,46 @@ function BasketEvent() {
       ))}
 
       <div className="d-flex justify-content-between mt-3 pt-3 pb-5">
-        <div className>
-          <a href="##" className="c-store2 mr-5">
+        <div>
+          <a href="##" className="c-store2">
             聯絡客服
           </a>
           <a href="##" className="c-store2 d-block mt-2">
             運費＆退貨條款
           </a>
         </div>
-        <div>
-          <p>
+        <div className="d-flex flex-column justify-content-end">
+          <p className="d-flex justify-content-end">
             總計：
             <sapn className="h4">NT$ {totalPrice}</sapn>
           </p>
-          <a
-            href="##"
-            className="c-store2 d-block ml-5 mt-3"
+          <p
+            className={
+              coupon == 'tru4r8'
+                ? 'd-flex justify-content-end'
+                : 'd-none'
+            }
           >
-            選取你的折扣碼
-          </a>
+            週年慶折扣：- NT$ 300
+          </p>
+          <p
+            className={
+              coupon == 'DFg2FW'
+                ? 'd-flex justify-content-end'
+                : 'd-none'
+            }
+          >
+            特賣折扣：- NT$ 100
+          </p>
+          <p className="d-flex justify-content-end mt-2">
+            <a
+              href="##"
+              className="c-store2"
+              onClick={handleShow2}
+            >
+              輸入折扣碼
+            </a>
+          </p>
         </div>
       </div>
       <div className="c-checkout pt-4 d-flex justify-content-between">
@@ -402,6 +438,35 @@ function BasketEvent() {
             }}
           >
             登入
+          </Button>
+        </Modal.Footer>
+      </Modal>
+      <Modal
+        centered
+        show={showcoupon}
+        onHide={handleClose2}
+        id="eventModal"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>請輸入折扣碼</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <input type="text" id="coupon" />
+        </Modal.Body>
+        <Modal.Footer>
+          <Button
+            type="button"
+            className="e-btn-s e-modal-close"
+            onClick={handleClose2}
+          >
+            關閉
+          </Button>
+          <Button
+            type="button"
+            className="e-btn-s e-modal-del"
+            onClick={handleClose2}
+          >
+            確認
           </Button>
         </Modal.Footer>
       </Modal>
