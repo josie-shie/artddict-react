@@ -37,7 +37,7 @@ body::-webkit-scrollbar {
     background-color: #000;
     background-size: cover;
     width: 50%;
-    height: 88vh;
+    height: 90vh;
     color:white;
     /* padding: 0 0 12rem 0; */
     overflow-y: scroll;
@@ -55,10 +55,10 @@ body::-webkit-scrollbar {
     padding-bottom:1rem;
     margin-top:10%;
 }
-/* 
+
 #auctionDetailLOGO{
-    margin-top:45px;
-} */
+    position: relative;
+} 
 
 .auctionDetailBreadcrumb{
     color:#fff;
@@ -129,7 +129,7 @@ body::-webkit-scrollbar {
 
 .rightContentFix{
     /* position: relative; */
-    height: 88vh;
+    height: 90vh;
     /* padding: 0 0 10px 0; */
     width: 50%;
 }
@@ -159,7 +159,7 @@ body::-webkit-scrollbar {
     margin-top: 6%;
     width: 90%;
     height: 100%;
-    max-height:60%;
+    max-height:70%;
     max-width: 80%;
     overflow: hidden;
     display: flex;
@@ -169,6 +169,7 @@ body::-webkit-scrollbar {
         max-width: 100%;
         max-height: 100%;
         min-width: 60%;
+        min-height: 60%;
     }
 }
 
@@ -238,6 +239,10 @@ body::-webkit-scrollbar {
     margin: 0 20px 0 0;
 }
 
+.aucD-PriceContent{
+    color:#fff
+}
+
 
 @media screen and (max-width: 900px){
     .auctionDetailcountdown{
@@ -263,4 +268,14 @@ body::-webkit-scrollbar {
         font-size: 1.8rem;
     }
 
+}
+
+.threesecondleft{
+    position: absolute;
+    right: 10%;
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    opacity: 0;
+    background-color: red;
 }

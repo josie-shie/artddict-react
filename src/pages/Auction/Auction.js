@@ -54,6 +54,7 @@ function Auction(props) {
     const [priceRange, setPriceRange] = useState('0,38000')
     const [priceRange2, setPriceRange2] = useState(8000)
 
+    const [onenine, setOnenine] = useState(true)
 
     //選擇排列順序
     const handleChangeSelect = (e) => {
@@ -122,6 +123,7 @@ function Auction(props) {
 
     //撈資料
     async function getAucProArrFromServer() {
+
         // 連接的伺服器資料網址
         const url = 'http://localhost:6005/auctoin/aucSeaArr' + `?search=${search}` + `&arrangement=${arrangement}` + `&category=${category}` + `&pages=${pages}` + `&priceRange=${priceRange}`
         // 注意header資料格式要設定，伺服器才知道是json格式
@@ -136,7 +138,6 @@ function Auction(props) {
         // console.log(pages)
         const response = await fetch(request)
         const data = await response.json()
-
         //設定page的資料
         setPagesInfo(data[0])
 
@@ -195,16 +196,16 @@ function Auction(props) {
 
         if (days > 0) {
             if (String(days).length < 2) {
-                return `截標倒數0${days}天${hours}小時${seconds}`
+                return `截標倒數0${days}天${hours}小時`
             } else {
-                return `截標倒數${days}天${hours}小時${seconds}`
+                return `截標倒數${days}天${hours}小時`
             }
         }
         if (days < 1)
             if (String(hours).length < 2) {
-                return `截標倒數0${hours}小時${minutes}分鐘${seconds}`
+                return `截標倒數0${hours}小時${minutes}分鐘`
             } else {
-                return `截標倒數${hours}小時${minutes}分鐘${seconds}`
+                return `截標倒數${hours}小時${minutes}分鐘`
             }
 
     }
@@ -229,6 +230,25 @@ function Auction(props) {
     }, [count])
 
     // 一開始就會開始載入資料
+
+    //showing
+    useEffect(() => {
+        if (pages > 1) {
+            setOnenine(false)
+        } else {
+            setOnenine(true)
+        }
+    }, [pages])
+
+    const loading = (
+        <>
+            <div className="d-flex justify-content-center">
+                <div className="spinner-border" role="status">
+                    <span className="sr-only">Loading...</span>
+                </div>
+            </div>
+        </>
+    )
 
     return (
         <>
@@ -300,9 +320,9 @@ function Auction(props) {
                                     value={search}
                                     onChange={(event) => { setSearch(event.target.value) }}
                                 />
-                                <div className="auctionNumberOfProduct cn-font">
-                                    Showing 1-9 of {pagesinfo.totalRows}
-                                </div>
+                                {onenine ?
+                                    (<div className="auctionNumberOfProduct cn-font">Showing 1-9 of {pagesinfo.totalRows}</div>) :
+                                    (<div className="auctionNumberOfProduct cn-font">Showing {9 * (pages - 1)}-{pages * 9} of {pagesinfo.totalRows}</div>)}
                             </div>
                             <div className="auctionMainFilterRight">
                                 <AuctionSlider
@@ -318,7 +338,7 @@ function Auction(props) {
                                 <div className="auctionsidebarTitle "
                                 >美術館商品</div>
                                 <div className="auc-controlCatCol">
-                                    <Link style={{ textDecoration: 'none', color:'black' }}
+                                    <Link style={{ textDecoration: 'none', color: 'black' }}
                                         onClick={(e) => {
                                             e.preventDefault()
                                         }}
@@ -326,85 +346,84 @@ function Auction(props) {
                                         (event) => { setCategory('') }
                                     } className="changeColors auc_li auc_siblings">全部商品</li></Link>
 
-                                    <Link style={{ textDecoration: 'none', color:'black' }}
+                                    <Link style={{ textDecoration: 'none', color: 'black' }}
                                         onClick={(e) => {
                                             e.preventDefault()
                                         }}
                                     ><li onClick={(event) => { setCategory('Paintings') }} className=" auc_siblings auc_li">畫作</li></Link>
 
-                                    <Link style={{ textDecoration: 'none', color:'black' }}
+                                    <Link style={{ textDecoration: 'none', color: 'black' }}
                                         onClick={(e) => {
                                             e.preventDefault()
                                         }}
                                     ><li onClick={(event) => { setCategory('clothes') }} className="auc_siblings auc_li">服飾</li></Link>
 
-                                    <Link style={{ textDecoration: 'none', color:'black' }}
+                                    <Link style={{ textDecoration: 'none', color: 'black' }}
                                         onClick={(e) => {
                                             e.preventDefault()
                                         }}
                                     ><li onClick={(event) => { setCategory('furniture') }} className="auc_siblings auc_li">家飾</li></Link>
 
-                                    <Link style={{ textDecoration: 'none', color:'black' }}
+                                    <Link style={{ textDecoration: 'none', color: 'black' }}
                                         onClick={(e) => {
                                             e.preventDefault()
                                         }}
                                     ><li onClick={(event) => { setCategory('stationery') }} className="auc_siblings auc_li">文具</li></Link>
 
-                                    <Link style={{ textDecoration: 'none', color:'black' }}
+                                    <Link style={{ textDecoration: 'none', color: 'black' }}
                                         onClick={(e) => {
                                             e.preventDefault()
                                         }}
                                     ><li onClick={(event) => { setCategory('books') }} className="auc_siblings auc_li">書籍</li></Link>
 
-                                    <Link style={{ textDecoration: 'none', color:'black' }}
+                                    <Link style={{ textDecoration: 'none', color: 'black' }}
                                         onClick={(e) => {
                                             e.preventDefault()
                                         }}
                                     ><li onClick={(event) => { setCategory('accessories') }} className="auc_siblings auc_li">配件</li></Link>
-                                    
+
                                     {/* {console.log(category)} */}
                                 </div>
                             </div>
-                            <div>
-                                <AuctionProductList
-                                    // data={data}
-                                    search={search}
-                                    setSearch={setSearch}
-                                    arrangement={arrangement}
-                                    getAucProFromServer={getAucProFromServer}
-                                    getAucProArrFromServer={getAucProArrFromServer}
-                                    aucInfo={aucInfo}
-                                    setAucInfo={setAucInfo}
-                                    TimeRemaining={TimeRemaining}
-                                    aucRemainT={aucRemainT}
-                                    category={category}
-                                />
                                 <div>
-                                    <Row className="justify-content-center eng-font-regular mt-5 py-5">
-                                        <Link className="ed-pagenum mx-3" onClick={previouspage}>
-                                            <IoIosArrowBack />
-                                        </Link>
-                                        {showPages.map((pageNumber, i) => (
-                                            <PageNumber key={i}
-                                                pages={pages}
-                                                setPages={setPages}
-                                                pagesinfo={pagesinfo}
-                                                currentPage={showPages[i]}
-                                                showPages={showPages}
-                                                setShowPages={setShowPages}
-                                            />
-                                        ))}
-                                        <Link className="ed-pagenum mx-3" onClick={nextpage}>
-                                            <IoIosArrowForward />
-                                        </Link>
-                                    </Row>
+                                    <AuctionProductList
+                                        // data={data}
+                                        search={search}
+                                        setSearch={setSearch}
+                                        arrangement={arrangement}
+                                        getAucProFromServer={getAucProFromServer}
+                                        getAucProArrFromServer={getAucProArrFromServer}
+                                        aucInfo={aucInfo}
+                                        setAucInfo={setAucInfo}
+                                        TimeRemaining={TimeRemaining}
+                                        aucRemainT={aucRemainT}
+                                        category={category}
+                                    />
+                                    <div>
+                                        <Row className="justify-content-center eng-font-regular mt-5 py-5">
+                                            <Link className="ed-pagenum mx-3" onClick={previouspage}>
+                                                <IoIosArrowBack />
+                                            </Link>
+                                            {showPages.map((pageNumber, i) => (
+                                                <PageNumber key={i}
+                                                    pages={pages}
+                                                    setPages={setPages}
+                                                    pagesinfo={pagesinfo}
+                                                    currentPage={showPages[i]}
+                                                    showPages={showPages}
+                                                    setShowPages={setShowPages}
+                                                />
+                                            ))}
+                                            <Link className="ed-pagenum mx-3" onClick={nextpage}>
+                                                <IoIosArrowForward />
+                                            </Link>
+                                        </Row>
+                                    </div>
                                 </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-
         </>
     );
 }

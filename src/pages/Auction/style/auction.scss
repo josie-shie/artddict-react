@@ -178,6 +178,7 @@ time, mark, audio, video {
 
 .auctionsidebar{
     width: 18%;
+    font-size: 1.2rem;
 }
 
 .auctionsidebarTitle{
@@ -207,4 +208,45 @@ time, mark, audio, video {
     width: 100%;
     height: 100%;
     // z-index: -1;
+}
+
+.auctionProduct_Picture{
+    position: relative;
+}
+
+
+.auc-hover-button{
+    opacity: 0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    color: #E4E4E4;
+    background-color: #1D0AFF;
+    border: 3px solid #1D0AFF;
+    transform: translate(-50%,-50%);
+}
+
+.auctionProduct_Picture:hover .auc-hover-button{
+    opacity: 1;
+    // background-color: rgb(209, 38, 38);
+}
+
+.auc_colorhover{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.auctionProduct_Picture:hover .auc_colorhover{
+    background-color: rgba(0, 0, 0, 0.103);
+    opacity: 0.5;
+}
+
+.auc-thankyou{
+    margin: 10% 0 0 0;
+    font-size: 4rem;
+    font-weight: 400;
 }
