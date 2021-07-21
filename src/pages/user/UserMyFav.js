@@ -97,7 +97,7 @@ function UserMyFav(props) {
 
   const UserFavDisplay =
     userFavs.length === 0
-      ? 'noneData'
+      ? '目前無收藏！'
       : userFavs.map((userFav) => {
           return (
             <Card
@@ -232,7 +232,7 @@ function UserMyFav(props) {
                 to="/user-msgedit"
                 style={{ textDecoration: 'none' }}
               >
-                活動展
+                工作坊
               </Link>
             </div>
             <div className="u-Myfavtitle2">
@@ -248,7 +248,7 @@ function UserMyFav(props) {
                 to="/"
                 style={{ textDecoration: 'none' }}
               >
-                工作坊
+                活動展
               </Link>
             </div>
             <div className="u-Myfavtitle4">

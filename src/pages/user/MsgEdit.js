@@ -287,8 +287,10 @@ function UserEdit(props) {
           <Container className="u-userData">
             <form>
               <div className="form-group u-form1 cn-font">
-                <label for="username">帳號</label>
+                <label for="username">帳號 </label>
+                
                 <input
+                  style={{ border: '2px solid red' }}
                   readOnly
                   value={username}
                   type="email"
@@ -297,6 +299,14 @@ function UserEdit(props) {
                     setUsername(event.target.value)
                   }}
                 />
+                <span
+                  style={{
+                    fontSize: '12px',
+                    color: 'red',
+                  }}
+                >
+                  *無法修改
+                </span>
               </div>
               <div className="form-group u-form1 cn-font">
                 <label for="name">姓名</label>

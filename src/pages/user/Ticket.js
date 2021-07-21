@@ -37,7 +37,7 @@ function Ticket(props) {
     console.log('ll=', data)
     console.log(props.match.params)
     setTickets(data)
-    setId(data[0].eventId)
+    setId(data.eventId)
   }
 
   useEffect(() => {
@@ -111,7 +111,7 @@ function Ticket(props) {
 
   const TicketDisplay =
     tickets.length === 0
-      ? 'noneData'
+      ? '目前尚無票卷資料'
       : tickets.map((ticket) => {
           return (
             <div className="u-tableBox">

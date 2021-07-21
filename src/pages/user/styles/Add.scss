@@ -105,6 +105,27 @@
   }
 }
 
+@media screen and (max-width: 1216px) {
+  .u-membertile > p {
+    font-size: 28px;
+  }
+}
+
+@media screen and (max-width: 1216px) {
+  body {
+    background-color: #e8e8e8;
+    height: 100%;
+  }
+}
+
+@media screen and (max-width: 1216px) {
+  .u-container2 {
+  margin-top:120px;
+   margin-left: 30px;
+  }
+}
+
+
 //----- 登入、註冊btn -----
 .u-addbutton {
   width: 100%;
@@ -192,16 +213,20 @@
   }
 }
 
-@media screen and (max-width: 580) {
+@media screen and (max-width: 580px) {
   .u-AddBtn {
-    width: 200px;
-    margin-right: 10%;
+    width: 150px;
+    margin-left: 90px;
+    &:hover {
+      color: #fff;
+      background-color: #000;
+    }
   }
 }
 
 .u-userAddBtn {
   margin-left: 35%;
-  margin-top: 50px;
+  margin-top: 40px;
   text-align: center;
   line-height: 45px;
   width: 130px;
