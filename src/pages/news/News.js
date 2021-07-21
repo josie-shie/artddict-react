@@ -131,7 +131,7 @@ const News = () => {
           text: '郵件已傳送',
           icon: 'success',
           button: false,
-          timer: 3000,
+          timer: 1000,
         })
       }, 200)
       console.log('success')
@@ -320,6 +320,8 @@ const News = () => {
                     onClick={(e) => {
                       e.preventDefault()
                       sentMail()
+                      setEmail('')
+
                       //   console.log(e.target.value)
                       //setEmail('')
                     }}

@@ -270,9 +270,7 @@ function Coupon(props) {
       <div className="u-breadcrumb">
         <Breadcrumb />
       </div>
-      {/* <div className="u-userMenu d-none d-lg-block d-xl-block">
-        <Menu />
-      </div> */}
+
       <div className="tab-bar">
         <NavLink
           activeClassName="activenav"
@@ -341,10 +339,10 @@ function Coupon(props) {
           <div className="u-couponbox d-flex">
             <div class="u-Text col-6">
               <div class="u-couponTitle">
-                <p>新會員！</p>
+                <p>歡度週年慶</p>
               </div>
               <div class="u-couponText">
-                <p>300元折價券</p>
+                <p>500元折價券</p>
               </div>
               <div class="u-couponDate d-flex">
                 <div class="u-cd">
@@ -375,7 +373,7 @@ function Coupon(props) {
           </div>
         </div>
 
-        {/* <div className="col-6">
+        <div className="col-6">
           <div className="u-couponbox d-flex">
             <div class="u-Text col-6">
               <div class="u-couponTitle">
@@ -400,8 +398,8 @@ function Coupon(props) {
                 </p>
               </div>
               <div class="u-cobyBtn">
-                {/* <button onClick={this.copy}> */}
-        {/* <button
+                <button
+                  // onClick={this.copy}
                   onClick={() => {
                     copy_two()
                   }}
@@ -411,7 +409,7 @@ function Coupon(props) {
               </div>
             </div>
           </div>
-        </div>  */}
+        </div>
       </Row>
     </div>
   )

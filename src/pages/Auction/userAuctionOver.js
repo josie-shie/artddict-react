@@ -1,5 +1,5 @@
 import './style/userAuctionOver.scss'
-import Logoheader from './components/Logoheader'
+import Logoheader from '../user/components/Logoheader'
 import Breadcrumb from '../user/components/UserBreadcrumb'
 import { withRouter, Link, NavLink } from 'react-router-dom'
 import React, { useEffect, useState } from 'react'

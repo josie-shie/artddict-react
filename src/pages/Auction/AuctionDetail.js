@@ -136,6 +136,15 @@ function AuctionDetail(props) {
     }
   }, [socket, bidersInfo])
 
+  //一鍵剩三秒
+  const threeSecondLeft = () =>{
+    let a = new Date()
+    console.log("現在時間",a)
+    a.setSeconds(a.getSeconds()+3)
+    console.log("運送厚時間",a)
+    aucDetailinfo.aucDeadline = a
+  }
+
   //發送出價消息
   const bidPrice = () => {
     // console.log("inputbidPrice", inputbidPrice)
@@ -143,12 +152,15 @@ function AuctionDetail(props) {
     if(!memberid){
       console.log('請先登入會員')
       handleShowB()
+      setInputbidPrice('')
     }else if (inputbidPrice > immediatePrice) {
       console.log("我出嫁了")
       socket.emit('bidPrice', { inputbidPrice, auc_Id, memberid })
+      setInputbidPrice('')
     } else {
       console.log("輸入價錢過低")
       handleShow()
+      setInputbidPrice('')
     }
   }
   const sendMessage = () => {
@@ -238,7 +250,7 @@ function AuctionDetail(props) {
     const cc = newAucProductTimeRemaining.reduce((a, b) => a + b)
     if (cc < 0) {
       console.log('競標結束')
-      setLoading('競標結束')
+      setLoading('競標已結束')
       //結束計時器(雖然他還沒開始)
       setIsRunning(false)
     } else {
@@ -294,6 +306,8 @@ function AuctionDetail(props) {
           <div className="leftContent_firstpart">
             <div id="auctionDetailLOGO">
               <img src={ArtDDICTLOGbw} />
+              {/* 一鍵剩三秒 */}
+              <button className="threesecondleft" onClick={threeSecondLeft}></button>
             </div>
             <div className="auctionDetailBreadcrumb">
               首頁/競標
@@ -349,7 +363,8 @@ function AuctionDetail(props) {
             <Collapse in={openTwo}>
               <div id="example-collapse-text">
                 <div className="auctionDetailProductDesContent">
-                  aaaa
+                  <div>畫中人物穿著的服飾是一件質地優良的藍色丘尼卡，它的色彩在當時非常罕見。</div>
+                  <div>這是一幅蛋彩畫作品，長度為58.7厘米，寬度為38.9厘米</div>
                 </div>
               </div>
             </Collapse>
@@ -422,7 +437,7 @@ function AuctionDetail(props) {
                 </div>
                 <button className="auctionDetailButton " onClick={bidPrice}>
                   下標
-                </button></>) : (<div>感謝您的參與</div>)}
+                </button></>) : (<div className="auc-thankyou cn_font">感謝您的參與!</div>)}
             {/* /***************************************** */}
             {/* 彈出視窗 */}
             <Modal
@@ -433,12 +448,11 @@ function AuctionDetail(props) {
             >
               <Modal.Header closeButton>
                 <Modal.Title>
-                  無法出價
+                  無法出價 !
                 </Modal.Title>
               </Modal.Header>
               <Modal.Body>
-                <div>狀況1.您出的價錢並沒有高於目前最高價唷</div>
-                <div>狀況2.您已經是目前最高價囉~</div>
+                <div>您的出價必須高於目前最高價唷!</div>
               </Modal.Body>
               <Modal.Footer>
                 {/* <Button

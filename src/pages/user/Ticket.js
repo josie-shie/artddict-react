@@ -37,7 +37,7 @@ function Ticket(props) {
     console.log('ll=', data)
     console.log(props.match.params)
     setTickets(data)
-    setId(data[0].eventId)
+    setId(data.eventId)
   }
 
   useEffect(() => {
@@ -111,7 +111,7 @@ function Ticket(props) {
 
   const TicketDisplay =
     tickets.length === 0
-      ? 'noneData'
+      ? '目前尚無票卷資料'
       : tickets.map((ticket) => {
           return (
             <div className="u-tableBox">
@@ -332,12 +332,12 @@ function Ticket(props) {
             <div className="d-flex u-row justify-content-around">
               <div className="u-userEve">
                 <Link to={`/user-ticket/${userid}`}>
-                  活動展
+                  工作坊
                 </Link>
               </div>
               <div className="u-userWshop">
                 <Link to={`/user-workshop/${userid}`}>
-                  工作坊
+                  活動展
                 </Link>
               </div>
             </div>

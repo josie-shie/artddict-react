@@ -23,9 +23,16 @@ import pic6 from './img/6.png'
 
 function Add(props) {
   const [dataLoading, setDataLoading] = useState(false)
-  const [username, setUsername] = useState()
-  const [name, setName] = useState()
-  const [password, setPassword] = useState()
+  // const [username, setUsername] = useState()
+  // const [name, setName] = useState()
+  // const [password, setPassword] = useState()
+  const [fields, setFields] = useState({
+    username: '',
+    email: '',
+    password: '',
+  })
+
+  const [checkText, setCheckTest] = useState(false)
 
   // checkbox
   const [state, setState] = useState({
@@ -38,12 +45,21 @@ function Add(props) {
       [event.target.name]: event.target.checked,
     })
   }
+  const handleFieldChange = (e) => {
+    const updatedFields = {
+      ...fields,
+      [e.target.name]: e.target.value,
+    }
 
-  async function addUserToSever() {
+    setFields(updatedFields)
+  }
+
+  async function addUserToSever(e) {
     // 開啟載入指示
+    e.preventDefault()
     setDataLoading(true)
 
-    const newData = { username, name, password }
+    const newData = { ...fields }
 
     // 連接的伺服器資料網址
     const url = 'http://localhost:6005/users/'
@@ -75,6 +91,8 @@ function Add(props) {
         icon: 'success',
         button: false,
         timer: 3000,
+      }).then(() => {
+        window.location.replace('/user-login')
       })
     }, 500)
   }
@@ -95,7 +113,7 @@ function Add(props) {
   const display = (
     <>
       <div className="u-body">
-        <Logoheader show_user_name={false} />
+        <Logoheader />
         <Container className="d-flex justify-content-center">
           <div className="u-contanier1 col-lg-6 d-none d-lg-block d-xl-block">
             <div className="u-img-carousel">
@@ -176,16 +194,15 @@ function Add(props) {
               {/* <div className="u-FB d-flex justify-content-around">
                 <FaFacebook />
               </div> */}
-              <form action="">
+              <form onSubmit={addUserToSever}>
                 <div className="form-group u-form">
                   <input
                     type="email"
-                    value={username}
-                    onChange={(event) => {
-                      setUsername(event.target.value)
-                    }}
+                    name="username"
+                    value={fields.username}
+                    onChange={handleFieldChange}
                     className="form-control "
-                    id="username"
+                    //id="username"
                     required
                     placeholder="請輸入信箱"
                   />
@@ -193,12 +210,11 @@ function Add(props) {
                 <div className="form-group u-form">
                   <input
                     type="text"
-                    value={name}
-                    onChange={(event) => {
-                      setName(event.target.value)
-                    }}
+                    name="name"
+                    value={fields.name}
+                    onChange={handleFieldChange}
                     className="form-control "
-                    id="name"
+                    // id="name"
                     placeholder="請輸入姓名"
                     required
                   />
@@ -207,13 +223,13 @@ function Add(props) {
                 <div className="form-group u-form">
                   <input
                     type="password"
-                    value={password}
-                    onChange={(event) => {
-                      setPassword(event.target.value)
-                    }}
+                    name="password"
+                    value={fields.password}
+                    onChange={handleFieldChange}
                     className="form-control"
                     id="password1"
                     placeholder="請輸入欲設定的密碼"
+                    minLength="8"
                     required
                   />
                 </div>
@@ -253,18 +269,27 @@ function Add(props) {
                   </FormGroup>
                   <div className="u-check"></div>
                 </div>
-                <div className="u-AddBtn">
-                  <Link
+                {/* <div className="u-AddBtn"> */}
+                {/* <Link
                     to="/user-login"
                     className="u-link1"
                     style={{ textDecoration: 'none' }}
-                    onClick={() => {
-                      addUserToSever()
-                    }}
+                    
                   >
-                    註冊
-                  </Link>
-                </div>
+                    <button type="submit" onClick={addUserToSever}>
+                      註冊
+                    </button>
+                    
+                  </Link> */}
+
+                <button
+                  className="u-userAddBtn"
+                  type="submit"
+                >
+                  註冊
+                </button>
+
+                {/* </div> */}
               </form>
             </div>
           </div>

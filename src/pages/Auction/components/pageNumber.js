@@ -32,7 +32,7 @@ function pageNumber(props) {
     return (
         <>
             {/* {console.log(pagesinfo)} */}
-            <Link className="ed-pagenum mx-3">
+            <Link className="ed-pagenum mx-3 auc-pagecolor">
                 <p onClick={clickPageNumber}>{currentPage}</p>
             </Link>
         </>
