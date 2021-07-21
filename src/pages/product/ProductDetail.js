@@ -372,7 +372,7 @@ function ProductDetail(props) {
     setTimeout(() => {
       console.log('executing timeout')
       setTryyy(true)
-    }, 6000)
+    }, 1500)
   }
 
   function refreshPage() {
