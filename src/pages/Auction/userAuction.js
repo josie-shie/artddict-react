@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 // import { useState } from 'react';
 import './style/userAuction.scss'
 import { withRouter, Link, NavLink } from 'react-router-dom'
-import Logoheader from './components/Logoheader'
+import Logoheader from '../user/components/Logoheader'
 import Breadcrumb from '../user/components/UserBreadcrumb'
 // SweetAlert
 import swal from 'sweetalert'

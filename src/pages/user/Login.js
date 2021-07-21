@@ -11,16 +11,9 @@ import pic3 from './img/3.png'
 import pic4 from './img/4.png'
 import pic5 from './img/5.png'
 import pic6 from './img/6.png'
-// icons
-// import { FaFacebook } from 'react-icons/fa'
 import axios from 'axios'
 
 function Login(props) {
-  /* 
-    透過props傳遞APP current_user的設定函數setCurrentUser()
-    current_user定義詳見 App.js
-  */
-  // const { current_user, setCurrentUser } = props
   const [dataLoading, setDataLoading] = useState(false)
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
@@ -51,7 +44,7 @@ function Login(props) {
     console.log('response = ', data)
 
     // console.log('伺服器回傳的json資料', data)
-    // console.log('data = ', data)
+    console.log('data = ', data)
     // 要等驗証過，再設定資料(簡單的直接設定)
     if (data.id) {
       swal({
@@ -209,9 +202,7 @@ function Login(props) {
                   <Link to="/user-add">註冊</Link>
                 </div>
               </div>
-              {/* <div className="u-FB d-flex justify-content-around">
-                <FaFacebook />
-              </div> */}
+
               <form action="">
                 <div class="form-group u-form">
                   <input

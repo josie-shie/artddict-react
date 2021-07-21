@@ -168,9 +168,11 @@ function OrderPro(props) {
             <div className="u-tableBox">
               <div class="u-table">
                 <div class="u-th d-flex justify-content-around">
-                  <div class="u-orderId">訂單編號</div>
-                  <div class="u-orderDate">訂單日期</div>
-                  <div class="u-payType">付款狀態</div>
+                  <div class="u-orderId ml-5">訂單編號</div>
+                  <div class="u-orderDate ml-5">
+                    訂單日期
+                  </div>
+                  <div class="u-payType ml-2">付款狀態</div>
                   <div class="u-price">總價</div>
                   <div class="u-orderType">訂單狀態</div>
                   <div class="u-bt col-2"></div>

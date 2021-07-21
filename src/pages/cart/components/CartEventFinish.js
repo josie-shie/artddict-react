@@ -12,6 +12,7 @@ import { RiArrowRightSLine } from 'react-icons/ri'
 function CartEventFinish(props) {
   const orderId = props.sentorder
   const orderItems = props.displaycartitems
+  const discount = props.discount
 
   // 定義要列出的資料
   // orders內容
@@ -89,22 +90,6 @@ function CartEventFinish(props) {
     // 設定資料
     setProId(data2.eventId)
     setProQty(data2.orderQty)
-
-    // let tempitems = []
-    // for (let i = 0; i < data2.length; i++) {
-    //   let proId = data2[i].orderId
-    //   let orderQty = data2[i].orderQty
-    //   tempitems.push({
-    //     id: proId,
-    //     sid: data2[i].proId,
-    //     name: '梵谷自畫像T-Shirt',
-    //     price: 780,
-    //     size: 'S',
-    //     image: '/img/1.png',
-    //     orderQty: orderQty,
-    //   })
-    // }
-    // setOrderItems(tempitems)
   }
 
   // 呼叫剛剛的assync func
@@ -172,11 +157,14 @@ function CartEventFinish(props) {
                   運費小計：NT$ 80
                 </td>
               </tr>
-              <tr>
-                <td>折扣碼：- NT$ 50</td>
-              </tr> */}
+               */}
             <tr>
-              <td>總價：NT$ {total}</td>
+              <td>折扣碼：- NT$ {discount}</td>
+            </tr>
+            <tr>
+              <td className="c-td-dark">
+                總價：NT$ {total}
+              </td>
             </tr>
             <tr>
               <td className="d-flex flex-column">
