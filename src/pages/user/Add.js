@@ -18,8 +18,6 @@ import pic3 from './img/3.png'
 import pic4 from './img/4.png'
 import pic5 from './img/5.png'
 import pic6 from './img/6.png'
-// icons
-// import { FaFacebook } from 'react-icons/fa'
 
 function Add(props) {
   const [dataLoading, setDataLoading] = useState(false)
@@ -38,45 +36,47 @@ function Add(props) {
       [event.target.name]: event.target.checked,
     })
   }
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    async function addUserToSever() {
+      // 開啟載入指示
+      setDataLoading(true)
 
-  async function addUserToSever() {
-    // 開啟載入指示
-    setDataLoading(true)
+      const newData = { username, name, password }
 
-    const newData = { username, name, password }
+      // 連接的伺服器資料網址
+      const url = 'http://localhost:6005/users/'
 
-    // 連接的伺服器資料網址
-    const url = 'http://localhost:6005/users/'
-
-    // 注意資料格式要設定，伺服器才知道是json格式
-    const request = new Request(url, {
-      method: 'POST',
-      body: JSON.stringify(newData),
-      headers: new Headers({
-        Accept: 'application/json',
-        'Content-Type': 'application/json',
-      }),
-    })
-
-    console.log(JSON.stringify(newData))
-
-    const response = await fetch(request)
-    const data = await response.json()
-
-    console.log('伺服器回傳的json資料', data)
-    // 要等驗証過，再設定資料(簡單的直接設定)
-
-    //直接在一段x秒關掉指示器
-    setTimeout(() => {
-      setDataLoading(false)
-
-      swal({
-        text: '註冊成功，請重新登入!',
-        icon: 'success',
-        button: false,
-        timer: 3000,
+      // 注意資料格式要設定，伺服器才知道是json格式
+      const request = new Request(url, {
+        method: 'POST',
+        body: JSON.stringify(newData),
+        headers: new Headers({
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        }),
       })
-    }, 500)
+
+      console.log(JSON.stringify(newData))
+
+      const response = await fetch(request)
+      const data = await response.json()
+
+      console.log('伺服器回傳的json資料', data)
+      // 要等驗証過，再設定資料(簡單的直接設定)
+
+      //直接在一段x秒關掉指示器
+      setTimeout(() => {
+        setDataLoading(false)
+
+        swal({
+          text: '註冊成功，請重新登入!',
+          icon: 'success',
+          button: false,
+          timer: 3000,
+        })
+      }, 500)
+    }
   }
 
   const loading = (
@@ -173,9 +173,7 @@ function Add(props) {
                   <Link to="/user-add">註冊</Link>
                 </div>
               </div>
-              {/* <div className="u-FB d-flex justify-content-around">
-                <FaFacebook />
-              </div> */}
+
               <form action="">
                 <div className="form-group u-form">
                   <input
@@ -185,9 +183,10 @@ function Add(props) {
                       setUsername(event.target.value)
                     }}
                     className="form-control "
-                    id="username"
+                    name="username"
                     required
                     placeholder="請輸入信箱"
+                    title="請注意！此信箱帳號，日後不能更改。"
                   />
                 </div>
                 <div className="form-group u-form">
@@ -198,7 +197,7 @@ function Add(props) {
                       setName(event.target.value)
                     }}
                     className="form-control "
-                    id="name"
+                    name="name"
                     placeholder="請輸入姓名"
                     required
                   />
@@ -212,20 +211,14 @@ function Add(props) {
                       setPassword(event.target.value)
                     }}
                     className="form-control"
-                    id="password1"
+                    name="password"
                     placeholder="請輸入欲設定的密碼"
+                    minLength="8"
+                    title="密碼長度至少為8個字元。"
                     required
                   />
                 </div>
-                {/* <div className="form-group u-form">
-                  <input
-                    type="password"
-                    value={password}
-                    className="form-control"
-                    id="password2"
-                    placeholder="請再次輸入密碼"
-                  />
-                </div> */}
+
                 <div className="form-group u-ckb">
                   <FormGroup>
                     <FormControlLabel
@@ -253,17 +246,17 @@ function Add(props) {
                   </FormGroup>
                   <div className="u-check"></div>
                 </div>
-                <div className="u-AddBtn">
-                  <Link
+                <div>
+                  <button
+                    className="u-userAddBtn"
                     to="/user-login"
-                    className="u-link1"
                     style={{ textDecoration: 'none' }}
                     onClick={() => {
-                      addUserToSever()
+                      // addUserToSever()
                     }}
                   >
                     註冊
-                  </Link>
+                  </button>
                 </div>
               </form>
             </div>
