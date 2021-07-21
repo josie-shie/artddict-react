@@ -108,9 +108,12 @@ const Index = () => {
               <img src={imgFlimward} alt="" />
             </Link>
             <div className="index-img-title">
-              <h1>
-                放視徵件中，高手們齊聚，就等你海放對手！
-              </h1>
+              <h1>放視徵件開跑</h1>
+              <h1>高手們齊聚</h1>
+              <h1>就等你海放對手！</h1>
+              <div className="index-title-ract1"></div>
+              <div className="index-title-ract2"></div>
+              <div className="index-title-ract3"></div>
             </div>
           </div>
           <div className="news col-6 px-0">
@@ -118,9 +121,12 @@ const Index = () => {
               <img src={imgDance} alt="" />
             </Link>
             <div className="index-img-title">
-              <h1>
-                在她的歌裡，誰都 能跳舞，來自邊緣 的連結者。
-              </h1>
+              <h1>在她的歌聲裡</h1>
+              <h1>誰都能跳舞</h1>
+              <h1>連結著邊緣的歌。</h1>
+              <div className="index-title-ract1"></div>
+              <div className="index-title-ract2"></div>
+              <div className="index-title-ract3"></div>
             </div>
           </div>
           <div className="news col-6 px-0">
@@ -128,15 +134,12 @@ const Index = () => {
               <img src={imgGoldpin} alt="" />
             </Link>
             <div className="index-img-title">
-              <h1>
-                金點設計
-                <br />
-                名單出爐！
-                <br />
-                設計超新星
-                <br />
-                獎落誰家？
-              </h1>
+            <h1>一年一度設計盛事</h1>
+              <h1>設計超新星</h1>
+              <h1>摩拳擦掌的開始！</h1>
+              <div className="index-title-ract1-3"></div>
+              <div className="index-title-ract2"></div>
+              <div className="index-title-ract3"></div>
             </div>
           </div>
           <div className="news col-6 px-0">
@@ -144,13 +147,12 @@ const Index = () => {
               <img src={imgHeart} alt="" />
             </Link>
             <div className="index-img-title">
-              <h1>
-                新視覺藝術！
-                <br />
-                板根芽子
-                <br />
-                創意再升級！
-              </h1>
+            <h1>雙眼的震撼衝擊</h1>
+              <h1>日本怪物新人</h1>
+              <h1>展開驚奇之旅！</h1>
+              <div className="index-title-ract1-4"></div>
+              <div className="index-title-ract2"></div>
+              <div className="index-title-ract3-4"></div>
             </div>
           </div>
           <div className="news col-6 px-0">
@@ -158,11 +160,12 @@ const Index = () => {
               <img src={imgHk} alt="" />
             </Link>
             <div className="index-img-title">
-              <h1>
-                《理大圍城》： <br />
-                沒有名字和臉孔
-                <br />的 運動與拍攝。
-              </h1>
+            <h1>沒有名字及臉孔</h1>
+              <h1>紀錄就是場戰爭</h1>
+              <h1>旅港攝影集</h1>
+              <div className="index-title-ract1-4"></div>
+              <div className="index-title-ract2-5"></div>
+              <div className="index-title-ract3-5"></div>
             </div>
           </div>
           <div className="news col-6 px-0">
@@ -170,9 +173,12 @@ const Index = () => {
               <img src={imglipstick} alt="" />
             </Link>
             <div className="index-img-title">
-              <h1>
-                渡邊直美再造！ 另人食慾變好的 化妝品行銷
-              </h1>
+            <h1>喘不過氣的美感</h1>
+              <h1>渡邊直美再出擊</h1>
+              <h1>化妝品行銷術</h1>
+              <div className="index-title-ract1-4"></div>
+              <div className="index-title-ract2-5"></div>
+              <div className="index-title-ract3-4"></div>
             </div>
           </div>
         </div>

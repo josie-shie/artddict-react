@@ -265,6 +265,11 @@ const Map = () => {
                     )}
                 </select>
                 <button
+                  style={{
+                    color: '#E8E8E8',
+                    backgroundColor: '#1D0AFF',
+                    border:0
+                  }}
                   className="map-select-box px-4 pt-1"
                   onClick={(e) => {
                     e.preventDefault()
@@ -274,12 +279,6 @@ const Map = () => {
                   搜尋
                 </button>
               </form>
-              <div className="pl-5 ml-5 mr-4">
-                <MdMyLocation size={30} color={'#81FC4D'} />
-              </div>
-              <div className="map-search mr-2">
-                <IoIosSearch size={30} color={'#81FC4D'} />
-              </div>
             </div>
             {/* //TODO */}
             <LeafLet2
