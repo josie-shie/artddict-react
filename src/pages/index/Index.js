@@ -94,12 +94,12 @@ const Index = () => {
             <h1>TODAY’S</h1>
             <h1>NEWS</h1>
             <div className="news-hl"></div>
-            <h1 className="news-slogen-TC mt-3">
+            <h3 className="news-slogen-TC mt-3">
               “我們接軌藝術
-            </h1>
-            <h1 className="notoSansTC-md news-slogen-TC mt-2">
+            </h3>
+            <h3 className=" news-slogen-TC mt-2">
               藝術接軌國際"
-            </h1>
+            </h3>
           </div>
         </StickyBox>
         <div className="news-cards col-6 px-0 row">
