@@ -271,6 +271,7 @@ function CartFormEvent() {
     }
 
     setFormStep((cur) => cur + 1)
+    cookies.remove('event')
   }
 
   const [shipfee, setShipFee] = useState(80)

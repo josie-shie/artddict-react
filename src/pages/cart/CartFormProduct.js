@@ -186,9 +186,6 @@ function CartFormProduct() {
 
   // 傳訂單到伺服器
   async function postOrderToSever() {
-    // 印出市: countries[country]
-    // 印出區: townships[country][township]
-    // let address = `${countries[country]}${townships[country][township]}${address}`
 
     // 準備好送給node的json資料
     const orderid = new Date().getTime()
@@ -274,6 +271,7 @@ function CartFormProduct() {
     }
 
     setFormStep((cur) => cur + 1)
+    cookies.remove('product')
   }
 
   const [shipfee, setShipFee] = useState(80)
