@@ -152,12 +152,15 @@ function AuctionDetail(props) {
     if(!memberid){
       console.log('請先登入會員')
       handleShowB()
+      setInputbidPrice('')
     }else if (inputbidPrice > immediatePrice) {
       console.log("我出嫁了")
       socket.emit('bidPrice', { inputbidPrice, auc_Id, memberid })
+      setInputbidPrice('')
     } else {
       console.log("輸入價錢過低")
       handleShow()
+      setInputbidPrice('')
     }
   }
   const sendMessage = () => {

@@ -108,6 +108,10 @@ function Login(props) {
       return false
     }
   }
+const fastuserlogin = () =>{
+  setUsername('artddict123@gmail.com')
+  setPassword('556788123')
+}
 
   const loading = (
     <>
@@ -180,6 +184,7 @@ function Login(props) {
             </div>
             <div className="u-title01">
               <span>加入會員</span>
+              <button className="fastuserlogin" onClick={fastuserlogin}></button>
             </div>
             <div className="u-title02">
               <span>精選好物盡在ArtDDICT</span>
@@ -237,7 +242,7 @@ function Login(props) {
                     </div>
                   </small>
                 </div>
-                <div className="u-AddBtn">
+                <div className="u-AddBtn fastuserloginup">
                   <Link
                     onClick={() => {
                       loginToServer()
