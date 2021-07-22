@@ -26,13 +26,11 @@ import {
 } from 'react-icons/io'
 
 function UserAuction(props) {
-  // const userid = props.match.params.userid
   const [userid, setUserId] = useState('')
   const [memAucData, setMemAucData] = useState([])
   const [count, setCount] = useState(0)
   const [aucRemainT, setAucRemainT] = useState([])
   const [aucInfo, setAucInfo] = useState([])
-
   //頁碼
   //該頁頁碼
   const [pages, setPages] = useState([])
@@ -230,7 +228,7 @@ function UserAuction(props) {
 
   return (
     <>
-      {console.log(aucRemainT)}
+      {console.log("**********************************************************")}
       <div className="u-body-flex">
         <div className="u-body">
           <Logoheader
@@ -305,10 +303,10 @@ function UserAuction(props) {
           <div className="u-container-fluid">
             <div className="d-flex u-row justify-content-around">
               <div className="u-usertitleLeft1">
-                <Link to="/user-auction">競標中</Link>
+                <Link to={`/user-auction/${userid}`}>競標中</Link>
               </div>
               <div className="u-usertitleRight1">
-                <Link to="/user-auctionOver">已得標</Link>
+                <Link to={`/user-auctionOver/${userid}`}>已得標</Link>
               </div>
             </div>
           </div>
