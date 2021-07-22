@@ -8,6 +8,39 @@
 }
 /* tab-product */
 
+// blue arrow select
+.c-ed-select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("../images/select-arrow.svg");
+  background-repeat: no-repeat;
+  background-position-x: 95%;
+  background-position-y: 50%;
+  border: 0px;
+}
+.c-ed-select2 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("../images/select-arrow.svg");
+  background-repeat: no-repeat;
+  background-position-x: 90%;
+  background-position-y: 50%;
+  border: 0px;
+}
+
+.c-ed-select3 {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background: transparent;
+  background-image: url("../images/select-arrow.svg");
+  background-repeat: no-repeat;
+  background-position-x: 97%;
+  background-position-y: 50%;
+  border: 0px;
+}
+
 /* chechout */
 .c-bg {
   font-family: 'Noto Sans TC Medium', sans-serif;

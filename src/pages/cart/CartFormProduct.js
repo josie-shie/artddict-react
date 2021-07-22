@@ -479,7 +479,7 @@ function CartFormProduct() {
                           <div className="col-6 pl-0">
                             <p className="pt-3">縣市*</p>
                             <select
-                              className="w-100"
+                              className="w-100 c-ed-select"
                               value={country}
                               onChange={(e) => {
                                 // 將字串轉成數字
@@ -508,7 +508,7 @@ function CartFormProduct() {
                           <div className="col-6 pr-0">
                             <p className="pt-3">地區*</p>
                             <select
-                              className="w-100"
+                              className="w-100 c-ed-select"
                               value={township}
                               onChange={(e) => {
                                 // 將字串轉成數字
@@ -614,6 +614,7 @@ function CartFormProduct() {
                         <div className="c-paymethod">
                           <p>信用卡*</p>
                           <select
+                            className="c-ed-select3"
                             value={orderpay}
                             onChange={(event) => {
                               setOrderPay(
@@ -648,7 +649,7 @@ function CartFormProduct() {
                                 有效期限*
                               </p>
                               <select
-                                className="w-100"
+                                className="w-100 c-ed-select2"
                                 value={cardexpmon}
                                 onChange={(event) => {
                                   setCardExpMon(
@@ -680,7 +681,7 @@ function CartFormProduct() {
                             <div className="col-3 pl-1">
                               <p className="pt-3"> </p>
                               <select
-                                className="w-100"
+                                className="w-100 c-ed-select2"
                                 value={cardexpyr}
                                 onChange={(event) => {
                                   setCardExpYr(
