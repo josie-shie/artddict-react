@@ -185,13 +185,15 @@ function BasketEvent() {
                 </p>
               </div>
               <div className="d-lg-flex">
-                <a
-                  href="##"
+              <a
+                  href={`http://localhost:3000/AuctionDetail/${item.eventId}`}
+                  target="_blank"
                   className="c-product-a d-flex align-items-center"
+                  rel="noreferrer"
                 >
                   <FaRegEdit size={20} />
                   <p className="c-store2 ml-1 mr-4">
-                    拍賣細節
+                    活動細節
                   </p>
                 </a>
               </div>

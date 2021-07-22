@@ -106,7 +106,9 @@ function CartFormProduct() {
               country == -1 ||
               township == -1 ||
               !useraddress ||
-              !userphone
+              !userphone ||
+              !cardnumber ||
+              !cardsec
             }
             onClick={postOrderToSever}
             key="1"
@@ -186,7 +188,6 @@ function CartFormProduct() {
 
   // 傳訂單到伺服器
   async function postOrderToSever() {
-
     // 準備好送給node的json資料
     const orderid = new Date().getTime()
     setSentOrder(orderid)
@@ -372,6 +373,23 @@ function CartFormProduct() {
     return false
   }
 
+  // 一鍵輸入
+  const autofill1 = () => {
+    setUserName('劉國良')
+    setCountry(0)
+    setTownship(0)
+    setUserAddress('大馬路二段30號5樓')
+    setUserPhone('0987656012')
+  }
+  const [cardsec, setCardSec] = useState('')
+  const autofill2 = () => {
+    setOrderPay('MASTER')
+    setCardNumber('2876546308091320')
+    setCardExpMon('03')
+    setCardExpYr('2023')
+    setCardSec('470')
+  }
+
   return (
     <>
       <div className="c-bg">
@@ -441,6 +459,10 @@ function CartFormProduct() {
                     >
                       <div className="c-shipleft d-flex">
                         <p className="mr-auto">收件資訊</p>
+                        <button
+                          type="button"
+                          onClick={autofill1}
+                        ></button>
                         <p className="c-f12">*必填項目</p>
                       </div>
                       <div className="c-new py-4">
@@ -526,6 +548,7 @@ function CartFormProduct() {
                         </p>
                         <input
                           type="text"
+                          value={userphone}
                           onChange={(event) => {
                             setUserPhone(event.target.value)
                           }}
@@ -581,6 +604,10 @@ function CartFormProduct() {
                     <section className="c-shippinginfo1 px-0">
                       <div className="c-shipleft d-flex">
                         <p className="mr-auto">付款資訊</p>
+                        <button
+                          type="button"
+                          onClick={autofill2}
+                        ></button>
                         <p className="c-f12">*必填項目</p>
                       </div>
                       <div className="c-ship2 py-4">
@@ -600,6 +627,7 @@ function CartFormProduct() {
                             <option value="MASTER">
                               MASTER
                             </option>
+                            <option value="JCB">JCB</option>
                           </select>
                           <p className="pt-3">
                             信用卡號碼*
@@ -679,7 +707,16 @@ function CartFormProduct() {
                               <p className="pt-3">
                                 安全碼*
                               </p>
-                              <input />
+                              <input
+                                type="text"
+                                id="cardsec"
+                                value={cardsec}
+                                onChange={(event) => {
+                                  setCardSec(
+                                    event.target.value
+                                  )
+                                }}
+                              />
                             </div>
                             <a
                               href="##"
@@ -695,7 +732,7 @@ function CartFormProduct() {
                         通訊選項
                       </p>
                       <div className="c-shipmethod pt-4">
-                        <FormControlLabel
+                        {/* <FormControlLabel
                           control={
                             <Checkbox
                               checked={state.checkedA}
@@ -714,7 +751,7 @@ function CartFormProduct() {
                               儲存我的收件資訊，以便未來的訂購使用
                             </span>
                           }
-                        />
+                        /> */}
                         <FormControlLabel
                           control={
                             <Checkbox

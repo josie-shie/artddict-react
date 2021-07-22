@@ -287,8 +287,10 @@ function BasketEvent() {
               </div>
               <div className="d-lg-flex">
                 <a
-                  href="##"
+                  href={`http://localhost:3000/event/event-list/detail/${item.id}`}
+                  target="_blank"
                   className="c-product-a d-flex align-items-center"
+                  rel="noreferrer"
                 >
                   <FaRegEdit size={20} />
                   <p className="c-store2 ml-1 mr-4">

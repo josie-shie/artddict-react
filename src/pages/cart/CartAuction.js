@@ -86,14 +86,20 @@ function CartAuction() {
     <>
       <div className="c-bg">
         <div className="c-header">
-          <Logo className="c-logo" />
+          <Nav.Link as={Link} to="/" className="p-0">
+            <Logo className="c-logo" />
+          </Nav.Link>
           <p className={!membername ? 'd-none' : 'd-block'}>
             Hello {membername}
           </p>
         </div>
         <div className="c-crumbs">
-          <p>首頁&nbsp;/&nbsp;</p>
-          <p>購物車</p>
+          <a href="./">
+            <p>首頁&nbsp;/&nbsp;</p>
+          </a>
+          <a href="./cart-auction">
+            <p>購物車&nbsp;/&nbsp;</p>
+          </a>
         </div>
         <div className="c-tabs">
           <div className="c-tab-product3">

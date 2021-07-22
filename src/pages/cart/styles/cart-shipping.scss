@@ -49,6 +49,12 @@
 .c-shipleft {
   border-bottom: 1px solid black;
   padding-bottom: 15px;
+  button {
+    width: 50px;
+    color: transparent;
+    border: none;
+    background-color: transparent;
+  }
 }
 .c-ship1 {
   box-sizing: content-box;
