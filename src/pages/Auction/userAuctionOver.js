@@ -39,6 +39,8 @@ function UserAuctionOver(props) {
   const [userid, setUserId] = useState('')
   const [memAucOrderData, setMemAucOrderData] = useState([])
   const [orderStatus, setOrderStatus] = useState([])
+  //日期處理
+  const [dateinfo, setDateinfo] = useState([])
 
   const [showOrderList, setShowOrderList] = useState([])
 
@@ -47,9 +49,7 @@ function UserAuctionOver(props) {
     // setDataLoading(true)
     // 連接的伺服器資料網址
     const url =
-      `http://localhost:6005/auctoin/auc-order` +
-      `?userId=${userid}` +
-      `&pages=${pages}`
+      `http://localhost:6005/auctoin/auc-order?userId=${userid}&pages=${pages}`
     // `&pages=${pages}`
 
     // 注意header資料格式要設定，伺服器才知道是json格式
@@ -78,6 +78,8 @@ function UserAuctionOver(props) {
       setShowPages(pagelength)
     }
 
+
+    //貨物狀態代號轉換
     let a = []
     for (let i = 0; i < data.rows.length; i++) {
       if (data.rows[i].orderStatus === 0) {
@@ -92,13 +94,20 @@ function UserAuctionOver(props) {
     }
     setOrderStatus(a)
 
+    //風琴折
     let b = []
     for (let i = 0; i < data.rows.length; i++) {
       b.push('none')
     }
-
-    console.log(b)
     setShowOrderList(b)
+
+    //日期格式轉換
+    let d = []
+    for (let i = 0; i < data.rows.length; i++) {
+      let f = data.rows[i].aucDeadline
+      d.push(new Date(f).toLocaleString())
+    }
+    setDateinfo(d)
   }
 
   async function logoutToSever() {
@@ -204,10 +213,6 @@ function UserAuctionOver(props) {
     }
   }
 
-  // const uAucO_detail_buttonStyle = {
-  //   display: showOrderList
-  // }
-
   useEffect(async () => {
     await getjwtvertifyFromServer()
   }, [])
@@ -219,7 +224,6 @@ function UserAuctionOver(props) {
 
   return (
     <>
-      {console.log(showOrderList)}
       <div>
         <div className="auc-body">
           <Logoheader
@@ -294,10 +298,10 @@ function UserAuctionOver(props) {
           <div className="u-container-fluid">
             <div className="d-flex u-row justify-content-around">
               <div className="u-usertitleLeft">
-                <Link to="/user-auction">競標中</Link>
+                <Link to={`/user-auction/${userid}`}>競標中</Link>
               </div>
               <div className="u-usertitleRight">
-                <Link to="/user-auctionOver">已得標</Link>
+                <Link to={`/user-auctionOver/${userid}`}>已得標</Link>
               </div>
             </div>
           </div>
@@ -338,7 +342,6 @@ function UserAuctionOver(props) {
                   </button>
                 </div>
               </div>
-              {console.log('下面細節', showOrderList[i])}
               <div
                 className="uAucO-detail"
                 style={{ display: `${showOrderList[i]}` }}
@@ -355,10 +358,9 @@ function UserAuctionOver(props) {
                     <li>訂單狀態</li>
                   </ul>
                   <ul>
-                    {/* {const day = new Date(memAucOrderData[i].username)} */}
                     <li>{memAucOrderData[i].orderId}</li>
                     <li>
-                      {memAucOrderData[i].aucDeadline}
+                      {dateinfo[i]}
                     </li>
                     <li>{memAucOrderData[i].username}</li>
                     <li>{memAucOrderData[i].userPhone}</li>
@@ -375,7 +377,7 @@ function UserAuctionOver(props) {
                     <li>
                       {parseInt(
                         memAucOrderData[i].orderPrice
-                      ) + 80}
+                      ) + 200}
                     </li>
                   </ul>
                 </div>
