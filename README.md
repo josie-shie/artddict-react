@@ -76,6 +76,8 @@ ArtDDICT是一站式購物的電商平台，可以讓消費者在這個平台上
 <img width="1280" alt="螢幕快照 2021-07-24 下午3 21 55" src="https://user-images.githubusercontent.com/78919460/126860875-520fd1ee-a456-4261-a050-cbbe6ed42da5.png">
 <img width="1280" alt="螢幕快照 2021-07-24 下午2 53 18" src="https://user-images.githubusercontent.com/78919460/126861953-d5507695-91dc-4194-ae8b-f7310bf69856.png">
 <img width="1280" alt="螢幕快照 2021-07-24 下午2 54 09" src="https://user-images.githubusercontent.com/78919460/126861954-169f3923-a6a7-4347-a320-62204923045d.png">
+<img width="1280" alt="螢幕快照 2021-07-24 下午4 52 12" src="https://user-images.githubusercontent.com/78919460/126863179-6aea6a69-d44b-43eb-b387-412b1f6c42e1.png">
+<img width="1280" alt="螢幕快照 2021-07-24 下午2 57 20" src="https://user-images.githubusercontent.com/78919460/126863209-a7491862-97da-4273-9c30-4a80322292f3.png">
 
 
 
@@ -83,7 +85,7 @@ ArtDDICT是一站式購物的電商平台，可以讓消費者在這個平台上
   
 * 本作品目前尚屬開發階段，商品圖片、內容等，純粹為演示前端使用，不做任何商業用途。
   
-# Resource - 資料引用來源
+# 資料引用來源
   
 * [台北市立美術館商品圖](#網站起源)
 * [博客來商品圖](#網站起源)
